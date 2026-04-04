@@ -4,13 +4,14 @@ import {
   houseOfRepresentatives,
   houseOfCouncillors,
   legislators,
+  legislatorRanking,
 } from "@/lib/politics";
-import { LegislatorsByParty } from "@/components/LegislatorsByParty";
+import { LegislatorsPageContent } from "@/components/LegislatorsPage";
 
 export const metadata: Metadata = {
-  title: "議員 — 各政党の主要議員",
+  title: "議員 — 活動ランキング・政党別一覧",
   description:
-    "各政党の主要議員一覧。ウェブサイト・SNSへのリンク付き。",
+    "議員活動ランキングTop10と各政党の議員一覧。X・ウェブサイトリンク付き。",
   alternates: { canonical: "https://thebrief.info/politics/legislators" },
 };
 
@@ -44,14 +45,15 @@ export default function LegislatorsPage() {
 
       <h1 className="font-serif text-3xl md:text-4xl font-bold">議員</h1>
       <p className="mt-3 text-sm text-foreground/50 leading-relaxed">
-        各政党の主要議員一覧。ウェブサイト・SNSへのリンク付き。
+        議員活動の総合ランキングと、政党別の議員一覧です。
       </p>
       <p className="mt-2 text-xs text-foreground/30">
         Last updated: 2026-04-05
       </p>
 
       <div className="mt-10">
-        <LegislatorsByParty
+        <LegislatorsPageContent
+          ranking={legislatorRanking}
           legislators={legislators}
           partyOrder={partyOrder}
           partyColors={partyColors}
