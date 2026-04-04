@@ -1,0 +1,215 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { enactedItems } from "@/lib/enacted";
+
+export function generateStaticParams() {
+  return enactedItems.map((d) => ({ slug: d.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const item = enactedItems.find((d) => d.slug === slug);
+  if (!item) return { title: "Not Found" };
+  return {
+    title: `${item.title} — 確定済`,
+    description: item.summary,
+    alternates: { canonical: `https://thebrief.info/politics/enacted/${slug}` },
+  };
+}
+
+export default async function EnactedDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const item = enactedItems.find((d) => d.slug === slug);
+  if (!item) notFound();
+
+  const totalVotes = item.voteResult.for + item.voteResult.against + (item.voteResult.abstain || 0);
+  const forPct = Math.round((item.voteResult.for / totalVotes) * 100);
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-12">
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-2 text-xs text-foreground/35 mb-6">
+        <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
+        <span>/</span>
+        <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
+        <span>/</span>
+        <Link href="/politics/enacted" className="hover:text-foreground transition-colors">確定済</Link>
+        <span>/</span>
+        <span className="truncate max-w-[150px]">{item.title}</span>
+      </div>
+
+      {/* Header */}
+      <div className="flex items-center gap-2 flex-wrap mb-3">
+        <span className="text-[10px] font-bold px-2.5 py-1 rounded-full text-white bg-green-600">
+          可決・成立
+        </span>
+        <span className="text-xs text-foreground/30">{item.committee}</span>
+        <span className="text-xs text-foreground/25 tabular-nums">{item.enactedDate} 成立</span>
+      </div>
+
+      <h1 className="font-serif text-2xl md:text-3xl font-bold">{item.title}</h1>
+      <span className="text-[10px] tracking-[2px] uppercase text-foreground/20">
+        {item.titleEn}
+      </span>
+      <p className="mt-4 text-sm text-foreground/50 leading-relaxed">
+        {item.summary}
+      </p>
+
+      {/* Vote result */}
+      <div className="mt-6 p-4 bg-foreground/[0.03] rounded-xl">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-xs text-foreground/40">投票結果</span>
+          <span className="text-xs text-foreground/30 tabular-nums">
+            賛成率 {forPct}%
+          </span>
+        </div>
+        <div className="h-3 rounded-full overflow-hidden bg-white/5 flex">
+          <div
+            className="h-full bg-green-500 rounded-l-full"
+            style={{ width: `${forPct}%` }}
+          />
+          <div
+            className="h-full bg-red-500"
+            style={{ width: `${(item.voteResult.against / totalVotes) * 100}%` }}
+          />
+          {item.voteResult.abstain && (
+            <div
+              className="h-full bg-yellow-500/50"
+              style={{ width: `${((item.voteResult.abstain) / totalVotes) * 100}%` }}
+            />
+          )}
+        </div>
+        <div className="flex items-center gap-4 mt-2 text-xs text-foreground/35">
+          <span className="flex items-center gap-1">
+            <span className="w-2 h-2 rounded-full bg-green-500" />
+            賛成 {item.voteResult.for}
+          </span>
+          <span className="flex items-center gap-1">
+            <span className="w-2 h-2 rounded-full bg-red-500" />
+            反対 {item.voteResult.against}
+          </span>
+          {item.voteResult.abstain && (
+            <span className="flex items-center gap-1">
+              <span className="w-2 h-2 rounded-full bg-yellow-500/50" />
+              棄権 {item.voteResult.abstain}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Detail */}
+      <div className="mt-10">
+        <SectionHeader title="概要" titleEn="Overview" />
+        <div className="p-5 bg-foreground/[0.02] rounded-xl text-sm text-foreground/60 leading-relaxed">
+          {item.detail}
+        </div>
+      </div>
+
+      {/* Key Points */}
+      <div className="mt-10">
+        <SectionHeader title="ポイント" titleEn="Key Points" />
+        <ul className="space-y-2">
+          {item.keyPoints.map((point, i) => (
+            <li key={i} className="flex items-start gap-3 text-sm">
+              <span className="w-5 h-5 rounded-full bg-green-500/10 text-green-400 text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
+                {i + 1}
+              </span>
+              <span className="text-foreground/60">{point}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Party votes */}
+      <div className="mt-10">
+        <SectionHeader title="各政党の投票" titleEn="Party Votes" />
+        <div className="border border-brief-border dark:border-white/5 rounded-xl overflow-hidden divide-y divide-brief-border dark:divide-white/5">
+          {item.parties.map((p) => (
+            <div key={p.name} className="px-5 py-3 flex items-center justify-between gap-4">
+              <span className="font-medium text-sm">{p.name}</span>
+              <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                p.vote === "賛成"
+                  ? "bg-green-500/10 text-green-400"
+                  : p.vote === "反対"
+                    ? "bg-red-500/10 text-red-400"
+                    : "bg-yellow-500/10 text-yellow-400"
+              }`}>
+                {p.vote}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Timeline */}
+      <div className="mt-10">
+        <SectionHeader title="経過" titleEn="Timeline" />
+        <div className="relative pl-6">
+          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-white/10" />
+          {item.timeline.map((t, i) => {
+            const isLast = i === item.timeline.length - 1;
+            return (
+              <div key={t.date} className="relative flex gap-4 pb-5 last:pb-0">
+                <div
+                  className={`absolute left-[-17px] top-1.5 w-3 h-3 rounded-full border-2 ${
+                    isLast
+                      ? "bg-green-500 border-green-500"
+                      : "bg-background border-white/20"
+                  }`}
+                />
+                <div>
+                  <span className="text-[10px] text-foreground/30 tabular-nums">{t.date}</span>
+                  <p className={`text-sm mt-0.5 ${isLast ? "text-foreground font-medium" : "text-foreground/50"}`}>
+                    {t.event}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Impact */}
+      <div className="mt-10">
+        <SectionHeader title="影響・効果" titleEn="Impact" />
+        <div className="p-5 border-l-2 border-green-500/50 bg-green-500/5 rounded-r-xl text-sm text-foreground/60 leading-relaxed">
+          {item.impact}
+        </div>
+      </div>
+
+      {/* Back link */}
+      <div className="mt-12 pt-6 border-t border-brief-border dark:border-white/5">
+        <Link
+          href="/politics/enacted"
+          className="inline-flex items-center gap-2 text-sm text-foreground/40 hover:text-green-400 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          確定済の一覧に戻る
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function SectionHeader({ title, titleEn }: { title: string; titleEn: string }) {
+  return (
+    <div className="flex items-center gap-4 mb-4">
+      <div>
+        <h2 className="font-serif text-lg font-bold">{title}</h2>
+        <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">{titleEn}</span>
+      </div>
+      <div className="flex-1 h-px bg-white/10" />
+    </div>
+  );
+}

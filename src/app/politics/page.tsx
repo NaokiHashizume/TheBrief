@@ -125,6 +125,33 @@ export default function PoliticsPage() {
         </div>
       </Link>
 
+      {/* 確定済 button */}
+      <Link
+        href="/politics/enacted"
+        className="group mt-4 flex items-center justify-between w-full p-5 rounded-xl border-2 border-dashed border-green-500/30 hover:border-green-500 hover:bg-green-500/[0.03] transition-all duration-200"
+      >
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-500">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
+          <div>
+            <h2 className="font-serif text-xl font-bold">確定済</h2>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Enacted in 2026</span>
+            <p className="text-sm text-foreground/40 mt-0.5">
+              2026年に国会で可決・成立した法案と政策
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 text-green-500">
+          <span className="text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">View</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </div>
+      </Link>
+
       {/* 最新ニュース タイムライン */}
       <div className="mt-14">
         <div className="flex items-center gap-4 mb-6">
