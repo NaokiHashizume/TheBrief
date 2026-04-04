@@ -125,6 +125,34 @@ export default function PoliticsPage() {
         </div>
       </Link>
 
+      {/* 成立済 button */}
+      <Link
+        href="/politics/passed"
+        className="group mt-4 flex items-center justify-between w-full p-5 rounded-xl border-2 border-dashed border-amber-500/30 hover:border-amber-500 hover:bg-amber-500/[0.03] transition-all duration-200"
+      >
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-amber-500">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <div>
+            <h2 className="font-serif text-xl font-bold">成立済</h2>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Enacted, Not Yet Effective</span>
+            <p className="text-sm text-foreground/40 mt-0.5">
+              成立したが、まだ施行されていない主要法令
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 text-amber-500">
+          <span className="text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">View</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </div>
+      </Link>
+
       {/* 施行済 button */}
       <Link
         href="/politics/enacted"
