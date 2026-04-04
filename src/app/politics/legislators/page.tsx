@@ -7,6 +7,7 @@ import {
   legislatorRankingTop,
   legislatorRankingBottom,
 } from "@/lib/politics";
+import { partyInfoList } from "@/lib/partyInfo";
 import { LegislatorsPageContent } from "@/components/LegislatorsPage";
 
 export const metadata: Metadata = {
@@ -59,6 +60,7 @@ export default function LegislatorsPage() {
           legislators={legislators}
           partyOrder={partyOrder}
           partyColors={partyColors}
+          partyInfoList={partyInfoList}
         />
       </div>
     </div>

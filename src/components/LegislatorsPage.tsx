@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import type { Legislator, RankedLegislator, PartySeats } from "@/lib/politics";
+import type { Legislator, RankedLegislator } from "@/lib/politics";
+import type { PartyInfo } from "@/lib/partyInfo";
 
 function XIcon() {
   return (
@@ -31,13 +32,11 @@ function RankingCard({
   variant: "top" | "bottom";
 }) {
   const isTop = variant === "top";
-  const accentColor = isTop ? "brief-red" : "amber-500";
 
   return (
     <div
       className="flex items-center gap-4 p-4 border border-brief-border dark:border-white/5 rounded-xl hover:bg-foreground/[0.02] transition-colors"
     >
-      {/* Rank */}
       <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-serif font-bold text-lg ${
         isTop && leg.rank <= 3
           ? "bg-brief-red/10 text-brief-red"
@@ -48,7 +47,6 @@ function RankingCard({
         {leg.rank}
       </div>
 
-      {/* Info */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="font-bold">{leg.name}</span>
@@ -63,7 +61,6 @@ function RankingCard({
         </div>
       </div>
 
-      {/* Score bars */}
       <div className="hidden md:flex items-center gap-3 flex-shrink-0">
         <ScoreBar label="質疑" value={leg.metrics.legislation} color={isTop ? "bg-brief-red/60" : "bg-amber-500/60"} />
         <ScoreBar label="SNS" value={leg.metrics.socialMedia} color={isTop ? "bg-brief-red/60" : "bg-amber-500/60"} />
@@ -71,13 +68,11 @@ function RankingCard({
         <ScoreBar label="委員会" value={leg.metrics.committee} color={isTop ? "bg-brief-red/60" : "bg-amber-500/60"} />
       </div>
 
-      {/* Total score */}
       <div className="text-right flex-shrink-0 ml-2">
         <div className={`text-lg font-bold tabular-nums ${!isTop ? "text-amber-500" : ""}`}>{leg.score}</div>
         <div className="text-[9px] text-foreground/25 uppercase tracking-wider">Score</div>
       </div>
 
-      {/* Links */}
       <div className="flex items-center gap-1 flex-shrink-0">
         {leg.x && (
           <a href={leg.x} target="_blank" rel="noopener noreferrer"
@@ -152,7 +147,7 @@ function RankingSection({
           <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Bottom 5</span>
         </div>
         <p className="text-xs text-foreground/30 mb-4">
-          ※大臣・党役職者は答弁側のため質疑回数が低くなる傾向があります。閣僚在任中の議員は評価対象外��しています。
+          ※大臣・党役職者は答弁側のため質疑回数が低くなる傾向があります。閣僚在任中の議員は評価対象外としています。
         </p>
         <div className="space-y-3">
           {rankingBottom.map((leg) => (
@@ -178,16 +173,100 @@ function ScoreBar({ label, value, color = "bg-brief-red/60" }: { label: string; 
   );
 }
 
+/* ────────── Party Card ────────── */
+
+function PartyCard({
+  party,
+  memberCount,
+  isSelected,
+  onClick,
+}: {
+  party: PartyInfo;
+  memberCount: { house: number; council: number };
+  isSelected: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`w-full text-left p-5 rounded-xl border-2 transition-all duration-200 ${
+        isSelected
+          ? "border-current bg-current/[0.03]"
+          : "border-brief-border dark:border-white/5 hover:border-foreground/15 dark:hover:border-white/15"
+      }`}
+      style={isSelected ? { borderColor: party.color, color: party.color } : {}}
+    >
+      {/* Header */}
+      <div className="flex items-start justify-between gap-3 mb-3">
+        <div className="flex items-center gap-3">
+          <div
+            className="w-4 h-4 rounded-sm flex-shrink-0"
+            style={{ backgroundColor: party.color }}
+          />
+          <div>
+            <h3 className="font-serif text-xl font-bold text-foreground">{party.name}</h3>
+            <span className="text-[9px] tracking-[1.5px] uppercase text-foreground/25">{party.nameEn}</span>
+          </div>
+        </div>
+        <div className="text-right flex-shrink-0">
+          <div className="text-xs text-foreground/30">
+            衆 <span className="font-bold text-foreground/60 tabular-nums">{memberCount.house}</span>
+            <span className="mx-1">·</span>
+            参 <span className="font-bold text-foreground/60 tabular-nums">{memberCount.council}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Leader & Founded */}
+      <div className="flex items-center gap-3 mb-3 text-xs text-foreground/40">
+        <span>代表: <span className="text-foreground/60 font-medium">{party.leader}</span></span>
+        <span className="text-foreground/15">|</span>
+        <span>設立: {party.founded}</span>
+      </div>
+
+      {/* Philosophy */}
+      <p className="text-sm text-foreground/50 leading-relaxed mb-4">
+        {party.philosophy}
+      </p>
+
+      {/* Key Policies */}
+      <div className="flex flex-wrap gap-1.5">
+        {party.policies.map((policy) => (
+          <span
+            key={policy}
+            className="text-[10px] px-2 py-1 rounded-md bg-foreground/[0.04] text-foreground/45 leading-none"
+          >
+            {policy}
+          </span>
+        ))}
+      </div>
+
+      {/* Expand indicator */}
+      <div className="mt-4 flex items-center gap-1 text-xs" style={{ color: party.color }}>
+        <span className={`font-medium transition-opacity ${isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+          {isSelected ? "議員一覧を表示中" : "議員一覧を見る"}
+        </span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+          className={`transition-transform ${isSelected ? "rotate-90" : ""}`}>
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </div>
+    </button>
+  );
+}
+
 /* ────────── Party Browser Section ────────── */
 
 function PartyBrowser({
   legislators,
   partyOrder,
   partyColors,
+  partyInfoList,
 }: {
   legislators: Legislator[];
   partyOrder: string[];
   partyColors: Record<string, string>;
+  partyInfoList: PartyInfo[];
 }) {
   const [selectedParty, setSelectedParty] = useState<string | null>(null);
   const [selectedChamber, setSelectedChamber] = useState<"house" | "council" | null>(null);
@@ -206,6 +285,8 @@ function PartyBrowser({
     }
   };
 
+  const partyInfoMap = new Map(partyInfoList.map((p) => [p.name, p]));
+
   return (
     <section>
       <div className="flex items-center gap-4 mb-6">
@@ -218,24 +299,21 @@ function PartyBrowser({
         <div className="flex-1 h-px bg-brief-border dark:bg-white/10" />
       </div>
 
-      {/* Party buttons */}
-      <div className="flex flex-wrap gap-2 mb-6">
+      {/* Party Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         {partyOrder.map((party) => {
-          const color = partyColors[party] || "#999";
-          const isActive = selectedParty === party;
+          const info = partyInfoMap.get(party);
+          if (!info) return null;
+          const houseCount = legislators.filter((l) => l.party === party && l.chamber === "house").length;
+          const councilCount = legislators.filter((l) => l.party === party && l.chamber === "council").length;
           return (
-            <button
+            <PartyCard
               key={party}
+              party={info}
+              memberCount={{ house: houseCount, council: councilCount }}
+              isSelected={selectedParty === party}
               onClick={() => handlePartyClick(party)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium border transition-all duration-200 ${
-                isActive
-                  ? "text-white border-transparent"
-                  : "border-brief-border dark:border-white/10 text-foreground/60 hover:border-foreground/20"
-              }`}
-              style={isActive ? { backgroundColor: color, borderColor: color } : {}}
-            >
-              {party}
-            </button>
+            />
           );
         })}
       </div>
@@ -287,6 +365,9 @@ function PartyBrowser({
               <h3 className="font-serif font-bold text-lg">{selectedParty}</h3>
               <span className="text-xs text-foreground/30">
                 {selectedChamber === "house" ? "衆議院" : "参議院"}
+              </span>
+              <span className="text-xs text-foreground/20">
+                {filtered.length}名
               </span>
             </div>
             <button
@@ -354,12 +435,14 @@ export function LegislatorsPageContent({
   legislators,
   partyOrder,
   partyColors,
+  partyInfoList,
 }: {
   rankingTop: RankedLegislator[];
   rankingBottom: RankedLegislator[];
   legislators: Legislator[];
   partyOrder: string[];
   partyColors: Record<string, string>;
+  partyInfoList: PartyInfo[];
 }) {
   return (
     <div className="space-y-16">
@@ -368,6 +451,7 @@ export function LegislatorsPageContent({
         legislators={legislators}
         partyOrder={partyOrder}
         partyColors={partyColors}
+        partyInfoList={partyInfoList}
       />
     </div>
   );
