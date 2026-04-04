@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { politicsNews } from "@/lib/politicsNews";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Politics — 国会・内閣・議員",
@@ -60,6 +61,13 @@ const sections = [
 export default function PoliticsPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Politics", href: "/politics" },
+        ]}
+      />
+
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs text-foreground/35 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { debates } from "@/lib/debates";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export function generateStaticParams() {
   return debates.map((d) => ({ slug: d.slug }));
@@ -15,10 +16,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const debate = debates.find((d) => d.slug === slug);
   if (!debate) return { title: "Not Found" };
+  const url = `https://thebrief.info/politics/debates/${slug}`;
   return {
     title: `${debate.title} — 審議中`,
     description: debate.summary,
-    alternates: { canonical: `https://thebrief.info/politics/debates/${slug}` },
+    alternates: { canonical: url },
+    openGraph: { title: `${debate.title} — 審議中`, description: debate.summary, url, type: "article", locale: "ja_JP", siteName: "The Brief" },
+    twitter: { card: "summary_large_image" as const, title: `${debate.title} — 審議中`, description: debate.summary },
   };
 }
 
@@ -33,6 +37,15 @@ export default async function DebateDetailPage({
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Politics", href: "/politics" },
+          { name: "審議中", href: "/politics/debates" },
+          { name: debate.title, href: `/politics/debates/${debate.slug}` },
+        ]}
+      />
+
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs text-foreground/35 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>

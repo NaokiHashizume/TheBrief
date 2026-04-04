@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { passedItems } from "@/lib/passed";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export function generateStaticParams() {
   return passedItems.map((d) => ({ slug: d.slug }));
@@ -15,10 +16,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const item = passedItems.find((d) => d.slug === slug);
   if (!item) return { title: "Not Found" };
+  const url = `https://thebrief.info/politics/passed/${slug}`;
   return {
     title: `${item.title} — 成立済`,
     description: item.summary,
-    alternates: { canonical: `https://thebrief.info/politics/passed/${slug}` },
+    alternates: { canonical: url },
+    openGraph: { title: `${item.title} — 成立済`, description: item.summary, url, type: "article", locale: "ja_JP", siteName: "The Brief" },
+    twitter: { card: "summary_large_image" as const, title: `${item.title} — 成立済`, description: item.summary },
   };
 }
 
@@ -38,6 +42,15 @@ export default async function PassedDetailPage({
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Politics", href: "/politics" },
+          { name: "成立済", href: "/politics/passed" },
+          { name: item.title, href: `/politics/passed/${item.slug}` },
+        ]}
+      />
+
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs text-foreground/35 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>

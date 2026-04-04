@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { passedItems } from "@/lib/passed";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "成立済 — 成立したが未施行の主要法令",
@@ -12,6 +13,14 @@ export const metadata: Metadata = {
 export default function PassedPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Politics", href: "/politics" },
+          { name: "成立済", href: "/politics/passed" },
+        ]}
+      />
+
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs text-foreground/35 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>

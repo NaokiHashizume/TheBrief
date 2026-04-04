@@ -27,12 +27,14 @@ export function ArticleJsonLd({
   title,
   description,
   datePublished,
+  dateModified,
   author,
   url,
 }: {
   title: string;
   description: string;
   datePublished: string;
+  dateModified?: string;
   author: string;
   url: string;
 }) {
@@ -42,6 +44,7 @@ export function ArticleJsonLd({
     headline: title,
     description,
     datePublished,
+    ...(dateModified && { dateModified }),
     author: {
       "@type": "Person",
       name: author,
@@ -56,6 +59,30 @@ export function ArticleJsonLd({
       "@id": url,
     },
     inLanguage: "ja",
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function BreadcrumbJsonLd({
+  items,
+}: {
+  items: { name: string; href: string }[];
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: `https://thebrief.info${item.href}`,
+    })),
   };
 
   return (

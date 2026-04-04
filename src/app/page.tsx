@@ -106,12 +106,12 @@ export default function Home() {
           <Logo className="items-center scale-150" />
         </div>
 
-        <p className="mt-10 text-lg md:text-xl text-foreground/60 leading-relaxed max-w-2xl mx-auto">
+        <h1 className="mt-10 text-lg md:text-xl text-foreground/60 leading-relaxed max-w-2xl mx-auto font-normal">
           日本の政治・経済・業界情報・生活を
           <br className="hidden md:block" />
           もっと<span className="text-foreground font-bold">分かりやすく</span>、
           <span className="text-foreground font-bold">繋がりを持って</span>伝える。
-        </p>
+        </h1>
 
         <p className="mt-4 text-sm text-foreground/35 leading-relaxed max-w-xl mx-auto">
           ニュースは「点」ではなく「線」で理解する。

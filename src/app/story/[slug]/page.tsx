@@ -4,6 +4,7 @@ import Link from "next/link";
 import { sampleStories } from "@/lib/stories";
 import { getAllStories, getStoryBySlug } from "@/lib/getStories";
 import { StoryTimeline } from "@/components/StoryTimeline";
+import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export async function generateStaticParams() {
   const stories = await getAllStories();
@@ -23,6 +24,19 @@ export async function generateMetadata({
     title: story.title,
     description: story.description,
     alternates: { canonical: `https://thebrief.info/story/${story.slug}` },
+    openGraph: {
+      title: story.title,
+      description: story.description,
+      url: `https://thebrief.info/story/${story.slug}`,
+      type: "article",
+      locale: "ja_JP",
+      siteName: "The Brief",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: story.title,
+      description: story.description,
+    },
   };
 }
 
@@ -37,6 +51,22 @@ export default async function StoryPage({
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
+      <ArticleJsonLd
+        title={story.title}
+        description={story.description}
+        datePublished={story.episodes[0]?.date ?? story.lastUpdated}
+        dateModified={story.lastUpdated}
+        author="The Brief"
+        url={`https://thebrief.info/story/${story.slug}`}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Story", href: "/" },
+          { name: story.title, href: `/story/${story.slug}` },
+        ]}
+      />
+
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs text-foreground/35 mb-8">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
