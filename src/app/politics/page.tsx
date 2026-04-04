@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { politicsNews } from "@/lib/politicsNews";
 
 export const metadata: Metadata = {
   title: "Politics — 国会・内閣・議員",
@@ -123,6 +124,74 @@ export default function PoliticsPage() {
           </svg>
         </div>
       </Link>
+
+      {/* 最新ニュース タイムライン */}
+      <div className="mt-14">
+        <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brief-red opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brief-red" />
+            </span>
+            <h2 className="font-serif text-xl font-bold">最新ニュース</h2>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Latest</span>
+          </div>
+          <div className="flex-1 h-px bg-white/5" />
+        </div>
+
+        <div className="relative pl-6">
+          {/* Vertical line */}
+          <div className="absolute left-[7px] top-0 bottom-0 w-px bg-white/10" />
+
+          {politicsNews.map((news, i) => {
+            const isFirst = i === 0;
+            const prevDate = i > 0 ? politicsNews[i - 1].date : null;
+            const showDate = news.date !== prevDate;
+
+            return (
+              <div key={`${news.date}-${news.time}`}>
+                {showDate && (
+                  <div className="relative flex items-center gap-3 pb-3 pt-1">
+                    <div className="absolute left-[-19px] w-3 h-px bg-white/20" />
+                    <span className="text-[10px] font-medium text-foreground/30 tabular-nums tracking-wider">
+                      {new Date(news.date).toLocaleDateString("ja-JP", { month: "long", day: "numeric", weekday: "short" })}
+                    </span>
+                  </div>
+                )}
+                <div className="relative flex gap-4 pb-5">
+                  {/* Dot */}
+                  <div
+                    className={`absolute left-[-21px] top-1 w-3 h-3 rounded-full border-2 ${
+                      isFirst
+                        ? "bg-brief-red border-brief-red"
+                        : "bg-background border-white/20"
+                    }`}
+                  />
+
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-[10px] tabular-nums text-foreground/25">{news.time}</span>
+                      <span
+                        className="text-[9px] font-bold px-1.5 py-0.5 rounded text-white"
+                        style={{ backgroundColor: news.tagColor }}
+                      >
+                        {news.tag}
+                      </span>
+                    </div>
+                    <h3 className={`text-sm font-medium leading-snug ${isFirst ? "text-foreground" : "text-foreground/70"}`}>
+                      {news.title}
+                    </h3>
+                    <p className="mt-1 text-xs text-foreground/35 leading-relaxed">
+                      {news.summary}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
