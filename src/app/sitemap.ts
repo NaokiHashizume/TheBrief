@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { sampleStories } from "@/lib/stories";
+
+export const dynamic = "force-static";
 import { debates } from "@/lib/debates";
 import { enactedItems } from "@/lib/enacted";
 import { passedItems } from "@/lib/passed";
