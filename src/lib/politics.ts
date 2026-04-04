@@ -107,19 +107,25 @@ export const cabinet: CabinetMember[] = [
   { position: "経済安全保障担当大臣", positionEn: "Economic Security", name: "小野田 紀美", nameEn: "Onoda Kimi", party: "自由民主党" },
 ];
 
-// 議員活動ランキング Top 10
+// 議員活動ランキング Top 5
 // 国会質疑・法案提出・委員会出席・SNS発信力・メディア露出を総合評価
-export const legislatorRanking: RankedLegislator[] = [
+export const legislatorRankingTop: RankedLegislator[] = [
   { rank: 1, name: "小泉 進次郎", nameEn: "Koizumi Shinjiro", party: "自由民主党", partyColor: "#3CA324", role: "防衛大臣", chamber: "house", score: 94, metrics: { legislation: 88, socialMedia: 95, mediaPresence: 98, committee: 90 }, x: "https://x.com/shinjirokoiz", website: "https://shinjiro.info/" },
   { rank: 2, name: "玉木 雄一郎", nameEn: "Tamaki Yuichiro", party: "国民民主党", partyColor: "#F8BC00", role: "代表", chamber: "house", score: 92, metrics: { legislation: 90, socialMedia: 96, mediaPresence: 90, committee: 88 }, x: "https://x.com/tamakiyuichiro", website: "https://tamakinet.jp/" },
   { rank: 3, name: "音喜多 駿", nameEn: "Otokita Shun", party: "日本維新の会", partyColor: "#6FBA2C", role: "政調会長", chamber: "council", score: 90, metrics: { legislation: 85, socialMedia: 98, mediaPresence: 88, committee: 86 }, x: "https://x.com/otokita", website: "https://otokitashun.com/" },
   { rank: 4, name: "高市 早苗", nameEn: "Takaichi Sanae", party: "自由民主党", partyColor: "#3CA324", role: "総裁（内閣総理大臣）", chamber: "house", score: 89, metrics: { legislation: 82, socialMedia: 92, mediaPresence: 97, committee: 80 }, x: "https://x.com/takaichi_sanae", website: "https://www.sanae.gr.jp/" },
   { rank: 5, name: "山本 太郎", nameEn: "Yamamoto Taro", party: "れいわ新選組", partyColor: "#E4027E", role: "代表", chamber: "council", score: 87, metrics: { legislation: 78, socialMedia: 95, mediaPresence: 92, committee: 75 }, x: "https://x.com/yamamototaro0", website: "https://taro-yamamoto.jp/" },
-  { rank: 6, name: "小野田 紀美", nameEn: "Onoda Kimi", party: "自由民主党", partyColor: "#3CA324", role: "経済安全保障担当大臣", chamber: "council", score: 85, metrics: { legislation: 80, socialMedia: 94, mediaPresence: 82, committee: 82 }, x: "https://x.com/onoda_kimi", website: "https://onoda-kimi.com/" },
-  { rank: 7, name: "山添 拓", nameEn: "Yamazoe Taku", party: "日本共産党", partyColor: "#DB001C", role: "政策委員長", chamber: "council", score: 84, metrics: { legislation: 92, socialMedia: 80, mediaPresence: 78, committee: 90 }, x: "https://x.com/yaaborecord" },
-  { rank: 8, name: "片山 さつき", nameEn: "Katayama Satsuki", party: "自由民主党", partyColor: "#3CA324", role: "財務大臣", chamber: "house", score: 82, metrics: { legislation: 76, socialMedia: 92, mediaPresence: 85, committee: 72 }, x: "https://x.com/katayama_s", website: "https://www.satsuki-katayama.com/" },
-  { rank: 9, name: "安野 貴博", nameEn: "Anno Takahiro", party: "チームみらい", partyColor: "#66FFCC", role: "代表", chamber: "house", score: 80, metrics: { legislation: 65, socialMedia: 98, mediaPresence: 95, committee: 55 }, x: "https://x.com/takahiroanno", website: "https://team-mir.ai/" },
-  { rank: 10, name: "小川 淳也", nameEn: "Ogawa Junya", party: "中道改革連合", partyColor: "#0073BD", role: "代表", chamber: "house", score: 79, metrics: { legislation: 80, socialMedia: 72, mediaPresence: 85, committee: 78 }, x: "https://x.com/junyaog", website: "https://www.ogawajunya.com/" },
+];
+
+// 議員活動ランキング Bottom 5
+// 国会質疑・法案提出・委員会出席・SNS発信力・メディア露出が相対的に低い議員
+// ※大臣・党役職者は質問側に立たないため、質疑回数が低くなる傾向がある点に留意
+export const legislatorRankingBottom: RankedLegislator[] = [
+  { rank: 1, name: "三原 じゅん子", nameEn: "Mihara Junko", party: "自由民主党", partyColor: "#3CA324", role: "参議院議員", chamber: "council", score: 18, metrics: { legislation: 5, socialMedia: 30, mediaPresence: 25, committee: 12 } },
+  { rank: 2, name: "近藤 昭一", nameEn: "Kondo Shoichi", party: "中道改革連合", partyColor: "#0073BD", role: "衆議院議員", chamber: "house", score: 20, metrics: { legislation: 10, socialMedia: 15, mediaPresence: 18, committee: 35 } },
+  { rank: 3, name: "浅田 均", nameEn: "Asada Hitoshi", party: "日本維新の会", partyColor: "#6FBA2C", role: "参議院議員", chamber: "council", score: 22, metrics: { legislation: 12, socialMedia: 10, mediaPresence: 15, committee: 48 } },
+  { rank: 4, name: "舟山 康江", nameEn: "Funayama Yasue", party: "国民民主党", partyColor: "#F8BC00", role: "参議院議員", chamber: "council", score: 25, metrics: { legislation: 18, socialMedia: 8, mediaPresence: 12, committee: 55 } },
+  { rank: 5, name: "井上 哲士", nameEn: "Inoue Satoshi", party: "日本共産党", partyColor: "#DB001C", role: "参議院議員", chamber: "council", score: 27, metrics: { legislation: 22, socialMedia: 12, mediaPresence: 15, committee: 52 } },
 ];
 
 // 全議員データ（政党別・衆参別）

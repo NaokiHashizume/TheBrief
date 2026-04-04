@@ -23,96 +23,154 @@ function WebIcon() {
 
 /* ────────── Ranking Section ────────── */
 
-function RankingSection({ ranking }: { ranking: RankedLegislator[] }) {
+function RankingCard({
+  leg,
+  variant,
+}: {
+  leg: RankedLegislator;
+  variant: "top" | "bottom";
+}) {
+  const isTop = variant === "top";
+  const accentColor = isTop ? "brief-red" : "amber-500";
+
+  return (
+    <div
+      className="flex items-center gap-4 p-4 border border-brief-border dark:border-white/5 rounded-xl hover:bg-foreground/[0.02] transition-colors"
+    >
+      {/* Rank */}
+      <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-serif font-bold text-lg ${
+        isTop && leg.rank <= 3
+          ? "bg-brief-red/10 text-brief-red"
+          : !isTop
+            ? "bg-amber-500/10 text-amber-500"
+            : "bg-foreground/5 text-foreground/30"
+      }`}>
+        {leg.rank}
+      </div>
+
+      {/* Info */}
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="font-bold">{leg.name}</span>
+          <span className="text-xs text-foreground/30">{leg.nameEn}</span>
+          <span className="text-[9px] tracking-wider uppercase px-1.5 py-0.5 bg-foreground/5 rounded-full text-foreground/35">
+            {leg.chamber === "house" ? "衆" : "参"}
+          </span>
+        </div>
+        <div className="flex items-center gap-2 mt-0.5">
+          <span className="text-xs" style={{ color: leg.partyColor }}>{leg.party}</span>
+          <span className="text-xs text-foreground/30">· {leg.role}</span>
+        </div>
+      </div>
+
+      {/* Score bars */}
+      <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+        <ScoreBar label="質疑" value={leg.metrics.legislation} color={isTop ? "bg-brief-red/60" : "bg-amber-500/60"} />
+        <ScoreBar label="SNS" value={leg.metrics.socialMedia} color={isTop ? "bg-brief-red/60" : "bg-amber-500/60"} />
+        <ScoreBar label="メディア" value={leg.metrics.mediaPresence} color={isTop ? "bg-brief-red/60" : "bg-amber-500/60"} />
+        <ScoreBar label="委員会" value={leg.metrics.committee} color={isTop ? "bg-brief-red/60" : "bg-amber-500/60"} />
+      </div>
+
+      {/* Total score */}
+      <div className="text-right flex-shrink-0 ml-2">
+        <div className={`text-lg font-bold tabular-nums ${!isTop ? "text-amber-500" : ""}`}>{leg.score}</div>
+        <div className="text-[9px] text-foreground/25 uppercase tracking-wider">Score</div>
+      </div>
+
+      {/* Links */}
+      <div className="flex items-center gap-1 flex-shrink-0">
+        {leg.x && (
+          <a href={leg.x} target="_blank" rel="noopener noreferrer"
+            className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors">
+            <XIcon />
+          </a>
+        )}
+        {leg.website && (
+          <a href={leg.website} target="_blank" rel="noopener noreferrer"
+            className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors">
+            <WebIcon />
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function RankingSection({
+  rankingTop,
+  rankingBottom,
+}: {
+  rankingTop: RankedLegislator[];
+  rankingBottom: RankedLegislator[];
+}) {
   return (
     <section>
       <div className="flex items-center gap-4 mb-6">
         <div>
           <h2 className="font-serif text-2xl font-bold">議員活動ランキング</h2>
           <span className="text-[10px] tracking-[2px] uppercase text-foreground/30">
-            Legislator Activity Ranking — Top 10
+            Legislator Activity Ranking
           </span>
         </div>
         <div className="flex-1 h-px bg-brief-border dark:bg-white/10" />
       </div>
 
-      <p className="text-sm text-foreground/40 mb-6">
+      <p className="text-sm text-foreground/40 mb-8">
         国会質疑・法案提出・委員会出席・SNS発信力・メディア露出を総合的に評価したランキングです。
       </p>
 
-      <div className="space-y-3">
-        {ranking.map((leg, i) => (
-          <div
-            key={leg.nameEn}
-            className="flex items-center gap-4 p-4 border border-brief-border dark:border-white/5 rounded-xl hover:bg-foreground/[0.02] transition-colors"
-          >
-            {/* Rank */}
-            <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-serif font-bold text-lg ${
-              i < 3
-                ? "bg-brief-red/10 text-brief-red"
-                : "bg-foreground/5 text-foreground/30"
-            }`}>
-              {leg.rank}
-            </div>
+      {/* Top 5 */}
+      <div className="mb-4">
+        <div className="flex items-center gap-2 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brief-red">
+            <polyline points="18 15 12 9 6 15" />
+          </svg>
+          <h3 className="font-serif text-lg font-bold">上位 5</h3>
+          <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Top 5</span>
+        </div>
+        <div className="space-y-3">
+          {rankingTop.map((leg) => (
+            <RankingCard key={leg.nameEn} leg={leg} variant="top" />
+          ))}
+        </div>
+      </div>
 
-            {/* Info */}
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="font-bold">{leg.name}</span>
-                <span className="text-xs text-foreground/30">{leg.nameEn}</span>
-                <span className="text-[9px] tracking-wider uppercase px-1.5 py-0.5 bg-foreground/5 rounded-full text-foreground/35">
-                  {leg.chamber === "house" ? "衆" : "参"}
-                </span>
-              </div>
-              <div className="flex items-center gap-2 mt-0.5">
-                <span className="text-xs" style={{ color: leg.partyColor }}>{leg.party}</span>
-                <span className="text-xs text-foreground/30">· {leg.role}</span>
-              </div>
-            </div>
+      {/* Divider */}
+      <div className="flex items-center gap-4 my-8">
+        <div className="flex-1 h-px bg-white/10" />
+        <span className="text-[10px] text-foreground/20 tracking-wider uppercase">· · ·</span>
+        <div className="flex-1 h-px bg-white/10" />
+      </div>
 
-            {/* Score bars */}
-            <div className="hidden md:flex items-center gap-3 flex-shrink-0">
-              <ScoreBar label="質疑" value={leg.metrics.legislation} />
-              <ScoreBar label="SNS" value={leg.metrics.socialMedia} />
-              <ScoreBar label="メディア" value={leg.metrics.mediaPresence} />
-              <ScoreBar label="委員会" value={leg.metrics.committee} />
-            </div>
-
-            {/* Total score */}
-            <div className="text-right flex-shrink-0 ml-2">
-              <div className="text-lg font-bold tabular-nums">{leg.score}</div>
-              <div className="text-[9px] text-foreground/25 uppercase tracking-wider">Score</div>
-            </div>
-
-            {/* Links */}
-            <div className="flex items-center gap-1 flex-shrink-0">
-              {leg.x && (
-                <a href={leg.x} target="_blank" rel="noopener noreferrer"
-                  className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors">
-                  <XIcon />
-                </a>
-              )}
-              {leg.website && (
-                <a href={leg.website} target="_blank" rel="noopener noreferrer"
-                  className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors">
-                  <WebIcon />
-                </a>
-              )}
-            </div>
-          </div>
-        ))}
+      {/* Bottom 5 */}
+      <div>
+        <div className="flex items-center gap-2 mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-500">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+          <h3 className="font-serif text-lg font-bold">下位 5</h3>
+          <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Bottom 5</span>
+        </div>
+        <p className="text-xs text-foreground/30 mb-4">
+          ※大臣・党役職者は答弁側のため質疑回数が低くなる傾向があります。閣僚在任中の議員は評価対象外��しています。
+        </p>
+        <div className="space-y-3">
+          {rankingBottom.map((leg) => (
+            <RankingCard key={leg.nameEn} leg={leg} variant="bottom" />
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
-function ScoreBar({ label, value }: { label: string; value: number }) {
+function ScoreBar({ label, value, color = "bg-brief-red/60" }: { label: string; value: number; color?: string }) {
   return (
     <div className="w-16">
       <div className="text-[8px] text-foreground/25 mb-0.5">{label}</div>
       <div className="h-1.5 bg-foreground/5 rounded-full overflow-hidden">
         <div
-          className="h-full bg-brief-red/60 rounded-full"
+          className={`h-full ${color} rounded-full`}
           style={{ width: `${value}%` }}
         />
       </div>
@@ -291,19 +349,21 @@ function PartyBrowser({
 /* ────────── Main Export ────────── */
 
 export function LegislatorsPageContent({
-  ranking,
+  rankingTop,
+  rankingBottom,
   legislators,
   partyOrder,
   partyColors,
 }: {
-  ranking: RankedLegislator[];
+  rankingTop: RankedLegislator[];
+  rankingBottom: RankedLegislator[];
   legislators: Legislator[];
   partyOrder: string[];
   partyColors: Record<string, string>;
 }) {
   return (
     <div className="space-y-16">
-      <RankingSection ranking={ranking} />
+      <RankingSection rankingTop={rankingTop} rankingBottom={rankingBottom} />
       <PartyBrowser
         legislators={legislators}
         partyOrder={partyOrder}
