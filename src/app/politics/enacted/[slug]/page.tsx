@@ -211,6 +211,21 @@ export default async function EnactedDetailPage({
           施行済の一覧に戻る
         </Link>
       </div>
+
+      {/* 関連セクション */}
+      <div className="mt-12 pt-8 border-t border-brief-border dark:border-white/5">
+        <h3 className="text-xs tracking-wider uppercase text-foreground/30 font-medium mb-4">関連セクション</h3>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/politics/debates" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-brief-red/20 hover:border-brief-red/50 hover:bg-brief-red/[0.03] transition-all text-sm">
+            <span className="w-2 h-2 rounded-full bg-brief-red" />
+            <span className="text-foreground/60">審議中の法案</span>
+          </Link>
+          <Link href="/politics/passed" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-amber-500/20 hover:border-amber-500/50 hover:bg-amber-500/[0.03] transition-all text-sm">
+            <span className="w-2 h-2 rounded-full bg-amber-500" />
+            <span className="text-foreground/60">成立済（未施行）</span>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

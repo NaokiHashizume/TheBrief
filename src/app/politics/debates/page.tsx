@@ -35,7 +35,7 @@ export default function DebatesPage() {
         第214回通常国会（2026年）で現在審議されている主要な法案・議題の一覧です。
       </p>
       <p className="mt-2 text-xs text-foreground/30">
-        Last updated: 2026-04-05
+        第221回特別国会（2026年2月18日召集）審議中法案 ｜ 2026年4月4日更新
       </p>
 
       <div className="mt-10 space-y-4">
@@ -67,6 +67,10 @@ export default function DebatesPage() {
                 <p className="mt-2 text-sm text-foreground/45 leading-relaxed line-clamp-2">
                   {debate.summary}
                 </p>
+                <div className="mt-2 flex items-start gap-1.5">
+                  <span className="text-brief-red text-[10px] font-bold mt-0.5 flex-shrink-0">WHY</span>
+                  <p className="text-xs text-foreground/45 leading-relaxed">{debate.impact}</p>
+                </div>
               </div>
               <div className="flex-shrink-0 mt-2 text-foreground/15 group-hover:text-brief-red transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

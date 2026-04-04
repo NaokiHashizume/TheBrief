@@ -85,7 +85,7 @@ export default function CabinetPage() {
         第2次高市内閣（2026年2月18日発足）の施政方針・政策進捗と閣僚一覧です。
       </p>
       <p className="mt-2 text-xs text-foreground/30">
-        Last updated: 2026-04-04
+        第2次高市内閣（2026年2月18日発足）｜ 政策進捗は2026年4月時点
       </p>
 
       {/* ═══════ 施政方針セクション ═══════ */}

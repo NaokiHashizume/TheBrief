@@ -159,7 +159,7 @@ export default function DietPage() {
         両院はそれぞれ異なる役割と権限を持ち、法律の制定・予算の議決・条約の承認などを行います。
       </p>
       <p className="mt-2 text-xs text-foreground/30">
-        Last updated: 2026-04-05
+        衆議院: 2026-02-08 第51回衆院選時点 ｜ 参議院: 2025-07-20 第27回参院選時点
       </p>
 
       {/* 二院制の解説 */}
@@ -186,6 +186,53 @@ export default function DietPage() {
             { label: "特徴", value: "解散がなく長期的な視点で審議を行う「良識の府」。衆議院の行き過ぎを抑制するチェック機能を担う。" },
           ]}
         />
+      </div>
+
+      {/* 法案の流れ */}
+      <div className="flex items-center gap-4 mb-6 mt-14">
+        <div>
+          <h2 className="font-serif text-2xl font-bold flex items-center gap-2">
+            <span className="w-1.5 h-5 bg-brief-red rounded-full inline-block" />
+            法案の流れ
+          </h2>
+          <span className="text-[10px] tracking-[2px] uppercase text-foreground/30 ml-3.5">
+            How a Bill Becomes Law
+          </span>
+        </div>
+        <div className="flex-1 h-px bg-brief-border dark:bg-white/10" />
+      </div>
+
+      <p className="text-sm text-foreground/50 leading-relaxed mb-6">
+        法案が国会に提出されてから法律として施行されるまでの流れです。
+      </p>
+
+      <div className="flex flex-col md:flex-row items-stretch gap-3">
+        {[
+          { step: "1", title: "法案提出", desc: "内閣または議員が法案を国会に提出", color: "bg-foreground/10" },
+          { step: "2", title: "委員会審議", desc: "専門委員会で質疑・修正・採決", color: "bg-foreground/10" },
+          { step: "3", title: "衆議院 本会議", desc: "衆議院本会議で審議・採決", color: "bg-brief-red/10" },
+          { step: "4", title: "参議院 本会議", desc: "参議院本会議で審議・採決", color: "bg-brief-red/10" },
+          { step: "5", title: "成立", desc: "両院で可決されれば法案成立", color: "bg-amber-500/10" },
+          { step: "6", title: "公布・施行", desc: "天皇が公布し、指定日に施行", color: "bg-green-500/10" },
+        ].map((s, i, arr) => (
+          <div key={s.step} className="flex items-center gap-3 flex-1">
+            <div className={`flex-1 p-4 rounded-xl ${s.color} border border-brief-border dark:border-white/5`}>
+              <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">Step {s.step}</div>
+              <div className="font-serif font-bold text-sm">{s.title}</div>
+              <div className="text-[10px] text-foreground/40 mt-1 leading-relaxed">{s.desc}</div>
+            </div>
+            {i < arr.length - 1 && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/15 flex-shrink-0 hidden md:block">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-4 p-4 bg-foreground/[0.03] rounded-lg text-xs text-foreground/35 leading-relaxed">
+        ※ 衆議院で可決後60日以内に参議院が議決しない場合、衆議院は参議院が否決したとみなすことができます（みなし否決）。
+        衆議院で出席議員の2/3以上の多数で再び可決した場合、法律となります（衆議院の再議決権・憲法59条）。
       </div>
 
       {/* 衆議院 議席 */}

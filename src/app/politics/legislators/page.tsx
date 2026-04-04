@@ -50,7 +50,7 @@ export default function LegislatorsPage() {
         議員活動の総合ランキングと、政党別の議員一覧です。
       </p>
       <p className="mt-2 text-xs text-foreground/30">
-        Last updated: 2026-04-04
+        議員データ: 2026-02-18 第221回特別国会時点 ｜ ランキング: 2026年3月評価
       </p>
 
       <div className="mt-10">

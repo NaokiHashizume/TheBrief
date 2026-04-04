@@ -61,11 +61,20 @@ function RankingCard({
         </div>
       </div>
 
+      {/* Desktop: individual bars */}
       <div className="hidden md:flex items-center gap-3 flex-shrink-0">
         <ScoreBar label="質疑" value={leg.metrics.legislation} color={isTop ? "bg-brief-red/60" : "bg-amber-500/60"} />
         <ScoreBar label="SNS" value={leg.metrics.socialMedia} color={isTop ? "bg-brief-red/60" : "bg-amber-500/60"} />
         <ScoreBar label="メディア" value={leg.metrics.mediaPresence} color={isTop ? "bg-brief-red/60" : "bg-amber-500/60"} />
         <ScoreBar label="委員会" value={leg.metrics.committee} color={isTop ? "bg-brief-red/60" : "bg-amber-500/60"} />
+      </div>
+      {/* Mobile: compact bar */}
+      <div className="flex md:hidden items-center gap-2 flex-shrink-0">
+        <div className="w-20">
+          <div className="h-1.5 bg-foreground/5 rounded-full overflow-hidden flex">
+            <div className={`h-full ${isTop ? "bg-brief-red/60" : "bg-amber-500/60"}`} style={{ width: `${(leg.metrics.legislation + leg.metrics.socialMedia + leg.metrics.mediaPresence + leg.metrics.committee) / 4}%` }} />
+          </div>
+        </div>
       </div>
 
       <div className="text-right flex-shrink-0 ml-2">
@@ -113,6 +122,22 @@ function RankingSection({
       <p className="text-sm text-foreground/40 mb-8">
         国会質疑・法案提出・委員会出席・SNS発信力・メディア露出を総合的に評価したランキングです。
       </p>
+
+      <details className="mb-8 text-sm">
+        <summary className="text-xs text-foreground/40 cursor-pointer hover:text-foreground/60 transition-colors">
+          採点方法について ▸
+        </summary>
+        <div className="mt-3 p-4 bg-foreground/[0.03] rounded-lg text-xs text-foreground/40 leading-relaxed space-y-2">
+          <p>スコアは以下の4項目を各25点満点（計100点）で評価しています：</p>
+          <ul className="list-disc pl-4 space-y-1">
+            <li><span className="text-foreground/60 font-medium">質疑（25点）</span>：国会での質問回数・質問の質。本会議・委員会での発言時間を基準に算出。</li>
+            <li><span className="text-foreground/60 font-medium">SNS（25点）</span>：X（旧Twitter）のフォロワー数・投稿頻度・政策に関する情報発信の質。</li>
+            <li><span className="text-foreground/60 font-medium">メディア（25点）</span>：テレビ・新聞・ネットメディアへの出演回数と報道露出。</li>
+            <li><span className="text-foreground/60 font-medium">委員会（25点）</span>：所属委員会への出席率と委員会での発言回数。</li>
+          </ul>
+          <p className="text-foreground/30">※閣僚は答弁側に立つため質疑スコアが低くなります。データは2026年3月時点。</p>
+        </div>
+      </details>
 
       {/* Top 5 */}
       <div className="mb-4">
@@ -270,10 +295,18 @@ function PartyBrowser({
 }) {
   const [selectedParty, setSelectedParty] = useState<string | null>(null);
   const [selectedChamber, setSelectedChamber] = useState<"house" | "council" | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const filtered = legislators.filter(
     (l) => l.party === selectedParty && l.chamber === selectedChamber
   );
+
+  const searchResults = searchQuery.length > 0
+    ? legislators.filter((leg) => {
+        const q = searchQuery.toLowerCase();
+        return leg.name.toLowerCase().includes(q) || leg.nameEn.toLowerCase().includes(q);
+      })
+    : [];
 
   const handlePartyClick = (party: string) => {
     if (selectedParty === party) {
@@ -299,6 +332,81 @@ function PartyBrowser({
         <div className="flex-1 h-px bg-brief-border dark:bg-white/10" />
       </div>
 
+      {/* 議員検索 */}
+      <div className="mb-6">
+        <div className="relative">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/25">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input
+            type="text"
+            placeholder="議員名で検索..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-10 pr-4 py-3 rounded-xl bg-foreground/[0.03] border border-brief-border dark:border-white/5 text-sm text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-brief-red/50 transition-colors"
+          />
+        </div>
+      </div>
+
+      {searchQuery.length > 0 ? (
+        <div className="border border-brief-border dark:border-white/5 rounded-xl overflow-hidden">
+          <div className="px-5 py-3 text-xs text-foreground/40">
+            「{searchQuery}」の検索結果: {searchResults.length}件
+          </div>
+          {searchResults.length === 0 ? (
+            <div className="px-5 py-8 text-center text-sm text-foreground/30">
+              該当する議員が見つかりません
+            </div>
+          ) : (
+            <div className="divide-y divide-brief-border dark:divide-white/5">
+              {searchResults.map((leg) => (
+                <div key={leg.nameEn} className="px-5 py-3 flex items-center gap-4">
+                  <div className="w-9 h-9 rounded-full bg-foreground/5 flex items-center justify-center flex-shrink-0">
+                    <span className="text-sm font-serif font-bold text-foreground/30">
+                      {leg.name.charAt(0)}
+                    </span>
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <div
+                        className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                        style={{ backgroundColor: partyColors[leg.party] || "#999" }}
+                      />
+                      <span className="font-medium text-sm">{leg.name}</span>
+                      <span className="text-xs text-foreground/25">{leg.nameEn}</span>
+                      <span className="text-[9px] tracking-wider uppercase px-1.5 py-0.5 bg-foreground/5 rounded-full text-foreground/35">
+                        {leg.chamber === "house" ? "衆" : "参"}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <span className="text-xs" style={{ color: partyColors[leg.party] || "#999" }}>{leg.party}</span>
+                      <span className="text-xs text-foreground/30">· {leg.role}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1 flex-shrink-0">
+                    {leg.x && (
+                      <a href={leg.x} target="_blank" rel="noopener noreferrer"
+                        className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors">
+                        <XIcon />
+                      </a>
+                    )}
+                    {leg.website && (
+                      <a href={leg.website} target="_blank" rel="noopener noreferrer"
+                        className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors">
+                        <WebIcon />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ) : (
+      <>
       {/* Party Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         {partyOrder.map((party) => {
@@ -422,6 +530,8 @@ function PartyBrowser({
             </div>
           )}
         </div>
+      )}
+      </>
       )}
     </section>
   );

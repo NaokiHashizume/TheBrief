@@ -77,6 +77,12 @@ export default async function DebateDetailPage({
       </p>
       <p className="mt-2 text-xs text-foreground/25">Last updated: {debate.lastUpdated}</p>
 
+      {/* なぜ重要か */}
+      <div className="mt-6 p-4 border-l-2 border-brief-red bg-brief-red/[0.03] rounded-r-lg">
+        <div className="text-[10px] tracking-wider uppercase text-brief-red font-bold mb-1">なぜ重要か</div>
+        <p className="text-sm text-foreground/60 leading-relaxed">{debate.impact}</p>
+      </div>
+
       {/* Detail */}
       <div className="mt-10">
         <SectionHeader title="概要" titleEn="Overview" />
@@ -152,6 +158,24 @@ export default async function DebateDetailPage({
           </svg>
           審議中の一覧に戻る
         </Link>
+      </div>
+
+      {/* 関連セクション */}
+      <div className="mt-12 pt-8 border-t border-brief-border dark:border-white/5">
+        <h3 className="text-xs tracking-wider uppercase text-foreground/30 font-medium mb-4">関連セクション</h3>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/politics/passed" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-amber-500/20 hover:border-amber-500/50 hover:bg-amber-500/[0.03] transition-all text-sm">
+            <span className="w-2 h-2 rounded-full bg-amber-500" />
+            <span className="text-foreground/60">成立済（未施行）</span>
+          </Link>
+          <Link href="/politics/enacted" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-green-500/20 hover:border-green-500/50 hover:bg-green-500/[0.03] transition-all text-sm">
+            <span className="w-2 h-2 rounded-full bg-green-500" />
+            <span className="text-foreground/60">施行済</span>
+          </Link>
+          <Link href="/politics/diet" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-brief-border dark:border-white/5 hover:border-foreground/20 transition-all text-sm">
+            <span className="text-foreground/60">国会の仕組み</span>
+          </Link>
+        </div>
       </div>
     </div>
   );

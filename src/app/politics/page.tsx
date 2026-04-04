@@ -83,6 +83,30 @@ export default function PoliticsPage() {
         Last updated: 2026-04-04 ※最新の情報に基づき随時更新
       </p>
 
+      {/* いまの政治 ダッシュボード */}
+      <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="p-4 rounded-xl bg-foreground/[0.03] border border-brief-border dark:border-white/5">
+          <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">衆議院</div>
+          <div className="text-2xl font-bold tabular-nums" style={{ color: "#3CA324" }}>316<span className="text-sm text-foreground/30">/465</span></div>
+          <div className="text-[10px] text-foreground/35 mt-1">自民単独2/3超の歴史的大勝</div>
+        </div>
+        <div className="p-4 rounded-xl bg-foreground/[0.03] border border-brief-border dark:border-white/5">
+          <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">内閣支持率</div>
+          <div className="text-2xl font-bold tabular-nums text-brief-red">58〜64%</div>
+          <div className="text-[10px] text-foreground/35 mt-1">第2次高市内閣</div>
+        </div>
+        <div className="p-4 rounded-xl bg-foreground/[0.03] border border-brief-border dark:border-white/5">
+          <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">審議中法案</div>
+          <div className="text-2xl font-bold tabular-nums text-brief-red">6<span className="text-sm text-foreground/30">本</span></div>
+          <div className="text-[10px] text-foreground/35 mt-1">第221回特別国会</div>
+        </div>
+        <div className="p-4 rounded-xl bg-foreground/[0.03] border border-brief-border dark:border-white/5">
+          <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">施行済</div>
+          <div className="text-2xl font-bold tabular-nums text-green-500">4<span className="text-sm text-foreground/30">件</span></div>
+          <div className="text-[10px] text-foreground/35 mt-1">2026年に施行</div>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
         {sections.map((sec) => (
           <Link

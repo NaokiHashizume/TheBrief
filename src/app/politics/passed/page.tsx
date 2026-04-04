@@ -35,7 +35,7 @@ export default function PassedPage() {
         国会で可決・成立したが、2026年4月時点でまだ施行されていない主要法令の一覧です。
       </p>
       <p className="mt-2 text-xs text-foreground/30">
-        Last updated: 2026-04-04
+        成立済法令一覧: 2026年4月4日時点 ｜ 施行予定日は各法令による
       </p>
 
       <div className="mt-10 space-y-4">
@@ -70,6 +70,10 @@ export default function PassedPage() {
                   <p className="mt-2 text-sm text-foreground/45 leading-relaxed line-clamp-2">
                     {item.summary}
                   </p>
+                  <div className="mt-2 flex items-start gap-1.5">
+                    <span className="text-brief-red text-[10px] font-bold mt-0.5 flex-shrink-0">WHY</span>
+                    <p className="text-xs text-foreground/45 leading-relaxed">{item.impact}</p>
+                  </div>
                 </div>
                 <div className="flex-shrink-0 mt-2 text-foreground/15 group-hover:text-amber-400 transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

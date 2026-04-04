@@ -35,7 +35,7 @@ export default function EnactedPage() {
         2026年に施行・発効した主要な法令の一覧です。過去の国会で成立し、2026年に施行された重要法を掲載しています。
       </p>
       <p className="mt-2 text-xs text-foreground/30">
-        Last updated: 2026-04-04
+        2026年施行済法令一覧: 2026年4月4日時点 ｜ 投票結果は成立時の記録
       </p>
 
       <div className="mt-10 space-y-4">
@@ -67,6 +67,10 @@ export default function EnactedPage() {
                 <p className="mt-2 text-sm text-foreground/45 leading-relaxed line-clamp-2">
                   {item.summary}
                 </p>
+                <div className="mt-2 flex items-start gap-1.5">
+                  <span className="text-brief-red text-[10px] font-bold mt-0.5 flex-shrink-0">WHY</span>
+                  <p className="text-xs text-foreground/45 leading-relaxed">{item.impact}</p>
+                </div>
               </div>
               <div className="flex-shrink-0 mt-2 text-foreground/15 group-hover:text-green-400 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
