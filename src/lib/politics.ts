@@ -114,7 +114,7 @@ export const legislatorRankingTop: RankedLegislator[] = [
   { rank: 2, name: "玉木 雄一郎", nameEn: "Tamaki Yuichiro", party: "国民民主党", partyColor: "#F8BC00", role: "代表", chamber: "house", score: 92, metrics: { legislation: 90, socialMedia: 96, mediaPresence: 90, committee: 88 }, x: "https://x.com/tamakiyuichiro", website: "https://tamakinet.jp/" },
   { rank: 3, name: "音喜多 駿", nameEn: "Otokita Shun", party: "日本維新の会", partyColor: "#6FBA2C", role: "政調会長", chamber: "council", score: 90, metrics: { legislation: 85, socialMedia: 98, mediaPresence: 88, committee: 86 }, x: "https://x.com/otokita", website: "https://otokitashun.com/" },
   { rank: 4, name: "高市 早苗", nameEn: "Takaichi Sanae", party: "自由民主党", partyColor: "#3CA324", role: "総裁（内閣総理大臣）", chamber: "house", score: 89, metrics: { legislation: 82, socialMedia: 92, mediaPresence: 97, committee: 80 }, x: "https://x.com/takaichi_sanae", website: "https://www.sanae.gr.jp/" },
-  { rank: 5, name: "山本 太郎", nameEn: "Yamamoto Taro", party: "れいわ新選組", partyColor: "#E4027E", role: "代表", chamber: "council", score: 87, metrics: { legislation: 78, socialMedia: 95, mediaPresence: 92, committee: 75 }, x: "https://x.com/yamamototaro0", website: "https://taro-yamamoto.jp/" },
+  { rank: 5, name: "安野 貴博", nameEn: "Anno Takahiro", party: "チームみらい", partyColor: "#66FFCC", role: "代表", chamber: "council", score: 87, metrics: { legislation: 78, socialMedia: 97, mediaPresence: 90, committee: 72 }, x: "https://x.com/takahiroanno", website: "https://team-mir.ai/" },
 ];
 
 // 議員活動ランキング Bottom 5
@@ -165,11 +165,13 @@ export const legislators: Legislator[] = [
   { name: "三原 じゅん子", nameEn: "Mihara Junko", party: "自由民主党", role: "参議院議員", chamber: "council" },
 
   // ━━━━━━━━━━ 中道改革連合 — 衆議院（49議席：小選挙区7・比例42）━━━━━━━━━━
+  // ※野田佳彦・斉藤鉄夫の共同代表体制→惨敗→代表選→小川淳也が新代表(2/13)
+  // ※枝野幸男・安住淳・小沢一郎・岡田克也ら立憲系大物は軒並み落選
   { name: "小川 淳也", nameEn: "Ogawa Junya", party: "中道改革連合", role: "代表", chamber: "house", x: "https://x.com/junyaog", website: "https://www.ogawajunya.com/" },
   { name: "野田 佳彦", nameEn: "Noda Yoshihiko", party: "中道改革連合", role: "最高顧問", chamber: "house", x: "https://x.com/nodayoshi55", website: "https://www.nodayoshi.gr.jp/" },
-  { name: "枝野 幸男", nameEn: "Edano Yukio", party: "中道改革連合", role: "幹事長", chamber: "house", x: "https://x.com/edanoyukio0531", website: "https://www.edano.gr.jp/" },
-  { name: "泉 健太", nameEn: "Izumi Kenta", party: "中道改革連合", role: "政調会長", chamber: "house", x: "https://x.com/izmkenta", website: "https://izumi-kenta.net/" },
-  { name: "階 猛", nameEn: "Shina Takeshi", party: "中道改革連合", role: "衆議院議員", chamber: "house", x: "https://x.com/shinatakeshi" },
+  { name: "階 猛", nameEn: "Shina Takeshi", party: "中道改革連合", role: "幹事長", chamber: "house", x: "https://x.com/shinatakeshi" },
+  { name: "岡本 三成", nameEn: "Okamoto Mitsunari", party: "中道改革連合", role: "政調会長（元公明）", chamber: "house" },
+  { name: "泉 健太", nameEn: "Izumi Kenta", party: "中道改革連合", role: "衆議院議員", chamber: "house", x: "https://x.com/izmkenta", website: "https://izumi-kenta.net/" },
   { name: "長妻 昭", nameEn: "Nagatsuma Akira", party: "中道改革連合", role: "衆議院議員", chamber: "house", x: "https://x.com/nagatsumaakira", website: "https://naga.tv/" },
   { name: "逢坂 誠二", nameEn: "Osaka Seiji", party: "中道改革連合", role: "衆議院議員", chamber: "house", x: "https://x.com/seiji_ohsaka" },
   { name: "近藤 昭一", nameEn: "Kondo Shoichi", party: "中道改革連合", role: "衆議院議員", chamber: "house" },
@@ -182,7 +184,7 @@ export const legislators: Legislator[] = [
   { name: "笠 浩史", nameEn: "Ryu Hiroshi", party: "中道改革連合", role: "衆議院議員", chamber: "house" },
   { name: "後藤 祐一", nameEn: "Goto Yuichi", party: "中道改革連合", role: "衆議院議員", chamber: "house" },
   { name: "有田 芳生", nameEn: "Arita Yoshifu", party: "中道改革連合", role: "衆議院議員", chamber: "house" },
-  { name: "石井 啓一", nameEn: "Ishii Keiichi", party: "中道改革連合", role: "衆議院議員（元公明代表）", chamber: "house" },
+  // ※石井啓一は衆議院副議長に選出（リスト末尾に記載）
   { name: "北側 一雄", nameEn: "Kitagawa Kazuo", party: "中道改革連合", role: "衆議院議員（元公明副代表）", chamber: "house" },
   { name: "浮島 智子", nameEn: "Ukishima Tomoko", party: "中道改革連合", role: "衆議院議員（元公明）", chamber: "house" },
   { name: "佐藤 英道", nameEn: "Sato Hidemichi", party: "中道改革連合", role: "衆議院議員（元公明）", chamber: "house" },
@@ -223,16 +225,30 @@ export const legislators: Legislator[] = [
   { name: "大塚 耕平", nameEn: "Otsuka Kohei", party: "国民民主党", role: "参議院議員", chamber: "council", x: "https://x.com/koheiotsuka" },
   { name: "舟山 康江", nameEn: "Funayama Yasue", party: "国民民主党", role: "参議院議員", chamber: "council" },
 
-  // ━━━━━━━━━━ 参政党 — 衆議院（15議席）━━━━━━━━━━
-  { name: "吉川 里奈", nameEn: "Yoshikawa Rina", party: "参政党", role: "副代表", chamber: "house", x: "https://x.com/rina_yoshikawa_", website: "https://yoshikawa-rina.jp/" },
+  // ━━━━━━━━━━ 参政党 — 衆議院（15議席：全員比例当選）━━━━━━━━━━
+  { name: "和田 政宗", nameEn: "Wada Masamune", party: "参政党", role: "衆議院議員（東北）", chamber: "house" },
+  { name: "豊田 真由子", nameEn: "Toyoda Mayuko", party: "参政党", role: "衆議院議員（北関東）", chamber: "house" },
+  { name: "青木 ひとみ", nameEn: "Aoki Hitomi", party: "参政党", role: "衆議院議員（北関東）", chamber: "house" },
+  { name: "中谷 めぐ", nameEn: "Nakatani Megu", party: "参政党", role: "衆議院議員（南関東）", chamber: "house" },
+  { name: "工藤 聖子", nameEn: "Kudo Seiko", party: "参政党", role: "衆議院議員（南関東）", chamber: "house" },
+  { name: "吉川 里奈", nameEn: "Yoshikawa Rina", party: "参政党", role: "副代表（東京）", chamber: "house", x: "https://x.com/rina_yoshikawa_", website: "https://yoshikawa-rina.jp/" },
+  { name: "鈴木 美香", nameEn: "Suzuki Mika", party: "参政党", role: "衆議院議員（東京）", chamber: "house" },
+  { name: "川 裕一郎", nameEn: "Kawa Yuichiro", party: "参政党", role: "衆議院議員（北陸信越）", chamber: "house" },
+  { name: "渡辺 藍理", nameEn: "Watanabe Airi", party: "参政党", role: "衆議院議員（東海）", chamber: "house" },
+  { name: "伊藤 恵介", nameEn: "Ito Keisuke", party: "参政党", role: "衆議院議員（東海）", chamber: "house" },
+  { name: "石川 勝", nameEn: "Ishikawa Masaru", party: "参政党", role: "衆議院議員（近畿）", chamber: "house" },
+  { name: "谷 浩一郎", nameEn: "Tani Koichiro", party: "参政党", role: "衆議院議員（近畿）", chamber: "house" },
+  { name: "島村 薫", nameEn: "Shimamura Kaoru", party: "参政党", role: "衆議院議員（中国）", chamber: "house" },
+  { name: "木下 敏之", nameEn: "Kinoshita Toshiyuki", party: "参政党", role: "衆議院議員（九州）", chamber: "house" },
+  { name: "牧野 俊一", nameEn: "Makino Shunichi", party: "参政党", role: "衆議院議員（九州）", chamber: "house" },
   // ━━━━━━━━━━ 参政党 — 参議院 ━━━━━━━━━━
   { name: "神谷 宗幣", nameEn: "Kamiya Sohei", party: "参政党", role: "代表", chamber: "council", x: "https://x.com/jinkamiya", website: "https://www.kamiyasohei.jp/" },
   { name: "松田 学", nameEn: "Matsuda Manabu", party: "参政党", role: "代表代行", chamber: "council", x: "https://x.com/matsudamanabu" },
   { name: "赤尾 由美", nameEn: "Akao Yumi", party: "参政党", role: "参議院議員", chamber: "council" },
 
   // ━━━━━━━━━━ チームみらい — 衆議院（11議席：全員比例当選）━━━━━━━━━━
-  { name: "安野 貴博", nameEn: "Anno Takahiro", party: "チームみらい", role: "代表", chamber: "house", x: "https://x.com/takahiroanno", website: "https://team-mir.ai/" },
-  { name: "高山 聡史", nameEn: "Takayama Satoshi", party: "チームみらい", role: "幹事長", chamber: "house" },
+  // ※安野貴博代表は参議院議員（2025年参院選比例で当選）
+  { name: "高山 聡史", nameEn: "Takayama Satoshi", party: "チームみらい", role: "幹事長（東京）", chamber: "house" },
   { name: "宇佐美 登", nameEn: "Usami Noboru", party: "チームみらい", role: "衆議院議員", chamber: "house" },
   { name: "峯島 侑也", nameEn: "Mineshima Yuya", party: "チームみらい", role: "衆議院議員", chamber: "house" },
   { name: "土橋 明宏", nameEn: "Dobashi Akihiro", party: "チームみらい", role: "衆議院議員", chamber: "house" },
@@ -244,27 +260,54 @@ export const legislators: Legislator[] = [
   { name: "須田 英太郎", nameEn: "Suda Eitaro", party: "チームみらい", role: "衆議院議員", chamber: "house" },
   { name: "古川 蒼", nameEn: "Furukawa Aoi", party: "チームみらい", role: "衆議院議員", chamber: "house" },
 
-  // ━━━━━━━━━━ 日本共産党 — 衆議院 ━━━━━━━━━━
-  { name: "志位 和夫", nameEn: "Shii Kazuo", party: "日本共産党", role: "議長", chamber: "house", website: "https://www.shii.gr.jp/" },
-  { name: "塩川 鉄也", nameEn: "Shiokawa Tetsuya", party: "日本共産党", role: "衆議院議員", chamber: "house", x: "https://x.com/ShiokawaTetsuya" },
-  { name: "宮本 徹", nameEn: "Miyamoto Toru", party: "日本共産党", role: "衆議院議員", chamber: "house", x: "https://x.com/miyamototooru" },
+  // ━━━━━━━━━━ 日本共産党 — 衆議院（4議席：全員比例）━━━━━━━━━━
+  // ※志位和夫は2026年1月に不出馬表明。議長職は続投。
+  { name: "田村 智子", nameEn: "Tamura Tomoko", party: "日本共産党", role: "委員長", chamber: "house", x: "https://x.com/tamutomojcp", website: "https://www.tamura-jcp.info/" },
+  { name: "塩川 鉄也", nameEn: "Shiokawa Tetsuya", party: "日本共産党", role: "衆議院議員（10期）", chamber: "house", x: "https://x.com/ShiokawaTetsuya" },
+  { name: "はたの 君枝", nameEn: "Hatano Kimie", party: "日本共産党", role: "衆議院議員（3期）", chamber: "house" },
+  { name: "辰巳 孝太郎", nameEn: "Tatsumi Kotaro", party: "日本共産党", role: "衆議院議員（2期）", chamber: "house" },
   // ━━━━━━━━━━ 日本共産党 — 参議院 ━━━━━━━━━━
-  { name: "田村 智子", nameEn: "Tamura Tomoko", party: "日本共産党", role: "委員長", chamber: "council", x: "https://x.com/tamutomojcp", website: "https://www.tamura-tomoko.jp/" },
   { name: "小池 晃", nameEn: "Koike Akira", party: "日本共産党", role: "書記局長", chamber: "council", x: "https://x.com/koike_akira", website: "https://www.koike-akira.jp/" },
-  { name: "山添 拓", nameEn: "Yamazoe Taku", party: "日本共産党", role: "政策委員長", chamber: "council", x: "https://x.com/yaaborecord" },
+  { name: "山添 拓", nameEn: "Yamazoe Taku", party: "日本共産党", role: "政策委員長", chamber: "council", x: "https://x.com/yamazoe_taku" },
   { name: "吉良 よし子", nameEn: "Kira Yoshiko", party: "日本共産党", role: "参議院議員", chamber: "council", website: "https://kirayoshiko.com/" },
   { name: "井上 哲士", nameEn: "Inoue Satoshi", party: "日本共産党", role: "参議院議員", chamber: "council" },
+  { name: "仁比 聡平", nameEn: "Nihi Sohei", party: "日本共産党", role: "参議院議員", chamber: "council" },
+  { name: "大門 実紀史", nameEn: "Daimon Mikishi", party: "日本共産党", role: "参議院議員", chamber: "council" },
+  { name: "紙 智子", nameEn: "Kami Tomoko", party: "日本共産党", role: "参議院議員", chamber: "council" },
 
   // ━━━━━━━━━━ れいわ新選組 — 衆議院（1議席）━━━━━━━━━━
-  { name: "櫛渕 万里", nameEn: "Kushibuchi Mari", party: "れいわ新選組", role: "衆議院議員", chamber: "house", x: "https://x.com/kushibuchi_mari", website: "https://kushibuchi.jp/" },
-  // ━━━━━━━━━━ れいわ新選組 — 参議院（6議席）━━━━━━━━━━
-  { name: "山本 太郎", nameEn: "Yamamoto Taro", party: "れいわ新選組", role: "代表", chamber: "council", x: "https://x.com/yamamototaro0", website: "https://taro-yamamoto.jp/" },
-  { name: "木村 英子", nameEn: "Kimura Eiko", party: "れいわ新選組", role: "参議院議員", chamber: "council", x: "https://x.com/eikimurareiwa" },
-  { name: "舩後 靖彦", nameEn: "Funago Yasuhiko", party: "れいわ新選組", role: "参議院議員", chamber: "council", x: "https://x.com/funagoyasuhiko" },
-  { name: "天畠 大輔", nameEn: "Amahata Daisuke", party: "れいわ新選組", role: "参議院議員", chamber: "council", x: "https://x.com/amahatadaisuke" },
-  { name: "大島 九州男", nameEn: "Oshima Kusuo", party: "れいわ新選組", role: "参議院議員", chamber: "council" },
-  { name: "山川 仁", nameEn: "Yamakawa Hitoshi", party: "れいわ新選組", role: "参議院議員", chamber: "council" },
+  // ※櫛渕万里は小選挙区で落選。山本太郎は前参議院議員→代表専任。
+  { name: "山本 ジョージ", nameEn: "Yamamoto George", party: "れいわ新選組", role: "幹事長・国対委員長", chamber: "house" },
+  // ━━━━━━━━━━ れいわ新選組 — 参議院（5議席）━━━━━━━━━━
+  // ※2026年2月16日新体制。山本太郎は代表だが現在議員ではない。
+  { name: "奥田 ふみよ", nameEn: "Okuda Fumiyo", party: "れいわ新選組", role: "共同代表", chamber: "council" },
+  { name: "木村 英子", nameEn: "Kimura Eiko", party: "れいわ新選組", role: "副代表", chamber: "council", x: "https://x.com/eikimurareiwa" },
+  { name: "天畠 大輔", nameEn: "Amahata Daisuke", party: "れいわ新選組", role: "副代表", chamber: "council", x: "https://x.com/amahatadaisuke" },
+  { name: "伊勢崎 賢治", nameEn: "Isezaki Kenji", party: "れいわ新選組", role: "副代表・参議院国対委員長", chamber: "council" },
+  { name: "大島 九州男", nameEn: "Oshima Kusuo", party: "れいわ新選組", role: "幹事", chamber: "council" },
 
   // ━━━━━━━━━━ 減税日本・ゆうこく連合 — 衆議院（1議席）━━━━━━━━━━
-  { name: "原口 一博", nameEn: "Haraguchi Kazuhiro", party: "減税日本・ゆうこく連合", role: "共同代表", chamber: "house", x: "https://x.com/kharaguchi" },
+  // ※原口一博は小選挙区で落選。河村たかしが愛知1区で当選。
+  { name: "河村 たかし", nameEn: "Kawamura Takashi", party: "減税日本・ゆうこく連合", role: "共同代表", chamber: "house", x: "https://x.com/kawamura758" },
+
+  // ━━━━━━━━━━ 日本保守党 — 参議院（2議席）━━━━━━━━━━
+  { name: "百田 尚樹", nameEn: "Hyakuta Naoki", party: "日本保守党", role: "代表", chamber: "council" },
+  { name: "北村 晴男", nameEn: "Kitamura Haruo", party: "日本保守党", role: "参議院議員", chamber: "council" },
+
+  // ━━━━━━━━━━ 沖縄の風 — 参議院（2議席）━━━━━━━━━━
+  { name: "伊波 洋一", nameEn: "Iha Yoichi", party: "沖縄の風", role: "幹事長", chamber: "council" },
+  { name: "高良 沙哉", nameEn: "Takara Saya", party: "沖縄の風", role: "参議院議員", chamber: "council" },
+
+  // ━━━━━━━━━━ チームみらい — 参議院（1議席）━━━━━━━━━━
+  { name: "安野 貴博", nameEn: "Anno Takahiro", party: "チームみらい", role: "代表（参議院）", chamber: "council", x: "https://x.com/takahiroanno", website: "https://team-mir.ai/" },
+
+  // ━━━━━━━━━━ 衆議院議長・副議長 ━━━━━━━━━━
+  { name: "森 英介", nameEn: "Mori Eisuke", party: "自由民主党", role: "衆議院議長（第81代）", chamber: "house" },
+  { name: "石井 啓一", nameEn: "Ishii Keiichi", party: "中道改革連合", role: "衆議院副議長", chamber: "house" },
+
+  // ━━━━━━━━━━ 参議院議長・副議長 ━━━━━━━━━━
+  { name: "関口 昌一", nameEn: "Sekiguchi Masakazu", party: "自由民主党", role: "参議院議長（第34代）", chamber: "council" },
+
+  // ━━━━━━━━━━ 無所属 — 衆議院 ━━━━━━━━━━
+  { name: "緒方 林太郎", nameEn: "Ogata Rintaro", party: "無所属", role: "衆議院議員（福岡9区）", chamber: "house" },
 ];
