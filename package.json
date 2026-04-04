@@ -5,10 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:cf": "npx @cloudflare/next-on-pages",
     "start": "next start",
+    "preview:cf": "npx wrangler pages dev .vercel/output/static",
     "lint": "eslint"
   },
   "dependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
     "microcms-js-sdk": "^3.3.0",
     "next": "16.2.2",
     "react": "19.2.4",
@@ -22,6 +25,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.80.0"
   }
 }
