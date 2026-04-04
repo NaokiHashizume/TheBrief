@@ -7,6 +7,8 @@ import {
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { AdBannerPlaceholder } from "@/components/AdSense";
 import { WebsiteJsonLd } from "@/components/JsonLd";
+import { sampleStories } from "@/lib/stories";
+import { StoryCardCompact } from "@/components/StoryTimeline";
 
 function SectionHeader({ title }: { title: string }) {
   return (
@@ -44,6 +46,16 @@ export default function Home() {
         {featured.map((article) => (
           <ArticleCardFeatured key={article.id} article={article} />
         ))}
+      </section>
+
+      {/* Storylines — ニュースを"線"で見る */}
+      <section className="mb-12">
+        <SectionHeader title="Storylines — ニュースを線で追う" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {sampleStories.map((story) => (
+            <StoryCardCompact key={story.slug} story={story} />
+          ))}
+        </div>
       </section>
 
       {/* Ad: Top banner */}
