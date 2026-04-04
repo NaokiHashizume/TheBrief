@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PoliticsContent } from "@/components/PoliticsContent";
 
 export const metadata: Metadata = {
   title: "Politics — 国会・内閣・議員",
@@ -8,6 +7,54 @@ export const metadata: Metadata = {
     "衆議院・参議院の政党別議席数、内閣の顔ぶれ、主要議員の一覧。日本の政治の全体像をわかりやすくまとめます。",
   alternates: { canonical: "https://thebrief.info/politics" },
 };
+
+const sections = [
+  {
+    href: "/politics/diet",
+    title: "国会",
+    titleEn: "National Diet",
+    description: "衆議院・参議院の役割と政党別議席数",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 21h18" />
+        <path d="M5 21V7l7-4 7 4v14" />
+        <path d="M9 21v-4h6v4" />
+        <path d="M9 10h1" />
+        <path d="M14 10h1" />
+        <path d="M9 14h1" />
+        <path d="M14 14h1" />
+      </svg>
+    ),
+  },
+  {
+    href: "/politics/cabinet",
+    title: "内閣",
+    titleEn: "Cabinet",
+    description: "内閣総理大臣・各大臣の顔ぶれ",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
+  },
+  {
+    href: "/politics/legislators",
+    title: "議員",
+    titleEn: "Legislators",
+    description: "各政党の主要議員一覧",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
+  },
+];
 
 export default function PoliticsPage() {
   return (
@@ -27,7 +74,28 @@ export default function PoliticsPage() {
         Last updated: 2026-04-05 ※最新の情報に基づき随時更新
       </p>
 
-      <PoliticsContent />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+        {sections.map((sec) => (
+          <Link
+            key={sec.href}
+            href={sec.href}
+            className="group p-6 rounded-xl border border-brief-border dark:border-white/5 hover:border-brief-red dark:hover:border-brief-red transition-all duration-200 hover:bg-brief-red/[0.03]"
+          >
+            <div className="text-foreground/20 group-hover:text-brief-red transition-colors">
+              {sec.icon}
+            </div>
+            <h2 className="font-serif text-2xl font-bold mt-5">{sec.title}</h2>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">{sec.titleEn}</span>
+            <p className="text-sm text-foreground/40 mt-2">{sec.description}</p>
+            <div className="mt-4 flex items-center gap-1 text-xs text-brief-red opacity-0 group-hover:opacity-100 transition-opacity">
+              <span>View</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
