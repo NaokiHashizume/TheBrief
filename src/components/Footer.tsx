@@ -48,8 +48,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-brief-border dark:border-white/10 text-center text-xs text-foreground/30">
-          &copy; {new Date().getFullYear()} The Brief. All rights reserved.
+        <div className="mt-12 pt-6 border-t border-brief-border dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-foreground/30">
+          <span>&copy; {new Date().getFullYear()} The Brief. All rights reserved.</span>
+          <a href="/privacy" className="hover:text-foreground/50 transition-colors">Privacy Policy</a>
         </div>
       </div>
     </footer>
