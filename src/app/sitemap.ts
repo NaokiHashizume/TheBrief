@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/privacy`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.3 },
   ];
 
-  const categories = ["politics", "economy", "industry", "tech", "lifestyle", "opinion"];
+  const categories = ["politics", "economy", "industry", "lifestyle", "opinion", "university"];
   const categoryPages = categories.map((cat) => ({
     url: `${SITE_URL}/category/${cat}`,
     lastModified: new Date(),
@@ -18,5 +18,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...categoryPages];
+  const industries = ["ai", "semiconductors", "automotive", "pharma", "finance", "energy", "real-estate", "media", "retail"];
+  const industryPages = industries.map((ind) => ({
+    url: `${SITE_URL}/category/industry/${ind}`,
+    lastModified: new Date(),
+    changeFrequency: "daily" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...categoryPages, ...industryPages];
 }

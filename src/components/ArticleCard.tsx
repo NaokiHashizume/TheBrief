@@ -1,9 +1,9 @@
 import type { Article } from "@/lib/articles";
 
-function CategoryBadge({ label }: { label: string }) {
+function CategoryBadge({ label, subLabel }: { label: string; subLabel?: string }) {
   return (
     <span className="category-pill text-brief-red font-medium">
-      {label}
+      {label}{subLabel && <span className="text-foreground/30"> / {subLabel}</span>}
     </span>
   );
 }
@@ -16,7 +16,7 @@ export function ArticleCardFeatured({ article }: { article: Article }) {
           {article.categoryLabel}
         </div>
       </div>
-      <CategoryBadge label={article.categoryLabel} />
+      <CategoryBadge label={article.categoryLabel} subLabel={article.industryLabel} />
       <h2 className="mt-2 font-serif text-2xl md:text-3xl font-bold leading-tight group-hover:text-brief-red transition-colors">
         {article.title}
       </h2>
@@ -37,7 +37,7 @@ export function ArticleCardFeatured({ article }: { article: Article }) {
 export function ArticleCardCompact({ article }: { article: Article }) {
   return (
     <article className="group cursor-pointer py-5 border-b border-brief-border dark:border-white/5 last:border-0">
-      <CategoryBadge label={article.categoryLabel} />
+      <CategoryBadge label={article.categoryLabel} subLabel={article.industryLabel} />
       <h3 className="mt-1.5 font-serif text-lg font-bold leading-snug group-hover:text-brief-red transition-colors">
         {article.title}
       </h3>
@@ -59,7 +59,7 @@ export function ArticleCardHorizontal({ article }: { article: Article }) {
   return (
     <article className="group cursor-pointer flex gap-4 py-4 border-b border-brief-border dark:border-white/5 last:border-0">
       <div className="flex-1">
-        <CategoryBadge label={article.categoryLabel} />
+        <CategoryBadge label={article.categoryLabel} subLabel={article.industryLabel} />
         <h3 className="mt-1 font-serif text-base font-bold leading-snug group-hover:text-brief-red transition-colors">
           {article.title}
         </h3>

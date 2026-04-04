@@ -2,9 +2,20 @@ export type Category =
   | "politics"
   | "economy"
   | "industry"
-  | "tech"
   | "lifestyle"
-  | "opinion";
+  | "opinion"
+  | "university";
+
+export type IndustrySubcategory =
+  | "ai"
+  | "semiconductors"
+  | "automotive"
+  | "pharma"
+  | "finance"
+  | "energy"
+  | "real-estate"
+  | "media"
+  | "retail";
 
 export interface Article {
   id: string;
@@ -12,10 +23,11 @@ export interface Article {
   excerpt: string;
   category: Category;
   categoryLabel: string;
+  industrySubcategory?: IndustrySubcategory;
+  industryLabel?: string;
   date: string;
   author: string;
   readTime: string;
-  imageUrl?: string;
   featured?: boolean;
 }
 
@@ -48,10 +60,12 @@ export const sampleArticles: Article[] = [
     title: "国産AIモデル、グローバルベンチマークで上位にランクイン",
     excerpt:
       "日本発の大規模言語モデルが国際的な性能評価で高い成績を記録。日本語処理能力だけでなく、多言語対応でも注目を集めている。",
-    category: "tech",
-    categoryLabel: "Tech & AI",
+    category: "industry",
+    categoryLabel: "Industry",
+    industrySubcategory: "ai",
+    industryLabel: "AI / Technology",
     date: "2026-04-03",
-    author: "Tech Desk",
+    author: "Industry Desk",
     readTime: "6 min",
     featured: true,
   },
@@ -62,6 +76,8 @@ export const sampleArticles: Article[] = [
       "地政学的リスクを背景に、グローバルな半導体供給網の再構築が進む中、日本企業が製造装置・素材分野で存在感を強めている。",
     category: "industry",
     categoryLabel: "Industry",
+    industrySubcategory: "semiconductors",
+    industryLabel: "Semiconductors",
     date: "2026-04-02",
     author: "Industry Desk",
     readTime: "7 min",
@@ -104,10 +120,23 @@ export const sampleArticles: Article[] = [
     title: "自動運転レベル4、都内で初の商用サービスが開始",
     excerpt:
       "東京都心の限定エリアで自動運転タクシーの商用運行がスタート。交通革命の新たな一歩として国内外から注目を集めている。",
-    category: "tech",
-    categoryLabel: "Tech & AI",
+    category: "industry",
+    categoryLabel: "Industry",
+    industrySubcategory: "automotive",
+    industryLabel: "Automotive / Mobility",
     date: "2026-03-31",
-    author: "Tech Desk",
+    author: "Industry Desk",
+    readTime: "5 min",
+  },
+  {
+    id: "9",
+    title: "東大・京大、AI研究で国際共同プログラムを新設",
+    excerpt:
+      "世界トップ大学との連携により、次世代AI人材の育成と基礎研究の強化を目指す。文理融合型のカリキュラムにも注目。",
+    category: "university",
+    categoryLabel: "University",
+    date: "2026-03-30",
+    author: "Education Desk",
     readTime: "5 min",
   },
 ];

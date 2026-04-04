@@ -115,10 +115,10 @@ export default function Home() {
       <div className="my-10" />
 
       <section>
-        <SectionHeader title="Technology & AI" />
+        <SectionHeader title="Industry" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {sampleArticles
-            .filter((a) => a.category === "tech")
+            .filter((a) => a.category === "industry")
             .map((article) => (
               <ArticleCardHorizontal key={article.id} article={article} />
             ))}

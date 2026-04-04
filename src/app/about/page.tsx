@@ -53,10 +53,10 @@ export default function About() {
           <ul className="space-y-2">
             <li><span className="text-brief-red font-medium">Politics</span> — 国内政治、政策、選挙</li>
             <li><span className="text-brief-red font-medium">Economy</span> — マクロ経済、金融市場、日銀政策</li>
-            <li><span className="text-brief-red font-medium">Industry</span> — 企業動向、M&A、サプライチェーン</li>
-            <li><span className="text-brief-red font-medium">Tech & AI</span> — テクノロジー、AI、スタートアップ</li>
+            <li><span className="text-brief-red font-medium">Industry</span> — AI、半導体、自動車、製薬、エネルギーなど業界別に深掘り</li>
             <li><span className="text-brief-red font-medium">Lifestyle</span> — カルチャー、トレンド、ウェルネス</li>
             <li><span className="text-brief-red font-medium">Opinion</span> — 論説、ゲストコラム、分析</li>
+            <li><span className="text-brief-red font-medium">University</span> — 大学・教育・研究の最前線</li>
           </ul>
         </section>
 
