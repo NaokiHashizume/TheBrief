@@ -6,6 +6,7 @@ import {
 } from "@/components/ArticleCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { AdBannerPlaceholder } from "@/components/AdSense";
+import { WebsiteJsonLd } from "@/components/JsonLd";
 
 function SectionHeader({ title }: { title: string }) {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
+      <WebsiteJsonLd />
       {/* Date bar */}
       <div className="text-center mb-8">
         <p className="text-xs text-foreground/30 tracking-[2px] uppercase">

@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact — The Brief",
+  title: "Contact",
+  description: "The Briefへのお問い合わせ。ご質問、ご意見、取材依頼、広告に関するお問い合わせなど、お気軽にご連絡ください。",
+  alternates: { canonical: "https://thebrief.info/contact" },
 };
 
 export default function Contact() {

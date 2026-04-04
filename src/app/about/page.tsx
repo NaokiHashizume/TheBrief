@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Logo } from "@/components/Logo";
 
 export const metadata: Metadata = {
-  title: "About — The Brief",
+  title: "About",
+  description: "The Briefは、日本の政治・経済・金融から業界動向、テクノロジー・AI、ライフスタイルまで、幅広いニュースとオピニオンをシンプルに届ける総合メディアです。",
+  alternates: { canonical: "https://thebrief.info/about" },
 };
 
 export default function About() {

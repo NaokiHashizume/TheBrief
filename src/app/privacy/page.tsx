@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — The Brief",
+  title: "Privacy Policy",
+  description: "The Briefのプライバシーポリシー。個人情報の収集、使用、Cookie、Google AdSenseに関する方針を説明します。",
+  alternates: { canonical: "https://thebrief.info/privacy" },
 };
 
 export default function PrivacyPolicy() {
