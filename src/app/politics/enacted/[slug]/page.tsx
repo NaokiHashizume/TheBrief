@@ -16,7 +16,7 @@ export async function generateMetadata({
   const item = enactedItems.find((d) => d.slug === slug);
   if (!item) return { title: "Not Found" };
   return {
-    title: `${item.title} — 成立済`,
+    title: `${item.title} — 施行済`,
     description: item.summary,
     alternates: { canonical: `https://thebrief.info/politics/enacted/${slug}` },
   };
@@ -42,7 +42,7 @@ export default async function EnactedDetailPage({
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <Link href="/politics/enacted" className="hover:text-foreground transition-colors">成立済</Link>
+        <Link href="/politics/enacted" className="hover:text-foreground transition-colors">施行済</Link>
         <span>/</span>
         <span className="truncate max-w-[150px]">{item.title}</span>
       </div>
@@ -50,10 +50,10 @@ export default async function EnactedDetailPage({
       {/* Header */}
       <div className="flex items-center gap-2 flex-wrap mb-3">
         <span className="text-[10px] font-bold px-2.5 py-1 rounded-full text-white bg-green-600">
-          可決・成立
+          施行済
         </span>
         <span className="text-xs text-foreground/30">{item.committee}</span>
-        <span className="text-xs text-foreground/25 tabular-nums">{item.enactedDate} 成立</span>
+        <span className="text-xs text-foreground/25 tabular-nums">{item.enactedDate} 成立 → {item.effectiveDate} 施行</span>
       </div>
 
       <h1 className="font-serif text-2xl md:text-3xl font-bold">{item.title}</h1>
@@ -195,7 +195,7 @@ export default async function EnactedDetailPage({
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6" />
           </svg>
-          成立済の一覧に戻る
+          施行済の一覧に戻る
         </Link>
       </div>
     </div>

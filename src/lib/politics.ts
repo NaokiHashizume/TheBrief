@@ -67,17 +67,19 @@ export const houseOfRepresentatives: PartySeats[] = [
 export const HOUSE_TOTAL = 465;
 
 // 参議院（定数248）— 2025年7月20日 第27回参院選後
-// ※立憲民主党と公明党は参議院では合流せず別会派
+// ※立憲民主党と公明党は参議院では合流せず別会派のまま
 export const houseOfCouncillors: PartySeats[] = [
-  { name: "自由民主党", nameEn: "LDP", seats: 117, color: "#3CA324" },
-  { name: "立憲民主党", nameEn: "CDP", seats: 40, color: "#184589" },
-  { name: "公明党", nameEn: "Komeito", seats: 27, color: "#F55881" },
-  { name: "日本維新の会", nameEn: "Nippon Ishin", seats: 18, color: "#6FBA2C" },
-  { name: "国民民主党", nameEn: "DPP", seats: 19, color: "#F8BC00" },
-  { name: "参政党", nameEn: "Sanseito", seats: 14, color: "#D85D0F" },
-  { name: "日本共産党", nameEn: "JCP", seats: 6, color: "#DB001C" },
-  { name: "れいわ新選組", nameEn: "Reiwa", seats: 5, color: "#E4027E" },
-  { name: "その他・無所属", nameEn: "Others / Ind.", seats: 2, color: "#999999" },
+  { name: "自由民主党", nameEn: "LDP", seats: 101, color: "#3CA324" },
+  { name: "立憲民主・社民・無所属", nameEn: "CDP+SDP", seats: 43, color: "#184589" },
+  { name: "国民民主党・新緑風会", nameEn: "DPP", seats: 25, color: "#F8BC00" },
+  { name: "公明党", nameEn: "Komeito", seats: 21, color: "#F55881" },
+  { name: "日本維新の会", nameEn: "Nippon Ishin", seats: 19, color: "#6FBA2C" },
+  { name: "参政党", nameEn: "Sanseito", seats: 15, color: "#D85D0F" },
+  { name: "日本共産党", nameEn: "JCP", seats: 7, color: "#DB001C" },
+  { name: "れいわ新選組", nameEn: "Reiwa", seats: 6, color: "#E4027E" },
+  { name: "日本保守党", nameEn: "Japan Conservative", seats: 2, color: "#1a4a7a" },
+  { name: "沖縄の風", nameEn: "Okinawa Whirlwind", seats: 2, color: "#00a5bf" },
+  { name: "無所属", nameEn: "Independents", seats: 7, color: "#999999" },
 ];
 
 export const COUNCIL_TOTAL = 248;
@@ -116,8 +118,8 @@ export const legislatorRanking: RankedLegislator[] = [
   { rank: 6, name: "小野田 紀美", nameEn: "Onoda Kimi", party: "自由民主党", partyColor: "#3CA324", role: "経済安全保障担当大臣", chamber: "council", score: 85, metrics: { legislation: 80, socialMedia: 94, mediaPresence: 82, committee: 82 }, x: "https://x.com/onoda_kimi", website: "https://onoda-kimi.com/" },
   { rank: 7, name: "山添 拓", nameEn: "Yamazoe Taku", party: "日本共産党", partyColor: "#DB001C", role: "政策委員長", chamber: "council", score: 84, metrics: { legislation: 92, socialMedia: 80, mediaPresence: 78, committee: 90 }, x: "https://x.com/yaaborecord" },
   { rank: 8, name: "片山 さつき", nameEn: "Katayama Satsuki", party: "自由民主党", partyColor: "#3CA324", role: "財務大臣", chamber: "house", score: 82, metrics: { legislation: 76, socialMedia: 92, mediaPresence: 85, committee: 72 }, x: "https://x.com/katayama_s", website: "https://www.satsuki-katayama.com/" },
-  { rank: 9, name: "成田 悠輔", nameEn: "Narita Yusuke", party: "チームみらい", partyColor: "#66FFCC", role: "共同代表", chamber: "house", score: 80, metrics: { legislation: 65, socialMedia: 98, mediaPresence: 95, committee: 55 }, x: "https://x.com/narita_yusuke" },
-  { rank: 10, name: "野田 佳彦", nameEn: "Noda Yoshihiko", party: "中道改革連合", partyColor: "#0073BD", role: "代表", chamber: "house", score: 79, metrics: { legislation: 80, socialMedia: 72, mediaPresence: 85, committee: 78 }, x: "https://x.com/nodayoshi55", website: "https://www.nodayoshi.gr.jp/" },
+  { rank: 9, name: "安野 貴博", nameEn: "Anno Takahiro", party: "チームみらい", partyColor: "#66FFCC", role: "代表", chamber: "house", score: 80, metrics: { legislation: 65, socialMedia: 98, mediaPresence: 95, committee: 55 }, x: "https://x.com/takahiroanno", website: "https://team-mir.ai/" },
+  { rank: 10, name: "小川 淳也", nameEn: "Ogawa Junya", party: "中道改革連合", partyColor: "#0073BD", role: "代表", chamber: "house", score: 79, metrics: { legislation: 80, socialMedia: 72, mediaPresence: 85, committee: 78 }, x: "https://x.com/junyaog", website: "https://www.ogawajunya.com/" },
 ];
 
 // 全議員データ（政党別・衆参別）
@@ -157,7 +159,8 @@ export const legislators: Legislator[] = [
   { name: "三原 じゅん子", nameEn: "Mihara Junko", party: "自由民主党", role: "参議院議員", chamber: "council" },
 
   // ━━━━━━━━━━ 中道改革連合 — 衆議院 ━━━━━━━━━━
-  { name: "野田 佳彦", nameEn: "Noda Yoshihiko", party: "中道改革連合", role: "代表", chamber: "house", x: "https://x.com/nodayoshi55", website: "https://www.nodayoshi.gr.jp/" },
+  { name: "小川 淳也", nameEn: "Ogawa Junya", party: "中道改革連合", role: "代表", chamber: "house", x: "https://x.com/junyaog", website: "https://www.ogawajunya.com/" },
+  { name: "野田 佳彦", nameEn: "Noda Yoshihiko", party: "中道改革連合", role: "最高顧問", chamber: "house", x: "https://x.com/nodayoshi55", website: "https://www.nodayoshi.gr.jp/" },
   { name: "枝野 幸男", nameEn: "Edano Yukio", party: "中道改革連合", role: "幹事長", chamber: "house", x: "https://x.com/edanoyukio0531", website: "https://www.edano.gr.jp/" },
   { name: "泉 健太", nameEn: "Izumi Kenta", party: "中道改革連合", role: "政調会長", chamber: "house", x: "https://x.com/izmkenta", website: "https://izumi-kenta.net/" },
   { name: "長妻 昭", nameEn: "Nagatsuma Akira", party: "中道改革連合", role: "衆議院議員", chamber: "house", x: "https://x.com/nagatsumaakira", website: "https://naga.tv/" },
@@ -207,7 +210,7 @@ export const legislators: Legislator[] = [
   { name: "赤尾 由美", nameEn: "Akao Yumi", party: "参政党", role: "参議院議員", chamber: "council" },
 
   // ━━━━━━━━━━ チームみらい — 衆議院 ━━━━━━━━━━
-  { name: "成田 悠輔", nameEn: "Narita Yusuke", party: "チームみらい", role: "共同代表", chamber: "house", x: "https://x.com/narita_yusuke" },
+  { name: "安野 貴博", nameEn: "Anno Takahiro", party: "チームみらい", role: "代表", chamber: "house", x: "https://x.com/takahiroanno", website: "https://team-mir.ai/" },
   { name: "東 国幹", nameEn: "Higashi Kunimoto", party: "チームみらい", role: "幹事長", chamber: "house" },
 
   // ━━━━━━━━━━ 日本共産党 — 衆議院 ━━━━━━━━━━

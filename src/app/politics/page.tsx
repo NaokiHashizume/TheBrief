@@ -72,7 +72,7 @@ export default function PoliticsPage() {
         日本の国会（衆議院・参議院）の政党別議席数、内閣の顔ぶれ、主要議員をわかりやすくまとめています。
       </p>
       <p className="mt-2 text-xs text-foreground/30">
-        Last updated: 2026-04-05 ※最新の情報に基づき随時更新
+        Last updated: 2026-04-04 ※最新の情報に基づき随時更新
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
@@ -125,7 +125,7 @@ export default function PoliticsPage() {
         </div>
       </Link>
 
-      {/* 成立済 button */}
+      {/* 施行済 button */}
       <Link
         href="/politics/enacted"
         className="group mt-4 flex items-center justify-between w-full p-5 rounded-xl border-2 border-dashed border-green-500/30 hover:border-green-500 hover:bg-green-500/[0.03] transition-all duration-200"
@@ -137,10 +137,10 @@ export default function PoliticsPage() {
             </svg>
           </div>
           <div>
-            <h2 className="font-serif text-xl font-bold">成立済</h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Enacted in 2026</span>
+            <h2 className="font-serif text-xl font-bold">施行済</h2>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Effective in 2026</span>
             <p className="text-sm text-foreground/40 mt-0.5">
-              2026年に国会で可決・成立した法案と政策
+              2026年に施行・発効した主要法令
             </p>
           </div>
         </div>

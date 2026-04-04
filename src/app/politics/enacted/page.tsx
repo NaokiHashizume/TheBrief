@@ -3,9 +3,9 @@ import Link from "next/link";
 import { enactedItems } from "@/lib/enacted";
 
 export const metadata: Metadata = {
-  title: "成立済 — 2026年に成立した法案・政策",
+  title: "施行済 — 2026年に施行された主要法令",
   description:
-    "2026年に国会で可決・成立した法案と政策の一覧。防衛力強化、半導体支援、選挙制度改革など。",
+    "2026年に施行・発効した主要法令の一覧。政治資金規正法改正、子育て支援法、共同親権など。",
   alternates: { canonical: "https://thebrief.info/politics/enacted" },
 };
 
@@ -18,15 +18,15 @@ export default function EnactedPage() {
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <span>成立済</span>
+        <span>施行済</span>
       </div>
 
-      <h1 className="font-serif text-3xl md:text-4xl font-bold">成立済</h1>
+      <h1 className="font-serif text-3xl md:text-4xl font-bold">施行済</h1>
       <p className="mt-3 text-sm text-foreground/50 leading-relaxed">
-        2026年に国会で可決・成立した主要な法案と政策の一覧です。
+        2026年に施行・発効した主要な法令の一覧です。過去の国会で成立し、2026年に施行された重要法を掲載しています。
       </p>
       <p className="mt-2 text-xs text-foreground/30">
-        Last updated: 2026-04-05
+        Last updated: 2026-04-04
       </p>
 
       <div className="mt-10 space-y-4">
@@ -40,13 +40,13 @@ export default function EnactedPage() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap mb-2">
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-full text-white bg-green-600">
-                    可決・成立
+                    施行済
                   </span>
                   <span className="text-[10px] tracking-wider uppercase text-foreground/30">
                     {item.committee}
                   </span>
                   <span className="text-[10px] tabular-nums text-foreground/25">
-                    {item.enactedDate}
+                    {item.effectiveDate} 施行
                   </span>
                 </div>
                 <h2 className="font-serif text-lg font-bold group-hover:text-green-400 transition-colors">
