@@ -16,7 +16,7 @@ export async function generateMetadata({
   const debate = debates.find((d) => d.slug === slug);
   if (!debate) return { title: "Not Found" };
   return {
-    title: `${debate.title} — 議論中`,
+    title: `${debate.title} — 審議中`,
     description: debate.summary,
     alternates: { canonical: `https://thebrief.info/politics/debates/${slug}` },
   };
@@ -39,7 +39,7 @@ export default async function DebateDetailPage({
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <Link href="/politics/debates" className="hover:text-foreground transition-colors">議論中</Link>
+        <Link href="/politics/debates" className="hover:text-foreground transition-colors">審議中</Link>
         <span>/</span>
         <span className="truncate max-w-[150px]">{debate.title}</span>
       </div>
@@ -137,7 +137,7 @@ export default async function DebateDetailPage({
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6" />
           </svg>
-          議論中の一覧に戻る
+          審議中の一覧に戻る
         </Link>
       </div>
     </div>

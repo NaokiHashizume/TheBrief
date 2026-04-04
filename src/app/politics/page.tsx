@@ -97,7 +97,7 @@ export default function PoliticsPage() {
         ))}
       </div>
 
-      {/* 議論中 button */}
+      {/* 審議中 button */}
       <Link
         href="/politics/debates"
         className="group mt-8 flex items-center justify-between w-full p-5 rounded-xl border-2 border-dashed border-brief-red/30 hover:border-brief-red hover:bg-brief-red/[0.03] transition-all duration-200"
@@ -109,7 +109,7 @@ export default function PoliticsPage() {
             </svg>
           </div>
           <div>
-            <h2 className="font-serif text-xl font-bold">議論中</h2>
+            <h2 className="font-serif text-xl font-bold">審議中</h2>
             <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Debates in Progress</span>
             <p className="text-sm text-foreground/40 mt-0.5">
               国会で現在審議されている法案・議題の一覧

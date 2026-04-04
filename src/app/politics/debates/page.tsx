@@ -3,7 +3,7 @@ import Link from "next/link";
 import { debates } from "@/lib/debates";
 
 export const metadata: Metadata = {
-  title: "議論中 — 国会で審議中の法案・議題",
+  title: "審議中 — 国会で審議中の法案・議題",
   description:
     "国会で現在審議されている法案・議題の一覧。予算案、AI規制法、少子化対策など主要な議論の概要と各政党の立場をまとめます。",
   alternates: { canonical: "https://thebrief.info/politics/debates" },
@@ -18,10 +18,10 @@ export default function DebatesPage() {
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <span>議論中</span>
+        <span>審議中</span>
       </div>
 
-      <h1 className="font-serif text-3xl md:text-4xl font-bold">議論中</h1>
+      <h1 className="font-serif text-3xl md:text-4xl font-bold">審議中</h1>
       <p className="mt-3 text-sm text-foreground/50 leading-relaxed">
         第214回通常国会（2026年）で現在審議されている主要な法案・議題の一覧です。
       </p>
