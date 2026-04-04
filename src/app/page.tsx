@@ -5,6 +5,7 @@ import {
   ArticleCardHorizontal,
 } from "@/components/ArticleCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import { AdBannerPlaceholder } from "@/components/AdSense";
 
 function SectionHeader({ title }: { title: string }) {
   return (
@@ -42,6 +43,9 @@ export default function Home() {
           <ArticleCardFeatured key={article.id} article={article} />
         ))}
       </section>
+
+      {/* Ad: Top banner */}
+      <AdBannerPlaceholder className="mb-8" />
 
       <div className="w-full h-px bg-brief-border dark:bg-white/10 mb-12" />
 
@@ -91,7 +95,8 @@ export default function Home() {
         </aside>
       </div>
 
-      <div className="w-full h-px bg-brief-border dark:bg-white/10 my-12" />
+      {/* Ad: Mid-page banner */}
+      <AdBannerPlaceholder className="my-12" />
 
       {/* Category sections */}
       <section>

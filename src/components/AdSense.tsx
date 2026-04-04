@@ -1,0 +1,47 @@
+"use client";
+
+import { useEffect } from "react";
+
+// Replace with your actual AdSense publisher ID after approval
+const ADSENSE_PUB_ID = "ca-pub-XXXXXXXXXXXXXXXX";
+
+export function AdBanner({
+  slot,
+  format = "auto",
+  className = "",
+}: {
+  slot: string;
+  format?: "auto" | "rectangle" | "horizontal" | "vertical";
+  className?: string;
+}) {
+  useEffect(() => {
+    try {
+      ((window as unknown as Record<string, unknown>).adsbygoogle as unknown[] || []).push({});
+    } catch {
+      // AdSense not loaded yet
+    }
+  }, []);
+
+  return (
+    <div className={`ad-container ${className}`}>
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client={ADSENSE_PUB_ID}
+        data-ad-slot={slot}
+        data-ad-format={format}
+        data-full-width-responsive="true"
+      />
+    </div>
+  );
+}
+
+export function AdBannerPlaceholder({ className = "" }: { className?: string }) {
+  return (
+    <div
+      className={`bg-foreground/[0.03] border border-dashed border-brief-border dark:border-white/10 rounded-lg flex items-center justify-center py-8 text-xs text-foreground/20 tracking-wider uppercase ${className}`}
+    >
+      Advertisement
+    </div>
+  );
+}
