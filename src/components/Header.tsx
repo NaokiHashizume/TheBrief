@@ -80,7 +80,7 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <a
-            href="https://x.com/thebrief_jp"
+            href="https://x.com/thebrief_info"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"

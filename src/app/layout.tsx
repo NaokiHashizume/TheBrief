@@ -44,8 +44,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@thebrief_jp",
-    creator: "@thebrief_jp",
+    site: "@thebrief_info",
+    creator: "@thebrief_info",
     title: "The Brief — Politics · Economy · Industry · Trends",
     description: SITE_DESCRIPTION,
   },

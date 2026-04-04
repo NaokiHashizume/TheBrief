@@ -10,7 +10,7 @@ export function WebsiteJsonLd() {
       "@type": "Organization",
       name: "The Brief",
       url: "https://thebrief.info",
-      sameAs: ["https://x.com/thebrief_jp"],
+      sameAs: ["https://x.com/thebrief_info"],
     },
     inLanguage: "ja",
   };
