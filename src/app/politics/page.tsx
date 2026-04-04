@@ -96,6 +96,33 @@ export default function PoliticsPage() {
           </Link>
         ))}
       </div>
+
+      {/* 議論中 button */}
+      <Link
+        href="/politics/debates"
+        className="group mt-8 flex items-center justify-between w-full p-5 rounded-xl border-2 border-dashed border-brief-red/30 hover:border-brief-red hover:bg-brief-red/[0.03] transition-all duration-200"
+      >
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-10 rounded-full bg-brief-red/10 flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-brief-red">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </div>
+          <div>
+            <h2 className="font-serif text-xl font-bold">議論中</h2>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Debates in Progress</span>
+            <p className="text-sm text-foreground/40 mt-0.5">
+              国会で現在審議されている法案・議題の一覧
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 text-brief-red">
+          <span className="text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">View</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </div>
+      </Link>
     </div>
   );
 }
