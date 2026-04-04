@@ -282,6 +282,36 @@ function PartyCard({
 
 /* ────────── Party Browser Section ────────── */
 
+const INITIAL_SHOW = 20;
+
+function ChamberMemberList({ members, label }: { members: Legislator[]; label: string }) {
+  const [showAll, setShowAll] = useState(false);
+  const visible = showAll ? members : members.slice(0, INITIAL_SHOW);
+  const hasMore = members.length > INITIAL_SHOW;
+
+  return (
+    <>
+      <div className="px-5 py-2.5 bg-foreground/[0.02] flex items-center gap-2">
+        <span className="text-xs font-bold text-foreground/50">{label}</span>
+        <span className="text-[10px] text-foreground/25">{members.length}名</span>
+      </div>
+      <div className="divide-y divide-brief-border dark:divide-white/5">
+        {visible.map((leg) => (
+          <MemberRow key={leg.nameEn} leg={leg} />
+        ))}
+      </div>
+      {hasMore && !showAll && (
+        <button
+          onClick={() => setShowAll(true)}
+          className="w-full px-5 py-3 text-xs text-foreground/40 hover:text-foreground/60 hover:bg-foreground/[0.02] transition-colors text-center"
+        >
+          残り{members.length - INITIAL_SHOW}名を表示 ▾
+        </button>
+      )}
+    </>
+  );
+}
+
 function MemberRow({ leg, partyColors }: { leg: Legislator; partyColors?: Record<string, string> }) {
   return (
     <div className="px-5 py-3 flex items-center gap-4">
@@ -427,32 +457,14 @@ function PartyBrowser({
 
                   {/* 衆議院 */}
                   {houseMembers.length > 0 && (
-                    <>
-                      <div className="px-5 py-2.5 bg-foreground/[0.02] flex items-center gap-2">
-                        <span className="text-xs font-bold text-foreground/50">衆議院</span>
-                        <span className="text-[10px] text-foreground/25">{houseMembers.length}名</span>
-                      </div>
-                      <div className="divide-y divide-brief-border dark:divide-white/5">
-                        {houseMembers.map((leg) => (
-                          <MemberRow key={leg.nameEn} leg={leg} />
-                        ))}
-                      </div>
-                    </>
+                    <ChamberMemberList members={houseMembers} label="衆議院" />
                   )}
 
                   {/* 参議院 */}
                   {councilMembers.length > 0 && (
-                    <>
-                      <div className="px-5 py-2.5 bg-foreground/[0.02] flex items-center gap-2 border-t border-brief-border dark:border-white/5">
-                        <span className="text-xs font-bold text-foreground/50">参議院</span>
-                        <span className="text-[10px] text-foreground/25">{councilMembers.length}名</span>
-                      </div>
-                      <div className="divide-y divide-brief-border dark:divide-white/5">
-                        {councilMembers.map((leg) => (
-                          <MemberRow key={leg.nameEn} leg={leg} />
-                        ))}
-                      </div>
-                    </>
+                    <div className="border-t border-brief-border dark:border-white/5">
+                      <ChamberMemberList members={councilMembers} label="参議院" />
+                    </div>
                   )}
                 </div>
               )}
