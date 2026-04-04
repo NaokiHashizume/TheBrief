@@ -90,11 +90,11 @@ export const cabinet: CabinetMember[] = [
 export const legislators: Legislator[] = [
   // ── 自由民主党 ──
   { name: "高市 早苗", nameEn: "Takaichi Sanae", party: "自由民主党", role: "総裁（内閣総理大臣）", chamber: "house", x: "https://x.com/takaichi_sanae", website: "https://www.sanae.gr.jp/" },
-  { name: "茂木 敏充", nameEn: "Motegi Toshimitsu", party: "自由民主党", role: "外務大臣", chamber: "house", x: "https://x.com/motaborian", website: "https://www.motegi.gr.jp/" },
-  { name: "小泉 進次郎", nameEn: "Koizumi Shinjiro", party: "自由民主党", role: "防衛大臣", chamber: "house", x: "https://x.com/koaborian", website: "https://shinjiro.info/" },
+  { name: "茂木 敏充", nameEn: "Motegi Toshimitsu", party: "自由民主党", role: "外務大臣", chamber: "house", x: "https://x.com/moteging", website: "https://www.motegi.gr.jp/" },
+  { name: "小泉 進次郎", nameEn: "Koizumi Shinjiro", party: "自由民主党", role: "防衛大臣", chamber: "house", x: "https://x.com/shinjirokoiz", website: "https://shinjiro.info/" },
   { name: "片山 さつき", nameEn: "Katayama Satsuki", party: "自由民主党", role: "財務大臣", chamber: "house", x: "https://x.com/katayama_s", website: "https://www.satsuki-katayama.com/" },
-  { name: "林 芳正", nameEn: "Hayashi Yoshimasa", party: "自由民主党", role: "総務大臣", chamber: "house", x: "https://x.com/hayaborian", website: "https://www.yoshimasa.com/" },
-  { name: "木原 稔", nameEn: "Kihara Minoru", party: "自由民主党", role: "内閣官房長官", chamber: "house", x: "https://x.com/kaborian_minoru" },
+  { name: "林 芳正", nameEn: "Hayashi Yoshimasa", party: "自由民主党", role: "総務大臣", chamber: "house", x: "https://x.com/office_yosimasa", website: "https://www.yoshimasa.com/" },
+  { name: "木原 稔", nameEn: "Kihara Minoru", party: "自由民主党", role: "内閣官房長官", chamber: "house", x: "https://x.com/kihara_minoru" },
   { name: "赤澤 亮正", nameEn: "Akazawa Ryosei", party: "自由民主党", role: "経済産業大臣", chamber: "house", website: "https://www.akazawa-ryosei.jp/" },
   { name: "小野田 紀美", nameEn: "Onoda Kimi", party: "自由民主党", role: "経済安全保障担当大臣", chamber: "council", x: "https://x.com/onoda_kimi", website: "https://onoda-kimi.com/" },
 
@@ -106,20 +106,20 @@ export const legislators: Legislator[] = [
 
   // ── 日本維新の会 ──
   { name: "馬場 伸幸", nameEn: "Baba Nobuyuki", party: "日本維新の会", role: "代表", chamber: "house", x: "https://x.com/baba_ishin", website: "https://www.baba-nobuyuki.com/" },
-  { name: "藤田 文武", nameEn: "Fujita Fumitake", party: "日本維新の会", role: "幹事長", chamber: "house", x: "https://x.com/fujitaborian" },
+  { name: "藤田 文武", nameEn: "Fujita Fumitake", party: "日本維新の会", role: "幹事長", chamber: "house", x: "https://x.com/fumi_fuji" },
   { name: "音喜多 駿", nameEn: "Otokita Shun", party: "日本維新の会", role: "政調会長", chamber: "council", x: "https://x.com/otokita", website: "https://otokitashun.com/" },
 
   // ── 国民民主党 ──
   { name: "玉木 雄一郎", nameEn: "Tamaki Yuichiro", party: "国民民主党", role: "代表", chamber: "house", x: "https://x.com/tamakiyuichiro", website: "https://tamakinet.jp/" },
-  { name: "榛葉 賀津也", nameEn: "Shinba Kazuya", party: "国民民主党", role: "幹事長", chamber: "council", x: "https://x.com/shinba_kazuya" },
+  { name: "榛葉 賀津也", nameEn: "Shinba Kazuya", party: "国民民主党", role: "幹事長", chamber: "council", x: "https://x.com/SHIMBA_OFFICE" },
   { name: "前原 誠司", nameEn: "Maehara Seiji", party: "国民民主党", role: "代表代行", chamber: "house", x: "https://x.com/Maehara2016", website: "https://www.maehara21.com/" },
 
   // ── 参政党 ──
   { name: "神谷 宗幣", nameEn: "Kamiya Sohei", party: "参政党", role: "代表", chamber: "council", x: "https://x.com/jinkamiya", website: "https://www.kamiyasohei.jp/" },
-  { name: "松田 学", nameEn: "Matsuda Manabu", party: "参政党", role: "共同代表", chamber: "house", x: "https://x.com/matsuda_policy" },
+  { name: "松田 学", nameEn: "Matsuda Manabu", party: "参政党", role: "共同代表", chamber: "house", x: "https://x.com/matsudamanabu" },
 
   // ── チームみらい ──
-  { name: "成田 悠輔", nameEn: "Narita Yusuke", party: "チームみらい", role: "共同代表", chamber: "house", x: "https://x.com/naaborian" },
+  { name: "成田 悠輔", nameEn: "Narita Yusuke", party: "チームみらい", role: "共同代表", chamber: "house", x: "https://x.com/narita_yusuke" },
   { name: "東 国幹", nameEn: "Higashi Kunimoto", party: "チームみらい", role: "幹事長", chamber: "house" },
 
   // ── 日本共産党 ──
@@ -127,5 +127,5 @@ export const legislators: Legislator[] = [
   { name: "小池 晃", nameEn: "Koike Akira", party: "日本共産党", role: "書記局長", chamber: "council", x: "https://x.com/koike_akira", website: "https://www.koike-akira.jp/" },
 
   // ── れいわ新選組 ──
-  { name: "山本 太郎", nameEn: "Yamamoto Taro", party: "れいわ新選組", role: "代表", chamber: "council", x: "https://x.com/yaborian_taro", website: "https://taro-yamamoto.jp/" },
+  { name: "山本 太郎", nameEn: "Yamamoto Taro", party: "れいわ新選組", role: "代表", chamber: "council", x: "https://x.com/yamamototaro0", website: "https://taro-yamamoto.jp/" },
 ];
