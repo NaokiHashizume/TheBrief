@@ -33,16 +33,16 @@ export interface Legislator {
 
 // 衆議院（定数465）— 2026年2月8日 第51回衆院選後
 export const houseOfRepresentatives: PartySeats[] = [
-  { name: "自由民主党", nameEn: "LDP", seats: 316, color: "#003DA5" },        // 自民ブルー
-  { name: "中道改革連合", nameEn: "Chudo", seats: 49, color: "#1B813E" },      // 立憲グリーン系（立憲+公明の合流）
-  { name: "日本維新の会", nameEn: "Nippon Ishin", seats: 36, color: "#38B548" }, // 維新グリーン
-  { name: "国民民主党", nameEn: "DPP", seats: 28, color: "#F39800" },          // 国民オレンジ
-  { name: "参政党", nameEn: "Sanseito", seats: 15, color: "#C84B2B" },         // 参政党オレンジレッド
-  { name: "チームみらい", nameEn: "Team Mirai", seats: 11, color: "#00B9F2" }, // みらいスカイブルー
-  { name: "日本共産党", nameEn: "JCP", seats: 4, color: "#CF000E" },           // 共産レッド
-  { name: "れいわ新選組", nameEn: "Reiwa", seats: 1, color: "#ED008C" },       // れいわピンク
-  { name: "減税日本・ゆうこく連合", nameEn: "Genzei/Yukoku", seats: 1, color: "#00A0AA" }, // 減税日本ティール
-  { name: "無所属・その他", nameEn: "Others / Ind.", seats: 4, color: "#999999" },
+  { name: "自由民主党", nameEn: "LDP", seats: 316, color: "#3CA324" },
+  { name: "中道改革連合", nameEn: "Chudo", seats: 49, color: "#0073BD" },
+  { name: "日本維新の会", nameEn: "Nippon Ishin", seats: 36, color: "#6FBA2C" },
+  { name: "国民民主党", nameEn: "DPP", seats: 28, color: "#F8BC00" },
+  { name: "参政党", nameEn: "Sanseito", seats: 15, color: "#D85D0F" },
+  { name: "チームみらい", nameEn: "Team Mirai", seats: 11, color: "#66FFCC" },
+  { name: "日本共産党", nameEn: "JCP", seats: 4, color: "#DB001C" },
+  { name: "れいわ新選組", nameEn: "Reiwa", seats: 1, color: "#E4027E" },
+  { name: "減税日本・ゆうこく連合", nameEn: "Genzei/Yukoku", seats: 1, color: "#999999" },
+  { name: "無所属・その他", nameEn: "Others / Ind.", seats: 4, color: "#cccccc" },
 ];
 
 export const HOUSE_TOTAL = 465;
@@ -50,14 +50,14 @@ export const HOUSE_TOTAL = 465;
 // 参議院（定数248）— 2025年7月20日 第27回参院選後
 // ※立憲民主党と公明党は参議院では合流せず別会派
 export const houseOfCouncillors: PartySeats[] = [
-  { name: "自由民主党", nameEn: "LDP", seats: 117, color: "#003DA5" },        // 自民ブルー
-  { name: "立憲民主党", nameEn: "CDP", seats: 40, color: "#1B813E" },          // 立憲グリーン
-  { name: "公明党", nameEn: "Komeito", seats: 27, color: "#F5A800" },          // 公明イエロー
-  { name: "日本維新の会", nameEn: "Nippon Ishin", seats: 18, color: "#38B548" }, // 維新グリーン
-  { name: "国民民主党", nameEn: "DPP", seats: 19, color: "#F39800" },          // 国民オレンジ
-  { name: "参政党", nameEn: "Sanseito", seats: 14, color: "#C84B2B" },         // 参政党オレンジレッド
-  { name: "日本共産党", nameEn: "JCP", seats: 6, color: "#CF000E" },           // 共産レッド
-  { name: "れいわ新選組", nameEn: "Reiwa", seats: 5, color: "#ED008C" },       // れいわピンク
+  { name: "自由民主党", nameEn: "LDP", seats: 117, color: "#3CA324" },
+  { name: "立憲民主党", nameEn: "CDP", seats: 40, color: "#184589" },
+  { name: "公明党", nameEn: "Komeito", seats: 27, color: "#F55881" },
+  { name: "日本維新の会", nameEn: "Nippon Ishin", seats: 18, color: "#6FBA2C" },
+  { name: "国民民主党", nameEn: "DPP", seats: 19, color: "#F8BC00" },
+  { name: "参政党", nameEn: "Sanseito", seats: 14, color: "#D85D0F" },
+  { name: "日本共産党", nameEn: "JCP", seats: 6, color: "#DB001C" },
+  { name: "れいわ新選組", nameEn: "Reiwa", seats: 5, color: "#E4027E" },
   { name: "その他・無所属", nameEn: "Others / Ind.", seats: 2, color: "#999999" },
 ];
 
