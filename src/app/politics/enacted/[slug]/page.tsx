@@ -16,7 +16,7 @@ export async function generateMetadata({
   const item = enactedItems.find((d) => d.slug === slug);
   if (!item) return { title: "Not Found" };
   return {
-    title: `${item.title} — 確定済`,
+    title: `${item.title} — 成立済`,
     description: item.summary,
     alternates: { canonical: `https://thebrief.info/politics/enacted/${slug}` },
   };
@@ -42,7 +42,7 @@ export default async function EnactedDetailPage({
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <Link href="/politics/enacted" className="hover:text-foreground transition-colors">確定済</Link>
+        <Link href="/politics/enacted" className="hover:text-foreground transition-colors">成立済</Link>
         <span>/</span>
         <span className="truncate max-w-[150px]">{item.title}</span>
       </div>
@@ -195,7 +195,7 @@ export default async function EnactedDetailPage({
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6" />
           </svg>
-          確定済の一覧に戻る
+          成立済の一覧に戻る
         </Link>
       </div>
     </div>

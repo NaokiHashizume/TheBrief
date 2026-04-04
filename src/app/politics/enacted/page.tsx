@@ -3,7 +3,7 @@ import Link from "next/link";
 import { enactedItems } from "@/lib/enacted";
 
 export const metadata: Metadata = {
-  title: "確定済 — 2026年に成立した法案・政策",
+  title: "成立済 — 2026年に成立した法案・政策",
   description:
     "2026年に国会で可決・成立した法案と政策の一覧。防衛力強化、半導体支援、選挙制度改革など。",
   alternates: { canonical: "https://thebrief.info/politics/enacted" },
@@ -18,10 +18,10 @@ export default function EnactedPage() {
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <span>確定済</span>
+        <span>成立済</span>
       </div>
 
-      <h1 className="font-serif text-3xl md:text-4xl font-bold">確定済</h1>
+      <h1 className="font-serif text-3xl md:text-4xl font-bold">成立済</h1>
       <p className="mt-3 text-sm text-foreground/50 leading-relaxed">
         2026年に国会で可決・成立した主要な法案と政策の一覧です。
       </p>

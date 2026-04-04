@@ -125,7 +125,7 @@ export default function PoliticsPage() {
         </div>
       </Link>
 
-      {/* 確定済 button */}
+      {/* 成立済 button */}
       <Link
         href="/politics/enacted"
         className="group mt-4 flex items-center justify-between w-full p-5 rounded-xl border-2 border-dashed border-green-500/30 hover:border-green-500 hover:bg-green-500/[0.03] transition-all duration-200"
@@ -137,7 +137,7 @@ export default function PoliticsPage() {
             </svg>
           </div>
           <div>
-            <h2 className="font-serif text-xl font-bold">確定済</h2>
+            <h2 className="font-serif text-xl font-bold">成立済</h2>
             <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Enacted in 2026</span>
             <p className="text-sm text-foreground/40 mt-0.5">
               2026年に国会で可決・成立した法案と政策
