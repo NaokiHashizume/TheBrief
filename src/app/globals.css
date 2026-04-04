@@ -11,11 +11,6 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
-}
-
-.dark {
   --background: #0f0f0f;
   --foreground: #ededed;
 }
