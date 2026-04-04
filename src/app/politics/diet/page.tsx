@@ -8,6 +8,107 @@ import {
 } from "@/lib/politics";
 import { SeatChart, CoalitionIndicator } from "@/components/SeatChart";
 
+const dietHistory = [
+  {
+    year: "1868",
+    tag: "明治維新",
+    title: "明治維新と近代国家の出発",
+    description:
+      "王政復古の大号令により江戸幕府が倒れ、明治新政府が発足。五箇条の御誓文で「広ク会議ヲ興シ万機公論ニ決スベシ」と宣言し、議会制度の理念が初めて国家方針として示された。",
+  },
+  {
+    year: "1874",
+    tag: "自由民権運動",
+    title: "民撰議院設立建白書",
+    description:
+      "板垣退助・後藤象二郎らが政府に「民撰議院設立建白書」を提出し、国民の代表による議会の開設を求めた。これを契機に自由民権運動が全国に広がり、各地で政治結社や私擬憲法が生まれた。",
+  },
+  {
+    year: "1881",
+    tag: "国会開設の勅諭",
+    title: "明治天皇、国会開設を約束",
+    description:
+      "明治天皇が「国会開設の勅諭」を発し、1890年に国会を開くことを公約。これに応じて自由党（板垣退助）、立憲改進党（大隈重信）などの政党が結成され、近代政党政治の基盤が作られた。",
+  },
+  {
+    year: "1889",
+    tag: "大日本帝国憲法",
+    title: "大日本帝国憲法の発布",
+    description:
+      "伊藤博文がプロイセン（ドイツ）の憲法を参考に起草した大日本帝国憲法が発布された。天皇主権のもと帝国議会（貴族院・衆議院）の設置が規定されたが、議会の権限は限定的で、天皇の統帥権や勅令による立法が認められていた。",
+  },
+  {
+    year: "1890",
+    tag: "帝国議会",
+    title: "第1回帝国議会の開会",
+    description:
+      "アジア初の近代的議会として帝国議会が開会。衆議院は制限選挙（直接国税15円以上を納める25歳以上の男子）により選ばれた300名の議員で構成された。有権者は全人口の約1.1%に過ぎなかった。",
+  },
+  {
+    year: "1925",
+    tag: "普通選挙法",
+    title: "普通選挙法の成立",
+    description:
+      "納税資格を撤廃し、25歳以上のすべての男子に選挙権が付与された。有権者は約330万人から約1,240万人へと約4倍に拡大。同時に治安維持法も成立し、社会運動への弾圧が強化された。",
+  },
+  {
+    year: "1932",
+    tag: "政党政治の終焉",
+    title: "五・一五事件と政党内閣の崩壊",
+    description:
+      "海軍青年将校らが犬養毅首相を暗殺。以後、軍部の台頭により政党内閣は終わりを迎え、軍人や官僚を中心とする挙国一致内閣が続いた。帝国議会は形骸化し、軍部の意向が政策を左右する時代に突入した。",
+  },
+  {
+    year: "1945",
+    tag: "終戦と民主化",
+    title: "ポツダム宣言受諾と戦後改革",
+    description:
+      "日本がポツダム宣言を受諾し終戦。GHQ（連合国軍最高司令官総司令部）の指導のもと民主化改革が進められた。女性参政権が認められ、1946年4月の総選挙で初めて女性が投票・立候補し、39名の女性議員が誕生した。",
+  },
+  {
+    year: "1947",
+    tag: "日本国憲法",
+    title: "日本国憲法の施行と国会の誕生",
+    description:
+      "日本国憲法が施行され、国会は「国権の最高機関」かつ「唯一の立法機関」と位置づけられた。貴族院は廃止され参議院に替わり、主権は天皇から国民へ移った。現在の二院制がここに始まる。",
+  },
+  {
+    year: "1955",
+    tag: "55年体制",
+    title: "自由民主党の結党と55年体制の成立",
+    description:
+      "自由党と日本民主党が合併し自由民主党が誕生（保守合同）。左右に分裂していた社会党も統一され、自民党と社会党の二大政党制（55年体制）が確立。以後38年間、自民党が一貫して政権を担い、高度経済成長を推進した。",
+  },
+  {
+    year: "1993",
+    tag: "55年体制の崩壊",
+    title: "非自民連立政権の誕生",
+    description:
+      "自民党が分裂し、日本新党の細川護熙を首班とする非自民・非共産の連立政権が成立。55年体制が崩壊し、小選挙区比例代表並立制が導入された。以後、政党の離合集散が繰り返される流動的な政治状況が続く。",
+  },
+  {
+    year: "2009",
+    tag: "政権交代",
+    title: "民主党への政権交代",
+    description:
+      "民主党が衆議院選挙で308議席を獲得し歴史的大勝。鳩山由紀夫内閣が発足し、戦後初の本格的な政権交代が実現した。しかし普天間基地問題、東日本大震災への対応などで支持を失い、2012年に自民党が政権を奪還。",
+  },
+  {
+    year: "2012",
+    tag: "自民党復権",
+    title: "安倍内閣の発足とアベノミクス",
+    description:
+      "第2次安倍内閣が発足。大胆な金融緩和・機動的な財政政策・成長戦略の「三本の矢」（アベノミクス）で経済再生を推進した。安倍晋三は連続在職日数2,822日を記録し憲政史上最長の首相となったが、2020年に体調不良で辞任。",
+  },
+  {
+    year: "2025–26",
+    tag: "現在",
+    title: "高市内閣と第221回国会",
+    description:
+      "2025年10月の自民党総裁選で高市早苗が史上初の女性総裁に選出され、第1次高市内閣が発足。2026年2月の第51回衆院選で自民党が316議席を獲得し歴史的大勝。現在、第221回特別国会が開会中。経済安全保障、防衛力強化、少子化対策が主要課題。",
+  },
+];
+
 export const metadata: Metadata = {
   title: "国会 — 衆議院・参議院の構成",
   description:
@@ -129,6 +230,62 @@ export default function DietPage() {
           title={`参議院 (${COUNCIL_TOTAL}議席)`}
         />
         <CoalitionIndicator parties={houseOfCouncillors} total={COUNCIL_TOTAL} />
+      </div>
+
+      {/* ━━━ 国会の歴史 ━━━ */}
+      <div className="flex items-center gap-4 mb-6 mt-14">
+        <div>
+          <h2 className="font-serif text-2xl font-bold flex items-center gap-2">
+            <span className="w-1.5 h-5 bg-brief-red rounded-full inline-block" />
+            国会の歴史
+          </h2>
+          <span className="text-[10px] tracking-[2px] uppercase text-foreground/30 ml-3.5">
+            History of the National Diet
+          </span>
+        </div>
+        <div className="flex-1 h-px bg-brief-border dark:bg-white/10" />
+      </div>
+
+      <p className="text-sm text-foreground/50 leading-relaxed mb-8">
+        明治維新から現代まで、日本の議会制度は約150年の歴史を持ちます。
+        自由民権運動による国会開設の要求から、帝国議会の誕生、戦後の新憲法下での国会の再出発まで、その歩みを時系列で辿ります。
+      </p>
+
+      {/* Timeline */}
+      <div className="relative pl-8">
+        {/* Vertical line */}
+        <div className="absolute left-[11px] top-0 bottom-0 w-px bg-white/10" />
+
+        {dietHistory.map((era, i) => (
+          <div key={era.year} className="relative pb-10 last:pb-0">
+            {/* Dot */}
+            <div
+              className={`absolute left-[-25px] top-1 w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                i === 0
+                  ? "bg-brief-red border-brief-red"
+                  : "bg-background border-white/20"
+              }`}
+            >
+              {i === 0 && (
+                <div className="w-2 h-2 rounded-full bg-white" />
+              )}
+            </div>
+
+            {/* Content */}
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-sm font-bold tabular-nums text-brief-red">{era.year}</span>
+                <span className="text-[9px] tracking-wider uppercase px-2 py-0.5 rounded-full bg-foreground/5 text-foreground/30 font-medium">
+                  {era.tag}
+                </span>
+              </div>
+              <h3 className="font-serif text-lg font-bold leading-snug">{era.title}</h3>
+              <p className="mt-1.5 text-sm text-foreground/50 leading-relaxed">
+                {era.description}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Disclaimer */}
