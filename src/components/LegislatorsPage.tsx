@@ -282,6 +282,53 @@ function PartyCard({
 
 /* ────────── Party Browser Section ────────── */
 
+function MemberRow({ leg, partyColors }: { leg: Legislator; partyColors?: Record<string, string> }) {
+  return (
+    <div className="px-5 py-3 flex items-center gap-4">
+      <div className="w-9 h-9 rounded-full bg-foreground/5 flex items-center justify-center flex-shrink-0">
+        <span className="text-sm font-serif font-bold text-foreground/30">
+          {leg.name.charAt(0)}
+        </span>
+      </div>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2">
+          {partyColors && (
+            <div
+              className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+              style={{ backgroundColor: partyColors[leg.party] || "#999" }}
+            />
+          )}
+          <span className="font-medium text-sm">{leg.name}</span>
+          <span className="text-xs text-foreground/25">{leg.nameEn}</span>
+          {partyColors && (
+            <span className="text-[9px] tracking-wider uppercase px-1.5 py-0.5 bg-foreground/5 rounded-full text-foreground/35">
+              {leg.chamber === "house" ? "衆" : "参"}
+            </span>
+          )}
+        </div>
+        <div className="text-xs text-foreground/35 mt-0.5">
+          {partyColors && <span style={{ color: partyColors[leg.party] || "#999" }}>{leg.party} · </span>}
+          {leg.role}
+        </div>
+      </div>
+      <div className="flex items-center gap-1 flex-shrink-0">
+        {leg.x && (
+          <a href={leg.x} target="_blank" rel="noopener noreferrer"
+            className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors">
+            <XIcon />
+          </a>
+        )}
+        {leg.website && (
+          <a href={leg.website} target="_blank" rel="noopener noreferrer"
+            className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors">
+            <WebIcon />
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function PartyBrowser({
   legislators,
   partyOrder,
@@ -294,12 +341,7 @@ function PartyBrowser({
   partyInfoList: PartyInfo[];
 }) {
   const [selectedParty, setSelectedParty] = useState<string | null>(null);
-  const [selectedChamber, setSelectedChamber] = useState<"house" | "council" | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-
-  const filtered = legislators.filter(
-    (l) => l.party === selectedParty && l.chamber === selectedChamber
-  );
 
   const searchResults = searchQuery.length > 0
     ? legislators.filter((leg) => {
@@ -309,13 +351,7 @@ function PartyBrowser({
     : [];
 
   const handlePartyClick = (party: string) => {
-    if (selectedParty === party) {
-      setSelectedParty(null);
-      setSelectedChamber(null);
-    } else {
-      setSelectedParty(party);
-      setSelectedChamber(null);
-    }
+    setSelectedParty(selectedParty === party ? null : party);
   };
 
   const partyInfoMap = new Map(partyInfoList.map((p) => [p.name, p]));
@@ -361,177 +397,69 @@ function PartyBrowser({
           ) : (
             <div className="divide-y divide-brief-border dark:divide-white/5">
               {searchResults.map((leg) => (
-                <div key={leg.nameEn} className="px-5 py-3 flex items-center gap-4">
-                  <div className="w-9 h-9 rounded-full bg-foreground/5 flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm font-serif font-bold text-foreground/30">
-                      {leg.name.charAt(0)}
-                    </span>
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: partyColors[leg.party] || "#999" }}
-                      />
-                      <span className="font-medium text-sm">{leg.name}</span>
-                      <span className="text-xs text-foreground/25">{leg.nameEn}</span>
-                      <span className="text-[9px] tracking-wider uppercase px-1.5 py-0.5 bg-foreground/5 rounded-full text-foreground/35">
-                        {leg.chamber === "house" ? "衆" : "参"}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2 mt-0.5">
-                      <span className="text-xs" style={{ color: partyColors[leg.party] || "#999" }}>{leg.party}</span>
-                      <span className="text-xs text-foreground/30">· {leg.role}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-1 flex-shrink-0">
-                    {leg.x && (
-                      <a href={leg.x} target="_blank" rel="noopener noreferrer"
-                        className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors">
-                        <XIcon />
-                      </a>
-                    )}
-                    {leg.website && (
-                      <a href={leg.website} target="_blank" rel="noopener noreferrer"
-                        className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors">
-                        <WebIcon />
-                      </a>
-                    )}
-                  </div>
-                </div>
+                <MemberRow key={leg.nameEn} leg={leg} partyColors={partyColors} />
               ))}
             </div>
           )}
         </div>
       ) : (
-      <>
-      {/* Party Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div className="space-y-4">
         {partyOrder.map((party) => {
           const info = partyInfoMap.get(party);
           if (!info) return null;
-          const houseCount = legislators.filter((l) => l.party === party && l.chamber === "house").length;
-          const councilCount = legislators.filter((l) => l.party === party && l.chamber === "council").length;
+          const houseMembers = legislators.filter((l) => l.party === party && l.chamber === "house");
+          const councilMembers = legislators.filter((l) => l.party === party && l.chamber === "council");
+          const isOpen = selectedParty === party;
+
           return (
-            <PartyCard
-              key={party}
-              party={info}
-              memberCount={{ house: houseCount, council: councilCount }}
-              isSelected={selectedParty === party}
-              onClick={() => handlePartyClick(party)}
-            />
+            <div key={party}>
+              <PartyCard
+                party={info}
+                memberCount={{ house: houseMembers.length, council: councilMembers.length }}
+                isSelected={isOpen}
+                onClick={() => handlePartyClick(party)}
+              />
+
+              {/* Inline accordion: members appear directly below the card */}
+              {isOpen && (
+                <div className="mt-1 border border-brief-border dark:border-white/5 rounded-xl overflow-hidden"
+                  style={{ borderTop: `3px solid ${partyColors[party] || "#999"}` }}>
+
+                  {/* 衆議院 */}
+                  {houseMembers.length > 0 && (
+                    <>
+                      <div className="px-5 py-2.5 bg-foreground/[0.02] flex items-center gap-2">
+                        <span className="text-xs font-bold text-foreground/50">衆議院</span>
+                        <span className="text-[10px] text-foreground/25">{houseMembers.length}名</span>
+                      </div>
+                      <div className="divide-y divide-brief-border dark:divide-white/5">
+                        {houseMembers.map((leg) => (
+                          <MemberRow key={leg.nameEn} leg={leg} />
+                        ))}
+                      </div>
+                    </>
+                  )}
+
+                  {/* 参議院 */}
+                  {councilMembers.length > 0 && (
+                    <>
+                      <div className="px-5 py-2.5 bg-foreground/[0.02] flex items-center gap-2 border-t border-brief-border dark:border-white/5">
+                        <span className="text-xs font-bold text-foreground/50">参議院</span>
+                        <span className="text-[10px] text-foreground/25">{councilMembers.length}名</span>
+                      </div>
+                      <div className="divide-y divide-brief-border dark:divide-white/5">
+                        {councilMembers.map((leg) => (
+                          <MemberRow key={leg.nameEn} leg={leg} />
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
           );
         })}
       </div>
-
-      {/* Chamber selection */}
-      {selectedParty && !selectedChamber && (
-        <div className="p-6 border border-brief-border dark:border-white/5 rounded-xl">
-          <p className="text-sm text-foreground/40 mb-4">
-            <span className="font-bold text-foreground">{selectedParty}</span> の議員を表示する院を選んでください
-          </p>
-          <div className="flex gap-3">
-            <button
-              onClick={() => setSelectedChamber("house")}
-              className="flex-1 p-4 rounded-xl border border-brief-border dark:border-white/5 hover:border-foreground/20 dark:hover:border-white/20 transition-all text-left"
-            >
-              <div className="font-serif font-bold text-lg">衆議院</div>
-              <div className="text-xs text-foreground/30 mt-0.5">House of Representatives</div>
-              <div className="text-xs text-foreground/40 mt-2">
-                {legislators.filter((l) => l.party === selectedParty && l.chamber === "house").length}名
-              </div>
-            </button>
-            <button
-              onClick={() => setSelectedChamber("council")}
-              className="flex-1 p-4 rounded-xl border border-brief-border dark:border-white/5 hover:border-foreground/20 dark:hover:border-white/20 transition-all text-left"
-            >
-              <div className="font-serif font-bold text-lg">参議院</div>
-              <div className="text-xs text-foreground/30 mt-0.5">House of Councillors</div>
-              <div className="text-xs text-foreground/40 mt-2">
-                {legislators.filter((l) => l.party === selectedParty && l.chamber === "council").length}名
-              </div>
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Member list */}
-      {selectedParty && selectedChamber && (
-        <div className="border border-brief-border dark:border-white/5 rounded-xl overflow-hidden">
-          {/* Header */}
-          <div
-            className="px-5 py-3 flex items-center justify-between"
-            style={{ borderLeft: `4px solid ${partyColors[selectedParty] || "#999"}` }}
-          >
-            <div className="flex items-center gap-3">
-              <div
-                className="w-3 h-3 rounded-sm flex-shrink-0"
-                style={{ backgroundColor: partyColors[selectedParty] || "#999" }}
-              />
-              <h3 className="font-serif font-bold text-lg">{selectedParty}</h3>
-              <span className="text-xs text-foreground/30">
-                {selectedChamber === "house" ? "衆議院" : "参議院"}
-              </span>
-              <span className="text-xs text-foreground/20">
-                {filtered.length}名
-              </span>
-            </div>
-            <button
-              onClick={() => setSelectedChamber(null)}
-              className="text-xs text-foreground/40 hover:text-foreground transition-colors flex items-center gap-1"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-              院を変更
-            </button>
-          </div>
-
-          {filtered.length === 0 ? (
-            <div className="px-5 py-8 text-center text-sm text-foreground/30">
-              該当する議員データがありません
-            </div>
-          ) : (
-            <div className="divide-y divide-brief-border dark:divide-white/5">
-              {filtered.map((leg) => (
-                <div key={leg.nameEn} className="px-5 py-3 flex items-center gap-4">
-                  <div className="w-9 h-9 rounded-full bg-foreground/5 flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm font-serif font-bold text-foreground/30">
-                      {leg.name.charAt(0)}
-                    </span>
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="font-medium text-sm">{leg.name}</span>
-                      <span className="text-xs text-foreground/25">{leg.nameEn}</span>
-                    </div>
-                    <div className="text-xs text-foreground/35 mt-0.5">{leg.role}</div>
-                  </div>
-
-                  <div className="flex items-center gap-1 flex-shrink-0">
-                    {leg.x && (
-                      <a href={leg.x} target="_blank" rel="noopener noreferrer"
-                        className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors">
-                        <XIcon />
-                      </a>
-                    )}
-                    {leg.website && (
-                      <a href={leg.website} target="_blank" rel="noopener noreferrer"
-                        className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors">
-                        <WebIcon />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
-      </>
       )}
     </section>
   );
