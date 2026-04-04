@@ -2,8 +2,7 @@
 
 import { useEffect } from "react";
 
-// Replace with your actual AdSense publisher ID after approval
-const ADSENSE_PUB_ID = "ca-pub-XXXXXXXXXXXXXXXX";
+const ADSENSE_PUB_ID = "ca-pub-6798688011773123";
 
 export function AdBanner({
   slot,
