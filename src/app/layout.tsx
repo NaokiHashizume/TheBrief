@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -8,6 +8,16 @@ const SITE_URL = "https://thebrief.info";
 const SITE_NAME = "The Brief";
 const SITE_DESCRIPTION =
   "日本の政治経済・金融から業界情報、テクノロジー・AI、ライフスタイルまで。シンプルに届けるニュース&オピニオン。";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafaf8" },
+    { media: "(prefers-color-scheme: dark)", color: "#111111" },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -34,6 +44,7 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
+  manifest: "/manifest.json",
   openGraph: {
     type: "website",
     locale: "ja_JP",
@@ -41,6 +52,14 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: "The Brief — Politics · Economy · Industry · Trends",
     description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "The Brief — Politics · Economy · Industry · Trends",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -48,6 +67,7 @@ export const metadata: Metadata = {
     creator: "@thebrief_info",
     title: "The Brief — Politics · Economy · Industry · Trends",
     description: SITE_DESCRIPTION,
+    images: ["/twitter-image"],
   },
   alternates: {
     canonical: SITE_URL,
@@ -104,8 +124,11 @@ export default function RootLayout({
         style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
       >
         <ThemeProvider>
+          <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-brief-red focus:text-white focus:rounded-md focus:text-sm">
+            メインコンテンツへスキップ
+          </a>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

@@ -9,14 +9,14 @@ function DiagramCard({
   children: React.ReactNode;
 }) {
   return (
-    <div className="my-8 rounded-2xl border border-foreground/[0.05] bg-gradient-to-br from-foreground/[0.015] to-transparent overflow-hidden">
+    <figure className="my-8 rounded-2xl border border-foreground/[0.05] bg-gradient-to-br from-foreground/[0.015] to-transparent overflow-hidden" role="img" aria-label={`図表: ${label}`}>
       <div className="px-5 sm:px-6 pt-5 pb-1">
         <div className="text-[10px] tracking-[2.5px] uppercase text-[#3b82f6]/40 font-semibold">
           {label}
         </div>
       </div>
       <div className="px-5 sm:px-6 pb-6">{children}</div>
-    </div>
+    </figure>
   );
 }
 

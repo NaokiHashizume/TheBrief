@@ -62,17 +62,19 @@ export default async function StoryPage({
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "Story", href: "/" },
+          { name: story.categoryLabel, href: `/${story.category}` },
           { name: story.title, href: `/story/${story.slug}` },
         ]}
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-8">
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-foreground/50 mb-8">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-        <span>/</span>
-        <span>Story</span>
-      </div>
+        <span aria-hidden="true">/</span>
+        <Link href={`/${story.category}`} className="hover:text-foreground transition-colors">{story.categoryLabel}</Link>
+        <span aria-hidden="true">/</span>
+        <span className="text-foreground/70">Story</span>
+      </nav>
 
       {/* Header */}
       <div className="mb-10">
@@ -102,6 +104,10 @@ export default async function StoryPage({
 
         <div className="mt-4 flex items-center gap-4 text-xs text-foreground/45">
           <span>{story.episodes.length} episodes</span>
+          <span>·</span>
+          <span>
+            {story.episodes.reduce((sum, ep) => sum + (parseInt(ep.readTime) || 5), 0)} min read
+          </span>
           <span>·</span>
           <span>Last updated: {story.lastUpdated}</span>
         </div>

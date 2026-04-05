@@ -5,6 +5,8 @@ export const dynamic = "force-static";
 import { debates } from "@/lib/debates";
 import { enactedItems } from "@/lib/enacted";
 import { passedItems } from "@/lib/passed";
+import { ictArticles } from "@/lib/ict";
+import { economyArticles } from "@/lib/economyArticles";
 
 const SITE_URL = "https://thebrief.info";
 
@@ -61,11 +63,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Economy & Industry pages
+  // Economy & Industry section pages
   const sectionPages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/economy`, lastModified: now, changeFrequency: "daily" as const, priority: 0.9 },
     { url: `${SITE_URL}/industry`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${SITE_URL}/industry/ict`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
   ];
+
+  // ICT article pages
+  const ictArticlePages: MetadataRoute.Sitemap = ictArticles.map((a) => ({
+    url: `${SITE_URL}/industry/ict/${a.slug}`,
+    lastModified: new Date(a.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  // Economy article pages
+  const economyArticlePages: MetadataRoute.Sitemap = economyArticles.map((a) => ({
+    url: `${SITE_URL}/economy/${a.slug}`,
+    lastModified: new Date(a.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
 
   return [
     ...staticPages,
@@ -75,5 +94,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...passedPages,
     ...enactedPages,
     ...storyPages,
+    ...ictArticlePages,
+    ...economyArticlePages,
   ];
 }

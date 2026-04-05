@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Logo } from "@/components/Logo";
 
 export const metadata: Metadata = {
@@ -64,7 +65,7 @@ export default function About() {
           <h2 className="font-serif text-lg font-bold text-foreground mb-3">Contact</h2>
           <p>
             ご質問やフィードバックは
-            <a href="/contact" className="text-brief-red hover:underline">お問い合わせページ</a>
+            <Link href="/contact" className="text-brief-red hover:underline">お問い合わせページ</Link>
             からお送りください。
           </p>
         </section>
