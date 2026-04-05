@@ -4,7 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { tradingArticles } from "@/lib/trading";
 
 export const metadata: Metadata = {
-  title: "商社・卸売り — Industry",
+  title: "商社・卸売 — Industry",
   description:
     "総合商社、専門商社、卸売業。資源・食料・素材のグローバル取引から小売戦略まで、商社・卸売業界の最新動向と解説記事。",
   alternates: { canonical: "https://thebrief.info/industry/trading" },
@@ -28,7 +28,7 @@ export default function TradingPage() {
         items={[
           { name: "Home", href: "/" },
           { name: "Industry", href: "/industry" },
-          { name: "商社・卸売り", href: "/industry/trading" },
+          { name: "商社・卸売", href: "/industry/trading" },
         ]}
       />
 
@@ -42,7 +42,7 @@ export default function TradingPage() {
           Industry
         </Link>
         <span>/</span>
-        <span>商社・卸売り</span>
+        <span>商社・卸売</span>
       </div>
 
       {/* Header */}
@@ -57,7 +57,7 @@ export default function TradingPage() {
             </svg>
           </div>
           <div>
-            <h1 className="font-serif text-2xl md:text-3xl font-bold">商社・卸売り</h1>
+            <h1 className="font-serif text-2xl md:text-3xl font-bold">商社・卸売</h1>
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
               Trading & Wholesale
             </span>

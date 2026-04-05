@@ -29,7 +29,7 @@ export async function generateMetadata({
   if (!article) return { title: "Article Not Found" };
 
   return {
-    title: `${article.title} — 商社・卸売り`,
+    title: `${article.title} — 商社・卸売`,
     description: article.summary,
     alternates: {
       canonical: `https://thebrief.info/industry/trading/${article.slug}`,
@@ -80,7 +80,7 @@ export default async function TradingArticlePage({
         items={[
           { name: "Home", href: "/" },
           { name: "Industry", href: "/industry" },
-          { name: "商社・卸売り", href: "/industry/trading" },
+          { name: "商社・卸売", href: "/industry/trading" },
           { name: article.title, href: `/industry/trading/${article.slug}` },
         ]}
       />
@@ -96,7 +96,7 @@ export default async function TradingArticlePage({
         </Link>
         <span>/</span>
         <Link href="/industry/trading" className="hover:text-foreground transition-colors">
-          商社・卸売り
+          商社・卸売
         </Link>
       </div>
 
@@ -104,7 +104,7 @@ export default async function TradingArticlePage({
       <header className="mb-10">
         <div className="flex items-center gap-2 mb-3 flex-wrap">
           <span className="category-pill text-[#78716c] font-medium">
-            商社・卸売り
+            商社・卸売
           </span>
           {article.tags.map((tag) => (
             <span
@@ -269,7 +269,7 @@ export default async function TradingArticlePage({
             href="/industry/trading"
             className="inline-flex items-center gap-2 text-sm text-[#78716c] hover:underline"
           >
-            ← 商社・卸売りの記事一覧へ
+            ← 商社・卸売の記事一覧へ
           </Link>
         </div>
       </div>

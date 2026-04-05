@@ -21,7 +21,7 @@ const industries: IndustryData[] = [
   {
     slug: "retail",
     label: "Retail",
-    labelJa: "小売り",
+    labelJa: "小売",
     marketSize: 154.2,
     color: "#14b8a6",
     topCompanies: [
@@ -33,7 +33,7 @@ const industries: IndustryData[] = [
   {
     slug: "trading",
     label: "Trading & Wholesale",
-    labelJa: "商社・卸売り",
+    labelJa: "商社・卸売",
     marketSize: 118.5,
     color: "#78716c",
     topCompanies: [

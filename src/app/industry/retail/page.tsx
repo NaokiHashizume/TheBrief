@@ -4,7 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { retailArticles } from "@/lib/retail";
 
 export const metadata: Metadata = {
-  title: "小売り — Industry",
+  title: "小売 — Industry",
   description:
     "スーパー、コンビニ、百貨店、ドラッグストアなど小売業界全般の動向と解説記事。",
   alternates: { canonical: "https://thebrief.info/industry/retail" },
@@ -17,7 +17,7 @@ export default function RetailPage() {
         items={[
           { name: "Home", href: "/" },
           { name: "Industry", href: "/industry" },
-          { name: "小売り", href: "/industry/retail" },
+          { name: "小売", href: "/industry/retail" },
         ]}
       />
 
@@ -34,7 +34,7 @@ export default function RetailPage() {
           Industry
         </Link>
         <span>/</span>
-        <span>小売り</span>
+        <span>小売</span>
       </div>
 
       {/* Header */}
@@ -61,7 +61,7 @@ export default function RetailPage() {
           </div>
           <div>
             <h1 className="font-serif text-2xl md:text-3xl font-bold">
-              小売り
+              小売
             </h1>
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/40">
               Retail

@@ -6,14 +6,14 @@ import { IndustryBubbleChart } from "@/components/IndustryBubbleChart";
 export const metadata: Metadata = {
   title: "Industry — 業界別ニュース",
   description:
-    "小売り・自動車・金融・情報通信・医薬品など、日本の主要17業界の最新動向をまとめます。",
+    "小売・自動車・金融・情報通信・医薬品など、日本の主要17業界の最新動向をまとめます。",
   alternates: { canonical: "https://thebrief.info/industry" },
 };
 
 const industries = [
   {
     slug: "retail",
-    title: "小売り",
+    title: "小売",
     titleEn: "Retail",
     description: "スーパー、コンビニ、百貨店、ドラッグストアなど小売業界全般の動向。",
     icon: (
@@ -102,7 +102,7 @@ const industries = [
   },
   {
     slug: "trading",
-    title: "商社・卸売り",
+    title: "商社・卸売",
     titleEn: "Trading & Wholesale",
     description: "総合商社、専門商社、卸売業。資源・食料・素材のグローバル取引。",
     icon: (

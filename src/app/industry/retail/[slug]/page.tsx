@@ -28,7 +28,7 @@ export async function generateMetadata({
   if (!article) return { title: "Article Not Found" };
 
   return {
-    title: `${article.title} — 小売り`,
+    title: `${article.title} — 小売`,
     description: article.summary,
     alternates: {
       canonical: `https://thebrief.info/industry/retail/${article.slug}`,
@@ -119,7 +119,7 @@ export default async function RetailArticlePage({
         items={[
           { name: "Home", href: "/" },
           { name: "Industry", href: "/industry" },
-          { name: "小売り", href: "/industry/retail" },
+          { name: "小売", href: "/industry/retail" },
           {
             name: article.title,
             href: `/industry/retail/${article.slug}`,
@@ -144,7 +144,7 @@ export default async function RetailArticlePage({
           href="/industry/retail"
           className="hover:text-foreground transition-colors"
         >
-          小売り
+          小売
         </Link>
       </div>
 
@@ -152,7 +152,7 @@ export default async function RetailArticlePage({
       <header className="mb-10">
         <div className="flex items-center gap-2 mb-3 flex-wrap">
           <span className="category-pill text-[#14b8a6] font-medium">
-            小売り
+            小売
           </span>
           {article.tags.map((tag) => (
             <span
@@ -347,7 +347,7 @@ export default async function RetailArticlePage({
             href="/industry/retail"
             className="inline-flex items-center gap-2 text-sm text-[#14b8a6] hover:underline"
           >
-            ← 小売りの記事一覧へ
+            ← 小売の記事一覧へ
           </Link>
         </div>
       </div>
