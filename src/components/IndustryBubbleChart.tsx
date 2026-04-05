@@ -174,18 +174,6 @@ const industries: IndustryData[] = [
     ],
   },
   {
-    slug: "corporate",
-    label: "Corporate & Earnings",
-    labelJa: "企業・業績",
-    marketSize: 22.8,
-    color: "#475569",
-    topCompanies: [
-      { name: "ソニーグループ", share: 12.4 },
-      { name: "日立製作所", share: 11.8 },
-      { name: "パナソニック HD", share: 7.5 },
-    ],
-  },
-  {
     slug: "specialty",
     label: "Specialty & EC",
     labelJa: "専門店・EC",

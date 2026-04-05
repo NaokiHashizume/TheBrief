@@ -207,18 +207,6 @@ const industries = [
     color: "#64748b",
   },
   {
-    slug: "corporate",
-    title: "企業・業績",
-    titleEn: "Corporate & Earnings",
-    description: "主要企業の決算、M&A、経営戦略、ガバナンス、ESG。",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" />
-      </svg>
-    ),
-    color: "#475569",
-  },
-  {
     slug: "logistics",
     title: "物流・運輸",
     titleEn: "Logistics & Transport",
