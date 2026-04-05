@@ -99,7 +99,7 @@ function RichText({ text }: { text: string }) {
               className="font-semibold text-foreground"
               style={{ textDecorationLine: "none" }}
             >
-              <span className="bg-foreground/[0.04] dark:bg-foreground/[0.08] px-1 py-0.5 rounded">
+              <span className="bg-[#3b82f6]/[0.07] dark:bg-[#3b82f6]/[0.15] px-1 py-0.5 rounded">
                 {part}
               </span>
             </strong>
@@ -220,14 +220,14 @@ export default async function IctArticlePage({
       <header className="mb-14">
         {/* Category + Tags */}
         <div className="flex items-center gap-2.5 mb-5 flex-wrap">
-          <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-foreground/30">
+          <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#3b82f6]/60">
             情報通信・ネット
           </span>
-          <span className="w-px h-3 bg-foreground/10" />
+          <span className="w-px h-3 bg-[#3b82f6]/15" />
           {article.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[10px] px-2.5 py-1 rounded-md bg-foreground/[0.03] text-foreground/45 font-medium tracking-wide border border-foreground/[0.04]"
+              className="text-[10px] px-2.5 py-1 rounded-md bg-[#3b82f6]/[0.05] text-[#3b82f6]/60 dark:text-[#60a5fa]/60 font-medium tracking-wide border border-[#3b82f6]/[0.08]"
             >
               {tag}
             </span>
@@ -247,7 +247,7 @@ export default async function IctArticlePage({
         )}
 
         {/* Summary */}
-        <p className="mt-6 text-[15px] text-foreground/55 leading-[1.9] border-l-2 border-foreground/[0.06] pl-5">
+        <p className="mt-6 text-[15px] text-foreground/65 leading-[1.9] border-l-2 border-[#3b82f6]/20 pl-5">
           {article.summary}
         </p>
 
@@ -280,9 +280,9 @@ export default async function IctArticlePage({
               <li key={i}>
                 <a
                   href={`#section-${i}`}
-                  className="group flex items-center gap-4 py-2.5 text-foreground/55 hover:text-foreground transition-colors"
+                  className="group flex items-center gap-4 py-2.5 text-foreground/65 hover:text-[#3b82f6] transition-colors"
                 >
-                  <span className="text-[11px] tabular-nums font-semibold text-foreground/20 group-hover:text-foreground/40 w-5 text-right transition-colors">
+                  <span className="text-[11px] tabular-nums font-semibold text-[#3b82f6]/30 group-hover:text-[#3b82f6]/60 w-5 text-right transition-colors">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="text-[13px] font-medium">{section.heading}</span>
@@ -307,7 +307,7 @@ export default async function IctArticlePage({
               {/* Section heading */}
               <div className="mb-8">
                 <div className="flex items-center gap-4 mb-3">
-                  <span className="text-[32px] sm:text-[40px] font-bold tabular-nums text-foreground/[0.04] leading-none select-none font-serif">
+                  <span className="text-[32px] sm:text-[40px] font-bold tabular-nums text-[#3b82f6]/[0.08] leading-none select-none font-serif">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="flex-1">
@@ -321,7 +321,7 @@ export default async function IctArticlePage({
                     )}
                   </div>
                 </div>
-                <div className="h-px bg-gradient-to-r from-foreground/8 via-foreground/4 to-transparent" />
+                <div className="h-px bg-gradient-to-r from-[#3b82f6]/15 via-[#3b82f6]/5 to-transparent" />
               </div>
 
               {/* Diagram */}
@@ -338,11 +338,10 @@ export default async function IctArticlePage({
                     return (
                       <div
                         key={j}
-                        className="my-8 relative"
+                        className="my-8 pl-5 py-4 rounded-r-lg bg-[#3b82f6]/[0.03] dark:bg-[#3b82f6]/[0.06] border-l-3 border-[#3b82f6]/25"
                       >
-                        <div className="absolute left-0 top-0 bottom-0 w-[2px] rounded-full bg-gradient-to-b from-foreground/15 via-foreground/8 to-transparent" />
-                        <div className="pl-6 py-1">
-                          <p className="text-[14px] text-foreground/60 leading-[1.9] italic">
+                        <div>
+                          <p className="text-[14px] text-foreground/70 leading-[1.9] italic">
                             <RichText text={calloutText} />
                           </p>
                         </div>
@@ -361,11 +360,11 @@ export default async function IctArticlePage({
                           key={j}
                           className="group pl-5 py-3 relative"
                         >
-                          <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-foreground/[0.06] group-hover:bg-foreground/[0.12] transition-colors" />
-                          <div className="text-[11px] font-bold text-foreground/50 tracking-wide mb-1.5 uppercase">
+                          <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-[#3b82f6]/20 group-hover:bg-[#3b82f6]/35 transition-colors" />
+                          <div className="text-[11px] font-bold text-[#3b82f6]/60 tracking-wide mb-1.5">
                             {label}
                           </div>
-                          <p className="text-[14px] text-foreground/65 leading-[1.9]">
+                          <p className="text-[14px] text-foreground/75 leading-[1.9]">
                             <RichText text={content} />
                           </p>
                         </div>
@@ -381,8 +380,8 @@ export default async function IctArticlePage({
                       key={j}
                       className={
                         isLead
-                          ? "text-[16px] text-foreground/75 leading-[2] first-letter:text-[2em] first-letter:font-serif first-letter:font-bold first-letter:text-foreground/30 first-letter:float-left first-letter:mr-1 first-letter:mt-1 first-letter:leading-[0.8]"
-                          : "text-[15px] text-foreground/60 leading-[2]"
+                          ? "text-[16px] text-foreground/80 leading-[2] tracking-[0.02em] first-letter:text-[2em] first-letter:font-serif first-letter:font-bold first-letter:text-[#3b82f6]/40 first-letter:float-left first-letter:mr-1 first-letter:mt-1 first-letter:leading-[0.8]"
+                          : "text-[15px] text-foreground/75 leading-[2] tracking-[0.02em]"
                       }
                     >
                       <RichText text={trimmed} />

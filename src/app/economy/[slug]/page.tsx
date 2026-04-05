@@ -48,6 +48,48 @@ export async function generateMetadata({
   };
 }
 
+/* Inline rich text renderer: **bold**, 「quotes」 */
+function RichText({ text }: { text: string }) {
+  const parts = text.split(/\*\*(.*?)\*\*/);
+  return (
+    <>
+      {parts.map((part, k) => {
+        if (k % 2 === 1) {
+          return (
+            <strong key={k} className="font-semibold text-foreground">
+              <span className="bg-[#f59e0b]/[0.08] dark:bg-[#f59e0b]/[0.15] px-1 py-0.5 rounded">
+                {part}
+              </span>
+            </strong>
+          );
+        }
+        const quoteParts = part.split(/(「[^」]+」)/);
+        return (
+          <span key={k}>
+            {quoteParts.map((qp, qi) => {
+              if (qp.startsWith("「") && qp.endsWith("」")) {
+                return <span key={qi} className="text-foreground/90 font-medium">{qp}</span>;
+              }
+              return <span key={qi}>{qp}</span>;
+            })}
+          </span>
+        );
+      })}
+    </>
+  );
+}
+
+/* Diagram renderer mapped by ID */
+const diagramMap: Record<string, React.FC> = {
+  "crisis-timeline": CrisisTimelineDiagram,
+  "oil-dependency": OilDependencyDiagram,
+  "economic-impact": EconomicImpactDiagram,
+  "oil-reserves": OilReservesDiagram,
+  "industry-impact": IndustryImpactDiagram,
+  "historical-comparison": HistoricalComparisonDiagram,
+  "energy-strategy": EnergyStrategyDiagram,
+};
+
 export default async function EconomyArticlePage({
   params,
 }: {
@@ -65,7 +107,7 @@ export default async function EconomyArticlePage({
       : null;
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
+    <div className="max-w-[720px] mx-auto px-5 sm:px-6 py-16">
       <ArticleJsonLd
         title={article.title}
         description={article.summary}
@@ -83,160 +125,185 @@ export default async function EconomyArticlePage({
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-8 flex-wrap">
-        <Link href="/" className="hover:text-foreground transition-colors">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/economy" className="hover:text-foreground transition-colors">
-          Economy
-        </Link>
-      </div>
+      <nav className="flex items-center gap-1.5 text-[11px] text-foreground/40 mb-12 font-medium tracking-wide">
+        <Link href="/" className="hover:text-foreground/70 transition-colors">Home</Link>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-30"><path d="M9 18l6-6-6-6"/></svg>
+        <Link href="/economy" className="hover:text-foreground/70 transition-colors">Economy</Link>
+      </nav>
 
-      {/* Header */}
-      <header className="mb-10">
-        <div className="flex items-center gap-2 mb-3 flex-wrap">
-          <span className="category-pill text-[#f59e0b] font-medium">
+      {/* ── Hero Header ── */}
+      <header className="mb-14">
+        <div className="flex items-center gap-2.5 mb-5 flex-wrap">
+          <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#f59e0b]/60">
             Economy
           </span>
+          <span className="w-px h-3 bg-[#f59e0b]/15" />
           {article.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[9px] px-2 py-0.5 rounded-full bg-[#f59e0b]/8 text-[#f59e0b]/70 font-medium"
+              className="text-[10px] px-2.5 py-1 rounded-md bg-[#f59e0b]/[0.06] text-[#f59e0b]/70 dark:text-[#fbbf24]/60 font-medium tracking-wide border border-[#f59e0b]/[0.1]"
             >
               {tag}
             </span>
           ))}
         </div>
 
-        <h1 className="font-serif text-2xl md:text-3xl font-bold leading-tight">
+        <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">
           {article.title}
         </h1>
 
-        <p className="mt-4 text-foreground/60 leading-relaxed text-sm">
+        {article.titleEn && (
+          <p className="mt-2 text-[11px] tracking-[1px] text-foreground/25 font-medium uppercase">
+            {article.titleEn}
+          </p>
+        )}
+
+        <p className="mt-6 text-[15px] text-foreground/65 leading-[1.9] border-l-2 border-[#f59e0b]/20 pl-5">
           {article.summary}
         </p>
 
-        <div className="mt-4 flex items-center gap-4 text-xs text-foreground/45">
-          <time>{article.date}</time>
-          <span>·</span>
+        <div className="mt-6 flex items-center gap-5 text-[11px] text-foreground/35 font-medium">
+          <time className="tabular-nums">{article.date}</time>
+          <span className="w-1 h-1 rounded-full bg-foreground/15" />
           <span>{article.author}</span>
-          <span>·</span>
+          <span className="w-1 h-1 rounded-full bg-foreground/15" />
           <span>{article.readTime}</span>
         </div>
       </header>
 
-      <div className="h-px bg-brief-border mb-10" />
-
-      {/* Table of Contents */}
-      <nav className="mb-10 p-4 rounded-xl bg-brief-card border border-brief-border">
-        <h2 className="text-[10px] tracking-[2px] uppercase text-foreground/45 mb-3">
-          目次 / Contents
-        </h2>
-        <ol className="space-y-1.5">
-          {article.sections.map((section, i) => (
-            <li key={i}>
-              <a
-                href={`#section-${i}`}
-                className="flex items-start gap-2 text-sm text-foreground/70 hover:text-[#f59e0b] transition-colors"
-              >
-                <span className="text-foreground/30 tabular-nums flex-shrink-0">
-                  {i + 1}.
-                </span>
-                <span>{section.heading}</span>
-              </a>
-            </li>
-          ))}
-        </ol>
+      {/* ── Table of Contents ── */}
+      <nav className="mb-16 relative">
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-foreground/[0.02] to-foreground/[0.005]" />
+        <div className="relative p-6 sm:p-8 rounded-2xl border border-foreground/[0.05]">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-6 h-6 rounded-md bg-[#f59e0b]/[0.08] flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-[#f59e0b]/50">
+                <line x1="8" y1="6" x2="21" y2="6" /><line x1="8" y1="12" x2="21" y2="12" /><line x1="8" y1="18" x2="21" y2="18" /><line x1="3" y1="6" x2="3.01" y2="6" /><line x1="3" y1="12" x2="3.01" y2="12" /><line x1="3" y1="18" x2="3.01" y2="18" />
+              </svg>
+            </div>
+            <span className="text-[10px] tracking-[2.5px] uppercase text-foreground/30 font-semibold">Contents</span>
+          </div>
+          <ol className="space-y-0">
+            {article.sections.map((section, i) => (
+              <li key={i}>
+                <a
+                  href={`#section-${i}`}
+                  className="group flex items-center gap-4 py-2.5 text-foreground/65 hover:text-[#f59e0b] transition-colors"
+                >
+                  <span className="text-[11px] tabular-nums font-semibold text-[#f59e0b]/30 group-hover:text-[#f59e0b]/60 w-5 text-right transition-colors">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[13px] font-medium">{section.heading}</span>
+                </a>
+                {i < article.sections.length - 1 && (
+                  <div className="ml-[30px] h-px bg-foreground/[0.03]" />
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
       </nav>
 
-      {/* Article Content */}
+      {/* ── Article Content ── */}
       <article>
-        {article.sections.map((section, i) => (
-          <section key={i} id={`section-${i}`} className="mb-10 scroll-mt-20">
-            {/* Section heading */}
-            <div className="mb-4">
-              <h2 className="font-serif text-xl font-bold">
-                {section.heading}
-              </h2>
-              {section.headingEn && (
-                <span className="text-[9px] tracking-[1.5px] uppercase text-foreground/35">
-                  {section.headingEn}
-                </span>
-              )}
-            </div>
+        {article.sections.map((section, i) => {
+          const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
+          const DiagramComponent = section.diagramId ? diagramMap[section.diagramId] : null;
 
-            {/* Diagrams */}
-            {section.diagramId === "crisis-timeline" && <CrisisTimelineDiagram />}
-            {section.diagramId === "oil-dependency" && <OilDependencyDiagram />}
-            {section.diagramId === "economic-impact" && <EconomicImpactDiagram />}
-            {section.diagramId === "oil-reserves" && <OilReservesDiagram />}
-            {section.diagramId === "industry-impact" && <IndustryImpactDiagram />}
-            {section.diagramId === "historical-comparison" && (
-              <HistoricalComparisonDiagram />
-            )}
-            {section.diagramId === "energy-strategy" && <EnergyStrategyDiagram />}
+          return (
+            <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
+              {/* Section heading */}
+              <div className="mb-8">
+                <div className="flex items-center gap-4 mb-3">
+                  <span className="text-[32px] sm:text-[40px] font-bold tabular-nums text-[#f59e0b]/[0.1] leading-none select-none font-serif">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1">
+                    <h2 className="font-serif text-[22px] sm:text-[26px] font-bold leading-tight tracking-tight">
+                      {section.heading}
+                    </h2>
+                    {section.headingEn && (
+                      <span className="text-[10px] tracking-[2px] uppercase text-foreground/25 font-medium mt-0.5 block">
+                        {section.headingEn}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div className="h-px bg-gradient-to-r from-[#f59e0b]/15 via-[#f59e0b]/5 to-transparent" />
+              </div>
 
-            {/* Section body */}
-            <div className="space-y-4">
-              {section.body.split("\n\n").map((paragraph, j) => {
-                const trimmed = paragraph.trim();
-                if (!trimmed) return null;
+              {/* Diagram */}
+              {DiagramComponent && <DiagramComponent />}
 
-                // Handle 【heading】 style labels
-                if (trimmed.startsWith("\u3010")) {
-                  const bracketEnd = trimmed.indexOf("\u3011");
-                  const match =
-                    bracketEnd > 0
-                      ? [
-                          trimmed,
-                          trimmed.slice(1, bracketEnd),
-                          trimmed.slice(bracketEnd + 1),
-                        ]
-                      : null;
-                  if (match) {
+              {/* Section body */}
+              <div className="space-y-6">
+                {paragraphs.map((paragraph, j) => {
+                  const trimmed = paragraph.trim();
+                  if (!trimmed) return null;
+
+                  // Callout box
+                  if (trimmed.startsWith("> ")) {
+                    const calloutText = trimmed.slice(2);
                     return (
                       <div
                         key={j}
-                        className="pl-4 border-l-2 border-[#f59e0b]/20"
+                        className="my-8 pl-5 py-4 rounded-r-lg bg-[#f59e0b]/[0.04] dark:bg-[#f59e0b]/[0.06] border-l-3 border-[#f59e0b]/25"
                       >
-                        <div className="text-xs font-bold text-[#f59e0b]/80 mb-1">
-                          {match[1]}
-                        </div>
-                        <p className="text-[15px] text-foreground/75 leading-[1.85]">
-                          {match[2].trim()}
+                        <p className="text-[14px] text-foreground/70 leading-[1.9] italic">
+                          <RichText text={calloutText} />
                         </p>
                       </div>
                     );
                   }
-                }
 
-                // Regular paragraph
-                return (
-                  <p
-                    key={j}
-                    className="text-[15px] text-foreground/75 leading-[1.85]"
-                  >
-                    {trimmed}
-                  </p>
-                );
-              })}
-            </div>
+                  // 【bracket】labels
+                  if (trimmed.startsWith("【")) {
+                    const bracketEnd = trimmed.indexOf("】");
+                    if (bracketEnd > 0) {
+                      const label = trimmed.slice(1, bracketEnd);
+                      const content = trimmed.slice(bracketEnd + 1).trim();
+                      return (
+                        <div key={j} className="group pl-5 py-3 relative">
+                          <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-[#f59e0b]/20 group-hover:bg-[#f59e0b]/35 transition-colors" />
+                          <div className="text-[11px] font-bold text-[#f59e0b]/60 tracking-wide mb-1.5">
+                            {label}
+                          </div>
+                          <p className="text-[14px] text-foreground/75 leading-[1.9]">
+                            <RichText text={content} />
+                          </p>
+                        </div>
+                      );
+                    }
+                  }
 
-            {/* Divider between sections (except last) */}
-            {i < article.sections.length - 1 && (
-              <div className="mt-10 h-px bg-brief-border" />
-            )}
-          </section>
-        ))}
+                  // Lead paragraph
+                  const isLead = j === 0 || (j === 1 && paragraphs[0].trim().startsWith("> "));
+
+                  return (
+                    <p
+                      key={j}
+                      className={
+                        isLead
+                          ? "text-[16px] text-foreground/80 leading-[2] tracking-[0.02em] first-letter:text-[2em] first-letter:font-serif first-letter:font-bold first-letter:text-[#f59e0b]/40 first-letter:float-left first-letter:mr-1 first-letter:mt-1 first-letter:leading-[0.8]"
+                          : "text-[15px] text-foreground/75 leading-[2] tracking-[0.02em]"
+                      }
+                    >
+                      <RichText text={trimmed} />
+                    </p>
+                  );
+                })}
+              </div>
+            </section>
+          );
+        })}
       </article>
 
       {/* Sources */}
-      <div className="mt-14 p-5 rounded-xl border border-dashed border-brief-border">
-        <h3 className="text-sm font-medium mb-2 text-foreground/70">
+      <div className="mt-14 p-5 rounded-2xl border border-dashed border-foreground/[0.08]">
+        <h3 className="text-[11px] font-semibold mb-3 text-foreground/50 tracking-wide">
           参考資料・出典
         </h3>
-        <ul className="text-[11px] text-foreground/45 leading-relaxed space-y-1">
+        <ul className="text-[11px] text-foreground/40 leading-[1.8] space-y-1">
           <li>野村総合研究所（NRI）木内登英「イラン攻撃で高まる原油価格上昇リスクと日本経済への影響試算」2026年3月</li>
           <li>日本総合研究所「ホルムズ海峡封鎖に飛び火すれば140ドルに急騰、わが国GDPを3%下押しも」</li>
           <li>JETRO「日本のLNG輸入量のホルムズ海峡依存度は6.3%」2026年3月</li>
@@ -251,17 +318,18 @@ export default async function EconomyArticlePage({
       </div>
 
       {/* Article Navigation */}
-      <div className="mt-14 pt-8 border-t border-brief-border">
+      <div className="mt-20 pt-12 border-t border-foreground/[0.04]">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {prevArticle ? (
             <Link
               href={`/economy/${prevArticle.slug}`}
-              className="group p-4 rounded-xl border border-brief-border hover:border-[#f59e0b]/30 transition-colors"
+              className="group p-5 rounded-2xl border border-foreground/[0.05] hover:border-[#f59e0b]/20 transition-all hover:bg-foreground/[0.01]"
             >
-              <div className="text-[10px] uppercase tracking-wider text-foreground/40 mb-1">
-                ← 前の記事
+              <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[2px] text-foreground/30 mb-2 font-medium">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-40"><path d="M15 18l-6-6 6-6"/></svg>
+                Previous
               </div>
-              <div className="text-sm font-medium group-hover:text-[#f59e0b] transition-colors line-clamp-2">
+              <div className="text-[13px] font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors line-clamp-2 leading-relaxed">
                 {prevArticle.title}
               </div>
             </Link>
@@ -271,12 +339,13 @@ export default async function EconomyArticlePage({
           {nextArticle ? (
             <Link
               href={`/economy/${nextArticle.slug}`}
-              className="group p-4 rounded-xl border border-brief-border hover:border-[#f59e0b]/30 transition-colors text-right"
+              className="group p-5 rounded-2xl border border-foreground/[0.05] hover:border-[#f59e0b]/20 transition-all text-right hover:bg-foreground/[0.01]"
             >
-              <div className="text-[10px] uppercase tracking-wider text-foreground/40 mb-1">
-                次の記事 →
+              <div className="flex items-center justify-end gap-1.5 text-[10px] uppercase tracking-[2px] text-foreground/30 mb-2 font-medium">
+                Next
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-40"><path d="M9 18l6-6-6-6"/></svg>
               </div>
-              <div className="text-sm font-medium group-hover:text-[#f59e0b] transition-colors line-clamp-2">
+              <div className="text-[13px] font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors line-clamp-2 leading-relaxed">
                 {nextArticle.title}
               </div>
             </Link>
@@ -285,12 +354,13 @@ export default async function EconomyArticlePage({
           )}
         </div>
 
-        <div className="mt-6 text-center">
+        <div className="mt-8 text-center">
           <Link
             href="/economy"
-            className="inline-flex items-center gap-2 text-sm text-[#f59e0b] hover:underline"
+            className="inline-flex items-center gap-2 text-[12px] text-foreground/35 hover:text-foreground/60 transition-colors font-medium tracking-wide"
           >
-            ← Economy ダッシュボードへ
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-50"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Economy ダッシュボードへ
           </Link>
         </div>
       </div>

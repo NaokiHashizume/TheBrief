@@ -11,7 +11,7 @@ function DiagramCard({
   return (
     <div className="my-8 rounded-2xl border border-foreground/[0.05] bg-gradient-to-br from-foreground/[0.015] to-transparent overflow-hidden">
       <div className="px-5 sm:px-6 pt-5 pb-1">
-        <div className="text-[10px] tracking-[2.5px] uppercase text-foreground/25 font-semibold">
+        <div className="text-[10px] tracking-[2.5px] uppercase text-[#3b82f6]/40 font-semibold">
           {label}
         </div>
       </div>
