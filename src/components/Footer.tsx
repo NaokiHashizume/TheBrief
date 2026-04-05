@@ -32,7 +32,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-foreground/60">
               <li><a href="/politics" className="hover:text-foreground transition-colors">Politics</a></li>
               <li><a href="/economy" className="hover:text-foreground transition-colors">Economy</a></li>
-              <li><span className="text-foreground/30 cursor-default">Industry</span></li>
+              <li><a href="/industry" className="hover:text-foreground transition-colors">Industry</a></li>
               <li><span className="text-foreground/30 cursor-default">University</span></li>
             </ul>
           </div>

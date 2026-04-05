@@ -61,15 +61,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Economy page
-  const economyPages: MetadataRoute.Sitemap = [
+  // Economy & Industry pages
+  const sectionPages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/economy`, lastModified: now, changeFrequency: "daily" as const, priority: 0.9 },
+    { url: `${SITE_URL}/industry`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
   ];
 
   return [
     ...staticPages,
     ...politicsPages,
-    ...economyPages,
+    ...sectionPages,
     ...debatePages,
     ...passedPages,
     ...enactedPages,

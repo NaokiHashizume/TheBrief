@@ -69,9 +69,8 @@ const categories = [
     title: "Industry",
     titleJa: "業界",
     description: "AI・半導体・自動車・エネルギーなど各業界の最新情報",
-    href: "#",
+    href: "/industry",
     color: "#38a169",
-    comingSoon: true,
   },
   {
     title: "Lifestyle",

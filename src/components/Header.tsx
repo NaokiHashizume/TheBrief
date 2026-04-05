@@ -4,6 +4,7 @@ import { Logo } from "./Logo";
 const categories = [
   { label: "Politics", href: "/politics" },
   { label: "Economy", href: "/economy" },
+  { label: "Industry", href: "/industry" },
 ];
 
 export function Header() {
