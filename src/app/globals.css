@@ -18,18 +18,22 @@
 :root {
   --background: #fafaf8;
   --foreground: #1a1a1a;
-  --border-color: rgba(0, 0, 0, 0.06);
+  --border-color: rgba(0, 0, 0, 0.08);
   --card-color: #ffffff;
-  --muted-color: rgba(26, 26, 26, 0.45);
+  --muted-color: rgba(26, 26, 26, 0.5);
+  --sub-text: rgba(26, 26, 26, 0.55);
+  --faint-text: rgba(26, 26, 26, 0.45);
 }
 
 /* Dark theme */
 .dark {
   --background: #111111;
-  --foreground: #ededed;
-  --border-color: rgba(255, 255, 255, 0.08);
-  --card-color: rgba(255, 255, 255, 0.04);
-  --muted-color: rgba(237, 237, 237, 0.45);
+  --foreground: #e4e4e4;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-color: rgba(255, 255, 255, 0.05);
+  --muted-color: rgba(228, 228, 228, 0.5);
+  --sub-text: rgba(228, 228, 228, 0.6);
+  --faint-text: rgba(228, 228, 228, 0.5);
 }
 
 body {

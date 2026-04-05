@@ -93,7 +93,7 @@ export default function CabinetPage() {
         <div className="flex items-center gap-4 mb-6">
           <div>
             <h2 className="font-serif text-2xl font-bold">施政方針</h2>
-            <span className="text-[10px] tracking-[2px] uppercase text-foreground/40">
+            <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
               Policy Platform — 2026.2.20 Speech
             </span>
           </div>
@@ -118,11 +118,11 @@ export default function CabinetPage() {
               key={pillar.titleEn}
               className="p-5 rounded-xl border border-brief-border"
             >
-              <div className="text-foreground/35 mb-3">
+              <div className="text-foreground/45 mb-3">
                 <PillarIcon type={pillar.icon} />
               </div>
               <h3 className="font-serif text-lg font-bold">{pillar.title}</h3>
-              <span className="text-[9px] tracking-[1px] uppercase text-foreground/35">
+              <span className="text-[9px] tracking-[1px] uppercase text-foreground/45">
                 {pillar.titleEn}
               </span>
               <p className="mt-2 text-xs text-foreground/55 leading-relaxed">
@@ -146,7 +146,7 @@ export default function CabinetPage() {
         <div className="flex items-center gap-4 mb-6">
           <div>
             <h2 className="font-serif text-2xl font-bold">政策進捗</h2>
-            <span className="text-[10px] tracking-[2px] uppercase text-foreground/40">
+            <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
               Policy Tracker
             </span>
           </div>
@@ -170,7 +170,7 @@ export default function CabinetPage() {
               <div key={cat}>
                 <div className="flex items-center gap-3 mb-4">
                   <h3 className="font-serif text-base font-bold">{cat}</h3>
-                  <span className="text-[9px] tracking-[1px] uppercase text-foreground/35">{catEn}</span>
+                  <span className="text-[9px] tracking-[1px] uppercase text-foreground/45">{catEn}</span>
                   <div className="flex-1 h-px bg-foreground/5" />
                 </div>
 
@@ -197,17 +197,17 @@ export default function CabinetPage() {
 
                       <div className="flex items-start justify-between gap-4 mt-3">
                         <div className="flex-1 min-w-0">
-                          <div className="text-[10px] text-foreground/40 uppercase tracking-wider mb-0.5">Target</div>
+                          <div className="text-[10px] text-foreground/50 uppercase tracking-wider mb-0.5">Target</div>
                           <p className="text-xs text-foreground/60">{indicator.target}</p>
                         </div>
                         <div className="flex-1 min-w-0 text-right">
-                          <div className="text-[10px] text-foreground/40 uppercase tracking-wider mb-0.5">Current</div>
+                          <div className="text-[10px] text-foreground/50 uppercase tracking-wider mb-0.5">Current</div>
                           <p className="text-xs text-foreground/60">{indicator.current}</p>
                         </div>
                       </div>
 
                       <div className="mt-2 text-right">
-                        <span className="text-[9px] text-foreground/35 tabular-nums">
+                        <span className="text-[9px] text-foreground/45 tabular-nums">
                           {indicator.lastUpdated} 更新
                         </span>
                       </div>
@@ -225,7 +225,7 @@ export default function CabinetPage() {
         <div className="flex items-center gap-4 mb-6">
           <div>
             <h2 className="font-serif text-2xl font-bold">閣僚一覧</h2>
-            <span className="text-[10px] tracking-[2px] uppercase text-foreground/40">
+            <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
               Cabinet Members
             </span>
           </div>
@@ -258,7 +258,7 @@ export default function CabinetPage() {
                 </div>
                 <div className="text-right">
                   <div className="text-xs text-foreground/45">{member.nameEn}</div>
-                  <div className="text-xs text-foreground/40">{member.party}</div>
+                  <div className="text-xs text-foreground/50">{member.party}</div>
                 </div>
               </div>
             ))}

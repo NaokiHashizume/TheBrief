@@ -47,7 +47,7 @@ export default function IctPage() {
           </div>
           <div>
             <h1 className="font-serif text-2xl md:text-3xl font-bold">情報通信・ネット</h1>
-            <span className="text-[10px] tracking-[2px] uppercase text-foreground/40">
+            <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
               ICT & Internet
             </span>
           </div>

@@ -61,7 +61,7 @@ export default function DebatesPage() {
                 <h2 className="font-serif text-lg font-bold group-hover:text-brief-red transition-colors">
                   {debate.title}
                 </h2>
-                <span className="text-[9px] tracking-[1px] uppercase text-foreground/35">
+                <span className="text-[9px] tracking-[1px] uppercase text-foreground/45">
                   {debate.titleEn}
                 </span>
                 <p className="mt-2 text-sm text-foreground/45 leading-relaxed line-clamp-2">
@@ -90,7 +90,7 @@ export default function DebatesPage() {
                 </span>
               ))}
               {debate.keyPoints.length > 3 && (
-                <span className="text-[10px] px-2 py-0.5 text-foreground/40">
+                <span className="text-[10px] px-2 py-0.5 text-foreground/50">
                   +{debate.keyPoints.length - 3}
                 </span>
               )}

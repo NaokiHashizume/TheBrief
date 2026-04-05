@@ -300,7 +300,7 @@ export default function IndustryPage() {
                     記事を読む →
                   </span>
                 ) : (
-                  <span className="text-[9px] tracking-wider uppercase text-foreground/40 border border-foreground/10 px-2 py-0.5 rounded">
+                  <span className="text-[9px] tracking-wider uppercase text-foreground/50 border border-foreground/10 px-2 py-0.5 rounded">
                     Coming Soon
                   </span>
                 )}

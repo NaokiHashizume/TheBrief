@@ -64,7 +64,7 @@ export default function PassedPage() {
                   <h2 className="font-serif text-lg font-bold group-hover:text-amber-400 transition-colors">
                     {item.title}
                   </h2>
-                  <span className="text-[9px] tracking-[1px] uppercase text-foreground/35">
+                  <span className="text-[9px] tracking-[1px] uppercase text-foreground/45">
                     {item.titleEn}
                   </span>
                   <p className="mt-2 text-sm text-foreground/45 leading-relaxed line-clamp-2">

@@ -79,7 +79,7 @@ function RankingCard({
 
       <div className="text-right flex-shrink-0 ml-2">
         <div className={`text-lg font-bold tabular-nums ${!isTop ? "text-amber-500" : ""}`}>{leg.score}</div>
-        <div className="text-[9px] text-foreground/40 uppercase tracking-wider">Score</div>
+        <div className="text-[9px] text-foreground/50 uppercase tracking-wider">Score</div>
       </div>
 
       <div className="flex items-center gap-1 flex-shrink-0">
@@ -146,7 +146,7 @@ function RankingSection({
             <polyline points="18 15 12 9 6 15" />
           </svg>
           <h3 className="font-serif text-lg font-bold">上位 5</h3>
-          <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">Top 5</span>
+          <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Top 5</span>
         </div>
         <div className="space-y-3">
           {rankingTop.map((leg) => (
@@ -158,7 +158,7 @@ function RankingSection({
       {/* Divider */}
       <div className="flex items-center gap-4 my-8">
         <div className="flex-1 h-px bg-foreground/5" />
-        <span className="text-[10px] text-foreground/35 tracking-wider uppercase">· · ·</span>
+        <span className="text-[10px] text-foreground/45 tracking-wider uppercase">· · ·</span>
         <div className="flex-1 h-px bg-foreground/5" />
       </div>
 
@@ -169,7 +169,7 @@ function RankingSection({
             <polyline points="6 9 12 15 18 9" />
           </svg>
           <h3 className="font-serif text-lg font-bold">下位 5</h3>
-          <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">Bottom 5</span>
+          <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Bottom 5</span>
         </div>
         <p className="text-xs text-foreground/45 mb-4">
           ※大臣・党役職者は答弁側のため質疑回数が低くなる傾向があります。閣僚在任中の議員は評価対象外としています。
@@ -187,7 +187,7 @@ function RankingSection({
 function ScoreBar({ label, value, color = "bg-brief-red/60" }: { label: string; value: number; color?: string }) {
   return (
     <div className="w-16">
-      <div className="text-[8px] text-foreground/40 mb-0.5">{label}</div>
+      <div className="text-[8px] text-foreground/50 mb-0.5">{label}</div>
       <div className="h-1.5 bg-foreground/5 rounded-full overflow-hidden">
         <div
           className={`h-full ${color} rounded-full`}
@@ -230,7 +230,7 @@ function PartyCard({
           />
           <div>
             <h3 className="font-serif text-xl font-bold text-foreground">{party.name}</h3>
-            <span className="text-[9px] tracking-[1.5px] uppercase text-foreground/40">{party.nameEn}</span>
+            <span className="text-[9px] tracking-[1.5px] uppercase text-foreground/50">{party.nameEn}</span>
           </div>
         </div>
         <div className="text-right flex-shrink-0">
@@ -293,7 +293,7 @@ function ChamberMemberList({ members, label }: { members: Legislator[]; label: s
     <>
       <div className="px-5 py-2.5 bg-brief-card flex items-center gap-2">
         <span className="text-xs font-bold text-foreground/60">{label}</span>
-        <span className="text-[10px] text-foreground/40">{members.length}名</span>
+        <span className="text-[10px] text-foreground/50">{members.length}名</span>
       </div>
       <div className="divide-y divide-brief-border">
         {visible.map((leg) => (
@@ -329,7 +329,7 @@ function MemberRow({ leg, partyColors }: { leg: Legislator; partyColors?: Record
             />
           )}
           <span className="font-medium text-sm">{leg.name}</span>
-          <span className="text-xs text-foreground/40">{leg.nameEn}</span>
+          <span className="text-xs text-foreground/50">{leg.nameEn}</span>
           {partyColors && (
             <span className="text-[9px] tracking-wider uppercase px-1.5 py-0.5 bg-foreground/5 rounded-full text-foreground/50">
               {leg.chamber === "house" ? "衆" : "参"}
@@ -401,7 +401,7 @@ function PartyBrowser({
       {/* 議員検索 */}
       <div className="mb-6">
         <div className="relative">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/40">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/50">
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
@@ -410,7 +410,7 @@ function PartyBrowser({
             placeholder="議員名で検索..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 rounded-xl bg-brief-card border border-brief-border text-sm text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-brief-red/50 transition-colors"
+            className="w-full pl-10 pr-4 py-3 rounded-xl bg-brief-card border border-brief-border text-sm text-foreground placeholder:text-foreground/50 focus:outline-none focus:border-brief-red/50 transition-colors"
           />
         </div>
       </div>

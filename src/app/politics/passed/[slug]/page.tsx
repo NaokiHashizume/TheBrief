@@ -68,11 +68,11 @@ export default async function PassedDetailPage({
           成立済・未施行
         </span>
         <span className="text-xs text-foreground/45">{item.category}</span>
-        <span className="text-xs text-foreground/40 tabular-nums">{item.dietSession}</span>
+        <span className="text-xs text-foreground/50 tabular-nums">{item.dietSession}</span>
       </div>
 
       <h1 className="font-serif text-2xl md:text-3xl font-bold">{item.title}</h1>
-      <span className="text-[10px] tracking-[2px] uppercase text-foreground/35">
+      <span className="text-[10px] tracking-[2px] uppercase text-foreground/45">
         {item.titleEn}
       </span>
       <p className="mt-4 text-sm text-foreground/60 leading-relaxed">
@@ -96,7 +96,7 @@ export default async function PassedDetailPage({
             </div>
           </div>
           <div className="flex-1 h-px bg-amber-500/20 relative">
-            <div className="absolute left-1/2 -translate-x-1/2 -top-3 text-[9px] text-foreground/35">
+            <div className="absolute left-1/2 -translate-x-1/2 -top-3 text-[9px] text-foreground/45">
               準備期間
             </div>
           </div>
@@ -177,7 +177,7 @@ function SectionHeader({ title, titleEn }: { title: string; titleEn: string }) {
     <div className="flex items-center gap-4 mb-4">
       <div>
         <h2 className="font-serif text-lg font-bold">{title}</h2>
-        <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">{titleEn}</span>
+        <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">{titleEn}</span>
       </div>
       <div className="flex-1 h-px bg-foreground/5" />
     </div>

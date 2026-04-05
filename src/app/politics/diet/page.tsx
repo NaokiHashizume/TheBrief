@@ -128,7 +128,7 @@ function ChamberExplainer({
   return (
     <div className="p-5 bg-brief-card rounded-xl">
       <h4 className="font-serif font-bold text-lg">{title}</h4>
-      <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">{titleEn}</span>
+      <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">{titleEn}</span>
       <dl className="mt-4 space-y-2">
         {points.map((p) => (
           <div key={p.label} className="flex gap-3">

@@ -165,7 +165,7 @@ export default async function IctArticlePage({
                 {section.heading}
               </h2>
               {section.headingEn && (
-                <span className="text-[9px] tracking-[1.5px] uppercase text-foreground/35">
+                <span className="text-[9px] tracking-[1.5px] uppercase text-foreground/45">
                   {section.headingEn}
                 </span>
               )}
@@ -234,7 +234,7 @@ export default async function IctArticlePage({
               href={`/industry/ict/${prevArticle.slug}`}
               className="group p-4 rounded-xl border border-brief-border hover:border-[#3b82f6]/30 transition-colors"
             >
-              <div className="text-[10px] uppercase tracking-wider text-foreground/40 mb-1">
+              <div className="text-[10px] uppercase tracking-wider text-foreground/50 mb-1">
                 ← 前の記事
               </div>
               <div className="text-sm font-medium group-hover:text-[#3b82f6] transition-colors line-clamp-2">
@@ -249,7 +249,7 @@ export default async function IctArticlePage({
               href={`/industry/ict/${nextArticle.slug}`}
               className="group p-4 rounded-xl border border-brief-border hover:border-[#3b82f6]/30 transition-colors text-right"
             >
-              <div className="text-[10px] uppercase tracking-wider text-foreground/40 mb-1">
+              <div className="text-[10px] uppercase tracking-wider text-foreground/50 mb-1">
                 次の記事 →
               </div>
               <div className="text-sm font-medium group-hover:text-[#3b82f6] transition-colors line-clamp-2">

@@ -175,7 +175,7 @@ export default async function EpisodePage({
                       key={j}
                       className="text-[15px] text-foreground/80 leading-relaxed flex gap-2"
                     >
-                      <span className="text-foreground/40 flex-shrink-0 tabular-nums">
+                      <span className="text-foreground/50 flex-shrink-0 tabular-nums">
                         {j + 1}.
                       </span>
                       <span>
@@ -262,13 +262,13 @@ export default async function EpisodePage({
               href={`/story/${story.slug}/${prevEpisode.id}`}
               className="group p-4 rounded-xl border border-brief-border hover:border-brief-red/30 transition-colors"
             >
-              <div className="text-[10px] uppercase tracking-wider text-foreground/40 mb-1">
+              <div className="text-[10px] uppercase tracking-wider text-foreground/50 mb-1">
                 ← 前のエピソード
               </div>
               <div className="text-sm font-medium group-hover:text-brief-red transition-colors line-clamp-2">
                 {prevEpisode.title}
               </div>
-              <div className="text-[10px] text-foreground/40 mt-1">{prevEpisode.date}</div>
+              <div className="text-[10px] text-foreground/50 mt-1">{prevEpisode.date}</div>
             </Link>
           ) : (
             <div />
@@ -278,13 +278,13 @@ export default async function EpisodePage({
               href={`/story/${story.slug}/${nextEpisode.id}`}
               className="group p-4 rounded-xl border border-brief-border hover:border-brief-red/30 transition-colors text-right"
             >
-              <div className="text-[10px] uppercase tracking-wider text-foreground/40 mb-1">
+              <div className="text-[10px] uppercase tracking-wider text-foreground/50 mb-1">
                 次のエピソード →
               </div>
               <div className="text-sm font-medium group-hover:text-brief-red transition-colors line-clamp-2">
                 {nextEpisode.title}
               </div>
-              <div className="text-[10px] text-foreground/40 mt-1">{nextEpisode.date}</div>
+              <div className="text-[10px] text-foreground/50 mt-1">{nextEpisode.date}</div>
             </Link>
           ) : (
             <div />

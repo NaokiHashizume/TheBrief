@@ -157,7 +157,7 @@ export default function Home() {
                 {f.icon}
               </div>
               <h3 className="font-serif text-lg font-bold">{f.title}</h3>
-              <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">{f.titleEn}</span>
+              <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">{f.titleEn}</span>
               <p className="mt-2 text-sm text-foreground/60 leading-relaxed">
                 {f.description}
               </p>

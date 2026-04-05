@@ -122,7 +122,7 @@ function IndicatorCard({ indicator }: { indicator: EconomicIndicator }) {
             <span className={`w-2 h-2 rounded-full flex-shrink-0 ${colors.dot}`} />
             <h3 className="text-sm font-medium truncate">{indicator.name}</h3>
           </div>
-          <span className="text-[9px] tracking-[1.5px] uppercase text-foreground/40 ml-4">
+          <span className="text-[9px] tracking-[1.5px] uppercase text-foreground/50 ml-4">
             {indicator.nameEn}
           </span>
         </div>
@@ -160,7 +160,7 @@ function IndicatorCard({ indicator }: { indicator: EconomicIndicator }) {
       </p>
 
       {/* Last updated */}
-      <div className="mt-2 text-[9px] text-foreground/35 tabular-nums">
+      <div className="mt-2 text-[9px] text-foreground/45 tabular-nums">
         更新: {indicator.lastUpdated}
       </div>
     </div>
@@ -342,7 +342,7 @@ export default function EconomyPage() {
           <div className="flex items-center gap-4 mb-4">
             <div>
               <h2 className="font-serif text-xl font-bold">{group.label.ja}</h2>
-              <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">
+              <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">
                 {group.label.en}
               </span>
             </div>
@@ -362,7 +362,7 @@ export default function EconomyPage() {
         <div className="flex items-center gap-4 mb-6 scroll-mt-20">
           <div>
             <h2 className="font-serif text-xl font-bold">経済ニュース</h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">
               Economic News Timeline
             </span>
           </div>
