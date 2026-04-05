@@ -30,28 +30,34 @@ export function CrisisTimelineDiagram() {
       severity: "high",
     },
     {
+      date: "3/6",
+      label: "通航隻数激減",
+      detail: "1日120隻→わずか5隻に",
+      severity: "critical",
+    },
+    {
       date: "3/8",
       label: "原油100ドル突破",
-      detail: "4年ぶりの大台",
+      detail: "ピーク時126ドルに到達",
       severity: "high",
     },
     {
+      date: "3/11",
+      label: "首相が独自放出決定",
+      detail: "IEA協調を待たず歴史的判断",
+      severity: "response",
+    },
+    {
       date: "3/16",
-      label: "IEA協調放出開始",
+      label: "備蓄放出開始",
       detail: "日本は8,000万バレル",
       severity: "response",
     },
     {
-      date: "3/24",
-      label: "国家備蓄放出",
-      detail: "経産省が緊急決定",
+      date: "3/21",
+      label: "イラン、日本船通航許可へ",
+      detail: "外相間で交渉進行中",
       severity: "response",
-    },
-    {
-      date: "ピーク",
-      label: "原油126ドル到達",
-      detail: "先物市場史上最大の週次上昇",
-      severity: "critical",
     },
   ];
 
