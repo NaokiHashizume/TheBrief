@@ -12,6 +12,14 @@ import {
   SecurityLayersDiagram,
   InternetScaleDiagram,
 } from "@/components/NetworkDiagrams";
+import {
+  Gemma4ModelFamilyDiagram,
+  Gemma4BenchmarkDiagram,
+  Gemma4ArchitectureDiagram,
+  OpenModelComparisonDiagram,
+  Gemma4UseCasesDiagram,
+  Gemma4CodeExampleDiagram,
+} from "@/components/Gemma4Diagrams";
 
 export function generateStaticParams() {
   return ictArticles.map((a) => ({ slug: a.slug }));
@@ -179,6 +187,12 @@ export default async function IctArticlePage({
             {section.diagramId === "dns-hierarchy" && <DnsHierarchyDiagram />}
             {section.diagramId === "mobile-generation" && <MobileGenerationDiagram />}
             {section.diagramId === "security-layers" && <SecurityLayersDiagram />}
+            {section.diagramId === "gemma4-model-family" && <Gemma4ModelFamilyDiagram />}
+            {section.diagramId === "gemma4-benchmarks" && <Gemma4BenchmarkDiagram />}
+            {section.diagramId === "gemma4-architecture" && <Gemma4ArchitectureDiagram />}
+            {section.diagramId === "gemma4-comparison" && <OpenModelComparisonDiagram />}
+            {section.diagramId === "gemma4-code-example" && <Gemma4CodeExampleDiagram />}
+            {section.diagramId === "gemma4-use-cases" && <Gemma4UseCasesDiagram />}
 
             {/* Section body */}
             <div className="space-y-4">
