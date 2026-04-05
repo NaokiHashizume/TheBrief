@@ -26,7 +26,7 @@ export const debates: Debate[] = [
     status: "審議中",
     statusColor: "#e53e3e",
     impact: "国民生活に直結する年間122.3兆円の支出計画。防衛・社会保障・教育の優先順位が決まる。",
-    summary: "一般会計総額122.3兆円の過去最大規模の予算案。暫定予算で4月1日〜11日を手当てし、本予算は参議院で審議中。",
+    summary: "一般会計総額122.3兆円の過去最大規模の予算案。暫定予算で4月1日〜11日を手当てし、本予算は4月11日に自然成立の見込み。",
     detail: "令和8年度（2026年度）予算案は、一般会計総額122兆3,000億円と2年連続で過去最大を更新。防衛費は8.5兆円規模、少子化対策やデジタル投資も重点配分。1月23日に衆議院が解散され、2月8日の総選挙を経て第221回特別国会が2月18日に召集。2月20日に予算案が国会に提出され、3月13日に衆議院を通過。参議院での議決が年度内に間に合わず、4月1日〜11日の暫定予算が3月30日に成立。憲法の30日ルールにより4月11日に本予算が自然成立の見込み。",
     keyPoints: [
       "一般会計総額122.3兆円（2年連続過去最大）",
@@ -49,8 +49,9 @@ export const debates: Debate[] = [
       { date: "2026-02-20", event: "予算案を国会に提出" },
       { date: "2026-03-13", event: "衆議院本会議で可決、参議院に送付" },
       { date: "2026-03-30", event: "暫定予算（4/1〜4/11）が成立" },
+      { date: "2026-04-05", event: "参議院予算委でトランプ関税の経済影響を緊急質疑" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-06",
   },
   {
     slug: "national-intelligence-agency",
@@ -81,7 +82,7 @@ export const debates: Debate[] = [
       { date: "2026-03-25", event: "衆議院内閣委員会で審議開始" },
       { date: "2026-04-02", event: "参考人質疑（安全保障・情報の専門家）" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-06",
   },
   {
     slug: "disaster-prevention-agency",
@@ -112,7 +113,7 @@ export const debates: Debate[] = [
       { date: "2026-03-06", event: "設置法案・関連法案を閣議決定・国会提出" },
       { date: "2026-03-20", event: "衆議院内閣委員会で審議開始" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-06",
   },
   {
     slug: "economic-security",
@@ -143,7 +144,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "改正法案を閣議決定・国会提出" },
       { date: "2026-03-28", event: "衆議院内閣委員会で審議開始" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-06",
   },
   {
     slug: "special-deficit-bonds",
@@ -174,7 +175,7 @@ export const debates: Debate[] = [
       { date: "2026-03-10", event: "国民民主党が単年度限定の対案を提出" },
       { date: "2026-03-15", event: "中道改革連合も単年度限定案を支持" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-06",
   },
   {
     slug: "counterintelligence",
@@ -204,6 +205,6 @@ export const debates: Debate[] = [
       { date: "2026-03-10", event: "国民民主党がスパイ防止法案を国会提出" },
       { date: "2026-03-28", event: "法務委員会で趣旨説明" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-06",
   },
 ];
