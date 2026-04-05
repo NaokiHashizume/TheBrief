@@ -63,13 +63,13 @@ export default function AutomotivePage() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
         <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
           <div className="text-xl sm:text-2xl font-bold text-[#ef4444]">{industryStats.domesticSales2025}</div>
-          <div className="text-[10px] text-foreground/50 mt-1">国内新車販売（2025年）</div>
-          <div className="text-[9px] text-foreground/35">前年比{industryStats.domesticSalesYoy}</div>
+          <div className="text-[10px] text-foreground/50 mt-1">国内新車販売（FY2025）</div>
+          <div className="text-[9px] text-foreground/35">前年比{industryStats.domesticSalesYoy}・4年ぶり減</div>
         </div>
         <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
           <div className="text-xl sm:text-2xl font-bold text-[#3b82f6]">{industryStats.hvShare}</div>
           <div className="text-[10px] text-foreground/50 mt-1">HV比率（乗用車）</div>
-          <div className="text-[9px] text-foreground/35">2024年 国内販売</div>
+          <div className="text-[9px] text-foreground/35">2025年 国内販売</div>
         </div>
         <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
           <div className="text-xl sm:text-2xl font-bold text-[#f59e0b]">{industryStats.gdpShare}</div>
