@@ -62,36 +62,40 @@ const categories = [
     title: "Economy",
     titleJa: "経済",
     description: "金融政策・市場動向・マクロ経済の分析",
-    href: "/category/economy",
+    href: "/economy",
     color: "#3182ce",
   },
   {
     title: "Industry",
     titleJa: "業界",
     description: "AI・半導体・自動車・エネルギーなど各業界の最新情報",
-    href: "/category/industry",
+    href: "#",
     color: "#38a169",
+    comingSoon: true,
   },
   {
     title: "Lifestyle",
     titleJa: "生活",
     description: "政策や経済が私たちの暮らしにどう影響するか",
-    href: "/category/lifestyle",
+    href: "#",
     color: "#d69e2e",
+    comingSoon: true,
   },
   {
     title: "Opinion",
     titleJa: "オピニオン",
     description: "専門家による分析と多角的な視点",
-    href: "/category/opinion",
+    href: "#",
     color: "#805ad5",
+    comingSoon: true,
   },
   {
     title: "University",
     titleJa: "大学",
     description: "大学・教育機関の動向と研究トピック",
-    href: "/category/university",
+    href: "#",
     color: "#00b5d8",
+    comingSoon: true,
   },
 ];
 
@@ -207,25 +211,45 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {categories.map((cat) => (
-            <Link
-              key={cat.href}
-              href={cat.href}
-              className="group p-5 rounded-xl border border-brief-border dark:border-white/5 hover:border-foreground/15 dark:hover:border-white/15 transition-all"
-            >
-              <div className="flex items-center gap-3 mb-2">
-                <div
-                  className="w-2 h-2 rounded-full flex-shrink-0"
-                  style={{ backgroundColor: cat.color }}
-                />
-                <h3 className="font-serif font-bold text-lg">{cat.title}</h3>
-                <span className="text-xs text-foreground/30">{cat.titleJa}</span>
+          {categories.map((cat) => {
+            const isComingSoon = "comingSoon" in cat && cat.comingSoon;
+            const inner = (
+              <>
+                <div className="flex items-center gap-3 mb-2">
+                  <div
+                    className="w-2 h-2 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: cat.color }}
+                  />
+                  <h3 className="font-serif font-bold text-lg">{cat.title}</h3>
+                  <span className="text-xs text-foreground/30">{cat.titleJa}</span>
+                  {isComingSoon && (
+                    <span className="text-[9px] tracking-wider uppercase text-foreground/30 border border-foreground/10 px-1.5 py-0.5 rounded">
+                      Coming Soon
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm text-foreground/40 leading-relaxed pl-5">
+                  {cat.description}
+                </p>
+              </>
+            );
+            return isComingSoon ? (
+              <div
+                key={cat.title}
+                className="group p-5 rounded-xl border border-brief-border dark:border-white/5 transition-all opacity-50"
+              >
+                {inner}
               </div>
-              <p className="text-sm text-foreground/40 leading-relaxed pl-5">
-                {cat.description}
-              </p>
-            </Link>
-          ))}
+            ) : (
+              <Link
+                key={cat.title}
+                href={cat.href}
+                className="group p-5 rounded-xl border border-brief-border dark:border-white/5 hover:border-foreground/15 dark:hover:border-white/15 transition-all"
+              >
+                {inner}
+              </Link>
+            );
+          })}
         </div>
       </section>
 

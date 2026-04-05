@@ -61,32 +61,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Category pages
-  const categories = ["politics", "economy", "industry", "lifestyle", "opinion", "university"];
-  const categoryPages: MetadataRoute.Sitemap = categories.map((cat) => ({
-    url: `${SITE_URL}/category/${cat}`,
-    lastModified: now,
-    changeFrequency: "daily" as const,
-    priority: 0.8,
-  }));
-
-  // Industry subcategory pages
-  const industries = ["ai", "semiconductors", "automotive", "pharma", "finance", "energy", "real-estate", "media", "retail"];
-  const industryPages: MetadataRoute.Sitemap = industries.map((ind) => ({
-    url: `${SITE_URL}/category/industry/${ind}`,
-    lastModified: now,
-    changeFrequency: "daily" as const,
-    priority: 0.7,
-  }));
+  // Economy page
+  const economyPages: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/economy`, lastModified: now, changeFrequency: "daily" as const, priority: 0.9 },
+  ];
 
   return [
     ...staticPages,
     ...politicsPages,
+    ...economyPages,
     ...debatePages,
     ...passedPages,
     ...enactedPages,
     ...storyPages,
-    ...categoryPages,
-    ...industryPages,
   ];
 }

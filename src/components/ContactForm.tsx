@@ -19,9 +19,11 @@ export function ContactForm() {
   return (
     <form
       className="space-y-5"
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSubmitted(true);
+      action="mailto:contact@thebrief.info"
+      method="POST"
+      encType="text/plain"
+      onSubmit={() => {
+        setTimeout(() => setSubmitted(true), 100);
       }}
     >
       <div>

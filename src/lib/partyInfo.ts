@@ -145,7 +145,7 @@ export const partyInfoList: PartyInfo[] = [
       "NHK改革とメディアの公正化",
       "スパイ防止法の制定",
     ],
-    color: "#C41E3A",
+    color: "#1a4a7a",
   },
   {
     name: "沖縄の風",
@@ -160,7 +160,7 @@ export const partyInfoList: PartyInfo[] = [
       "沖縄の自治権拡大",
       "アジアとの平和外交の推進",
     ],
-    color: "#009DC4",
+    color: "#00a5bf",
   },
   {
     name: "減税日本・ゆうこく連合",
@@ -175,7 +175,7 @@ export const partyInfoList: PartyInfo[] = [
       "行政のムダ削減",
       "地方分権の推進",
     ],
-    color: "#FFD700",
+    color: "#999999",
   },
   {
     name: "無所属",
