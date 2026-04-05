@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 interface TopCompany {
   name: string;
@@ -251,9 +252,10 @@ export function IndustryBubbleChart() {
             const isHovered = hovered === ind.slug;
 
             return (
-              <div
+              <Link
                 key={ind.slug}
-                className="px-4 sm:px-5 py-3 transition-colors"
+                href={`/industry/${ind.slug}`}
+                className="block px-4 sm:px-5 py-3 transition-colors cursor-pointer"
                 style={{
                   backgroundColor: isHovered
                     ? `${ind.color}08`
@@ -328,7 +330,7 @@ export function IndustryBubbleChart() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
