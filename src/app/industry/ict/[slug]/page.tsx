@@ -29,6 +29,17 @@ import {
   Gemma4UseCasesDiagram,
   Gemma4CodeExampleDiagram,
 } from "@/components/Gemma4Diagrams";
+import {
+  SemiMarketScaleDiagram,
+  ConductorComparisonDiagram,
+  PnJunctionDiagram,
+  TransistorDiagram,
+  ManufacturingProcessDiagram,
+  ChipTypesDiagram,
+  SupplyChainDiagram,
+  JapanSemiHistoryDiagram,
+  ProcessNodeDiagram,
+} from "@/components/SemiconductorDiagrams";
 
 export function generateStaticParams() {
   return ictArticles.map((a) => ({ slug: a.slug }));
@@ -126,6 +137,15 @@ const diagramMap: Record<string, React.FC> = {
   "gemma4-comparison": OpenModelComparisonDiagram,
   "gemma4-code-example": Gemma4CodeExampleDiagram,
   "gemma4-use-cases": Gemma4UseCasesDiagram,
+  "semi-market-scale": SemiMarketScaleDiagram,
+  "conductor-comparison": ConductorComparisonDiagram,
+  "pn-junction": PnJunctionDiagram,
+  "transistor-structure": TransistorDiagram,
+  "manufacturing-process": ManufacturingProcessDiagram,
+  "chip-types": ChipTypesDiagram,
+  "supply-chain": SupplyChainDiagram,
+  "japan-semi-history": JapanSemiHistoryDiagram,
+  "process-node": ProcessNodeDiagram,
 };
 
 export default async function IctArticlePage({
