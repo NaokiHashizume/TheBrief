@@ -21,6 +21,17 @@ import {
   SatelliteTypesDiagram,
   JapanInfraDiagram,
 } from "@/components/TelecomDiagrams";
+import {
+  SemiMarketScaleDiagram,
+  ConductorComparisonDiagram,
+  PnJunctionDiagram,
+  TransistorDiagram,
+  ManufacturingProcessDiagram,
+  ChipTypesDiagram,
+  SupplyChainDiagram,
+  JapanSemiHistoryDiagram,
+  ProcessNodeDiagram,
+} from "@/components/SemiconductorDiagrams";
 
 export function generateStaticParams() {
   return ictArticles.map((a) => ({ slug: a.slug }));
@@ -246,6 +257,15 @@ export default async function IctArticlePage({
               {section.diagramId === "cell-network" && <CellNetworkDiagram />}
               {section.diagramId === "satellite-types" && <SatelliteTypesDiagram />}
               {section.diagramId === "japan-infra" && <JapanInfraDiagram />}
+              {section.diagramId === "semi-market-scale" && <SemiMarketScaleDiagram />}
+              {section.diagramId === "conductor-comparison" && <ConductorComparisonDiagram />}
+              {section.diagramId === "pn-junction" && <PnJunctionDiagram />}
+              {section.diagramId === "transistor-structure" && <TransistorDiagram />}
+              {section.diagramId === "manufacturing-process" && <ManufacturingProcessDiagram />}
+              {section.diagramId === "chip-types" && <ChipTypesDiagram />}
+              {section.diagramId === "supply-chain" && <SupplyChainDiagram />}
+              {section.diagramId === "japan-semi-history" && <JapanSemiHistoryDiagram />}
+              {section.diagramId === "process-node" && <ProcessNodeDiagram />}
 
               {/* Section body */}
               <div className="space-y-5">
