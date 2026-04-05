@@ -41,7 +41,7 @@ export function StoryTimeline({ story }: { story: Story }) {
                   )}
                 </div>
                 <h3 className={`font-serif font-bold leading-snug cursor-pointer hover:text-brief-red transition-colors ${isLatest ? "text-lg" : "text-base"}`}>
-                  <Link href={`/story/${story.slug}#${episode.id}`}>
+                  <Link href={`/story/${story.slug}/${episode.id}`}>
                     {episode.title}
                   </Link>
                 </h3>

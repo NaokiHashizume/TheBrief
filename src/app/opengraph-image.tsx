@@ -20,65 +20,50 @@ export default function OgImage() {
           fontFamily: "Georgia, serif",
         }}
       >
-        {/* Logo area */}
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+        {/* "THE" label */}
+        <div
+          style={{
+            fontSize: 24,
+            fontWeight: 700,
+            letterSpacing: "8px",
+            color: "rgba(26,26,26,0.3)",
+            textTransform: "uppercase" as const,
+            marginBottom: 8,
+          }}
+        >
+          The
+        </div>
+
+        {/* "Brief" as single text with red dot overlay */}
+        <div
+          style={{
+            display: "flex",
+            position: "relative",
+          }}
+        >
           <div
             style={{
-              fontSize: 24,
-              fontWeight: 700,
-              letterSpacing: "8px",
-              color: "rgba(26,26,26,0.3)",
-              textTransform: "uppercase" as const,
-              marginBottom: -4,
+              fontSize: 120,
+              fontWeight: 900,
+              color: "#1a1a1a",
+              lineHeight: 1,
+              letterSpacing: "-2px",
             }}
           >
-            The
+            Brief
           </div>
-          <div style={{ display: "flex", alignItems: "flex-start", position: "relative" }}>
-            <div
-              style={{
-                fontSize: 120,
-                fontWeight: 900,
-                color: "#1a1a1a",
-                lineHeight: 1,
-                letterSpacing: "-2px",
-              }}
-            >
-              Br
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: -8 }}>
-              <div
-                style={{
-                  width: 16,
-                  height: 16,
-                  borderRadius: "50%",
-                  background: "#c0392b",
-                  marginBottom: 4,
-                }}
-              />
-              <div
-                style={{
-                  fontSize: 120,
-                  fontWeight: 900,
-                  color: "#1a1a1a",
-                  lineHeight: 1,
-                }}
-              >
-                i
-              </div>
-            </div>
-            <div
-              style={{
-                fontSize: 120,
-                fontWeight: 900,
-                color: "#1a1a1a",
-                lineHeight: 1,
-                letterSpacing: "-2px",
-              }}
-            >
-              ef
-            </div>
-          </div>
+          {/* Red dot positioned above the "i" */}
+          <div
+            style={{
+              position: "absolute",
+              top: -12,
+              left: 162,
+              width: 16,
+              height: 16,
+              borderRadius: "50%",
+              background: "#c0392b",
+            }}
+          />
         </div>
 
         {/* Tagline */}

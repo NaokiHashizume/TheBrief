@@ -24,6 +24,17 @@ export async function getAllStories(): Promise<Story[]> {
   }
 }
 
+export async function getEpisodeById(
+  slug: string,
+  episodeId: string
+): Promise<{ story: Story; episode: Story["episodes"][0]; episodeIndex: number } | undefined> {
+  const story = await getStoryBySlug(slug);
+  if (!story) return undefined;
+  const episodeIndex = story.episodes.findIndex((e) => e.id === episodeId);
+  if (episodeIndex === -1) return undefined;
+  return { story, episode: story.episodes[episodeIndex], episodeIndex };
+}
+
 export async function getStoryBySlug(slug: string): Promise<Story | undefined> {
   try {
     const { getStoryBySlug: cmsGetStory, getEpisodesByStory, formatStory } = await import("./microcms");
