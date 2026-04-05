@@ -10,7 +10,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://thebrief.info/industry/trading" },
 };
 
+function parseReadTime(rt: string): number {
+  const m = rt.match(/(\d+)/);
+  return m ? parseInt(m[1], 10) : 0;
+}
+
 export default function TradingPage() {
+  const sortedArticles = [...tradingArticles].sort((a, b) => {
+    const dateCmp = b.date.localeCompare(a.date);
+    if (dateCmp !== 0) return dateCmp;
+    return parseReadTime(a.readTime) - parseReadTime(b.readTime);
+  });
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <BreadcrumbJsonLd
@@ -61,7 +72,7 @@ export default function TradingPage() {
 
       {/* Articles */}
       <div className="space-y-4">
-        {[...tradingArticles].sort((a, b) => b.date.localeCompare(a.date)).map((article) => (
+        {sortedArticles.map((article) => (
           <Link
             key={article.slug}
             href={`/industry/trading/${article.slug}`}
@@ -71,6 +82,8 @@ export default function TradingPage() {
               <time className="text-[10px] tabular-nums text-foreground/45">
                 {article.date}
               </time>
+              <span className="text-[10px] text-foreground/45">·</span>
+              <span className="text-[10px] text-foreground/45">{article.author}</span>
               <span className="text-[10px] text-foreground/45">·</span>
               <span className="text-[10px] text-foreground/45">{article.readTime}</span>
             </div>
