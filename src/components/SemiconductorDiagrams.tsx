@@ -7,9 +7,9 @@ export function SemiMarketScaleDiagram() {
   return (
     <div className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
-        <div className="text-2xl font-bold text-[#3b82f6]">$627B</div>
+        <div className="text-2xl font-bold text-[#3b82f6]">$792B</div>
         <div className="text-[10px] text-foreground/50 mt-1">世界市場規模</div>
-        <div className="text-[9px] text-foreground/35">2024年（SIA）</div>
+        <div className="text-[9px] text-foreground/35">2025年（SIA）+25.6%</div>
       </div>
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
         <div className="text-2xl font-bold text-[#8b5cf6]">1兆個+</div>
@@ -22,9 +22,9 @@ export function SemiMarketScaleDiagram() {
         <div className="text-[9px] text-foreground/35">2025年量産開始</div>
       </div>
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
-        <div className="text-2xl font-bold text-[#10b981]">2,000億+</div>
+        <div className="text-2xl font-bold text-[#10b981]">2,080億</div>
         <div className="text-[10px] text-foreground/50 mt-1">最新チップのトランジスタ数</div>
-        <div className="text-[9px] text-foreground/35">Apple M4 Ultra等</div>
+        <div className="text-[9px] text-foreground/35">NVIDIA B200（2ダイ構成）</div>
       </div>
     </div>
   );
@@ -688,15 +688,15 @@ export function JapanSemiHistoryDiagram() {
       year: "2024〜25年",
       label: "TSMC熊本稼働",
       share: "JASM第1工場稼働",
-      desc: "ソニー・デンソーらと合弁。第2工場も建設中",
+      desc: "月産5.5万枚。第2工場は3nmへ格上げ決定",
       color: "#10b981",
       icon: "🏭",
     },
     {
-      year: "2027年（目標）",
+      year: "2025〜27年",
       label: "Rapidus 2nm",
-      share: "千歳で量産開始予定",
-      desc: "日本初の最先端ロジック半導体ファウンドリ",
+      share: "GAA動作実証済",
+      desc: "2025年7月GAA成功。PDK提供開始。2027年量産目標",
       color: "#ef4444",
       icon: "🚀",
     },
@@ -803,8 +803,8 @@ export function ProcessNodeDiagram() {
     {
       node: "2nm",
       year: "2025",
-      transistors: "500億+*",
-      example: "GAA構造採用",
+      transistors: "2,080億*",
+      example: "B200（2ダイ）/ GAA",
       width: 12,
       color: "#ef4444",
     },
