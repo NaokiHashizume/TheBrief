@@ -83,8 +83,6 @@ export default function TradingPage() {
                 {article.date}
               </time>
               <span className="text-[10px] text-foreground/45">·</span>
-              <span className="text-[10px] text-foreground/45">{article.author}</span>
-              <span className="text-[10px] text-foreground/45">·</span>
               <span className="text-[10px] text-foreground/45">{article.readTime}</span>
             </div>
 
