@@ -86,7 +86,7 @@ export default async function DebateDetailPage({
       {/* Detail */}
       <div className="mt-10">
         <SectionHeader title="概要" titleEn="Overview" />
-        <div className="p-5 bg-foreground/[0.02] rounded-xl text-sm text-foreground/60 leading-relaxed">
+        <div className="p-5 bg-white rounded-xl text-sm text-foreground/60 leading-relaxed">
           {debate.detail}
         </div>
       </div>
@@ -109,7 +109,7 @@ export default async function DebateDetailPage({
       {/* Party positions */}
       <div className="mt-10">
         <SectionHeader title="各政党の立場" titleEn="Party Positions" />
-        <div className="border border-brief-border dark:border-white/5 rounded-xl overflow-hidden divide-y divide-brief-border dark:divide-white/5">
+        <div className="border border-brief-border rounded-xl overflow-hidden divide-y divide-brief-border">
           {debate.parties.map((p) => (
             <div key={p.name} className="px-5 py-3 flex items-center justify-between gap-4">
               <span className="font-medium text-sm">{p.name}</span>
@@ -123,7 +123,7 @@ export default async function DebateDetailPage({
       <div className="mt-10">
         <SectionHeader title="審議経過" titleEn="Timeline" />
         <div className="relative pl-6">
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-brief-border dark:bg-white/10" />
+          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-brief-border" />
           {debate.timeline.map((t, i) => {
             const isLatest = i === debate.timeline.length - 1;
             return (
@@ -148,7 +148,7 @@ export default async function DebateDetailPage({
       </div>
 
       {/* Back link */}
-      <div className="mt-12 pt-6 border-t border-brief-border dark:border-white/5">
+      <div className="mt-12 pt-6 border-t border-brief-border">
         <Link
           href="/politics/debates"
           className="inline-flex items-center gap-2 text-sm text-foreground/40 hover:text-brief-red transition-colors"
@@ -161,7 +161,7 @@ export default async function DebateDetailPage({
       </div>
 
       {/* 関連セクション */}
-      <div className="mt-12 pt-8 border-t border-brief-border dark:border-white/5">
+      <div className="mt-12 pt-8 border-t border-brief-border">
         <h3 className="text-xs tracking-wider uppercase text-foreground/30 font-medium mb-4">関連セクション</h3>
         <div className="flex flex-wrap gap-3">
           <Link href="/politics/passed" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-amber-500/20 hover:border-amber-500/50 hover:bg-amber-500/[0.03] transition-all text-sm">
@@ -172,7 +172,7 @@ export default async function DebateDetailPage({
             <span className="w-2 h-2 rounded-full bg-green-500" />
             <span className="text-foreground/60">施行済</span>
           </Link>
-          <Link href="/politics/diet" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-brief-border dark:border-white/5 hover:border-foreground/20 transition-all text-sm">
+          <Link href="/politics/diet" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-brief-border hover:border-foreground/20 transition-all text-sm">
             <span className="text-foreground/60">国会の仕組み</span>
           </Link>
         </div>
@@ -188,7 +188,7 @@ function SectionHeader({ title, titleEn }: { title: string; titleEn: string }) {
         <h2 className="font-serif text-lg font-bold">{title}</h2>
         <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">{titleEn}</span>
       </div>
-      <div className="flex-1 h-px bg-brief-border dark:bg-white/10" />
+      <div className="flex-1 h-px bg-brief-border" />
     </div>
   );
 }

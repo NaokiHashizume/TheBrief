@@ -3,7 +3,7 @@ import { NewsletterForm } from "./NewsletterForm";
 
 export function Footer() {
   return (
-    <footer className="border-t border-brief-border dark:border-white/10 mt-16">
+    <footer className="border-t border-brief-border bg-white mt-16">
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
@@ -60,7 +60,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-brief-border dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-foreground/30">
+        <div className="mt-12 pt-6 border-t border-brief-border flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-foreground/30">
           <span>&copy; {new Date().getFullYear()} The Brief. All rights reserved.</span>
           <a href="/privacy" className="hover:text-foreground/50 transition-colors">Privacy Policy</a>
         </div>

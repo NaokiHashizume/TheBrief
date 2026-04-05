@@ -78,7 +78,7 @@ export default async function EnactedDetailPage({
       </p>
 
       {/* Vote result */}
-      <div className="mt-6 p-4 bg-foreground/[0.03] rounded-xl">
+      <div className="mt-6 p-4 bg-white rounded-xl">
         <div className="flex items-center justify-between mb-2">
           <span className="text-xs text-foreground/40">投票結果</span>
           <span className="text-xs text-foreground/30 tabular-nums">
@@ -122,7 +122,7 @@ export default async function EnactedDetailPage({
       {/* Detail */}
       <div className="mt-10">
         <SectionHeader title="概要" titleEn="Overview" />
-        <div className="p-5 bg-foreground/[0.02] rounded-xl text-sm text-foreground/60 leading-relaxed">
+        <div className="p-5 bg-white rounded-xl text-sm text-foreground/60 leading-relaxed">
           {item.detail}
         </div>
       </div>
@@ -145,7 +145,7 @@ export default async function EnactedDetailPage({
       {/* Party votes */}
       <div className="mt-10">
         <SectionHeader title="各政党の投票" titleEn="Party Votes" />
-        <div className="border border-brief-border dark:border-white/5 rounded-xl overflow-hidden divide-y divide-brief-border dark:divide-white/5">
+        <div className="border border-brief-border rounded-xl overflow-hidden divide-y divide-brief-border">
           {item.parties.map((p) => (
             <div key={p.name} className="px-5 py-3 flex items-center justify-between gap-4">
               <span className="font-medium text-sm">{p.name}</span>
@@ -200,7 +200,7 @@ export default async function EnactedDetailPage({
       </div>
 
       {/* Back link */}
-      <div className="mt-12 pt-6 border-t border-brief-border dark:border-white/5">
+      <div className="mt-12 pt-6 border-t border-brief-border">
         <Link
           href="/politics/enacted"
           className="inline-flex items-center gap-2 text-sm text-foreground/40 hover:text-green-400 transition-colors"
@@ -213,7 +213,7 @@ export default async function EnactedDetailPage({
       </div>
 
       {/* 関連セクション */}
-      <div className="mt-12 pt-8 border-t border-brief-border dark:border-white/5">
+      <div className="mt-12 pt-8 border-t border-brief-border">
         <h3 className="text-xs tracking-wider uppercase text-foreground/30 font-medium mb-4">関連セクション</h3>
         <div className="flex flex-wrap gap-3">
           <Link href="/politics/debates" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-brief-red/20 hover:border-brief-red/50 hover:bg-brief-red/[0.03] transition-all text-sm">

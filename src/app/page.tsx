@@ -124,13 +124,13 @@ export default function Home() {
         <div className="mt-8 flex items-center justify-center gap-4">
           <Link
             href="/politics"
-            className="px-6 py-2.5 bg-brief-red text-white text-sm font-medium rounded-lg hover:bg-brief-red/90 transition-colors"
+            className="px-6 py-2.5 bg-brief-red text-white text-sm font-medium rounded-xl hover:bg-brief-red/90 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
           >
             Politics を見る
           </Link>
           <a
             href="#about"
-            className="px-6 py-2.5 border border-brief-border dark:border-white/10 text-sm font-medium rounded-lg hover:bg-foreground/5 transition-colors"
+            className="px-6 py-2.5 bg-white border border-brief-border text-sm font-medium rounded-xl hover:bg-black/[0.02] transition-all"
           >
             The Briefとは
           </a>
@@ -138,7 +138,7 @@ export default function Home() {
       </section>
 
       <div className="max-w-6xl mx-auto px-4">
-        <div className="h-px bg-brief-border dark:bg-white/10" />
+        <div className="h-px bg-brief-border bg-brief-border" />
       </div>
 
       {/* ━━━ What makes The Brief different ━━━ */}
@@ -150,10 +150,10 @@ export default function Home() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {features.map((f) => (
-            <div key={f.titleEn} className="text-center md:text-left">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brief-red/10 text-brief-red mb-4">
+            <div key={f.titleEn} className="text-center md:text-left bg-white border border-brief-border rounded-2xl p-7 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brief-red/10 text-brief-red mb-4">
                 {f.icon}
               </div>
               <h3 className="font-serif text-lg font-bold">{f.title}</h3>
@@ -166,28 +166,28 @@ export default function Home() {
         </div>
 
         {/* Visual: point vs line */}
-        <div className="mt-16 p-8 bg-foreground/[0.02] border border-brief-border dark:border-white/5 rounded-2xl">
+        <div className="mt-16 p-8 bg-white border border-brief-border rounded-2xl shadow-sm">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <span className="text-[10px] tracking-[2px] uppercase text-foreground/30">従来のニュース</span>
               <div className="mt-3 flex items-center gap-4">
-                <div className="w-3 h-3 rounded-full bg-foreground/15" />
-                <div className="w-3 h-3 rounded-full bg-foreground/15" />
-                <div className="w-3 h-3 rounded-full bg-foreground/15" />
-                <div className="w-3 h-3 rounded-full bg-foreground/15" />
-                <div className="w-3 h-3 rounded-full bg-foreground/15" />
+                <div className="w-3 h-3 rounded-full bg-foreground/10" />
+                <div className="w-3 h-3 rounded-full bg-foreground/10" />
+                <div className="w-3 h-3 rounded-full bg-foreground/10" />
+                <div className="w-3 h-3 rounded-full bg-foreground/10" />
+                <div className="w-3 h-3 rounded-full bg-foreground/10" />
               </div>
               <p className="mt-3 text-sm text-foreground/35">バラバラの「点」として伝えられる情報</p>
             </div>
             <div>
               <span className="text-[10px] tracking-[2px] uppercase text-brief-red">The Brief</span>
               <div className="mt-3 flex items-center gap-0">
-                <div className="w-3 h-3 rounded-full bg-foreground/30" />
-                <div className="w-12 h-0.5 bg-foreground/20" />
-                <div className="w-3 h-3 rounded-full bg-foreground/30" />
-                <div className="w-12 h-0.5 bg-foreground/20" />
-                <div className="w-3 h-3 rounded-full bg-foreground/30" />
-                <div className="w-12 h-0.5 bg-foreground/20" />
+                <div className="w-3 h-3 rounded-full bg-foreground/20" />
+                <div className="w-12 h-0.5 bg-foreground/10" />
+                <div className="w-3 h-3 rounded-full bg-foreground/20" />
+                <div className="w-12 h-0.5 bg-foreground/10" />
+                <div className="w-3 h-3 rounded-full bg-foreground/20" />
+                <div className="w-12 h-0.5 bg-foreground/10" />
                 <div className="w-3 h-3 rounded-full bg-brief-red" />
               </div>
               <p className="mt-3 text-sm text-foreground/50">文脈と因果で繋がれた「線」としての情報</p>
@@ -197,7 +197,7 @@ export default function Home() {
       </section>
 
       <div className="max-w-6xl mx-auto px-4">
-        <div className="h-px bg-brief-border dark:bg-white/10" />
+        <div className="h-px bg-brief-border bg-brief-border" />
       </div>
 
       {/* ━━━ Categories ━━━ */}
@@ -235,7 +235,7 @@ export default function Home() {
             return isComingSoon ? (
               <div
                 key={cat.title}
-                className="group p-5 rounded-xl border border-brief-border dark:border-white/5 transition-all opacity-50"
+                className="group p-5 rounded-xl bg-white border border-brief-border transition-all opacity-40 shadow-sm"
               >
                 {inner}
               </div>
@@ -243,7 +243,7 @@ export default function Home() {
               <Link
                 key={cat.title}
                 href={cat.href}
-                className="group p-5 rounded-xl border border-brief-border dark:border-white/5 hover:border-foreground/15 dark:hover:border-white/15 transition-all"
+                className="group p-5 rounded-xl bg-white border border-brief-border hover:border-foreground/15 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
               >
                 {inner}
               </Link>
@@ -253,7 +253,7 @@ export default function Home() {
       </section>
 
       <div className="max-w-6xl mx-auto px-4">
-        <div className="h-px bg-brief-border dark:bg-white/10" />
+        <div className="h-px bg-brief-border bg-brief-border" />
       </div>
 
       {/* ━━━ Storylines preview ━━━ */}
@@ -276,7 +276,7 @@ export default function Home() {
       </section>
 
       <div className="max-w-6xl mx-auto px-4">
-        <div className="h-px bg-brief-border dark:bg-white/10" />
+        <div className="h-px bg-brief-border bg-brief-border" />
       </div>
 
       {/* ━━━ CTA ━━━ */}
@@ -291,7 +291,7 @@ export default function Home() {
         <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
           <Link
             href="/politics"
-            className="px-6 py-2.5 bg-brief-red text-white text-sm font-medium rounded-lg hover:bg-brief-red/90 transition-colors"
+            className="px-6 py-2.5 bg-brief-red text-white text-sm font-medium rounded-xl hover:bg-brief-red/90 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
           >
             Politics から始める
           </Link>
@@ -299,7 +299,7 @@ export default function Home() {
             href="https://x.com/thebrief_info"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2.5 border border-brief-border dark:border-white/10 text-sm font-medium rounded-lg hover:bg-foreground/5 transition-colors flex items-center gap-2"
+            className="px-6 py-2.5 bg-white border border-brief-border text-sm font-medium rounded-xl hover:bg-black/[0.02] transition-all flex items-center gap-2"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />

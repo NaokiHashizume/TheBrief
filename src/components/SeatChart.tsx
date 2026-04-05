@@ -89,7 +89,7 @@ export function CoalitionIndicator({
   const hasSupermajority = ldp >= supermajority;
 
   return (
-    <div className={`mt-4 p-4 rounded-lg border ${hasMajority ? "border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950" : "border-red-200 bg-red-50 dark:border-red-900 dark:bg-red-950"}`}>
+    <div className={`mt-4 p-4 rounded-lg border ${hasMajority ? "border-blue-200 bg-blue-50" : "border-red-200 bg-red-50"}`}>
       <div className="flex items-center justify-between">
         <div>
           <span className="text-xs tracking-wider uppercase text-foreground/40">与党（自由民主党）</span>
@@ -99,11 +99,11 @@ export function CoalitionIndicator({
         </div>
         <div className="flex items-center gap-2">
           {hasSupermajority && (
-            <span className="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300">
+            <span className="text-xs font-medium px-2 py-1 rounded-full bg-blue-100 text-blue-700">
               2/3超
             </span>
           )}
-          <span className={`text-xs font-medium px-2 py-1 rounded-full ${hasMajority ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300" : "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300"}`}>
+          <span className={`text-xs font-medium px-2 py-1 rounded-full ${hasMajority ? "bg-blue-100 text-blue-700" : "bg-red-100 text-red-700"}`}>
             {hasMajority ? "過半数確保" : "過半数割れ"}
           </span>
         </div>

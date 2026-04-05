@@ -17,7 +17,7 @@ export default function Contact() {
 
       <ContactForm />
 
-      <div className="mt-12 pt-8 border-t border-brief-border dark:border-white/10">
+      <div className="mt-12 pt-8 border-t border-brief-border">
         <h2 className="font-serif text-lg font-bold mb-4">Other Ways to Reach Us</h2>
         <div className="space-y-3 text-sm text-foreground/60">
           <p>

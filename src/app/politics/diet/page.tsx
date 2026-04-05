@@ -126,7 +126,7 @@ function ChamberExplainer({
   points: { label: string; value: string }[];
 }) {
   return (
-    <div className="p-5 bg-foreground/[0.03] rounded-xl">
+    <div className="p-5 bg-white rounded-xl">
       <h4 className="font-serif font-bold text-lg">{title}</h4>
       <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">{titleEn}</span>
       <dl className="mt-4 space-y-2">
@@ -199,7 +199,7 @@ export default function DietPage() {
             How a Bill Becomes Law
           </span>
         </div>
-        <div className="flex-1 h-px bg-brief-border dark:bg-white/10" />
+        <div className="flex-1 h-px bg-brief-border" />
       </div>
 
       <p className="text-sm text-foreground/50 leading-relaxed mb-6">
@@ -216,7 +216,7 @@ export default function DietPage() {
           { step: "6", title: "公布・施行", desc: "天皇が公布し、指定日に施行", color: "bg-green-500/10" },
         ].map((s, i, arr) => (
           <div key={s.step} className="flex items-center gap-3 flex-1">
-            <div className={`flex-1 p-4 rounded-xl ${s.color} border border-brief-border dark:border-white/5`}>
+            <div className={`flex-1 p-4 rounded-xl ${s.color} border border-brief-border`}>
               <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">Step {s.step}</div>
               <div className="font-serif font-bold text-sm">{s.title}</div>
               <div className="text-[10px] text-foreground/40 mt-1 leading-relaxed">{s.desc}</div>
@@ -230,7 +230,7 @@ export default function DietPage() {
         ))}
       </div>
 
-      <div className="mt-4 p-4 bg-foreground/[0.03] rounded-lg text-xs text-foreground/35 leading-relaxed">
+      <div className="mt-4 p-4 bg-white rounded-lg text-xs text-foreground/35 leading-relaxed">
         ※ 衆議院で可決後60日以内に参議院が議決しない場合、衆議院は参議院が否決したとみなすことができます（みなし否決）。
         衆議院で出席議員の2/3以上の多数で再び可決した場合、法律となります（衆議院の再議決権・憲法59条）。
       </div>
@@ -246,9 +246,9 @@ export default function DietPage() {
             House of Representatives — Seats
           </span>
         </div>
-        <div className="flex-1 h-px bg-brief-border dark:bg-white/10" />
+        <div className="flex-1 h-px bg-brief-border" />
       </div>
-      <div className="p-6 border border-brief-border dark:border-white/5 rounded-xl">
+      <div className="p-6 border border-brief-border rounded-xl">
         <SeatChart
           parties={houseOfRepresentatives}
           total={HOUSE_TOTAL}
@@ -268,9 +268,9 @@ export default function DietPage() {
             House of Councillors — Seats
           </span>
         </div>
-        <div className="flex-1 h-px bg-brief-border dark:bg-white/10" />
+        <div className="flex-1 h-px bg-brief-border" />
       </div>
-      <div className="p-6 border border-brief-border dark:border-white/5 rounded-xl">
+      <div className="p-6 border border-brief-border rounded-xl">
         <SeatChart
           parties={houseOfCouncillors}
           total={COUNCIL_TOTAL}
@@ -290,7 +290,7 @@ export default function DietPage() {
             History of the National Diet
           </span>
         </div>
-        <div className="flex-1 h-px bg-brief-border dark:bg-white/10" />
+        <div className="flex-1 h-px bg-brief-border" />
       </div>
 
       <p className="text-sm text-foreground/50 leading-relaxed mb-8">
@@ -336,7 +336,7 @@ export default function DietPage() {
       </div>
 
       {/* Disclaimer */}
-      <div className="mt-12 p-4 bg-foreground/[0.03] rounded-lg text-xs text-foreground/35 leading-relaxed">
+      <div className="mt-12 p-4 bg-white rounded-lg text-xs text-foreground/35 leading-relaxed">
         ※ 議席数は補欠選挙・離党等により変動する場合があります。最新の情報は各政党・国会の公式サイトをご確認ください。
       </div>
     </div>

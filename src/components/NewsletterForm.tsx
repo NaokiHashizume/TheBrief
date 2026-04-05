@@ -9,11 +9,11 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
       <input
         type="email"
         placeholder="you@example.com"
-        className="flex-1 px-3 py-2.5 text-sm border border-brief-border dark:border-white/10 rounded-lg bg-transparent focus:outline-none focus:border-brief-red"
+        className="flex-1 px-3 py-2.5 text-sm border border-brief-border rounded-xl bg-white focus:outline-none focus:border-brief-red"
       />
       <button
         type="submit"
-        className="px-4 py-2.5 text-sm font-medium bg-brief-dark dark:bg-white text-white dark:text-brief-dark rounded-lg hover:opacity-80 transition-opacity"
+        className="px-4 py-2.5 text-sm font-medium bg-brief-red text-white rounded-xl hover:opacity-80 transition-opacity"
       >
         Subscribe
       </button>

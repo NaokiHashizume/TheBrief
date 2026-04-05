@@ -9,7 +9,7 @@ const categories = [
 
 export function Header() {
   return (
-    <header className="border-b border-brief-border dark:border-white/10">
+    <header className="border-b border-brief-border bg-white">
       {/* Top bar */}
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="hover:opacity-80 transition-opacity">
@@ -21,7 +21,7 @@ export function Header() {
             href="https://x.com/thebrief_info"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+            className="p-2 rounded-full hover:bg-black/5 transition-colors"
             aria-label="Follow us on X"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -38,7 +38,7 @@ export function Header() {
             <li key={cat.href}>
               <Link
                 href={cat.href}
-                className="hover:text-foreground transition-colors"
+                className="hover:text-foreground rounded-lg px-3 py-1 -mx-3 hover:bg-black/[0.03] transition-all"
               >
                 {cat.label}
               </Link>

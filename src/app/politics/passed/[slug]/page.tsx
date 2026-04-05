@@ -113,7 +113,7 @@ export default async function PassedDetailPage({
       {/* Detail */}
       <div className="mt-10">
         <SectionHeader title="概要" titleEn="Overview" />
-        <div className="p-5 bg-foreground/[0.02] rounded-xl text-sm text-foreground/60 leading-relaxed">
+        <div className="p-5 bg-white rounded-xl text-sm text-foreground/60 leading-relaxed">
           {item.detail}
         </div>
       </div>
@@ -142,7 +142,7 @@ export default async function PassedDetailPage({
       </div>
 
       {/* Back link */}
-      <div className="mt-12 pt-6 border-t border-brief-border dark:border-white/5">
+      <div className="mt-12 pt-6 border-t border-brief-border">
         <Link
           href="/politics/passed"
           className="inline-flex items-center gap-2 text-sm text-foreground/40 hover:text-amber-400 transition-colors"
@@ -155,7 +155,7 @@ export default async function PassedDetailPage({
       </div>
 
       {/* 関連セクション */}
-      <div className="mt-12 pt-8 border-t border-brief-border dark:border-white/5">
+      <div className="mt-12 pt-8 border-t border-brief-border">
         <h3 className="text-xs tracking-wider uppercase text-foreground/30 font-medium mb-4">関連セクション</h3>
         <div className="flex flex-wrap gap-3">
           <Link href="/politics/debates" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-brief-red/20 hover:border-brief-red/50 hover:bg-brief-red/[0.03] transition-all text-sm">

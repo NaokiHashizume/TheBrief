@@ -44,7 +44,7 @@ export function LegislatorsByParty({
         const color = partyColors[party] || "#999";
 
         return (
-          <div key={party} className="border border-brief-border dark:border-white/5 rounded-xl overflow-hidden">
+          <div key={party} className="border border-brief-border rounded-xl overflow-hidden">
             {/* Party header */}
             <div className="px-5 py-3 flex items-center gap-3" style={{ borderLeft: `4px solid ${color}` }}>
               <div
@@ -55,7 +55,7 @@ export function LegislatorsByParty({
             </div>
 
             {/* Members */}
-            <div className="divide-y divide-brief-border dark:divide-white/5">
+            <div className="divide-y divide-brief-border">
               {members.map((leg) => (
                 <div key={leg.nameEn} className="px-5 py-4 flex items-center gap-4">
                   {/* Avatar placeholder */}

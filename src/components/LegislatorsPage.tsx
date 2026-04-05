@@ -35,7 +35,7 @@ function RankingCard({
 
   return (
     <div
-      className="flex items-center gap-4 p-4 border border-brief-border dark:border-white/5 rounded-xl hover:bg-foreground/[0.02] transition-colors"
+      className="flex items-center gap-4 p-4 border border-brief-border rounded-xl hover:bg-white transition-colors"
     >
       <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-serif font-bold text-lg ${
         isTop && leg.rank <= 3
@@ -116,7 +116,7 @@ function RankingSection({
             Legislator Activity Ranking
           </span>
         </div>
-        <div className="flex-1 h-px bg-brief-border dark:bg-white/10" />
+        <div className="flex-1 h-px bg-brief-border" />
       </div>
 
       <p className="text-sm text-foreground/40 mb-8">
@@ -127,7 +127,7 @@ function RankingSection({
         <summary className="text-xs text-foreground/40 cursor-pointer hover:text-foreground/60 transition-colors">
           採点方法について ▸
         </summary>
-        <div className="mt-3 p-4 bg-foreground/[0.03] rounded-lg text-xs text-foreground/40 leading-relaxed space-y-2">
+        <div className="mt-3 p-4 bg-white rounded-lg text-xs text-foreground/40 leading-relaxed space-y-2">
           <p>スコアは以下の4項目を各25点満点（計100点）で評価しています：</p>
           <ul className="list-disc pl-4 space-y-1">
             <li><span className="text-foreground/60 font-medium">質疑（25点）</span>：国会での質問回数・質問の質。本会議・委員会での発言時間を基準に算出。</li>
@@ -217,7 +217,7 @@ function PartyCard({
       className={`w-full text-left p-5 rounded-xl border-2 transition-all duration-200 ${
         isSelected
           ? "border-current bg-current/[0.03]"
-          : "border-brief-border dark:border-white/5 hover:border-foreground/15 dark:hover:border-white/15"
+          : "border-brief-border hover:border-foreground/15"
       }`}
       style={isSelected ? { borderColor: party.color, color: party.color } : {}}
     >
@@ -259,7 +259,7 @@ function PartyCard({
         {party.policies.map((policy) => (
           <span
             key={policy}
-            className="text-[10px] px-2 py-1 rounded-md bg-foreground/[0.04] text-foreground/45 leading-none"
+            className="text-[10px] px-2 py-1 rounded-md bg-white text-foreground/45 leading-none"
           >
             {policy}
           </span>
@@ -291,11 +291,11 @@ function ChamberMemberList({ members, label }: { members: Legislator[]; label: s
 
   return (
     <>
-      <div className="px-5 py-2.5 bg-foreground/[0.02] flex items-center gap-2">
+      <div className="px-5 py-2.5 bg-white flex items-center gap-2">
         <span className="text-xs font-bold text-foreground/50">{label}</span>
         <span className="text-[10px] text-foreground/25">{members.length}名</span>
       </div>
-      <div className="divide-y divide-brief-border dark:divide-white/5">
+      <div className="divide-y divide-brief-border">
         {visible.map((leg) => (
           <MemberRow key={leg.nameEn} leg={leg} />
         ))}
@@ -303,7 +303,7 @@ function ChamberMemberList({ members, label }: { members: Legislator[]; label: s
       {hasMore && !showAll && (
         <button
           onClick={() => setShowAll(true)}
-          className="w-full px-5 py-3 text-xs text-foreground/40 hover:text-foreground/60 hover:bg-foreground/[0.02] transition-colors text-center"
+          className="w-full px-5 py-3 text-xs text-foreground/40 hover:text-foreground/60 hover:bg-white transition-colors text-center"
         >
           残り{members.length - INITIAL_SHOW}名を表示 ▾
         </button>
@@ -395,7 +395,7 @@ function PartyBrowser({
             Browse by Party
           </span>
         </div>
-        <div className="flex-1 h-px bg-brief-border dark:bg-white/10" />
+        <div className="flex-1 h-px bg-brief-border" />
       </div>
 
       {/* 議員検索 */}
@@ -410,13 +410,13 @@ function PartyBrowser({
             placeholder="議員名で検索..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 rounded-xl bg-foreground/[0.03] border border-brief-border dark:border-white/5 text-sm text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-brief-red/50 transition-colors"
+            className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-brief-border text-sm text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-brief-red/50 transition-colors"
           />
         </div>
       </div>
 
       {searchQuery.length > 0 ? (
-        <div className="border border-brief-border dark:border-white/5 rounded-xl overflow-hidden">
+        <div className="border border-brief-border rounded-xl overflow-hidden">
           <div className="px-5 py-3 text-xs text-foreground/40">
             「{searchQuery}」の検索結果: {searchResults.length}件
           </div>
@@ -425,7 +425,7 @@ function PartyBrowser({
               該当する議員が見つかりません
             </div>
           ) : (
-            <div className="divide-y divide-brief-border dark:divide-white/5">
+            <div className="divide-y divide-brief-border">
               {searchResults.map((leg) => (
                 <MemberRow key={leg.nameEn} leg={leg} partyColors={partyColors} />
               ))}
@@ -452,7 +452,7 @@ function PartyBrowser({
 
               {/* Inline accordion: members appear directly below the card */}
               {isOpen && (
-                <div className="mt-1 border border-brief-border dark:border-white/5 rounded-xl overflow-hidden"
+                <div className="mt-1 border border-brief-border rounded-xl overflow-hidden"
                   style={{ borderTop: `3px solid ${partyColors[party] || "#999"}` }}>
 
                   {/* 衆議院 */}
@@ -462,7 +462,7 @@ function PartyBrowser({
 
                   {/* 参議院 */}
                   {councilMembers.length > 0 && (
-                    <div className="border-t border-brief-border dark:border-white/5">
+                    <div className="border-t border-brief-border">
                       <ChamberMemberList members={councilMembers} label="参議院" />
                     </div>
                   )}

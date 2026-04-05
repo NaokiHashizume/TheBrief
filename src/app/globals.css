@@ -3,16 +3,18 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brief-red: #e53e3e;
-  --color-brief-dark: #0f0f0f;
+  --color-brief-red: #d94f3d;
+  --color-brief-dark: #1a1a1a;
   --color-brief-gray: #f4f3ef;
-  --color-brief-border: #e8e8e8;
+  --color-brief-border: rgba(0, 0, 0, 0.06);
+  --color-brief-card: #ffffff;
+  --color-brief-muted: rgba(26, 26, 26, 0.45);
   --font-serif: 'Playfair Display', Georgia, serif;
 }
 
 :root {
-  --background: #0f0f0f;
-  --foreground: #ededed;
+  --background: #fafaf8;
+  --foreground: #1a1a1a;
 }
 
 body {

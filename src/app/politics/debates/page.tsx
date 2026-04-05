@@ -43,7 +43,7 @@ export default function DebatesPage() {
           <Link
             key={debate.slug}
             href={`/politics/debates/${debate.slug}`}
-            className="group block p-5 rounded-xl border border-brief-border dark:border-white/5 hover:border-brief-red/50 dark:hover:border-brief-red/50 transition-all duration-200 hover:bg-foreground/[0.01]"
+            className="group block p-5 rounded-xl border border-brief-border hover:border-brief-red/50 transition-all duration-200 hover:bg-white"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1 min-w-0">
@@ -84,7 +84,7 @@ export default function DebatesPage() {
               {debate.keyPoints.slice(0, 3).map((point) => (
                 <span
                   key={point}
-                  className="text-[10px] px-2 py-0.5 bg-foreground/[0.04] rounded-full text-foreground/35"
+                  className="text-[10px] px-2 py-0.5 bg-white rounded-full text-foreground/35"
                 >
                   {point}
                 </span>

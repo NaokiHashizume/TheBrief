@@ -38,7 +38,7 @@ export function AdBanner({
 export function AdBannerPlaceholder({ className = "" }: { className?: string }) {
   return (
     <div
-      className={`bg-foreground/[0.03] border border-dashed border-brief-border dark:border-white/10 rounded-lg flex items-center justify-center py-8 text-xs text-foreground/20 tracking-wider uppercase ${className}`}
+      className={`bg-white border border-dashed border-brief-border rounded-lg flex items-center justify-center py-8 text-xs text-foreground/20 tracking-wider uppercase ${className}`}
     >
       Advertisement
     </div>

@@ -78,7 +78,7 @@ function IndicatorCard({ indicator }: { indicator: EconomicIndicator }) {
 
   return (
     <div
-      className={`p-4 rounded-xl bg-foreground/[0.03] border border-brief-border dark:border-white/5 hover:border-white/10 transition-all duration-200`}
+      className={`p-4 rounded-xl bg-white border border-brief-border hover:border-foreground/15 transition-all duration-200`}
     >
       {/* Header row: status dot + name */}
       <div className="flex items-start justify-between gap-2 mb-3">
@@ -170,7 +170,7 @@ export default function EconomyPage() {
 
       {/* Summary Dashboard */}
       <div className="mt-8 grid grid-cols-3 gap-3">
-        <div className="p-4 rounded-xl bg-foreground/[0.03] border border-brief-border dark:border-white/5">
+        <div className="p-4 rounded-xl bg-white border border-brief-border">
           <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">
             良好
           </div>
@@ -180,7 +180,7 @@ export default function EconomyPage() {
           </div>
           <div className="text-[10px] text-foreground/35 mt-1">指標が健全な水準</div>
         </div>
-        <div className="p-4 rounded-xl bg-foreground/[0.03] border border-brief-border dark:border-white/5">
+        <div className="p-4 rounded-xl bg-white border border-brief-border">
           <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">
             中立
           </div>
@@ -190,7 +190,7 @@ export default function EconomyPage() {
           </div>
           <div className="text-[10px] text-foreground/35 mt-1">注視が必要</div>
         </div>
-        <div className="p-4 rounded-xl bg-foreground/[0.03] border border-brief-border dark:border-white/5">
+        <div className="p-4 rounded-xl bg-white border border-brief-border">
           <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">
             注意
           </div>
@@ -300,7 +300,7 @@ export default function EconomyPage() {
 
                   {/* Content card */}
                   <div
-                    className={`p-3 rounded-lg bg-foreground/[0.03] border ${impactBorder} group-hover:bg-foreground/[0.05] transition-colors`}
+                    className={`p-3 rounded-lg bg-white border ${impactBorder} group-hover:bg-white transition-colors`}
                   >
                     <h3 className="text-sm font-medium leading-snug">
                       {item.title}

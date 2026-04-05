@@ -7,7 +7,7 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="p-8 bg-foreground/[0.03] rounded-xl border border-brief-border dark:border-white/5 text-center">
+      <div className="p-8 bg-white rounded-xl border border-brief-border text-center">
         <p className="font-serif text-lg font-bold">Thank you!</p>
         <p className="mt-2 text-sm text-foreground/50">
           お問い合わせを受け付けました。内容を確認の上、ご連絡いたします。
@@ -34,7 +34,7 @@ export function ContactForm() {
           id="name"
           type="text"
           required
-          className="w-full px-4 py-3 text-sm border border-brief-border dark:border-white/10 rounded-lg bg-transparent focus:outline-none focus:border-brief-red"
+          className="w-full px-4 py-3 text-sm border border-brief-border rounded-lg bg-transparent focus:outline-none focus:border-brief-red"
           placeholder="お名前"
         />
       </div>
@@ -47,7 +47,7 @@ export function ContactForm() {
           id="email"
           type="email"
           required
-          className="w-full px-4 py-3 text-sm border border-brief-border dark:border-white/10 rounded-lg bg-transparent focus:outline-none focus:border-brief-red"
+          className="w-full px-4 py-3 text-sm border border-brief-border rounded-lg bg-transparent focus:outline-none focus:border-brief-red"
           placeholder="you@example.com"
         />
       </div>
@@ -59,7 +59,7 @@ export function ContactForm() {
         <select
           id="subject"
           required
-          className="w-full px-4 py-3 text-sm border border-brief-border dark:border-white/10 rounded-lg bg-transparent focus:outline-none focus:border-brief-red"
+          className="w-full px-4 py-3 text-sm border border-brief-border rounded-lg bg-transparent focus:outline-none focus:border-brief-red"
         >
           <option value="">選択してください</option>
           <option value="general">一般的なお問い合わせ</option>
@@ -78,14 +78,14 @@ export function ContactForm() {
           id="message"
           required
           rows={6}
-          className="w-full px-4 py-3 text-sm border border-brief-border dark:border-white/10 rounded-lg bg-transparent focus:outline-none focus:border-brief-red resize-vertical"
+          className="w-full px-4 py-3 text-sm border border-brief-border rounded-lg bg-transparent focus:outline-none focus:border-brief-red resize-vertical"
           placeholder="お問い合わせ内容"
         />
       </div>
 
       <button
         type="submit"
-        className="px-8 py-3 text-sm font-medium bg-brief-dark dark:bg-white text-white dark:text-brief-dark rounded-lg hover:opacity-80 transition-opacity"
+        className="px-8 py-3 text-sm font-medium bg-brief-red text-white rounded-lg hover:opacity-80 transition-opacity"
       >
         Send Message
       </button>

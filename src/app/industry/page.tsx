@@ -179,7 +179,7 @@ export default function IndustryPage() {
         {industries.map((ind) => (
           <div
             key={ind.slug}
-            className="group p-5 rounded-xl border border-brief-border dark:border-white/5 hover:border-foreground/15 dark:hover:border-white/15 transition-all"
+            className="group p-5 rounded-xl border border-brief-border hover:border-foreground/15 transition-all"
           >
             <div className="flex items-start gap-4">
               <div

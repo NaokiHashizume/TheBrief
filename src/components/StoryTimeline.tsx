@@ -8,7 +8,7 @@ export function StoryTimeline({ story }: { story: Story }) {
   return (
     <div className="relative">
       {/* Vertical line */}
-      <div className="absolute left-[11px] top-3 bottom-3 w-px bg-brief-border dark:bg-white/10" />
+      <div className="absolute left-[11px] top-3 bottom-3 w-px bg-brief-border" />
 
       <div className="space-y-0">
         {episodes.map((episode, i) => {
@@ -21,7 +21,7 @@ export function StoryTimeline({ story }: { story: Story }) {
                   className={`w-[23px] h-[23px] rounded-full border-2 flex items-center justify-center ${
                     isLatest
                       ? "border-brief-red bg-brief-red"
-                      : "border-brief-border dark:border-white/20 bg-background"
+                      : "border-brief-border bg-background"
                   }`}
                 >
                   {isLatest && (
@@ -65,7 +65,7 @@ export function StoryCardCompact({ story }: { story: Story }) {
   const episodeCount = story.episodes.length;
 
   return (
-    <article className="group cursor-pointer p-6 border border-brief-border dark:border-white/5 rounded-xl hover:border-brief-red/30 transition-colors">
+    <article className="group cursor-pointer p-6 border border-brief-border rounded-xl hover:border-brief-red/30 transition-colors">
       <div className="flex items-center gap-2 mb-2">
         <span className="category-pill text-brief-red font-medium">
           {story.categoryLabel}
@@ -109,7 +109,7 @@ export function StoryCardCompact({ story }: { story: Story }) {
         </span>
       </div>
 
-      <div className="mt-3 pt-3 border-t border-brief-border dark:border-white/5 flex items-center justify-between">
+      <div className="mt-3 pt-3 border-t border-brief-border flex items-center justify-between">
         <span className="text-xs text-foreground/30">
           Latest: {latest.date}
         </span>

@@ -101,7 +101,7 @@ export default function CabinetPage() {
         </div>
 
         {/* Mission statement */}
-        <div className="p-5 rounded-xl bg-foreground/[0.03] border border-brief-border dark:border-white/5 mb-6">
+        <div className="p-5 rounded-xl bg-white border border-brief-border mb-6">
           <blockquote className="font-serif text-lg font-bold leading-relaxed">
             &ldquo;日本列島を、強く豊かに。&rdquo;
           </blockquote>
@@ -116,7 +116,7 @@ export default function CabinetPage() {
           {policyPillars.map((pillar) => (
             <div
               key={pillar.titleEn}
-              className="p-5 rounded-xl border border-brief-border dark:border-white/5"
+              className="p-5 rounded-xl border border-brief-border"
             >
               <div className="text-foreground/20 mb-3">
                 <PillarIcon type={pillar.icon} />
@@ -178,7 +178,7 @@ export default function CabinetPage() {
                   {items.map((indicator) => (
                     <div
                       key={indicator.id}
-                      className="p-4 rounded-xl border border-brief-border dark:border-white/5"
+                      className="p-4 rounded-xl border border-brief-border"
                     >
                       <div className="flex items-start justify-between gap-4 mb-3">
                         <div className="flex-1 min-w-0">
@@ -232,9 +232,9 @@ export default function CabinetPage() {
           <div className="flex-1 h-px bg-white/10" />
         </div>
 
-        <div className="border border-brief-border dark:border-white/5 rounded-xl overflow-hidden">
+        <div className="border border-brief-border rounded-xl overflow-hidden">
           {/* PM highlight */}
-          <div className="p-6 bg-foreground/[0.03]">
+          <div className="p-6 bg-white">
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/35">
               {cabinet[0].positionEn}
             </span>
@@ -249,7 +249,7 @@ export default function CabinetPage() {
           </div>
 
           {/* Other ministers */}
-          <div className="divide-y divide-brief-border dark:divide-white/5">
+          <div className="divide-y divide-brief-border">
             {cabinet.slice(1).map((member) => (
               <div key={member.positionEn} className="px-6 py-4 flex items-center justify-between">
                 <div>

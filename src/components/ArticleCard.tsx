@@ -36,7 +36,7 @@ export function ArticleCardFeatured({ article }: { article: Article }) {
 
 export function ArticleCardCompact({ article }: { article: Article }) {
   return (
-    <article className="group cursor-pointer py-5 border-b border-brief-border dark:border-white/5 last:border-0">
+    <article className="group cursor-pointer py-5 border-b border-brief-border last:border-0">
       <CategoryBadge label={article.categoryLabel} subLabel={article.industryLabel} />
       <h3 className="mt-1.5 font-serif text-lg font-bold leading-snug group-hover:text-brief-red transition-colors">
         {article.title}
@@ -57,7 +57,7 @@ export function ArticleCardCompact({ article }: { article: Article }) {
 
 export function ArticleCardHorizontal({ article }: { article: Article }) {
   return (
-    <article className="group cursor-pointer flex gap-4 py-4 border-b border-brief-border dark:border-white/5 last:border-0">
+    <article className="group cursor-pointer flex gap-4 py-4 border-b border-brief-border last:border-0">
       <div className="flex-1">
         <CategoryBadge label={article.categoryLabel} subLabel={article.industryLabel} />
         <h3 className="mt-1 font-serif text-base font-bold leading-snug group-hover:text-brief-red transition-colors">
