@@ -4,7 +4,10 @@ import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import {
   economicIndicators,
   categoryLabels,
+  economyNews,
+  newsCategoryLabels,
   type EconomicIndicator,
+  type EconomyNewsItem,
   type IndicatorStatus,
   type TrendDirection,
 } from "@/lib/economy";
@@ -240,6 +243,78 @@ export default function EconomyPage() {
           </div>
         </div>
       ))}
+
+      {/* Economy News Timeline */}
+      <div className="mt-14">
+        <div className="flex items-center gap-4 mb-6">
+          <div>
+            <h2 className="font-serif text-xl font-bold">経済ニュース</h2>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">
+              Economic News Timeline
+            </span>
+          </div>
+          <div className="flex-1 h-px bg-white/5" />
+        </div>
+
+        <div className="relative">
+          {/* Vertical timeline line */}
+          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-white/10" />
+
+          <div className="space-y-0">
+            {economyNews.map((item, i) => {
+              const impactColor =
+                item.impact === "positive"
+                  ? "bg-green-500"
+                  : item.impact === "negative"
+                    ? "bg-red-500"
+                    : "bg-yellow-500";
+              const impactBorder =
+                item.impact === "positive"
+                  ? "border-green-500/20"
+                  : item.impact === "negative"
+                    ? "border-red-500/20"
+                    : "border-yellow-500/20";
+
+              return (
+                <div key={i} className="relative pl-7 pb-6 last:pb-0 group">
+                  {/* Timeline dot */}
+                  <div
+                    className={`absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-background ${impactColor} z-10`}
+                  />
+
+                  {/* Date */}
+                  <div className="text-[10px] tabular-nums text-foreground/30 mb-1">
+                    {item.date}
+                    <span
+                      className={`ml-2 px-1.5 py-0.5 rounded text-[9px] font-medium ${
+                        item.impact === "positive"
+                          ? "bg-green-500/10 text-green-400"
+                          : item.impact === "negative"
+                            ? "bg-red-500/10 text-red-400"
+                            : "bg-yellow-500/10 text-yellow-400"
+                      }`}
+                    >
+                      {newsCategoryLabels[item.category]}
+                    </span>
+                  </div>
+
+                  {/* Content card */}
+                  <div
+                    className={`p-3 rounded-lg bg-foreground/[0.03] border ${impactBorder} group-hover:bg-foreground/[0.05] transition-colors`}
+                  >
+                    <h3 className="text-sm font-medium leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 text-[11px] text-foreground/40 leading-relaxed">
+                      {item.summary}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
 
       {/* Data sources note */}
       <div className="mt-14 p-5 rounded-xl border border-dashed border-white/10">
