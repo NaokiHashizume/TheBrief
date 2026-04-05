@@ -12,6 +12,15 @@ import {
   SecurityLayersDiagram,
   InternetScaleDiagram,
 } from "@/components/NetworkDiagrams";
+import {
+  TelecomOverviewDiagram,
+  SpectrumBandsDiagram,
+  ModulationTypesDiagram,
+  FiberOpticDiagram,
+  CellNetworkDiagram,
+  SatelliteTypesDiagram,
+  JapanInfraDiagram,
+} from "@/components/TelecomDiagrams";
 
 export function generateStaticParams() {
   return ictArticles.map((a) => ({ slug: a.slug }));
@@ -230,6 +239,13 @@ export default async function IctArticlePage({
               {section.diagramId === "dns-hierarchy" && <DnsHierarchyDiagram />}
               {section.diagramId === "mobile-generation" && <MobileGenerationDiagram />}
               {section.diagramId === "security-layers" && <SecurityLayersDiagram />}
+              {section.diagramId === "telecom-overview" && <TelecomOverviewDiagram />}
+              {section.diagramId === "spectrum-bands" && <SpectrumBandsDiagram />}
+              {section.diagramId === "modulation-types" && <ModulationTypesDiagram />}
+              {section.diagramId === "fiber-optic" && <FiberOpticDiagram />}
+              {section.diagramId === "cell-network" && <CellNetworkDiagram />}
+              {section.diagramId === "satellite-types" && <SatelliteTypesDiagram />}
+              {section.diagramId === "japan-infra" && <JapanInfraDiagram />}
 
               {/* Section body */}
               <div className="space-y-5">
