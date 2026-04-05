@@ -11,6 +11,8 @@ export interface EconomicIndicator {
   description: string;
   category: "growth" | "prices" | "labor" | "financial" | "trade" | "monetary";
   lastUpdated: string;
+  change?: string;
+  sparkline?: number[];
 }
 
 export const economicIndicators: EconomicIndicator[] = [
@@ -24,6 +26,8 @@ export const economicIndicators: EconomicIndicator[] = [
     description: "実質GDP成長率（前年比）。外需の弱さにより成長が鈍化。",
     category: "growth",
     lastUpdated: "2026-03-31",
+    change: "前期 1.2%",
+    sparkline: [1.8, 1.5, 1.2, 1.0, 0.9, 0.7],
   },
   {
     name: "消費者物価指数 (CPI)",
@@ -35,6 +39,8 @@ export const economicIndicators: EconomicIndicator[] = [
     description: "生鮮食品を除くコアCPI（2月）。電気・ガス補助金の再開により約4年ぶりの2%割れ。3月は原油高で再び2%台へ。",
     category: "prices",
     lastUpdated: "2026-03-21",
+    change: "前月 2.2%",
+    sparkline: [3.1, 2.8, 2.5, 2.3, 2.2, 1.6],
   },
   {
     name: "完全失業率",
@@ -46,6 +52,8 @@ export const economicIndicators: EconomicIndicator[] = [
     description: "季節調整値。歴史的な低水準を維持。労働市場は依然として堅調。",
     category: "labor",
     lastUpdated: "2026-03-28",
+    change: "前月 2.5%",
+    sparkline: [2.6, 2.5, 2.5, 2.4, 2.5, 2.5],
   },
   {
     name: "日経平均株価",
@@ -57,6 +65,8 @@ export const economicIndicators: EconomicIndicator[] = [
     description: "東京証券取引所プライム市場の代表的な株価指数。2025年10月に史上初の5万円突破。中東情勢・関税懸念で乱高下。",
     category: "financial",
     lastUpdated: "2026-04-04",
+    change: "前日 53,372円",
+    sparkline: [38500, 42000, 47000, 50000, 57000, 53123],
   },
   {
     name: "円ドル為替レート",
@@ -68,6 +78,8 @@ export const economicIndicators: EconomicIndicator[] = [
     description: "円安基調が継続。過去12ヶ月で約8.5%の円安進行。",
     category: "financial",
     lastUpdated: "2026-04-03",
+    change: "前日 158.9円",
+    sparkline: [147, 150, 153, 155, 158, 159.4],
   },
   {
     name: "経常収支",
@@ -79,6 +91,8 @@ export const economicIndicators: EconomicIndicator[] = [
     description: "2026年1月の経常収支黒字。前年同月比で大幅改善。",
     category: "trade",
     lastUpdated: "2026-03-10",
+    change: "前年同月 +6,831億円",
+    sparkline: [5200, 5800, 6200, 6831, 8100, 9426],
   },
   {
     name: "貿易収支",
@@ -90,6 +104,8 @@ export const economicIndicators: EconomicIndicator[] = [
     description: "2026年2月の貿易収支。黒字は維持するも前年同月比で大幅減。",
     category: "trade",
     lastUpdated: "2026-03-19",
+    change: "前月 +1,234億円",
+    sparkline: [800, 1500, 1200, 1234, 900, 573],
   },
   {
     name: "日銀政策金利",
@@ -101,6 +117,8 @@ export const economicIndicators: EconomicIndicator[] = [
     description: "1995年9月以来の高水準。4月の追加利上げの可能性も示唆。",
     category: "monetary",
     lastUpdated: "2026-03-19",
+    change: "前回 0.50%",
+    sparkline: [0, 0, 0.1, 0.25, 0.5, 0.75],
   },
   {
     name: "10年国債利回り",
@@ -112,6 +130,8 @@ export const economicIndicators: EconomicIndicator[] = [
     description: "長期金利は上昇基調。投資家がインフレと利上げを織り込み中。",
     category: "monetary",
     lastUpdated: "2026-04-03",
+    change: "前日 2.35%",
+    sparkline: [0.8, 1.0, 1.3, 1.7, 2.1, 2.39],
   },
   {
     name: "マネーストック M2",
@@ -123,6 +143,8 @@ export const economicIndicators: EconomicIndicator[] = [
     description: "2026年2月のM2残高。前月比でやや減少。",
     category: "monetary",
     lastUpdated: "2026-03-12",
+    change: "前月 1,278.3兆円",
+    sparkline: [1260, 1265, 1270, 1275, 1278, 1274.9],
   },
   {
     name: "鉱工業生産指数",
@@ -134,6 +156,8 @@ export const economicIndicators: EconomicIndicator[] = [
     description: "米国関税引き上げの前倒し需要と反動減が交錯。全体としてはほぼ横ばい。",
     category: "growth",
     lastUpdated: "2026-03-28",
+    change: "前月比 ±0.0%",
+    sparkline: [98, 99, 100, 99, 100, 100],
   },
   {
     name: "消費支出",
@@ -145,6 +169,8 @@ export const economicIndicators: EconomicIndicator[] = [
     description: "実質消費支出は緩やかに回復。賃金上昇が消費を下支え。",
     category: "growth",
     lastUpdated: "2026-03-07",
+    change: "前月 +0.3%",
+    sparkline: [-1.2, -0.5, 0.1, 0.2, 0.3, 0.8],
   },
   {
     name: "有効求人倍率",
@@ -156,6 +182,8 @@ export const economicIndicators: EconomicIndicator[] = [
     description: "2026年1月の有効求人倍率。前月の1.20から低下も依然1倍超。",
     category: "labor",
     lastUpdated: "2026-02-28",
+    change: "前月 1.20倍",
+    sparkline: [1.25, 1.24, 1.22, 1.21, 1.20, 1.18],
   },
 ];
 
@@ -165,6 +193,7 @@ export interface EconomyNewsItem {
   summary: string;
   category: "policy" | "market" | "trade" | "fiscal" | "labor" | "corporate";
   impact: "positive" | "negative" | "neutral";
+  relatedIndicators?: string[];
 }
 
 export const economyNews: EconomyNewsItem[] = [
@@ -174,6 +203,7 @@ export const economyNews: EconomyNewsItem[] = [
     summary: "帝国データバンク調べで4月の飲食料品値上げは2,798品目（平均14%）。調味料1,514品目、加工食品609品目、酒類・飲料369品目。電気・ガス補助金も3月末で終了し家計への影響大。",
     category: "market",
     impact: "negative",
+    relatedIndicators: ["CPI (YoY)", "Consumer Spending"],
   },
   {
     date: "2026-04-04",
@@ -181,6 +211,7 @@ export const economyNews: EconomyNewsItem[] = [
     summary: "中東情勢を背景とした原油高の重圧を受け、前週末比249円安の53,123円で反落。来週は5万～5万5,000円のレンジを予想。",
     category: "market",
     impact: "negative",
+    relatedIndicators: ["Nikkei 225"],
   },
   {
     date: "2026-04-03",
@@ -188,6 +219,7 @@ export const economyNews: EconomyNewsItem[] = [
     summary: "連合の第3回集計（2,311組合）で賃上げ率は5.09%。中小企業（300人未満）も5.00%と前年並みの高水準を維持し、3年連続5%超の賃上げが実現。",
     category: "labor",
     impact: "positive",
+    relatedIndicators: ["Consumer Spending", "Unemployment Rate"],
   },
   {
     date: "2026-04-02",
@@ -195,6 +227,7 @@ export const economyNews: EconomyNewsItem[] = [
     summary: "トランプ大統領が相互関税を発表。日本には非関税障壁を含め46%相当と見なし、その半分の24%を課税。自動車・半導体を中心に輸出産業への影響懸念。",
     category: "trade",
     impact: "negative",
+    relatedIndicators: ["Trade Balance", "USD/JPY", "Nikkei 225"],
   },
   {
     date: "2026-04-01",
@@ -209,6 +242,7 @@ export const economyNews: EconomyNewsItem[] = [
     summary: "生鮮食品を除くコアCPIは前年同月比+1.6%と2022年3月以来47ヶ月ぶりの2%割れ。電気・ガス補助金の再開が主因。3月は原油高で再び2%台の見込み。",
     category: "policy",
     impact: "positive",
+    relatedIndicators: ["CPI (YoY)", "BOJ Policy Rate"],
   },
   {
     date: "2026-03-23",
@@ -223,6 +257,7 @@ export const economyNews: EconomyNewsItem[] = [
     summary: "日銀は金融政策決定会合で政策金利を0.75%に据え置き。8対1で決定（高田委員が1%への利上げを主張し反対）。中東情勢の不透明感を注視しつつ、利上げ継続の姿勢は維持。",
     category: "policy",
     impact: "neutral",
+    relatedIndicators: ["BOJ Policy Rate", "10Y JGB Yield", "USD/JPY"],
   },
   {
     date: "2026-03-14",
@@ -237,6 +272,7 @@ export const economyNews: EconomyNewsItem[] = [
     summary: "海外投資からの第一次所得収支が拡大し、経常収支は前年同月比38%増の黒字を記録。円安による海外利益の膨張が寄与。",
     category: "trade",
     impact: "positive",
+    relatedIndicators: ["Current Account", "USD/JPY"],
   },
   {
     date: "2026-03-07",
@@ -272,6 +308,7 @@ export const economyNews: EconomyNewsItem[] = [
     summary: "日銀は0.50%から0.75%への追加利上げを決定。1995年9月以来約30年ぶりの高水準。為替市場では一時円高に振れるも、その後円安基調に回帰。",
     category: "policy",
     impact: "neutral",
+    relatedIndicators: ["BOJ Policy Rate", "USD/JPY", "10Y JGB Yield"],
   },
 ];
 
