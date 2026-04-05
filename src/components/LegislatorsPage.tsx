@@ -35,7 +35,7 @@ function RankingCard({
 
   return (
     <div
-      className="flex items-center gap-4 p-4 border border-brief-border rounded-xl hover:bg-white transition-colors"
+      className="flex items-center gap-4 p-4 border border-brief-border rounded-xl hover:bg-brief-card transition-colors"
     >
       <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-serif font-bold text-lg ${
         isTop && leg.rank <= 3
@@ -127,7 +127,7 @@ function RankingSection({
         <summary className="text-xs text-foreground/55 cursor-pointer hover:text-foreground/70 transition-colors">
           採点方法について ▸
         </summary>
-        <div className="mt-3 p-4 bg-white rounded-lg text-xs text-foreground/55 leading-relaxed space-y-2">
+        <div className="mt-3 p-4 bg-brief-card rounded-lg text-xs text-foreground/55 leading-relaxed space-y-2">
           <p>スコアは以下の4項目を各25点満点（計100点）で評価しています：</p>
           <ul className="list-disc pl-4 space-y-1">
             <li><span className="text-foreground/70 font-medium">質疑（25点）</span>：国会での質問回数・質問の質。本会議・委員会での発言時間を基準に算出。</li>
@@ -259,7 +259,7 @@ function PartyCard({
         {party.policies.map((policy) => (
           <span
             key={policy}
-            className="text-[10px] px-2 py-1 rounded-md bg-white text-foreground/45 leading-none"
+            className="text-[10px] px-2 py-1 rounded-md bg-brief-card text-foreground/45 leading-none"
           >
             {policy}
           </span>
@@ -291,7 +291,7 @@ function ChamberMemberList({ members, label }: { members: Legislator[]; label: s
 
   return (
     <>
-      <div className="px-5 py-2.5 bg-white flex items-center gap-2">
+      <div className="px-5 py-2.5 bg-brief-card flex items-center gap-2">
         <span className="text-xs font-bold text-foreground/60">{label}</span>
         <span className="text-[10px] text-foreground/40">{members.length}名</span>
       </div>
@@ -303,7 +303,7 @@ function ChamberMemberList({ members, label }: { members: Legislator[]; label: s
       {hasMore && !showAll && (
         <button
           onClick={() => setShowAll(true)}
-          className="w-full px-5 py-3 text-xs text-foreground/55 hover:text-foreground/70 hover:bg-white transition-colors text-center"
+          className="w-full px-5 py-3 text-xs text-foreground/55 hover:text-foreground/70 hover:bg-brief-card transition-colors text-center"
         >
           残り{members.length - INITIAL_SHOW}名を表示 ▾
         </button>
@@ -410,7 +410,7 @@ function PartyBrowser({
             placeholder="議員名で検索..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-brief-border text-sm text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-brief-red/50 transition-colors"
+            className="w-full pl-10 pr-4 py-3 rounded-xl bg-brief-card border border-brief-border text-sm text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-brief-red/50 transition-colors"
           />
         </div>
       </div>

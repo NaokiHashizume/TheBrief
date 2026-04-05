@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 
 const categories = [
   { label: "Politics", href: "/politics" },
@@ -9,19 +12,20 @@ const categories = [
 
 export function Header() {
   return (
-    <header className="border-b border-brief-border bg-white">
+    <header className="border-b border-brief-border bg-brief-card">
       {/* Top bar */}
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="hover:opacity-80 transition-opacity">
           <Logo />
         </Link>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
           <a
             href="https://x.com/thebrief_info"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full hover:bg-black/5 transition-colors"
+            className="p-2 rounded-full hover:bg-foreground/5 transition-colors"
             aria-label="Follow us on X"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -38,7 +42,7 @@ export function Header() {
             <li key={cat.href}>
               <Link
                 href={cat.href}
-                className="hover:text-foreground rounded-lg px-3 py-1 -mx-3 hover:bg-black/[0.03] transition-all"
+                className="hover:text-foreground rounded-lg px-3 py-1 -mx-3 hover:bg-foreground/5 transition-all"
               >
                 {cat.label}
               </Link>

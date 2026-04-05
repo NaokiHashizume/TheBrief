@@ -59,7 +59,7 @@ export function IndustryBubbleChart() {
         </span>
       </div>
 
-      <div className="relative w-full rounded-xl border border-brief-border bg-white overflow-hidden">
+      <div className="relative w-full rounded-xl border border-brief-border bg-brief-card overflow-hidden">
         <svg
           viewBox="0 0 600 420"
           className="w-full h-auto"

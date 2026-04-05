@@ -126,7 +126,7 @@ function ChamberExplainer({
   points: { label: string; value: string }[];
 }) {
   return (
-    <div className="p-5 bg-white rounded-xl">
+    <div className="p-5 bg-brief-card rounded-xl">
       <h4 className="font-serif font-bold text-lg">{title}</h4>
       <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">{titleEn}</span>
       <dl className="mt-4 space-y-2">
@@ -230,7 +230,7 @@ export default function DietPage() {
         ))}
       </div>
 
-      <div className="mt-4 p-4 bg-white rounded-lg text-xs text-foreground/50 leading-relaxed">
+      <div className="mt-4 p-4 bg-brief-card rounded-lg text-xs text-foreground/50 leading-relaxed">
         ※ 衆議院で可決後60日以内に参議院が議決しない場合、衆議院は参議院が否決したとみなすことができます（みなし否決）。
         衆議院で出席議員の2/3以上の多数で再び可決した場合、法律となります（衆議院の再議決権・憲法59条）。
       </div>
@@ -314,7 +314,7 @@ export default function DietPage() {
               }`}
             >
               {i === 0 && (
-                <div className="w-2 h-2 rounded-full bg-white" />
+                <div className="w-2 h-2 rounded-full bg-brief-card" />
               )}
             </div>
 
@@ -336,7 +336,7 @@ export default function DietPage() {
       </div>
 
       {/* Disclaimer */}
-      <div className="mt-12 p-4 bg-white rounded-lg text-xs text-foreground/50 leading-relaxed">
+      <div className="mt-12 p-4 bg-brief-card rounded-lg text-xs text-foreground/50 leading-relaxed">
         ※ 議席数は補欠選挙・離党等により変動する場合があります。最新の情報は各政党・国会の公式サイトをご確認ください。
       </div>
     </div>

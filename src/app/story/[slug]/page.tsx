@@ -114,7 +114,7 @@ export default async function StoryPage({
 
       {/* What's Next */}
       {story.status === "ongoing" && (
-        <div className="mt-4 ml-10 p-5 bg-white border border-dashed border-brief-border rounded-xl">
+        <div className="mt-4 ml-10 p-5 bg-brief-card border border-dashed border-brief-border rounded-xl">
           <p className="text-sm text-foreground/55 italic">
             This story is ongoing. New episodes will be added as the story develops.
           </p>

@@ -25,7 +25,7 @@ export function StoryTimeline({ story }: { story: Story }) {
                   }`}
                 >
                   {isLatest && (
-                    <div className="w-2 h-2 rounded-full bg-white" />
+                    <div className="w-2 h-2 rounded-full bg-brief-card" />
                   )}
                 </div>
               </div>

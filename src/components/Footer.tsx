@@ -3,7 +3,7 @@ import { NewsletterForm } from "./NewsletterForm";
 
 export function Footer() {
   return (
-    <footer className="border-t border-brief-border bg-white mt-16">
+    <footer className="border-t border-brief-border bg-brief-card mt-16">
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">

@@ -78,7 +78,7 @@ export default async function EnactedDetailPage({
       </p>
 
       {/* Vote result */}
-      <div className="mt-6 p-4 bg-white rounded-xl">
+      <div className="mt-6 p-4 bg-brief-card rounded-xl">
         <div className="flex items-center justify-between mb-2">
           <span className="text-xs text-foreground/55">投票結果</span>
           <span className="text-xs text-foreground/45 tabular-nums">
@@ -122,7 +122,7 @@ export default async function EnactedDetailPage({
       {/* Detail */}
       <div className="mt-10">
         <SectionHeader title="概要" titleEn="Overview" />
-        <div className="p-5 bg-white rounded-xl text-sm text-foreground/70 leading-relaxed">
+        <div className="p-5 bg-brief-card rounded-xl text-sm text-foreground/70 leading-relaxed">
           {item.detail}
         </div>
       </div>

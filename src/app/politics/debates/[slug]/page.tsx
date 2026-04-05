@@ -86,7 +86,7 @@ export default async function DebateDetailPage({
       {/* Detail */}
       <div className="mt-10">
         <SectionHeader title="概要" titleEn="Overview" />
-        <div className="p-5 bg-white rounded-xl text-sm text-foreground/70 leading-relaxed">
+        <div className="p-5 bg-brief-card rounded-xl text-sm text-foreground/70 leading-relaxed">
           {debate.detail}
         </div>
       </div>

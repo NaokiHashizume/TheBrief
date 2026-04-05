@@ -1,20 +1,35 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-brief-red: #c0392b;
   --color-brief-dark: #1a1a1a;
   --color-brief-gray: #f4f3ef;
-  --color-brief-border: rgba(0, 0, 0, 0.06);
-  --color-brief-card: #ffffff;
-  --color-brief-muted: rgba(26, 26, 26, 0.45);
+  --color-brief-border: var(--border-color);
+  --color-brief-card: var(--card-color);
+  --color-brief-muted: var(--muted-color);
   --font-serif: 'Playfair Display', Georgia, serif;
 }
 
+/* Light theme (default) */
 :root {
   --background: #fafaf8;
   --foreground: #1a1a1a;
+  --border-color: rgba(0, 0, 0, 0.06);
+  --card-color: #ffffff;
+  --muted-color: rgba(26, 26, 26, 0.45);
+}
+
+/* Dark theme */
+.dark {
+  --background: #111111;
+  --foreground: #ededed;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --card-color: rgba(255, 255, 255, 0.04);
+  --muted-color: rgba(237, 237, 237, 0.45);
 }
 
 body {

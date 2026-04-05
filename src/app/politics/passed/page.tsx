@@ -49,7 +49,7 @@ export default function PassedPage() {
             <Link
               key={item.slug}
               href={`/politics/passed/${item.slug}`}
-              className="group block p-5 rounded-xl border border-brief-border hover:border-amber-500/50 transition-all duration-200 hover:bg-white"
+              className="group block p-5 rounded-xl border border-brief-border hover:border-amber-500/50 transition-all duration-200 hover:bg-brief-card"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1 min-w-0">

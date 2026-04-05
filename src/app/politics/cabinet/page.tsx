@@ -101,7 +101,7 @@ export default function CabinetPage() {
         </div>
 
         {/* Mission statement */}
-        <div className="p-5 rounded-xl bg-white border border-brief-border mb-6">
+        <div className="p-5 rounded-xl bg-brief-card border border-brief-border mb-6">
           <blockquote className="font-serif text-lg font-bold leading-relaxed">
             &ldquo;日本列島を、強く豊かに。&rdquo;
           </blockquote>
@@ -234,7 +234,7 @@ export default function CabinetPage() {
 
         <div className="border border-brief-border rounded-xl overflow-hidden">
           {/* PM highlight */}
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-brief-card">
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
               {cabinet[0].positionEn}
             </span>

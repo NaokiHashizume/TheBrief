@@ -7,7 +7,7 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="p-8 bg-white rounded-xl border border-brief-border text-center">
+      <div className="p-8 bg-brief-card rounded-xl border border-brief-border text-center">
         <p className="font-serif text-lg font-bold">Thank you!</p>
         <p className="mt-2 text-sm text-foreground/60">
           お問い合わせを受け付けました。内容を確認の上、ご連絡いたします。

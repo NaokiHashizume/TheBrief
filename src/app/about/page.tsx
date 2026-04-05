@@ -27,19 +27,19 @@ export default function About() {
 
         <div className="py-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 bg-white rounded-xl border border-brief-border">
+            <div className="p-6 bg-brief-card rounded-xl border border-brief-border">
               <h3 className="font-serif text-base font-bold mb-2">Concise</h3>
               <p className="text-xs text-foreground/60 leading-relaxed">
                 5分で読める。要点を押さえた簡潔な記事で、忙しい朝でも最新情報をキャッチアップ。
               </p>
             </div>
-            <div className="p-6 bg-white rounded-xl border border-brief-border">
+            <div className="p-6 bg-brief-card rounded-xl border border-brief-border">
               <h3 className="font-serif text-base font-bold mb-2">Insightful</h3>
               <p className="text-xs text-foreground/60 leading-relaxed">
                 表面的なニュースではなく、背景や文脈を含めた深い洞察を提供。
               </p>
             </div>
-            <div className="p-6 bg-white rounded-xl border border-brief-border">
+            <div className="p-6 bg-brief-card rounded-xl border border-brief-border">
               <h3 className="font-serif text-base font-bold mb-2">Independent</h3>
               <p className="text-xs text-foreground/60 leading-relaxed">
                 特定の政党や企業に偏らない、独立した視点からの報道とオピニオン。

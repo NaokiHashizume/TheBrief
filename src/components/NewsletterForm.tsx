@@ -9,7 +9,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
       <input
         type="email"
         placeholder="you@example.com"
-        className="flex-1 px-3 py-2.5 text-sm border border-brief-border rounded-xl bg-white focus:outline-none focus:border-brief-red"
+        className="flex-1 px-3 py-2.5 text-sm border border-brief-border rounded-xl bg-brief-card focus:outline-none focus:border-brief-red"
       />
       <button
         type="submit"
