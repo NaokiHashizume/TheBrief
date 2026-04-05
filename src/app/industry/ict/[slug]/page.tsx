@@ -12,6 +12,16 @@ import {
   SecurityLayersDiagram,
   InternetScaleDiagram,
 } from "@/components/NetworkDiagrams";
+import {
+  AiModelOverviewDiagram,
+  ModelTimelineDiagram,
+  BenchmarkComparisonDiagram,
+  PricingComparisonDiagram,
+  MultimodalCapsDiagram,
+  ContextWindowDiagram,
+  MarketShareDiagram,
+  StrengthsSummaryDiagram,
+} from "@/components/AiModelDiagrams";
 
 export function generateStaticParams() {
   return ictArticles.map((a) => ({ slug: a.slug }));
@@ -179,6 +189,14 @@ export default async function IctArticlePage({
             {section.diagramId === "dns-hierarchy" && <DnsHierarchyDiagram />}
             {section.diagramId === "mobile-generation" && <MobileGenerationDiagram />}
             {section.diagramId === "security-layers" && <SecurityLayersDiagram />}
+            {section.diagramId === "ai-model-overview" && <AiModelOverviewDiagram />}
+            {section.diagramId === "model-timeline" && <ModelTimelineDiagram />}
+            {section.diagramId === "benchmark-comparison" && <BenchmarkComparisonDiagram />}
+            {section.diagramId === "pricing-comparison" && <PricingComparisonDiagram />}
+            {section.diagramId === "multimodal-caps" && <MultimodalCapsDiagram />}
+            {section.diagramId === "context-window" && <ContextWindowDiagram />}
+            {section.diagramId === "market-share" && <MarketShareDiagram />}
+            {section.diagramId === "strengths-summary" && <StrengthsSummaryDiagram />}
 
             {/* Section body */}
             <div className="space-y-4">
