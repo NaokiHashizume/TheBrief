@@ -3,6 +3,15 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ictArticles } from "@/lib/ict";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import {
+  TcpIpLayerDiagram,
+  PacketJourneyDiagram,
+  DnsHierarchyDiagram,
+  SubmarineCableDiagram,
+  MobileGenerationDiagram,
+  SecurityLayersDiagram,
+  InternetScaleDiagram,
+} from "@/components/NetworkDiagrams";
 
 export function generateStaticParams() {
   return ictArticles.map((a) => ({ slug: a.slug }));
@@ -161,6 +170,15 @@ export default async function IctArticlePage({
                 </span>
               )}
             </div>
+
+            {/* Diagram (rendered before body text) */}
+            {section.diagramId === "internet-scale" && <InternetScaleDiagram />}
+            {section.diagramId === "tcpip-layers" && <TcpIpLayerDiagram />}
+            {section.diagramId === "packet-journey" && <PacketJourneyDiagram />}
+            {section.diagramId === "submarine-cable" && <SubmarineCableDiagram />}
+            {section.diagramId === "dns-hierarchy" && <DnsHierarchyDiagram />}
+            {section.diagramId === "mobile-generation" && <MobileGenerationDiagram />}
+            {section.diagramId === "security-layers" && <SecurityLayersDiagram />}
 
             {/* Section body */}
             <div className="space-y-4">
