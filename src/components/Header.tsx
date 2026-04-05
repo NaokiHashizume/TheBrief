@@ -18,7 +18,7 @@ const industries = [
 
 const categories = [
   { label: "Politics", href: "/politics" },
-  { label: "Economy", href: "/category/economy" },
+  { label: "Economy", href: "/economy" },
   { label: "Industry", href: "/category/industry", hasDropdown: true },
   { label: "Lifestyle", href: "/category/lifestyle" },
   { label: "Opinion", href: "/category/opinion" },
