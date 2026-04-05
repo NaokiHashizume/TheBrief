@@ -233,6 +233,8 @@ const industries = [
   },
 ];
 
+const activeIndustries = new Set(["ict"]);
+
 export default function IndustryPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
@@ -265,37 +267,68 @@ export default function IndustryPage() {
 
       {/* Industry grid */}
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {industries.map((ind) => (
-          <div
-            key={ind.slug}
-            className="group p-5 rounded-xl border border-brief-border hover:border-foreground/15 transition-all"
-          >
-            <div className="flex items-start gap-4">
-              <div
-                className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: `${ind.color}15`, color: ind.color }}
+        {industries.map((ind) => {
+          const isActive = activeIndustries.has(ind.slug);
+
+          const cardContent = (
+            <>
+              <div className="flex items-start gap-4">
+                <div
+                  className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center"
+                  style={{ backgroundColor: `${ind.color}15`, color: ind.color }}
+                >
+                  {ind.icon}
+                </div>
+                <div className="min-w-0">
+                  <h2 className={`font-serif font-bold text-base leading-snug ${isActive ? "group-hover:text-brief-red" : ""}`}>
+                    {ind.title}
+                  </h2>
+                  <span className="text-[10px] text-foreground/45">
+                    {ind.titleEn}
+                  </span>
+                </div>
+              </div>
+              <p className="mt-3 text-[12px] text-foreground/55 leading-relaxed">
+                {ind.description}
+              </p>
+              <div className="mt-3">
+                {isActive ? (
+                  <span
+                    className="text-[9px] tracking-wider uppercase font-medium px-2 py-0.5 rounded"
+                    style={{ backgroundColor: `${ind.color}15`, color: ind.color }}
+                  >
+                    記事を読む →
+                  </span>
+                ) : (
+                  <span className="text-[9px] tracking-wider uppercase text-foreground/40 border border-foreground/10 px-2 py-0.5 rounded">
+                    Coming Soon
+                  </span>
+                )}
+              </div>
+            </>
+          );
+
+          if (isActive) {
+            return (
+              <Link
+                key={ind.slug}
+                href={`/industry/${ind.slug}`}
+                className="group p-5 rounded-xl border border-brief-border hover:border-foreground/20 hover:shadow-sm transition-all"
               >
-                {ind.icon}
-              </div>
-              <div className="min-w-0">
-                <h2 className="font-serif font-bold text-base leading-snug">
-                  {ind.title}
-                </h2>
-                <span className="text-[10px] text-foreground/45">
-                  {ind.titleEn}
-                </span>
-              </div>
+                {cardContent}
+              </Link>
+            );
+          }
+
+          return (
+            <div
+              key={ind.slug}
+              className="group p-5 rounded-xl border border-brief-border hover:border-foreground/15 transition-all"
+            >
+              {cardContent}
             </div>
-            <p className="mt-3 text-[12px] text-foreground/55 leading-relaxed">
-              {ind.description}
-            </p>
-            <div className="mt-3">
-              <span className="text-[9px] tracking-wider uppercase text-foreground/40 border border-foreground/10 px-2 py-0.5 rounded">
-                Coming Soon
-              </span>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
