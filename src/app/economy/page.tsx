@@ -481,7 +481,7 @@ export default function EconomyPage() {
           </div>
 
           <div className="space-y-4">
-            {economyArticles.map((article) => (
+            {[...economyArticles].sort((a, b) => b.date.localeCompare(a.date)).map((article) => (
               <Link
                 key={article.slug}
                 href={`/economy/${article.slug}`}

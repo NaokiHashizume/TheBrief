@@ -39,7 +39,7 @@ export default function PassedPage() {
       </p>
 
       <div className="mt-10 space-y-4">
-        {passedItems.map((item) => {
+        {[...passedItems].sort((a, b) => b.effectiveDate.localeCompare(a.effectiveDate)).map((item) => {
           const daysUntil = Math.ceil(
             (new Date(item.effectiveDate).getTime() - new Date("2026-04-04").getTime()) /
               (1000 * 60 * 60 * 24)

@@ -39,7 +39,7 @@ export default function EnactedPage() {
       </p>
 
       <div className="mt-10 space-y-4">
-        {enactedItems.map((item) => (
+        {[...enactedItems].sort((a, b) => b.effectiveDate.localeCompare(a.effectiveDate)).map((item) => (
           <Link
             key={item.slug}
             href={`/politics/enacted/${item.slug}`}

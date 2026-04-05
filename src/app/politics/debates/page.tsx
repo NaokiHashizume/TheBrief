@@ -39,7 +39,7 @@ export default function DebatesPage() {
       </p>
 
       <div className="mt-10 space-y-4">
-        {debates.map((debate) => (
+        {[...debates].sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated)).map((debate) => (
           <Link
             key={debate.slug}
             href={`/politics/debates/${debate.slug}`}

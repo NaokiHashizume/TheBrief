@@ -61,7 +61,7 @@ export default function TradingPage() {
 
       {/* Articles */}
       <div className="space-y-4">
-        {tradingArticles.map((article) => (
+        {[...tradingArticles].sort((a, b) => b.date.localeCompare(a.date)).map((article) => (
           <Link
             key={article.slug}
             href={`/industry/trading/${article.slug}`}

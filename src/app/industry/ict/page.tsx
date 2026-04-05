@@ -58,7 +58,7 @@ export default function IctPage() {
 
       {/* Articles */}
       <div className="space-y-4">
-        {ictArticles.map((article, index) => (
+        {[...ictArticles].sort((a, b) => b.date.localeCompare(a.date)).map((article, index) => (
           <Link
             key={article.slug}
             href={`/industry/ict/${article.slug}`}
