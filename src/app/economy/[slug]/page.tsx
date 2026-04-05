@@ -12,6 +12,17 @@ import {
   HistoricalComparisonDiagram,
   EnergyStrategyDiagram,
 } from "@/components/HormuzDiagrams";
+import {
+  TaxRateHistoryDiagram,
+  TaxRevenueStatsDiagram,
+  SocialSecurityBreakdownDiagram,
+  NationalLocalSplitDiagram,
+  ReducedRateItemsDiagram,
+  InvoiceSystemDiagram,
+  RegressivityDiagram,
+  InternationalComparisonDiagram,
+  FutureDebatesDiagram,
+} from "@/components/ConsumptionTaxDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -89,6 +100,15 @@ const diagramMap: Record<string, React.FC> = {
   "industry-impact": IndustryImpactDiagram,
   "historical-comparison": HistoricalComparisonDiagram,
   "energy-strategy": EnergyStrategyDiagram,
+  "tax-rate-history": TaxRateHistoryDiagram,
+  "tax-revenue-stats": TaxRevenueStatsDiagram,
+  "social-security-breakdown": SocialSecurityBreakdownDiagram,
+  "national-local-split": NationalLocalSplitDiagram,
+  "reduced-rate-items": ReducedRateItemsDiagram,
+  "invoice-system": InvoiceSystemDiagram,
+  "regressivity": RegressivityDiagram,
+  "international-comparison": InternationalComparisonDiagram,
+  "future-debates": FutureDebatesDiagram,
 };
 
 export default async function EconomyArticlePage({
