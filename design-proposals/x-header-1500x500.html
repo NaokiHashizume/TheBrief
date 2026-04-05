@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>X Header — The Brief (1500x500)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #888; display: flex; flex-direction: column; align-items: center; padding: 40px; gap: 40px; font-family: sans-serif; }
+  h2 { color: #fff; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
+
+  .header {
+    width: 1500px; height: 500px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+
+  /* ── Light version ── */
+  .light { background: #fafaf8; }
+  .light .logo-the {
+    font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700;
+    letter-spacing: 7px; text-transform: uppercase; color: rgba(26,26,26,0.25);
+  }
+  .light .logo-brief {
+    font-family: 'Playfair Display', serif; font-size: 110px; font-weight: 900;
+    color: #1a1a1a; line-height: 1; letter-spacing: -1px; position: relative;
+  }
+  .light .dot { color: transparent; position: relative; }
+  .light .dot::after {
+    content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
+    width: 14px; height: 14px; border-radius: 50%; background: #c0392b;
+  }
+  .light .tagline {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 14px;
+    letter-spacing: 6px; text-transform: uppercase; color: rgba(26,26,26,0.3);
+    margin-top: 16px;
+  }
+  .light .url {
+    position: absolute; bottom: 24px; right: 40px;
+    font-family: 'Noto Sans JP', sans-serif; font-size: 13px;
+    letter-spacing: 3px; color: rgba(26,26,26,0.15);
+  }
+  .light .accent-line {
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, #c0392b 0%, #c0392b 30%, transparent 100%);
+  }
+  .light .side-dots {
+    position: absolute; left: 60px; top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .light .side-dots .sd {
+    width: 6px; height: 6px; border-radius: 50%; background: rgba(26,26,26,0.08);
+  }
+  .light .side-dots .sd:last-child { background: #c0392b; }
+  .light .side-line {
+    position: absolute; left: 62px; top: calc(50% - 30px); width: 2px; height: 60px;
+    background: rgba(26,26,26,0.06);
+  }
+
+  /* ── Dark version ── */
+  .dark { background: #1a1a1a; }
+  .dark .logo-the {
+    font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700;
+    letter-spacing: 7px; text-transform: uppercase; color: rgba(250,250,248,0.2);
+  }
+  .dark .logo-brief {
+    font-family: 'Playfair Display', serif; font-size: 110px; font-weight: 900;
+    color: #fafaf8; line-height: 1; letter-spacing: -1px; position: relative;
+  }
+  .dark .dot { color: transparent; position: relative; }
+  .dark .dot::after {
+    content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
+    width: 14px; height: 14px; border-radius: 50%; background: #c0392b;
+  }
+  .dark .tagline {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 14px;
+    letter-spacing: 6px; text-transform: uppercase; color: rgba(250,250,248,0.2);
+    margin-top: 16px;
+  }
+  .dark .url {
+    position: absolute; bottom: 24px; right: 40px;
+    font-family: 'Noto Sans JP', sans-serif; font-size: 13px;
+    letter-spacing: 3px; color: rgba(250,250,248,0.1);
+  }
+  .dark .accent-line {
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, #c0392b 0%, #c0392b 30%, transparent 100%);
+  }
+  .dark .side-dots {
+    position: absolute; left: 60px; top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .dark .side-dots .sd {
+    width: 6px; height: 6px; border-radius: 50%; background: rgba(250,250,248,0.06);
+  }
+  .dark .side-dots .sd:last-child { background: #c0392b; }
+  .dark .side-line {
+    position: absolute; left: 62px; top: calc(50% - 30px); width: 2px; height: 60px;
+    background: rgba(250,250,248,0.05);
+  }
+
+  .logo-area {
+    display: flex; flex-direction: column; align-items: flex-start;
+    position: relative; z-index: 1;
+  }
+
+  .note {
+    color: #ccc; font-size: 12px; margin-top: -20px;
+    text-align: center; max-width: 600px; line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<h2>X Header — Light (1500 x 500)</h2>
+<div class="header light">
+  <div class="accent-line"></div>
+  <div class="side-line"></div>
+  <div class="side-dots">
+    <div class="sd"></div><div class="sd"></div><div class="sd"></div><div class="sd"></div>
+  </div>
+  <div class="logo-area">
+    <div class="logo-the">The</div>
+    <div class="logo-brief">Br<span class="dot">i</span>ef</div>
+    <div class="tagline">Politics · Economy · Industry · Trends</div>
+  </div>
+  <div class="url">thebrief.info</div>
+</div>
+
+<h2>X Header — Dark (1500 x 500)</h2>
+<div class="header dark">
+  <div class="accent-line"></div>
+  <div class="side-line"></div>
+  <div class="side-dots">
+    <div class="sd"></div><div class="sd"></div><div class="sd"></div><div class="sd"></div>
+  </div>
+  <div class="logo-area">
+    <div class="logo-the">The</div>
+    <div class="logo-brief">Br<span class="dot">i</span>ef</div>
+    <div class="tagline">Politics · Economy · Industry · Trends</div>
+  </div>
+  <div class="url">thebrief.info</div>
+</div>
+
+<p class="note">
+  ブラウザで開いたら右クリック → 「検証」 → 要素を選択 → 「ノードのスクリーンショットをキャプチャ」で<br>
+  正確な1500x500サイズで書き出せます。またはスクリーンショットでもOKです。
+</p>
+
+</body>
+</html>
