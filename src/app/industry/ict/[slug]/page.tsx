@@ -59,26 +59,23 @@ export async function generateMetadata({
 
 /* Inline rich text renderer: **bold**, 「quotes」 */
 function RichText({ text }: { text: string }) {
-  // Split by **bold** markers
   const parts = text.split(/\*\*(.*?)\*\*/);
   return (
     <>
       {parts.map((part, k) => {
         if (k % 2 === 1) {
-          // Bold text
           return (
             <strong
               key={k}
-              className="font-semibold text-foreground not-italic"
+              className="font-semibold text-foreground"
               style={{ textDecorationLine: "none" }}
             >
-              <span className="bg-[#3b82f6]/[0.06] dark:bg-[#3b82f6]/[0.12] px-0.5 rounded-sm">
+              <span className="bg-foreground/[0.04] dark:bg-foreground/[0.08] px-1 py-0.5 rounded">
                 {part}
               </span>
             </strong>
           );
         }
-        // Regular text — highlight 「quoted」 terms
         const quoteParts = part.split(/(「[^」]+」)/);
         return (
           <span key={k}>
@@ -99,6 +96,24 @@ function RichText({ text }: { text: string }) {
   );
 }
 
+/* Diagram renderer mapped by ID */
+const diagramMap: Record<string, React.FC> = {
+  "internet-scale": InternetScaleDiagram,
+  "tcpip-layers": TcpIpLayerDiagram,
+  "packet-journey": PacketJourneyDiagram,
+  "submarine-cable": SubmarineCableDiagram,
+  "dns-hierarchy": DnsHierarchyDiagram,
+  "mobile-generation": MobileGenerationDiagram,
+  "security-layers": SecurityLayersDiagram,
+  "telecom-overview": TelecomOverviewDiagram,
+  "spectrum-bands": SpectrumBandsDiagram,
+  "modulation-types": ModulationTypesDiagram,
+  "fiber-optic": FiberOpticDiagram,
+  "cell-network": CellNetworkDiagram,
+  "satellite-types": SatelliteTypesDiagram,
+  "japan-infra": JapanInfraDiagram,
+};
+
 export default async function IctArticlePage({
   params,
 }: {
@@ -116,7 +131,7 @@ export default async function IctArticlePage({
       : null;
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
+    <div className="max-w-[720px] mx-auto px-5 sm:px-6 py-16">
       <ArticleJsonLd
         title={article.title}
         description={article.summary}
@@ -135,134 +150,147 @@ export default async function IctArticlePage({
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-8 flex-wrap">
-        <Link href="/" className="hover:text-foreground transition-colors">
+      <nav className="flex items-center gap-1.5 text-[11px] text-foreground/40 mb-12 font-medium tracking-wide">
+        <Link href="/" className="hover:text-foreground/70 transition-colors">
           Home
         </Link>
-        <span>/</span>
-        <Link href="/industry" className="hover:text-foreground transition-colors">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-30"><path d="M9 18l6-6-6-6"/></svg>
+        <Link href="/industry" className="hover:text-foreground/70 transition-colors">
           Industry
         </Link>
-        <span>/</span>
-        <Link href="/industry/ict" className="hover:text-foreground transition-colors">
-          情報通信・ネット
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-30"><path d="M9 18l6-6-6-6"/></svg>
+        <Link href="/industry/ict" className="hover:text-foreground/70 transition-colors">
+          ICT
         </Link>
-      </div>
+      </nav>
 
-      {/* Header */}
-      <header className="mb-10">
-        <div className="flex items-center gap-2 mb-3 flex-wrap">
-          <span className="category-pill text-[#3b82f6] font-medium">
+      {/* ── Hero Header ── */}
+      <header className="mb-14">
+        {/* Category + Tags */}
+        <div className="flex items-center gap-2.5 mb-5 flex-wrap">
+          <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-foreground/30">
             情報通信・ネット
           </span>
+          <span className="w-px h-3 bg-foreground/10" />
           {article.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[9px] px-2 py-0.5 rounded-full bg-[#3b82f6]/8 text-[#3b82f6]/70 font-medium"
+              className="text-[10px] px-2.5 py-1 rounded-md bg-foreground/[0.03] text-foreground/45 font-medium tracking-wide border border-foreground/[0.04]"
             >
               {tag}
             </span>
           ))}
         </div>
 
-        <h1 className="font-serif text-2xl md:text-3xl font-bold leading-tight">
+        {/* Title */}
+        <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">
           {article.title}
         </h1>
 
-        <p className="mt-4 text-foreground/60 leading-relaxed text-sm">
+        {/* Subtitle */}
+        {article.titleEn && (
+          <p className="mt-2 text-[11px] tracking-[1px] text-foreground/25 font-medium uppercase">
+            {article.titleEn}
+          </p>
+        )}
+
+        {/* Summary */}
+        <p className="mt-6 text-[15px] text-foreground/55 leading-[1.9] border-l-2 border-foreground/[0.06] pl-5">
           {article.summary}
         </p>
 
-        <div className="mt-4 flex items-center gap-4 text-xs text-foreground/45">
-          <time>{article.date}</time>
-          <span>·</span>
+        {/* Meta */}
+        <div className="mt-6 flex items-center gap-5 text-[11px] text-foreground/35 font-medium">
+          <time className="tabular-nums">{article.date}</time>
+          <span className="w-1 h-1 rounded-full bg-foreground/15" />
           <span>{article.author}</span>
-          <span>·</span>
+          <span className="w-1 h-1 rounded-full bg-foreground/15" />
           <span>{article.readTime}</span>
         </div>
       </header>
 
-      <div className="h-px bg-brief-border mb-10" />
-
-      {/* Table of Contents */}
-      <nav className="mb-10 p-4 rounded-xl bg-brief-card border border-brief-border">
-        <h2 className="text-[10px] tracking-[2px] uppercase text-foreground/45 mb-3">
-          目次 / Contents
-        </h2>
-        <ol className="space-y-1.5">
-          {article.sections.map((section, i) => (
-            <li key={i}>
-              <a
-                href={`#section-${i}`}
-                className="flex items-start gap-2 text-sm text-foreground/70 hover:text-[#3b82f6] transition-colors"
-              >
-                <span className="text-foreground/30 tabular-nums flex-shrink-0">
-                  {i + 1}.
-                </span>
-                <span>{section.heading}</span>
-              </a>
-            </li>
-          ))}
-        </ol>
+      {/* ── Table of Contents ── */}
+      <nav className="mb-16 relative">
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-foreground/[0.02] to-foreground/[0.005]" />
+        <div className="relative p-6 sm:p-8 rounded-2xl border border-foreground/[0.05]">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-6 h-6 rounded-md bg-foreground/[0.04] flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-foreground/30">
+                <line x1="8" y1="6" x2="21" y2="6" /><line x1="8" y1="12" x2="21" y2="12" /><line x1="8" y1="18" x2="21" y2="18" /><line x1="3" y1="6" x2="3.01" y2="6" /><line x1="3" y1="12" x2="3.01" y2="12" /><line x1="3" y1="18" x2="3.01" y2="18" />
+              </svg>
+            </div>
+            <span className="text-[10px] tracking-[2.5px] uppercase text-foreground/30 font-semibold">
+              Contents
+            </span>
+          </div>
+          <ol className="space-y-0">
+            {article.sections.map((section, i) => (
+              <li key={i}>
+                <a
+                  href={`#section-${i}`}
+                  className="group flex items-center gap-4 py-2.5 text-foreground/55 hover:text-foreground transition-colors"
+                >
+                  <span className="text-[11px] tabular-nums font-semibold text-foreground/20 group-hover:text-foreground/40 w-5 text-right transition-colors">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[13px] font-medium">{section.heading}</span>
+                </a>
+                {i < article.sections.length - 1 && (
+                  <div className="ml-[30px] h-px bg-foreground/[0.03]" />
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
       </nav>
 
-      {/* Article Content */}
+      {/* ── Article Content ── */}
       <article>
         {article.sections.map((section, i) => {
           const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
+          const DiagramComponent = section.diagramId ? diagramMap[section.diagramId] : null;
 
           return (
-            <section key={i} id={`section-${i}`} className="mb-12 scroll-mt-20">
-              {/* Section number + heading */}
-              <div className="mb-5">
-                <div className="flex items-center gap-3 mb-1">
-                  <span className="text-[10px] font-bold text-[#3b82f6]/50 tabular-nums">
+            <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
+              {/* Section heading */}
+              <div className="mb-8">
+                <div className="flex items-center gap-4 mb-3">
+                  <span className="text-[32px] sm:text-[40px] font-bold tabular-nums text-foreground/[0.04] leading-none select-none font-serif">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <div className="h-px flex-1 bg-[#3b82f6]/10" />
+                  <div className="flex-1">
+                    <h2 className="font-serif text-[22px] sm:text-[26px] font-bold leading-tight tracking-tight">
+                      {section.heading}
+                    </h2>
+                    {section.headingEn && (
+                      <span className="text-[10px] tracking-[2px] uppercase text-foreground/25 font-medium mt-0.5 block">
+                        {section.headingEn}
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <h2 className="font-serif text-xl font-bold">
-                  {section.heading}
-                </h2>
-                {section.headingEn && (
-                  <span className="text-[9px] tracking-[1.5px] uppercase text-foreground/35">
-                    {section.headingEn}
-                  </span>
-                )}
+                <div className="h-px bg-gradient-to-r from-foreground/8 via-foreground/4 to-transparent" />
               </div>
 
-              {/* Diagram (rendered before body text) */}
-              {section.diagramId === "internet-scale" && <InternetScaleDiagram />}
-              {section.diagramId === "tcpip-layers" && <TcpIpLayerDiagram />}
-              {section.diagramId === "packet-journey" && <PacketJourneyDiagram />}
-              {section.diagramId === "submarine-cable" && <SubmarineCableDiagram />}
-              {section.diagramId === "dns-hierarchy" && <DnsHierarchyDiagram />}
-              {section.diagramId === "mobile-generation" && <MobileGenerationDiagram />}
-              {section.diagramId === "security-layers" && <SecurityLayersDiagram />}
-              {section.diagramId === "telecom-overview" && <TelecomOverviewDiagram />}
-              {section.diagramId === "spectrum-bands" && <SpectrumBandsDiagram />}
-              {section.diagramId === "modulation-types" && <ModulationTypesDiagram />}
-              {section.diagramId === "fiber-optic" && <FiberOpticDiagram />}
-              {section.diagramId === "cell-network" && <CellNetworkDiagram />}
-              {section.diagramId === "satellite-types" && <SatelliteTypesDiagram />}
-              {section.diagramId === "japan-infra" && <JapanInfraDiagram />}
+              {/* Diagram */}
+              {DiagramComponent && <DiagramComponent />}
 
               {/* Section body */}
-              <div className="space-y-5">
+              <div className="space-y-6">
                 {paragraphs.map((paragraph, j) => {
                   const trimmed = paragraph.trim();
 
-                  // Callout / highlight box (lines starting with "> ")
+                  // Callout box
                   if (trimmed.startsWith("> ")) {
                     const calloutText = trimmed.slice(2);
                     return (
                       <div
                         key={j}
-                        className="my-5 px-5 py-4 rounded-xl bg-[#3b82f6]/[0.04] border border-[#3b82f6]/10"
+                        className="my-8 relative"
                       >
-                        <div className="flex gap-3">
-                          <div className="w-1 rounded-full bg-[#3b82f6]/30 flex-shrink-0" />
-                          <p className="text-[14px] text-foreground/80 leading-[1.8] italic">
+                        <div className="absolute left-0 top-0 bottom-0 w-[2px] rounded-full bg-gradient-to-b from-foreground/15 via-foreground/8 to-transparent" />
+                        <div className="pl-6 py-1">
+                          <p className="text-[14px] text-foreground/60 leading-[1.9] italic">
                             <RichText text={calloutText} />
                           </p>
                         </div>
@@ -270,7 +298,7 @@ export default async function IctArticlePage({
                     );
                   }
 
-                  // 【heading】 style labels (e.g. TCP/IP layers)
+                  // 【bracket】labels
                   if (trimmed.startsWith("【")) {
                     const bracketEnd = trimmed.indexOf("】");
                     if (bracketEnd > 0) {
@@ -279,12 +307,13 @@ export default async function IctArticlePage({
                       return (
                         <div
                           key={j}
-                          className="pl-4 py-2 border-l-3 border-[#3b82f6]/25 bg-[#3b82f6]/[0.02] rounded-r-lg"
+                          className="group pl-5 py-3 relative"
                         >
-                          <div className="text-xs font-bold text-[#3b82f6] mb-1">
+                          <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-foreground/[0.06] group-hover:bg-foreground/[0.12] transition-colors" />
+                          <div className="text-[11px] font-bold text-foreground/50 tracking-wide mb-1.5 uppercase">
                             {label}
                           </div>
-                          <p className="text-[14px] text-foreground/75 leading-[1.85]">
+                          <p className="text-[14px] text-foreground/65 leading-[1.9]">
                             <RichText text={content} />
                           </p>
                         </div>
@@ -292,7 +321,7 @@ export default async function IctArticlePage({
                     }
                   }
 
-                  // Lead paragraph (first text paragraph in each section, after callout)
+                  // Lead paragraph
                   const isLead = j === 0 || (j === 1 && paragraphs[0].trim().startsWith("> "));
 
                   return (
@@ -300,8 +329,8 @@ export default async function IctArticlePage({
                       key={j}
                       className={
                         isLead
-                          ? "text-[16px] text-foreground/85 leading-[1.9] first-letter:text-2xl first-letter:font-serif first-letter:font-bold first-letter:text-[#3b82f6] first-letter:mr-0.5"
-                          : "text-[15px] text-foreground/75 leading-[1.85]"
+                          ? "text-[16px] text-foreground/75 leading-[2] first-letter:text-[2em] first-letter:font-serif first-letter:font-bold first-letter:text-foreground/30 first-letter:float-left first-letter:mr-1 first-letter:mt-1 first-letter:leading-[0.8]"
+                          : "text-[15px] text-foreground/60 leading-[2]"
                       }
                     >
                       <RichText text={trimmed} />
@@ -314,18 +343,19 @@ export default async function IctArticlePage({
         })}
       </article>
 
-      {/* Article Navigation */}
-      <div className="mt-14 pt-8 border-t border-brief-border">
+      {/* ── Article Navigation ── */}
+      <div className="mt-20 pt-12 border-t border-foreground/[0.04]">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {prevArticle ? (
             <Link
               href={`/industry/ict/${prevArticle.slug}`}
-              className="group p-4 rounded-xl border border-brief-border hover:border-[#3b82f6]/30 transition-colors"
+              className="group p-5 rounded-2xl border border-foreground/[0.05] hover:border-foreground/[0.1] transition-all hover:bg-foreground/[0.01]"
             >
-              <div className="text-[10px] uppercase tracking-wider text-foreground/40 mb-1">
-                ← 前の記事
+              <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[2px] text-foreground/30 mb-2 font-medium">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-40"><path d="M15 18l-6-6 6-6"/></svg>
+                Previous
               </div>
-              <div className="text-sm font-medium group-hover:text-[#3b82f6] transition-colors line-clamp-2">
+              <div className="text-[13px] font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors line-clamp-2 leading-relaxed">
                 {prevArticle.title}
               </div>
             </Link>
@@ -335,12 +365,13 @@ export default async function IctArticlePage({
           {nextArticle ? (
             <Link
               href={`/industry/ict/${nextArticle.slug}`}
-              className="group p-4 rounded-xl border border-brief-border hover:border-[#3b82f6]/30 transition-colors text-right"
+              className="group p-5 rounded-2xl border border-foreground/[0.05] hover:border-foreground/[0.1] transition-all text-right hover:bg-foreground/[0.01]"
             >
-              <div className="text-[10px] uppercase tracking-wider text-foreground/40 mb-1">
-                次の記事 →
+              <div className="flex items-center justify-end gap-1.5 text-[10px] uppercase tracking-[2px] text-foreground/30 mb-2 font-medium">
+                Next
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-40"><path d="M9 18l6-6-6-6"/></svg>
               </div>
-              <div className="text-sm font-medium group-hover:text-[#3b82f6] transition-colors line-clamp-2">
+              <div className="text-[13px] font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors line-clamp-2 leading-relaxed">
                 {nextArticle.title}
               </div>
             </Link>
@@ -349,12 +380,13 @@ export default async function IctArticlePage({
           )}
         </div>
 
-        <div className="mt-6 text-center">
+        <div className="mt-8 text-center">
           <Link
             href="/industry/ict"
-            className="inline-flex items-center gap-2 text-sm text-[#3b82f6] hover:underline"
+            className="inline-flex items-center gap-2 text-[12px] text-foreground/35 hover:text-foreground/60 transition-colors font-medium tracking-wide"
           >
-            ← 情報通信・ネットの記事一覧へ
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-50"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            記事一覧に戻る
           </Link>
         </div>
       </div>

@@ -1,240 +1,265 @@
 "use client";
 
-/* ─────────────────────────────────────────────
-   TCP/IP 4-Layer Stack Diagram
-   ───────────────────────────────────────────── */
-export function TcpIpLayerDiagram() {
-  const layers = [
-    { name: "アプリケーション層", nameEn: "Application", examples: "HTTP, SMTP, DNS, FTP", color: "#3b82f6" },
-    { name: "トランスポート層", nameEn: "Transport", examples: "TCP, UDP", color: "#8b5cf6" },
-    { name: "インターネット層", nameEn: "Internet", examples: "IP (v4/v6), ICMP", color: "#f59e0b" },
-    { name: "ネットワークインターフェース層", nameEn: "Network Interface", examples: "Ethernet, Wi-Fi, 光ファイバー", color: "#10b981" },
-  ];
-
+/* ─── Shared diagram wrapper ─── */
+function DiagramCard({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
-      <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        TCP/IP Reference Model
+    <div className="my-8 rounded-2xl border border-foreground/[0.05] bg-gradient-to-br from-foreground/[0.015] to-transparent overflow-hidden">
+      <div className="px-5 sm:px-6 pt-5 pb-1">
+        <div className="text-[10px] tracking-[2.5px] uppercase text-foreground/25 font-semibold">
+          {label}
+        </div>
       </div>
-      <div className="space-y-2">
-        {layers.map((layer, i) => (
-          <div
-            key={i}
-            className="relative flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg transition-colors"
-            style={{ backgroundColor: `${layer.color}08`, borderLeft: `3px solid ${layer.color}` }}
-          >
-            {/* Layer number */}
-            <div
-              className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
-              style={{ backgroundColor: layer.color }}
-            >
-              {4 - i}
-            </div>
-            <div className="min-w-0">
-              <div className="text-sm font-semibold">{layer.name}</div>
-              <div className="text-[10px] text-foreground/40">{layer.nameEn}</div>
-              <div className="mt-0.5 text-[11px] text-foreground/55">
-                {layer.examples}
-              </div>
-            </div>
-            {/* Arrow between layers */}
-            {i < layers.length - 1 && (
-              <div className="absolute -bottom-2.5 left-7 text-foreground/20 text-xs z-10">↕</div>
-            )}
-          </div>
-        ))}
+      <div className="px-5 sm:px-6 pb-6">{children}</div>
+    </div>
+  );
+}
+
+/* ─── Small stat card ─── */
+function StatCard({
+  value,
+  label,
+  sub,
+}: {
+  value: string;
+  label: string;
+  sub?: string;
+}) {
+  return (
+    <div className="p-3.5 rounded-xl bg-foreground/[0.02] border border-foreground/[0.04] text-center">
+      <div className="text-xl sm:text-2xl font-bold text-foreground/70 tabular-nums">
+        {value}
       </div>
-      <div className="mt-3 flex items-center justify-between text-[9px] text-foreground/35">
-        <span>← ユーザーに近い</span>
-        <span>ハードウェアに近い →</span>
-      </div>
+      <div className="text-[10px] text-foreground/40 mt-1 font-medium">{label}</div>
+      {sub && (
+        <div className="text-[9px] text-foreground/25 mt-0.5">{sub}</div>
+      )}
     </div>
   );
 }
 
 /* ─────────────────────────────────────────────
-   Packet Journey Flow Diagram
+   Internet Scale Stats
    ───────────────────────────────────────────── */
-export function PacketJourneyDiagram() {
-  const steps = [
-    { icon: "🖥", label: "ブラウザ", detail: "URLを入力" },
-    { icon: "📖", label: "DNS", detail: "名前→IPアドレス変換" },
-    { icon: "📦", label: "パケット化", detail: "データを小分けに" },
-    { icon: "🏠", label: "ルーター", detail: "自宅から送出" },
-    { icon: "🏢", label: "ISP", detail: "プロバイダのネットワーク" },
-    { icon: "🌊", label: "海底ケーブル", detail: "太平洋横断" },
-    { icon: "🖧", label: "データセンター", detail: "目的地のサーバー" },
-    { icon: "📄", label: "レスポンス", detail: "ページデータを返送" },
+export function InternetScaleDiagram() {
+  return (
+    <div className="my-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <StatCard value="60億+" label="インターネットユーザー" sub="世界人口の約75%" />
+      <StatCard value="300億+" label="接続デバイス数" sub="IoT含む" />
+      <StatCard value="10万+" label="AS（自律システム）" sub="ネットワークの集合体" />
+      <StatCard value="5,350万" label="日本のBB契約数" sub="固定ブロードバンド" />
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   TCP/IP 4-Layer Stack
+   ───────────────────────────────────────────── */
+export function TcpIpLayerDiagram() {
+  const layers = [
+    { name: "アプリケーション層", nameEn: "Application", examples: "HTTP, SMTP, DNS, FTP", num: 4 },
+    { name: "トランスポート層", nameEn: "Transport", examples: "TCP, UDP", num: 3 },
+    { name: "インターネット層", nameEn: "Internet", examples: "IP (v4/v6), ICMP", num: 2 },
+    { name: "ネットワークインターフェース層", nameEn: "Network Interface", examples: "Ethernet, Wi-Fi, 光ファイバー", num: 1 },
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card overflow-x-auto">
-      <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        パケットの旅 — ブラウザからサーバーまで
+    <DiagramCard label="TCP/IP Reference Model">
+      <div className="space-y-1.5 mt-3">
+        {layers.map((layer, i) => {
+          const opacity = 1 - i * 0.15;
+          return (
+            <div
+              key={i}
+              className="relative flex items-center gap-4 p-4 rounded-xl border border-foreground/[0.04] bg-foreground/[0.01]"
+            >
+              <div
+                className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold text-foreground/50 bg-foreground/[0.04] flex-shrink-0 tabular-nums"
+              >
+                {layer.num}
+              </div>
+              <div className="min-w-0">
+                <div className="text-[13px] font-semibold text-foreground/75">{layer.name}</div>
+                <div className="text-[10px] text-foreground/25 font-medium tracking-wide">{layer.nameEn}</div>
+                <div className="mt-0.5 text-[11px] text-foreground/40">{layer.examples}</div>
+              </div>
+            </div>
+          );
+        })}
       </div>
-      {/* Desktop: horizontal flow */}
-      <div className="hidden sm:flex items-start gap-0 min-w-[700px]">
+      <div className="mt-3 flex items-center justify-between text-[9px] text-foreground/20 font-medium">
+        <span>User-facing</span>
+        <div className="flex-1 mx-3 h-px bg-gradient-to-r from-foreground/5 via-foreground/10 to-foreground/5" />
+        <span>Hardware</span>
+      </div>
+    </DiagramCard>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   Packet Journey Flow
+   ───────────────────────────────────────────── */
+export function PacketJourneyDiagram() {
+  const steps = [
+    { label: "ブラウザ", detail: "URLを入力" },
+    { label: "DNS", detail: "名前→IP変換" },
+    { label: "パケット化", detail: "データを分割" },
+    { label: "ルーター", detail: "自宅から送出" },
+    { label: "ISP", detail: "プロバイダ網" },
+    { label: "海底ケーブル", detail: "太平洋横断" },
+    { label: "データセンター", detail: "目的サーバー" },
+    { label: "レスポンス", detail: "データ返送" },
+  ];
+
+  return (
+    <DiagramCard label="パケットの旅 — ブラウザからサーバーまで">
+      {/* Desktop */}
+      <div className="hidden sm:flex items-start gap-0 mt-3 overflow-x-auto pb-2">
         {steps.map((step, i) => (
           <div key={i} className="flex items-start">
-            <div className="flex flex-col items-center w-[80px]">
-              <div className="w-12 h-12 rounded-xl bg-foreground/[0.04] border border-brief-border flex items-center justify-center text-xl">
-                {step.icon}
+            <div className="flex flex-col items-center w-[82px]">
+              <div className="w-10 h-10 rounded-xl bg-foreground/[0.03] border border-foreground/[0.06] flex items-center justify-center text-[11px] font-bold tabular-nums text-foreground/35">
+                {String(i + 1).padStart(2, "0")}
               </div>
-              <div className="mt-1.5 text-[10px] font-semibold text-center leading-tight">
+              <div className="mt-1.5 text-[10px] font-semibold text-foreground/60 text-center leading-tight">
                 {step.label}
               </div>
-              <div className="mt-0.5 text-[9px] text-foreground/40 text-center leading-tight">
+              <div className="mt-0.5 text-[9px] text-foreground/30 text-center leading-tight">
                 {step.detail}
               </div>
             </div>
             {i < steps.length - 1 && (
-              <div className="mt-5 mx-0.5 text-foreground/25 text-[10px] flex-shrink-0">→</div>
+              <div className="mt-4 mx-0.5 flex-shrink-0">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-foreground/15"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
             )}
           </div>
         ))}
       </div>
-      {/* Mobile: vertical flow */}
-      <div className="sm:hidden space-y-1">
+      {/* Mobile */}
+      <div className="sm:hidden space-y-0 mt-3">
         {steps.map((step, i) => (
           <div key={i}>
-            <div className="flex items-center gap-3 py-1.5">
-              <div className="w-9 h-9 rounded-lg bg-foreground/[0.04] border border-brief-border flex items-center justify-center text-base flex-shrink-0">
-                {step.icon}
+            <div className="flex items-center gap-3 py-2">
+              <div className="w-8 h-8 rounded-lg bg-foreground/[0.03] border border-foreground/[0.05] flex items-center justify-center text-[10px] font-bold tabular-nums text-foreground/35 flex-shrink-0">
+                {String(i + 1).padStart(2, "0")}
               </div>
               <div>
-                <div className="text-xs font-semibold">{step.label}</div>
-                <div className="text-[10px] text-foreground/45">{step.detail}</div>
+                <div className="text-[11px] font-semibold text-foreground/60">{step.label}</div>
+                <div className="text-[10px] text-foreground/30">{step.detail}</div>
               </div>
             </div>
             {i < steps.length - 1 && (
-              <div className="ml-4 text-foreground/20 text-[10px]">↓</div>
+              <div className="ml-3.5 h-3 border-l border-foreground/[0.06]" />
             )}
           </div>
         ))}
       </div>
-    </div>
+    </DiagramCard>
   );
 }
 
 /* ─────────────────────────────────────────────
-   DNS Hierarchy Diagram
+   DNS Hierarchy
    ───────────────────────────────────────────── */
 export function DnsHierarchyDiagram() {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
-      <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        DNS の階層構造
-      </div>
-      <div className="flex flex-col items-center gap-1">
+    <DiagramCard label="DNS の階層構造">
+      <div className="flex flex-col items-center gap-0 mt-3">
         {/* Root */}
-        <div className="px-5 py-2.5 rounded-lg bg-[#ef4444]/10 border border-[#ef4444]/20 text-center">
-          <div className="text-sm font-bold text-[#ef4444]">. (ルート)</div>
-          <div className="text-[9px] text-foreground/45">Root Servers（世界13系統）</div>
+        <div className="px-6 py-3 rounded-xl bg-foreground/[0.03] border border-foreground/[0.06] text-center">
+          <div className="text-sm font-bold text-foreground/60">. (ルート)</div>
+          <div className="text-[9px] text-foreground/30 mt-0.5">Root Servers — 世界13系統</div>
         </div>
-        <div className="text-foreground/20">│</div>
+        <div className="h-5 border-l border-dashed border-foreground/10" />
         {/* TLD */}
         <div className="flex flex-wrap justify-center gap-2">
           {[".com", ".jp", ".info", ".org", ".net"].map((tld) => (
-            <div key={tld} className="px-3 py-1.5 rounded-lg bg-[#f59e0b]/10 border border-[#f59e0b]/20 text-center">
-              <div className="text-xs font-bold text-[#f59e0b]">{tld}</div>
-              <div className="text-[8px] text-foreground/40">TLD</div>
+            <div key={tld} className="px-3.5 py-2 rounded-lg bg-foreground/[0.02] border border-foreground/[0.05] text-center">
+              <div className="text-xs font-bold text-foreground/55 tabular-nums">{tld}</div>
+              <div className="text-[8px] text-foreground/25 mt-0.5">TLD</div>
             </div>
           ))}
         </div>
-        <div className="text-foreground/20">│</div>
+        <div className="h-5 border-l border-dashed border-foreground/10" />
         {/* Authoritative */}
         <div className="flex flex-wrap justify-center gap-2">
           {["thebrief.info", "google.com", "example.jp"].map((domain) => (
-            <div key={domain} className="px-3 py-1.5 rounded-lg bg-[#3b82f6]/10 border border-[#3b82f6]/20 text-center">
-              <div className="text-xs font-bold text-[#3b82f6]">{domain}</div>
-              <div className="text-[8px] text-foreground/40">権威DNS</div>
+            <div key={domain} className="px-3.5 py-2 rounded-lg bg-foreground/[0.02] border border-foreground/[0.05] text-center">
+              <div className="text-xs font-bold text-foreground/55">{domain}</div>
+              <div className="text-[8px] text-foreground/25 mt-0.5">権威DNS</div>
             </div>
           ))}
         </div>
-        <div className="text-foreground/20">│</div>
+        <div className="h-5 border-l border-dashed border-foreground/10" />
         {/* Result */}
-        <div className="px-5 py-2.5 rounded-lg bg-[#10b981]/10 border border-[#10b981]/20 text-center">
-          <div className="text-sm font-bold text-[#10b981]">104.21.32.1</div>
-          <div className="text-[9px] text-foreground/45">IPアドレスを返却</div>
+        <div className="px-6 py-3 rounded-xl bg-foreground/[0.03] border border-foreground/[0.06] text-center">
+          <div className="text-sm font-bold text-foreground/60 tabular-nums">104.21.32.1</div>
+          <div className="text-[9px] text-foreground/30 mt-0.5">IPアドレスを返却</div>
         </div>
       </div>
-      <div className="mt-3 text-[9px] text-foreground/35 text-center">
-        ドメイン名 → IPアドレスへの名前解決は通常 数十ミリ秒で完了
+      <div className="mt-4 text-[9px] text-foreground/25 text-center font-medium">
+        名前解決は通常 数十ミリ秒で完了
       </div>
-    </div>
+    </DiagramCard>
   );
 }
 
 /* ─────────────────────────────────────────────
-   Submarine Cable Illustration
+   Submarine Cable
    ───────────────────────────────────────────── */
 export function SubmarineCableDiagram() {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
-      <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        海底ケーブルの構造と規模
-      </div>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div className="p-3 rounded-lg bg-foreground/[0.03] text-center">
-          <div className="text-2xl font-bold text-[#3b82f6]">600+</div>
-          <div className="text-[10px] text-foreground/50 mt-1">本のケーブル</div>
-          <div className="text-[9px] text-foreground/35">2026年現在</div>
-        </div>
-        <div className="p-3 rounded-lg bg-foreground/[0.03] text-center">
-          <div className="text-2xl font-bold text-[#8b5cf6]">150万</div>
-          <div className="text-[10px] text-foreground/50 mt-1">km 超の総延長</div>
-          <div className="text-[9px] text-foreground/35">地球37周分</div>
-        </div>
-        <div className="p-3 rounded-lg bg-foreground/[0.03] text-center">
-          <div className="text-2xl font-bold text-[#f59e0b]">99%</div>
-          <div className="text-[10px] text-foreground/50 mt-1">の国際通信</div>
-          <div className="text-[9px] text-foreground/35">衛星ではなくケーブル</div>
-        </div>
-        <div className="p-3 rounded-lg bg-foreground/[0.03] text-center">
-          <div className="text-2xl font-bold text-[#10b981]">数百</div>
-          <div className="text-[10px] text-foreground/50 mt-1">Tbps の伝送容量</div>
-          <div className="text-[9px] text-foreground/35">最新世代1本あたり</div>
-        </div>
+    <DiagramCard label="海底ケーブルの構造と規模">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-3">
+        <StatCard value="600+" label="本のケーブル" sub="2026年現在" />
+        <StatCard value="150万" label="km 超の総延長" sub="地球37周分" />
+        <StatCard value="99%" label="の国際通信" sub="海底ケーブル経由" />
+        <StatCard value="数百" label="Tbps / 本" sub="最新世代の容量" />
       </div>
       {/* Cable cross-section */}
       <div className="mt-5">
-        <div className="text-[10px] text-foreground/45 font-medium mb-2">海底ケーブルの断面構造</div>
-        <div className="flex items-center gap-2 overflow-x-auto py-2">
+        <div className="text-[10px] text-foreground/35 font-medium mb-3 tracking-wide">断面構造</div>
+        <div className="flex items-center gap-2 overflow-x-auto py-1">
           {[
-            { label: "光ファイバー", color: "#ef4444", desc: "データを伝送" },
-            { label: "銅管", color: "#f59e0b", desc: "給電用" },
-            { label: "アルミ防水層", color: "#94a3b8", desc: "水分遮断" },
-            { label: "鋼線アーマー", color: "#64748b", desc: "強度・保護" },
-            { label: "ポリエチレン外装", color: "#1e293b", desc: "最外層" },
+            { label: "光ファイバー", desc: "データ伝送" },
+            { label: "銅管", desc: "給電用" },
+            { label: "アルミ防水層", desc: "水分遮断" },
+            { label: "鋼線アーマー", desc: "強度保護" },
+            { label: "ポリエチレン", desc: "最外層" },
           ].map((layer, i) => (
             <div key={i} className="flex-shrink-0 flex items-center gap-2">
               <div className="flex flex-col items-center">
-                <div
-                  className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-[8px] text-white font-bold"
-                  style={{ borderColor: layer.color, backgroundColor: `${layer.color}30` }}
-                >
+                <div className="w-9 h-9 rounded-full bg-foreground/[0.03] border border-foreground/[0.08] flex items-center justify-center text-[10px] font-bold tabular-nums text-foreground/35">
                   {i + 1}
                 </div>
-                <div className="text-[9px] font-medium mt-1 text-center whitespace-nowrap">{layer.label}</div>
-                <div className="text-[8px] text-foreground/35 text-center whitespace-nowrap">{layer.desc}</div>
+                <div className="text-[9px] font-medium mt-1 text-center whitespace-nowrap text-foreground/50">{layer.label}</div>
+                <div className="text-[8px] text-foreground/25 text-center whitespace-nowrap">{layer.desc}</div>
               </div>
-              {i < 4 && <div className="text-foreground/15 text-xs mb-5">→</div>}
+              {i < 4 && (
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-foreground/10 mb-5 flex-shrink-0"><path d="M5 12h14"/></svg>
+              )}
             </div>
           ))}
         </div>
       </div>
       {/* Japan landing points */}
-      <div className="mt-4 p-3 rounded-lg bg-[#3b82f6]/5 border border-[#3b82f6]/10">
-        <div className="text-[10px] font-medium text-[#3b82f6]/80 mb-1">🇯🇵 日本の主要陸揚げ地点</div>
-        <div className="flex flex-wrap gap-2">
+      <div className="mt-4 p-3.5 rounded-xl bg-foreground/[0.015] border border-foreground/[0.04]">
+        <div className="text-[10px] font-semibold text-foreground/40 mb-2 tracking-wide">日本の主要陸揚げ地点</div>
+        <div className="flex flex-wrap gap-1.5">
           {["千倉（千葉県）", "志摩（三重県）", "北九州", "二宮（神奈川県）", "豊橋（愛知県）"].map((p) => (
-            <span key={p} className="text-[10px] text-foreground/55 px-2 py-0.5 bg-foreground/[0.04] rounded">
+            <span key={p} className="text-[10px] text-foreground/45 px-2.5 py-1 bg-foreground/[0.025] rounded-md border border-foreground/[0.04]">
               {p}
             </span>
           ))}
         </div>
       </div>
-    </div>
+    </DiagramCard>
   );
 }
 
@@ -243,119 +268,80 @@ export function SubmarineCableDiagram() {
    ───────────────────────────────────────────── */
 export function MobileGenerationDiagram() {
   const specs = [
-    { gen: "4G LTE", speed: "1 Gbps", latency: "10 ms", density: "10万台/km²", color: "#94a3b8", year: "2010〜" },
-    { gen: "5G", speed: "20 Gbps", latency: "1 ms", density: "100万台/km²", color: "#3b82f6", year: "2020〜" },
-    { gen: "IOWN", speed: "125倍*", latency: "1/200*", density: "—", color: "#8b5cf6", year: "2025〜" },
-    { gen: "6G", speed: "1 Tbps", latency: "0.1 ms", density: "1000万台/km²", color: "#10b981", year: "2030〜" },
+    { gen: "4G LTE", speed: "1 Gbps", latency: "10 ms", density: "10万台/km²", year: "2010〜" },
+    { gen: "5G", speed: "20 Gbps", latency: "1 ms", density: "100万台/km²", year: "2020〜" },
+    { gen: "IOWN", speed: "125倍*", latency: "1/200*", density: "—", year: "2025〜" },
+    { gen: "6G", speed: "1 Tbps", latency: "0.1 ms", density: "1000万台/km²", year: "2030〜" },
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
-      <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        通信世代の比較
-      </div>
-      <div className="overflow-x-auto">
-        <table className="w-full text-left min-w-[500px]">
+    <DiagramCard label="通信世代の比較">
+      <div className="overflow-x-auto mt-3">
+        <table className="w-full text-left min-w-[480px]">
           <thead>
-            <tr className="border-b border-brief-border">
-              <th className="text-[10px] text-foreground/45 font-medium py-2 pr-3">世代</th>
-              <th className="text-[10px] text-foreground/45 font-medium py-2 px-3">最大速度</th>
-              <th className="text-[10px] text-foreground/45 font-medium py-2 px-3">遅延</th>
-              <th className="text-[10px] text-foreground/45 font-medium py-2 px-3">接続密度</th>
-              <th className="text-[10px] text-foreground/45 font-medium py-2 pl-3">時期</th>
+            <tr className="border-b border-foreground/[0.06]">
+              {["世代", "最大速度", "遅延", "接続密度", "時期"].map((h) => (
+                <th key={h} className="text-[10px] text-foreground/30 font-semibold py-2.5 px-3 first:pl-0 tracking-wide">
+                  {h}
+                </th>
+              ))}
             </tr>
           </thead>
           <tbody>
-            {specs.map((s) => (
-              <tr key={s.gen} className="border-b border-brief-border/50 last:border-0">
-                <td className="py-2.5 pr-3">
-                  <span className="text-sm font-bold" style={{ color: s.color }}>
-                    {s.gen}
-                  </span>
+            {specs.map((s, i) => (
+              <tr key={s.gen} className="border-b border-foreground/[0.03] last:border-0">
+                <td className="py-3 pr-3 first:pl-0">
+                  <span className="text-[13px] font-bold text-foreground/65">{s.gen}</span>
                 </td>
-                <td className="py-2.5 px-3 text-xs tabular-nums">{s.speed}</td>
-                <td className="py-2.5 px-3 text-xs tabular-nums">{s.latency}</td>
-                <td className="py-2.5 px-3 text-xs tabular-nums">{s.density}</td>
-                <td className="py-2.5 pl-3 text-[10px] text-foreground/45">{s.year}</td>
+                <td className="py-3 px-3 text-[12px] tabular-nums text-foreground/50">{s.speed}</td>
+                <td className="py-3 px-3 text-[12px] tabular-nums text-foreground/50">{s.latency}</td>
+                <td className="py-3 px-3 text-[12px] tabular-nums text-foreground/50">{s.density}</td>
+                <td className="py-3 pl-3 text-[10px] text-foreground/30 font-medium">{s.year}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <div className="mt-2 text-[9px] text-foreground/35">
-        * IOWN は従来のネットワークとの比較値。電力消費は1/100を目標。
+      <div className="mt-2 text-[9px] text-foreground/25">
+        * IOWN は従来ネットワークとの比較値。電力消費 1/100 が目標。
       </div>
-    </div>
+    </DiagramCard>
   );
 }
 
 /* ─────────────────────────────────────────────
-   Security Layers Diagram
+   Security Layers
    ───────────────────────────────────────────── */
 export function SecurityLayersDiagram() {
   const layers = [
-    { name: "耐量子暗号 (PQC)", desc: "量子コンピュータ時代に備える次世代暗号", color: "#ef4444", icon: "🔮" },
-    { name: "ゼロトラスト", desc: "すべてのアクセスを検証・認証", color: "#f59e0b", icon: "🔐" },
-    { name: "WAF / IDS / IPS", desc: "不正アクセスの検知と防御", color: "#3b82f6", icon: "🛡" },
-    { name: "TLS / HTTPS", desc: "通信の暗号化（ページ読み込みの95%+）", color: "#8b5cf6", icon: "🔒" },
-    { name: "ファイアウォール", desc: "ネットワーク境界の防御壁", color: "#10b981", icon: "🧱" },
+    { name: "耐量子暗号 (PQC)", desc: "量子コンピュータ時代に備える次世代暗号" },
+    { name: "ゼロトラスト", desc: "すべてのアクセスを検証・認証" },
+    { name: "WAF / IDS / IPS", desc: "不正アクセスの検知と防御" },
+    { name: "TLS / HTTPS", desc: "通信の暗号化（ページ読み込みの95%+）" },
+    { name: "ファイアウォール", desc: "ネットワーク境界の防御壁" },
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
-      <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        多層防御 — ネットワークセキュリティの構造
-      </div>
-      <div className="space-y-2">
+    <DiagramCard label="多層防御 — ネットワークセキュリティ">
+      <div className="space-y-1.5 mt-3">
         {layers.map((layer, i) => (
           <div
             key={i}
-            className="flex items-center gap-3 p-3 rounded-lg"
-            style={{ backgroundColor: `${layer.color}06`, borderLeft: `3px solid ${layer.color}` }}
+            className="flex items-center gap-4 p-3.5 rounded-xl bg-foreground/[0.01] border border-foreground/[0.04]"
           >
-            <span className="text-xl flex-shrink-0">{layer.icon}</span>
+            <div className="w-8 h-8 rounded-lg bg-foreground/[0.03] border border-foreground/[0.05] flex items-center justify-center text-[10px] font-bold tabular-nums text-foreground/30 flex-shrink-0">
+              {i + 1}
+            </div>
             <div>
-              <div className="text-xs font-semibold" style={{ color: layer.color }}>
-                {layer.name}
-              </div>
-              <div className="text-[10px] text-foreground/50">{layer.desc}</div>
+              <div className="text-[12px] font-semibold text-foreground/60">{layer.name}</div>
+              <div className="text-[10px] text-foreground/35">{layer.desc}</div>
             </div>
           </div>
         ))}
       </div>
-      <div className="mt-3 text-[9px] text-foreground/35 text-center">
+      <div className="mt-3 text-[9px] text-foreground/25 text-center font-medium">
         外部からの攻撃は複数の防御層を通過しなければならない
       </div>
-    </div>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   Internet Scale Stats Banner
-   ───────────────────────────────────────────── */
-export function InternetScaleDiagram() {
-  return (
-    <div className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
-      <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
-        <div className="text-2xl font-bold text-[#3b82f6]">60億+</div>
-        <div className="text-[10px] text-foreground/50 mt-1">インターネットユーザー</div>
-        <div className="text-[9px] text-foreground/35">世界人口の約75%</div>
-      </div>
-      <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
-        <div className="text-2xl font-bold text-[#8b5cf6]">300億+</div>
-        <div className="text-[10px] text-foreground/50 mt-1">接続デバイス数</div>
-        <div className="text-[9px] text-foreground/35">IoT含む</div>
-      </div>
-      <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
-        <div className="text-2xl font-bold text-[#f59e0b]">10万+</div>
-        <div className="text-[10px] text-foreground/50 mt-1">AS（自律システム）</div>
-        <div className="text-[9px] text-foreground/35">ネットワークの集合体</div>
-      </div>
-      <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
-        <div className="text-2xl font-bold text-[#10b981]">5,350万</div>
-        <div className="text-[10px] text-foreground/50 mt-1">日本のBB契約数</div>
-        <div className="text-[9px] text-foreground/35">固定ブロードバンド</div>
-      </div>
-    </div>
+    </DiagramCard>
   );
 }
