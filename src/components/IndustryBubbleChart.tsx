@@ -288,83 +288,6 @@ const industries: IndustryData[] = [
 
 const maxSize = industries[0].marketSize;
 
-/* ── Mini Financial Profile Charts ── */
-
-function MiniPL({ pl, color, hovered }: { pl: PLProfile; color: string; hovered: boolean }) {
-  const opacity = hovered ? 0.8 : 0.5;
-  return (
-    <div className="flex flex-col items-center gap-0.5">
-      <div className="text-[7px] text-foreground/40 leading-none">PL</div>
-      <div className="w-[40px] h-[14px] rounded-sm overflow-hidden flex" title={`原価${pl.cost}% 販管費${pl.sga}% 営業利益${pl.profit}%`}>
-        <div style={{ width: `${pl.cost}%`, backgroundColor: color, opacity: opacity * 0.4 }} />
-        <div style={{ width: `${pl.sga}%`, backgroundColor: color, opacity: opacity * 0.65 }} />
-        <div style={{ width: `${pl.profit}%`, backgroundColor: color, opacity }} />
-      </div>
-      <div className="text-[7px] tabular-nums leading-none" style={{ color: hovered ? color : undefined, opacity: hovered ? 0.9 : 0.45 }}>
-        {pl.profit}%
-      </div>
-    </div>
-  );
-}
-
-function MiniBS({ bs, color, hovered }: { bs: BSProfile; color: string; hovered: boolean }) {
-  const opacity = hovered ? 0.8 : 0.5;
-  return (
-    <div className="flex flex-col items-center gap-0.5">
-      <div className="text-[7px] text-foreground/40 leading-none">BS</div>
-      <div className="flex gap-px" title={`流動資産${bs.currentAssets}% 固定資産${bs.fixedAssets}% / 流動負債${bs.currentLiab}% 固定負債${bs.fixedLiab}% 純資産${bs.equity}%`}>
-        {/* Assets side */}
-        <div className="w-[18px] h-[14px] rounded-sm overflow-hidden flex flex-col">
-          <div style={{ height: `${bs.currentAssets}%`, backgroundColor: color, opacity: opacity * 0.5 }} />
-          <div style={{ height: `${bs.fixedAssets}%`, backgroundColor: color, opacity: opacity * 0.8 }} />
-        </div>
-        {/* Liabilities + Equity side */}
-        <div className="w-[18px] h-[14px] rounded-sm overflow-hidden flex flex-col">
-          <div style={{ height: `${bs.currentLiab}%`, backgroundColor: color, opacity: opacity * 0.35 }} />
-          <div style={{ height: `${bs.fixedLiab}%`, backgroundColor: color, opacity: opacity * 0.6 }} />
-          <div style={{ height: `${bs.equity}%`, backgroundColor: color, opacity }} />
-        </div>
-      </div>
-      <div className="text-[7px] tabular-nums leading-none" style={{ color: hovered ? color : undefined, opacity: hovered ? 0.9 : 0.45 }}>
-        自{bs.equity}%
-      </div>
-    </div>
-  );
-}
-
-function MiniCF({ cf, color, hovered }: { cf: CFProfile; color: string; hovered: boolean }) {
-  const maxAbs = Math.max(Math.abs(cf.operating), Math.abs(cf.investing), Math.abs(cf.financing));
-  const scale = (v: number) => Math.abs(v) / maxAbs;
-  const barH = 14;
-
-  return (
-    <div className="flex flex-col items-center gap-0.5">
-      <div className="text-[7px] text-foreground/40 leading-none">CF</div>
-      <div className="flex items-end gap-px" style={{ height: barH }} title={`営業CF ${cf.operating > 0 ? "+" : ""}${cf.operating} 投資CF ${cf.investing > 0 ? "+" : ""}${cf.investing} 財務CF ${cf.financing > 0 ? "+" : ""}${cf.financing}`}>
-        {[cf.operating, cf.investing, cf.financing].map((v, i) => {
-          const h = Math.max(2, scale(v) * barH);
-          const isPositive = v >= 0;
-          return (
-            <div
-              key={i}
-              className="w-[10px] rounded-sm"
-              style={{
-                height: h,
-                backgroundColor: color,
-                opacity: hovered ? (isPositive ? 0.8 : 0.35) : (isPositive ? 0.5 : 0.2),
-                alignSelf: isPositive ? "flex-end" : "flex-start",
-              }}
-            />
-          );
-        })}
-      </div>
-      <div className="text-[7px] tabular-nums leading-none" style={{ color: hovered ? color : undefined, opacity: hovered ? 0.9 : 0.45 }}>
-        営{cf.operating > 0 ? "+" : ""}{cf.operating}
-      </div>
-    </div>
-  );
-}
-
 export function IndustryBubbleChart() {
   const [hovered, setHovered] = useState<string | null>(null);
 
@@ -403,10 +326,10 @@ export function IndustryBubbleChart() {
                 onMouseEnter={() => setHovered(ind.slug)}
                 onMouseLeave={() => setHovered(null)}
               >
-                {/* Row: Label + Bar + Value + Financial Profiles */}
-                <div className="flex items-center gap-2 sm:gap-3">
+                {/* Row: Label + Bar + Value */}
+                <div className="flex items-center gap-3 sm:gap-4">
                   {/* Industry name */}
-                  <div className="w-[70px] sm:w-[120px] flex-shrink-0">
+                  <div className="w-[90px] sm:w-[140px] flex-shrink-0">
                     <div
                       className="text-xs sm:text-sm font-semibold truncate"
                       style={{ color: isHovered ? ind.color : undefined }}
@@ -418,8 +341,8 @@ export function IndustryBubbleChart() {
                     </div>
                   </div>
 
-                  {/* Bar (narrowed) */}
-                  <div className="flex-1 min-w-0 max-w-[40%]">
+                  {/* Bar */}
+                  <div className="flex-1 min-w-0">
                     <div className="h-5 sm:h-6 rounded bg-foreground/[0.04] overflow-hidden">
                       <div
                         className="h-full rounded transition-all duration-300"
@@ -433,31 +356,21 @@ export function IndustryBubbleChart() {
                   </div>
 
                   {/* Value */}
-                  <div className="w-[50px] sm:w-[60px] text-right flex-shrink-0">
+                  <div className="w-[60px] sm:w-[70px] text-right flex-shrink-0">
                     <span
                       className="text-sm sm:text-base font-bold tabular-nums"
                       style={{ color: isHovered ? ind.color : undefined }}
                     >
                       {ind.marketSize}
                     </span>
-                    <span className="text-[9px] text-foreground/50 ml-0.5 hidden sm:inline">
+                    <span className="text-[9px] text-foreground/50 ml-0.5">
                       兆円
                     </span>
-                  </div>
-
-                  {/* Separator */}
-                  <div className="w-px h-6 bg-foreground/10 flex-shrink-0 hidden sm:block" />
-
-                  {/* PL / BS / CF mini charts */}
-                  <div className="hidden sm:flex items-center gap-3 flex-shrink-0">
-                    <MiniPL pl={ind.pl} color={ind.color} hovered={isHovered} />
-                    <MiniBS bs={ind.bs} color={ind.color} hovered={isHovered} />
-                    <MiniCF cf={ind.cf} color={ind.color} hovered={isHovered} />
                   </div>
                 </div>
 
                 {/* Top 3 companies */}
-                <div className="mt-1 ml-[70px] sm:ml-[120px] pl-2 sm:pl-3 flex flex-wrap gap-x-4 gap-y-0.5">
+                <div className="mt-1 ml-[90px] sm:ml-[140px] pl-3 sm:pl-4 flex flex-wrap gap-x-4 gap-y-0.5">
                   {ind.topCompanies.map((company, i) => (
                     <span
                       key={company.name}
@@ -487,6 +400,209 @@ export function IndustryBubbleChart() {
 
       <p className="mt-2 text-[10px] text-foreground/45 text-right">
         出典: 各業界団体・経済産業省・各社IR資料（2026年4月5日時点推計）
+      </p>
+    </div>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Standalone Financial Profiles Section (PL / BS / CF)
+   ══════════════════════════════════════════════════════════════ */
+
+function PLChart({ pl, color }: { pl: PLProfile; color: string }) {
+  return (
+    <div className="flex flex-col gap-1.5">
+      <div className="text-[10px] font-semibold text-foreground/60">PL 損益構造</div>
+      <div className="w-full h-6 rounded-md overflow-hidden flex">
+        <div
+          className="h-full flex items-center justify-center text-[8px] font-medium text-white/80"
+          style={{ width: `${pl.cost}%`, backgroundColor: color, opacity: 0.3 }}
+        >
+          {pl.cost >= 20 ? `原価 ${pl.cost}%` : ""}
+        </div>
+        <div
+          className="h-full flex items-center justify-center text-[8px] font-medium text-white/80"
+          style={{ width: `${pl.sga}%`, backgroundColor: color, opacity: 0.55 }}
+        >
+          {pl.sga >= 15 ? `販管費 ${pl.sga}%` : ""}
+        </div>
+        <div
+          className="h-full flex items-center justify-center text-[8px] font-bold text-white"
+          style={{ width: `${pl.profit}%`, backgroundColor: color, opacity: 0.85 }}
+        >
+          {pl.profit >= 8 ? `利益 ${pl.profit}%` : `${pl.profit}%`}
+        </div>
+      </div>
+      <div className="flex justify-between text-[9px] text-foreground/45">
+        <span>売上原価</span>
+        <span>販管費</span>
+        <span className="font-medium" style={{ color }}>営業利益率 {pl.profit}%</span>
+      </div>
+    </div>
+  );
+}
+
+function BSChart({ bs, color }: { bs: BSProfile; color: string }) {
+  return (
+    <div className="flex flex-col gap-1.5">
+      <div className="text-[10px] font-semibold text-foreground/60">BS 財務構造</div>
+      <div className="flex gap-1">
+        {/* Assets */}
+        <div className="flex-1">
+          <div className="text-[8px] text-foreground/40 text-center mb-0.5">資産</div>
+          <div className="h-16 rounded-md overflow-hidden flex flex-col">
+            <div
+              className="w-full flex items-center justify-center text-[8px] font-medium text-white/80"
+              style={{ height: `${bs.currentAssets}%`, backgroundColor: color, opacity: 0.4 }}
+            >
+              流動 {bs.currentAssets}%
+            </div>
+            <div
+              className="w-full flex items-center justify-center text-[8px] font-medium text-white/80"
+              style={{ height: `${bs.fixedAssets}%`, backgroundColor: color, opacity: 0.65 }}
+            >
+              固定 {bs.fixedAssets}%
+            </div>
+          </div>
+        </div>
+        {/* Liabilities + Equity */}
+        <div className="flex-1">
+          <div className="text-[8px] text-foreground/40 text-center mb-0.5">負債・純資産</div>
+          <div className="h-16 rounded-md overflow-hidden flex flex-col">
+            <div
+              className="w-full flex items-center justify-center text-[8px] font-medium text-white/80"
+              style={{ height: `${bs.currentLiab}%`, backgroundColor: color, opacity: 0.3 }}
+            >
+              流動負債 {bs.currentLiab}%
+            </div>
+            <div
+              className="w-full flex items-center justify-center text-[8px] font-medium text-white/80"
+              style={{ height: `${bs.fixedLiab}%`, backgroundColor: color, opacity: 0.5 }}
+            >
+              固定負債 {bs.fixedLiab}%
+            </div>
+            <div
+              className="w-full flex items-center justify-center text-[8px] font-bold text-white"
+              style={{ height: `${bs.equity}%`, backgroundColor: color, opacity: 0.85 }}
+            >
+              純資産 {bs.equity}%
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CFChart({ cf, color }: { cf: CFProfile; color: string }) {
+  const maxAbs = Math.max(Math.abs(cf.operating), Math.abs(cf.investing), Math.abs(cf.financing));
+  const barH = (v: number) => `${Math.max(8, (Math.abs(v) / maxAbs) * 100)}%`;
+  const items = [
+    { label: "営業CF", value: cf.operating },
+    { label: "投資CF", value: cf.investing },
+    { label: "財務CF", value: cf.financing },
+  ];
+
+  return (
+    <div className="flex flex-col gap-1.5">
+      <div className="text-[10px] font-semibold text-foreground/60">CF キャッシュフロー</div>
+      <div className="flex items-end gap-2 h-16">
+        {items.map((item) => {
+          const isPositive = item.value >= 0;
+          return (
+            <div key={item.label} className="flex-1 flex flex-col items-center h-full justify-end">
+              <div
+                className="w-full rounded-md"
+                style={{
+                  height: barH(item.value),
+                  backgroundColor: color,
+                  opacity: isPositive ? 0.7 : 0.25,
+                  border: isPositive ? "none" : `1px dashed ${color}`,
+                }}
+              />
+              <div className="text-[8px] text-foreground/50 mt-1 text-center leading-tight">
+                {item.label}
+              </div>
+              <div
+                className="text-[9px] font-bold tabular-nums text-center"
+                style={{ color: isPositive ? color : undefined, opacity: isPositive ? 0.8 : 0.4 }}
+              >
+                {item.value > 0 ? "+" : ""}{item.value}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+export function IndustryFinancialProfiles() {
+  const [hovered, setHovered] = useState<string | null>(null);
+
+  return (
+    <div className="mt-10 mb-4">
+      <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+        <div>
+          <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
+            Financial Profiles by Industry
+          </span>
+          <span className="text-[10px] text-foreground/45 ml-2">
+            (業界別 財務構造の特徴)
+          </span>
+        </div>
+        <div className="flex gap-4 text-[9px] text-foreground/40">
+          <span><span className="inline-block w-2 h-2 rounded-sm bg-foreground/20 mr-1" />PL = 損益計算書</span>
+          <span><span className="inline-block w-2 h-2 rounded-sm bg-foreground/40 mr-1" />BS = 貸借対照表</span>
+          <span><span className="inline-block w-2 h-2 rounded-sm bg-foreground/60 mr-1" />CF = キャッシュフロー</span>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {industries.map((ind) => {
+          const isHovered = hovered === ind.slug;
+          return (
+            <div
+              key={ind.slug}
+              className="rounded-xl border border-brief-border bg-brief-card p-4 transition-all"
+              style={{
+                borderColor: isHovered ? `${ind.color}40` : undefined,
+                boxShadow: isHovered ? `0 0 0 1px ${ind.color}20` : undefined,
+              }}
+              onMouseEnter={() => setHovered(ind.slug)}
+              onMouseLeave={() => setHovered(null)}
+            >
+              {/* Header */}
+              <div className="flex items-center gap-2 mb-3 pb-2 border-b border-brief-border">
+                <div
+                  className="w-2 h-2 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: ind.color }}
+                />
+                <div className="text-sm font-semibold" style={{ color: isHovered ? ind.color : undefined }}>
+                  {ind.labelJa}
+                </div>
+                <div className="text-[9px] text-foreground/40 ml-auto">
+                  {ind.marketSize}兆円
+                </div>
+              </div>
+
+              {/* PL */}
+              <div className="mb-3">
+                <PLChart pl={ind.pl} color={ind.color} />
+              </div>
+
+              {/* BS + CF side by side */}
+              <div className="grid grid-cols-2 gap-3">
+                <BSChart bs={ind.bs} color={ind.color} />
+                <CFChart cf={ind.cf} color={ind.color} />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <p className="mt-3 text-[10px] text-foreground/45 text-right">
+        出典: 各社IR資料・有価証券報告書より業界平均を算出（2026年4月5日時点推計）
       </p>
     </div>
   );
