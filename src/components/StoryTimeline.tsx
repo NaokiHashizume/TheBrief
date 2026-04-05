@@ -33,7 +33,7 @@ export function StoryTimeline({ story }: { story: Story }) {
               {/* Content */}
               <div className={`flex-1 pb-8 ${isLatest ? "" : "opacity-70"}`}>
                 <div className="flex items-center gap-3 mb-1">
-                  <time className="text-xs text-foreground/35 tabular-nums">{episode.date}</time>
+                  <time className="text-xs text-foreground/50 tabular-nums">{episode.date}</time>
                   {isLatest && (
                     <span className="text-[9px] tracking-wider uppercase px-2 py-0.5 bg-brief-red/10 text-brief-red rounded-full font-medium">
                       Latest
@@ -48,7 +48,7 @@ export function StoryTimeline({ story }: { story: Story }) {
                 <p className="mt-1.5 text-sm text-foreground/45 leading-relaxed line-clamp-2">
                   {episode.summary}
                 </p>
-                <div className="mt-2 text-xs text-foreground/30">
+                <div className="mt-2 text-xs text-foreground/45">
                   {episode.author} · {episode.readTime}
                 </div>
               </div>
@@ -70,13 +70,13 @@ export function StoryCardCompact({ story }: { story: Story }) {
         <span className="category-pill text-brief-red font-medium">
           {story.categoryLabel}
           {story.industryLabel && (
-            <span className="text-foreground/30"> / {story.industryLabel}</span>
+            <span className="text-foreground/45"> / {story.industryLabel}</span>
           )}
         </span>
         <span className={`text-[9px] tracking-wider uppercase px-2 py-0.5 rounded-full font-medium ${
           story.status === "ongoing"
             ? "bg-brief-red/10 text-brief-red"
-            : "bg-foreground/5 text-foreground/40"
+            : "bg-foreground/5 text-foreground/55"
         }`}>
           {story.status === "ongoing" ? "Ongoing" : "Concluded"}
         </span>
@@ -104,13 +104,13 @@ export function StoryCardCompact({ story }: { story: Story }) {
             />
           ))}
         </div>
-        <span className="text-xs text-foreground/30">
+        <span className="text-xs text-foreground/45">
           {episodeCount} episodes
         </span>
       </div>
 
       <div className="mt-3 pt-3 border-t border-brief-border flex items-center justify-between">
-        <span className="text-xs text-foreground/30">
+        <span className="text-xs text-foreground/45">
           Latest: {latest.date}
         </span>
         <Link

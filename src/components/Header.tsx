@@ -33,7 +33,7 @@ export function Header() {
 
       {/* Category navigation */}
       <nav className="max-w-6xl mx-auto px-4 overflow-x-auto">
-        <ul className="flex items-center gap-6 py-3 text-[11px] tracking-[2px] uppercase text-foreground/50 whitespace-nowrap">
+        <ul className="flex items-center gap-6 py-3 text-[11px] tracking-[2px] uppercase text-foreground/60 whitespace-nowrap">
           {categories.map((cat) => (
             <li key={cat.href}>
               <Link

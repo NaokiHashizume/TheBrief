@@ -155,7 +155,7 @@ export default function IndustryPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/35 mb-6">
+      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">
           Home
         </Link>
@@ -164,10 +164,10 @@ export default function IndustryPage() {
       </div>
 
       <h1 className="font-serif text-3xl md:text-4xl font-bold">Industry</h1>
-      <p className="mt-3 text-sm text-foreground/50 leading-relaxed">
+      <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
         日本の主要業界の最新動向を業界別にまとめています。気になる業界を選んでください。
       </p>
-      <p className="mt-2 text-xs text-foreground/30">
+      <p className="mt-2 text-xs text-foreground/45">
         各業界ページは順次コンテンツを追加予定です。
       </p>
 
@@ -192,16 +192,16 @@ export default function IndustryPage() {
                 <h2 className="font-serif font-bold text-base leading-snug">
                   {ind.title}
                 </h2>
-                <span className="text-[10px] text-foreground/30">
+                <span className="text-[10px] text-foreground/45">
                   {ind.titleJa}
                 </span>
               </div>
             </div>
-            <p className="mt-3 text-[12px] text-foreground/40 leading-relaxed">
+            <p className="mt-3 text-[12px] text-foreground/55 leading-relaxed">
               {ind.description}
             </p>
             <div className="mt-3">
-              <span className="text-[9px] tracking-wider uppercase text-foreground/25 border border-foreground/10 px-2 py-0.5 rounded">
+              <span className="text-[9px] tracking-wider uppercase text-foreground/40 border border-foreground/10 px-2 py-0.5 rounded">
                 Coming Soon
               </span>
             </div>

@@ -51,10 +51,10 @@ export function IndustryBubbleChart() {
   return (
     <div className="mt-8 mb-4">
       <div className="flex items-center gap-3 mb-3">
-        <span className="text-[10px] tracking-[2px] uppercase text-foreground/30">
+        <span className="text-[10px] tracking-[2px] uppercase text-foreground/45">
           Market Size Overview
         </span>
-        <span className="text-[10px] text-foreground/20">
+        <span className="text-[10px] text-foreground/35">
           (日本国内市場規模・兆円)
         </span>
       </div>
@@ -170,7 +170,7 @@ export function IndustryBubbleChart() {
         </svg>
       </div>
 
-      <p className="mt-2 text-[10px] text-foreground/20 text-right">
+      <p className="mt-2 text-[10px] text-foreground/35 text-right">
         出典: 各業界団体・経済産業省（2025年度推計）
       </p>
     </div>

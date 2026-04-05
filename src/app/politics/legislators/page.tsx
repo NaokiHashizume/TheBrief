@@ -41,7 +41,7 @@ export default function LegislatorsPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/35 mb-6">
+      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
@@ -50,10 +50,10 @@ export default function LegislatorsPage() {
       </div>
 
       <h1 className="font-serif text-3xl md:text-4xl font-bold">議員</h1>
-      <p className="mt-3 text-sm text-foreground/50 leading-relaxed">
+      <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
         議員活動の総合ランキングと、政党別の議員一覧です。
       </p>
-      <p className="mt-2 text-xs text-foreground/30">
+      <p className="mt-2 text-xs text-foreground/45">
         議員データ: 2026-02-18 第221回特別国会時点 ｜ ランキング: 2026年3月評価
       </p>
 

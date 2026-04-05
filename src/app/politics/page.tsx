@@ -69,41 +69,41 @@ export default function PoliticsPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/35 mb-6">
+      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <span>Politics</span>
       </div>
 
       <h1 className="font-serif text-3xl md:text-4xl font-bold">Politics</h1>
-      <p className="mt-3 text-sm text-foreground/50 leading-relaxed">
+      <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
         日本の国会（衆議院・参議院）の政党別議席数、内閣の顔ぶれ、主要議員をわかりやすくまとめています。
       </p>
-      <p className="mt-2 text-xs text-foreground/30">
+      <p className="mt-2 text-xs text-foreground/45">
         Last updated: 2026-04-04 ※最新の情報に基づき随時更新
       </p>
 
       {/* いまの政治 ダッシュボード */}
       <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
         <div className="p-4 rounded-xl bg-white border border-brief-border">
-          <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">衆議院</div>
-          <div className="text-2xl font-bold tabular-nums" style={{ color: "#3CA324" }}>316<span className="text-sm text-foreground/30">/465</span></div>
-          <div className="text-[10px] text-foreground/35 mt-1">自民単独2/3超の歴史的大勝</div>
+          <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1">衆議院</div>
+          <div className="text-2xl font-bold tabular-nums" style={{ color: "#3CA324" }}>316<span className="text-sm text-foreground/45">/465</span></div>
+          <div className="text-[10px] text-foreground/50 mt-1">自民単独2/3超の歴史的大勝</div>
         </div>
         <div className="p-4 rounded-xl bg-white border border-brief-border">
-          <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">内閣支持率</div>
+          <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1">内閣支持率</div>
           <div className="text-2xl font-bold tabular-nums text-brief-red">58〜64%</div>
-          <div className="text-[10px] text-foreground/35 mt-1">第2次高市内閣</div>
+          <div className="text-[10px] text-foreground/50 mt-1">第2次高市内閣</div>
         </div>
         <div className="p-4 rounded-xl bg-white border border-brief-border">
-          <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">審議中法案</div>
-          <div className="text-2xl font-bold tabular-nums text-brief-red">6<span className="text-sm text-foreground/30">本</span></div>
-          <div className="text-[10px] text-foreground/35 mt-1">第221回特別国会</div>
+          <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1">審議中法案</div>
+          <div className="text-2xl font-bold tabular-nums text-brief-red">6<span className="text-sm text-foreground/45">本</span></div>
+          <div className="text-[10px] text-foreground/50 mt-1">第221回特別国会</div>
         </div>
         <div className="p-4 rounded-xl bg-white border border-brief-border">
-          <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">施行済</div>
-          <div className="text-2xl font-bold tabular-nums text-green-500">4<span className="text-sm text-foreground/30">件</span></div>
-          <div className="text-[10px] text-foreground/35 mt-1">2026年に施行</div>
+          <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1">施行済</div>
+          <div className="text-2xl font-bold tabular-nums text-green-500">4<span className="text-sm text-foreground/45">件</span></div>
+          <div className="text-[10px] text-foreground/50 mt-1">2026年に施行</div>
         </div>
       </div>
 
@@ -114,12 +114,12 @@ export default function PoliticsPage() {
             href={sec.href}
             className="group p-6 rounded-xl border border-brief-border hover:border-brief-red transition-all duration-200 hover:bg-brief-red/[0.03]"
           >
-            <div className="text-foreground/20 group-hover:text-brief-red transition-colors">
+            <div className="text-foreground/35 group-hover:text-brief-red transition-colors">
               {sec.icon}
             </div>
             <h2 className="font-serif text-2xl font-bold mt-5">{sec.title}</h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">{sec.titleEn}</span>
-            <p className="text-sm text-foreground/40 mt-2">{sec.description}</p>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">{sec.titleEn}</span>
+            <p className="text-sm text-foreground/55 mt-2">{sec.description}</p>
             <div className="mt-4 flex items-center gap-1 text-xs text-brief-red opacity-0 group-hover:opacity-100 transition-opacity">
               <span>View</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -143,8 +143,8 @@ export default function PoliticsPage() {
           </div>
           <div>
             <h2 className="font-serif text-xl font-bold">審議中</h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Debates in Progress</span>
-            <p className="text-sm text-foreground/40 mt-0.5">
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">Debates in Progress</span>
+            <p className="text-sm text-foreground/55 mt-0.5">
               国会で現在審議されている法案・議題の一覧
             </p>
           </div>
@@ -171,8 +171,8 @@ export default function PoliticsPage() {
           </div>
           <div>
             <h2 className="font-serif text-xl font-bold">成立済</h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Enacted, Not Yet Effective</span>
-            <p className="text-sm text-foreground/40 mt-0.5">
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">Enacted, Not Yet Effective</span>
+            <p className="text-sm text-foreground/55 mt-0.5">
               成立したが、まだ施行されていない主要法令
             </p>
           </div>
@@ -198,8 +198,8 @@ export default function PoliticsPage() {
           </div>
           <div>
             <h2 className="font-serif text-xl font-bold">施行済</h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Effective in 2026</span>
-            <p className="text-sm text-foreground/40 mt-0.5">
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">Effective in 2026</span>
+            <p className="text-sm text-foreground/55 mt-0.5">
               2026年に施行・発効した主要法令
             </p>
           </div>
@@ -221,7 +221,7 @@ export default function PoliticsPage() {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brief-red" />
             </span>
             <h2 className="font-serif text-xl font-bold">最新ニュース</h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Latest</span>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">Latest</span>
           </div>
           <div className="flex-1 h-px bg-foreground/5" />
         </div>
@@ -240,7 +240,7 @@ export default function PoliticsPage() {
                 {showDate && (
                   <div className="relative flex items-center gap-3 pb-3 pt-1">
                     <div className="absolute left-[-19px] w-3 h-px bg-foreground/10" />
-                    <span className="text-[10px] font-medium text-foreground/30 tabular-nums tracking-wider">
+                    <span className="text-[10px] font-medium text-foreground/45 tabular-nums tracking-wider">
                       {new Date(news.date).toLocaleDateString("ja-JP", { month: "long", day: "numeric", weekday: "short" })}
                     </span>
                   </div>
@@ -258,7 +258,7 @@ export default function PoliticsPage() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[10px] tabular-nums text-foreground/25">{news.time}</span>
+                      <span className="text-[10px] tabular-nums text-foreground/40">{news.time}</span>
                       <span
                         className="text-[9px] font-bold px-1.5 py-0.5 rounded text-white"
                         style={{ backgroundColor: news.tagColor }}
@@ -269,7 +269,7 @@ export default function PoliticsPage() {
                     <h3 className={`text-sm font-medium leading-snug ${isFirst ? "text-foreground" : "text-foreground/70"}`}>
                       {news.title}
                     </h3>
-                    <p className="mt-1 text-xs text-foreground/35 leading-relaxed">
+                    <p className="mt-1 text-xs text-foreground/50 leading-relaxed">
                       {news.summary}
                     </p>
                   </div>

@@ -16,7 +16,7 @@ export default function OgImage() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          background: "#0f0f0f",
+          background: "#fafaf8",
           fontFamily: "Georgia, serif",
         }}
       >
@@ -27,7 +27,7 @@ export default function OgImage() {
               fontSize: 24,
               fontWeight: 700,
               letterSpacing: "8px",
-              color: "rgba(255,255,255,0.25)",
+              color: "rgba(26,26,26,0.3)",
               textTransform: "uppercase" as const,
               marginBottom: -4,
             }}
@@ -39,7 +39,7 @@ export default function OgImage() {
               style={{
                 fontSize: 120,
                 fontWeight: 900,
-                color: "#ffffff",
+                color: "#1a1a1a",
                 lineHeight: 1,
                 letterSpacing: "-2px",
               }}
@@ -52,7 +52,7 @@ export default function OgImage() {
                   width: 16,
                   height: 16,
                   borderRadius: "50%",
-                  background: "#e53e3e",
+                  background: "#c0392b",
                   marginBottom: 4,
                 }}
               />
@@ -60,7 +60,7 @@ export default function OgImage() {
                 style={{
                   fontSize: 120,
                   fontWeight: 900,
-                  color: "#ffffff",
+                  color: "#1a1a1a",
                   lineHeight: 1,
                 }}
               >
@@ -71,7 +71,7 @@ export default function OgImage() {
               style={{
                 fontSize: 120,
                 fontWeight: 900,
-                color: "#ffffff",
+                color: "#1a1a1a",
                 lineHeight: 1,
                 letterSpacing: "-2px",
               }}
@@ -87,7 +87,7 @@ export default function OgImage() {
             marginTop: 32,
             fontSize: 16,
             letterSpacing: "6px",
-            color: "rgba(255,255,255,0.2)",
+            color: "rgba(26,26,26,0.3)",
             textTransform: "uppercase" as const,
           }}
         >
@@ -101,7 +101,7 @@ export default function OgImage() {
             bottom: 40,
             fontSize: 14,
             letterSpacing: "3px",
-            color: "rgba(255,255,255,0.15)",
+            color: "rgba(26,26,26,0.2)",
           }}
         >
           thebrief.info

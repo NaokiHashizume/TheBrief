@@ -60,7 +60,7 @@ export function LegislatorsByParty({
                 <div key={leg.nameEn} className="px-5 py-4 flex items-center gap-4">
                   {/* Avatar placeholder */}
                   <div className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center flex-shrink-0">
-                    <span className="text-base font-serif font-bold text-foreground/30">
+                    <span className="text-base font-serif font-bold text-foreground/45">
                       {leg.name.charAt(0)}
                     </span>
                   </div>
@@ -69,11 +69,11 @@ export function LegislatorsByParty({
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
                       <span className="font-medium">{leg.name}</span>
-                      <span className="text-xs text-foreground/30">{leg.nameEn}</span>
+                      <span className="text-xs text-foreground/45">{leg.nameEn}</span>
                     </div>
                     <div className="flex items-center gap-2 mt-0.5">
-                      <span className="text-xs text-foreground/40">{leg.role}</span>
-                      <span className="text-[9px] tracking-wider uppercase px-1.5 py-0.5 bg-foreground/5 rounded-full text-foreground/35">
+                      <span className="text-xs text-foreground/55">{leg.role}</span>
+                      <span className="text-[9px] tracking-wider uppercase px-1.5 py-0.5 bg-foreground/5 rounded-full text-foreground/50">
                         {leg.chamber === "house" ? "衆" : "参"}
                       </span>
                     </div>
@@ -86,7 +86,7 @@ export function LegislatorsByParty({
                         href={leg.x}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors"
+                        className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/45 hover:text-foreground transition-colors"
                         aria-label={`${leg.name} on X`}
                       >
                         <XIcon />
@@ -97,7 +97,7 @@ export function LegislatorsByParty({
                         href={leg.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/30 hover:text-foreground transition-colors"
+                        className="p-1.5 rounded-full hover:bg-foreground/5 text-foreground/45 hover:text-foreground transition-colors"
                         aria-label={`${leg.name} website`}
                       >
                         <WebIcon />

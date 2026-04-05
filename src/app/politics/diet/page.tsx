@@ -128,11 +128,11 @@ function ChamberExplainer({
   return (
     <div className="p-5 bg-white rounded-xl">
       <h4 className="font-serif font-bold text-lg">{title}</h4>
-      <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">{titleEn}</span>
+      <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">{titleEn}</span>
       <dl className="mt-4 space-y-2">
         {points.map((p) => (
           <div key={p.label} className="flex gap-3">
-            <dt className="text-xs text-foreground/40 w-24 flex-shrink-0 pt-0.5">{p.label}</dt>
+            <dt className="text-xs text-foreground/55 w-24 flex-shrink-0 pt-0.5">{p.label}</dt>
             <dd className="text-sm text-foreground/70 leading-relaxed">{p.value}</dd>
           </div>
         ))}
@@ -145,7 +145,7 @@ export default function DietPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/35 mb-6">
+      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
@@ -154,11 +154,11 @@ export default function DietPage() {
       </div>
 
       <h1 className="font-serif text-3xl md:text-4xl font-bold">国会</h1>
-      <p className="mt-3 text-sm text-foreground/50 leading-relaxed">
+      <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
         日本の国会は、衆議院（下院）と参議院（上院）の二院制で構成されています。
         両院はそれぞれ異なる役割と権限を持ち、法律の制定・予算の議決・条約の承認などを行います。
       </p>
-      <p className="mt-2 text-xs text-foreground/30">
+      <p className="mt-2 text-xs text-foreground/45">
         衆議院: 2026-02-08 第51回衆院選時点 ｜ 参議院: 2025-07-20 第27回参院選時点
       </p>
 
@@ -195,14 +195,14 @@ export default function DietPage() {
             <span className="w-1.5 h-5 bg-brief-red rounded-full inline-block" />
             法案の流れ
           </h2>
-          <span className="text-[10px] tracking-[2px] uppercase text-foreground/30 ml-3.5">
+          <span className="text-[10px] tracking-[2px] uppercase text-foreground/45 ml-3.5">
             How a Bill Becomes Law
           </span>
         </div>
         <div className="flex-1 h-px bg-brief-border" />
       </div>
 
-      <p className="text-sm text-foreground/50 leading-relaxed mb-6">
+      <p className="text-sm text-foreground/60 leading-relaxed mb-6">
         法案が国会に提出されてから法律として施行されるまでの流れです。
       </p>
 
@@ -217,12 +217,12 @@ export default function DietPage() {
         ].map((s, i, arr) => (
           <div key={s.step} className="flex items-center gap-3 flex-1">
             <div className={`flex-1 p-4 rounded-xl ${s.color} border border-brief-border`}>
-              <div className="text-[10px] tracking-wider uppercase text-foreground/30 mb-1">Step {s.step}</div>
+              <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1">Step {s.step}</div>
               <div className="font-serif font-bold text-sm">{s.title}</div>
-              <div className="text-[10px] text-foreground/40 mt-1 leading-relaxed">{s.desc}</div>
+              <div className="text-[10px] text-foreground/55 mt-1 leading-relaxed">{s.desc}</div>
             </div>
             {i < arr.length - 1 && (
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/15 flex-shrink-0 hidden md:block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/30 flex-shrink-0 hidden md:block">
                 <polyline points="9 18 15 12 9 6" />
               </svg>
             )}
@@ -230,7 +230,7 @@ export default function DietPage() {
         ))}
       </div>
 
-      <div className="mt-4 p-4 bg-white rounded-lg text-xs text-foreground/35 leading-relaxed">
+      <div className="mt-4 p-4 bg-white rounded-lg text-xs text-foreground/50 leading-relaxed">
         ※ 衆議院で可決後60日以内に参議院が議決しない場合、衆議院は参議院が否決したとみなすことができます（みなし否決）。
         衆議院で出席議員の2/3以上の多数で再び可決した場合、法律となります（衆議院の再議決権・憲法59条）。
       </div>
@@ -242,7 +242,7 @@ export default function DietPage() {
             <span className="w-1.5 h-5 bg-brief-red rounded-full inline-block" />
             衆議院の議席構成
           </h2>
-          <span className="text-[10px] tracking-[2px] uppercase text-foreground/30 ml-3.5">
+          <span className="text-[10px] tracking-[2px] uppercase text-foreground/45 ml-3.5">
             House of Representatives — Seats
           </span>
         </div>
@@ -264,7 +264,7 @@ export default function DietPage() {
             <span className="w-1.5 h-5 bg-brief-red rounded-full inline-block" />
             参議院の議席構成
           </h2>
-          <span className="text-[10px] tracking-[2px] uppercase text-foreground/30 ml-3.5">
+          <span className="text-[10px] tracking-[2px] uppercase text-foreground/45 ml-3.5">
             House of Councillors — Seats
           </span>
         </div>
@@ -286,14 +286,14 @@ export default function DietPage() {
             <span className="w-1.5 h-5 bg-brief-red rounded-full inline-block" />
             国会の歴史
           </h2>
-          <span className="text-[10px] tracking-[2px] uppercase text-foreground/30 ml-3.5">
+          <span className="text-[10px] tracking-[2px] uppercase text-foreground/45 ml-3.5">
             History of the National Diet
           </span>
         </div>
         <div className="flex-1 h-px bg-brief-border" />
       </div>
 
-      <p className="text-sm text-foreground/50 leading-relaxed mb-8">
+      <p className="text-sm text-foreground/60 leading-relaxed mb-8">
         明治維新から現代まで、日本の議会制度は約150年の歴史を持ちます。
         自由民権運動による国会開設の要求から、帝国議会の誕生、戦後の新憲法下での国会の再出発まで、その歩みを時系列で辿ります。
       </p>
@@ -322,12 +322,12 @@ export default function DietPage() {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-sm font-bold tabular-nums text-brief-red">{era.year}</span>
-                <span className="text-[9px] tracking-wider uppercase px-2 py-0.5 rounded-full bg-foreground/5 text-foreground/30 font-medium">
+                <span className="text-[9px] tracking-wider uppercase px-2 py-0.5 rounded-full bg-foreground/5 text-foreground/45 font-medium">
                   {era.tag}
                 </span>
               </div>
               <h3 className="font-serif text-lg font-bold leading-snug">{era.title}</h3>
-              <p className="mt-1.5 text-sm text-foreground/50 leading-relaxed">
+              <p className="mt-1.5 text-sm text-foreground/60 leading-relaxed">
                 {era.description}
               </p>
             </div>
@@ -336,7 +336,7 @@ export default function DietPage() {
       </div>
 
       {/* Disclaimer */}
-      <div className="mt-12 p-4 bg-white rounded-lg text-xs text-foreground/35 leading-relaxed">
+      <div className="mt-12 p-4 bg-white rounded-lg text-xs text-foreground/50 leading-relaxed">
         ※ 議席数は補欠選挙・離党等により変動する場合があります。最新の情報は各政党・国会の公式サイトをご確認ください。
       </div>
     </div>

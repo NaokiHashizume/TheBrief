@@ -22,7 +22,7 @@ export default function EnactedPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/35 mb-6">
+      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
@@ -31,10 +31,10 @@ export default function EnactedPage() {
       </div>
 
       <h1 className="font-serif text-3xl md:text-4xl font-bold">施行済</h1>
-      <p className="mt-3 text-sm text-foreground/50 leading-relaxed">
+      <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
         2026年に施行・発効した主要な法令の一覧です。過去の国会で成立し、2026年に施行された重要法を掲載しています。
       </p>
-      <p className="mt-2 text-xs text-foreground/30">
+      <p className="mt-2 text-xs text-foreground/45">
         2026年施行済法令一覧: 2026年4月4日時点 ｜ 投票結果は成立時の記録
       </p>
 
@@ -51,17 +51,17 @@ export default function EnactedPage() {
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-full text-white bg-green-600">
                     施行済
                   </span>
-                  <span className="text-[10px] tracking-wider uppercase text-foreground/30">
+                  <span className="text-[10px] tracking-wider uppercase text-foreground/45">
                     {item.committee}
                   </span>
-                  <span className="text-[10px] tabular-nums text-foreground/25">
+                  <span className="text-[10px] tabular-nums text-foreground/40">
                     {item.effectiveDate} 施行
                   </span>
                 </div>
                 <h2 className="font-serif text-lg font-bold group-hover:text-green-400 transition-colors">
                   {item.title}
                 </h2>
-                <span className="text-[9px] tracking-[1px] uppercase text-foreground/20">
+                <span className="text-[9px] tracking-[1px] uppercase text-foreground/35">
                   {item.titleEn}
                 </span>
                 <p className="mt-2 text-sm text-foreground/45 leading-relaxed line-clamp-2">
@@ -72,7 +72,7 @@ export default function EnactedPage() {
                   <p className="text-xs text-foreground/45 leading-relaxed">{item.impact}</p>
                 </div>
               </div>
-              <div className="flex-shrink-0 mt-2 text-foreground/15 group-hover:text-green-400 transition-colors">
+              <div className="flex-shrink-0 mt-2 text-foreground/30 group-hover:text-green-400 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="9 18 15 12 9 6" />
                 </svg>
@@ -91,7 +91,7 @@ export default function EnactedPage() {
                   style={{ width: `${(item.voteResult.against / (item.voteResult.for + item.voteResult.against + (item.voteResult.abstain || 0))) * 100}%` }}
                 />
               </div>
-              <span className="text-[10px] text-foreground/30 tabular-nums flex-shrink-0">
+              <span className="text-[10px] text-foreground/45 tabular-nums flex-shrink-0">
                 賛成{item.voteResult.for} / 反対{item.voteResult.against}
               </span>
             </div>

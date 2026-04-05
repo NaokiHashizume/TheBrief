@@ -22,7 +22,7 @@ export default function DebatesPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/35 mb-6">
+      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
@@ -31,10 +31,10 @@ export default function DebatesPage() {
       </div>
 
       <h1 className="font-serif text-3xl md:text-4xl font-bold">審議中</h1>
-      <p className="mt-3 text-sm text-foreground/50 leading-relaxed">
+      <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
         第214回通常国会（2026年）で現在審議されている主要な法案・議題の一覧です。
       </p>
-      <p className="mt-2 text-xs text-foreground/30">
+      <p className="mt-2 text-xs text-foreground/45">
         第221回特別国会（2026年2月18日召集）審議中法案 ｜ 2026年4月4日更新
       </p>
 
@@ -54,14 +54,14 @@ export default function DebatesPage() {
                   >
                     {debate.status}
                   </span>
-                  <span className="text-[10px] tracking-wider uppercase text-foreground/30">
+                  <span className="text-[10px] tracking-wider uppercase text-foreground/45">
                     {debate.committee}
                   </span>
                 </div>
                 <h2 className="font-serif text-lg font-bold group-hover:text-brief-red transition-colors">
                   {debate.title}
                 </h2>
-                <span className="text-[9px] tracking-[1px] uppercase text-foreground/20">
+                <span className="text-[9px] tracking-[1px] uppercase text-foreground/35">
                   {debate.titleEn}
                 </span>
                 <p className="mt-2 text-sm text-foreground/45 leading-relaxed line-clamp-2">
@@ -72,7 +72,7 @@ export default function DebatesPage() {
                   <p className="text-xs text-foreground/45 leading-relaxed">{debate.impact}</p>
                 </div>
               </div>
-              <div className="flex-shrink-0 mt-2 text-foreground/15 group-hover:text-brief-red transition-colors">
+              <div className="flex-shrink-0 mt-2 text-foreground/30 group-hover:text-brief-red transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="9 18 15 12 9 6" />
                 </svg>
@@ -84,13 +84,13 @@ export default function DebatesPage() {
               {debate.keyPoints.slice(0, 3).map((point) => (
                 <span
                   key={point}
-                  className="text-[10px] px-2 py-0.5 bg-white rounded-full text-foreground/35"
+                  className="text-[10px] px-2 py-0.5 bg-white rounded-full text-foreground/50"
                 >
                   {point}
                 </span>
               ))}
               {debate.keyPoints.length > 3 && (
-                <span className="text-[10px] px-2 py-0.5 text-foreground/25">
+                <span className="text-[10px] px-2 py-0.5 text-foreground/40">
                   +{debate.keyPoints.length - 3}
                 </span>
               )}

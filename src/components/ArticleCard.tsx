@@ -3,7 +3,7 @@ import type { Article } from "@/lib/articles";
 function CategoryBadge({ label, subLabel }: { label: string; subLabel?: string }) {
   return (
     <span className="category-pill text-brief-red font-medium">
-      {label}{subLabel && <span className="text-foreground/30"> / {subLabel}</span>}
+      {label}{subLabel && <span className="text-foreground/45"> / {subLabel}</span>}
     </span>
   );
 }
@@ -12,7 +12,7 @@ export function ArticleCardFeatured({ article }: { article: Article }) {
   return (
     <article className="group cursor-pointer">
       <div className="aspect-[16/9] bg-gradient-to-br from-foreground/5 to-foreground/10 rounded-xl mb-4 overflow-hidden">
-        <div className="w-full h-full flex items-center justify-center text-foreground/20 text-sm">
+        <div className="w-full h-full flex items-center justify-center text-foreground/35 text-sm">
           {article.categoryLabel}
         </div>
       </div>
@@ -20,10 +20,10 @@ export function ArticleCardFeatured({ article }: { article: Article }) {
       <h2 className="mt-2 font-serif text-2xl md:text-3xl font-bold leading-tight group-hover:text-brief-red transition-colors">
         {article.title}
       </h2>
-      <p className="mt-3 text-sm text-foreground/50 leading-relaxed line-clamp-2">
+      <p className="mt-3 text-sm text-foreground/60 leading-relaxed line-clamp-2">
         {article.excerpt}
       </p>
-      <div className="mt-3 flex items-center gap-3 text-xs text-foreground/35">
+      <div className="mt-3 flex items-center gap-3 text-xs text-foreground/50">
         <span>{article.author}</span>
         <span>·</span>
         <time>{article.date}</time>
@@ -44,7 +44,7 @@ export function ArticleCardCompact({ article }: { article: Article }) {
       <p className="mt-2 text-sm text-foreground/45 leading-relaxed line-clamp-2">
         {article.excerpt}
       </p>
-      <div className="mt-2 flex items-center gap-3 text-xs text-foreground/30">
+      <div className="mt-2 flex items-center gap-3 text-xs text-foreground/45">
         <span>{article.author}</span>
         <span>·</span>
         <time>{article.date}</time>
@@ -63,7 +63,7 @@ export function ArticleCardHorizontal({ article }: { article: Article }) {
         <h3 className="mt-1 font-serif text-base font-bold leading-snug group-hover:text-brief-red transition-colors">
           {article.title}
         </h3>
-        <div className="mt-2 flex items-center gap-2 text-xs text-foreground/30">
+        <div className="mt-2 flex items-center gap-2 text-xs text-foreground/45">
           <time>{article.date}</time>
           <span>·</span>
           <span>{article.readTime}</span>

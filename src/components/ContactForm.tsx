@@ -9,7 +9,7 @@ export function ContactForm() {
     return (
       <div className="p-8 bg-white rounded-xl border border-brief-border text-center">
         <p className="font-serif text-lg font-bold">Thank you!</p>
-        <p className="mt-2 text-sm text-foreground/50">
+        <p className="mt-2 text-sm text-foreground/60">
           お問い合わせを受け付けました。内容を確認の上、ご連絡いたします。
         </p>
       </div>
@@ -27,7 +27,7 @@ export function ContactForm() {
       }}
     >
       <div>
-        <label htmlFor="name" className="block text-xs tracking-wider uppercase text-foreground/40 mb-1.5">
+        <label htmlFor="name" className="block text-xs tracking-wider uppercase text-foreground/55 mb-1.5">
           Name
         </label>
         <input
@@ -40,7 +40,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-xs tracking-wider uppercase text-foreground/40 mb-1.5">
+        <label htmlFor="email" className="block text-xs tracking-wider uppercase text-foreground/55 mb-1.5">
           Email
         </label>
         <input
@@ -53,7 +53,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="subject" className="block text-xs tracking-wider uppercase text-foreground/40 mb-1.5">
+        <label htmlFor="subject" className="block text-xs tracking-wider uppercase text-foreground/55 mb-1.5">
           Subject
         </label>
         <select
@@ -71,7 +71,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-xs tracking-wider uppercase text-foreground/40 mb-1.5">
+        <label htmlFor="message" className="block text-xs tracking-wider uppercase text-foreground/55 mb-1.5">
           Message
         </label>
         <textarea

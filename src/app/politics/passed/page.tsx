@@ -22,7 +22,7 @@ export default function PassedPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/35 mb-6">
+      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
@@ -31,10 +31,10 @@ export default function PassedPage() {
       </div>
 
       <h1 className="font-serif text-3xl md:text-4xl font-bold">成立済</h1>
-      <p className="mt-3 text-sm text-foreground/50 leading-relaxed">
+      <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
         国会で可決・成立したが、2026年4月時点でまだ施行されていない主要法令の一覧です。
       </p>
-      <p className="mt-2 text-xs text-foreground/30">
+      <p className="mt-2 text-xs text-foreground/45">
         成立済法令一覧: 2026年4月4日時点 ｜ 施行予定日は各法令による
       </p>
 
@@ -57,14 +57,14 @@ export default function PassedPage() {
                     <span className="text-[10px] font-bold px-2 py-0.5 rounded-full text-white bg-amber-600">
                       成立済・未施行
                     </span>
-                    <span className="text-[10px] tracking-wider uppercase text-foreground/30">
+                    <span className="text-[10px] tracking-wider uppercase text-foreground/45">
                       {item.category}
                     </span>
                   </div>
                   <h2 className="font-serif text-lg font-bold group-hover:text-amber-400 transition-colors">
                     {item.title}
                   </h2>
-                  <span className="text-[9px] tracking-[1px] uppercase text-foreground/20">
+                  <span className="text-[9px] tracking-[1px] uppercase text-foreground/35">
                     {item.titleEn}
                   </span>
                   <p className="mt-2 text-sm text-foreground/45 leading-relaxed line-clamp-2">
@@ -75,7 +75,7 @@ export default function PassedPage() {
                     <p className="text-xs text-foreground/45 leading-relaxed">{item.impact}</p>
                   </div>
                 </div>
-                <div className="flex-shrink-0 mt-2 text-foreground/15 group-hover:text-amber-400 transition-colors">
+                <div className="flex-shrink-0 mt-2 text-foreground/30 group-hover:text-amber-400 transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="9 18 15 12 9 6" />
                   </svg>
@@ -84,9 +84,9 @@ export default function PassedPage() {
 
               {/* Timeline bar */}
               <div className="mt-3 flex items-center gap-3">
-                <div className="flex items-center gap-2 text-[10px] text-foreground/30 tabular-nums flex-shrink-0">
+                <div className="flex items-center gap-2 text-[10px] text-foreground/45 tabular-nums flex-shrink-0">
                   <span>{item.enactedDate} 成立</span>
-                  <span className="text-foreground/15">→</span>
+                  <span className="text-foreground/30">→</span>
                   <span>{item.effectiveDate} 施行予定</span>
                 </div>
                 <div className="flex-1" />

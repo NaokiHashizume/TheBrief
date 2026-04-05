@@ -109,14 +109,14 @@ export default function Home() {
           <Logo className="items-center scale-150" />
         </div>
 
-        <h1 className="mt-10 text-lg md:text-xl text-foreground/60 leading-relaxed max-w-2xl mx-auto font-normal">
+        <h1 className="mt-10 text-lg md:text-xl text-foreground/70 leading-relaxed max-w-2xl mx-auto font-normal">
           日本の政治・経済・業界情報・生活を
           <br className="hidden md:block" />
           もっと<span className="text-foreground font-bold">分かりやすく</span>、
           <span className="text-foreground font-bold">繋がりを持って</span>伝える。
         </h1>
 
-        <p className="mt-4 text-sm text-foreground/35 leading-relaxed max-w-xl mx-auto">
+        <p className="mt-4 text-sm text-foreground/50 leading-relaxed max-w-xl mx-auto">
           ニュースは「点」ではなく「線」で理解する。
           The Briefは、出来事の背景・因果・影響を繋いで伝える日本語メディアです。
         </p>
@@ -157,8 +157,8 @@ export default function Home() {
                 {f.icon}
               </div>
               <h3 className="font-serif text-lg font-bold">{f.title}</h3>
-              <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">{f.titleEn}</span>
-              <p className="mt-2 text-sm text-foreground/50 leading-relaxed">
+              <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">{f.titleEn}</span>
+              <p className="mt-2 text-sm text-foreground/60 leading-relaxed">
                 {f.description}
               </p>
             </div>
@@ -169,7 +169,7 @@ export default function Home() {
         <div className="mt-16 p-8 bg-white border border-brief-border rounded-2xl shadow-sm">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <span className="text-[10px] tracking-[2px] uppercase text-foreground/30">従来のニュース</span>
+              <span className="text-[10px] tracking-[2px] uppercase text-foreground/45">従来のニュース</span>
               <div className="mt-3 flex items-center gap-4">
                 <div className="w-3 h-3 rounded-full bg-foreground/10" />
                 <div className="w-3 h-3 rounded-full bg-foreground/10" />
@@ -177,7 +177,7 @@ export default function Home() {
                 <div className="w-3 h-3 rounded-full bg-foreground/10" />
                 <div className="w-3 h-3 rounded-full bg-foreground/10" />
               </div>
-              <p className="mt-3 text-sm text-foreground/35">バラバラの「点」として伝えられる情報</p>
+              <p className="mt-3 text-sm text-foreground/50">バラバラの「点」として伝えられる情報</p>
             </div>
             <div>
               <span className="text-[10px] tracking-[2px] uppercase text-brief-red">The Brief</span>
@@ -190,7 +190,7 @@ export default function Home() {
                 <div className="w-12 h-0.5 bg-foreground/10" />
                 <div className="w-3 h-3 rounded-full bg-brief-red" />
               </div>
-              <p className="mt-3 text-sm text-foreground/50">文脈と因果で繋がれた「線」としての情報</p>
+              <p className="mt-3 text-sm text-foreground/60">文脈と因果で繋がれた「線」としての情報</p>
             </div>
           </div>
         </div>
@@ -220,14 +220,14 @@ export default function Home() {
                     style={{ backgroundColor: cat.color }}
                   />
                   <h3 className="font-serif font-bold text-lg">{cat.title}</h3>
-                  <span className="text-xs text-foreground/30">{cat.titleJa}</span>
+                  <span className="text-xs text-foreground/45">{cat.titleJa}</span>
                   {isComingSoon && (
-                    <span className="text-[9px] tracking-wider uppercase text-foreground/30 border border-foreground/10 px-1.5 py-0.5 rounded">
+                    <span className="text-[9px] tracking-wider uppercase text-foreground/45 border border-foreground/10 px-1.5 py-0.5 rounded">
                       Coming Soon
                     </span>
                   )}
                 </div>
-                <p className="text-sm text-foreground/40 leading-relaxed pl-5">
+                <p className="text-sm text-foreground/55 leading-relaxed pl-5">
                   {cat.description}
                 </p>
               </>
@@ -263,7 +263,7 @@ export default function Home() {
           <h2 className="font-serif text-2xl md:text-3xl font-bold mt-2">
             いま追っているストーリー
           </h2>
-          <p className="mt-3 text-sm text-foreground/40 max-w-lg mx-auto">
+          <p className="mt-3 text-sm text-foreground/55 max-w-lg mx-auto">
             一つの出来事の始まりから現在までを時系列で追い、全体像を掴めるようにします。
           </p>
         </div>
@@ -284,7 +284,7 @@ export default function Home() {
         <h2 className="font-serif text-2xl md:text-3xl font-bold">
           ニュースの「線」を、一緒に追おう。
         </h2>
-        <p className="mt-4 text-sm text-foreground/40 leading-relaxed max-w-lg mx-auto">
+        <p className="mt-4 text-sm text-foreground/55 leading-relaxed max-w-lg mx-auto">
           The Briefは始まったばかりのメディアです。日本の政治・経済・業界のいまを、
           分かりやすく繋がりを持って伝えていきます。
         </p>

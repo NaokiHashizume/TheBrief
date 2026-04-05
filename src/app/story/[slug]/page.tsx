@@ -68,7 +68,7 @@ export default async function StoryPage({
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/35 mb-8">
+      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-8">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <span>Story</span>
@@ -80,13 +80,13 @@ export default async function StoryPage({
           <span className="category-pill text-brief-red font-medium">
             {story.categoryLabel}
             {story.industryLabel && (
-              <span className="text-foreground/30"> / {story.industryLabel}</span>
+              <span className="text-foreground/45"> / {story.industryLabel}</span>
             )}
           </span>
           <span className={`text-[9px] tracking-wider uppercase px-2 py-0.5 rounded-full font-medium ${
             story.status === "ongoing"
               ? "bg-brief-red/10 text-brief-red"
-              : "bg-foreground/5 text-foreground/40"
+              : "bg-foreground/5 text-foreground/55"
           }`}>
             {story.status === "ongoing" ? "Ongoing" : "Concluded"}
           </span>
@@ -96,11 +96,11 @@ export default async function StoryPage({
           {story.title}
         </h1>
 
-        <p className="mt-4 text-foreground/50 leading-relaxed">
+        <p className="mt-4 text-foreground/60 leading-relaxed">
           {story.description}
         </p>
 
-        <div className="mt-4 flex items-center gap-4 text-xs text-foreground/30">
+        <div className="mt-4 flex items-center gap-4 text-xs text-foreground/45">
           <span>{story.episodes.length} episodes</span>
           <span>·</span>
           <span>Last updated: {story.lastUpdated}</span>
@@ -115,7 +115,7 @@ export default async function StoryPage({
       {/* What's Next */}
       {story.status === "ongoing" && (
         <div className="mt-4 ml-10 p-5 bg-white border border-dashed border-brief-border rounded-xl">
-          <p className="text-sm text-foreground/40 italic">
+          <p className="text-sm text-foreground/55 italic">
             This story is ongoing. New episodes will be added as the story develops.
           </p>
         </div>

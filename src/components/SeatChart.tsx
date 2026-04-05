@@ -17,7 +17,7 @@ export function SeatChart({
     <div>
       <div className="flex items-baseline justify-between mb-4">
         <h3 className="font-serif text-xl font-bold">{title}</h3>
-        <span className="text-xs text-foreground/30">定数 {total} / 過半数 {majority}</span>
+        <span className="text-xs text-foreground/45">定数 {total} / 過半数 {majority}</span>
       </div>
 
       {/* Proportional bar */}
@@ -48,7 +48,7 @@ export function SeatChart({
           style={{ left: "50%" }}
         />
         <span
-          className="absolute text-[9px] text-foreground/30 tracking-wider uppercase"
+          className="absolute text-[9px] text-foreground/45 tracking-wider uppercase"
           style={{ left: "50%", transform: "translateX(-50%)", top: "16px" }}
         >
           Majority
@@ -65,7 +65,7 @@ export function SeatChart({
             />
             <div className="flex-1 min-w-0">
               <div className="text-sm font-medium truncate">{party.name}</div>
-              <div className="text-[10px] text-foreground/35">{party.nameEn}</div>
+              <div className="text-[10px] text-foreground/50">{party.nameEn}</div>
             </div>
             <span className="text-sm font-bold tabular-nums">{party.seats}</span>
           </div>
@@ -92,7 +92,7 @@ export function CoalitionIndicator({
     <div className={`mt-4 p-4 rounded-lg border ${hasMajority ? "border-blue-200 bg-blue-50" : "border-red-200 bg-red-50"}`}>
       <div className="flex items-center justify-between">
         <div>
-          <span className="text-xs tracking-wider uppercase text-foreground/40">与党（自由民主党）</span>
+          <span className="text-xs tracking-wider uppercase text-foreground/55">与党（自由民主党）</span>
           <div className="text-lg font-bold mt-0.5">
             {ldp}議席
           </div>
