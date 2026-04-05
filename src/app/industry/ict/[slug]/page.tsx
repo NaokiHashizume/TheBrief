@@ -48,6 +48,48 @@ export async function generateMetadata({
   };
 }
 
+/* Inline rich text renderer: **bold**, 「quotes」 */
+function RichText({ text }: { text: string }) {
+  // Split by **bold** markers
+  const parts = text.split(/\*\*(.*?)\*\*/);
+  return (
+    <>
+      {parts.map((part, k) => {
+        if (k % 2 === 1) {
+          // Bold text
+          return (
+            <strong
+              key={k}
+              className="font-semibold text-foreground not-italic"
+              style={{ textDecorationLine: "none" }}
+            >
+              <span className="bg-[#3b82f6]/[0.06] dark:bg-[#3b82f6]/[0.12] px-0.5 rounded-sm">
+                {part}
+              </span>
+            </strong>
+          );
+        }
+        // Regular text — highlight 「quoted」 terms
+        const quoteParts = part.split(/(「[^」]+」)/);
+        return (
+          <span key={k}>
+            {quoteParts.map((qp, qi) => {
+              if (qp.startsWith("「") && qp.endsWith("」")) {
+                return (
+                  <span key={qi} className="text-foreground/90 font-medium">
+                    {qp}
+                  </span>
+                );
+              }
+              return <span key={qi}>{qp}</span>;
+            })}
+          </span>
+        );
+      })}
+    </>
+  );
+}
+
 export default async function IctArticlePage({
   params,
 }: {
@@ -157,73 +199,103 @@ export default async function IctArticlePage({
 
       {/* Article Content */}
       <article>
-        {article.sections.map((section, i) => (
-          <section key={i} id={`section-${i}`} className="mb-10 scroll-mt-20">
-            {/* Section heading */}
-            <div className="mb-4">
-              <h2 className="font-serif text-xl font-bold">
-                {section.heading}
-              </h2>
-              {section.headingEn && (
-                <span className="text-[9px] tracking-[1.5px] uppercase text-foreground/35">
-                  {section.headingEn}
-                </span>
-              )}
-            </div>
+        {article.sections.map((section, i) => {
+          const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
 
-            {/* Diagram (rendered before body text) */}
-            {section.diagramId === "internet-scale" && <InternetScaleDiagram />}
-            {section.diagramId === "tcpip-layers" && <TcpIpLayerDiagram />}
-            {section.diagramId === "packet-journey" && <PacketJourneyDiagram />}
-            {section.diagramId === "submarine-cable" && <SubmarineCableDiagram />}
-            {section.diagramId === "dns-hierarchy" && <DnsHierarchyDiagram />}
-            {section.diagramId === "mobile-generation" && <MobileGenerationDiagram />}
-            {section.diagramId === "security-layers" && <SecurityLayersDiagram />}
+          return (
+            <section key={i} id={`section-${i}`} className="mb-12 scroll-mt-20">
+              {/* Section number + heading */}
+              <div className="mb-5">
+                <div className="flex items-center gap-3 mb-1">
+                  <span className="text-[10px] font-bold text-[#3b82f6]/50 tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="h-px flex-1 bg-[#3b82f6]/10" />
+                </div>
+                <h2 className="font-serif text-xl font-bold">
+                  {section.heading}
+                </h2>
+                {section.headingEn && (
+                  <span className="text-[9px] tracking-[1.5px] uppercase text-foreground/35">
+                    {section.headingEn}
+                  </span>
+                )}
+              </div>
 
-            {/* Section body */}
-            <div className="space-y-4">
-              {section.body.split("\n\n").map((paragraph, j) => {
-                const trimmed = paragraph.trim();
-                if (!trimmed) return null;
+              {/* Diagram (rendered before body text) */}
+              {section.diagramId === "internet-scale" && <InternetScaleDiagram />}
+              {section.diagramId === "tcpip-layers" && <TcpIpLayerDiagram />}
+              {section.diagramId === "packet-journey" && <PacketJourneyDiagram />}
+              {section.diagramId === "submarine-cable" && <SubmarineCableDiagram />}
+              {section.diagramId === "dns-hierarchy" && <DnsHierarchyDiagram />}
+              {section.diagramId === "mobile-generation" && <MobileGenerationDiagram />}
+              {section.diagramId === "security-layers" && <SecurityLayersDiagram />}
 
-                // Handle 【heading】 style labels
-                if (trimmed.startsWith("【")) {
-                  const bracketEnd = trimmed.indexOf("】");
-                  const match = bracketEnd > 0
-                    ? [trimmed, trimmed.slice(1, bracketEnd), trimmed.slice(bracketEnd + 1)]
-                    : null;
-                  if (match) {
+              {/* Section body */}
+              <div className="space-y-5">
+                {paragraphs.map((paragraph, j) => {
+                  const trimmed = paragraph.trim();
+
+                  // Callout / highlight box (lines starting with "> ")
+                  if (trimmed.startsWith("> ")) {
+                    const calloutText = trimmed.slice(2);
                     return (
-                      <div key={j} className="pl-4 border-l-2 border-[#3b82f6]/20">
-                        <div className="text-xs font-bold text-[#3b82f6]/80 mb-1">
-                          {match[1]}
+                      <div
+                        key={j}
+                        className="my-5 px-5 py-4 rounded-xl bg-[#3b82f6]/[0.04] border border-[#3b82f6]/10"
+                      >
+                        <div className="flex gap-3">
+                          <div className="w-1 rounded-full bg-[#3b82f6]/30 flex-shrink-0" />
+                          <p className="text-[14px] text-foreground/80 leading-[1.8] italic">
+                            <RichText text={calloutText} />
+                          </p>
                         </div>
-                        <p className="text-[15px] text-foreground/75 leading-[1.85]">
-                          {match[2].trim()}
-                        </p>
                       </div>
                     );
                   }
-                }
 
-                // Regular paragraph
-                return (
-                  <p
-                    key={j}
-                    className="text-[15px] text-foreground/75 leading-[1.85]"
-                  >
-                    {trimmed}
-                  </p>
-                );
-              })}
-            </div>
+                  // 【heading】 style labels (e.g. TCP/IP layers)
+                  if (trimmed.startsWith("【")) {
+                    const bracketEnd = trimmed.indexOf("】");
+                    if (bracketEnd > 0) {
+                      const label = trimmed.slice(1, bracketEnd);
+                      const content = trimmed.slice(bracketEnd + 1).trim();
+                      return (
+                        <div
+                          key={j}
+                          className="pl-4 py-2 border-l-3 border-[#3b82f6]/25 bg-[#3b82f6]/[0.02] rounded-r-lg"
+                        >
+                          <div className="text-xs font-bold text-[#3b82f6] mb-1">
+                            {label}
+                          </div>
+                          <p className="text-[14px] text-foreground/75 leading-[1.85]">
+                            <RichText text={content} />
+                          </p>
+                        </div>
+                      );
+                    }
+                  }
 
-            {/* Divider between sections (except last) */}
-            {i < article.sections.length - 1 && (
-              <div className="mt-10 h-px bg-brief-border" />
-            )}
-          </section>
-        ))}
+                  // Lead paragraph (first text paragraph in each section, after callout)
+                  const isLead = j === 0 || (j === 1 && paragraphs[0].trim().startsWith("> "));
+
+                  return (
+                    <p
+                      key={j}
+                      className={
+                        isLead
+                          ? "text-[16px] text-foreground/85 leading-[1.9] first-letter:text-2xl first-letter:font-serif first-letter:font-bold first-letter:text-[#3b82f6] first-letter:mr-0.5"
+                          : "text-[15px] text-foreground/75 leading-[1.85]"
+                      }
+                    >
+                      <RichText text={trimmed} />
+                    </p>
+                  );
+                })}
+              </div>
+            </section>
+          );
+        })}
       </article>
 
       {/* Article Navigation */}
