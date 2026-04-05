@@ -339,7 +339,7 @@ export function InternetScaleDiagram() {
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
         <div className="text-2xl font-bold text-[#3b82f6]">60億+</div>
         <div className="text-[10px] text-foreground/50 mt-1">インターネットユーザー</div>
-        <div className="text-[9px] text-foreground/45">世界人口の約75%</div>
+        <div className="text-[9px] text-foreground/45">世界人口の約73%</div>
       </div>
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
         <div className="text-2xl font-bold text-[#8b5cf6]">300億+</div>
