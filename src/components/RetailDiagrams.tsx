@@ -7,7 +7,7 @@ export function RetailMarketScaleDiagram() {
   return (
     <div className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
-        <div className="text-2xl font-bold text-[#14b8a6]">154兆円</div>
+        <div className="text-2xl font-bold text-[#14b8a6]">167兆円</div>
         <div className="text-[10px] text-foreground/50 mt-1">
           小売業販売額
         </div>
@@ -19,7 +19,7 @@ export function RetailMarketScaleDiagram() {
         <div className="text-[9px] text-foreground/35">全国の小売店</div>
       </div>
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
-        <div className="text-2xl font-bold text-[#f59e0b]">13.4%</div>
+        <div className="text-2xl font-bold text-[#f59e0b]">9.78%</div>
         <div className="text-[10px] text-foreground/50 mt-1">EC化率</div>
         <div className="text-[9px] text-foreground/35">物販系（2024年）</div>
       </div>
@@ -60,11 +60,11 @@ export function RetailFormatsDiagram() {
     {
       name: "ドラッグストア",
       nameEn: "Drug Stores",
-      sales: "約9兆円",
+      sales: "10兆円超",
       stores: "約2.2万店",
       trend: "急成長",
       color: "#8b5cf6",
-      key: "食品併売で成長、インバウンド恩恵",
+      key: "食品併売で成長、ウエルシア・ツルハ統合",
     },
     {
       name: "百貨店",
@@ -78,11 +78,11 @@ export function RetailFormatsDiagram() {
     {
       name: "EC（電子商取引）",
       nameEn: "E-commerce",
-      sales: "約14.6兆円",
+      sales: "約15.2兆円",
       stores: "—",
       trend: "拡大中",
       color: "#ef4444",
-      key: "物販系EC化率13.4%、先進国では低水準",
+      key: "物販系EC化率9.78%、Amazon国内8.2兆円",
     },
   ];
 
@@ -140,16 +140,16 @@ export function ConvenienceStoreDiagram() {
     {
       name: "セブン-イレブン",
       parent: "セブン&アイ HD",
-      stores: "21,500+",
-      dailySales: "約71万円",
+      stores: "21,400+",
+      dailySales: "約69万円",
       color: "#ef4444",
       strength: "商品開発力、PB「セブンプレミアム」",
     },
     {
       name: "ファミリーマート",
       parent: "伊藤忠商事",
-      stores: "16,500+",
-      dailySales: "約56万円",
+      stores: "16,400+",
+      dailySales: "約57万円",
       color: "#14b8a6",
       strength: "ファミペイ決済、コンビニジム進出",
     },
@@ -297,7 +297,7 @@ export function RetailDxDiagram() {
     },
     {
       name: "リテールメディア",
-      desc: "店舗・アプリの顧客データを活用した広告事業。新たな収益源に",
+      desc: "店舗・アプリの顧客データを活用した広告事業。国内市場4,692億円規模に成長",
       color: "#3b82f6",
       icon: "📊",
     },
@@ -468,7 +468,7 @@ export function RetailFutureDiagram() {
     {
       year: "現在進行中",
       label: "リテールメディア",
-      desc: "セブン、イオンが広告事業を本格化。米国では小売広告市場が450億ドル規模に",
+      desc: "セブン、イオンが広告事業を本格化。国内市場4,692億円、米国では450億ドル規模",
       color: "#14b8a6",
       icon: "📺",
     },
@@ -496,7 +496,7 @@ export function RetailFutureDiagram() {
     {
       year: "2030年目標",
       label: "買い物弱者ゼロ",
-      desc: "移動販売車、ネットスーパー、コンビニ配送の組み合わせで全国カバーを目指す",
+      desc: "買い物弱者904万人。移動販売車、ネットスーパー、コンビニ配送で全国カバーを目指す",
       color: "#ef4444",
       icon: "🏘",
     },
