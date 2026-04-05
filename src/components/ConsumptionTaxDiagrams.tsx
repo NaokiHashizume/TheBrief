@@ -66,11 +66,11 @@ export function TaxRevenueStatsDiagram() {
         <div className="text-[9px] text-foreground/35">最大の税収源</div>
       </div>
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
-        <div className="text-2xl font-bold text-[#3b82f6]">~32兆円</div>
+        <div className="text-2xl font-bold text-[#3b82f6]">~34兆円</div>
         <div className="text-[10px] text-foreground/50 mt-1">
           国＋地方合計
         </div>
-        <div className="text-[9px] text-foreground/35">2025年度予算</div>
+        <div className="text-[9px] text-foreground/35">2026年度予算</div>
       </div>
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
         <div className="text-2xl font-bold text-[#16a34a]">7.6倍</div>
