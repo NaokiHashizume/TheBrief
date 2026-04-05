@@ -66,11 +66,11 @@ export default async function EnactedDetailPage({
           施行済
         </span>
         <span className="text-xs text-foreground/45">{item.committee}</span>
-        <span className="text-xs text-foreground/40 tabular-nums">{item.enactedDate} 成立 → {item.effectiveDate} 施行</span>
+        <span className="text-xs text-foreground/50 tabular-nums">{item.enactedDate} 成立 → {item.effectiveDate} 施行</span>
       </div>
 
       <h1 className="font-serif text-2xl md:text-3xl font-bold">{item.title}</h1>
-      <span className="text-[10px] tracking-[2px] uppercase text-foreground/35">
+      <span className="text-[10px] tracking-[2px] uppercase text-foreground/45">
         {item.titleEn}
       </span>
       <p className="mt-4 text-sm text-foreground/60 leading-relaxed">
@@ -235,7 +235,7 @@ function SectionHeader({ title, titleEn }: { title: string; titleEn: string }) {
     <div className="flex items-center gap-4 mb-4">
       <div>
         <h2 className="font-serif text-lg font-bold">{title}</h2>
-        <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">{titleEn}</span>
+        <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">{titleEn}</span>
       </div>
       <div className="flex-1 h-px bg-foreground/5" />
     </div>

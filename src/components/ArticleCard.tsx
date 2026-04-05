@@ -12,7 +12,7 @@ export function ArticleCardFeatured({ article }: { article: Article }) {
   return (
     <article className="group cursor-pointer">
       <div className="aspect-[16/9] bg-gradient-to-br from-foreground/5 to-foreground/10 rounded-xl mb-4 overflow-hidden">
-        <div className="w-full h-full flex items-center justify-center text-foreground/35 text-sm">
+        <div className="w-full h-full flex items-center justify-center text-foreground/45 text-sm">
           {article.categoryLabel}
         </div>
       </div>

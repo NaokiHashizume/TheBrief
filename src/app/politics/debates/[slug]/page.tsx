@@ -69,13 +69,13 @@ export default async function DebateDetailPage({
       </div>
 
       <h1 className="font-serif text-2xl md:text-3xl font-bold">{debate.title}</h1>
-      <span className="text-[10px] tracking-[2px] uppercase text-foreground/35">
+      <span className="text-[10px] tracking-[2px] uppercase text-foreground/45">
         {debate.titleEn}
       </span>
       <p className="mt-4 text-sm text-foreground/60 leading-relaxed">
         {debate.summary}
       </p>
-      <p className="mt-2 text-xs text-foreground/40">Last updated: {debate.lastUpdated}</p>
+      <p className="mt-2 text-xs text-foreground/50">Last updated: {debate.lastUpdated}</p>
 
       {/* なぜ重要か */}
       <div className="mt-6 p-4 border-l-2 border-brief-red bg-brief-red/[0.03] rounded-r-lg">
@@ -186,7 +186,7 @@ function SectionHeader({ title, titleEn }: { title: string; titleEn: string }) {
     <div className="flex items-center gap-4 mb-4">
       <div>
         <h2 className="font-serif text-lg font-bold">{title}</h2>
-        <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">{titleEn}</span>
+        <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">{titleEn}</span>
       </div>
       <div className="flex-1 h-px bg-brief-border" />
     </div>

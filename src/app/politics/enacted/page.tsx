@@ -54,14 +54,14 @@ export default function EnactedPage() {
                   <span className="text-[10px] tracking-wider uppercase text-foreground/45">
                     {item.committee}
                   </span>
-                  <span className="text-[10px] tabular-nums text-foreground/40">
+                  <span className="text-[10px] tabular-nums text-foreground/50">
                     {item.effectiveDate} 施行
                   </span>
                 </div>
                 <h2 className="font-serif text-lg font-bold group-hover:text-green-400 transition-colors">
                   {item.title}
                 </h2>
-                <span className="text-[9px] tracking-[1px] uppercase text-foreground/35">
+                <span className="text-[9px] tracking-[1px] uppercase text-foreground/45">
                   {item.titleEn}
                 </span>
                 <p className="mt-2 text-sm text-foreground/45 leading-relaxed line-clamp-2">

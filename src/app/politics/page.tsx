@@ -114,11 +114,11 @@ export default function PoliticsPage() {
             href={sec.href}
             className="group p-6 rounded-xl border border-brief-border hover:border-brief-red transition-all duration-200 hover:bg-brief-red/[0.03]"
           >
-            <div className="text-foreground/35 group-hover:text-brief-red transition-colors">
+            <div className="text-foreground/45 group-hover:text-brief-red transition-colors">
               {sec.icon}
             </div>
             <h2 className="font-serif text-2xl font-bold mt-5">{sec.title}</h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">{sec.titleEn}</span>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">{sec.titleEn}</span>
             <p className="text-sm text-foreground/55 mt-2">{sec.description}</p>
             <div className="mt-4 flex items-center gap-1 text-xs text-brief-red opacity-0 group-hover:opacity-100 transition-opacity">
               <span>View</span>
@@ -143,7 +143,7 @@ export default function PoliticsPage() {
           </div>
           <div>
             <h2 className="font-serif text-xl font-bold">審議中</h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">Debates in Progress</span>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Debates in Progress</span>
             <p className="text-sm text-foreground/55 mt-0.5">
               国会で現在審議されている法案・議題の一覧
             </p>
@@ -171,7 +171,7 @@ export default function PoliticsPage() {
           </div>
           <div>
             <h2 className="font-serif text-xl font-bold">成立済</h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">Enacted, Not Yet Effective</span>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Enacted, Not Yet Effective</span>
             <p className="text-sm text-foreground/55 mt-0.5">
               成立したが、まだ施行されていない主要法令
             </p>
@@ -198,7 +198,7 @@ export default function PoliticsPage() {
           </div>
           <div>
             <h2 className="font-serif text-xl font-bold">施行済</h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">Effective in 2026</span>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Effective in 2026</span>
             <p className="text-sm text-foreground/55 mt-0.5">
               2026年に施行・発効した主要法令
             </p>
@@ -221,7 +221,7 @@ export default function PoliticsPage() {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brief-red" />
             </span>
             <h2 className="font-serif text-xl font-bold">最新ニュース</h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">Latest</span>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Latest</span>
           </div>
           <div className="flex-1 h-px bg-foreground/5" />
         </div>
@@ -258,7 +258,7 @@ export default function PoliticsPage() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[10px] tabular-nums text-foreground/40">{news.time}</span>
+                      <span className="text-[10px] tabular-nums text-foreground/50">{news.time}</span>
                       <span
                         className="text-[9px] font-bold px-1.5 py-0.5 rounded text-white"
                         style={{ backgroundColor: news.tagColor }}

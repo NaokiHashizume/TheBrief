@@ -220,14 +220,14 @@ export function IndustryBubbleChart() {
     <div className="mt-8 mb-4">
       <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
         <div>
-          <span className="text-[10px] tracking-[2px] uppercase text-foreground/45">
+          <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
             Market Size & Top Players
           </span>
-          <span className="text-[10px] text-foreground/35 ml-2">
+          <span className="text-[10px] text-foreground/45 ml-2">
             (日本国内市場規模・兆円)
           </span>
         </div>
-        <span className="text-[10px] text-foreground/35">
+        <span className="text-[10px] text-foreground/45">
           2026年4月5日時点
         </span>
       </div>
@@ -260,20 +260,20 @@ export function IndustryBubbleChart() {
                     >
                       {ind.labelJa}
                     </div>
-                    <div className="text-[9px] text-foreground/35 truncate hidden sm:block">
+                    <div className="text-[9px] text-foreground/45 truncate hidden sm:block">
                       {ind.label}
                     </div>
                   </div>
 
                   {/* Bar */}
                   <div className="flex-1 min-w-0">
-                    <div className="h-5 sm:h-6 rounded bg-foreground/[0.03] overflow-hidden">
+                    <div className="h-5 sm:h-6 rounded bg-foreground/[0.04] overflow-hidden">
                       <div
                         className="h-full rounded transition-all duration-300"
                         style={{
                           width: `${barWidth}%`,
                           backgroundColor: ind.color,
-                          opacity: isHovered ? 0.3 : 0.15,
+                          opacity: isHovered ? 0.55 : 0.35,
                         }}
                       />
                     </div>
@@ -287,7 +287,7 @@ export function IndustryBubbleChart() {
                     >
                       {ind.marketSize}
                     </span>
-                    <span className="text-[9px] text-foreground/40 ml-0.5">
+                    <span className="text-[9px] text-foreground/50 ml-0.5">
                       兆円
                     </span>
                   </div>
@@ -298,7 +298,7 @@ export function IndustryBubbleChart() {
                   {ind.topCompanies.map((company, i) => (
                     <span
                       key={company.name}
-                      className="text-[10px] text-foreground/45 whitespace-nowrap"
+                      className="text-[10px] text-foreground/55 whitespace-nowrap"
                     >
                       <span
                         className="font-medium"
@@ -322,7 +322,7 @@ export function IndustryBubbleChart() {
         </div>
       </div>
 
-      <p className="mt-2 text-[10px] text-foreground/35 text-right">
+      <p className="mt-2 text-[10px] text-foreground/45 text-right">
         出典: 各業界団体・経済産業省・各社IR資料（2026年4月5日時点推計）
       </p>
     </div>
