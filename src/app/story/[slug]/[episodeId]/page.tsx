@@ -83,6 +83,7 @@ export default async function EpisodePage({
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
+          { name: "Story", href: "/story" },
           { name: story.title, href: `/story/${story.slug}` },
           { name: episode.title, href: `/story/${story.slug}/${episode.id}` },
         ]}
@@ -92,6 +93,10 @@ export default async function EpisodePage({
       <div className="flex items-center gap-2 text-xs text-foreground/50 mb-8 flex-wrap">
         <Link href="/" className="hover:text-foreground transition-colors">
           Home
+        </Link>
+        <span>/</span>
+        <Link href="/story" className="hover:text-foreground transition-colors">
+          Story
         </Link>
         <span>/</span>
         <Link
