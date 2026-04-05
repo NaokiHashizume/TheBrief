@@ -142,15 +142,32 @@ const industries = [
   },
   {
     slug: "ict",
-    title: "情報通信・ネット",
+    title: "情報通信",
     titleEn: "ICT & Internet",
-    description: "通信キャリア、IT企業、SaaS、AI、クラウド、サイバーセキュリティ。",
+    description: "通信キャリア、IT企業、SaaS、クラウド、サイバーセキュリティ。",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
       </svg>
     ),
     color: "#3b82f6",
+  },
+  {
+    slug: "ai",
+    title: "AI・人工知能",
+    titleEn: "AI & Artificial Intelligence",
+    description: "大規模言語モデル、AIエージェント、オープンモデルなど人工知能分野の動向。",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2a4 4 0 0 1 4 4c0 1.1-.9 2-2 2h-4a2 2 0 0 1-2-2 4 4 0 0 1 4-4z" />
+        <path d="M9 8v2" /><path d="M15 8v2" />
+        <path d="M12 14v4" /><path d="M8 18h8" />
+        <path d="M6 12c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2" />
+        <path d="M18 12c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2" />
+        <path d="M9 12h6" />
+      </svg>
+    ),
+    color: "#8b5cf6",
   },
   {
     slug: "daily",
@@ -221,7 +238,7 @@ const industries = [
   },
 ];
 
-const activeIndustries = new Set(["ict", "trading", "retail"]);
+const activeIndustries = new Set(["ict", "trading", "retail", "ai"]);
 
 export default function IndustryPage() {
   return (

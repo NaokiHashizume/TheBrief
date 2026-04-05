@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { enactedItems } from "@/lib/enacted";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
   return enactedItems.map((d) => ({ slug: d.slug }));
@@ -198,6 +199,8 @@ export default async function EnactedDetailPage({
           {item.impact}
         </div>
       </div>
+
+      <ShareButton title={item.title} />
 
       {/* Back link */}
       <div className="mt-12 pt-6 border-t border-brief-border">

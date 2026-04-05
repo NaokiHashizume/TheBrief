@@ -22,14 +22,6 @@ import {
   JapanInfraDiagram,
 } from "@/components/TelecomDiagrams";
 import {
-  Gemma4ModelFamilyDiagram,
-  Gemma4BenchmarkDiagram,
-  Gemma4ArchitectureDiagram,
-  OpenModelComparisonDiagram,
-  Gemma4UseCasesDiagram,
-  Gemma4CodeExampleDiagram,
-} from "@/components/Gemma4Diagrams";
-import {
   SemiMarketScaleDiagram,
   ConductorComparisonDiagram,
   PnJunctionDiagram,
@@ -40,16 +32,7 @@ import {
   JapanSemiHistoryDiagram,
   ProcessNodeDiagram,
 } from "@/components/SemiconductorDiagrams";
-import {
-  AiModelOverviewDiagram,
-  ModelTimelineDiagram,
-  BenchmarkComparisonDiagram,
-  PricingComparisonDiagram,
-  MultimodalCapsDiagram,
-  ContextWindowDiagram,
-  MarketShareDiagram,
-  StrengthsSummaryDiagram,
-} from "@/components/AiModelDiagrams";
+import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
   return ictArticles.map((a) => ({ slug: a.slug }));
@@ -65,7 +48,7 @@ export async function generateMetadata({
   if (!article) return { title: "Article Not Found" };
 
   return {
-    title: `${article.title} — 情報通信・ネット`,
+    title: `${article.title} — 情報通信`,
     description: article.summary,
     alternates: {
       canonical: `https://thebrief.info/industry/ict/${article.slug}`,
@@ -141,12 +124,6 @@ const diagramMap: Record<string, React.FC> = {
   "cell-network": CellNetworkDiagram,
   "satellite-types": SatelliteTypesDiagram,
   "japan-infra": JapanInfraDiagram,
-  "gemma4-model-family": Gemma4ModelFamilyDiagram,
-  "gemma4-benchmarks": Gemma4BenchmarkDiagram,
-  "gemma4-architecture": Gemma4ArchitectureDiagram,
-  "gemma4-comparison": OpenModelComparisonDiagram,
-  "gemma4-code-example": Gemma4CodeExampleDiagram,
-  "gemma4-use-cases": Gemma4UseCasesDiagram,
   "semi-market-scale": SemiMarketScaleDiagram,
   "conductor-comparison": ConductorComparisonDiagram,
   "pn-junction": PnJunctionDiagram,
@@ -156,14 +133,6 @@ const diagramMap: Record<string, React.FC> = {
   "supply-chain": SupplyChainDiagram,
   "japan-semi-history": JapanSemiHistoryDiagram,
   "process-node": ProcessNodeDiagram,
-  "ai-model-overview": AiModelOverviewDiagram,
-  "model-timeline": ModelTimelineDiagram,
-  "benchmark-comparison": BenchmarkComparisonDiagram,
-  "pricing-comparison": PricingComparisonDiagram,
-  "multimodal-caps": MultimodalCapsDiagram,
-  "context-window": ContextWindowDiagram,
-  "market-share": MarketShareDiagram,
-  "strengths-summary": StrengthsSummaryDiagram,
 };
 
 export default async function IctArticlePage({
@@ -196,7 +165,7 @@ export default async function IctArticlePage({
         items={[
           { name: "Home", href: "/" },
           { name: "Industry", href: "/industry" },
-          { name: "情報通信・ネット", href: "/industry/ict" },
+          { name: "情報通信", href: "/industry/ict" },
           { name: article.title, href: `/industry/ict/${article.slug}` },
         ]}
       />
@@ -221,7 +190,7 @@ export default async function IctArticlePage({
         {/* Category + Tags */}
         <div className="flex items-center gap-2.5 mb-5 flex-wrap">
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#3b82f6]/60">
-            情報通信・ネット
+            情報通信
           </span>
           <span className="w-px h-3 bg-[#3b82f6]/15" />
           {article.tags.map((tag) => (
@@ -391,6 +360,8 @@ export default async function IctArticlePage({
           );
         })}
       </article>
+
+      <ShareButton title={article.title} />
 
       {/* ── Article Navigation ── */}
       <div className="mt-20 pt-12 border-t border-foreground/[0.04]">

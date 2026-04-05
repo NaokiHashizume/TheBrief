@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
-import { ictArticles } from "@/lib/ict";
+import { aiArticles } from "@/lib/ai";
 
 export const metadata: Metadata = {
-  title: "情報通信 — Industry",
+  title: "AI・人工知能 — Industry",
   description:
-    "通信キャリア、IT企業、SaaS、クラウド、サイバーセキュリティなど情報通信業界の最新動向と解説記事。",
-  alternates: { canonical: "https://thebrief.info/industry/ict" },
+    "大規模言語モデル、AIエージェント、オープンモデルなど人工知能分野の最新動向と解説記事。",
+  alternates: { canonical: "https://thebrief.info/industry/ai" },
 };
 
 function parseReadTime(rt: string): number {
@@ -15,8 +15,8 @@ function parseReadTime(rt: string): number {
   return m ? parseInt(m[1], 10) : 0;
 }
 
-export default function IctPage() {
-  const sortedArticles = [...ictArticles].sort((a, b) => {
+export default function AiPage() {
+  const sortedArticles = [...aiArticles].sort((a, b) => {
     const dateCmp = b.date.localeCompare(a.date);
     if (dateCmp !== 0) return dateCmp;
     return parseReadTime(a.readTime) - parseReadTime(b.readTime);
@@ -28,7 +28,7 @@ export default function IctPage() {
         items={[
           { name: "Home", href: "/" },
           { name: "Industry", href: "/industry" },
-          { name: "情報通信", href: "/industry/ict" },
+          { name: "AI・人工知能", href: "/industry/ai" },
         ]}
       />
 
@@ -42,7 +42,7 @@ export default function IctPage() {
           Industry
         </Link>
         <span>/</span>
-        <span>情報通信</span>
+        <span>AI・人工知能</span>
       </div>
 
       {/* Header */}
@@ -50,21 +50,26 @@ export default function IctPage() {
         <div className="flex items-center gap-3 mb-3">
           <div
             className="w-10 h-10 rounded-lg flex items-center justify-center"
-            style={{ backgroundColor: "#3b82f615", color: "#3b82f6" }}
+            style={{ backgroundColor: "#8b5cf615", color: "#8b5cf6" }}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
+              <path d="M12 2a4 4 0 0 1 4 4c0 1.1-.9 2-2 2h-4a2 2 0 0 1-2-2 4 4 0 0 1 4-4z" />
+              <path d="M9 8v2" /><path d="M15 8v2" />
+              <path d="M12 14v4" /><path d="M8 18h8" />
+              <path d="M6 12c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2" />
+              <path d="M18 12c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2" />
+              <path d="M9 12h6" />
             </svg>
           </div>
           <div>
-            <h1 className="font-serif text-2xl md:text-3xl font-bold">情報通信</h1>
+            <h1 className="font-serif text-2xl md:text-3xl font-bold">AI・人工知能</h1>
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
-              ICT & Internet
+              AI & Artificial Intelligence
             </span>
           </div>
         </div>
         <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-          通信キャリア、IT企業、SaaS、クラウド、サイバーセキュリティなど、情報通信業界の最新動向と技術解説。
+          大規模言語モデル、AIエージェント、オープンモデルなど、人工知能分野の最新動向と技術解説。
         </p>
       </div>
 
@@ -75,8 +80,8 @@ export default function IctPage() {
         {sortedArticles.map((article) => (
           <Link
             key={article.slug}
-            href={`/industry/ict/${article.slug}`}
-            className="group block p-5 rounded-xl border border-brief-border hover:border-[#3b82f6]/30 bg-brief-card transition-all"
+            href={`/industry/ai/${article.slug}`}
+            className="group block p-5 rounded-xl border border-brief-border hover:border-[#8b5cf6]/30 bg-brief-card transition-all"
           >
             <div className="flex items-center gap-2 mb-2">
               <time className="text-[10px] tabular-nums text-foreground/45">
@@ -86,7 +91,7 @@ export default function IctPage() {
               <span className="text-[10px] text-foreground/45">{article.readTime}</span>
             </div>
 
-            <h2 className="font-serif text-lg font-bold leading-snug group-hover:text-[#3b82f6] transition-colors">
+            <h2 className="font-serif text-lg font-bold leading-snug group-hover:text-[#8b5cf6] transition-colors">
               {article.title}
             </h2>
 
@@ -98,7 +103,7 @@ export default function IctPage() {
               {article.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[9px] px-2 py-0.5 rounded-full bg-[#3b82f6]/8 text-[#3b82f6]/70 font-medium"
+                  className="text-[9px] px-2 py-0.5 rounded-full bg-[#8b5cf6]/8 text-[#8b5cf6]/70 font-medium"
                 >
                   {tag}
                 </span>

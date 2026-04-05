@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getAllStories, getEpisodeById } from "@/lib/getStories";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import ShareButton from "@/components/ShareButton";
 
 export async function generateStaticParams() {
   const stories = await getAllStories();
@@ -250,6 +251,8 @@ export default async function EpisodePage({
           );
         })}
       </article>
+
+      <ShareButton title={episode.title} />
 
       {/* Story Navigation */}
       <div className="mt-14 pt-8 border-t border-brief-border">

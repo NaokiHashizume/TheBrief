@@ -81,7 +81,7 @@ const industries: IndustryData[] = [
   {
     slug: "ict",
     label: "ICT & Internet",
-    labelJa: "情報通信・ネット",
+    labelJa: "情報通信",
     marketSize: 55.7,
     color: "#3b82f6",
     topCompanies: [

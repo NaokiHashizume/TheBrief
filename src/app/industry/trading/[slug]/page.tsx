@@ -13,6 +13,7 @@ import {
   RetailInnovationDiagram,
   ShoshaRetailStrategyDiagram,
 } from "@/components/RetailDiagrams";
+import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
   return tradingArticles.map((a) => ({ slug: a.slug }));
@@ -225,6 +226,8 @@ export default async function TradingArticlePage({
           </section>
         ))}
       </article>
+
+      <ShareButton title={article.title} />
 
       {/* Article Navigation */}
       <div className="mt-14 pt-8 border-t border-brief-border">

@@ -12,6 +12,7 @@ import {
   GrowthSectorsDiagram as RetailValueChainDiagram,
   EcLandscapeDiagram as RetailFutureDiagram,
 } from "@/components/RetailDiagrams";
+import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
   return retailArticles.map((a) => ({ slug: a.slug }));
@@ -303,6 +304,8 @@ export default async function RetailArticlePage({
           );
         })}
       </article>
+
+      <ShareButton title={article.title} />
 
       {/* Article Navigation */}
       <div className="mt-14 pt-8 border-t border-brief-border">

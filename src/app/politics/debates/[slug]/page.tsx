@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { debates } from "@/lib/debates";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
   return debates.map((d) => ({ slug: d.slug }));
@@ -146,6 +147,8 @@ export default async function DebateDetailPage({
           })}
         </div>
       </div>
+
+      <ShareButton title={debate.title} />
 
       {/* Back link */}
       <div className="mt-12 pt-6 border-t border-brief-border">
