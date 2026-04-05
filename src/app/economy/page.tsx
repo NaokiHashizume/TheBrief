@@ -11,6 +11,7 @@ import {
   type IndicatorStatus,
   type TrendDirection,
 } from "@/lib/economy";
+import { economyArticles } from "@/lib/economyArticles";
 
 export const metadata: Metadata = {
   title: "Economy — 日本経済指標",
@@ -465,6 +466,58 @@ export default function EconomyPage() {
           ))}
         </div>
       </div>
+
+      {/* Economy Articles */}
+      {economyArticles.length > 0 && (
+        <div className="mt-14" id="economy-articles">
+          <div className="flex items-center gap-4 mb-6 scroll-mt-20">
+            <div>
+              <h2 className="font-serif text-xl font-bold">深掘り記事</h2>
+              <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">
+                In-Depth Analysis
+              </span>
+            </div>
+            <div className="flex-1 h-px bg-foreground/5" />
+          </div>
+
+          <div className="space-y-4">
+            {economyArticles.map((article) => (
+              <Link
+                key={article.slug}
+                href={`/economy/${article.slug}`}
+                className="block group p-5 rounded-xl border border-brief-border hover:border-[#f59e0b]/30 bg-brief-card hover:bg-foreground/[0.02] transition-all"
+              >
+                <div className="flex items-center gap-2 mb-2 flex-wrap">
+                  <span className="text-[9px] px-2 py-0.5 rounded-full bg-[#f59e0b]/10 text-[#f59e0b] font-medium">
+                    Economy
+                  </span>
+                  {article.tags.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[9px] px-2 py-0.5 rounded-full bg-foreground/5 text-foreground/50"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="text-base font-bold group-hover:text-[#f59e0b] transition-colors leading-snug">
+                  {article.title}
+                </h3>
+                <p className="mt-2 text-[12px] text-foreground/55 leading-relaxed line-clamp-2">
+                  {article.summary}
+                </p>
+                <div className="mt-3 flex items-center gap-3 text-[10px] text-foreground/40">
+                  <time>{article.date}</time>
+                  <span>·</span>
+                  <span>{article.author}</span>
+                  <span>·</span>
+                  <span>{article.readTime}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Data sources note */}
       <div className="mt-14 p-5 rounded-xl border border-dashed border-brief-border">
