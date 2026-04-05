@@ -2,176 +2,246 @@
 
 import { useState } from "react";
 
-interface IndustryBubble {
+interface TopCompany {
+  name: string;
+  share: number; // %
+}
+
+interface IndustryData {
   slug: string;
   label: string;
   labelJa: string;
   marketSize: number; // 兆円
   color: string;
+  topCompanies: TopCompany[];
 }
 
-const bubbles: IndustryBubble[] = [
-  { slug: "automotive", label: "Automotive", labelJa: "自動車", marketSize: 71.5, color: "#ef4444" },
-  { slug: "finance", label: "Finance", labelJa: "金融", marketSize: 58.2, color: "#f59e0b" },
-  { slug: "real-estate", label: "Real Estate", labelJa: "不動産", marketSize: 46.8, color: "#64748b" },
-  { slug: "retail", label: "Retail / EC", labelJa: "小売・EC", marketSize: 44.3, color: "#14b8a6" },
-  { slug: "energy", label: "Energy", labelJa: "エネルギー", marketSize: 29.5, color: "#f97316" },
-  { slug: "pharma", label: "Pharma", labelJa: "医薬品", marketSize: 14.8, color: "#10b981" },
-  { slug: "media", label: "Media", labelJa: "メディア", marketSize: 12.1, color: "#ec4899" },
-  { slug: "ai", label: "AI / Tech", labelJa: "AI・テック", marketSize: 8.4, color: "#8b5cf6" },
-  { slug: "semiconductors", label: "Semicon", labelJa: "半導体", marketSize: 7.2, color: "#06b6d4" },
+const industries: IndustryData[] = [
+  {
+    slug: "automotive",
+    label: "Automotive",
+    labelJa: "自動車",
+    marketSize: 71.5,
+    color: "#ef4444",
+    topCompanies: [
+      { name: "トヨタ自動車", share: 45.2 },
+      { name: "ホンダ", share: 14.8 },
+      { name: "日産自動車", share: 10.1 },
+    ],
+  },
+  {
+    slug: "finance",
+    label: "Finance",
+    labelJa: "金融",
+    marketSize: 58.2,
+    color: "#f59e0b",
+    topCompanies: [
+      { name: "三菱UFJ FG", share: 18.6 },
+      { name: "三井住友 FG", share: 14.2 },
+      { name: "みずほ FG", share: 11.8 },
+    ],
+  },
+  {
+    slug: "real-estate",
+    label: "Real Estate",
+    labelJa: "不動産",
+    marketSize: 46.8,
+    color: "#64748b",
+    topCompanies: [
+      { name: "三井不動産", share: 8.4 },
+      { name: "三菱地所", share: 7.1 },
+      { name: "住友不動産", share: 5.8 },
+    ],
+  },
+  {
+    slug: "retail",
+    label: "Retail / EC",
+    labelJa: "小売・EC",
+    marketSize: 44.3,
+    color: "#14b8a6",
+    topCompanies: [
+      { name: "イオン", share: 12.5 },
+      { name: "セブン&アイ", share: 10.8 },
+      { name: "Amazon Japan", share: 7.2 },
+    ],
+  },
+  {
+    slug: "energy",
+    label: "Energy",
+    labelJa: "エネルギー",
+    marketSize: 29.5,
+    color: "#f97316",
+    topCompanies: [
+      { name: "ENEOS", share: 24.3 },
+      { name: "東京電力 HD", share: 15.1 },
+      { name: "関西電力", share: 9.7 },
+    ],
+  },
+  {
+    slug: "pharma",
+    label: "Pharma",
+    labelJa: "医薬品",
+    marketSize: 14.8,
+    color: "#10b981",
+    topCompanies: [
+      { name: "武田薬品工業", share: 17.9 },
+      { name: "大塚 HD", share: 10.4 },
+      { name: "アステラス製薬", share: 9.2 },
+    ],
+  },
+  {
+    slug: "media",
+    label: "Media",
+    labelJa: "メディア",
+    marketSize: 12.1,
+    color: "#ec4899",
+    topCompanies: [
+      { name: "ソニーG（音楽・映画）", share: 14.6 },
+      { name: "任天堂", share: 11.3 },
+      { name: "日本テレビ HD", share: 5.8 },
+    ],
+  },
+  {
+    slug: "ai",
+    label: "AI / Tech",
+    labelJa: "AI・テック",
+    marketSize: 8.4,
+    color: "#8b5cf6",
+    topCompanies: [
+      { name: "NTTデータ", share: 15.2 },
+      { name: "富士通", share: 12.8 },
+      { name: "NEC", share: 9.5 },
+    ],
+  },
+  {
+    slug: "semiconductors",
+    label: "Semiconductors",
+    labelJa: "半導体",
+    marketSize: 7.2,
+    color: "#06b6d4",
+    topCompanies: [
+      { name: "東京エレクトロン", share: 22.1 },
+      { name: "ルネサスエレクトロニクス", share: 14.5 },
+      { name: "キオクシア", share: 11.3 },
+    ],
+  },
 ];
 
-// Pre-computed circle-packing positions (cx, cy as % of viewBox 600x400)
-const positions: { cx: number; cy: number }[] = [
-  { cx: 220, cy: 195 }, // automotive (largest)
-  { cx: 390, cy: 180 }, // finance
-  { cx: 130, cy: 310 }, // real-estate
-  { cx: 370, cy: 320 }, // retail
-  { cx: 490, cy: 255 }, // energy
-  { cx: 90, cy: 175 },  // pharma
-  { cx: 270, cy: 330 }, // media
-  { cx: 500, cy: 140 }, // ai
-  { cx: 150, cy: 105 }, // semiconductors
-];
+// Already sorted by marketSize descending
 
-function radiusFromSize(size: number): number {
-  // Scale: sqrt for area-proportional, then fit into viewBox
-  const minR = 28;
-  const maxR = 88;
-  const minSize = 7.2;
-  const maxSize = 71.5;
-  const t = (Math.sqrt(size) - Math.sqrt(minSize)) / (Math.sqrt(maxSize) - Math.sqrt(minSize));
-  return minR + t * (maxR - minR);
-}
+const maxSize = industries[0].marketSize;
 
 export function IndustryBubbleChart() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
     <div className="mt-8 mb-4">
-      <div className="flex items-center gap-3 mb-3">
-        <span className="text-[10px] tracking-[2px] uppercase text-foreground/45">
-          Market Size Overview
-        </span>
+      <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+        <div>
+          <span className="text-[10px] tracking-[2px] uppercase text-foreground/45">
+            Market Size & Top Players
+          </span>
+          <span className="text-[10px] text-foreground/35 ml-2">
+            (日本国内市場規模・兆円)
+          </span>
+        </div>
         <span className="text-[10px] text-foreground/35">
-          (日本国内市場規模・兆円)
+          2026年4月5日時点
         </span>
       </div>
 
-      <div className="relative w-full rounded-xl border border-brief-border bg-brief-card overflow-hidden">
-        <svg
-          viewBox="0 0 600 420"
-          className="w-full h-auto"
-          role="img"
-          aria-label="各業界の国内市場規模を示すバブルチャート"
-        >
-          {bubbles.map((b, i) => {
-            const r = radiusFromSize(b.marketSize);
-            const { cx, cy } = positions[i];
-            const isHovered = hovered === b.slug;
-            const fontSize = r > 50 ? 12 : r > 35 ? 10 : 9;
-            const showLabel = r > 25;
+      <div className="rounded-xl border border-brief-border bg-brief-card overflow-hidden">
+        <div className="divide-y divide-brief-border">
+          {industries.map((ind) => {
+            const barWidth = (ind.marketSize / maxSize) * 100;
+            const isHovered = hovered === ind.slug;
 
             return (
-              <g
-                key={b.slug}
-                onMouseEnter={() => setHovered(b.slug)}
+              <div
+                key={ind.slug}
+                className="px-4 sm:px-5 py-3.5 transition-colors"
+                style={{
+                  backgroundColor: isHovered
+                    ? `${ind.color}08`
+                    : "transparent",
+                }}
+                onMouseEnter={() => setHovered(ind.slug)}
                 onMouseLeave={() => setHovered(null)}
-                className="cursor-pointer"
-                style={{ transition: "transform 0.2s ease" }}
               >
-                {/* Bubble */}
-                <circle
-                  cx={cx}
-                  cy={cy}
-                  r={isHovered ? r + 4 : r}
-                  fill={b.color}
-                  fillOpacity={isHovered ? 0.25 : 0.12}
-                  stroke={b.color}
-                  strokeWidth={isHovered ? 2 : 1.2}
-                  strokeOpacity={isHovered ? 0.8 : 0.4}
-                  style={{ transition: "all 0.2s ease" }}
-                />
-
-                {/* Label */}
-                {showLabel && (
-                  <>
-                    <text
-                      x={cx}
-                      y={cy - (r > 40 ? 8 : 2)}
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      fontSize={fontSize}
-                      fontWeight="600"
-                      fill={b.color}
-                      fillOpacity={isHovered ? 1 : 0.8}
-                      style={{ transition: "fill-opacity 0.2s ease" }}
+                {/* Row: Label + Bar + Value */}
+                <div className="flex items-center gap-3 sm:gap-4">
+                  {/* Industry name */}
+                  <div className="w-[100px] sm:w-[130px] flex-shrink-0">
+                    <div
+                      className="text-xs sm:text-sm font-semibold truncate"
+                      style={{ color: isHovered ? ind.color : undefined }}
                     >
-                      {b.label}
-                    </text>
-                    {r > 40 && (
-                      <text
-                        x={cx}
-                        y={cy + 6}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                        fontSize={10}
-                        fill="currentColor"
-                        fillOpacity={0.3}
+                      {ind.labelJa}
+                    </div>
+                    <div className="text-[9px] text-foreground/35 truncate">
+                      {ind.label}
+                    </div>
+                  </div>
+
+                  {/* Bar */}
+                  <div className="flex-1 min-w-0">
+                    <div className="h-6 sm:h-7 rounded bg-foreground/[0.03] overflow-hidden">
+                      <div
+                        className="h-full rounded transition-all duration-300"
+                        style={{
+                          width: `${barWidth}%`,
+                          backgroundColor: ind.color,
+                          opacity: isHovered ? 0.3 : 0.15,
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Value */}
+                  <div className="w-[60px] sm:w-[70px] text-right flex-shrink-0">
+                    <span
+                      className="text-sm sm:text-base font-bold tabular-nums"
+                      style={{ color: isHovered ? ind.color : undefined }}
+                    >
+                      {ind.marketSize}
+                    </span>
+                    <span className="text-[9px] text-foreground/40 ml-0.5">
+                      兆円
+                    </span>
+                  </div>
+                </div>
+
+                {/* Top 3 companies */}
+                <div className="mt-1.5 ml-[100px] sm:ml-[130px] pl-3 sm:pl-4 flex flex-wrap gap-x-4 gap-y-0.5">
+                  {ind.topCompanies.map((company, i) => (
+                    <span
+                      key={company.name}
+                      className="text-[10px] text-foreground/45 whitespace-nowrap"
+                    >
+                      <span
+                        className="font-medium"
+                        style={{
+                          color: isHovered ? ind.color : undefined,
+                          opacity: isHovered ? 0.8 : 1,
+                        }}
                       >
-                        {b.labelJa}
-                      </text>
-                    )}
-                    <text
-                      x={cx}
-                      y={cy + (r > 40 ? 22 : 12)}
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      fontSize={r > 50 ? 13 : 10}
-                      fontWeight="700"
-                      fill={b.color}
-                      fillOpacity={isHovered ? 1 : 0.6}
-                      style={{ transition: "fill-opacity 0.2s ease" }}
-                    >
-                      {b.marketSize}兆円
-                    </text>
-                  </>
-                )}
-
-                {/* Tooltip for small bubbles */}
-                {isHovered && !showLabel && (
-                  <>
-                    <rect
-                      x={cx - 50}
-                      y={cy - r - 30}
-                      width={100}
-                      height={24}
-                      rx={4}
-                      fill="var(--color-foreground)"
-                      fillOpacity={0.9}
-                    />
-                    <text
-                      x={cx}
-                      y={cy - r - 18}
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      fontSize={10}
-                      fontWeight="600"
-                      fill="var(--color-background)"
-                    >
-                      {b.label} — {b.marketSize}兆円
-                    </text>
-                  </>
-                )}
-              </g>
+                        {i + 1}.
+                      </span>{" "}
+                      {company.name}{" "}
+                      <span className="tabular-nums font-medium text-foreground/55">
+                        {company.share}%
+                      </span>
+                    </span>
+                  ))}
+                </div>
+              </div>
             );
           })}
-        </svg>
+        </div>
       </div>
 
       <p className="mt-2 text-[10px] text-foreground/35 text-right">
-        出典: 各業界団体・経済産業省（2025年度推計）
+        出典: 各業界団体・経済産業省・各社IR資料（2026年4月5日時点推計）
       </p>
     </div>
   );
