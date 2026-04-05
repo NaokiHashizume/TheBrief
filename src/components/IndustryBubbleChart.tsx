@@ -8,6 +8,29 @@ interface TopCompany {
   share: number;
 }
 
+/** PL: cost / SGA / operating profit (% of revenue, must sum to 100) */
+interface PLProfile {
+  cost: number;
+  sga: number;
+  profit: number;
+}
+
+/** BS: current/fixed assets, current/fixed liabilities, equity (% of total assets, liab+eq must sum to 100) */
+interface BSProfile {
+  currentAssets: number;
+  fixedAssets: number;
+  currentLiab: number;
+  fixedLiab: number;
+  equity: number;
+}
+
+/** CF: operating / investing / financing (relative scale, can be negative) */
+interface CFProfile {
+  operating: number;
+  investing: number;
+  financing: number;
+}
+
 interface IndustryData {
   slug: string;
   label: string;
@@ -15,6 +38,9 @@ interface IndustryData {
   marketSize: number;
   color: string;
   topCompanies: TopCompany[];
+  pl: PLProfile;
+  bs: BSProfile;
+  cf: CFProfile;
 }
 
 const industries: IndustryData[] = [
@@ -29,6 +55,9 @@ const industries: IndustryData[] = [
       { name: "セブン&アイ", share: 5.4 },
       { name: "ファーストリテイリング", share: 1.8 },
     ],
+    pl: { cost: 72, sga: 25, profit: 3 },
+    bs: { currentAssets: 55, fixedAssets: 45, currentLiab: 40, fixedLiab: 20, equity: 40 },
+    cf: { operating: 80, investing: -40, financing: -30 },
   },
   {
     slug: "trading",
@@ -41,6 +70,9 @@ const industries: IndustryData[] = [
       { name: "伊藤忠商事", share: 12.4 },
       { name: "三井物産", share: 11.7 },
     ],
+    pl: { cost: 82, sga: 12, profit: 6 },
+    bs: { currentAssets: 50, fixedAssets: 50, currentLiab: 30, fixedLiab: 35, equity: 35 },
+    cf: { operating: 70, investing: -50, financing: -15 },
   },
   {
     slug: "automotive",
@@ -53,6 +85,9 @@ const industries: IndustryData[] = [
       { name: "ホンダ", share: 14.8 },
       { name: "日産自動車", share: 10.1 },
     ],
+    pl: { cost: 75, sga: 17, profit: 8 },
+    bs: { currentAssets: 45, fixedAssets: 55, currentLiab: 25, fixedLiab: 30, equity: 45 },
+    cf: { operating: 90, investing: -60, financing: -25 },
   },
   {
     slug: "construction",
@@ -65,6 +100,9 @@ const industries: IndustryData[] = [
       { name: "大林組", share: 3.1 },
       { name: "三井不動産", share: 2.9 },
     ],
+    pl: { cost: 78, sga: 17, profit: 5 },
+    bs: { currentAssets: 40, fixedAssets: 60, currentLiab: 25, fixedLiab: 40, equity: 35 },
+    cf: { operating: 60, investing: -45, financing: -10 },
   },
   {
     slug: "finance",
@@ -77,6 +115,9 @@ const industries: IndustryData[] = [
       { name: "三井住友 FG", share: 14.2 },
       { name: "みずほ FG", share: 11.8 },
     ],
+    pl: { cost: 45, sga: 30, profit: 25 },
+    bs: { currentAssets: 70, fixedAssets: 30, currentLiab: 75, fixedLiab: 15, equity: 10 },
+    cf: { operating: 100, investing: -30, financing: -60 },
   },
   {
     slug: "ict",
@@ -89,6 +130,9 @@ const industries: IndustryData[] = [
       { name: "KDDI", share: 9.8 },
       { name: "ソフトバンク", share: 9.2 },
     ],
+    pl: { cost: 50, sga: 35, profit: 15 },
+    bs: { currentAssets: 35, fixedAssets: 65, currentLiab: 20, fixedLiab: 35, equity: 45 },
+    cf: { operating: 85, investing: -55, financing: -25 },
   },
   {
     slug: "pharma",
@@ -101,6 +145,9 @@ const industries: IndustryData[] = [
       { name: "大塚 HD", share: 5.1 },
       { name: "アステラス製薬", share: 4.6 },
     ],
+    pl: { cost: 40, sga: 45, profit: 15 },
+    bs: { currentAssets: 45, fixedAssets: 55, currentLiab: 20, fixedLiab: 25, equity: 55 },
+    cf: { operating: 75, investing: -50, financing: -20 },
   },
   {
     slug: "services",
@@ -113,6 +160,9 @@ const industries: IndustryData[] = [
       { name: "セコム", share: 3.2 },
       { name: "ベネッセ HD", share: 2.1 },
     ],
+    pl: { cost: 55, sga: 33, profit: 12 },
+    bs: { currentAssets: 50, fixedAssets: 50, currentLiab: 25, fixedLiab: 25, equity: 50 },
+    cf: { operating: 70, investing: -35, financing: -30 },
   },
   {
     slug: "food",
@@ -125,6 +175,9 @@ const industries: IndustryData[] = [
       { name: "サントリー HD", share: 6.2 },
       { name: "アサヒグループ HD", share: 5.7 },
     ],
+    pl: { cost: 60, sga: 32, profit: 8 },
+    bs: { currentAssets: 40, fixedAssets: 60, currentLiab: 25, fixedLiab: 30, equity: 45 },
+    cf: { operating: 75, investing: -40, financing: -30 },
   },
   {
     slug: "energy",
@@ -137,6 +190,9 @@ const industries: IndustryData[] = [
       { name: "東京電力 HD", share: 15.1 },
       { name: "関西電力", share: 9.7 },
     ],
+    pl: { cost: 85, sga: 10, profit: 5 },
+    bs: { currentAssets: 30, fixedAssets: 70, currentLiab: 20, fixedLiab: 45, equity: 35 },
+    cf: { operating: 80, investing: -65, financing: -10 },
   },
   {
     slug: "materials",
@@ -149,6 +205,9 @@ const industries: IndustryData[] = [
       { name: "住友化学", share: 5.2 },
       { name: "東レ", share: 4.6 },
     ],
+    pl: { cost: 72, sga: 20, profit: 8 },
+    bs: { currentAssets: 40, fixedAssets: 60, currentLiab: 20, fixedLiab: 35, equity: 45 },
+    cf: { operating: 70, investing: -55, financing: -10 },
   },
   {
     slug: "logistics",
@@ -161,6 +220,9 @@ const industries: IndustryData[] = [
       { name: "ヤマト HD", share: 7.1 },
       { name: "SGホールディングス", share: 5.8 },
     ],
+    pl: { cost: 70, sga: 22, profit: 8 },
+    bs: { currentAssets: 25, fixedAssets: 75, currentLiab: 20, fixedLiab: 40, equity: 40 },
+    cf: { operating: 80, investing: -60, financing: -15 },
   },
   {
     slug: "dining",
@@ -173,6 +235,9 @@ const industries: IndustryData[] = [
       { name: "日本マクドナルド HD", share: 4.1 },
       { name: "すかいらーく HD", share: 3.4 },
     ],
+    pl: { cost: 65, sga: 30, profit: 5 },
+    bs: { currentAssets: 30, fixedAssets: 70, currentLiab: 30, fixedLiab: 35, equity: 35 },
+    cf: { operating: 65, investing: -45, financing: -15 },
   },
   {
     slug: "specialty",
@@ -185,6 +250,9 @@ const industries: IndustryData[] = [
       { name: "楽天グループ", share: 14.5 },
       { name: "ZOZO", share: 4.8 },
     ],
+    pl: { cost: 60, sga: 30, profit: 10 },
+    bs: { currentAssets: 55, fixedAssets: 45, currentLiab: 35, fixedLiab: 20, equity: 45 },
+    cf: { operating: 70, investing: -50, financing: -15 },
   },
   {
     slug: "daily",
@@ -197,6 +265,9 @@ const industries: IndustryData[] = [
       { name: "ユニ・チャーム", share: 9.2 },
       { name: "ライオン", share: 5.6 },
     ],
+    pl: { cost: 55, sga: 35, profit: 10 },
+    bs: { currentAssets: 50, fixedAssets: 50, currentLiab: 25, fixedLiab: 20, equity: 55 },
+    cf: { operating: 75, investing: -30, financing: -40 },
   },
   {
     slug: "entertainment",
@@ -209,10 +280,90 @@ const industries: IndustryData[] = [
       { name: "任天堂", share: 11.3 },
       { name: "バンダイナムコ HD", share: 7.9 },
     ],
+    pl: { cost: 50, sga: 32, profit: 18 },
+    bs: { currentAssets: 55, fixedAssets: 45, currentLiab: 20, fixedLiab: 15, equity: 65 },
+    cf: { operating: 80, investing: -35, financing: -40 },
   },
 ];
 
 const maxSize = industries[0].marketSize;
+
+/* ── Mini Financial Profile Charts ── */
+
+function MiniPL({ pl, color, hovered }: { pl: PLProfile; color: string; hovered: boolean }) {
+  const opacity = hovered ? 0.8 : 0.5;
+  return (
+    <div className="flex flex-col items-center gap-0.5">
+      <div className="text-[7px] text-foreground/40 leading-none">PL</div>
+      <div className="w-[40px] h-[14px] rounded-sm overflow-hidden flex" title={`原価${pl.cost}% 販管費${pl.sga}% 営業利益${pl.profit}%`}>
+        <div style={{ width: `${pl.cost}%`, backgroundColor: color, opacity: opacity * 0.4 }} />
+        <div style={{ width: `${pl.sga}%`, backgroundColor: color, opacity: opacity * 0.65 }} />
+        <div style={{ width: `${pl.profit}%`, backgroundColor: color, opacity }} />
+      </div>
+      <div className="text-[7px] tabular-nums leading-none" style={{ color: hovered ? color : undefined, opacity: hovered ? 0.9 : 0.45 }}>
+        {pl.profit}%
+      </div>
+    </div>
+  );
+}
+
+function MiniBS({ bs, color, hovered }: { bs: BSProfile; color: string; hovered: boolean }) {
+  const opacity = hovered ? 0.8 : 0.5;
+  return (
+    <div className="flex flex-col items-center gap-0.5">
+      <div className="text-[7px] text-foreground/40 leading-none">BS</div>
+      <div className="flex gap-px" title={`流動資産${bs.currentAssets}% 固定資産${bs.fixedAssets}% / 流動負債${bs.currentLiab}% 固定負債${bs.fixedLiab}% 純資産${bs.equity}%`}>
+        {/* Assets side */}
+        <div className="w-[18px] h-[14px] rounded-sm overflow-hidden flex flex-col">
+          <div style={{ height: `${bs.currentAssets}%`, backgroundColor: color, opacity: opacity * 0.5 }} />
+          <div style={{ height: `${bs.fixedAssets}%`, backgroundColor: color, opacity: opacity * 0.8 }} />
+        </div>
+        {/* Liabilities + Equity side */}
+        <div className="w-[18px] h-[14px] rounded-sm overflow-hidden flex flex-col">
+          <div style={{ height: `${bs.currentLiab}%`, backgroundColor: color, opacity: opacity * 0.35 }} />
+          <div style={{ height: `${bs.fixedLiab}%`, backgroundColor: color, opacity: opacity * 0.6 }} />
+          <div style={{ height: `${bs.equity}%`, backgroundColor: color, opacity }} />
+        </div>
+      </div>
+      <div className="text-[7px] tabular-nums leading-none" style={{ color: hovered ? color : undefined, opacity: hovered ? 0.9 : 0.45 }}>
+        自{bs.equity}%
+      </div>
+    </div>
+  );
+}
+
+function MiniCF({ cf, color, hovered }: { cf: CFProfile; color: string; hovered: boolean }) {
+  const maxAbs = Math.max(Math.abs(cf.operating), Math.abs(cf.investing), Math.abs(cf.financing));
+  const scale = (v: number) => Math.abs(v) / maxAbs;
+  const barH = 14;
+
+  return (
+    <div className="flex flex-col items-center gap-0.5">
+      <div className="text-[7px] text-foreground/40 leading-none">CF</div>
+      <div className="flex items-end gap-px" style={{ height: barH }} title={`営業CF ${cf.operating > 0 ? "+" : ""}${cf.operating} 投資CF ${cf.investing > 0 ? "+" : ""}${cf.investing} 財務CF ${cf.financing > 0 ? "+" : ""}${cf.financing}`}>
+        {[cf.operating, cf.investing, cf.financing].map((v, i) => {
+          const h = Math.max(2, scale(v) * barH);
+          const isPositive = v >= 0;
+          return (
+            <div
+              key={i}
+              className="w-[10px] rounded-sm"
+              style={{
+                height: h,
+                backgroundColor: color,
+                opacity: hovered ? (isPositive ? 0.8 : 0.35) : (isPositive ? 0.5 : 0.2),
+                alignSelf: isPositive ? "flex-end" : "flex-start",
+              }}
+            />
+          );
+        })}
+      </div>
+      <div className="text-[7px] tabular-nums leading-none" style={{ color: hovered ? color : undefined, opacity: hovered ? 0.9 : 0.45 }}>
+        営{cf.operating > 0 ? "+" : ""}{cf.operating}
+      </div>
+    </div>
+  );
+}
 
 export function IndustryBubbleChart() {
   const [hovered, setHovered] = useState<string | null>(null);
@@ -252,10 +403,10 @@ export function IndustryBubbleChart() {
                 onMouseEnter={() => setHovered(ind.slug)}
                 onMouseLeave={() => setHovered(null)}
               >
-                {/* Row: Label + Bar + Value */}
-                <div className="flex items-center gap-3 sm:gap-4">
+                {/* Row: Label + Bar + Value + Financial Profiles */}
+                <div className="flex items-center gap-2 sm:gap-3">
                   {/* Industry name */}
-                  <div className="w-[90px] sm:w-[140px] flex-shrink-0">
+                  <div className="w-[70px] sm:w-[120px] flex-shrink-0">
                     <div
                       className="text-xs sm:text-sm font-semibold truncate"
                       style={{ color: isHovered ? ind.color : undefined }}
@@ -267,8 +418,8 @@ export function IndustryBubbleChart() {
                     </div>
                   </div>
 
-                  {/* Bar */}
-                  <div className="flex-1 min-w-0">
+                  {/* Bar (narrowed) */}
+                  <div className="flex-1 min-w-0 max-w-[40%]">
                     <div className="h-5 sm:h-6 rounded bg-foreground/[0.04] overflow-hidden">
                       <div
                         className="h-full rounded transition-all duration-300"
@@ -282,21 +433,31 @@ export function IndustryBubbleChart() {
                   </div>
 
                   {/* Value */}
-                  <div className="w-[60px] sm:w-[70px] text-right flex-shrink-0">
+                  <div className="w-[50px] sm:w-[60px] text-right flex-shrink-0">
                     <span
                       className="text-sm sm:text-base font-bold tabular-nums"
                       style={{ color: isHovered ? ind.color : undefined }}
                     >
                       {ind.marketSize}
                     </span>
-                    <span className="text-[9px] text-foreground/50 ml-0.5">
+                    <span className="text-[9px] text-foreground/50 ml-0.5 hidden sm:inline">
                       兆円
                     </span>
+                  </div>
+
+                  {/* Separator */}
+                  <div className="w-px h-6 bg-foreground/10 flex-shrink-0 hidden sm:block" />
+
+                  {/* PL / BS / CF mini charts */}
+                  <div className="hidden sm:flex items-center gap-3 flex-shrink-0">
+                    <MiniPL pl={ind.pl} color={ind.color} hovered={isHovered} />
+                    <MiniBS bs={ind.bs} color={ind.color} hovered={isHovered} />
+                    <MiniCF cf={ind.cf} color={ind.color} hovered={isHovered} />
                   </div>
                 </div>
 
                 {/* Top 3 companies */}
-                <div className="mt-1 ml-[90px] sm:ml-[140px] pl-3 sm:pl-4 flex flex-wrap gap-x-4 gap-y-0.5">
+                <div className="mt-1 ml-[70px] sm:ml-[120px] pl-2 sm:pl-3 flex flex-wrap gap-x-4 gap-y-0.5">
                   {ind.topCompanies.map((company, i) => (
                     <span
                       key={company.name}
