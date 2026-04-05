@@ -6,64 +6,170 @@ import { IndustryBubbleChart } from "@/components/IndustryBubbleChart";
 export const metadata: Metadata = {
   title: "Industry — 業界別ニュース",
   description:
-    "AI・半導体・自動車・医薬品・金融・エネルギーなど、日本の主要業界の最新動向をまとめます。",
+    "小売り・自動車・金融・情報通信・医薬品など、日本の主要17業界の最新動向をまとめます。",
   alternates: { canonical: "https://thebrief.info/industry" },
 };
 
 const industries = [
   {
-    slug: "ai",
-    title: "AI / Technology",
-    titleJa: "AI・テクノロジー",
-    description:
-      "生成AI、クラウド、SaaS、サイバーセキュリティなど、テクノロジー業界の最新動向。",
+    slug: "retail",
+    title: "小売り",
+    titleEn: "Retail",
+    description: "スーパー、コンビニ、百貨店、ドラッグストアなど小売業界全般の動向。",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2a4 4 0 0 1 4 4v1a1 1 0 0 0 1 1h1a4 4 0 0 1 0 8h-1a1 1 0 0 0-1 1v1a4 4 0 0 1-8 0v-1a1 1 0 0 0-1-1H6a4 4 0 0 1 0-8h1a1 1 0 0 0 1-1V6a4 4 0 0 1 4-4z" />
-        <circle cx="12" cy="12" r="2" />
+        <path d="M3 21h18" /><path d="M5 21V7l7-4 7 4v14" />
+        <path d="M9 21v-4h6v4" /><path d="M10 10h4" />
       </svg>
     ),
-    color: "#8b5cf6",
-  },
-  {
-    slug: "semiconductors",
-    title: "Semiconductors",
-    titleJa: "半導体",
-    description:
-      "半導体製造装置、先端プロセス、国内投資、TSMC・Rapidusなどの最新情報。",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="4" y="4" width="16" height="16" rx="2" />
-        <rect x="9" y="9" width="6" height="6" />
-        <path d="M15 2v2" /><path d="M15 20v2" />
-        <path d="M2 15h2" /><path d="M20 15h2" />
-        <path d="M9 2v2" /><path d="M9 20v2" />
-        <path d="M2 9h2" /><path d="M20 9h2" />
-      </svg>
-    ),
-    color: "#06b6d4",
+    color: "#14b8a6",
   },
   {
     slug: "automotive",
-    title: "Automotive / Mobility",
-    titleJa: "自動車・モビリティ",
-    description:
-      "EV化、自動運転、トヨタ・ホンダ・日産の戦略、部品サプライチェーンの変革。",
+    title: "自動車",
+    titleEn: "Automotive",
+    description: "EV化、自動運転、トヨタ・ホンダ・日産の戦略、部品サプライチェーン。",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M5 17h14M5 17a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1l2-3h8l2 3h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2M5 17l-1 2h2m12-2 1 2h-2" />
-        <circle cx="7.5" cy="14" r="1.5" />
-        <circle cx="16.5" cy="14" r="1.5" />
+        <circle cx="7.5" cy="14" r="1.5" /><circle cx="16.5" cy="14" r="1.5" />
       </svg>
     ),
     color: "#ef4444",
   },
   {
+    slug: "dining",
+    title: "外食",
+    titleEn: "Food Service",
+    description: "ファミレス、ファストフード、居酒屋、カフェチェーンなど外食産業の動向。",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+        <line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" />
+      </svg>
+    ),
+    color: "#e11d48",
+  },
+  {
+    slug: "entertainment",
+    title: "エンタメ",
+    titleEn: "Entertainment",
+    description: "ゲーム・音楽・映画・動画配信・テーマパークなどエンタメ業界の動向。",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="5 3 19 12 5 21 5 3" />
+      </svg>
+    ),
+    color: "#d946ef",
+  },
+  {
+    slug: "finance",
+    title: "金融機関",
+    titleEn: "Financial Institutions",
+    description: "メガバンク、証券、保険、デジタル決済、暗号資産、新NISA関連。",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="12" y1="1" x2="12" y2="23" />
+        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      </svg>
+    ),
+    color: "#f59e0b",
+  },
+  {
+    slug: "services",
+    title: "サービス",
+    titleEn: "Services",
+    description: "人材、警備、教育、コンサルティング、BPOなどサービス業全般。",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
+    color: "#a855f7",
+  },
+  {
+    slug: "energy",
+    title: "資源エネルギー",
+    titleEn: "Resources & Energy",
+    description: "石油・ガス、電力、再生可能エネルギー、原子力、脱炭素戦略。",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
+    color: "#f97316",
+  },
+  {
+    slug: "trading",
+    title: "商社・卸売り",
+    titleEn: "Trading & Wholesale",
+    description: "総合商社、専門商社、卸売業。資源・食料・素材のグローバル取引。",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
+    color: "#78716c",
+  },
+  {
+    slug: "materials",
+    title: "素材",
+    titleEn: "Materials",
+    description: "化学、鉄鋼、非鉄金属、セメント、繊維など素材メーカーの動向。",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+        <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+      </svg>
+    ),
+    color: "#0ea5e9",
+  },
+  {
+    slug: "specialty",
+    title: "専門店・EC",
+    titleEn: "Specialty & EC",
+    description: "EC市場、家電量販、アパレル専門店、フリマアプリなど専門小売。",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" />
+        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+      </svg>
+    ),
+    color: "#ec4899",
+  },
+  {
+    slug: "ict",
+    title: "情報通信・ネット",
+    titleEn: "ICT & Internet",
+    description: "通信キャリア、IT企業、SaaS、AI、クラウド、サイバーセキュリティ。",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
+      </svg>
+    ),
+    color: "#3b82f6",
+  },
+  {
+    slug: "daily",
+    title: "生活・日用品",
+    titleEn: "Daily & Household",
+    description: "トイレタリー、化粧品、生活雑貨、日用品メーカーの動向。",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+    ),
+    color: "#06b6d4",
+  },
+  {
     slug: "pharma",
-    title: "Pharma / Healthcare",
-    titleJa: "医薬品・ヘルスケア",
-    description:
-      "新薬開発、医療DX、バイオテクノロジー、医療制度改革の動向。",
+    title: "医薬品・医療介護",
+    titleEn: "Pharma & Healthcare",
+    description: "新薬開発、医療DX、バイオテクノロジー、介護・ヘルスケア。",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M8 2v4" /><path d="M16 2v4" />
@@ -74,38 +180,23 @@ const industries = [
     color: "#10b981",
   },
   {
-    slug: "finance",
-    title: "Finance / Fintech",
-    titleJa: "金融・フィンテック",
-    description:
-      "メガバンク、証券、保険、デジタル決済、暗号資産、新NISA関連の動向。",
+    slug: "food",
+    title: "食品",
+    titleEn: "Food & Beverage",
+    description: "食品メーカー、飲料、乳業、冷凍食品、調味料など食品業界。",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="1" x2="12" y2="23" />
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+        <path d="M2 12h20" /><path d="M20 12c0 4.4-3.6 8-8 8s-8-3.6-8-8" />
+        <path d="M4 8c0-2.2 3.6-4 8-4s8 1.8 8 4" />
       </svg>
     ),
-    color: "#f59e0b",
+    color: "#84cc16",
   },
   {
-    slug: "energy",
-    title: "Energy",
-    titleJa: "エネルギー",
-    description:
-      "再生可能エネルギー、原子力政策、電力市場改革、脱炭素戦略。",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-      </svg>
-    ),
-    color: "#f97316",
-  },
-  {
-    slug: "real-estate",
-    title: "Real Estate",
-    titleJa: "不動産",
-    description:
-      "商業・住宅不動産市場、REIT、都市再開発、人口動態による地価変動。",
+    slug: "construction",
+    title: "建設・不動産",
+    titleEn: "Construction & Real Estate",
+    description: "ゼネコン、住宅メーカー、不動産デベロッパー、REIT、都市再開発。",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 21h18" />
@@ -116,31 +207,29 @@ const industries = [
     color: "#64748b",
   },
   {
-    slug: "media",
-    title: "Media / Entertainment",
-    titleJa: "メディア・エンタメ",
-    description:
-      "放送・出版・ゲーム・音楽・動画配信プラットフォームの業界動向。",
+    slug: "corporate",
+    title: "企業・業績",
+    titleEn: "Corporate & Earnings",
+    description: "主要企業の決算、M&A、経営戦略、ガバナンス、ESG。",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="5 3 19 12 5 21 5 3" />
+        <line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" />
       </svg>
     ),
-    color: "#ec4899",
+    color: "#475569",
   },
   {
-    slug: "retail",
-    title: "Retail / E-Commerce",
-    titleJa: "小売・EC",
-    description:
-      "コンビニ、スーパー、百貨店、EC市場、物流・サプライチェーンの変化。",
+    slug: "logistics",
+    title: "物流・運輸",
+    titleEn: "Logistics & Transport",
+    description: "宅配、鉄道、航空、海運、倉庫、2024年問題とその後の対応。",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" />
-        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+        <rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+        <circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" />
       </svg>
     ),
-    color: "#14b8a6",
+    color: "#6366f1",
   },
 ];
 
@@ -171,7 +260,7 @@ export default function IndustryPage() {
         各業界ページは順次コンテンツを追加予定です。
       </p>
 
-      {/* Bubble chart */}
+      {/* Bar chart */}
       <IndustryBubbleChart />
 
       {/* Industry grid */}
@@ -193,7 +282,7 @@ export default function IndustryPage() {
                   {ind.title}
                 </h2>
                 <span className="text-[10px] text-foreground/45">
-                  {ind.titleJa}
+                  {ind.titleEn}
                 </span>
               </div>
             </div>

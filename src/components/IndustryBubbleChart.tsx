@@ -4,19 +4,43 @@ import { useState } from "react";
 
 interface TopCompany {
   name: string;
-  share: number; // %
+  share: number;
 }
 
 interface IndustryData {
   slug: string;
   label: string;
   labelJa: string;
-  marketSize: number; // 兆円
+  marketSize: number;
   color: string;
   topCompanies: TopCompany[];
 }
 
 const industries: IndustryData[] = [
+  {
+    slug: "retail",
+    label: "Retail",
+    labelJa: "小売り",
+    marketSize: 154.2,
+    color: "#14b8a6",
+    topCompanies: [
+      { name: "イオン", share: 6.1 },
+      { name: "セブン&アイ", share: 5.4 },
+      { name: "ファーストリテイリング", share: 1.8 },
+    ],
+  },
+  {
+    slug: "trading",
+    label: "Trading & Wholesale",
+    labelJa: "商社・卸売り",
+    marketSize: 118.5,
+    color: "#78716c",
+    topCompanies: [
+      { name: "三菱商事", share: 15.8 },
+      { name: "伊藤忠商事", share: 12.4 },
+      { name: "三井物産", share: 11.7 },
+    ],
+  },
   {
     slug: "automotive",
     label: "Automotive",
@@ -30,10 +54,22 @@ const industries: IndustryData[] = [
     ],
   },
   {
+    slug: "construction",
+    label: "Construction & Real Estate",
+    labelJa: "建設・不動産",
+    marketSize: 68.3,
+    color: "#64748b",
+    topCompanies: [
+      { name: "大和ハウス工業", share: 5.2 },
+      { name: "大林組", share: 3.1 },
+      { name: "三井不動産", share: 2.9 },
+    ],
+  },
+  {
     slug: "finance",
-    label: "Finance",
-    labelJa: "金融",
-    marketSize: 58.2,
+    label: "Financial Institutions",
+    labelJa: "金融機関",
+    marketSize: 62.4,
     color: "#f59e0b",
     topCompanies: [
       { name: "三菱UFJ FG", share: 18.6 },
@@ -42,92 +78,150 @@ const industries: IndustryData[] = [
     ],
   },
   {
-    slug: "real-estate",
-    label: "Real Estate",
-    labelJa: "不動産",
-    marketSize: 46.8,
-    color: "#64748b",
+    slug: "ict",
+    label: "ICT & Internet",
+    labelJa: "情報通信・ネット",
+    marketSize: 55.7,
+    color: "#3b82f6",
     topCompanies: [
-      { name: "三井不動産", share: 8.4 },
-      { name: "三菱地所", share: 7.1 },
-      { name: "住友不動産", share: 5.8 },
+      { name: "NTT", share: 21.5 },
+      { name: "KDDI", share: 9.8 },
+      { name: "ソフトバンク", share: 9.2 },
     ],
   },
   {
-    slug: "retail",
-    label: "Retail / EC",
-    labelJa: "小売・EC",
-    marketSize: 44.3,
-    color: "#14b8a6",
+    slug: "pharma",
+    label: "Pharma & Healthcare",
+    labelJa: "医薬品・医療介護",
+    marketSize: 48.2,
+    color: "#10b981",
     topCompanies: [
-      { name: "イオン", share: 12.5 },
-      { name: "セブン&アイ", share: 10.8 },
-      { name: "Amazon Japan", share: 7.2 },
+      { name: "武田薬品工業", share: 8.4 },
+      { name: "大塚 HD", share: 5.1 },
+      { name: "アステラス製薬", share: 4.6 },
+    ],
+  },
+  {
+    slug: "services",
+    label: "Services",
+    labelJa: "サービス",
+    marketSize: 42.1,
+    color: "#a855f7",
+    topCompanies: [
+      { name: "リクルート HD", share: 8.3 },
+      { name: "セコム", share: 3.2 },
+      { name: "ベネッセ HD", share: 2.1 },
+    ],
+  },
+  {
+    slug: "food",
+    label: "Food & Beverage",
+    labelJa: "食品",
+    marketSize: 36.4,
+    color: "#84cc16",
+    topCompanies: [
+      { name: "JT（食品事業）", share: 6.8 },
+      { name: "サントリー HD", share: 6.2 },
+      { name: "アサヒグループ HD", share: 5.7 },
     ],
   },
   {
     slug: "energy",
-    label: "Energy",
-    labelJa: "エネルギー",
-    marketSize: 29.5,
+    label: "Resources & Energy",
+    labelJa: "資源エネルギー",
+    marketSize: 30.8,
     color: "#f97316",
     topCompanies: [
-      { name: "ENEOS", share: 24.3 },
+      { name: "ENEOS HD", share: 24.3 },
       { name: "東京電力 HD", share: 15.1 },
       { name: "関西電力", share: 9.7 },
     ],
   },
   {
-    slug: "pharma",
-    label: "Pharma",
-    labelJa: "医薬品",
-    marketSize: 14.8,
-    color: "#10b981",
+    slug: "materials",
+    label: "Materials",
+    labelJa: "素材",
+    marketSize: 28.6,
+    color: "#0ea5e9",
     topCompanies: [
-      { name: "武田薬品工業", share: 17.9 },
-      { name: "大塚 HD", share: 10.4 },
-      { name: "アステラス製薬", share: 9.2 },
+      { name: "信越化学工業", share: 7.8 },
+      { name: "住友化学", share: 5.2 },
+      { name: "東レ", share: 4.6 },
     ],
   },
   {
-    slug: "media",
-    label: "Media",
-    labelJa: "メディア",
-    marketSize: 12.1,
+    slug: "logistics",
+    label: "Logistics & Transport",
+    labelJa: "物流・運輸",
+    marketSize: 27.3,
+    color: "#6366f1",
+    topCompanies: [
+      { name: "JR東日本", share: 10.2 },
+      { name: "ヤマト HD", share: 7.1 },
+      { name: "SGホールディングス", share: 5.8 },
+    ],
+  },
+  {
+    slug: "dining",
+    label: "Food Service",
+    labelJa: "外食",
+    marketSize: 26.1,
+    color: "#e11d48",
+    topCompanies: [
+      { name: "ゼンショー HD", share: 5.2 },
+      { name: "日本マクドナルド HD", share: 4.1 },
+      { name: "すかいらーく HD", share: 3.4 },
+    ],
+  },
+  {
+    slug: "corporate",
+    label: "Corporate & Earnings",
+    labelJa: "企業・業績",
+    marketSize: 22.8,
+    color: "#475569",
+    topCompanies: [
+      { name: "ソニーグループ", share: 12.4 },
+      { name: "日立製作所", share: 11.8 },
+      { name: "パナソニック HD", share: 7.5 },
+    ],
+  },
+  {
+    slug: "specialty",
+    label: "Specialty & EC",
+    labelJa: "専門店・EC",
+    marketSize: 20.4,
     color: "#ec4899",
+    topCompanies: [
+      { name: "Amazon Japan", share: 18.2 },
+      { name: "楽天グループ", share: 14.5 },
+      { name: "ZOZO", share: 4.8 },
+    ],
+  },
+  {
+    slug: "daily",
+    label: "Daily & Household",
+    labelJa: "生活・日用品",
+    marketSize: 18.1,
+    color: "#06b6d4",
+    topCompanies: [
+      { name: "花王", share: 14.8 },
+      { name: "ユニ・チャーム", share: 9.2 },
+      { name: "ライオン", share: 5.6 },
+    ],
+  },
+  {
+    slug: "entertainment",
+    label: "Entertainment",
+    labelJa: "エンタメ",
+    marketSize: 13.5,
+    color: "#d946ef",
     topCompanies: [
       { name: "ソニーG（音楽・映画）", share: 14.6 },
       { name: "任天堂", share: 11.3 },
-      { name: "日本テレビ HD", share: 5.8 },
-    ],
-  },
-  {
-    slug: "ai",
-    label: "AI / Tech",
-    labelJa: "AI・テック",
-    marketSize: 8.4,
-    color: "#8b5cf6",
-    topCompanies: [
-      { name: "NTTデータ", share: 15.2 },
-      { name: "富士通", share: 12.8 },
-      { name: "NEC", share: 9.5 },
-    ],
-  },
-  {
-    slug: "semiconductors",
-    label: "Semiconductors",
-    labelJa: "半導体",
-    marketSize: 7.2,
-    color: "#06b6d4",
-    topCompanies: [
-      { name: "東京エレクトロン", share: 22.1 },
-      { name: "ルネサスエレクトロニクス", share: 14.5 },
-      { name: "キオクシア", share: 11.3 },
+      { name: "バンダイナムコ HD", share: 7.9 },
     ],
   },
 ];
-
-// Already sorted by marketSize descending
 
 const maxSize = industries[0].marketSize;
 
@@ -159,7 +253,7 @@ export function IndustryBubbleChart() {
             return (
               <div
                 key={ind.slug}
-                className="px-4 sm:px-5 py-3.5 transition-colors"
+                className="px-4 sm:px-5 py-3 transition-colors"
                 style={{
                   backgroundColor: isHovered
                     ? `${ind.color}08`
@@ -171,21 +265,21 @@ export function IndustryBubbleChart() {
                 {/* Row: Label + Bar + Value */}
                 <div className="flex items-center gap-3 sm:gap-4">
                   {/* Industry name */}
-                  <div className="w-[100px] sm:w-[130px] flex-shrink-0">
+                  <div className="w-[90px] sm:w-[140px] flex-shrink-0">
                     <div
                       className="text-xs sm:text-sm font-semibold truncate"
                       style={{ color: isHovered ? ind.color : undefined }}
                     >
                       {ind.labelJa}
                     </div>
-                    <div className="text-[9px] text-foreground/35 truncate">
+                    <div className="text-[9px] text-foreground/35 truncate hidden sm:block">
                       {ind.label}
                     </div>
                   </div>
 
                   {/* Bar */}
                   <div className="flex-1 min-w-0">
-                    <div className="h-6 sm:h-7 rounded bg-foreground/[0.03] overflow-hidden">
+                    <div className="h-5 sm:h-6 rounded bg-foreground/[0.03] overflow-hidden">
                       <div
                         className="h-full rounded transition-all duration-300"
                         style={{
@@ -212,7 +306,7 @@ export function IndustryBubbleChart() {
                 </div>
 
                 {/* Top 3 companies */}
-                <div className="mt-1.5 ml-[100px] sm:ml-[130px] pl-3 sm:pl-4 flex flex-wrap gap-x-4 gap-y-0.5">
+                <div className="mt-1 ml-[90px] sm:ml-[140px] pl-3 sm:pl-4 flex flex-wrap gap-x-4 gap-y-0.5">
                   {ind.topCompanies.map((company, i) => (
                     <span
                       key={company.name}
