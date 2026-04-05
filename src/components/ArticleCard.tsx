@@ -24,8 +24,6 @@ export function ArticleCardFeatured({ article }: { article: Article }) {
         {article.excerpt}
       </p>
       <div className="mt-3 flex items-center gap-3 text-xs text-foreground/50">
-        <span>{article.author}</span>
-        <span>·</span>
         <time>{article.date}</time>
         <span>·</span>
         <span>{article.readTime}</span>
@@ -45,8 +43,6 @@ export function ArticleCardCompact({ article }: { article: Article }) {
         {article.excerpt}
       </p>
       <div className="mt-2 flex items-center gap-3 text-xs text-foreground/45">
-        <span>{article.author}</span>
-        <span>·</span>
         <time>{article.date}</time>
         <span>·</span>
         <span>{article.readTime}</span>

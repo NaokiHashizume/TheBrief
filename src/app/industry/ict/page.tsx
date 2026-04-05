@@ -69,8 +69,6 @@ export default function IctPage() {
                 {article.date}
               </time>
               <span className="w-1 h-1 rounded-full bg-foreground/10" />
-              <span className="text-[10px] text-foreground/30 font-medium">{article.author}</span>
-              <span className="w-1 h-1 rounded-full bg-foreground/10" />
               <span className="text-[10px] text-foreground/30 font-medium">{article.readTime}</span>
             </div>
 

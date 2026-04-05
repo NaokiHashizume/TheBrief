@@ -72,7 +72,7 @@ export default async function TradingArticlePage({
         description={article.summary}
         datePublished={article.date}
         dateModified={article.date}
-        author={article.author}
+        author="The Brief"
         url={`https://thebrief.info/industry/trading/${article.slug}`}
       />
       <BreadcrumbJsonLd
@@ -125,8 +125,6 @@ export default async function TradingArticlePage({
 
         <div className="mt-4 flex items-center gap-4 text-xs text-foreground/45">
           <time>{article.date}</time>
-          <span>·</span>
-          <span>{article.author}</span>
           <span>·</span>
           <span>{article.readTime}</span>
         </div>

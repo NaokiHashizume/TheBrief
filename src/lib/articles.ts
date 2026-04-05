@@ -40,7 +40,7 @@ export const sampleArticles: Article[] = [
     category: "economy",
     categoryLabel: "Economy",
     date: "2026-04-04",
-    author: "Editorial",
+    author: "",
     readTime: "5 min",
     featured: true,
   },
@@ -52,7 +52,7 @@ export const sampleArticles: Article[] = [
     category: "politics",
     categoryLabel: "Politics",
     date: "2026-04-03",
-    author: "Editorial",
+    author: "",
     readTime: "4 min",
   },
   {
@@ -65,7 +65,7 @@ export const sampleArticles: Article[] = [
     industrySubcategory: "ai",
     industryLabel: "AI / Technology",
     date: "2026-04-03",
-    author: "Industry Desk",
+    author: "",
     readTime: "6 min",
     featured: true,
   },
@@ -79,7 +79,7 @@ export const sampleArticles: Article[] = [
     industrySubcategory: "semiconductors",
     industryLabel: "Semiconductors",
     date: "2026-04-02",
-    author: "Industry Desk",
+    author: "",
     readTime: "7 min",
   },
   {
@@ -90,7 +90,7 @@ export const sampleArticles: Article[] = [
     category: "lifestyle",
     categoryLabel: "Lifestyle",
     date: "2026-04-02",
-    author: "Lifestyle Desk",
+    author: "",
     readTime: "4 min",
   },
   {
@@ -101,7 +101,7 @@ export const sampleArticles: Article[] = [
     category: "opinion",
     categoryLabel: "Opinion",
     date: "2026-04-01",
-    author: "Guest Column",
+    author: "",
     readTime: "8 min",
   },
   {
@@ -112,7 +112,7 @@ export const sampleArticles: Article[] = [
     category: "economy",
     categoryLabel: "Economy",
     date: "2026-04-01",
-    author: "Markets Desk",
+    author: "",
     readTime: "5 min",
   },
   {
@@ -125,7 +125,7 @@ export const sampleArticles: Article[] = [
     industrySubcategory: "automotive",
     industryLabel: "Automotive / Mobility",
     date: "2026-03-31",
-    author: "Industry Desk",
+    author: "",
     readTime: "5 min",
   },
   {
@@ -136,7 +136,7 @@ export const sampleArticles: Article[] = [
     category: "university",
     categoryLabel: "University",
     date: "2026-03-30",
-    author: "Education Desk",
+    author: "",
     readTime: "5 min",
   },
 ];

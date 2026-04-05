@@ -189,7 +189,7 @@ export default async function IctArticlePage({
         description={article.summary}
         datePublished={article.date}
         dateModified={article.date}
-        author={article.author}
+        author="The Brief"
         url={`https://thebrief.info/industry/ict/${article.slug}`}
       />
       <BreadcrumbJsonLd
@@ -254,8 +254,6 @@ export default async function IctArticlePage({
         {/* Meta */}
         <div className="mt-6 flex items-center gap-5 text-[11px] text-foreground/35 font-medium">
           <time className="tabular-nums">{article.date}</time>
-          <span className="w-1 h-1 rounded-full bg-foreground/15" />
-          <span>{article.author}</span>
           <span className="w-1 h-1 rounded-full bg-foreground/15" />
           <span>{article.readTime}</span>
         </div>

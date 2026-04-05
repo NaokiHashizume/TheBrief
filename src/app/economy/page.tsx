@@ -509,8 +509,6 @@ export default function EconomyPage() {
                 <div className="mt-3 flex items-center gap-3 text-[10px] text-foreground/40">
                   <time>{article.date}</time>
                   <span>·</span>
-                  <span>{article.author}</span>
-                  <span>·</span>
                   <span>{article.readTime}</span>
                 </div>
               </Link>

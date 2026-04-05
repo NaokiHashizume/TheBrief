@@ -77,7 +77,7 @@ export default async function EpisodePage({
         description={episode.summary}
         datePublished={episode.date}
         dateModified={episode.date}
-        author={episode.author}
+        author="The Brief"
         url={`https://thebrief.info/story/${story.slug}/${episode.id}`}
       />
       <BreadcrumbJsonLd
@@ -135,8 +135,6 @@ export default async function EpisodePage({
 
         <div className="mt-4 flex items-center gap-4 text-xs text-foreground/45">
           <time>{episode.date}</time>
-          <span>·</span>
-          <span>{episode.author}</span>
           <span>·</span>
           <span>{episode.readTime}</span>
         </div>

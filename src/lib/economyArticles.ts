@@ -23,7 +23,7 @@ export const economyArticles: EconomyArticle[] = [
     titleEn:
       "The Hormuz Strait Crisis and Japan's Economy — Structural Vulnerability in Energy Security Exposed",
     date: "2026-04-06",
-    author: "Economy Desk",
+    author: "",
     readTime: "18 min",
     tags: ["エネルギー安全保障", "原油", "中東", "地政学リスク", "石油備蓄"],
     summary:
