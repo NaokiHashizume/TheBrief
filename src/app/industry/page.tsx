@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { IndustryBubbleChart } from "@/components/IndustryBubbleChart";
 
 export const metadata: Metadata = {
   title: "Industry — 業界別ニュース",
@@ -169,6 +170,9 @@ export default function IndustryPage() {
       <p className="mt-2 text-xs text-foreground/30">
         各業界ページは順次コンテンツを追加予定です。
       </p>
+
+      {/* Bubble chart */}
+      <IndustryBubbleChart />
 
       {/* Industry grid */}
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
