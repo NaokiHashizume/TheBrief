@@ -284,4 +284,124 @@ NTTの**IOWN構想**は光技術をネットワーク全体に拡張する。電
       },
     ],
   },
+  {
+    slug: "gemma-4-guide",
+    title:
+      "Gemma 4 徹底解説 — Googleが放つ最強オープンモデルの全貌と使い方",
+    titleEn:
+      "Gemma 4 Deep Dive — Google's Most Capable Open Model: Features & How to Use",
+    date: "2026-04-06",
+    author: "Tech Desk",
+    readTime: "16 min",
+    tags: ["AI", "オープンモデル", "Google", "LLM", "マルチモーダル"],
+    summary:
+      "2026年4月2日、Google DeepMindが発表したGemma 4は、スマートフォンからサーバーまで対応する4つのモデルで構成されるオープンモデルファミリーだ。Arena AIリーダーボードで世界3位、数学競技ベンチマーク AIME 2026で89.2%を記録し、前世代Gemma 3から劇的な性能向上を遂げた。Apache 2.0ライセンスで完全に自由な商用利用が可能な本モデルの特徴、アーキテクチャ、使い方をコード付きで徹底解説する。",
+    sections: [
+      {
+        heading: "Gemma 4とは何か — 4つのモデルと設計思想",
+        headingEn: "What Is Gemma 4 — Four Models and the Design Philosophy",
+        diagramId: "gemma4-model-family",
+        body: `2026年4月2日、GoogleはGoogle Cloud Nextにおいて、オープンモデルファミリー「Gemma 4」を発表した。Geminiと同じ研究基盤から生まれた第4世代のオープンモデルであり、「バイト単位で最も高性能なオープンモデル」を標榜している。
+
+Gemma 4は4つのバリエーションで構成される。最小のE2B（有効パラメータ2.3B）はスマートフォンやIoTデバイスで動作するエッジ向けモデル。E4B（有効パラメータ4.5B）はモバイル・タブレット向けの中間モデル。26B A4B（総パラメータ25.2B、有効パラメータ3.8B）はMixture of Experts（MoE）アーキテクチャを採用し、26Bの知識量を3.8Bのコストで利用できる。そして最大の31B Dense（30.7B）はフルサイズの高精度モデルだ。
+
+「E」はEffective（有効）の略で、E2BとE4BにはPer-Layer Embeddings（PLE）という技術が使われている。各デコーダ層に独立した埋め込み信号を注入することで、少ないパラメータ数でも高い表現力を実現する革新的なアプローチだ。
+
+全モデルがApache 2.0ライセンスで公開されている。月間アクティブユーザー（MAU）の上限もなく、利用規約の制約もなく、完全な商用自由が保証されている。これはMetaのLlama 4（700M MAU制限付きの独自ライセンス）と対照的だ。`,
+      },
+      {
+        heading:
+          "ベンチマーク — 前世代から「次元の違う」進化",
+        headingEn: "Benchmarks — A Quantum Leap from Gemma 3",
+        diagramId: "gemma4-benchmarks",
+        body: `Gemma 4の性能向上は、前世代のGemma 3から文字通り「次元の違う」ものだ。特に数学とコーディングにおける飛躍は目覚ましい。
+
+数学競技ベンチマーク AIME 2026では、Gemma 4 31Bが89.2%を記録した。Gemma 3 27Bのスコアはわずか20.8%であり、4倍以上の改善だ。Codeforces（競技プログラミング）のELOレーティングは、Gemma 3の110からGemma 4の2150へと約20倍に跳ね上がった。
+
+31B Denseモデルの推定LMArenaスコア（テキストのみ）は1452で、オープンモデルとして世界第3位にランクイン。26B MoEモデルも1441で第6位を確保している。注目すべきは、26B MoEがわずか3.8Bの有効パラメータでこのスコアを達成していることだ。自身の20倍のサイズのモデルと互角以上の性能を発揮している。
+
+総合知識ベンチマークMMU Proでは31Bが85.2%、科学推論のGPQA Diamondでは84.3%を記録。ただし、AlibabaのQwen 3.5 27BはMMU Proで86.1%、GPQA Diamondで85.5%とわずかにGemma 4を上回っており、オープンモデルの競争が激化していることがわかる。`,
+      },
+      {
+        heading: "アーキテクチャの革新 — なぜ小さくても強いのか",
+        headingEn:
+          "Architectural Innovation — Why Smaller Means Stronger",
+        diagramId: "gemma4-architecture",
+        body: `Gemma 4が「バイト単位で最強」を実現できる背景には、複数のアーキテクチャ革新がある。
+
+【ハイブリッドアテンション】デコーダ層はローカルスライディングウィンドウアテンション（512〜1024トークン）とグローバルフルコンテキストアテンションを交互に配置している。ローカル層は近接するトークン間の関係を効率的に処理し、グローバル層が文書全体の長距離依存関係を捉える。これにより、256Kトークンという長大なコンテキストウィンドウを計算コストを抑えながら実現している。
+
+【Per-Layer Embeddings（PLE）】E2BとE4Bに採用された技術で、通常の入力埋め込みに加えて、各デコーダ層に個別の埋め込み信号を供給する。これにより、少ないパラメータ数でも層ごとに異なる表現を学習でき、結果として小さなモデルの表現力を大幅に向上させている。
+
+【Shared KV Cache】後半N層のキー・バリューキャッシュが前半の層と共有される仕組み。推論時のメモリ使用量を大幅に削減し、長いコンテキストの処理をより実用的にしている。
+
+【Dual RoPE】位置エンコーディングにも工夫がある。スライディングウィンドウ層には標準のRoPE（Rotary Position Embedding）を、グローバル層にはProportional RoPEを採用。異なるスケールの位置情報を適切にエンコードしている。
+
+【ビジョン・オーディオエンコーダ】画像入力には約550M（小モデルは150M）パラメータのビジョンエンコーダを搭載。可変アスペクト比に対応し、トークンバジェット（70、140、280、560、1120）を設定可能。E2B/E4Bにはさらに約300MパラメータのUSMスタイルConformerオーディオエンコーダが搭載され、音声入力にも対応する。`,
+      },
+      {
+        heading:
+          "オープンモデル戦国時代 — Gemma 4の立ち位置",
+        headingEn:
+          "The Open Model Wars — Where Gemma 4 Stands",
+        diagramId: "gemma4-comparison",
+        body: `2026年のオープンAIモデル市場は、かつてないほど競争が激化している。Gemma 4の立ち位置を主要な競合モデルとの比較で確認しよう。
+
+最大の競合はAlibabaのQwen 3.5だ。Qwen 3.5 27BはMMU ProやGPQA Diamondでわずかにgemma 4 31Bを上回り、LMArenaスコアも1460とGemma 4の1452を超える。ただしQwen 3.5はテキスト専用モデルであり、Gemma 4のようなネイティブマルチモーダル能力は持たない。
+
+MetaのLlama 4 Scoutは109Bの総パラメータ（17B有効）と10Mトークンのコンテキストウィンドウが特徴だが、推論ベンチマークではGemma 4に及ばず、700M MAUの利用制限がある独自ライセンスも懸念材料だ。
+
+Zhipu AIのGLM-5 32BはLMArena 1448と健闘しているが、エッジ向けの小型モデルは提供していない。
+
+Gemma 4の最大の差別化要因は3つある。第一に、2.3Bから31Bまでの幅広いモデルレンジ。第二に、画像・音声を含むネイティブマルチモーダル対応。第三に、Apache 2.0ライセンスによる完全な商用自由。エッジからクラウドまで一貫したモデルファミリーで対応できるのは、現時点でGemma 4のみだ。`,
+      },
+      {
+        heading: "使い方ガイド — コード付き実践入門",
+        headingEn: "How to Use — Practical Guide with Code",
+        diagramId: "gemma4-code-example",
+        body: `Gemma 4はHugging Face Transformers、Google AI Studio、Ollama、llama.cppなど複数のプラットフォームで利用可能だ。ここではPython + Hugging Face Transformersを使った基本的な使い方を紹介する。
+
+Hugging Faceには全モデルのベース版（事前学習済み）とIT版（命令チューニング済み）が公開されている。通常の対話・タスク実行にはIT版（末尾に-it）を使用する。モデルIDは「google/gemma-4-e2b-it」「google/gemma-4-e4b-it」「google/gemma-4-26B-A4B-it」「google/gemma-4-31B-it」だ。
+
+テキスト生成の最もシンプルな方法はpipelineを使う方法だ。「any-to-any」タスクを指定し、モデルIDとdevice_map="auto"を設定するだけで、GPUの自動検出と最適な配置が行われる。
+
+マルチモーダル入力（画像＋テキスト）では、messagesのcontent配列にtype: "image"とtype: "text"を並べる。画像はURLまたはローカルファイルパスを指定できる。E2B/E4Bではさらにtype: "audio"やtype: "video"（load_audio_from_video=True指定）も利用可能だ。
+
+Function Calling（ツール使用）は、Gemma 4の最も強力な機能の一つだ。JSON Schemaで定義したツールをapply_chat_templateのtools引数に渡すと、モデルが自律的にツール呼び出しの判断と引数の生成を行う。enable_thinking=Trueを指定すれば、モデルが段階的に推論してからツールを呼び出す「Thinkingモード」が有効になる。
+
+GGUF量子化版もllama.cpp用に公開されており、Ollamaを使えばコマンド一行（ollama run gemma4）でローカル実行が可能だ。E2Bモデルは2ビット量子化で1.5GB未満のメモリで動作し、Raspberry Pi 5でも毎秒7.6トークンの生成速度を実現する。`,
+      },
+      {
+        heading:
+          "ユースケース別モデル選択ガイド",
+        headingEn: "Model Selection Guide by Use Case",
+        diagramId: "gemma4-use-cases",
+        body: `Gemma 4の4つのモデルはそれぞれ異なるユースケースに最適化されている。目的に応じた選び方を整理する。
+
+【E2B / E4B — エッジ・モバイル向け】スマートフォンアプリ内でのオフラインAIアシスタント、IoTデバイスでのリアルタイム音声認識、カメラアプリでの物体検出（バウンディングボックスをJSON形式で返却）などに最適。LiteRT-LMの最適化により、4,000入力トークンを2つのスキルで3秒以内に処理できる。Qualcomm Dragonwing IQ8 NPUでは毎秒3,700のプリフィルトークンを処理可能。
+
+【26B A4B MoE — PCローカル向け】プログラマーのローカルコード補完、長文ドキュメントの要約・分析（256Kコンテキスト）、マルチステップの論理的推論タスクに最適。3.8Bの有効パラメータで31B級の性能を発揮するため、消費メモリが少なく一般的なGPU（16GB VRAM）で動作する。
+
+【31B Dense — サーバー・API向け】高精度が要求されるプロダクション環境、エージェント型ワークフロー（Function Calling + JSON構造化出力）、140言語以上の多言語カスタマーサポートに最適。AIME 89.2%、Codeforces ELO 2150という数学・コーディング性能は、有料APIのクローズドモデルにも匹敵する。
+
+ファインチューニングも全モデルで対応している。Hugging Face TRL、QLoRA、PEFT（LoRA）、Unsloth Studioなどのツールが利用可能で、特定ドメインへの適応も容易だ。Google AI StudioやVertex AIからクラウド経由でも利用でき、オンプレミスからクラウドまで柔軟なデプロイメントが可能である。`,
+      },
+      {
+        heading: "Gemma 4が意味するもの — オープンAIの新局面",
+        headingEn:
+          "What Gemma 4 Means — A New Phase for Open AI",
+        body: `Gemma 4の登場は、オープンAIモデルの世界が新たな局面に入ったことを示している。
+
+第一に、「小さなモデルでも十分に賢い」時代の到来だ。26B MoEモデルが3.8Bの有効パラメータで世界第6位の性能を発揮するという事実は、モデルサイズの競争が終わりを迎えつつあることを意味する。重要なのはパラメータの総数ではなく、そのパラメータをいかに効率的に使うかだ。
+
+第二に、エッジAIの本格化。E2Bモデルが1.5GB未満のメモリで音声・画像・テキストを処理できることは、クラウドに依存しないAIアプリケーションの可能性を大きく広げる。プライバシーの懸念や通信環境の制約がある場面でも、高品質なAI体験を提供できるようになる。
+
+第三に、Apache 2.0ライセンスの重要性。OpenAIやAnthropicのクローズドモデル、あるいはMetaの制限付きライセンスと異なり、Gemma 4は真の意味で「オープン」だ。企業が自社製品にAIを組み込む際のライセンスリスクがゼロであることは、商用展開の障壁を大きく下げる。
+
+日本においても、Gemma 4は140言語以上のサポートにより日本語での利用が可能であり、国内企業のAI活用を加速する潜在力を持つ。エッジモデルの進化は、製造業のIoT、医療機器、自動運転など、日本が強みを持つ分野でのオンデバイスAI活用に直結する。
+
+オープンモデルの性能がクローズドモデルに迫る中、AIの民主化はさらに加速していくだろう。Gemma 4は、その最前線に立つモデルの一つだ。`,
+      },
+    ],
+  },
 ];

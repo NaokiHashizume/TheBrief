@@ -21,6 +21,14 @@ import {
   SatelliteTypesDiagram,
   JapanInfraDiagram,
 } from "@/components/TelecomDiagrams";
+import {
+  Gemma4ModelFamilyDiagram,
+  Gemma4BenchmarkDiagram,
+  Gemma4ArchitectureDiagram,
+  OpenModelComparisonDiagram,
+  Gemma4UseCasesDiagram,
+  Gemma4CodeExampleDiagram,
+} from "@/components/Gemma4Diagrams";
 
 export function generateStaticParams() {
   return ictArticles.map((a) => ({ slug: a.slug }));
@@ -112,6 +120,12 @@ const diagramMap: Record<string, React.FC> = {
   "cell-network": CellNetworkDiagram,
   "satellite-types": SatelliteTypesDiagram,
   "japan-infra": JapanInfraDiagram,
+  "gemma4-model-family": Gemma4ModelFamilyDiagram,
+  "gemma4-benchmarks": Gemma4BenchmarkDiagram,
+  "gemma4-architecture": Gemma4ArchitectureDiagram,
+  "gemma4-comparison": OpenModelComparisonDiagram,
+  "gemma4-code-example": Gemma4CodeExampleDiagram,
+  "gemma4-use-cases": Gemma4UseCasesDiagram,
 };
 
 export default async function IctArticlePage({
