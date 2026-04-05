@@ -132,4 +132,59 @@ export const partyInfoList: PartyInfo[] = [
     ],
     color: "#E4027E",
   },
+  {
+    name: "日本保守党",
+    nameEn: "Japan Conservative Party",
+    founded: "2023年",
+    leader: "百田 尚樹",
+    philosophy:
+      "日本の国体・伝統・文化を守り、保守の原点に立ち返る政党。皇室の尊厳護持と国益最優先の政治を志す。",
+    policies: [
+      "皇統の安定的継承",
+      "不法滞在・不法就労の厳格取締り",
+      "NHK改革とメディアの公正化",
+      "スパイ防止法の制定",
+    ],
+    color: "#C41E3A",
+  },
+  {
+    name: "沖縄の風",
+    nameEn: "Okinawa Whirlwind",
+    founded: "2019年",
+    leader: "伊波 洋一",
+    philosophy:
+      "沖縄の基地負担軽減と自己決定権の確立を求め、平和で豊かな沖縄社会を目指す地域政党。",
+    policies: [
+      "辺野古新基地建設の中止",
+      "日米地位協定の抜本改定",
+      "沖縄の自治権拡大",
+      "アジアとの平和外交の推進",
+    ],
+    color: "#009DC4",
+  },
+  {
+    name: "減税日本・ゆうこく連合",
+    nameEn: "Tax Cut Japan / Yukoku Alliance",
+    founded: "2010年",
+    leader: "河村 たかし",
+    philosophy:
+      "庶民革命を掲げ、減税により国民生活を豊かにし、議員報酬半減など身を切る改革を実行する。",
+    policies: [
+      "市民税・国税の減税",
+      "議員報酬の半減",
+      "行政のムダ削減",
+      "地方分権の推進",
+    ],
+    color: "#FFD700",
+  },
+  {
+    name: "無所属",
+    nameEn: "Independent",
+    founded: "—",
+    leader: "—",
+    philosophy:
+      "特定の政党に属さず、個人の信念と選挙区の利益に基づいて活動する議員。",
+    policies: [],
+    color: "#999999",
+  },
 ];

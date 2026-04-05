@@ -26,6 +26,10 @@ const partyOrder = [
   "チームみらい",
   "日本共産党",
   "れいわ新選組",
+  "日本保守党",
+  "沖縄の風",
+  "減税日本・ゆうこく連合",
+  "無所属",
 ];
 
 export default function LegislatorsPage() {
