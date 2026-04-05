@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>案A: Warm & Rounded — The Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #111111;
+    --fg: #ededed;
+    --accent: #f06050;
+    --accent-soft: rgba(240,96,80,0.12);
+    --card: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.06);
+    --muted: rgba(237,237,237,0.4);
+    --radius: 16px;
+    --radius-lg: 24px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Noto Sans JP', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.7;
+  }
+  .serif { font-family: 'Playfair Display', Georgia, serif; }
+
+  /* ── Header ── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+  }
+  .header-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo-area { display: flex; flex-direction: column; align-items: flex-start; }
+  .logo-the { font-family: 'Playfair Display', serif; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: rgba(237,237,237,0.35); }
+  .logo-brief { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; line-height: 1; }
+  .logo-dot { color: var(--accent); }
+  nav ul { display: flex; gap: 28px; list-style: none; }
+  nav a {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted); text-decoration: none; transition: color .2s;
+    position: relative; padding-bottom: 4px;
+  }
+  nav a:hover { color: var(--fg); }
+  nav a::after {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+    background: var(--accent); border-radius: 1px; transition: width .2s;
+  }
+  nav a:hover::after { width: 100%; }
+
+  /* ── Hero ── */
+  .hero {
+    max-width: 800px; margin: 0 auto; padding: 80px 24px 60px; text-center: center;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
+    padding: 6px 16px; border-radius: 999px; margin-bottom: 28px;
+  }
+  .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .hero h1 {
+    font-size: 22px; font-weight: 400; color: rgba(237,237,237,0.6);
+    line-height: 1.8; max-width: 600px; margin: 0 auto;
+  }
+  .hero h1 strong { color: var(--fg); font-weight: 700; }
+  .hero p {
+    margin-top: 16px; font-size: 13px; color: rgba(237,237,237,0.3);
+    max-width: 500px; margin-left: auto; margin-right: auto;
+  }
+  .hero-buttons {
+    margin-top: 32px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff; border: none;
+    padding: 12px 28px; border-radius: 999px; font-size: 13px; font-weight: 500;
+    cursor: pointer; transition: all .2s; text-decoration: none;
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(240,96,80,0.25); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--fg); border: 1px solid var(--border);
+    padding: 12px 28px; border-radius: 999px; font-size: 13px; font-weight: 500;
+    cursor: pointer; transition: all .2s; text-decoration: none;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.05); }
+
+  /* ── Section ── */
+  .section { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+  .divider { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .divider-line { height: 1px; background: var(--border); }
+  .section-header { text-align: center; margin-bottom: 40px; }
+  .section-label {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); font-weight: 500;
+  }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; margin-top: 8px; }
+
+  /* ── Feature cards (rounded, warm) ── */
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 768px) { .features { grid-template-columns: 1fr; } }
+  .feature-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 32px 28px;
+    transition: all .25s;
+  }
+  .feature-card:hover {
+    border-color: rgba(255,255,255,0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+  .feature-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: var(--accent-soft); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; }
+  .feature-card .en { font-size: 9px; letter-spacing: 2px; color: rgba(237,237,237,0.2); text-transform: uppercase; }
+  .feature-card p { margin-top: 10px; font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+  /* ── Category cards (pill-style) ── */
+  .categories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 768px) { .categories { grid-template-columns: repeat(2, 1fr); } }
+  .cat-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px 24px;
+    transition: all .25s; text-decoration: none; color: inherit;
+    display: block; position: relative; overflow: hidden;
+  }
+  .cat-card:hover {
+    border-color: rgba(255,255,255,0.12);
+    transform: translateY(-1px);
+  }
+  .cat-card .cat-stripe {
+    position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+    border-radius: 0 2px 2px 0;
+  }
+  .cat-card .cat-head { display: flex; align-items: center; gap: 10px; margin-left: 8px; }
+  .cat-card h3 { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; }
+  .cat-card .cat-ja { font-size: 11px; color: rgba(237,237,237,0.25); }
+  .cat-card p { margin-top: 8px; margin-left: 8px; font-size: 12px; color: var(--muted); }
+  .cat-card .coming-soon {
+    display: inline-block; margin-top: 8px; margin-left: 8px;
+    font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+    color: rgba(237,237,237,0.25); border: 1px solid rgba(255,255,255,0.08);
+    padding: 2px 8px; border-radius: 999px;
+  }
+  .cat-card.muted { opacity: 0.45; }
+
+  /* ── Visual ── */
+  .visual-box {
+    margin-top: 48px; padding: 36px;
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  }
+  .visual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+  @media (max-width: 640px) { .visual-grid { grid-template-columns: 1fr; } }
+  .visual-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(237,237,237,0.25); }
+  .visual-label.red { color: var(--accent); }
+  .dots { display: flex; align-items: center; gap: 14px; margin-top: 12px; }
+  .dot-item { width: 12px; height: 12px; border-radius: 50%; background: rgba(237,237,237,0.12); }
+  .line-item { display: flex; align-items: center; gap: 0; margin-top: 12px; }
+  .line-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(237,237,237,0.25); flex-shrink: 0; }
+  .line-dot.end { background: var(--accent); }
+  .line-seg { width: 40px; height: 2px; background: rgba(237,237,237,0.12); }
+  .visual-desc { font-size: 13px; color: rgba(237,237,237,0.35); margin-top: 10px; }
+
+  /* ── CTA ── */
+  .cta { text-align: center; padding: 60px 24px; max-width: 700px; margin: 0 auto; }
+  .cta h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; }
+  .cta p { margin-top: 14px; font-size: 13px; color: var(--muted); max-width: 500px; margin-left: auto; margin-right: auto; }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border); margin-top: 60px;
+    padding: 48px 24px; max-width: 1100px; margin-left: auto; margin-right: auto;
+  }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 32px; }
+  @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  footer h4 { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(237,237,237,0.3); margin-bottom: 12px; }
+  footer ul { list-style: none; }
+  footer li { margin-bottom: 8px; }
+  footer a { font-size: 13px; color: rgba(237,237,237,0.5); text-decoration: none; transition: color .2s; }
+  footer a:hover { color: var(--fg); }
+  .footer-bottom {
+    margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; font-size: 11px; color: rgba(237,237,237,0.2);
+  }
+
+  /* ---- DESIGN NOTES (top bar) ---- */
+  .design-note {
+    background: var(--accent); color: #fff; text-align: center;
+    padding: 10px; font-size: 13px; font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="design-note">
+  案 A: Warm & Rounded — 角丸を大きくし、暖色アクセント・pill型ボタン・カードのhover浮遊感で親しみやすさUP
+</div>
+
+<!-- Header -->
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+      <span class="logo-the">The</span>
+      <span class="logo-brief">Br<span class="logo-dot">i</span>ef</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Politics</a></li>
+        <li><a href="#">Economy</a></li>
+        <li><a href="#">Industry</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge"><span class="dot"></span>ニュースを「線」で追うメディア</div>
+  <h1>
+    日本の政治・経済・業界情報・生活を<br>
+    もっと<strong>分かりやすく</strong>、<strong>繋がりを持って</strong>伝える。
+  </h1>
+  <p>ニュースは「点」ではなく「線」で理解する。<br>The Brief は、出来事の背景・因果・影響を繋いで伝える日本語メディアです。</p>
+  <div class="hero-buttons">
+    <a href="#" class="btn-primary">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Politics を見る
+    </a>
+    <a href="#" class="btn-secondary">The Brief とは</a>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- Features -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-label">What Makes Us Different</div>
+    <div class="section-title">他のメディアと何が違うのか</div>
+  </div>
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="18" r="2"/><line x1="6.5" y1="7.5" x2="10.5" y2="10.5"/><line x1="13.5" y1="13.5" x2="17.5" y2="16.5"/></svg>
+      </div>
+      <h3>ニュースを"線"で追う</h3>
+      <div class="en">Storylines</div>
+      <p>一つ一つのニュースは「点」でしかありません。The Brief は出来事を時系列の「線」として繋ぎ、文脈と因果関係を明確にします。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <h3>わかりやすく、シンプルに</h3>
+      <div class="en">Clear &amp; Simple</div>
+      <p>専門用語を避け、誰でも理解できる言葉で伝えます。複雑な政治・経済の構造も、ビジュアルとともに直感的に把握できます。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><line x1="8.5" y1="7.5" x2="15.5" y2="16.5"/><line x1="15.5" y1="7.5" x2="8.5" y2="16.5"/></svg>
+      </div>
+      <h3>繋がりを見せる</h3>
+      <div class="en">Connected</div>
+      <p>政治の決定が経済に、経済の動きが業界に、業界の変化が私たちの生活にどう影響するか。領域を超えた繋がりを伝えます。</p>
+    </div>
+  </div>
+
+  <div class="visual-box">
+    <div class="visual-grid">
+      <div>
+        <div class="visual-label">従来のニュース</div>
+        <div class="dots">
+          <div class="dot-item"></div><div class="dot-item"></div><div class="dot-item"></div><div class="dot-item"></div><div class="dot-item"></div>
+        </div>
+        <div class="visual-desc">バラバラの「点」として伝えられる情報</div>
+      </div>
+      <div>
+        <div class="visual-label red">The Brief</div>
+        <div class="line-item">
+          <div class="line-dot"></div><div class="line-seg"></div>
+          <div class="line-dot"></div><div class="line-seg"></div>
+          <div class="line-dot"></div><div class="line-seg"></div>
+          <div class="line-dot end"></div>
+        </div>
+        <div class="visual-desc">文脈と因果で繋がれた「線」としての情報</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- Categories -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-label">Categories</div>
+    <div class="section-title">取り扱うテーマ</div>
+  </div>
+  <div class="categories">
+    <a href="#" class="cat-card">
+      <div class="cat-stripe" style="background:#e53e3e"></div>
+      <div class="cat-head"><h3>Politics</h3><span class="cat-ja">政治</span></div>
+      <p>国会・内閣・議員の構成と政策の動向</p>
+    </a>
+    <a href="#" class="cat-card">
+      <div class="cat-stripe" style="background:#3182ce"></div>
+      <div class="cat-head"><h3>Economy</h3><span class="cat-ja">経済</span></div>
+      <p>金融政策・市場動向・マクロ経済の分析</p>
+    </a>
+    <a href="#" class="cat-card">
+      <div class="cat-stripe" style="background:#38a169"></div>
+      <div class="cat-head"><h3>Industry</h3><span class="cat-ja">業界</span></div>
+      <p>AI・半導体・自動車・エネルギーなど各業界の最新情報</p>
+    </a>
+    <div class="cat-card muted">
+      <div class="cat-stripe" style="background:#d69e2e"></div>
+      <div class="cat-head"><h3>Lifestyle</h3><span class="cat-ja">生活</span></div>
+      <p>政策や経済が私たちの暮らしにどう影響するか</p>
+      <div class="coming-soon">Coming Soon</div>
+    </div>
+    <div class="cat-card muted">
+      <div class="cat-stripe" style="background:#805ad5"></div>
+      <div class="cat-head"><h3>Opinion</h3><span class="cat-ja">オピニオン</span></div>
+      <p>専門家による分析と多角的な視点</p>
+      <div class="coming-soon">Coming Soon</div>
+    </div>
+    <div class="cat-card muted">
+      <div class="cat-stripe" style="background:#00b5d8"></div>
+      <div class="cat-head"><h3>University</h3><span class="cat-ja">大学</span></div>
+      <p>大学・教育機関の動向と研究トピック</p>
+      <div class="coming-soon">Coming Soon</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>ニュースの「線」を、一緒に追おう。</h2>
+  <p>The Brief は始まったばかりのメディアです。日本の政治・経済・業界のいまを、分かりやすく繋がりを持って伝えていきます。</p>
+  <div class="hero-buttons" style="margin-top:28px">
+    <a href="#" class="btn-primary">Politics から始める</a>
+    <a href="#" class="btn-secondary">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Follow @thebrief_info
+    </a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="logo-area" style="margin-bottom:12px">
+        <span class="logo-the">The</span>
+        <span class="logo-brief" style="font-size:24px">Br<span class="logo-dot">i</span>ef</span>
+      </div>
+      <div style="font-size:11px; color:rgba(237,237,237,0.3)">Politics · Economy · Industry · Trends</div>
+    </div>
+    <div>
+      <h4>Sections</h4>
+      <ul>
+        <li><a href="#">Politics</a></li>
+        <li><a href="#">Economy</a></li>
+        <li><a href="#">Industry</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>More</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Newsletter</h4>
+      <p style="font-size:13px; color:rgba(237,237,237,0.5); margin-bottom:12px">毎朝、厳選ニュースをお届け。</p>
+      <div style="display:flex; gap:8px">
+        <input type="email" placeholder="you@example.com" style="flex:1; padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,0.1); background:transparent; color:#fff; font-size:12px; outline:none;">
+        <button style="padding:10px 20px; border-radius:999px; background:var(--accent); color:#fff; border:none; font-size:12px; cursor:pointer;">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 The Brief. All rights reserved.</span>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
