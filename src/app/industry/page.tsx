@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { IndustryBubbleChart } from "@/components/IndustryBubbleChart";
+import { otherArticles } from "@/lib/other";
 
 export const metadata: Metadata = {
   title: "Industry — 業界別ニュース",
@@ -329,6 +330,74 @@ export default function IndustryPage() {
             </div>
           );
         })}
+      </div>
+
+      {/* その他 section */}
+      <div className="mt-14">
+        <div className="flex items-center gap-3 mb-4">
+          <div
+            className="w-10 h-10 rounded-lg flex items-center justify-center"
+            style={{ backgroundColor: "#8b5cf615", color: "#8b5cf6" }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4" />
+              <path d="M12 8h.01" />
+            </svg>
+          </div>
+          <div>
+            <h2 className="font-serif text-xl font-bold">その他</h2>
+            <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
+              Cross-Sector Analysis
+            </span>
+          </div>
+        </div>
+        <p className="text-sm text-foreground/55 leading-relaxed mb-4">
+          特定業界に限定されないクロスセクター分析、経済圏戦争、地政学リスクなど、業界横断的なテーマの記事。
+        </p>
+
+        <div className="space-y-3">
+          {otherArticles.map((article) => (
+            <Link
+              key={article.slug}
+              href={`/industry/other/${article.slug}`}
+              className="group block p-4 rounded-xl border border-brief-border hover:border-[#8b5cf6]/30 bg-brief-card transition-all"
+            >
+              <div className="flex items-center gap-2 mb-1.5">
+                <time className="text-[10px] tabular-nums text-foreground/45">
+                  {article.date}
+                </time>
+                <span className="text-[10px] text-foreground/45">·</span>
+                <span className="text-[10px] text-foreground/45">{article.readTime}</span>
+              </div>
+              <h3 className="text-sm font-bold leading-snug group-hover:text-[#8b5cf6] transition-colors">
+                {article.title}
+              </h3>
+              <p className="mt-1.5 text-[12px] text-foreground/50 leading-relaxed line-clamp-2">
+                {article.summary}
+              </p>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {article.tags.slice(0, 4).map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[9px] px-2 py-0.5 rounded-full bg-[#8b5cf6]/8 text-[#8b5cf6]/70 font-medium"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-4 text-right">
+          <Link
+            href="/industry/other"
+            className="text-xs text-[#8b5cf6] hover:underline"
+          >
+            その他の記事をすべて見る →
+          </Link>
+        </div>
       </div>
     </div>
   );
