@@ -11,6 +11,7 @@ import {
   type IndicatorStatus,
   type TrendDirection,
 } from "@/lib/economy";
+import { economyArticles } from "@/lib/economyArticles";
 
 export const metadata: Metadata = {
   title: "Economy — 日本経済指標",
@@ -255,6 +256,12 @@ export default function EconomyPage() {
         >
           ニュース
         </a>
+        <a
+          href="#economy-articles"
+          className="px-3 py-1.5 text-[11px] font-medium rounded-full border border-brief-border bg-brief-card hover:border-foreground/20 hover:bg-foreground/5 transition-colors"
+        >
+          解説記事
+        </a>
       </div>
 
       {/* Summary Dashboard */}
@@ -465,6 +472,64 @@ export default function EconomyPage() {
           ))}
         </div>
       </div>
+
+      {/* Economy Articles */}
+      {economyArticles.length > 0 && (
+        <div className="mt-14" id="economy-articles">
+          <div className="flex items-center gap-4 mb-6 scroll-mt-20">
+            <div>
+              <h2 className="font-serif text-xl font-bold">解説記事</h2>
+              <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">
+                In-Depth Articles
+              </span>
+            </div>
+            <div className="flex-1 h-px bg-foreground/5" />
+          </div>
+
+          <div className="space-y-4">
+            {economyArticles.map((article) => (
+              <Link
+                key={article.slug}
+                href={`/economy/${article.slug}`}
+                className="group block p-5 rounded-xl border border-brief-border hover:border-[#dc2626]/30 bg-brief-card transition-all"
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <time className="text-[10px] tabular-nums text-foreground/45">
+                    {article.date}
+                  </time>
+                  <span className="text-[10px] text-foreground/45">·</span>
+                  <span className="text-[10px] text-foreground/45">
+                    {article.author}
+                  </span>
+                  <span className="text-[10px] text-foreground/45">·</span>
+                  <span className="text-[10px] text-foreground/45">
+                    {article.readTime}
+                  </span>
+                </div>
+
+                <h3 className="font-serif text-lg font-bold leading-snug group-hover:text-[#dc2626] transition-colors">
+                  {article.title}
+                </h3>
+
+                <p className="mt-2 text-sm text-foreground/55 leading-relaxed line-clamp-2">
+                  {article.summary}
+                </p>
+
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {article.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[9px] px-2 py-0.5 rounded-full bg-[#dc2626]/8 text-[#dc2626]/70 font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Data sources note */}
       <div className="mt-14 p-5 rounded-xl border border-dashed border-brief-border">
