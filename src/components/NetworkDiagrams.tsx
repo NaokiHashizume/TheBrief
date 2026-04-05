@@ -345,3 +345,33 @@ export function SecurityLayersDiagram() {
     </DiagramCard>
   );
 }
+
+/* ─────────────────────────────────────────────
+   Internet Scale Stats Banner
+   ───────────────────────────────────────────── */
+export function InternetScaleDiagram() {
+  return (
+    <div className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
+        <div className="text-2xl font-bold text-[#3b82f6]">60億+</div>
+        <div className="text-[10px] text-foreground/50 mt-1">インターネットユーザー</div>
+        <div className="text-[9px] text-foreground/45">世界人口の約73%</div>
+      </div>
+      <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
+        <div className="text-2xl font-bold text-[#8b5cf6]">300億+</div>
+        <div className="text-[10px] text-foreground/50 mt-1">接続デバイス数</div>
+        <div className="text-[9px] text-foreground/45">IoT含む</div>
+      </div>
+      <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
+        <div className="text-2xl font-bold text-[#f59e0b]">10万+</div>
+        <div className="text-[10px] text-foreground/50 mt-1">AS（自律システム）</div>
+        <div className="text-[9px] text-foreground/45">ネットワークの集合体</div>
+      </div>
+      <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
+        <div className="text-2xl font-bold text-[#10b981]">5,350万</div>
+        <div className="text-[10px] text-foreground/50 mt-1">日本のBB契約数</div>
+        <div className="text-[9px] text-foreground/45">固定ブロードバンド</div>
+      </div>
+    </div>
+  );
+}
