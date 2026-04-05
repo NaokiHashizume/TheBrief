@@ -301,7 +301,7 @@ export default function DietPage() {
       {/* Timeline */}
       <div className="relative pl-8">
         {/* Vertical line */}
-        <div className="absolute left-[11px] top-0 bottom-0 w-px bg-white/10" />
+        <div className="absolute left-[11px] top-0 bottom-0 w-px bg-foreground/5" />
 
         {dietHistory.map((era, i) => (
           <div key={era.year} className="relative pb-10 last:pb-0">

@@ -32,7 +32,7 @@ function ProgressBar({ value, status }: { value: number; status: string }) {
     "achieved": "bg-blue-500",
   };
   return (
-    <div className="h-2 rounded-full overflow-hidden bg-white/5 w-full">
+    <div className="h-2 rounded-full overflow-hidden bg-foreground/5 w-full">
       <div
         className={`h-full rounded-full transition-all duration-500 ${barColors[status] || "bg-foreground/30"}`}
         style={{ width: `${value}%` }}
@@ -97,7 +97,7 @@ export default function CabinetPage() {
               Policy Platform — 2026.2.20 Speech
             </span>
           </div>
-          <div className="flex-1 h-px bg-white/10" />
+          <div className="flex-1 h-px bg-foreground/5" />
         </div>
 
         {/* Mission statement */}
@@ -150,7 +150,7 @@ export default function CabinetPage() {
               Policy Tracker
             </span>
           </div>
-          <div className="flex-1 h-px bg-white/10" />
+          <div className="flex-1 h-px bg-foreground/5" />
         </div>
 
         {/* Legend */}
@@ -171,7 +171,7 @@ export default function CabinetPage() {
                 <div className="flex items-center gap-3 mb-4">
                   <h3 className="font-serif text-base font-bold">{cat}</h3>
                   <span className="text-[9px] tracking-[1px] uppercase text-foreground/20">{catEn}</span>
-                  <div className="flex-1 h-px bg-white/5" />
+                  <div className="flex-1 h-px bg-foreground/5" />
                 </div>
 
                 <div className="space-y-3">
@@ -229,7 +229,7 @@ export default function CabinetPage() {
               Cabinet Members
             </span>
           </div>
-          <div className="flex-1 h-px bg-white/10" />
+          <div className="flex-1 h-px bg-foreground/5" />
         </div>
 
         <div className="border border-brief-border rounded-xl overflow-hidden">

@@ -233,7 +233,7 @@ export default function EconomyPage() {
                 {group.label.en}
               </span>
             </div>
-            <div className="flex-1 h-px bg-white/5" />
+            <div className="flex-1 h-px bg-foreground/5" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -253,12 +253,12 @@ export default function EconomyPage() {
               Economic News Timeline
             </span>
           </div>
-          <div className="flex-1 h-px bg-white/5" />
+          <div className="flex-1 h-px bg-foreground/5" />
         </div>
 
         <div className="relative">
           {/* Vertical timeline line */}
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-white/10" />
+          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-foreground/5" />
 
           <div className="space-y-0">
             {economyNews.map((item, i) => {

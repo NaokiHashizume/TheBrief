@@ -85,7 +85,7 @@ export default async function EnactedDetailPage({
             賛成率 {forPct}%
           </span>
         </div>
-        <div className="h-3 rounded-full overflow-hidden bg-white/5 flex">
+        <div className="h-3 rounded-full overflow-hidden bg-foreground/5 flex">
           <div
             className="h-full bg-green-500 rounded-l-full"
             style={{ width: `${forPct}%` }}
@@ -167,7 +167,7 @@ export default async function EnactedDetailPage({
       <div className="mt-10">
         <SectionHeader title="経過" titleEn="Timeline" />
         <div className="relative pl-6">
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-white/10" />
+          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-foreground/5" />
           {item.timeline.map((t, i) => {
             const isLast = i === item.timeline.length - 1;
             return (
@@ -237,7 +237,7 @@ function SectionHeader({ title, titleEn }: { title: string; titleEn: string }) {
         <h2 className="font-serif text-lg font-bold">{title}</h2>
         <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">{titleEn}</span>
       </div>
-      <div className="flex-1 h-px bg-white/10" />
+      <div className="flex-1 h-px bg-foreground/5" />
     </div>
   );
 }

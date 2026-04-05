@@ -179,7 +179,7 @@ function SectionHeader({ title, titleEn }: { title: string; titleEn: string }) {
         <h2 className="font-serif text-lg font-bold">{title}</h2>
         <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">{titleEn}</span>
       </div>
-      <div className="flex-1 h-px bg-white/10" />
+      <div className="flex-1 h-px bg-foreground/5" />
     </div>
   );
 }

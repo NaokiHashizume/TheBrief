@@ -223,12 +223,12 @@ export default function PoliticsPage() {
             <h2 className="font-serif text-xl font-bold">最新ニュース</h2>
             <span className="text-[9px] tracking-[2px] uppercase text-foreground/25">Latest</span>
           </div>
-          <div className="flex-1 h-px bg-white/5" />
+          <div className="flex-1 h-px bg-foreground/5" />
         </div>
 
         <div className="relative pl-6">
           {/* Vertical line */}
-          <div className="absolute left-[7px] top-0 bottom-0 w-px bg-white/10" />
+          <div className="absolute left-[7px] top-0 bottom-0 w-px bg-foreground/5" />
 
           {politicsNews.map((news, i) => {
             const isFirst = i === 0;
@@ -239,7 +239,7 @@ export default function PoliticsPage() {
               <div key={`${news.date}-${news.time}`}>
                 {showDate && (
                   <div className="relative flex items-center gap-3 pb-3 pt-1">
-                    <div className="absolute left-[-19px] w-3 h-px bg-white/20" />
+                    <div className="absolute left-[-19px] w-3 h-px bg-foreground/10" />
                     <span className="text-[10px] font-medium text-foreground/30 tabular-nums tracking-wider">
                       {new Date(news.date).toLocaleDateString("ja-JP", { month: "long", day: "numeric", weekday: "short" })}
                     </span>

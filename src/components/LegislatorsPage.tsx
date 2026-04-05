@@ -157,9 +157,9 @@ function RankingSection({
 
       {/* Divider */}
       <div className="flex items-center gap-4 my-8">
-        <div className="flex-1 h-px bg-white/10" />
+        <div className="flex-1 h-px bg-foreground/5" />
         <span className="text-[10px] text-foreground/20 tracking-wider uppercase">· · ·</span>
-        <div className="flex-1 h-px bg-white/10" />
+        <div className="flex-1 h-px bg-foreground/5" />
       </div>
 
       {/* Bottom 5 */}

@@ -81,7 +81,7 @@ export default function EnactedPage() {
 
             {/* Vote result bar */}
             <div className="mt-3 flex items-center gap-3">
-              <div className="flex-1 h-2 rounded-full overflow-hidden bg-white/5 flex">
+              <div className="flex-1 h-2 rounded-full overflow-hidden bg-foreground/5 flex">
                 <div
                   className="h-full bg-green-500 rounded-l-full"
                   style={{ width: `${(item.voteResult.for / (item.voteResult.for + item.voteResult.against + (item.voteResult.abstain || 0))) * 100}%` }}
