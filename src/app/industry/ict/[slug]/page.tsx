@@ -40,6 +40,16 @@ import {
   JapanSemiHistoryDiagram,
   ProcessNodeDiagram,
 } from "@/components/SemiconductorDiagrams";
+import {
+  AiModelOverviewDiagram,
+  ModelTimelineDiagram,
+  BenchmarkComparisonDiagram,
+  PricingComparisonDiagram,
+  MultimodalCapsDiagram,
+  ContextWindowDiagram,
+  MarketShareDiagram,
+  StrengthsSummaryDiagram,
+} from "@/components/AiModelDiagrams";
 
 export function generateStaticParams() {
   return ictArticles.map((a) => ({ slug: a.slug }));
@@ -146,6 +156,14 @@ const diagramMap: Record<string, React.FC> = {
   "supply-chain": SupplyChainDiagram,
   "japan-semi-history": JapanSemiHistoryDiagram,
   "process-node": ProcessNodeDiagram,
+  "ai-model-overview": AiModelOverviewDiagram,
+  "model-timeline": ModelTimelineDiagram,
+  "benchmark-comparison": BenchmarkComparisonDiagram,
+  "pricing-comparison": PricingComparisonDiagram,
+  "multimodal-caps": MultimodalCapsDiagram,
+  "context-window": ContextWindowDiagram,
+  "market-share": MarketShareDiagram,
+  "strengths-summary": StrengthsSummaryDiagram,
 };
 
 export default async function IctArticlePage({
