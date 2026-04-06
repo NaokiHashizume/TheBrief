@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { politicsNews } from "@/lib/politicsNews";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { T } from "@/components/T";
 
 export const metadata: Metadata = {
   title: "Politics — 国会・内閣・議員",
@@ -16,6 +17,7 @@ const sections = [
     title: "国会",
     titleEn: "National Diet",
     description: "衆議院・参議院の役割と政党別議席数",
+    descriptionEn: "Roles of both chambers and seat distribution by party",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 21h18" />
@@ -33,6 +35,7 @@ const sections = [
     title: "内閣",
     titleEn: "Cabinet",
     description: "内閣総理大臣・各大臣の顔ぶれ",
+    descriptionEn: "Prime Minister and Cabinet ministers",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -47,6 +50,7 @@ const sections = [
     title: "議員",
     titleEn: "Legislators",
     description: "各政党の主要議員一覧",
+    descriptionEn: "Key legislators by party",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -77,33 +81,33 @@ export default function PoliticsPage() {
 
       <h1 className="font-serif text-3xl md:text-4xl font-bold">Politics</h1>
       <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-        日本の国会（衆議院・参議院）の政党別議席数、内閣の顔ぶれ、主要議員をわかりやすくまとめています。
+        <T ja="日本の国会（衆議院・参議院）の政党別議席数、内閣の顔ぶれ、主要議員をわかりやすくまとめています。" en="A clear overview of Japan's National Diet (House of Representatives & House of Councillors), seat distribution by party, Cabinet members, and key legislators." />
       </p>
       <p className="mt-2 text-xs text-foreground/45">
-        Last updated: 2026-04-04 ※最新の情報に基づき随時更新
+        Last updated: 2026-04-04 <T ja="※最新の情報に基づき随時更新" en="— Updated regularly with the latest data" />
       </p>
 
       {/* いまの政治 ダッシュボード */}
       <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
         <div className="p-4 rounded-xl bg-brief-card border border-brief-border">
-          <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1">衆議院</div>
+          <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1"><T ja="衆議院" en="House of Reps" /></div>
           <div className="text-2xl font-bold tabular-nums" style={{ color: "#3CA324" }}>316<span className="text-sm text-foreground/45">/465</span></div>
-          <div className="text-[10px] text-foreground/50 mt-1">自民単独2/3超の歴史的大勝</div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="自民単独2/3超の歴史的大勝" en="Historic LDP supermajority" /></div>
         </div>
         <div className="p-4 rounded-xl bg-brief-card border border-brief-border">
-          <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1">内閣支持率</div>
+          <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1"><T ja="内閣支持率" en="Approval Rating" /></div>
           <div className="text-2xl font-bold tabular-nums text-brief-red">58〜64%</div>
-          <div className="text-[10px] text-foreground/50 mt-1">第2次高市内閣</div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="第2次高市内閣" en="2nd Takaichi Cabinet" /></div>
         </div>
         <div className="p-4 rounded-xl bg-brief-card border border-brief-border">
-          <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1">審議中法案</div>
-          <div className="text-2xl font-bold tabular-nums text-brief-red">6<span className="text-sm text-foreground/45">本</span></div>
-          <div className="text-[10px] text-foreground/50 mt-1">第221回特別国会</div>
+          <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1"><T ja="審議中法案" en="Bills in Debate" /></div>
+          <div className="text-2xl font-bold tabular-nums text-brief-red">6<span className="text-sm text-foreground/45"><T ja="本" en="" /></span></div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="第221回特別国会" en="221st Special Diet Session" /></div>
         </div>
         <div className="p-4 rounded-xl bg-brief-card border border-brief-border">
-          <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1">施行済</div>
-          <div className="text-2xl font-bold tabular-nums text-green-500">4<span className="text-sm text-foreground/45">件</span></div>
-          <div className="text-[10px] text-foreground/50 mt-1">2026年に施行</div>
+          <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1"><T ja="施行済" en="Enacted" /></div>
+          <div className="text-2xl font-bold tabular-nums text-green-500">4<span className="text-sm text-foreground/45"><T ja="件" en="" /></span></div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="2026年に施行" en="Effective in 2026" /></div>
         </div>
       </div>
 
@@ -117,9 +121,9 @@ export default function PoliticsPage() {
             <div className="text-foreground/45 group-hover:text-brief-red transition-colors">
               {sec.icon}
             </div>
-            <h2 className="font-serif text-2xl font-bold mt-5">{sec.title}</h2>
+            <h2 className="font-serif text-2xl font-bold mt-5"><T ja={sec.title} en={sec.titleEn} /></h2>
             <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">{sec.titleEn}</span>
-            <p className="text-sm text-foreground/55 mt-2">{sec.description}</p>
+            <p className="text-sm text-foreground/55 mt-2"><T ja={sec.description} en={sec.descriptionEn} /></p>
             <div className="mt-4 flex items-center gap-1 text-xs text-brief-red opacity-0 group-hover:opacity-100 transition-opacity">
               <span>View</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -142,10 +146,10 @@ export default function PoliticsPage() {
             </svg>
           </div>
           <div>
-            <h2 className="font-serif text-xl font-bold">審議中</h2>
+            <h2 className="font-serif text-xl font-bold"><T ja="審議中" en="Debates in Progress" /></h2>
             <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Debates in Progress</span>
             <p className="text-sm text-foreground/55 mt-0.5">
-              国会で現在審議されている法案・議題の一覧
+              <T ja="国会で現在審議されている法案・議題の一覧" en="Bills and topics currently under deliberation in the Diet" />
             </p>
           </div>
         </div>
@@ -170,10 +174,10 @@ export default function PoliticsPage() {
             </svg>
           </div>
           <div>
-            <h2 className="font-serif text-xl font-bold">成立済</h2>
+            <h2 className="font-serif text-xl font-bold"><T ja="成立済" en="Passed" /></h2>
             <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Enacted, Not Yet Effective</span>
             <p className="text-sm text-foreground/55 mt-0.5">
-              成立したが、まだ施行されていない主要法令
+              <T ja="成立したが、まだ施行されていない主要法令" en="Major laws passed but not yet in effect" />
             </p>
           </div>
         </div>
@@ -197,10 +201,10 @@ export default function PoliticsPage() {
             </svg>
           </div>
           <div>
-            <h2 className="font-serif text-xl font-bold">施行済</h2>
+            <h2 className="font-serif text-xl font-bold"><T ja="施行済" en="In Effect" /></h2>
             <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Effective in 2026</span>
             <p className="text-sm text-foreground/55 mt-0.5">
-              2026年に施行・発効した主要法令
+              <T ja="2026年に施行・発効した主要法令" en="Major laws that took effect in 2026" />
             </p>
           </div>
         </div>
@@ -220,7 +224,7 @@ export default function PoliticsPage() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brief-red opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brief-red" />
             </span>
-            <h2 className="font-serif text-xl font-bold">最新ニュース</h2>
+            <h2 className="font-serif text-xl font-bold"><T ja="最新ニュース" en="Latest News" /></h2>
             <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Latest</span>
           </div>
           <div className="flex-1 h-px bg-foreground/5" />

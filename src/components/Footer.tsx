@@ -1,7 +1,12 @@
+"use client";
+
 import { Logo } from "./Logo";
 import { NewsletterForm } from "./NewsletterForm";
+import { useLanguage } from "./LanguageProvider";
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="border-t border-brief-border bg-brief-card mt-16">
       <div className="max-w-6xl mx-auto px-4 py-12">
@@ -27,7 +32,7 @@ export function Footer() {
 
           <div>
             <h4 className="text-[10px] tracking-[2px] uppercase text-foreground/55 mb-3">
-              Sections
+              {t("footer.sections")}
             </h4>
             <ul className="space-y-2 text-sm text-foreground/70">
               <li><a href="/politics" className="hover:text-foreground transition-colors">Politics</a></li>
@@ -39,7 +44,7 @@ export function Footer() {
 
           <div>
             <h4 className="text-[10px] tracking-[2px] uppercase text-foreground/55 mb-3">
-              More
+              {t("footer.more")}
             </h4>
             <ul className="space-y-2 text-sm text-foreground/70">
               <li><span className="text-foreground/45 cursor-default">Lifestyle</span></li>
@@ -51,10 +56,10 @@ export function Footer() {
 
           <div>
             <h4 className="text-[10px] tracking-[2px] uppercase text-foreground/55 mb-3">
-              Newsletter
+              {t("footer.newsletter.title")}
             </h4>
             <p className="text-sm text-foreground/70 mb-3">
-              毎朝、厳選ニュースをお届け。
+              {t("footer.newsletter.desc")}
             </p>
             <NewsletterForm compact />
           </div>

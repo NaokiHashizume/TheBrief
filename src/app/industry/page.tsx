@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { IndustryBubbleChart, IndustryFinancialProfiles } from "@/components/IndustryBubbleChart";
 import { otherArticles } from "@/lib/other";
+import { T } from "@/components/T";
 
 export const metadata: Metadata = {
   title: "Industry — 業界別ニュース",
@@ -262,10 +263,10 @@ export default function IndustryPage() {
 
       <h1 className="font-serif text-3xl md:text-4xl font-bold">Industry</h1>
       <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-        日本の主要業界の最新動向を業界別にまとめています。気になる業界を選んでください。
+        <T k="industry.desc" />
       </p>
       <p className="mt-2 text-xs text-foreground/45">
-        各業界ページは順次コンテンツを追加予定です。
+        <T k="industry.note" />
       </p>
 
       {/* Bar chart */}
@@ -290,7 +291,7 @@ export default function IndustryPage() {
                 </div>
                 <div className="min-w-0">
                   <h2 className={`font-serif font-bold text-base leading-snug ${isActive ? "group-hover:text-brief-red" : ""}`}>
-                    {ind.title}
+                    <T ja={ind.title} en={ind.titleEn} />
                   </h2>
                   <span className="text-[10px] text-foreground/45">
                     {ind.titleEn}
@@ -306,11 +307,11 @@ export default function IndustryPage() {
                     className="text-[9px] tracking-wider uppercase font-medium px-2 py-0.5 rounded"
                     style={{ backgroundColor: `${ind.color}15`, color: ind.color }}
                   >
-                    記事を読む →
+                    <T k="read_articles" />
                   </span>
                 ) : (
                   <span className="text-[9px] tracking-wider uppercase text-foreground/50 border border-foreground/10 px-2 py-0.5 rounded">
-                    Coming Soon
+                    <T k="coming_soon" />
                   </span>
                 )}
               </div>
@@ -354,14 +355,14 @@ export default function IndustryPage() {
             </svg>
           </div>
           <div>
-            <h2 className="font-serif text-xl font-bold">その他</h2>
+            <h2 className="font-serif text-xl font-bold"><T ja="その他" en="Cross-Sector" /></h2>
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
               Cross-Sector Analysis
             </span>
           </div>
         </div>
         <p className="text-sm text-foreground/55 leading-relaxed mb-4">
-          特定業界に限定されないクロスセクター分析、経済圏戦争、地政学リスクなど、業界横断的なテーマの記事。
+          <T ja="特定業界に限定されないクロスセクター分析、経済圏戦争、地政学リスクなど、業界横断的なテーマの記事。" en="Cross-sector analysis, economic bloc competition, geopolitical risks, and other cross-industry themes." />
         </p>
 
         <div className="space-y-3">
@@ -403,7 +404,7 @@ export default function IndustryPage() {
             href="/industry/other"
             className="text-xs text-[#8b5cf6] hover:underline"
           >
-            その他の記事をすべて見る →
+            <T ja="その他の記事をすべて見る →" en="View all cross-sector articles →" />
           </Link>
         </div>
       </div>

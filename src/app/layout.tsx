@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { LanguageProvider } from "@/components/LanguageProvider";
 
 const SITE_URL = "https://thebrief.info";
 const SITE_NAME = "The Brief";
@@ -124,12 +125,14 @@ export default function RootLayout({
         style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
       >
         <ThemeProvider>
-          <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-brief-red focus:text-white focus:rounded-md focus:text-sm">
-            メインコンテンツへスキップ
-          </a>
-          <Header />
-          <main id="main-content" className="flex-1">{children}</main>
-          <Footer />
+          <LanguageProvider>
+            <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-brief-red focus:text-white focus:rounded-md focus:text-sm">
+              メインコンテンツへスキップ
+            </a>
+            <Header />
+            <main id="main-content" className="flex-1">{children}</main>
+            <Footer />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

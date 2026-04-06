@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
+import { LanguageToggle } from "./LanguageToggle";
 
 const categories = [
   { label: "Politics", href: "/politics" },
@@ -20,6 +21,7 @@ export function Header() {
         </Link>
 
         <div className="flex items-center gap-2">
+          <LanguageToggle />
           <ThemeToggle />
           <a
             href="https://x.com/thebrief_info"
