@@ -5,7 +5,12 @@ export const alt = "The Brief — Politics · Economy · Industry · Trends";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OgImage() {
+export default async function OgImage() {
+  // Load font from Google Fonts
+  const fontData = await fetch(
+    "https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKfsukDQ.ttf"
+  ).then((res) => res.arrayBuffer());
+
   return new ImageResponse(
     (
       <div
@@ -17,7 +22,7 @@ export default function OgImage() {
           justifyContent: "center",
           alignItems: "center",
           background: "#fafaf8",
-          fontFamily: "Georgia, serif",
+          fontFamily: "Playfair Display",
         }}
       >
         {/* "THE" label */}
@@ -26,18 +31,19 @@ export default function OgImage() {
             fontSize: 24,
             fontWeight: 700,
             letterSpacing: "8px",
-            color: "rgba(26,26,26,0.3)",
-            textTransform: "uppercase",
+            color: "rgba(26,26,26,0.35)",
+            textTransform: "uppercase" as const,
             marginBottom: 8,
           }}
         >
-          The
+          THE
         </div>
 
-        {/* "Brief" as single text with red dot overlay */}
+        {/* "Brief" with red dot */}
         <div
           style={{
             display: "flex",
+            alignItems: "baseline",
             position: "relative",
           }}
         >
@@ -50,26 +56,54 @@ export default function OgImage() {
               letterSpacing: "-2px",
             }}
           >
-            Brief
+            Br
           </div>
-          {/* Red dot positioned above the "i" */}
           <div
             style={{
-              position: "absolute",
-              top: -12,
-              left: 162,
-              width: 16,
-              height: 16,
-              borderRadius: "50%",
-              background: "#c0392b",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              position: "relative",
             }}
-          />
+          >
+            {/* Red dot above "i" */}
+            <div
+              style={{
+                width: 14,
+                height: 14,
+                borderRadius: "50%",
+                background: "#c0392b",
+                marginBottom: -8,
+              }}
+            />
+            <div
+              style={{
+                fontSize: 120,
+                fontWeight: 900,
+                color: "#1a1a1a",
+                lineHeight: 1,
+              }}
+            >
+              i
+            </div>
+          </div>
+          <div
+            style={{
+              fontSize: 120,
+              fontWeight: 900,
+              color: "#1a1a1a",
+              lineHeight: 1,
+              letterSpacing: "-2px",
+            }}
+          >
+            ef
+          </div>
         </div>
 
         {/* Tagline */}
         <div
           style={{
-            marginTop: 32,
+            marginTop: 36,
             fontSize: 16,
             letterSpacing: "6px",
             color: "rgba(26,26,26,0.3)",
@@ -93,6 +127,16 @@ export default function OgImage() {
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [
+        {
+          name: "Playfair Display",
+          data: fontData,
+          style: "normal",
+          weight: 900,
+        },
+      ],
+    }
   );
 }
