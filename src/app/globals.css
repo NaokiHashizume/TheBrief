@@ -11,6 +11,7 @@
   --color-brief-border: var(--border-color);
   --color-brief-card: var(--card-color);
   --color-brief-muted: var(--muted-color);
+  --color-brief-rule: var(--rule-color);
   --font-serif: 'Playfair Display', Georgia, serif;
 }
 
@@ -23,6 +24,7 @@
   --muted-color: rgba(26, 26, 26, 0.5);
   --sub-text: rgba(26, 26, 26, 0.55);
   --faint-text: rgba(26, 26, 26, 0.45);
+  --rule-color: #e4e4dd;
 }
 
 /* Dark theme */
@@ -34,11 +36,19 @@
   --muted-color: rgba(228, 228, 228, 0.5);
   --sub-text: rgba(228, 228, 228, 0.6);
   --faint-text: rgba(228, 228, 228, 0.5);
+  --rule-color: rgba(255, 255, 255, 0.12);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #c0392b;
+  color: #fafaf8;
 }
 
 .category-pill {
@@ -50,6 +60,36 @@ body {
 
 * {
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Nav link underline animation */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+  margin-top: 2px;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Column rule for newspaper layout */
+.col-rule-right {
+  border-right: 1px solid var(--rule-color);
+}
+
+/* Headline hover */
+.headline-hover {
+  transition: color 0.2s ease-in-out;
+}
+.headline-hover:hover {
+  color: #c0392b;
 }
 
 /* Accessible focus indicators */
