@@ -28,7 +28,6 @@ export default function PrivacyPolicy() {
           <ul className="list-disc pl-6 mt-2 space-y-1">
             <li><T ja="アクセスログ（IPアドレス、ブラウザ情報、アクセス日時）" en="Access logs (IP address, browser information, access date/time)" /></li>
             <li><T ja="Cookie情報" en="Cookie information" /></li>
-            <li><T ja="ニュースレター登録時のメールアドレス" en="Email address provided during newsletter registration" /></li>
             <li><T ja="お問い合わせフォームから送信された情報" en="Information submitted via the contact form" /></li>
           </ul>
         </section>
@@ -38,7 +37,6 @@ export default function PrivacyPolicy() {
           <p><T ja="収集した情報は、以下の目的で使用します：" en="Collected information is used for the following purposes:" /></p>
           <ul className="list-disc pl-6 mt-2 space-y-1">
             <li><T ja="サイトの運営・改善" en="Site operation and improvement" /></li>
-            <li><T ja="ニュースレターの配信" en="Newsletter distribution" /></li>
             <li><T ja="お問い合わせへの対応" en="Responding to inquiries" /></li>
             <li><T ja="アクセス解析" en="Access analytics" /></li>
           </ul>

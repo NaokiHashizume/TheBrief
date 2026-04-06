@@ -77,8 +77,6 @@ export const translations = {
   "cta.start": { ja: "Politics から始める", en: "Start with Politics" },
 
   // Footer
-  "footer.newsletter.title": { ja: "Newsletter", en: "Newsletter" },
-  "footer.newsletter.desc": { ja: "毎朝、厳選ニュースをお届け。", en: "Curated news delivered every morning." },
   "footer.sections": { ja: "Sections", en: "Sections" },
   "footer.more": { ja: "More", en: "More" },
   "footer.skip": { ja: "メインコンテンツへスキップ", en: "Skip to main content" },
