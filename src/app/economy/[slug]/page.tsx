@@ -23,6 +23,17 @@ import {
   InternationalComparisonDiagram,
   FutureDebatesDiagram,
 } from "@/components/ConsumptionTaxDiagrams";
+import {
+  FiscalPhilosophyDiagram,
+  BudgetBreakdownDiagram,
+  PBSurplusDiagram,
+  DefenseSpendingDiagram,
+  GrowthInvestmentDiagram,
+  HouseholdMeasuresDiagram,
+  InterestRateRiskDiagram,
+  FiscalSustainabilityDiagram,
+  ThreeScenariosDiagram,
+} from "@/components/TakaichiFiscalDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -109,6 +120,15 @@ const diagramMap: Record<string, React.FC> = {
   "regressivity": RegressivityDiagram,
   "international-comparison": InternationalComparisonDiagram,
   "future-debates": FutureDebatesDiagram,
+  "fiscal-philosophy": FiscalPhilosophyDiagram,
+  "budget-breakdown": BudgetBreakdownDiagram,
+  "pb-surplus": PBSurplusDiagram,
+  "defense-spending": DefenseSpendingDiagram,
+  "growth-investment": GrowthInvestmentDiagram,
+  "household-measures": HouseholdMeasuresDiagram,
+  "interest-rate-risk": InterestRateRiskDiagram,
+  "fiscal-sustainability": FiscalSustainabilityDiagram,
+  "three-scenarios": ThreeScenariosDiagram,
 };
 
 export default async function EconomyArticlePage({
