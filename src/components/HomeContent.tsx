@@ -13,25 +13,25 @@ const snapshotStats = [
     noteEn: "Politics / Economy / Industry / University",
   },
   {
-    value: "17",
+    value: "19",
     labelJa: "業界ページ",
     labelEn: "Industry pages",
-    noteJa: "AI、情報通信、自動車、金融などを横断",
-    noteEn: "Across AI, ICT, automotive, finance, and more",
+    noteJa: "AI・情報通信・自動車・金融・エネルギーなど",
+    noteEn: "AI, ICT, automotive, finance, energy, and more",
   },
   {
-    value: "6",
-    labelJa: "学問大分類",
-    labelEn: "Academic domains",
-    noteJa: "University セクションで俯瞰",
-    noteEn: "Mapped in the University section",
+    value: "4",
+    labelJa: "経済記事",
+    labelEn: "Economy articles",
+    noteJa: "財政政策・消費税・地政学リスクを深掘り",
+    noteEn: "Fiscal policy, tax, and geopolitical risk analysis",
   },
   {
-    value: "3",
-    labelJa: "法案ステータス",
-    labelEn: "Legislative states",
-    noteJa: "審議中・成立済・施行済を整理",
-    noteEn: "Debating, passed, and enacted",
+    value: "8",
+    labelJa: "政治サブページ",
+    labelEn: "Politics sub-pages",
+    noteJa: "国会・内閣・法案・議員・官公庁リンク集",
+    noteEn: "Diet, Cabinet, bills, legislators, and more",
   },
 ];
 
@@ -91,12 +91,12 @@ const mainSections = [
     color: "#1e8449",
     titleJa: "Industry",
     titleEn: "Industry",
-    descJa: "17業界の構造、企業、収益モデル、テーマ別記事。",
-    descEn: "Seventeen sectors, business models, and theme-based articles.",
+    descJa: "19業界の構造、企業、収益モデル、テーマ別記事。",
+    descEn: "Nineteen sectors, business models, and theme-based articles.",
     items: [
       {
-        ja: "17業界の一覧と主要テーマ",
-        en: "All 17 sectors and their key themes",
+        ja: "19業界の一覧と主要テーマ",
+        en: "All 19 sectors and their key themes",
         href: "/industry",
       },
       {
@@ -172,12 +172,12 @@ const featuredDestinations = [
   {
     href: "/university",
     accent: "#6366f1",
-    eyebrowJa: "New Section",
-    eyebrowEn: "New Section",
-    titleJa: "University を入口に使う",
-    titleEn: "Use University as a knowledge map",
-    bodyJa: "形式科学から学際領域まで、大分類から中分類へたどれる構造です。",
-    bodyEn: "Move from high-level domains to subfields across the academic map.",
+    eyebrowJa: "Knowledge Map",
+    eyebrowEn: "Knowledge Map",
+    titleJa: "学問の全体像を俯瞰する",
+    titleEn: "Survey the academic landscape",
+    bodyJa: "形式科学から学際領域まで、大分類から中分類へたどれる構造で学問体系を整理しています。",
+    bodyEn: "Formal sciences to interdisciplinary fields — navigate the academic taxonomy from domains to subfields.",
   },
 ];
 
@@ -310,37 +310,27 @@ export function HomeContent() {
             <Logo className="items-center scale-[1.55] origin-left" />
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <span className="rounded-full border border-brief-red/20 bg-brief-red/8 px-3 py-1 text-[10px] font-bold uppercase tracking-[2.6px] text-brief-red">
-              {locale === "ja" ? "Landing Updated" : "Landing Updated"}
-            </span>
-            <span className="text-[11px] text-foreground/45">
-              {locale === "ja"
-                ? "現行の4セクション構成に合わせて再整理"
-                : "Reframed around the current four-section site structure"}
-            </span>
-          </div>
-
-          <h1 className="mt-5 max-w-4xl font-serif text-[32px] font-bold leading-[1.15] tracking-tight md:text-[56px]">
+          <h1 className="mt-8 max-w-4xl font-serif text-[32px] font-bold leading-[1.15] tracking-tight md:text-[56px]">
             {locale === "ja" ? (
               <>
-                Politics、Economy、Industry、University。
+                日本の政治・経済・産業を
                 <br className="hidden md:block" />
-                <span className="text-brief-red">今の The Brief</span> を一画面でつかむ。
+                <span className="text-brief-red">構造から理解する。</span>
               </>
             ) : (
               <>
-                Politics, Economy, Industry, and University.
+                Understand Japan&apos;s politics,
                 <br className="hidden md:block" />
-                See <span className="text-brief-red">The Brief now</span> in one screen.
+                economy, and industry{" "}
+                <span className="text-brief-red">structurally.</span>
               </>
             )}
           </h1>
 
           <p className="mt-5 max-w-3xl text-sm leading-relaxed text-foreground/62 md:text-[15px]">
             {locale === "ja"
-              ? "政治の制度、経済指標、17業界の分析、そしてUniversityの学問マップまで。サイト全体の構造が変わった今、まずどこから読むべきかをホームで迷わず選べるように整理しました。"
-              : "From political institutions and macro indicators to seventeen sector pages and the new University map, the landing page now reflects the site's current structure and makes the next click obvious."}
+              ? "国会の議席構成、経済指標ダッシュボード、19業界の分析、そして学問体系のマップ。The Briefは、日本の今をデータと構造で整理し、次に何を読むべきかを明確にします。"
+              : "Diet seat composition, economic indicator dashboards, analysis across 19 industries, and an academic discipline map. The Brief organizes Japan's current landscape with data and structure."}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -348,13 +338,13 @@ export function HomeContent() {
               href="/politics"
               className="px-5 py-2.5 rounded-sm bg-brief-red text-white text-sm font-medium hover:bg-brief-red/90 transition-colors"
             >
-              {locale === "ja" ? "Politics から入る" : "Start with Politics"}
+              {locale === "ja" ? "Politics を見る" : "Explore Politics"}
             </Link>
             <Link
-              href="/university"
+              href="/economy"
               className="px-5 py-2.5 rounded-sm border border-brief-border bg-brief-card text-sm font-medium hover:bg-foreground/[0.04] transition-colors"
             >
-              {locale === "ja" ? "University を見る" : "Open University"}
+              {locale === "ja" ? "Economy を見る" : "Explore Economy"}
             </Link>
           </div>
         </div>
@@ -379,7 +369,7 @@ export function HomeContent() {
       <section className="max-w-[1400px] mx-auto px-6 pb-16">
         <div className="border-t-2 border-b border-foreground pt-2 pb-1 mb-8">
           <h2 className="font-serif text-2xl font-bold">
-            {locale === "ja" ? "4つの入口" : "Four Gateways"}
+            {locale === "ja" ? "4つのセクション" : "Four Sections"}
           </h2>
         </div>
 
@@ -433,10 +423,10 @@ export function HomeContent() {
       <section className="max-w-6xl mx-auto px-4 pb-16">
         <div className="mb-6">
           <span className="text-[10px] tracking-[3px] uppercase text-foreground/45 font-bold">
-            {locale === "ja" ? "Start Here" : "Start Here"}
+            {locale === "ja" ? "Pick Up" : "Pick Up"}
           </span>
           <h2 className="mt-2 font-serif text-2xl md:text-3xl font-bold">
-            {locale === "ja" ? "いま使うべき主要導線" : "Best entry points right now"}
+            {locale === "ja" ? "注目コンテンツ" : "Featured Content"}
           </h2>
         </div>
 
@@ -482,7 +472,7 @@ export function HomeContent() {
               href="/industry"
               className="text-sm flex items-center gap-1 hover:text-[#1e8449] transition-colors group"
             >
-              <span>{locale === "ja" ? "全17業界を見る" : "View all 17 sectors"}</span>
+              <span>{locale === "ja" ? "全19業界を見る" : "View all 19 sectors"}</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
                 <polyline points="9 18 15 12 9 6" />
               </svg>
@@ -520,12 +510,12 @@ export function HomeContent() {
 
       <section className="max-w-3xl mx-auto px-4 py-16 text-center">
         <h2 className="font-serif text-2xl md:text-3xl font-bold">
-          {locale === "ja" ? "どこから読むかを、ホームで迷わせない。" : "Make the first click obvious."}
+          {locale === "ja" ? "日本の今を、構造で読む。" : "Read Japan through structure."}
         </h2>
         <p className="mt-4 text-sm text-foreground/50 leading-relaxed max-w-xl mx-auto font-light">
           {locale === "ja"
-            ? "制度を見るなら Politics、景気を見るなら Economy、業界比較なら Industry、知の全体像なら University。いまの構成に合わせて最短で入れるホームに更新しました。"
-            : "Politics for institutions, Economy for macro, Industry for sector comparison, and University for the knowledge map."}
+            ? "制度を知るなら Politics、景気を読むなら Economy、業界を比べるなら Industry、知の全体像なら University。"
+            : "Politics for institutions, Economy for macro indicators, Industry for sector comparison, University for the knowledge map."}
         </p>
         <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
           <Link
