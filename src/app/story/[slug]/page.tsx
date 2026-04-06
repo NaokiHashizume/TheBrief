@@ -5,6 +5,7 @@ import { sampleStories } from "@/lib/stories";
 import { getAllStories, getStoryBySlug } from "@/lib/getStories";
 import { StoryTimeline } from "@/components/StoryTimeline";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { T } from "@/components/T";
 
 export async function generateStaticParams() {
   const stories = await getAllStories();
@@ -90,7 +91,7 @@ export default async function StoryPage({
               ? "bg-brief-red/10 text-brief-red"
               : "bg-foreground/5 text-foreground/55"
           }`}>
-            {story.status === "ongoing" ? "Ongoing" : "Concluded"}
+            {story.status === "ongoing" ? <T ja="連載中" en="Ongoing" /> : <T ja="完結" en="Concluded" />}
           </span>
         </div>
 
@@ -103,13 +104,13 @@ export default async function StoryPage({
         </p>
 
         <div className="mt-4 flex items-center gap-4 text-xs text-foreground/45">
-          <span>{story.episodes.length} episodes</span>
+          <span>{story.episodes.length} <T ja="エピソード" en="episodes" /></span>
           <span>·</span>
           <span>
-            {story.episodes.reduce((sum, ep) => sum + (parseInt(ep.readTime) || 5), 0)} min read
+            {story.episodes.reduce((sum, ep) => sum + (parseInt(ep.readTime) || 5), 0)} <T ja="分で読める" en="min read" />
           </span>
           <span>·</span>
-          <span>Last updated: {story.lastUpdated}</span>
+          <span><T ja="最終更新" en="Last updated" />: {story.lastUpdated}</span>
         </div>
       </div>
 
@@ -122,7 +123,7 @@ export default async function StoryPage({
       {story.status === "ongoing" && (
         <div className="mt-4 ml-10 p-5 bg-brief-card border border-dashed border-brief-border rounded-xl">
           <p className="text-sm text-foreground/55 italic">
-            This story is ongoing. New episodes will be added as the story develops.
+            <T ja="このストーリーは連載中です。新しいエピソードは随時追加されます。" en="This story is ongoing. New episodes will be added as the story develops." />
           </p>
         </div>
       )}

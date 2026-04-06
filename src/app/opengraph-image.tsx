@@ -27,7 +27,7 @@ export default function OgImage() {
             fontWeight: 700,
             letterSpacing: "8px",
             color: "rgba(26,26,26,0.3)",
-            textTransform: "uppercase" as const,
+            textTransform: "uppercase",
             marginBottom: 8,
           }}
         >
@@ -73,7 +73,7 @@ export default function OgImage() {
             fontSize: 16,
             letterSpacing: "6px",
             color: "rgba(26,26,26,0.3)",
-            textTransform: "uppercase" as const,
+            textTransform: "uppercase",
           }}
         >
           Politics · Economy · Industry · Trends

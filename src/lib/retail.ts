@@ -8,7 +8,7 @@ export const retailArticles: IndustryArticle[] = [
     titleEn:
       "Japan's Retail Industry — Business Models and Structural Challenges",
     date: "2026-04-06",
-    author: "",
+    author: "The Brief",
     readTime: "16 min",
     tags: ["小売", "ビジネスモデル", "DX", "物流", "入門"],
     summary:

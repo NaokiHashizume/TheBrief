@@ -6,7 +6,7 @@ export const economyArticles: IndustryArticle[] = [
     title: "消費税は何に使われているのか？",
     titleEn: "Where Does Japan's Consumption Tax Go?",
     date: "2026-04-06",
-    author: "",
+    author: "The Brief",
     readTime: "14 min",
     tags: [
       "消費税",
@@ -149,7 +149,7 @@ export const economyArticles: IndustryArticle[] = [
     titleEn:
       "The Hormuz Strait Crisis and Japan's Economy — Structural Vulnerability in Energy Security Exposed",
     date: "2026-04-06",
-    author: "",
+    author: "The Brief",
     readTime: "18 min",
     tags: ["エネルギー安全保障", "原油", "中東", "地政学リスク", "石油備蓄"],
     summary:

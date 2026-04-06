@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { T } from "@/components/T";
 import { debates } from "@/lib/debates";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
@@ -27,15 +28,15 @@ export default function DebatesPage() {
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <span>審議中</span>
+        <span><T ja="審議中" en="Under Debate" /></span>
       </div>
 
-      <h1 className="font-serif text-3xl md:text-4xl font-bold">審議中</h1>
+      <h1 className="font-serif text-3xl md:text-4xl font-bold"><T ja="審議中" en="Under Debate" /></h1>
       <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-        第214回通常国会（2026年）で現在審議されている主要な法案・議題の一覧です。
+        <T ja="第214回通常国会（2026年）で現在審議されている主要な法案・議題の一覧です。" en="A list of major bills and topics currently under deliberation in the 214th Ordinary Diet session (2026)." />
       </p>
       <p className="mt-2 text-xs text-foreground/45">
-        第221回特別国会（2026年2月18日召集）審議中法案 ｜ 2026年4月4日更新
+        <T ja="第221回特別国会（2026年2月18日召集）審議中法案 ｜ 2026年4月4日更新" en="Bills under deliberation in the 221st Extraordinary Diet (convened Feb 18, 2026) | Updated April 4, 2026" />
       </p>
 
       <div className="mt-10 space-y-4">

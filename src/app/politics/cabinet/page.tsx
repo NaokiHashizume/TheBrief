@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { T } from "@/components/T";
 import { cabinet } from "@/lib/politics";
 import { policyPillars, policyIndicators } from "@/lib/cabinetPolicy";
 
@@ -77,24 +78,24 @@ export default function CabinetPage() {
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <span>内閣</span>
+        <span><T ja="内閣" en="Cabinet" /></span>
       </div>
 
-      <h1 className="font-serif text-3xl md:text-4xl font-bold">内閣</h1>
+      <h1 className="font-serif text-3xl md:text-4xl font-bold"><T ja="内閣" en="Cabinet" /></h1>
       <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-        第2次高市内閣（2026年2月18日発足）の施政方針・政策進捗と閣僚一覧です。
+        <T ja="第2次高市内閣（2026年2月18日発足）の施政方針・政策進捗と閣僚一覧です。" en="Policy platform, progress tracker, and cabinet members of the 2nd Takaichi Cabinet (inaugurated February 18, 2026)." />
       </p>
       <p className="mt-2 text-xs text-foreground/45">
-        第2次高市内閣（2026年2月18日発足）｜ 政策進捗は2026年4月時点
+        <T ja="第2次高市内閣（2026年2月18日発足）｜ 政策進捗は2026年4月時点" en="2nd Takaichi Cabinet (inaugurated Feb 18, 2026) | Policy progress as of April 2026" />
       </p>
 
       {/* ═══════ 施政方針セクション ═══════ */}
       <div className="mt-10">
         <div className="flex items-center gap-4 mb-6">
           <div>
-            <h2 className="font-serif text-2xl font-bold">施政方針</h2>
+            <h2 className="font-serif text-2xl font-bold"><T ja="施政方針" en="Policy Platform" /></h2>
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
-              Policy Platform — 2026.2.20 Speech
+              <T ja="Policy Platform — 2026.2.20 Speech" en="Policy Platform — 2026.2.20 Speech" />
             </span>
           </div>
           <div className="flex-1 h-px bg-foreground/5" />
@@ -106,8 +107,8 @@ export default function CabinetPage() {
             &ldquo;日本列島を、強く豊かに。&rdquo;
           </blockquote>
           <p className="mt-2 text-sm text-foreground/55">
-            成長のスイッチを押して、押して、押して、押して、押しまくる。
-            &mdash; 高市早苗 施政方針演説（2026年2月20日）
+            <T ja="成長のスイッチを押して、押して、押して、押して、押しまくる。" en="Press the growth switch — again, and again, and again, and again." />
+            &mdash; <T ja="高市早苗 施政方針演説（2026年2月20日）" en="Sanae Takaichi, Policy Speech (February 20, 2026)" />
           </p>
         </div>
 
@@ -145,9 +146,9 @@ export default function CabinetPage() {
       <div className="mt-14">
         <div className="flex items-center gap-4 mb-6">
           <div>
-            <h2 className="font-serif text-2xl font-bold">政策進捗</h2>
+            <h2 className="font-serif text-2xl font-bold"><T ja="政策進捗" en="Policy Progress" /></h2>
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
-              Policy Tracker
+              <T ja="Policy Tracker" en="Policy Tracker" />
             </span>
           </div>
           <div className="flex-1 h-px bg-foreground/5" />
@@ -208,7 +209,7 @@ export default function CabinetPage() {
 
                       <div className="mt-2 text-right">
                         <span className="text-[9px] text-foreground/45 tabular-nums">
-                          {indicator.lastUpdated} 更新
+                          {indicator.lastUpdated} <T ja="更新" en="updated" />
                         </span>
                       </div>
                     </div>
@@ -224,9 +225,9 @@ export default function CabinetPage() {
       <div className="mt-14">
         <div className="flex items-center gap-4 mb-6">
           <div>
-            <h2 className="font-serif text-2xl font-bold">閣僚一覧</h2>
+            <h2 className="font-serif text-2xl font-bold"><T ja="閣僚一覧" en="Cabinet Members" /></h2>
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
-              Cabinet Members
+              <T ja="Cabinet Members" en="Cabinet Members" />
             </span>
           </div>
           <div className="flex-1 h-px bg-foreground/5" />

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { T } from "@/components/T";
 import { enactedItems } from "@/lib/enacted";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
@@ -27,15 +28,15 @@ export default function EnactedPage() {
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <span>施行済</span>
+        <span><T ja="施行済" en="Enacted" /></span>
       </div>
 
-      <h1 className="font-serif text-3xl md:text-4xl font-bold">施行済</h1>
+      <h1 className="font-serif text-3xl md:text-4xl font-bold"><T ja="施行済" en="Enacted" /></h1>
       <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-        2026年に施行・発効した主要な法令の一覧です。過去の国会で成立し、2026年に施行された重要法を掲載しています。
+        <T ja="2026年に施行・発効した主要な法令の一覧です。過去の国会で成立し、2026年に施行された重要法を掲載しています。" en="A list of major laws enacted and put into effect in 2026. Includes important legislation passed in previous Diet sessions and enforced in 2026." />
       </p>
       <p className="mt-2 text-xs text-foreground/45">
-        2026年施行済法令一覧: 2026年4月4日時点 ｜ 投票結果は成立時の記録
+        <T ja="2026年施行済法令一覧: 2026年4月4日時点 ｜ 投票結果は成立時の記録" en="2026 enacted laws: as of April 4, 2026 | Vote results are from the time of passage" />
       </p>
 
       <div className="mt-10 space-y-4">
@@ -49,13 +50,13 @@ export default function EnactedPage() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap mb-2">
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-full text-white bg-green-600">
-                    施行済
+                    <T ja="施行済" en="Enacted" />
                   </span>
                   <span className="text-[10px] tracking-wider uppercase text-foreground/45">
                     {item.committee}
                   </span>
                   <span className="text-[10px] tabular-nums text-foreground/50">
-                    {item.effectiveDate} 施行
+                    {item.effectiveDate} <T ja="施行" en="effective" />
                   </span>
                 </div>
                 <h2 className="font-serif text-lg font-bold group-hover:text-green-400 transition-colors">
@@ -92,7 +93,7 @@ export default function EnactedPage() {
                 />
               </div>
               <span className="text-[10px] text-foreground/45 tabular-nums flex-shrink-0">
-                賛成{item.voteResult.for} / 反対{item.voteResult.against}
+                <T ja="賛成" en="For" />{item.voteResult.for} / <T ja="反対" en="Against" />{item.voteResult.against}
               </span>
             </div>
           </Link>

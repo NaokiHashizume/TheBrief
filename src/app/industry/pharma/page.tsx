@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { T } from "@/components/T";
 import { pharmaArticles } from "@/lib/pharma";
 
 export const metadata: Metadata = {
@@ -61,7 +62,7 @@ export default function Page() {
         ))}
       </div>
       <div className="mt-8 p-5 rounded-xl border border-dashed border-brief-border text-center">
-        <p className="text-sm text-foreground/45 italic">記事は順次追加されます。</p>
+        <p className="text-sm text-foreground/45 italic"><T ja="記事は順次追加されます。" en="More articles coming soon." /></p>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { T } from "@/components/T";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import {
   economicIndicators,
@@ -62,14 +63,14 @@ function statusColor(status: IndicatorStatus): {
   }
 }
 
-function statusLabel(status: IndicatorStatus): string {
+function statusLabel(status: IndicatorStatus): React.ReactNode {
   switch (status) {
     case "good":
-      return "良好";
+      return <T ja="良好" en="Good" />;
     case "bad":
-      return "注意";
+      return <T ja="注意" en="Caution" />;
     case "neutral":
-      return "中立";
+      return <T ja="中立" en="Neutral" />;
   }
 }
 
@@ -121,7 +122,7 @@ function IndicatorCard({ indicator }: { indicator: EconomicIndicator }) {
         <div className="min-w-0">
           <div className="flex items-center gap-2 mb-0.5">
             <span className={`w-2 h-2 rounded-full flex-shrink-0 ${colors.dot}`} />
-            <h3 className="text-sm font-medium truncate">{indicator.name}</h3>
+            <h3 className="text-sm font-medium truncate"><T ja={indicator.name} en={indicator.nameEn} /></h3>
           </div>
           <span className="text-[9px] tracking-[1.5px] uppercase text-foreground/50 ml-4">
             {indicator.nameEn}
@@ -162,7 +163,7 @@ function IndicatorCard({ indicator }: { indicator: EconomicIndicator }) {
 
       {/* Last updated */}
       <div className="mt-2 text-[9px] text-foreground/45 tabular-nums">
-        更新: {indicator.lastUpdated}
+        <T ja="更新" en="Updated" />: {indicator.lastUpdated}
       </div>
     </div>
   );
@@ -183,9 +184,14 @@ function groupNewsByMonth(news: EconomyNewsItem[]): { month: string; items: Econ
   return groups;
 }
 
-function formatMonth(ym: string): string {
+function formatMonth(ym: string): { ja: string; en: string } {
   const [year, month] = ym.split("-");
-  return `${year}年${parseInt(month)}月`;
+  const monthNum = parseInt(month);
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return {
+    ja: `${year}年${monthNum}月`,
+    en: `${monthNames[monthNum - 1]} ${year}`,
+  };
 }
 
 export default function EconomyPage() {
@@ -233,10 +239,13 @@ export default function EconomyPage() {
 
       <h1 className="font-serif text-3xl md:text-4xl font-bold">Economy</h1>
       <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-        日本の主要経済指標の最新値と動向を一覧で表示しています。色とトレンド矢印で、各指標の健全性を直感的に把握できます。
+        <T
+          ja="日本の主要経済指標の最新値と動向を一覧で表示しています。色とトレンド矢印で、各指標の健全性を直感的に把握できます。"
+          en="Displays the latest values and trends of Japan's key economic indicators at a glance. Colors and trend arrows help you intuitively assess the health of each indicator."
+        />
       </p>
       <p className="mt-2 text-xs text-foreground/45">
-        最終更新: {latestUpdate} ※各指標の公表スケジュールに基づき随時更新
+        <T ja="最終更新" en="Last updated" />: {latestUpdate} <T ja="※各指標の公表スケジュールに基づき随時更新" en="* Updated periodically based on each indicator's release schedule" />
       </p>
 
       {/* Category Navigation Pills */}
@@ -247,14 +256,14 @@ export default function EconomyPage() {
             href={`#cat-${group.key}`}
             className="px-3 py-1.5 text-[11px] font-medium rounded-full border border-brief-border bg-brief-card hover:border-foreground/20 hover:bg-foreground/5 transition-colors"
           >
-            {group.label.ja}
+            <T ja={group.label.ja} en={group.label.en} />
           </a>
         ))}
         <a
           href="#economy-news"
           className="px-3 py-1.5 text-[11px] font-medium rounded-full border border-brief-border bg-brief-card hover:border-foreground/20 hover:bg-foreground/5 transition-colors"
         >
-          ニュース
+          <T ja="ニュース" en="News" />
         </a>
       </div>
 
@@ -262,7 +271,7 @@ export default function EconomyPage() {
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
         <div className="p-4 rounded-xl bg-brief-card border border-brief-border">
           <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1">
-            良好
+            <T ja="良好" en="Good" />
           </div>
           <div className="flex items-center gap-3">
             <div className="text-2xl font-bold tabular-nums text-green-700 dark:text-green-400">
@@ -276,11 +285,11 @@ export default function EconomyPage() {
               />
             </div>
           </div>
-          <div className="text-[10px] text-foreground/50 mt-1">指標が健全な水準</div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="指標が健全な水準" en="Indicators at healthy levels" /></div>
         </div>
         <div className="p-4 rounded-xl bg-brief-card border border-brief-border">
           <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1">
-            中立
+            <T ja="中立" en="Neutral" />
           </div>
           <div className="flex items-center gap-3">
             <div className="text-2xl font-bold tabular-nums text-yellow-700 dark:text-yellow-400">
@@ -294,11 +303,11 @@ export default function EconomyPage() {
               />
             </div>
           </div>
-          <div className="text-[10px] text-foreground/50 mt-1">注視が必要</div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="注視が必要" en="Needs monitoring" /></div>
         </div>
         <div className="p-4 rounded-xl bg-brief-card border border-brief-border">
           <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1">
-            注意
+            <T ja="注意" en="Caution" />
           </div>
           <div className="flex items-center gap-3">
             <div className="text-2xl font-bold tabular-nums text-red-700 dark:text-red-400">
@@ -312,7 +321,7 @@ export default function EconomyPage() {
               />
             </div>
           </div>
-          <div className="text-[10px] text-foreground/50 mt-1">懸念のある指標</div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="懸念のある指標" en="Indicators of concern" /></div>
         </div>
       </div>
 
@@ -320,20 +329,20 @@ export default function EconomyPage() {
       <div className="mt-6 flex flex-wrap items-center gap-4 text-[10px] text-foreground/55">
         <span className="flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-green-600 dark:bg-green-500" />
-          良好 (Good)
+          <T ja="良好 (Good)" en="Good" />
         </span>
         <span className="flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-yellow-600 dark:bg-yellow-500" />
-          中立 (Neutral)
+          <T ja="中立 (Neutral)" en="Neutral" />
         </span>
         <span className="flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-red-600 dark:bg-red-500" />
-          注意 (Concerning)
+          <T ja="注意 (Concerning)" en="Concerning" />
         </span>
         <span className="ml-auto flex items-center gap-3">
-          <span>{"\u2191"} 上昇</span>
-          <span>{"\u2193"} 下降</span>
-          <span>{"\u2192"} 横ばい</span>
+          <span>{"\u2191"} <T ja="上昇" en="Rising" /></span>
+          <span>{"\u2193"} <T ja="下降" en="Falling" /></span>
+          <span>{"\u2192"} <T ja="横ばい" en="Flat" /></span>
         </span>
       </div>
 
@@ -342,7 +351,7 @@ export default function EconomyPage() {
         <div key={group.key} id={`cat-${group.key}`} className="mt-10 scroll-mt-20">
           <div className="flex items-center gap-4 mb-4">
             <div>
-              <h2 className="font-serif text-xl font-bold">{group.label.ja}</h2>
+              <h2 className="font-serif text-xl font-bold"><T ja={group.label.ja} en={group.label.en} /></h2>
               <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">
                 {group.label.en}
               </span>
@@ -362,9 +371,9 @@ export default function EconomyPage() {
       <div className="mt-14" id="economy-news">
         <div className="flex items-center gap-4 mb-6 scroll-mt-20">
           <div>
-            <h2 className="font-serif text-xl font-bold">経済ニュース</h2>
+            <h2 className="font-serif text-xl font-bold"><T ja="経済ニュース" en="Economic News" /></h2>
             <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">
-              Economic News Timeline
+              <T ja="Economic News Timeline" en="Timeline" />
             </span>
           </div>
           <div className="flex-1 h-px bg-foreground/5" />
@@ -384,7 +393,7 @@ export default function EconomyPage() {
                   </span>
                 </div>
                 <div className="text-xs font-medium text-foreground/60 tracking-wide">
-                  {formatMonth(group.month)}
+                  <T ja={formatMonth(group.month).ja} en={formatMonth(group.month).en} />
                 </div>
               </div>
 
@@ -422,7 +431,7 @@ export default function EconomyPage() {
                                 : "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400"
                           }`}
                         >
-                          {newsCategoryLabels[item.category]}
+                          <T ja={newsCategoryLabels[item.category]} en={{ policy: "Policy", market: "Market", trade: "Trade", fiscal: "Fiscal", labor: "Labor", corporate: "Corporate" }[item.category] ?? newsCategoryLabels[item.category]} />
                         </span>
                       </div>
 
@@ -451,7 +460,7 @@ export default function EconomyPage() {
                                   className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] ${c.bg} ${c.text} hover:opacity-80 transition-opacity`}
                                 >
                                   <span className={`w-1.5 h-1.5 rounded-full ${c.dot}`} />
-                                  {ind.name}
+                                  <T ja={ind.name} en={ind.nameEn} />
                                 </a>
                               );
                             })}
@@ -472,7 +481,7 @@ export default function EconomyPage() {
         <div className="mt-14" id="economy-articles">
           <div className="flex items-center gap-4 mb-6 scroll-mt-20">
             <div>
-              <h2 className="font-serif text-xl font-bold">深掘り記事</h2>
+              <h2 className="font-serif text-xl font-bold"><T ja="深掘り記事" en="In-Depth Articles" /></h2>
               <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">
                 In-Depth Analysis
               </span>
@@ -519,11 +528,12 @@ export default function EconomyPage() {
 
       {/* Data sources note */}
       <div className="mt-14 p-5 rounded-xl border border-dashed border-brief-border">
-        <h3 className="text-sm font-medium mb-2 text-foreground/70">データソースについて</h3>
+        <h3 className="text-sm font-medium mb-2 text-foreground/70"><T ja="データソースについて" en="About Data Sources" /></h3>
         <p className="text-[11px] text-foreground/45 leading-relaxed">
-          各経済指標は、内閣府、総務省統計局、日本銀行、財務省、厚生労働省等の公式発表に基づいています。
-          株価・為替レートは東京証券取引所およびインターバンク市場の終値を参照しています。
-          数値は公表時点のものであり、後日改定される場合があります。
+          <T
+            ja="各経済指標は、内閣府、総務省統計局、日本銀行、財務省、厚生労働省等の公式発表に基づいています。株価・為替レートは東京証券取引所およびインターバンク市場の終値を参照しています。数値は公表時点のものであり、後日改定される場合があります。"
+            en="Economic indicators are based on official releases from the Cabinet Office, Statistics Bureau, Bank of Japan, Ministry of Finance, Ministry of Health, Labour and Welfare, and other agencies. Stock prices and exchange rates reference closing values from the Tokyo Stock Exchange and the interbank market. Figures are as of the time of publication and may be revised at a later date."
+          />
         </p>
       </div>
     </div>

@@ -66,10 +66,10 @@ export const automakers: Automaker[] = [
       "国内販売が前年比2.7%減の137万台に低迷",
     ],
     latestNews: [
-      { date: "2025-09", headline: "Woven City が正式オープン、約300名が入居開始" },
-      { date: "2025-10", headline: "住友金属鉱山と全固体電池の正極材で提携" },
-      { date: "2026-02", headline: "FY2026通期見通しを上方修正（営業利益3.8兆円）" },
-      { date: "2026-03", headline: "米国製タンドラ・ハイランダーの日本逆輸出を開始" },
+      { date: "2025-09-01", headline: "Woven City が正式オープン、約300名が入居開始" },
+      { date: "2025-10-01", headline: "住友金属鉱山と全固体電池の正極材で提携" },
+      { date: "2026-02-01", headline: "FY2026通期見通しを上方修正（営業利益3.8兆円）" },
+      { date: "2026-03-01", headline: "米国製タンドラ・ハイランダーの日本逆輸出を開始" },
     ],
   },
   {
@@ -109,10 +109,10 @@ export const automakers: Automaker[] = [
       "国内販売が前年比12.0%減の33万3,137台に急落",
     ],
     latestNews: [
-      { date: "2025-02", headline: "日産との経営統合交渉が決裂、戦略的提携に転換" },
-      { date: "2026-02", headline: "9カ月間で純利益42%減、関税とEV投資が重荷" },
-      { date: "2026-03", headline: "Honda 0 Series・Acura RSXの米国生産を撤回" },
-      { date: "2026-04", headline: "Prologue EVを全グレード$7,500値下げ" },
+      { date: "2025-02-01", headline: "日産との経営統合交渉が決裂、戦略的提携に転換" },
+      { date: "2026-02-01", headline: "9カ月間で純利益42%減、関税とEV投資が重荷" },
+      { date: "2026-03-01", headline: "Honda 0 Series・Acura RSXの米国生産を撤回" },
+      { date: "2026-04-01", headline: "Prologue EVを全グレード$7,500値下げ" },
     ],
   },
   {
@@ -151,10 +151,10 @@ export const automakers: Automaker[] = [
       "米国関税の影響（2,750億円）",
     ],
     latestNews: [
-      { date: "2025-11", headline: "追浜工場（旗艦工場）の閉鎖を決定" },
-      { date: "2026-01", headline: "新型Leafを国内発売" },
-      { date: "2026-02", headline: "FY2026通期で6,300億円の最終赤字見通しを発表" },
-      { date: "2026-03", headline: "米国製ムラーノの日本逆輸出を計画" },
+      { date: "2025-11-01", headline: "追浜工場（旗艦工場）の閉鎖を決定" },
+      { date: "2026-01-01", headline: "新型Leafを国内発売" },
+      { date: "2026-02-01", headline: "FY2026通期で6,300億円の最終赤字見通しを発表" },
+      { date: "2026-03-01", headline: "米国製ムラーノの日本逆輸出を計画" },
     ],
   },
   {
@@ -193,10 +193,10 @@ export const automakers: Automaker[] = [
       "原材料コスト上昇",
     ],
     latestNews: [
-      { date: "2025-09", headline: "e VITARA が欧州で発売開始" },
-      { date: "2025-11", headline: "マルチ・スズキがインド国内累計3,000万台達成" },
-      { date: "2026-01", headline: "e VITARA が日本国内で発売開始" },
-      { date: "2026-02", headline: "インド好調でFY2026通期見通しを上方修正" },
+      { date: "2025-09-01", headline: "e VITARA が欧州で発売開始" },
+      { date: "2025-11-01", headline: "マルチ・スズキがインド国内累計3,000万台達成" },
+      { date: "2026-01-01", headline: "e VITARA が日本国内で発売開始" },
+      { date: "2026-02-01", headline: "インド好調でFY2026通期見通しを上方修正" },
     ],
   },
   {
@@ -235,9 +235,9 @@ export const automakers: Automaker[] = [
       "小規模ゆえのEV開発投資の限界",
     ],
     latestNews: [
-      { date: "2025-12", headline: "新型CX-5の生産を開始、Q4から欧州・北米投入" },
-      { date: "2025-12", headline: "EZ-6 を中国市場に投入" },
-      { date: "2026-02", headline: "9カ月間で最終赤字、通期営業利益500億円の見通し維持" },
+      { date: "2025-12-01", headline: "新型CX-5の生産を開始、Q4から欧州・北米投入" },
+      { date: "2025-12-01", headline: "EZ-6 を中国市場に投入" },
+      { date: "2026-02-01", headline: "9カ月間で最終赤字、通期営業利益500億円の見通し維持" },
     ],
   },
   {
@@ -277,10 +277,10 @@ export const automakers: Automaker[] = [
       "米国市場への過度な依存",
     ],
     latestNews: [
-      { date: "2025-12", headline: "2025年米国販売64.4万台（-3.6%）" },
-      { date: "2026-02", headline: "Q3営業赤字364億円、関税影響210億円" },
-      { date: "2026-02", headline: "FY2026通期営業利益見通しを1,300億円に下方修正" },
-      { date: "2026-03", headline: "フォレスターHVのインディアナ工場生産を開始" },
+      { date: "2025-12-01", headline: "2025年米国販売64.4万台（-3.6%）" },
+      { date: "2026-02-01", headline: "Q3営業赤字364億円、関税影響210億円" },
+      { date: "2026-02-01", headline: "FY2026通期営業利益見通しを1,300億円に下方修正" },
+      { date: "2026-03-01", headline: "フォレスターHVのインディアナ工場生産を開始" },
     ],
   },
   {
@@ -320,9 +320,9 @@ export const automakers: Automaker[] = [
       "小規模ゆえの開発リソースの制約",
     ],
     latestNews: [
-      { date: "2025-04", headline: "フィリピンで過去最高の販売実績" },
-      { date: "2026-02", headline: "Q3累計で営業利益69.8%減の316億円" },
-      { date: "2026-03", headline: "S&Pが格付け見通しをネガティブに変更" },
+      { date: "2025-04-01", headline: "フィリピンで過去最高の販売実績" },
+      { date: "2026-02-01", headline: "Q3累計で営業利益69.8%減の316億円" },
+      { date: "2026-03-01", headline: "S&Pが格付け見通しをネガティブに変更" },
     ],
   },
   {
@@ -359,8 +359,8 @@ export const automakers: Automaker[] = [
       "コンパクトカー事業のトヨタ移管",
     ],
     latestNews: [
-      { date: "2025-10", headline: "軽自動車販売で首位に復帰" },
-      { date: "2025-06", headline: "32年ぶりの最終赤字を計上" },
+      { date: "2025-10-01", headline: "軽自動車販売で首位に復帰" },
+      { date: "2025-06-01", headline: "32年ぶりの最終赤字を計上" },
     ],
   },
   {
@@ -398,7 +398,7 @@ export const automakers: Automaker[] = [
       "商用車のクリーンエネルギー転換コスト",
     ],
     latestNews: [
-      { date: "2025-05", headline: "2026年3月期の営業利益見通しを2,100億円に下方修正" },
+      { date: "2025-05-01", headline: "2026年3月期の営業利益見通しを2,100億円に下方修正" },
     ],
   },
   {
@@ -436,9 +436,9 @@ export const automakers: Automaker[] = [
       "商用車のクリーンエネルギー転換コスト",
     ],
     latestNews: [
-      { date: "2025-01", headline: "米国当局と排出ガス不正で和解" },
-      { date: "2025-06", headline: "ARCHION設立に関する最終契約を締結" },
-      { date: "2026-04", headline: "ARCHION が正式発足、東証プライム上場（543A）" },
+      { date: "2025-01-01", headline: "米国当局と排出ガス不正で和解" },
+      { date: "2025-06-01", headline: "ARCHION設立に関する最終契約を締結" },
+      { date: "2026-04-01", headline: "ARCHION が正式発足、東証プライム上場（543A）" },
     ],
   },
 ];

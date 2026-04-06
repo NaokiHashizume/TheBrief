@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { T } from "@/components/T";
 import {
   houseOfRepresentatives,
   houseOfCouncillors,
@@ -150,16 +151,15 @@ export default function DietPage() {
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <span>国会</span>
+        <span><T ja="国会" en="National Diet" /></span>
       </div>
 
-      <h1 className="font-serif text-3xl md:text-4xl font-bold">国会</h1>
+      <h1 className="font-serif text-3xl md:text-4xl font-bold"><T ja="国会" en="National Diet" /></h1>
       <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-        日本の国会は、衆議院（下院）と参議院（上院）の二院制で構成されています。
-        両院はそれぞれ異なる役割と権限を持ち、法律の制定・予算の議決・条約の承認などを行います。
+        <T ja="日本の国会は、衆議院（下院）と参議院（上院）の二院制で構成されています。両院はそれぞれ異なる役割と権限を持ち、法律の制定・予算の議決・条約の承認などを行います。" en="Japan's National Diet is a bicameral legislature composed of the House of Representatives (lower house) and the House of Councillors (upper house). Each chamber has distinct roles and powers, including enacting laws, approving budgets, and ratifying treaties." />
       </p>
       <p className="mt-2 text-xs text-foreground/45">
-        衆議院: 2026-02-08 第51回衆院選時点 ｜ 参議院: 2025-07-20 第27回参院選時点
+        <T ja="衆議院: 2026-02-08 第51回衆院選時点 ｜ 参議院: 2025-07-20 第27回参院選時点" en="House of Representatives: as of the 51st general election, 2026-02-08 | House of Councillors: as of the 27th regular election, 2025-07-20" />
       </p>
 
       {/* 二院制の解説 */}
@@ -193,17 +193,17 @@ export default function DietPage() {
         <div>
           <h2 className="font-serif text-2xl font-bold flex items-center gap-2">
             <span className="w-1.5 h-5 bg-brief-red rounded-full inline-block" />
-            法案の流れ
+            <T ja="法案の流れ" en="How a Bill Becomes Law" />
           </h2>
           <span className="text-[10px] tracking-[2px] uppercase text-foreground/45 ml-3.5">
-            How a Bill Becomes Law
+            <T ja="How a Bill Becomes Law" en="How a Bill Becomes Law" />
           </span>
         </div>
         <div className="flex-1 h-px bg-brief-border" />
       </div>
 
       <p className="text-sm text-foreground/60 leading-relaxed mb-6">
-        法案が国会に提出されてから法律として施行されるまでの流れです。
+        <T ja="法案が国会に提出されてから法律として施行されるまでの流れです。" en="The process from when a bill is submitted to the Diet until it is enacted into law." />
       </p>
 
       <div className="flex flex-col md:flex-row items-stretch gap-3">
@@ -231,8 +231,7 @@ export default function DietPage() {
       </div>
 
       <div className="mt-4 p-4 bg-brief-card rounded-lg text-xs text-foreground/50 leading-relaxed">
-        ※ 衆議院で可決後60日以内に参議院が議決しない場合、衆議院は参議院が否決したとみなすことができます（みなし否決）。
-        衆議院で出席議員の2/3以上の多数で再び可決した場合、法律となります（衆議院の再議決権・憲法59条）。
+        <T ja="※ 衆議院で可決後60日以内に参議院が議決しない場合、衆議院は参議院が否決したとみなすことができます（みなし否決）。衆議院で出席議員の2/3以上の多数で再び可決した場合、法律となります（衆議院の再議決権・憲法59条）。" en="Note: If the House of Councillors fails to vote within 60 days after a bill passes the House of Representatives, the House of Representatives may deem the bill rejected. If the House of Representatives passes the bill again with a two-thirds majority of members present, it becomes law (Article 59 of the Constitution)." />
       </div>
 
       {/* 衆議院 議席 */}
@@ -240,10 +239,10 @@ export default function DietPage() {
         <div>
           <h2 className="font-serif text-2xl font-bold flex items-center gap-2">
             <span className="w-1.5 h-5 bg-brief-red rounded-full inline-block" />
-            衆議院の議席構成
+            <T ja="衆議院の議席構成" en="House of Representatives Seats" />
           </h2>
           <span className="text-[10px] tracking-[2px] uppercase text-foreground/45 ml-3.5">
-            House of Representatives — Seats
+            <T ja="House of Representatives — Seats" en="House of Representatives — Seats" />
           </span>
         </div>
         <div className="flex-1 h-px bg-brief-border" />
@@ -262,10 +261,10 @@ export default function DietPage() {
         <div>
           <h2 className="font-serif text-2xl font-bold flex items-center gap-2">
             <span className="w-1.5 h-5 bg-brief-red rounded-full inline-block" />
-            参議院の議席構成
+            <T ja="参議院の議席構成" en="House of Councillors Seats" />
           </h2>
           <span className="text-[10px] tracking-[2px] uppercase text-foreground/45 ml-3.5">
-            House of Councillors — Seats
+            <T ja="House of Councillors — Seats" en="House of Councillors — Seats" />
           </span>
         </div>
         <div className="flex-1 h-px bg-brief-border" />
@@ -284,18 +283,17 @@ export default function DietPage() {
         <div>
           <h2 className="font-serif text-2xl font-bold flex items-center gap-2">
             <span className="w-1.5 h-5 bg-brief-red rounded-full inline-block" />
-            国会の歴史
+            <T ja="国会の歴史" en="History of the National Diet" />
           </h2>
           <span className="text-[10px] tracking-[2px] uppercase text-foreground/45 ml-3.5">
-            History of the National Diet
+            <T ja="History of the National Diet" en="History of the National Diet" />
           </span>
         </div>
         <div className="flex-1 h-px bg-brief-border" />
       </div>
 
       <p className="text-sm text-foreground/60 leading-relaxed mb-8">
-        明治維新から現代まで、日本の議会制度は約150年の歴史を持ちます。
-        自由民権運動による国会開設の要求から、帝国議会の誕生、戦後の新憲法下での国会の再出発まで、その歩みを時系列で辿ります。
+        <T ja="明治維新から現代まで、日本の議会制度は約150年の歴史を持ちます。自由民権運動による国会開設の要求から、帝国議会の誕生、戦後の新憲法下での国会の再出発まで、その歩みを時系列で辿ります。" en="Japan's parliamentary system has a history spanning approximately 150 years, from the Meiji Restoration to the present day. This timeline traces the journey from the Freedom and People's Rights Movement's demands for a national assembly, through the birth of the Imperial Diet, to the postwar rebirth of the Diet under the new Constitution." />
       </p>
 
       {/* Timeline */}
@@ -337,7 +335,7 @@ export default function DietPage() {
 
       {/* Disclaimer */}
       <div className="mt-12 p-4 bg-brief-card rounded-lg text-xs text-foreground/50 leading-relaxed">
-        ※ 議席数は補欠選挙・離党等により変動する場合があります。最新の情報は各政党・国会の公式サイトをご確認ください。
+        <T ja="※ 議席数は補欠選挙・離党等により変動する場合があります。最新の情報は各政党・国会の公式サイトをご確認ください。" en="Note: Seat counts may change due to by-elections, party departures, etc. Please refer to official party and Diet websites for the latest information." />
       </div>
     </div>
   );

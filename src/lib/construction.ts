@@ -6,7 +6,7 @@ export const constructionArticles: IndustryArticle[] = [
     title: "日本の都市再開発2026 — 東京・大阪・名古屋・福岡で進む巨大プロジェクトの全貌",
     titleEn: "Japan Urban Redevelopment 2026 — Mega Projects Reshaping Tokyo, Osaka, Nagoya & Fukuoka",
     date: "2026-04-05",
-    author: "",
+    author: "The Brief",
     readTime: "18 min",
     tags: ["都市再開発", "不動産", "インフラ", "建設", "スマートシティ"],
     summary:

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { T } from "@/components/T";
 
 export const metadata: Metadata = {
   title: "About",
@@ -15,15 +16,15 @@ export default function About() {
         <Logo />
       </div>
 
-      <h1 className="font-serif text-3xl font-bold mb-6">About The Brief</h1>
+      <h1 className="font-serif text-3xl font-bold mb-6"><T ja="About The Brief" en="About The Brief" /></h1>
 
       <div className="space-y-6 text-sm leading-relaxed text-foreground/70">
         <p>
-          The Briefは、日本の政治・経済・金融から業界動向、テクノロジー・AI、ライフスタイルまで、幅広いニュースとオピニオンをシンプルに届ける総合メディアです。
+          <T ja="The Briefは、日本の政治・経済・金融から業界動向、テクノロジー・AI、ライフスタイルまで、幅広いニュースとオピニオンをシンプルに届ける総合メディアです。" en="The Brief is a comprehensive media platform that delivers a wide range of news and opinions — from Japanese politics, economy, and finance to industry trends, technology/AI, and lifestyle — in a simple, accessible format." />
         </p>
 
         <p>
-          忙しいビジネスパーソンや、日本の最新動向に関心を持つ読者のために、本当に重要なニュースを厳選し、簡潔でわかりやすい形でお届けします。
+          <T ja="忙しいビジネスパーソンや、日本の最新動向に関心を持つ読者のために、本当に重要なニュースを厳選し、簡潔でわかりやすい形でお届けします。" en="For busy professionals and readers interested in the latest developments in Japan, we curate the most important news and deliver it in a concise, easy-to-understand format." />
         </p>
 
         <div className="py-8">
@@ -31,42 +32,42 @@ export default function About() {
             <div className="p-6 bg-brief-card rounded-xl border border-brief-border">
               <h3 className="font-serif text-base font-bold mb-2">Concise</h3>
               <p className="text-xs text-foreground/60 leading-relaxed">
-                5分で読める。要点を押さえた簡潔な記事で、忙しい朝でも最新情報をキャッチアップ。
+                <T ja="5分で読める。要点を押さえた簡潔な記事で、忙しい朝でも最新情報をキャッチアップ。" en="Read in 5 minutes. Concise articles that hit the key points, so you can catch up on the latest even on a busy morning." />
               </p>
             </div>
             <div className="p-6 bg-brief-card rounded-xl border border-brief-border">
               <h3 className="font-serif text-base font-bold mb-2">Insightful</h3>
               <p className="text-xs text-foreground/60 leading-relaxed">
-                表面的なニュースではなく、背景や文脈を含めた深い洞察を提供。
+                <T ja="表面的なニュースではなく、背景や文脈を含めた深い洞察を提供。" en="Not surface-level news, but deep insights that include background and context." />
               </p>
             </div>
             <div className="p-6 bg-brief-card rounded-xl border border-brief-border">
               <h3 className="font-serif text-base font-bold mb-2">Independent</h3>
               <p className="text-xs text-foreground/60 leading-relaxed">
-                特定の政党や企業に偏らない、独立した視点からの報道とオピニオン。
+                <T ja="特定の政党や企業に偏らない、独立した視点からの報道とオピニオン。" en="Reporting and opinion from an independent perspective, not biased toward any political party or corporation." />
               </p>
             </div>
           </div>
         </div>
 
         <section>
-          <h2 className="font-serif text-lg font-bold text-foreground mb-3">Coverage</h2>
+          <h2 className="font-serif text-lg font-bold text-foreground mb-3"><T ja="Coverage" en="Coverage" /></h2>
           <ul className="space-y-2">
-            <li><span className="text-brief-red font-medium">Politics</span> — 国内政治、政策、選挙</li>
-            <li><span className="text-brief-red font-medium">Economy</span> — マクロ経済、金融市場、日銀政策</li>
-            <li><span className="text-brief-red font-medium">Industry</span> — AI、半導体、自動車、製薬、エネルギーなど業界別に深掘り</li>
-            <li><span className="text-brief-red font-medium">Lifestyle</span> — カルチャー、トレンド、ウェルネス</li>
-            <li><span className="text-brief-red font-medium">Opinion</span> — 論説、ゲストコラム、分析</li>
-            <li><span className="text-brief-red font-medium">University</span> — 大学・教育・研究の最前線</li>
+            <li><span className="text-brief-red font-medium">Politics</span> — <T ja="国内政治、政策、選挙" en="Domestic politics, policy, elections" /></li>
+            <li><span className="text-brief-red font-medium">Economy</span> — <T ja="マクロ経済、金融市場、日銀政策" en="Macroeconomics, financial markets, BOJ policy" /></li>
+            <li><span className="text-brief-red font-medium">Industry</span> — <T ja="AI、半導体、自動車、製薬、エネルギーなど業界別に深掘り" en="Deep dives by sector: AI, semiconductors, automotive, pharma, energy, and more" /></li>
+            <li><span className="text-brief-red font-medium">Lifestyle</span> — <T ja="カルチャー、トレンド、ウェルネス" en="Culture, trends, wellness" /></li>
+            <li><span className="text-brief-red font-medium">Opinion</span> — <T ja="論説、ゲストコラム、分析" en="Editorials, guest columns, analysis" /></li>
+            <li><span className="text-brief-red font-medium">University</span> — <T ja="大学・教育・研究の最前線" en="The forefront of universities, education, and research" /></li>
           </ul>
         </section>
 
         <section className="pt-4">
-          <h2 className="font-serif text-lg font-bold text-foreground mb-3">Contact</h2>
+          <h2 className="font-serif text-lg font-bold text-foreground mb-3"><T ja="Contact" en="Contact" /></h2>
           <p>
-            ご質問やフィードバックは
-            <Link href="/contact" className="text-brief-red hover:underline">お問い合わせページ</Link>
-            からお送りください。
+            <T ja="ご質問やフィードバックは" en="For questions or feedback, please visit our " />
+            <Link href="/contact" className="text-brief-red hover:underline"><T ja="お問い合わせページ" en="contact page" /></Link>
+            <T ja="からお送りください。" en="." />
           </p>
         </section>
       </div>

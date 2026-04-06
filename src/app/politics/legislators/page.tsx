@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { T } from "@/components/T";
 import {
   houseOfRepresentatives,
   houseOfCouncillors,
@@ -46,15 +47,15 @@ export default function LegislatorsPage() {
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <span>議員</span>
+        <span><T ja="議員" en="Legislators" /></span>
       </div>
 
-      <h1 className="font-serif text-3xl md:text-4xl font-bold">議員</h1>
+      <h1 className="font-serif text-3xl md:text-4xl font-bold"><T ja="議員" en="Legislators" /></h1>
       <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-        議員活動の総合ランキングと、政党別の議員一覧です。
+        <T ja="議員活動の総合ランキングと、政党別の議員一覧です。" en="Overall legislator activity rankings and a list of legislators by party." />
       </p>
       <p className="mt-2 text-xs text-foreground/45">
-        議員データ: 2026-02-18 第221回特別国会時点 ｜ ランキング: 2026年3月評価
+        <T ja="議員データ: 2026-02-18 第221回特別国会時点 ｜ ランキング: 2026年3月評価" en="Legislator data: as of the 221st Extraordinary Diet session, 2026-02-18 | Rankings: March 2026 evaluation" />
       </p>
 
       <div className="mt-10">

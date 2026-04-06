@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { T } from "@/components/T";
 import { passedItems } from "@/lib/passed";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
@@ -27,15 +28,15 @@ export default function PassedPage() {
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <span>成立済</span>
+        <span><T ja="成立済" en="Passed" /></span>
       </div>
 
-      <h1 className="font-serif text-3xl md:text-4xl font-bold">成立済</h1>
+      <h1 className="font-serif text-3xl md:text-4xl font-bold"><T ja="成立済" en="Passed" /></h1>
       <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-        国会で可決・成立したが、2026年4月時点でまだ施行されていない主要法令の一覧です。
+        <T ja="国会で可決・成立したが、2026年4月時点でまだ施行されていない主要法令の一覧です。" en="A list of major laws passed by the Diet but not yet enforced as of April 2026." />
       </p>
       <p className="mt-2 text-xs text-foreground/45">
-        成立済法令一覧: 2026年4月4日時点 ｜ 施行予定日は各法令による
+        <T ja="成立済法令一覧: 2026年4月4日時点 ｜ 施行予定日は各法令による" en="Passed laws: as of April 4, 2026 | Effective dates vary by law" />
       </p>
 
       <div className="mt-10 space-y-4">
@@ -55,7 +56,7 @@ export default function PassedPage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap mb-2">
                     <span className="text-[10px] font-bold px-2 py-0.5 rounded-full text-white bg-amber-600">
-                      成立済・未施行
+                      <T ja="成立済・未施行" en="Passed / Not Yet Enforced" />
                     </span>
                     <span className="text-[10px] tracking-wider uppercase text-foreground/45">
                       {item.category}
@@ -85,13 +86,13 @@ export default function PassedPage() {
               {/* Timeline bar */}
               <div className="mt-3 flex items-center gap-3">
                 <div className="flex items-center gap-2 text-[10px] text-foreground/45 tabular-nums flex-shrink-0">
-                  <span>{item.enactedDate} 成立</span>
+                  <span>{item.enactedDate} <T ja="成立" en="passed" /></span>
                   <span className="text-foreground/30">→</span>
-                  <span>{item.effectiveDate} 施行予定</span>
+                  <span>{item.effectiveDate} <T ja="施行予定" en="effective" /></span>
                 </div>
                 <div className="flex-1" />
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 tabular-nums">
-                  あと{daysUntil}日
+                  <T ja={`あと${daysUntil}日`} en={`${daysUntil} days left`} />
                 </span>
               </div>
             </Link>

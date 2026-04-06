@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { automakers, industryStats } from "@/lib/automotive";
 import { AutomakerCards } from "@/components/AutomakerCards";
+import { T } from "@/components/T";
 
 export const metadata: Metadata = {
   title: "自動車 — Industry",
@@ -32,7 +33,7 @@ export default function AutomotivePage() {
           Industry
         </Link>
         <span>/</span>
-        <span>自動車</span>
+        <span><T ja="自動車" en="Automotive" /></span>
       </div>
 
       {/* Header */}
@@ -47,15 +48,14 @@ export default function AutomotivePage() {
             </svg>
           </div>
           <div>
-            <h1 className="font-serif text-2xl md:text-3xl font-bold">自動車</h1>
+            <h1 className="font-serif text-2xl md:text-3xl font-bold"><T ja="自動車" en="Automotive" /></h1>
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
               Automotive
             </span>
           </div>
         </div>
         <p className="mt-3 text-sm text-foreground/60 leading-relaxed max-w-3xl">
-          日本の主要自動車メーカー10社の業績、EV戦略、強み・課題、最新ニュースをメーカーごとに整理。
-          EV化・自動運転・SDVの潮流のなかで、各社がどのような戦略を描いているかを俯瞰する。
+          <T ja="日本の主要自動車メーカー10社の業績、EV戦略、強み・課題、最新ニュースをメーカーごとに整理。EV化・自動運転・SDVの潮流のなかで、各社がどのような戦略を描いているかを俯瞰する。" en="Performance, EV strategy, strengths, challenges, and latest news for Japan's 10 major automakers. An overview of how each company is positioning itself amid the EV, autonomous driving, and SDV trends." />
         </p>
       </div>
 
@@ -63,23 +63,23 @@ export default function AutomotivePage() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
         <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
           <div className="text-xl sm:text-2xl font-bold text-[#ef4444]">{industryStats.domesticSales2025}</div>
-          <div className="text-[10px] text-foreground/50 mt-1">国内新車販売（FY2025）</div>
-          <div className="text-[9px] text-foreground/35">前年比{industryStats.domesticSalesYoy}・4年ぶり減</div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="国内新車販売（FY2025）" en="Domestic New Car Sales (FY2025)" /></div>
+          <div className="text-[9px] text-foreground/35"><T ja={`前年比${industryStats.domesticSalesYoy}・4年ぶり減`} en={`YoY ${industryStats.domesticSalesYoy}, first decline in 4 years`} /></div>
         </div>
         <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
           <div className="text-xl sm:text-2xl font-bold text-[#3b82f6]">{industryStats.hvShare}</div>
-          <div className="text-[10px] text-foreground/50 mt-1">HV比率（乗用車）</div>
-          <div className="text-[9px] text-foreground/35">2025年 国内販売</div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="HV比率（乗用車）" en="HV Share (Passenger)" /></div>
+          <div className="text-[9px] text-foreground/35"><T ja="2025年 国内販売" en="2025 Domestic Sales" /></div>
         </div>
         <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
           <div className="text-xl sm:text-2xl font-bold text-[#f59e0b]">{industryStats.gdpShare}</div>
-          <div className="text-[10px] text-foreground/50 mt-1">GDP構成比</div>
-          <div className="text-[9px] text-foreground/35">自動車製造業</div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="GDP構成比" en="Share of GDP" /></div>
+          <div className="text-[9px] text-foreground/35"><T ja="自動車製造業" en="Auto Manufacturing" /></div>
         </div>
         <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
           <div className="text-xl sm:text-2xl font-bold text-[#8b5cf6]">{industryStats.rdSpending}</div>
-          <div className="text-[10px] text-foreground/50 mt-1">R&D投資合計</div>
-          <div className="text-[9px] text-foreground/35">2026年度・全メーカー計</div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="R&D投資合計" en="Total R&D Spending" /></div>
+          <div className="text-[9px] text-foreground/35"><T ja="2026年度・全メーカー計" en="FY2026, all makers combined" /></div>
         </div>
       </div>
 

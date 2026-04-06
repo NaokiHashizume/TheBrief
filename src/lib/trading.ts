@@ -21,7 +21,7 @@ export const tradingArticles: TradingArticle[] = [
     title: "日本の小売業 — ビジネスモデルの全体像と構造的課題",
     titleEn: "Japan's Retail Industry — Business Models and Structural Challenges",
     date: "2026-04-06",
-    author: "",
+    author: "The Brief",
     readTime: "22 min",
     tags: ["小売", "コンビニ", "EC", "DX", "商社", "ドラッグストア"],
     summary:

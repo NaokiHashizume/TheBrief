@@ -43,6 +43,6 @@ export default async function TwitterImage({ params }: { params: Promise<{ slug:
         </div>
       </div>
     ),
-    { ...size, fonts: [{ name: "NotoSansJP", data: fontData, style: "normal" as const }] }
+    { ...size, fonts: [{ name: "NotoSansJP", data: fontData, style: "normal" }] }
   );
 }

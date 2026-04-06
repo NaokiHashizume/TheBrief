@@ -1,5 +1,6 @@
 import type { Story } from "@/lib/stories";
 import Link from "next/link";
+import { T } from "@/components/T";
 
 export function StoryTimeline({ story }: { story: Story }) {
   const episodes = story.episodes;
@@ -36,7 +37,7 @@ export function StoryTimeline({ story }: { story: Story }) {
                   <time className="text-xs text-foreground/50 tabular-nums">{episode.date}</time>
                   {isLatest && (
                     <span className="text-[9px] tracking-wider uppercase px-2 py-0.5 bg-brief-red/10 text-brief-red rounded-full font-medium">
-                      Latest
+                      <T ja="最新" en="Latest" />
                     </span>
                   )}
                 </div>
@@ -78,7 +79,7 @@ export function StoryCardCompact({ story }: { story: Story }) {
             ? "bg-brief-red/10 text-brief-red"
             : "bg-foreground/5 text-foreground/55"
         }`}>
-          {story.status === "ongoing" ? "Ongoing" : "Concluded"}
+          {story.status === "ongoing" ? <T ja="連載中" en="Ongoing" /> : <T ja="完結" en="Concluded" />}
         </span>
       </div>
 
@@ -105,19 +106,19 @@ export function StoryCardCompact({ story }: { story: Story }) {
           ))}
         </div>
         <span className="text-xs text-foreground/45">
-          {episodeCount} episodes
+          {episodeCount} <T ja="エピソード" en="episodes" />
         </span>
       </div>
 
       <div className="mt-3 pt-3 border-t border-brief-border flex items-center justify-between">
         <span className="text-xs text-foreground/45">
-          Latest: {latest.date}
+          <T ja="最新" en="Latest" />: {latest.date}
         </span>
         <Link
           href={`/story/${story.slug}`}
           className="text-xs text-brief-red hover:underline"
         >
-          Read full story →
+          <T ja="ストーリーを読む →" en="Read full story →" />
         </Link>
       </div>
     </article>

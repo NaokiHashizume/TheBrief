@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { getAllStories } from "@/lib/getStories";
 import { StoryCardCompact } from "@/components/StoryTimeline";
+import { T } from "@/components/T";
 
 export const metadata: Metadata = {
   title: "Story — 連載ストーリー",
@@ -59,12 +60,12 @@ export default async function StoryListPage() {
               Story
             </h1>
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/40">
-              連載ストーリー
+              <T ja="連載ストーリー" en="Ongoing Stories" />
             </span>
           </div>
         </div>
         <p className="mt-3 text-sm text-foreground/60 leading-relaxed max-w-2xl">
-          日本経済・産業の重要テーマを時系列で追う連載ストーリー。一つのニュースだけでは見えない、大きな流れと背景を読み解きます。
+          <T ja="日本経済・産業の重要テーマを時系列で追う連載ストーリー。一つのニュースだけでは見えない、大きな流れと背景を読み解きます。" en="Ongoing stories tracking key themes in Japan's economy and industry. Follow the bigger picture that single news stories can't capture." />
         </p>
       </div>
 
@@ -77,7 +78,7 @@ export default async function StoryListPage() {
             {stories.length}
           </div>
           <div className="text-[10px] text-foreground/50 mt-1">
-            ストーリー数
+            <T ja="ストーリー数" en="Stories" />
           </div>
         </div>
         <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
@@ -85,14 +86,14 @@ export default async function StoryListPage() {
             {stories.reduce((sum, s) => sum + s.episodes.length, 0)}
           </div>
           <div className="text-[10px] text-foreground/50 mt-1">
-            エピソード数
+            <T ja="エピソード数" en="Episodes" />
           </div>
         </div>
         <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
           <div className="text-2xl font-bold text-[#14b8a6]">
             {ongoingStories.length}
           </div>
-          <div className="text-[10px] text-foreground/50 mt-1">連載中</div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="連載中" en="Ongoing" /></div>
         </div>
       </div>
 
@@ -101,7 +102,7 @@ export default async function StoryListPage() {
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-5">
             <span className="text-[10px] tracking-[2px] uppercase font-medium text-brief-red">
-              Ongoing
+              <T ja="連載中" en="Ongoing" />
             </span>
             <div className="h-px flex-1 bg-brief-border" />
           </div>
@@ -118,7 +119,7 @@ export default async function StoryListPage() {
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-5">
             <span className="text-[10px] tracking-[2px] uppercase font-medium text-foreground/45">
-              Concluded
+              <T ja="完結" en="Concluded" />
             </span>
             <div className="h-px flex-1 bg-brief-border" />
           </div>
@@ -133,7 +134,7 @@ export default async function StoryListPage() {
       {/* More coming */}
       <div className="mt-4 p-5 rounded-xl border border-dashed border-brief-border text-center">
         <p className="text-sm text-foreground/45 italic">
-          ストーリーは順次追加されます。
+          <T ja="ストーリーは順次追加されます。" en="More stories will be added over time." />
         </p>
       </div>
     </div>

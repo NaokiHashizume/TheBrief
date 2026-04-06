@@ -55,6 +55,6 @@ export default async function OgImage({ params }: { params: Promise<{ slug: stri
         </div>
       </div>
     ),
-    { ...size, fonts: [{ name: "NotoSansJP", data: fontData, style: "normal" as const }] }
+    { ...size, fonts: [{ name: "NotoSansJP", data: fontData, style: "normal" }] }
   );
 }

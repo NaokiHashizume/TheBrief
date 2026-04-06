@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { T } from "@/components/T";
 import { ictArticles } from "@/lib/ict";
 
 export const metadata: Metadata = {

@@ -18,6 +18,7 @@ const industries = [
     title: "小売",
     titleEn: "Retail",
     description: "スーパー、コンビニ、百貨店、ドラッグストアなど小売業界全般の動向。",
+    descriptionEn: "Supermarkets, convenience stores, department stores, drugstores, and retail trends.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 21h18" /><path d="M5 21V7l7-4 7 4v14" />
@@ -31,6 +32,7 @@ const industries = [
     title: "自動車",
     titleEn: "Automotive",
     description: "EV化、自動運転、トヨタ・ホンダ・日産の戦略、部品サプライチェーン。",
+    descriptionEn: "EV shift, autonomous driving, Toyota/Honda/Nissan strategies, and parts supply chain.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M5 17h14M5 17a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1l2-3h8l2 3h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2M5 17l-1 2h2m12-2 1 2h-2" />
@@ -44,6 +46,7 @@ const industries = [
     title: "外食",
     titleEn: "Food Service",
     description: "ファミレス、ファストフード、居酒屋、カフェチェーンなど外食産業の動向。",
+    descriptionEn: "Family restaurants, fast food, izakaya, cafe chains, and food service trends.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
@@ -57,6 +60,7 @@ const industries = [
     title: "エンタメ",
     titleEn: "Entertainment",
     description: "ゲーム・音楽・映画・動画配信・テーマパークなどエンタメ業界の動向。",
+    descriptionEn: "Gaming, music, film, streaming, theme parks, and entertainment trends.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="5 3 19 12 5 21 5 3" />
@@ -69,6 +73,7 @@ const industries = [
     title: "金融機関",
     titleEn: "Financial Institutions",
     description: "メガバンク、証券、保険、デジタル決済、暗号資産、新NISA関連。",
+    descriptionEn: "Mega-banks, securities, insurance, digital payments, crypto, and new NISA.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <line x1="12" y1="1" x2="12" y2="23" />
@@ -82,6 +87,7 @@ const industries = [
     title: "サービス",
     titleEn: "Services",
     description: "人材、警備、教育、コンサルティング、BPOなどサービス業全般。",
+    descriptionEn: "Staffing, security, education, consulting, BPO, and professional services.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -95,6 +101,7 @@ const industries = [
     title: "資源エネルギー",
     titleEn: "Resources & Energy",
     description: "石油・ガス、電力、再生可能エネルギー、原子力、脱炭素戦略。",
+    descriptionEn: "Oil & gas, electric power, renewables, nuclear, and decarbonization.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
@@ -107,6 +114,7 @@ const industries = [
     title: "商社・卸売",
     titleEn: "Trading & Wholesale",
     description: "総合商社、専門商社、卸売業。資源・食料・素材のグローバル取引。",
+    descriptionEn: "General and specialty trading companies. Global trade in resources, food, and materials.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
@@ -121,6 +129,7 @@ const industries = [
     title: "素材",
     titleEn: "Materials",
     description: "化学、鉄鋼、非鉄金属、セメント、繊維など素材メーカーの動向。",
+    descriptionEn: "Chemicals, steel, non-ferrous metals, cement, textiles, and materials makers.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
@@ -134,6 +143,7 @@ const industries = [
     title: "専門店・EC",
     titleEn: "Specialty & EC",
     description: "EC市場、家電量販、アパレル専門店、フリマアプリなど専門小売。",
+    descriptionEn: "E-commerce, electronics retailers, apparel specialty stores, and flea-market apps.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" />
@@ -147,6 +157,7 @@ const industries = [
     title: "情報通信",
     titleEn: "ICT & Internet",
     description: "通信キャリア、IT企業、SaaS、クラウド、サイバーセキュリティ。",
+    descriptionEn: "Telecom carriers, IT companies, SaaS, cloud, and cybersecurity.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
@@ -159,6 +170,7 @@ const industries = [
     title: "AI・人工知能",
     titleEn: "AI & Artificial Intelligence",
     description: "大規模言語モデル、AIエージェント、オープンモデルなど人工知能分野の動向。",
+    descriptionEn: "Large language models, AI agents, open-source models, and AI industry trends.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2a4 4 0 0 1 4 4c0 1.1-.9 2-2 2h-4a2 2 0 0 1-2-2 4 4 0 0 1 4-4z" />
@@ -176,6 +188,7 @@ const industries = [
     title: "生活・日用品",
     titleEn: "Daily & Household",
     description: "トイレタリー、化粧品、生活雑貨、日用品メーカーの動向。",
+    descriptionEn: "Toiletries, cosmetics, household goods, and daily-use product makers.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -189,6 +202,7 @@ const industries = [
     title: "医薬品・医療介護",
     titleEn: "Pharma & Healthcare",
     description: "新薬開発、医療DX、バイオテクノロジー、介護・ヘルスケア。",
+    descriptionEn: "Drug development, healthcare DX, biotechnology, elderly care, and health tech.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M8 2v4" /><path d="M16 2v4" />
@@ -203,6 +217,7 @@ const industries = [
     title: "食品",
     titleEn: "Food & Beverage",
     description: "食品メーカー、飲料、乳業、冷凍食品、調味料など食品業界。",
+    descriptionEn: "Food manufacturers, beverages, dairy, frozen foods, seasonings, and more.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 12h20" /><path d="M20 12c0 4.4-3.6 8-8 8s-8-3.6-8-8" />
@@ -216,6 +231,7 @@ const industries = [
     title: "建設・不動産",
     titleEn: "Construction & Real Estate",
     description: "ゼネコン、住宅メーカー、不動産デベロッパー、REIT、都市再開発。",
+    descriptionEn: "General contractors, homebuilders, real estate developers, REITs, and urban redevelopment.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 21h18" />
@@ -230,6 +246,7 @@ const industries = [
     title: "物流・運輸",
     titleEn: "Logistics & Transport",
     description: "宅配、鉄道、航空、海運、倉庫、2024年問題とその後の対応。",
+    descriptionEn: "Delivery, rail, aviation, shipping, warehousing, and the 2024 logistics reform.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
@@ -299,7 +316,7 @@ export default function IndustryPage() {
                 </div>
               </div>
               <p className="mt-3 text-[12px] text-foreground/55 leading-relaxed">
-                {ind.description}
+                <T ja={ind.description} en={ind.descriptionEn} />
               </p>
               <div className="mt-3">
                 {isActive ? (
