@@ -3,6 +3,9 @@ import Link from "next/link";
 
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
+import { debates } from "@/lib/debates";
+import { passedItems } from "@/lib/passed";
+import { enactedItems } from "@/lib/enacted";
 
 export const metadata: Metadata = {
   title: "Politics — 国会・内閣・議員",
@@ -63,6 +66,10 @@ const sections = [
 ];
 
 export default function PoliticsPage() {
+  const debateCount = debates.length;
+  const passedCount = passedItems.length;
+  const enactedCount = enactedItems.length;
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       <BreadcrumbJsonLd
@@ -88,7 +95,7 @@ export default function PoliticsPage() {
       </p>
 
       {/* いまの政治 ダッシュボード */}
-      <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-3">
         <div className="p-4 rounded-xl bg-brief-card border border-brief-border">
           <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1"><T ja="衆議院" en="House of Reps" /></div>
           <div className="text-2xl font-bold tabular-nums" style={{ color: "#3CA324" }}>316<span className="text-sm text-foreground/45">/465</span></div>
@@ -101,13 +108,18 @@ export default function PoliticsPage() {
         </div>
         <div className="p-4 rounded-xl bg-brief-card border border-brief-border">
           <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1"><T ja="審議中法案" en="Bills in Debate" /></div>
-          <div className="text-2xl font-bold tabular-nums text-brief-red">6<span className="text-sm text-foreground/45"><T ja="本" en="" /></span></div>
-          <div className="text-[10px] text-foreground/50 mt-1"><T ja="第221回特別国会" en="221st Special Diet Session" /></div>
+          <div className="text-2xl font-bold tabular-nums text-brief-red">{debateCount}<span className="text-sm text-foreground/45"><T ja="本" en="" /></span></div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="現在の審議案件総数" en="Current bills and agenda items" /></div>
+        </div>
+        <div className="p-4 rounded-xl bg-brief-card border border-brief-border">
+          <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1"><T ja="成立済" en="Passed" /></div>
+          <div className="text-2xl font-bold tabular-nums text-amber-500">{passedCount}<span className="text-sm text-foreground/45"><T ja="件" en="" /></span></div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="成立したが未施行の法令" en="Passed but not yet in effect" /></div>
         </div>
         <div className="p-4 rounded-xl bg-brief-card border border-brief-border">
           <div className="text-[10px] tracking-wider uppercase text-foreground/45 mb-1"><T ja="施行済" en="Enacted" /></div>
-          <div className="text-2xl font-bold tabular-nums text-green-500">4<span className="text-sm text-foreground/45"><T ja="件" en="" /></span></div>
-          <div className="text-[10px] text-foreground/50 mt-1"><T ja="2026年に施行" en="Effective in 2026" /></div>
+          <div className="text-2xl font-bold tabular-nums text-green-500">{enactedCount}<span className="text-sm text-foreground/45"><T ja="件" en="" /></span></div>
+          <div className="text-[10px] text-foreground/50 mt-1"><T ja="現在の施行済法令総数" en="Currently effective laws tracked" /></div>
         </div>
       </div>
 
