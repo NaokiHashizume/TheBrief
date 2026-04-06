@@ -23,6 +23,7 @@ import { specialtyArticles } from "@/lib/specialty";
 import { tradingArticles } from "@/lib/trading";
 import { dailyArticles } from "@/lib/daily";
 import { otherArticles } from "@/lib/other";
+import { universityCategories } from "@/lib/university";
 
 const SITE_URL = "https://thebrief.info";
 
@@ -103,6 +104,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const universityPages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/university`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    ...universityCategories.map((category) => ({
+      url: `${SITE_URL}/university/${category.id}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })),
   ];
 
   const economyArticlePages: MetadataRoute.Sitemap = economyArticles.map((a) => ({

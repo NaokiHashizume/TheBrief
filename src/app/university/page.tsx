@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
-import { AcademicDisciplines } from "@/components/AcademicDisciplines";
+import { getUniversityCounts, universityCategories } from "@/lib/university";
 
 export const metadata: Metadata = {
   title: "University — 学問体系と研究領域",
@@ -9,15 +9,6 @@ export const metadata: Metadata = {
     "大学・研究の世界を大分類から俯瞰。形式科学、自然科学、人文科学、社会科学、応用科学、学際領域まで、主要な学問分野を一覧できます。",
   alternates: { canonical: "https://thebrief.info/university" },
 };
-
-const topCategories = [
-  { id: "formal", title: "形式科学", desc: "数学、論理学、計算機科学、システム科学", color: "#6366f1" },
-  { id: "natural", title: "自然科学", desc: "物理、化学、生物、地球科学、天文学", color: "#10b981" },
-  { id: "humanities", title: "人文科学", desc: "哲学、歴史学、文学、言語学、芸術学、宗教学", color: "#f59e0b" },
-  { id: "social", title: "社会科学", desc: "経済学、法学、政治学、社会学、心理学、教育学", color: "#ef4444" },
-  { id: "applied", title: "応用科学・工学", desc: "工学、情報工学、医学、農学、薬学、看護学", color: "#3b82f6" },
-  { id: "interdisciplinary", title: "学際・新領域", desc: "環境科学、認知科学、データサイエンス、都市研究", color: "#8b5cf6" },
-];
 
 export default function UniversityPage() {
   return (
@@ -56,15 +47,17 @@ export default function UniversityPage() {
         <div className="mb-4">
           <h2 className="font-serif text-2xl font-bold">主要6領域</h2>
           <p className="mt-1 text-sm text-foreground/60">
-            Industryページのように領域ボックスを並べ、クリックで本文の体系図へ移動できます。
+            それぞれをクリックすると、次のページで中分類と代表科目の詳細を見られます。
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {topCategories.map((category) => (
-            <a
+          {universityCategories.map((category) => {
+            const counts = getUniversityCounts(category);
+            return (
+            <Link
               key={category.id}
-              href={`#${category.id}`}
+              href={`/university/${category.id}`}
               className="group rounded-[24px] border border-brief-border bg-brief-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20"
             >
               <div className="flex items-start justify-between gap-3">
@@ -72,7 +65,7 @@ export default function UniversityPage() {
                   <div className="text-[10px] font-bold uppercase tracking-[2.8px]" style={{ color: category.color }}>
                     Discipline
                   </div>
-                  <h3 className="mt-2 font-serif text-2xl font-bold">{category.title}</h3>
+                  <h3 className="mt-2 font-serif text-2xl font-bold">{category.label}</h3>
                 </div>
                 <div
                   className="flex h-11 w-11 items-center justify-center rounded-2xl border"
@@ -91,17 +84,28 @@ export default function UniversityPage() {
                 </div>
               </div>
               <p className="mt-4 text-sm leading-relaxed text-foreground/60">{category.desc}</p>
+              <div className="mt-4 flex items-center gap-2 text-[11px] text-foreground/45">
+                <span>{counts.subCount}分野</span>
+                <span>•</span>
+                <span>{counts.itemCount}科目</span>
+              </div>
               <div className="mt-5 flex items-center justify-between text-[11px] uppercase tracking-[2px] text-foreground/40">
-                <span>Open Map</span>
+                <span>Open Detail</span>
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </div>
-            </a>
-          ))}
+            </Link>
+          )})}
         </div>
       </section>
 
-      <section className="mt-8">
-        <AcademicDisciplines />
+      <section className="mt-8 rounded-[24px] border border-brief-border bg-brief-card p-6">
+        <div className="text-[10px] font-bold uppercase tracking-[2.8px] text-foreground/45">
+          Structure Guide
+        </div>
+        <h2 className="mt-3 font-serif text-2xl font-bold">このセクションの見方</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-foreground/65">
+          形式科学が抽象的な基盤をつくり、自然科学が法則を発見し、応用科学・工学が実装へつなぎます。社会科学と人文科学は人間と制度、文化を読み解き、学際領域がそれらを横断して新しい研究テーマを生み出します。
+        </p>
       </section>
     </div>
   );

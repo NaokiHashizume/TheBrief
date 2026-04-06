@@ -56,8 +56,8 @@ const mainSections = [
     descEn: "Discipline Map, Research Fields & University Knowledge",
     items: [
       { ja: "学問の体系図", en: "Academic discipline map", href: "/university" },
-      { ja: "形式科学から自然科学へ", en: "From formal to natural sciences", href: "/university#formal" },
-      { ja: "社会科学・学際領域まで俯瞰", en: "Survey social and interdisciplinary fields", href: "/university#social" },
+      { ja: "形式科学の詳細", en: "Formal sciences detail", href: "/university/formal" },
+      { ja: "社会科学・学際領域の詳細", en: "Social and interdisciplinary detail", href: "/university/social" },
     ],
   },
 ];

@@ -130,10 +130,10 @@ const menuItems = [
     ),
     children: [
       { labelJa: "学問の体系図", labelEn: "Discipline Map", href: "/university" },
-      { labelJa: "形式科学", labelEn: "Formal Sciences", href: "/university#formal" },
-      { labelJa: "自然科学", labelEn: "Natural Sciences", href: "/university#natural" },
-      { labelJa: "社会科学", labelEn: "Social Sciences", href: "/university#social" },
-      { labelJa: "学際領域", labelEn: "Interdisciplinary", href: "/university#interdisciplinary" },
+      { labelJa: "形式科学", labelEn: "Formal Sciences", href: "/university/formal" },
+      { labelJa: "自然科学", labelEn: "Natural Sciences", href: "/university/natural" },
+      { labelJa: "社会科学", labelEn: "Social Sciences", href: "/university/social" },
+      { labelJa: "学際領域", labelEn: "Interdisciplinary", href: "/university/interdisciplinary" },
     ],
   },
   {
