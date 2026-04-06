@@ -55,6 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${SITE_URL}/privacy`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
+    { url: `${SITE_URL}/feed.xml`, lastModified: now, changeFrequency: "daily", priority: 0.3 },
     { url: `${SITE_URL}/politics/government`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];
 

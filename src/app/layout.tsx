@@ -73,6 +73,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_URL,
+    types: {
+      "application/rss+xml": [{ url: "/feed.xml", title: "The Brief RSS Feed" }],
+    },
   },
   verification: {
     google: "bccfihndvBhMTMGVrpBtJrNB04_TPUlrHHWsL0iEpKg",

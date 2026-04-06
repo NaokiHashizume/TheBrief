@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { otherArticles } from "@/lib/other";
-import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import {
   BlocOverviewDiagram,
   TariffTimelineDiagram,
@@ -222,6 +223,30 @@ export default async function OtherArticlePage({
           </section>
         ))}
       </article>
+
+      {/* FAQ Structured Data — extract 【label】 sections as Q&A */}
+      <FAQJsonLd
+        items={article.sections
+          .flatMap((s) =>
+            s.body.split("\n\n").filter((p) => p.trim().startsWith("【"))
+          )
+          .map((p) => {
+            const end = p.indexOf("】");
+            return {
+              question: p.slice(1, end),
+              answer: p.slice(end + 1).trim(),
+            };
+          })
+          .slice(0, 10)}
+      />
+
+      {/* Related Articles */}
+      <RelatedArticles
+        currentSlug={slug}
+        articles={otherArticles}
+        basePath="/industry/other"
+        accentColor="#8b5cf6"
+      />
 
       {/* Article Navigation */}
       <div className="mt-14 pt-8 border-t border-brief-border">
