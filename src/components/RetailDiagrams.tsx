@@ -319,6 +319,315 @@ export function RetailInnovationDiagram() {
 /* ─────────────────────────────────────────────
    Shosha Retail Strategy Diagram
    ───────────────────────────────────────────── */
+/* ─────────────────────────────────────────────
+   CVS Big 3 Overview Diagram
+   ───────────────────────────────────────────── */
+export function CvsBig3OverviewDiagram() {
+  const companies = [
+    { name: "セブン-イレブン", stores: "21,722", sales: "5兆3,697億円", dailySales: "67.5万円", parent: "セブン&アイHD", color: "#ef4444" },
+    { name: "ファミリーマート", stores: "16,415", sales: "非公開（過去最高益）", dailySales: "約53万円", parent: "伊藤忠商事", color: "#10b981" },
+    { name: "ローソン", stores: "14,697", sales: "非上場化", dailySales: "約49万円", parent: "三菱商事×KDDI", color: "#3b82f6" },
+  ];
+
+  return (
+    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+      <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
+        コンビニ大手3社 — 基本データ
+      </div>
+      <div className="space-y-2">
+        {companies.map((c) => (
+          <div
+            key={c.name}
+            className="p-3 rounded-lg"
+            style={{ backgroundColor: `${c.color}06`, borderLeft: `3px solid ${c.color}` }}
+          >
+            <div className="flex items-center justify-between mb-1">
+              <div className="text-sm font-bold" style={{ color: c.color }}>{c.name}</div>
+              <div className="text-[10px] text-foreground/50">{c.parent}</div>
+            </div>
+            <div className="grid grid-cols-3 gap-2 mt-2">
+              <div>
+                <div className="text-[9px] text-foreground/40">店舗数</div>
+                <div className="text-xs font-semibold tabular-nums">{c.stores}</div>
+              </div>
+              <div>
+                <div className="text-[9px] text-foreground/40">売上規模</div>
+                <div className="text-xs font-semibold">{c.sales}</div>
+              </div>
+              <div>
+                <div className="text-[9px] text-foreground/40">日販</div>
+                <div className="text-xs font-semibold">{c.dailySales}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 p-3 rounded-lg bg-foreground/[0.03] text-center">
+        <div className="text-lg font-bold text-[#78716c]">市場シェア 約93%</div>
+        <div className="text-[9px] text-foreground/40">3社合計 約5.3万店 / 全国 約5.6万店</div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   Seven-Eleven Strategy Diagram
+   ───────────────────────────────────────────── */
+export function CvsSevenStrategyDiagram() {
+  return (
+    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+      <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
+        セブン-イレブンの強みと課題
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="p-3 rounded-lg bg-[#ef4444]/5 border border-[#ef4444]/15">
+          <div className="text-xs font-bold text-[#ef4444] mb-2">強み</div>
+          <div className="space-y-1.5">
+            {["PB「セブンプレミアム」1.5兆円", "日販67.5万円で業界首位", "海外8.5万店のネットワーク", "チームMDによる商品開発力"].map((item) => (
+              <div key={item} className="flex items-start gap-1.5">
+                <span className="text-[#ef4444] text-[10px] mt-0.5">{"\u25B2"}</span>
+                <span className="text-[10px] text-foreground/60">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-3 rounded-lg bg-[#78716c]/5 border border-[#78716c]/15">
+          <div className="text-xs font-bold text-[#78716c] mb-2">課題</div>
+          <div className="space-y-1.5">
+            {["2024年度 減収減益", "買収提案への対応", "北米事業の収益性", "デジタル戦略の出遅れ"].map((item) => (
+              <div key={item} className="flex items-start gap-1.5">
+                <span className="text-[#78716c] text-[10px] mt-0.5">{"\u25BC"}</span>
+                <span className="text-[10px] text-foreground/60">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   FamilyMart Strategy Diagram
+   ───────────────────────────────────────────── */
+export function CvsFamimaStrategyDiagram() {
+  return (
+    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+      <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
+        ファミリーマートの成長戦略
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {[
+          { label: "伊藤忠シナジー", value: "川上→川下統合", color: "#10b981" },
+          { label: "AI発注", value: "全店展開済", color: "#8b5cf6" },
+          { label: "ファミペイ", value: "2,000万人超", color: "#3b82f6" },
+          { label: "リテールメディア", value: "新収益の柱", color: "#f59e0b" },
+        ].map((item) => (
+          <div key={item.label} className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
+            <div className="text-lg font-bold" style={{ color: item.color }}>{item.value}</div>
+            <div className="text-[10px] text-foreground/50 mt-1">{item.label}</div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 p-3 rounded-lg bg-[#10b981]/5 border border-[#10b981]/15">
+        <div className="text-[10px] font-medium text-foreground/55 mb-2">伊藤忠商事の完全子会社化による変化</div>
+        <div className="flex items-center gap-2 overflow-x-auto">
+          {[
+            { label: "原材料調達", desc: "グローバル調達網" },
+            { label: "商品開発", desc: "PB「ファミマル」" },
+            { label: "デジタル", desc: "データワン連携" },
+            { label: "収益多角化", desc: "Fit&GO・ランドリー" },
+          ].map((s, i) => (
+            <div key={i} className="flex items-center gap-2 flex-shrink-0">
+              <div className="text-center">
+                <div className="text-[10px] font-semibold text-[#10b981]">{s.label}</div>
+                <div className="text-[9px] text-foreground/40">{s.desc}</div>
+              </div>
+              {i < 3 && <div className="text-foreground/20 text-sm">{"\u2192"}</div>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   Lawson Strategy Diagram
+   ───────────────────────────────────────────── */
+export function CvsLawsonStrategyDiagram() {
+  return (
+    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+      <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
+        ローソンの新体制 — 三菱商事×KDDI
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="p-4 rounded-lg bg-[#3b82f6]/5 border border-[#3b82f6]/15">
+          <div className="text-sm font-bold text-[#3b82f6] mb-1">KDDI（50%）</div>
+          <div className="space-y-1.5">
+            {["Ponta 1億人超の顧客基盤", "auデータ×購買データ融合", "5G通信インフラ活用", "デジタルマーケティング"].map((item) => (
+              <div key={item} className="flex items-start gap-1.5">
+                <span className="text-[#3b82f6] text-[10px] mt-0.5">{"\u25CF"}</span>
+                <span className="text-[10px] text-foreground/60">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-4 rounded-lg bg-[#8b5cf6]/5 border border-[#8b5cf6]/15">
+          <div className="text-sm font-bold text-[#8b5cf6] mb-1">三菱商事（50%）</div>
+          <div className="space-y-1.5">
+            {["グローバル調達ネットワーク", "食品・物流の専門知見", "海外展開の推進力", "長期投資の資金力"].map((item) => (
+              <div key={item} className="flex items-start gap-1.5">
+                <span className="text-[#8b5cf6] text-[10px] mt-0.5">{"\u25CF"}</span>
+                <span className="text-[10px] text-foreground/60">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="mt-4 grid grid-cols-3 gap-3">
+        {[
+          { label: "ヘルスケア", value: "調剤350店", color: "#10b981" },
+          { label: "海外", value: "約7,000店", color: "#f59e0b" },
+          { label: "非上場化", value: "長期投資可能", color: "#ef4444" },
+        ].map((item) => (
+          <div key={item.label} className="p-2.5 rounded-lg bg-foreground/[0.03] text-center">
+            <div className="text-sm font-bold" style={{ color: item.color }}>{item.value}</div>
+            <div className="text-[9px] text-foreground/50">{item.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   CVS Big 3 Comparison Diagram
+   ───────────────────────────────────────────── */
+export function CvsBig3ComparisonDiagram() {
+  const metrics = [
+    { metric: "日販", seven: "67.5万円", famima: "約53万円", lawson: "約49万円" },
+    { metric: "PB", seven: "セブンプレミアム", famima: "ファミマル", lawson: "ローソンセレクト" },
+    { metric: "デジタル", seven: "POS活用", famima: "AI発注先行", lawson: "通信×小売融合" },
+    { metric: "海外店舗", seven: "約8.5万店", famima: "約8,000店", lawson: "約7,000店" },
+    { metric: "差別化軸", seven: "商品力", famima: "総合商社パワー", lawson: "テクノロジー" },
+  ];
+
+  return (
+    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+      <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
+        3社比較マトリクス
+      </div>
+      <div className="overflow-x-auto">
+        <table className="w-full text-[11px]">
+          <thead>
+            <tr className="border-b border-brief-border">
+              <th className="text-left py-2 pr-3 text-foreground/40 font-medium"></th>
+              <th className="text-center py-2 px-2 font-bold text-[#ef4444]">セブン</th>
+              <th className="text-center py-2 px-2 font-bold text-[#10b981]">ファミマ</th>
+              <th className="text-center py-2 px-2 font-bold text-[#3b82f6]">ローソン</th>
+            </tr>
+          </thead>
+          <tbody>
+            {metrics.map((row) => (
+              <tr key={row.metric} className="border-b border-brief-border/50">
+                <td className="py-2 pr-3 text-foreground/55 font-medium">{row.metric}</td>
+                <td className="py-2 px-2 text-center text-foreground/70">{row.seven}</td>
+                <td className="py-2 px-2 text-center text-foreground/70">{row.famima}</td>
+                <td className="py-2 px-2 text-center text-foreground/70">{row.lawson}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   Franchise Model Diagram
+   ───────────────────────────────────────────── */
+export function CvsFranchiseModelDiagram() {
+  return (
+    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+      <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
+        フランチャイズモデルの構造
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+        {[
+          { name: "セブン", royalty: "43〜76%", color: "#ef4444" },
+          { name: "ファミマ", royalty: "49〜69%", color: "#10b981" },
+          { name: "ローソン", royalty: "45〜70%", color: "#3b82f6" },
+        ].map((c) => (
+          <div key={c.name} className="p-3 rounded-lg text-center" style={{ backgroundColor: `${c.color}06`, borderLeft: `3px solid ${c.color}` }}>
+            <div className="text-xs font-bold" style={{ color: c.color }}>{c.name}</div>
+            <div className="text-lg font-bold text-foreground/70 mt-1">{c.royalty}</div>
+            <div className="text-[9px] text-foreground/40">粗利ロイヤリティ</div>
+          </div>
+        ))}
+      </div>
+      <div className="p-3 rounded-lg bg-foreground/[0.03]">
+        <div className="text-[10px] font-medium text-foreground/55 mb-2">FCモデルの課題</div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          {[
+            { label: "人手不足", desc: "24時間維持困難" },
+            { label: "収益圧迫", desc: "最低賃金上昇" },
+            { label: "オーナー高齢化", desc: "後継者不足" },
+            { label: "モデル変革", desc: "省人化・直営化" },
+          ].map((item) => (
+            <div key={item.label} className="text-center">
+              <div className="text-[10px] font-semibold text-[#f59e0b]">{item.label}</div>
+              <div className="text-[9px] text-foreground/40">{item.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   CVS Big 3 Future Diagram
+   ───────────────────────────────────────────── */
+export function CvsBig3FutureDiagram() {
+  return (
+    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+      <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
+        3社の未来戦略
+      </div>
+      <div className="space-y-3">
+        {[
+          { name: "セブン-イレブン", strategy: "「食」の高付加価値化 + 7NOW全国展開", keyword: "商品力深化", color: "#ef4444" },
+          { name: "ファミリーマート", strategy: "リテールメディア拡大 + FinTech参入", keyword: "プラットフォーム", color: "#10b981" },
+          { name: "ローソン", strategy: "テクノロジーコンビニ + ヘルスケア500店", keyword: "社会インフラ", color: "#3b82f6" },
+        ].map((c) => (
+          <div
+            key={c.name}
+            className="flex items-center gap-3 p-3 rounded-lg"
+            style={{ backgroundColor: `${c.color}06`, borderLeft: `3px solid ${c.color}` }}
+          >
+            <div className="min-w-0 flex-1">
+              <div className="text-sm font-bold" style={{ color: c.color }}>{c.name}</div>
+              <div className="text-[10px] text-foreground/50 mt-0.5">{c.strategy}</div>
+            </div>
+            <span
+              className="text-[9px] px-2 py-0.5 rounded-full font-medium flex-shrink-0"
+              style={{ backgroundColor: `${c.color}15`, color: c.color }}
+            >
+              {c.keyword}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 p-3 rounded-lg bg-foreground/[0.03] text-center">
+        <div className="text-[10px] font-medium text-foreground/55 mb-1">共通テーマ</div>
+        <div className="text-sm font-bold text-[#78716c]">「モノを売る店」→「社会のOS」へ</div>
+        <div className="text-[9px] text-foreground/40">決済・物流・ヘルスケア・行政サービスの集約拠点</div>
+      </div>
+    </div>
+  );
+}
+
 export function ShoshaRetailStrategyDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">

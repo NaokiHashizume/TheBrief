@@ -11,6 +11,13 @@ import {
   RetailInnovationDiagram as RetailDxDiagram,
   GrowthSectorsDiagram as RetailValueChainDiagram,
   EcLandscapeDiagram as RetailFutureDiagram,
+  CvsBig3OverviewDiagram,
+  CvsSevenStrategyDiagram,
+  CvsFamimaStrategyDiagram,
+  CvsLawsonStrategyDiagram,
+  CvsBig3ComparisonDiagram,
+  CvsFranchiseModelDiagram,
+  CvsBig3FutureDiagram,
 } from "@/components/RetailDiagrams";
 import ShareButton from "@/components/ShareButton";
 
@@ -238,6 +245,13 @@ export default async function RetailArticlePage({
               {section.diagramId === "retail-dx" && <RetailDxDiagram />}
               {section.diagramId === "retail-value-chain" && <RetailValueChainDiagram />}
               {section.diagramId === "retail-future" && <RetailFutureDiagram />}
+              {section.diagramId === "cvs-big3-overview" && <CvsBig3OverviewDiagram />}
+              {section.diagramId === "cvs-seven-strategy" && <CvsSevenStrategyDiagram />}
+              {section.diagramId === "cvs-famima-strategy" && <CvsFamimaStrategyDiagram />}
+              {section.diagramId === "cvs-lawson-strategy" && <CvsLawsonStrategyDiagram />}
+              {section.diagramId === "cvs-big3-comparison" && <CvsBig3ComparisonDiagram />}
+              {section.diagramId === "cvs-franchise-model" && <CvsFranchiseModelDiagram />}
+              {section.diagramId === "cvs-big3-future" && <CvsBig3FutureDiagram />}
 
               {/* Section body */}
               <div className="space-y-5">
