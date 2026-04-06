@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { SkipLink } from "@/components/SkipLink";
+import { Sidebar } from "@/components/Sidebar";
 
 const SITE_URL = "https://thebrief.info";
 const SITE_NAME = "The Brief";
@@ -128,6 +129,7 @@ export default function RootLayout({
         <ThemeProvider>
           <LanguageProvider>
             <SkipLink />
+            <Sidebar />
             <Header />
             <main id="main-content" className="flex-1">{children}</main>
             <Footer />
