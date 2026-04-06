@@ -1,10 +1,40 @@
 "use client";
 
-import { useState } from "react";
+import { createContext, useContext, useState, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "./LanguageProvider";
 
+/* ── Sidebar context ── */
+interface SidebarContextType {
+  isOpen: boolean;
+  toggle: () => void;
+  close: () => void;
+}
+
+const SidebarContext = createContext<SidebarContextType>({
+  isOpen: false,
+  toggle: () => {},
+  close: () => {},
+});
+
+export function useSidebar() {
+  return useContext(SidebarContext);
+}
+
+export function SidebarProvider({ children }: { children: React.ReactNode }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = useCallback(() => setIsOpen((v) => !v), []);
+  const close = useCallback(() => setIsOpen(false), []);
+
+  return (
+    <SidebarContext.Provider value={{ isOpen, toggle, close }}>
+      {children}
+    </SidebarContext.Provider>
+  );
+}
+
+/* ── Menu data ── */
 const menuItems = [
   {
     labelJa: "ホーム",
@@ -108,8 +138,9 @@ const menuItems = [
   },
 ];
 
+/* ── Sidebar component ── */
 export function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, close } = useSidebar();
   const [expandedSections, setExpandedSections] = useState<string[]>([]);
   const pathname = usePathname();
   const { locale } = useLanguage();
@@ -127,33 +158,11 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Toggle button — fixed on left edge */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed left-0 top-1/2 -translate-y-1/2 z-50 w-6 h-14 bg-brief-card border border-l-0 border-brief-border rounded-r-lg flex items-center justify-center hover:bg-foreground/5 transition-all group"
-        aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={`text-foreground/40 group-hover:text-foreground transition-all ${isOpen ? "rotate-180" : ""}`}
-        >
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-      </button>
-
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/20 z-40 lg:hidden"
-          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-black/20 z-40"
+          onClick={close}
         />
       )}
 
@@ -169,11 +178,11 @@ export function Sidebar() {
             Menu
           </span>
           <button
-            onClick={() => setIsOpen(false)}
-            className="p-1 rounded hover:bg-foreground/5 transition-colors"
+            onClick={close}
+            className="p-1.5 rounded-lg hover:bg-foreground/5 transition-colors"
             aria-label="メニューを閉じる"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/50">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/50">
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
@@ -188,11 +197,10 @@ export function Sidebar() {
 
             return (
               <div key={item.href} className="mb-0.5">
-                {/* Parent item */}
                 <div className="flex items-center">
                   <Link
                     href={item.href}
-                    onClick={() => !hasChildren && setIsOpen(false)}
+                    onClick={() => !hasChildren && close()}
                     className={`flex-1 flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
                       active
                         ? "bg-foreground/[0.06] font-medium"
@@ -227,7 +235,6 @@ export function Sidebar() {
                   )}
                 </div>
 
-                {/* Children */}
                 {hasChildren && expanded && (
                   <div className="ml-5 pl-3 border-l border-brief-rule mt-1 mb-2 space-y-0.5">
                     {item.children!.map((child) => {
@@ -236,7 +243,7 @@ export function Sidebar() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          onClick={() => setIsOpen(false)}
+                          onClick={close}
                           className={`block px-3 py-1.5 rounded text-xs transition-colors ${
                             childActive
                               ? "bg-foreground/[0.06] font-medium text-foreground"

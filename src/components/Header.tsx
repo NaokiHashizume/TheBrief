@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
+import { useSidebar } from "./Sidebar";
 
 const categories = [
   { label: "Politics", href: "/politics", color: "hover:text-[#e53e3e]" },
@@ -12,6 +13,8 @@ const categories = [
 ];
 
 export function Header() {
+  const { toggle } = useSidebar();
+
   return (
     <header className="bg-background border-b border-brief-rule sticky top-0 z-40">
       {/* Utility bar */}
@@ -37,24 +40,40 @@ export function Header() {
       </div>
 
       {/* Masthead */}
-      <div className="max-w-[1400px] mx-auto px-6 py-5 flex flex-col items-center">
-        <Link href="/" className="hover:opacity-90 transition-opacity">
-          <Logo className="items-center" />
-        </Link>
+      <div className="max-w-[1400px] mx-auto px-6 py-5 flex items-center relative">
+        {/* Hamburger menu button — left side */}
+        <button
+          onClick={toggle}
+          className="absolute left-6 p-2 -ml-2 rounded-lg hover:bg-foreground/5 transition-colors group"
+          aria-label="メニューを開く"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/50 group-hover:text-foreground transition-colors">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
 
-        {/* Category navigation */}
-        <nav className="w-full flex justify-center gap-10 mt-5 border-t border-brief-rule pt-3">
-          {categories.map((cat) => (
-            <Link
-              key={cat.href}
-              href={cat.href}
-              className={`nav-link text-[11px] tracking-[2.5px] uppercase font-medium text-foreground/60 ${cat.color} transition-colors`}
-            >
-              {cat.label}
-            </Link>
-          ))}
-        </nav>
+        {/* Logo — centered */}
+        <div className="flex-1 flex flex-col items-center">
+          <Link href="/" className="hover:opacity-90 transition-opacity">
+            <Logo className="items-center" />
+          </Link>
+        </div>
       </div>
+
+      {/* Category navigation */}
+      <nav className="max-w-[1400px] mx-auto px-6 flex justify-center gap-10 border-t border-brief-rule py-3">
+        {categories.map((cat) => (
+          <Link
+            key={cat.href}
+            href={cat.href}
+            className={`nav-link text-[11px] tracking-[2.5px] uppercase font-medium text-foreground/60 ${cat.color} transition-colors`}
+          >
+            {cat.label}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }
