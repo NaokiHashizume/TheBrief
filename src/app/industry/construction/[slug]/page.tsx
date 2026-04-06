@@ -1,49 +1,20 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ictArticles } from "@/lib/ict";
+import { constructionArticles } from "@/lib/construction";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import {
-  TcpIpLayerDiagram,
-  PacketJourneyDiagram,
-  DnsHierarchyDiagram,
-  SubmarineCableDiagram,
-  MobileGenerationDiagram,
-  SecurityLayersDiagram,
-  InternetScaleDiagram,
-} from "@/components/NetworkDiagrams";
-import {
-  TelecomOverviewDiagram,
-  SpectrumBandsDiagram,
-  ModulationTypesDiagram,
-  FiberOpticDiagram,
-  CellNetworkDiagram,
-  SatelliteTypesDiagram,
-  JapanInfraDiagram,
-} from "@/components/TelecomDiagrams";
-import {
-  SemiMarketScaleDiagram,
-  ConductorComparisonDiagram,
-  PnJunctionDiagram,
-  TransistorDiagram,
-  ManufacturingProcessDiagram,
-  ChipTypesDiagram,
-  SupplyChainDiagram,
-  JapanSemiHistoryDiagram,
-  ProcessNodeDiagram,
-} from "@/components/SemiconductorDiagrams";
-import {
-  IownOverviewDiagram,
-  ApnArchitectureDiagram,
-  PhotonicConvergenceDiagram,
-  DtcConceptDiagram,
-  IownRoadmapDiagram,
-  IownComparisonDiagram,
-} from "@/components/IownDiagrams";
+  RedevelopmentMapDiagram,
+  TokyoProjectsDiagram,
+  OsakaProjectsDiagram,
+  InvestmentScaleDiagram,
+  TimelineDiagram,
+  EconomicImpactDiagram,
+} from "@/components/UrbanDevelopmentDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
-  return ictArticles.map((a) => ({ slug: a.slug }));
+  return constructionArticles.map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({
@@ -52,19 +23,19 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const article = ictArticles.find((a) => a.slug === slug);
+  const article = constructionArticles.find((a) => a.slug === slug);
   if (!article) return { title: "Article Not Found" };
 
   return {
-    title: `${article.title} — 情報通信`,
+    title: `${article.title} — 建設・不動産`,
     description: article.summary,
     alternates: {
-      canonical: `https://thebrief.info/industry/ict/${article.slug}`,
+      canonical: `https://thebrief.info/industry/construction/${article.slug}`,
     },
     openGraph: {
       title: article.title,
       description: article.summary,
-      url: `https://thebrief.info/industry/ict/${article.slug}`,
+      url: `https://thebrief.info/industry/construction/${article.slug}`,
       type: "article",
       locale: "ja_JP",
       siteName: "The Brief",
@@ -90,7 +61,7 @@ function RichText({ text }: { text: string }) {
               className="font-semibold text-foreground"
               style={{ textDecorationLine: "none" }}
             >
-              <span className="bg-[#3b82f6]/[0.07] dark:bg-[#3b82f6]/[0.15] px-1 py-0.5 rounded">
+              <span className="bg-[#64748b]/[0.07] dark:bg-[#64748b]/[0.15] px-1 py-0.5 rounded">
                 {part}
               </span>
             </strong>
@@ -118,51 +89,28 @@ function RichText({ text }: { text: string }) {
 
 /* Diagram renderer mapped by ID */
 const diagramMap: Record<string, React.FC> = {
-  "internet-scale": InternetScaleDiagram,
-  "tcpip-layers": TcpIpLayerDiagram,
-  "packet-journey": PacketJourneyDiagram,
-  "submarine-cable": SubmarineCableDiagram,
-  "dns-hierarchy": DnsHierarchyDiagram,
-  "mobile-generation": MobileGenerationDiagram,
-  "security-layers": SecurityLayersDiagram,
-  "telecom-overview": TelecomOverviewDiagram,
-  "spectrum-bands": SpectrumBandsDiagram,
-  "modulation-types": ModulationTypesDiagram,
-  "fiber-optic": FiberOpticDiagram,
-  "cell-network": CellNetworkDiagram,
-  "satellite-types": SatelliteTypesDiagram,
-  "japan-infra": JapanInfraDiagram,
-  "semi-market-scale": SemiMarketScaleDiagram,
-  "conductor-comparison": ConductorComparisonDiagram,
-  "pn-junction": PnJunctionDiagram,
-  "transistor-structure": TransistorDiagram,
-  "manufacturing-process": ManufacturingProcessDiagram,
-  "chip-types": ChipTypesDiagram,
-  "supply-chain": SupplyChainDiagram,
-  "japan-semi-history": JapanSemiHistoryDiagram,
-  "process-node": ProcessNodeDiagram,
-  "iown-overview": IownOverviewDiagram,
-  "apn-architecture": ApnArchitectureDiagram,
-  "photonic-convergence": PhotonicConvergenceDiagram,
-  "dtc-concept": DtcConceptDiagram,
-  "iown-roadmap": IownRoadmapDiagram,
-  "iown-comparison": IownComparisonDiagram,
+  "redevelopment-map": RedevelopmentMapDiagram,
+  "tokyo-projects": TokyoProjectsDiagram,
+  "osaka-projects": OsakaProjectsDiagram,
+  "investment-scale": InvestmentScaleDiagram,
+  "timeline": TimelineDiagram,
+  "economic-impact": EconomicImpactDiagram,
 };
 
-export default async function IctArticlePage({
+export default async function ConstructionArticlePage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const article = ictArticles.find((a) => a.slug === slug);
+  const article = constructionArticles.find((a) => a.slug === slug);
   if (!article) notFound();
 
-  const articleIndex = ictArticles.findIndex((a) => a.slug === slug);
-  const prevArticle = articleIndex > 0 ? ictArticles[articleIndex - 1] : null;
+  const articleIndex = constructionArticles.findIndex((a) => a.slug === slug);
+  const prevArticle = articleIndex > 0 ? constructionArticles[articleIndex - 1] : null;
   const nextArticle =
-    articleIndex < ictArticles.length - 1
-      ? ictArticles[articleIndex + 1]
+    articleIndex < constructionArticles.length - 1
+      ? constructionArticles[articleIndex + 1]
       : null;
 
   return (
@@ -173,14 +121,14 @@ export default async function IctArticlePage({
         datePublished={article.date}
         dateModified={article.date}
         author="The Brief"
-        url={`https://thebrief.info/industry/ict/${article.slug}`}
+        url={`https://thebrief.info/industry/construction/${article.slug}`}
       />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
           { name: "Industry", href: "/industry" },
-          { name: "情報通信", href: "/industry/ict" },
-          { name: article.title, href: `/industry/ict/${article.slug}` },
+          { name: "建設・不動産", href: "/industry/construction" },
+          { name: article.title, href: `/industry/construction/${article.slug}` },
         ]}
       />
 
@@ -194,8 +142,8 @@ export default async function IctArticlePage({
           Industry
         </Link>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-30"><path d="M9 18l6-6-6-6"/></svg>
-        <Link href="/industry/ict" className="hover:text-foreground/70 transition-colors">
-          ICT
+        <Link href="/industry/construction" className="hover:text-foreground/70 transition-colors">
+          建設・不動産
         </Link>
       </nav>
 
@@ -203,14 +151,14 @@ export default async function IctArticlePage({
       <header className="mb-14">
         {/* Category + Tags */}
         <div className="flex items-center gap-2.5 mb-5 flex-wrap">
-          <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#3b82f6]/60">
-            情報通信
+          <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#64748b]/60">
+            建設・不動産
           </span>
-          <span className="w-px h-3 bg-[#3b82f6]/15" />
+          <span className="w-px h-3 bg-[#64748b]/15" />
           {article.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[10px] px-2.5 py-1 rounded-md bg-[#3b82f6]/[0.05] text-[#3b82f6]/60 dark:text-[#60a5fa]/60 font-medium tracking-wide border border-[#3b82f6]/[0.08]"
+              className="text-[10px] px-2.5 py-1 rounded-md bg-[#64748b]/[0.05] text-[#64748b]/60 dark:text-[#94a3b8]/60 font-medium tracking-wide border border-[#64748b]/[0.08]"
             >
               {tag}
             </span>
@@ -230,7 +178,7 @@ export default async function IctArticlePage({
         )}
 
         {/* Summary */}
-        <p className="mt-6 text-[15px] text-foreground/65 leading-[1.9] border-l-2 border-[#3b82f6]/20 pl-5">
+        <p className="mt-6 text-[15px] text-foreground/65 leading-[1.9] border-l-2 border-[#64748b]/20 pl-5">
           {article.summary}
         </p>
 
@@ -261,9 +209,9 @@ export default async function IctArticlePage({
               <li key={i}>
                 <a
                   href={`#section-${i}`}
-                  className="group flex items-center gap-4 py-2.5 text-foreground/65 hover:text-[#3b82f6] transition-colors"
+                  className="group flex items-center gap-4 py-2.5 text-foreground/65 hover:text-[#64748b] transition-colors"
                 >
-                  <span className="text-[11px] tabular-nums font-semibold text-[#3b82f6]/30 group-hover:text-[#3b82f6]/60 w-5 text-right transition-colors">
+                  <span className="text-[11px] tabular-nums font-semibold text-[#64748b]/30 group-hover:text-[#64748b]/60 w-5 text-right transition-colors">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="text-[13px] font-medium">{section.heading}</span>
@@ -288,7 +236,7 @@ export default async function IctArticlePage({
               {/* Section heading */}
               <div className="mb-8">
                 <div className="flex items-center gap-4 mb-3">
-                  <span className="text-[32px] sm:text-[40px] font-bold tabular-nums text-[#3b82f6]/[0.08] leading-none select-none font-serif">
+                  <span className="text-[32px] sm:text-[40px] font-bold tabular-nums text-[#64748b]/[0.08] leading-none select-none font-serif">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="flex-1">
@@ -302,7 +250,7 @@ export default async function IctArticlePage({
                     )}
                   </div>
                 </div>
-                <div className="h-px bg-gradient-to-r from-[#3b82f6]/15 via-[#3b82f6]/5 to-transparent" />
+                <div className="h-px bg-gradient-to-r from-[#64748b]/15 via-[#64748b]/5 to-transparent" />
               </div>
 
               {/* Diagram */}
@@ -319,7 +267,7 @@ export default async function IctArticlePage({
                     return (
                       <div
                         key={j}
-                        className="my-8 pl-5 py-4 rounded-r-lg bg-[#3b82f6]/[0.03] dark:bg-[#3b82f6]/[0.06] border-l-3 border-[#3b82f6]/25"
+                        className="my-8 pl-5 py-4 rounded-r-lg bg-[#64748b]/[0.03] dark:bg-[#64748b]/[0.06] border-l-3 border-[#64748b]/25"
                       >
                         <div>
                           <p className="text-[14px] text-foreground/70 leading-[1.9] italic">
@@ -341,8 +289,8 @@ export default async function IctArticlePage({
                           key={j}
                           className="group pl-5 py-3 relative"
                         >
-                          <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-[#3b82f6]/20 group-hover:bg-[#3b82f6]/35 transition-colors" />
-                          <div className="text-[11px] font-bold text-[#3b82f6]/60 tracking-wide mb-1.5">
+                          <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-[#64748b]/20 group-hover:bg-[#64748b]/35 transition-colors" />
+                          <div className="text-[11px] font-bold text-[#64748b]/60 tracking-wide mb-1.5">
                             {label}
                           </div>
                           <p className="text-[14px] text-foreground/75 leading-[1.9]">
@@ -361,7 +309,7 @@ export default async function IctArticlePage({
                       key={j}
                       className={
                         isLead
-                          ? "text-[16px] text-foreground/80 leading-[2] tracking-[0.02em] first-letter:text-[2em] first-letter:font-serif first-letter:font-bold first-letter:text-[#3b82f6]/40 first-letter:float-left first-letter:mr-1 first-letter:mt-1 first-letter:leading-[0.8]"
+                          ? "text-[16px] text-foreground/80 leading-[2] tracking-[0.02em] first-letter:text-[2em] first-letter:font-serif first-letter:font-bold first-letter:text-[#64748b]/40 first-letter:float-left first-letter:mr-1 first-letter:mt-1 first-letter:leading-[0.8]"
                           : "text-[15px] text-foreground/75 leading-[2] tracking-[0.02em]"
                       }
                     >
@@ -382,7 +330,7 @@ export default async function IctArticlePage({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {prevArticle ? (
             <Link
-              href={`/industry/ict/${prevArticle.slug}`}
+              href={`/industry/construction/${prevArticle.slug}`}
               className="group p-5 rounded-2xl border border-foreground/[0.05] hover:border-foreground/[0.1] transition-all hover:bg-foreground/[0.01]"
             >
               <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[2px] text-foreground/30 mb-2 font-medium">
@@ -398,7 +346,7 @@ export default async function IctArticlePage({
           )}
           {nextArticle ? (
             <Link
-              href={`/industry/ict/${nextArticle.slug}`}
+              href={`/industry/construction/${nextArticle.slug}`}
               className="group p-5 rounded-2xl border border-foreground/[0.05] hover:border-foreground/[0.1] transition-all text-right hover:bg-foreground/[0.01]"
             >
               <div className="flex items-center justify-end gap-1.5 text-[10px] uppercase tracking-[2px] text-foreground/30 mb-2 font-medium">
@@ -416,7 +364,7 @@ export default async function IctArticlePage({
 
         <div className="mt-8 text-center">
           <Link
-            href="/industry/ict"
+            href="/industry/construction"
             className="inline-flex items-center gap-2 text-[12px] text-foreground/35 hover:text-foreground/60 transition-colors font-medium tracking-wide"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-50"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
