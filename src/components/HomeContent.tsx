@@ -47,6 +47,19 @@ const mainSections = [
       { ja: "AI・半導体・自動車・エネルギー…", en: "AI, semiconductors, automotive, energy...", href: "/industry" },
     ],
   },
+  {
+    href: "/university",
+    color: "#6366f1",
+    titleJa: "University",
+    titleEn: "University",
+    descJa: "学問体系・研究領域・大学知の入口",
+    descEn: "Discipline Map, Research Fields & University Knowledge",
+    items: [
+      { ja: "学問の体系図", en: "Academic discipline map", href: "/university" },
+      { ja: "形式科学から自然科学へ", en: "From formal to natural sciences", href: "/university#formal" },
+      { ja: "社会科学・学際領域まで俯瞰", en: "Survey social and interdisciplinary fields", href: "/university#social" },
+    ],
+  },
 ];
 
 const industryHighlights = [
@@ -122,15 +135,15 @@ export function HomeContent() {
         </p>
       </section>
 
-      {/* ━━━ Three Pillars — Newspaper Column Layout ━━━ */}
+      {/* ━━━ Four Pillars — Newspaper Column Layout ━━━ */}
       <section className="max-w-[1400px] mx-auto px-6 pb-16">
         <div className="border-t-2 border-b border-foreground pt-2 pb-1 mb-8">
           <h2 className="font-serif text-2xl font-bold">
-            {locale === "ja" ? "3つの軸" : "Pillars of Power"}
+            {locale === "ja" ? "4つの軸" : "Four Pillars"}
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-0">
           {mainSections.map((sec, idx) => (
             <div
               key={sec.href}

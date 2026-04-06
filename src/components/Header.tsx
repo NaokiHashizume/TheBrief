@@ -10,6 +10,7 @@ const categories = [
   { label: "Politics", href: "/politics", color: "hover:text-[#e53e3e]" },
   { label: "Economy", href: "/economy", color: "hover:text-[#b9770e]" },
   { label: "Industry", href: "/industry", color: "hover:text-[#1e8449]" },
+  { label: "University", href: "/university", color: "hover:text-[#6366f1]" },
 ];
 
 export function Header() {
@@ -20,7 +21,7 @@ export function Header() {
       {/* Utility bar */}
       <div className="border-b border-brief-rule bg-background">
         <div className="max-w-[1400px] mx-auto px-6 h-9 flex items-center justify-between text-[10px] text-foreground/50 uppercase tracking-[2px] font-medium">
-          <span className="hidden sm:inline">Politics · Economy · Industry · Trends</span>
+          <span className="hidden sm:inline">Politics · Economy · Industry · University</span>
           <div className="flex items-center gap-4">
             <LanguageToggle />
             <ThemeToggle />

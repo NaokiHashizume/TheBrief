@@ -117,6 +117,26 @@ const menuItems = [
     ],
   },
   {
+    labelJa: "University",
+    labelEn: "University",
+    href: "/university",
+    color: "#6366f1",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 8 12 4l9 4-9 4-9-4Z" />
+        <path d="M7 10.5V15c0 1 2.2 3 5 3s5-2 5-3v-4.5" />
+        <path d="M21 9v6" />
+      </svg>
+    ),
+    children: [
+      { labelJa: "学問の体系図", labelEn: "Discipline Map", href: "/university" },
+      { labelJa: "形式科学", labelEn: "Formal Sciences", href: "/university#formal" },
+      { labelJa: "自然科学", labelEn: "Natural Sciences", href: "/university#natural" },
+      { labelJa: "社会科学", labelEn: "Social Sciences", href: "/university#social" },
+      { labelJa: "学際領域", labelEn: "Interdisciplinary", href: "/university#interdisciplinary" },
+    ],
+  },
+  {
     labelJa: "ストーリー",
     labelEn: "Stories",
     href: "/story",

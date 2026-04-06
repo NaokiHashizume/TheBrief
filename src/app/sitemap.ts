@@ -101,6 +101,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/economy/articles`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
   ];
 
+  const universityPages: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/university`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+  ];
+
   const economyArticlePages: MetadataRoute.Sitemap = economyArticles.map((a) => ({
     url: `${SITE_URL}/economy/${a.slug}`,
     lastModified: new Date(a.date),
@@ -161,6 +165,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...enactedPages,
     ...economyPages,
     ...economyArticlePages,
+    ...universityPages,
     ...industryPages,
     ...industryArticlePages,
     ...storyPages,
