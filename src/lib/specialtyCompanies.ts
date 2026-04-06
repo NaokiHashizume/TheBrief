@@ -11,40 +11,40 @@ export const specialtyCompanies: Competitor[] = [
     overview:
       "家具・インテリア製造小売大手。SPA（製造小売）モデルにより企画・製造・物流・販売を一貫して手掛ける。国内外に1,000店舗超を展開し、2032年に3,000店舗・売上高3兆円を目指す中長期ビジョンを掲げる。「お、ねだん以上。」のブランドで高いコストパフォーマンスを実現。",
     financials: {
-      revenue: "9,288億円",
-      revenueYoy: "+3.6%",
-      operatingProfit: "1,176億円",
-      opMargin: "12.7%",
-      keyMetric: "1,000店舗超",
+      revenue: "9,880億円（予想）",
+      revenueYoy: "+6.4%",
+      operatingProfit: "1,358億円（予想）",
+      opMargin: "13.7%",
+      keyMetric: "1,075店舗",
       keyMetricLabel: "店舗数",
-      keyMetricYoy: "+101店舗（計画）",
-      fiscalYear: "2025年3月期",
+      keyMetricYoy: "+75店舗",
+      fiscalYear: "2026年3月期（予想）",
     },
     pl: {
-      revenue: "9,288億円",
-      cogs: "4,553億円",
-      grossProfit: "4,735億円",
-      grossMargin: "51.0%",
-      sga: "3,531億円",
+      revenue: "6,885億円（3Q累計）",
+      cogs: "3,378億円",
+      grossProfit: "3,507億円",
+      grossMargin: "50.9%",
+      sga: "2,462億円",
       rd: "非開示",
-      operatingProfit: "1,176億円",
-      opMargin: "12.7%",
-      netIncome: "825億円",
-      netMargin: "8.9%",
-      fiscalYear: "2025年3月期",
+      operatingProfit: "1,044億円",
+      opMargin: "15.2%",
+      netIncome: "743億円",
+      netMargin: "10.8%",
+      fiscalYear: "2026年3月期3Q累計",
     },
     bs: {
-      totalAssets: "1兆5,294億円",
-      currentAssets: "4,200億円",
-      cash: "1,100億円",
-      fixedAssets: "1兆1,094億円",
-      totalLiab: "5,641億円",
-      currentLiab: "2,800億円",
-      fixedLiab: "2,841億円",
-      interestBearingDebt: "1,931億円",
-      equity: "9,653億円",
-      equityRatio: "63.1%",
-      fiscalYear: "2025年3月期",
+      totalAssets: "1兆5,795億円",
+      currentAssets: "4,300億円",
+      cash: "1,422億円",
+      fixedAssets: "1兆1,495億円",
+      totalLiab: "6,061億円",
+      currentLiab: "2,900億円",
+      fixedLiab: "3,161億円",
+      interestBearingDebt: "1,900億円",
+      equity: "9,734億円",
+      equityRatio: "61.6%",
+      fiscalYear: "2026年3月期3Q末",
     },
     cf: {
       operatingCF: "1,444億円",
@@ -53,7 +53,7 @@ export const specialtyCompanies: Competitor[] = [
       freeCF: "165億円",
       capex: "-1,214億円",
       dividends: "-167億円",
-      fiscalYear: "2025年3月期",
+      fiscalYear: "2025年3月期（通期確定）",
     },
     strategy: {
       title: "成長戦略",
@@ -77,28 +77,28 @@ export const specialtyCompanies: Competitor[] = [
       "円安による原材料・調達コスト上昇の影響",
       "国内既存店の客数減少と市場飽和リスク",
       "海外事業の収益性確保と現地競合との差別化",
-      "2025年3月期は減益（営業利益-5.3%）で成長鈍化懸念",
+      "2026年3月期3Q累計は減収減益（売上-2.5%、営業利益-3.3%）で計画進捗に懸念",
     ],
     latestNews: [
       {
-        date: "2025-06-25",
+        date: "2026-02-13",
         headline:
-          "2025年3月期決算発表（IFRS）：売上収益9,288億円（+3.6%）、営業利益1,176億円（-5.3%）",
+          "2026年3月期3Q決算：売上収益6,885億円（-2.5%）、営業利益1,044億円（-3.3%）、純利益743億円（-2.3%）",
       },
       {
-        date: "2025-05-13",
+        date: "2026-02-13",
         headline:
-          "2026年3月期業績予想：売上収益9,880億円（+6.4%）、純利益940億円（+13.9%）の増益回復見通し",
-      },
-      {
-        date: "2026-03-13",
-        headline:
-          "「家電大賞2025-2026」でニトリのドラム式洗濯乾燥機が総合銀賞を受賞",
+          "似鳥会長「26年後半は1ドル150円を切る想定」、為替予約1ドル147円65銭で原価改善見込む",
       },
       {
         date: "2025-11-13",
         headline:
           "2026年3月期中間決算：売上収益4,391億円（-1.8%）、国内既存店の客数減が響き減収減益",
+      },
+      {
+        date: "2025-06-25",
+        headline:
+          "2026年3月期通期予想：売上収益9,880億円（+6.4%）、営業利益1,358億円（+15.4%）、純利益940億円（+13.9%）",
       },
     ],
   },
@@ -119,7 +119,7 @@ export const specialtyCompanies: Competitor[] = [
       keyMetric: "約200店舗",
       keyMetricLabel: "グループ店舗数",
       keyMetricYoy: "増加基調",
-      fiscalYear: "2025年8月期",
+      fiscalYear: "2025年8月期（確定）",
     },
     pl: {
       revenue: "9,744億円",
@@ -132,7 +132,7 @@ export const specialtyCompanies: Competitor[] = [
       opMargin: "3.1%",
       netIncome: "174億円",
       netMargin: "1.8%",
-      fiscalYear: "2025年8月期",
+      fiscalYear: "2025年8月期（確定）",
     },
     bs: {
       totalAssets: "4,925億円",
@@ -145,7 +145,7 @@ export const specialtyCompanies: Competitor[] = [
       interestBearingDebt: "800億円",
       equity: "2,117億円",
       equityRatio: "34.2%",
-      fiscalYear: "2025年8月期",
+      fiscalYear: "2025年8月期（確定）",
     },
     cf: {
       operatingCF: "253億円",
@@ -154,7 +154,7 @@ export const specialtyCompanies: Competitor[] = [
       freeCF: "106億円",
       capex: "-102億円",
       dividends: "-71億円",
-      fiscalYear: "2025年8月期",
+      fiscalYear: "2025年8月期（確定）",
     },
     strategy: {
       title: "成長戦略",
@@ -182,24 +182,24 @@ export const specialtyCompanies: Competitor[] = [
     ],
     latestNews: [
       {
+        date: "2026-01-14",
+        headline:
+          "2026年8月期1Q決算：売上高2,386億円（+6.5%）、営業利益74億円（+66.2%）で過去最高を更新",
+      },
+      {
+        date: "2026-01-14",
+        headline:
+          "1Q免税売上が過去最高、東南アジア・米国からのインバウンド売上構成比が拡大",
+      },
+      {
+        date: "2025-12-01",
+        headline:
+          "「エアービックカメラ銀座店」開店、理美容家電・キャラクターグッズでインバウンド訴求",
+      },
+      {
         date: "2025-10-10",
         headline:
-          "2025年8月期決算：売上高9,744億円（+5.6%）、全利益段階で過去最高を7年ぶりに更新",
-      },
-      {
-        date: "2025-10-18",
-        headline:
-          "中期経営計画「Vision 2029」を発表：2029年8月期グループ売上1兆1,000億円を目標",
-      },
-      {
-        date: "2025-09-01",
-        headline:
-          "ビックカメラ.comで基本送料無料化を開始、EC売上拡大を加速",
-      },
-      {
-        date: "2025-04-11",
-        headline:
-          "2025年8月期中間決算：純利益22%増、配当4円増額を発表",
+          "2026年8月期通期予想：売上高1兆130億円（+4.0%）、営業利益305億円（+0.7%）で過去最高更新見通し",
       },
     ],
   },
@@ -211,51 +211,51 @@ export const specialtyCompanies: Competitor[] = [
     color: "#3b82f6",
     stockCode: "4385",
     overview:
-      "国内最大級のフリマアプリ「メルカリ」を運営。C2Cマーケットプレイスを中核にフィンテック事業（メルペイ・メルカード）、US事業を展開。2025年6月期にはUS事業が初の黒字化を達成し、グローバル展開を加速。リユース市場の成長を追い風に3期連続最高益を更新。",
+      "国内最大級のフリマアプリ「メルカリ」を運営。C2Cマーケットプレイスを中核にフィンテック事業（メルペイ・メルカード）を展開。スポットワーク事業「メルカリ ハロ」から撤退し、越境EC・Fintechに経営資源を集中。メルカリグローバルアプリで50カ国以上への展開を計画。",
     financials: {
-      revenue: "1,926億円",
-      revenueYoy: "+3.4%",
-      operatingProfit: "278億円",
-      opMargin: "14.4%",
+      revenue: "2,000〜2,100億円（通期予想）",
+      revenueYoy: "+3.8%〜+9.0%",
+      operatingProfit: "280〜320億円（通期予想）",
+      opMargin: "14.0%〜15.2%",
       keyMetric: "GMV 1兆円超",
       keyMetricLabel: "流通総額",
       keyMetricYoy: "堅調推移",
-      fiscalYear: "2025年6月期",
+      fiscalYear: "2026年6月期（予想）",
     },
     pl: {
-      revenue: "1,926億円",
-      cogs: "543億円",
-      grossProfit: "1,383億円",
-      grossMargin: "71.8%",
-      sga: "1,106億円",
+      revenue: "1,062億円（2Q累計）",
+      cogs: "295億円",
+      grossProfit: "767億円",
+      grossMargin: "72.2%",
+      sga: "570億円",
       rd: "非開示（SGA内含む）",
-      operatingProfit: "278億円",
-      opMargin: "14.4%",
-      netIncome: "261億円",
-      netMargin: "13.5%",
-      fiscalYear: "2025年6月期",
+      operatingProfit: "197億円",
+      opMargin: "18.6%",
+      netIncome: "105億円",
+      netMargin: "9.9%",
+      fiscalYear: "2026年6月期2Q累計",
     },
     bs: {
-      totalAssets: "5,437億円",
-      currentAssets: "4,800億円",
+      totalAssets: "5,567億円",
+      currentAssets: "4,900億円",
       cash: "1,500億円",
-      fixedAssets: "637億円",
-      totalLiab: "4,386億円",
-      currentLiab: "3,900億円",
-      fixedLiab: "486億円",
-      interestBearingDebt: "2,038億円",
+      fixedAssets: "667億円",
+      totalLiab: "4,516億円",
+      currentLiab: "3,950億円",
+      fixedLiab: "566億円",
+      interestBearingDebt: "2,100億円",
       equity: "1,051億円",
-      equityRatio: "19.3%",
-      fiscalYear: "2025年6月期",
+      equityRatio: "18.9%",
+      fiscalYear: "2026年6月期2Q末",
     },
     cf: {
-      operatingCF: "350億円",
-      investingCF: "-180億円",
+      operatingCF: "181億円（2Q累計）",
+      investingCF: "-215億円（2Q累計）",
       financingCF: "-50億円",
-      freeCF: "170億円",
+      freeCF: "-34億円（2Q累計）",
       capex: "-80億円",
       dividends: "0円（無配）",
-      fiscalYear: "2025年6月期",
+      fiscalYear: "2026年6月期2Q累計",
     },
     strategy: {
       title: "成長戦略",
@@ -283,24 +283,24 @@ export const specialtyCompanies: Competitor[] = [
     ],
     latestNews: [
       {
-        date: "2025-09-30",
+        date: "2026-02-09",
         headline:
-          "越境取引事業の新戦略発表：メルカリグローバルアプリの提供を開始、2026年春に米国展開予定",
+          "2026年6月期2Q決算：売上収益1,062億円（+12.8%）、営業利益197億円（+73.3%）、純利益105億円（+43.4%）で大幅増益",
       },
       {
-        date: "2025-08-05",
+        date: "2026-02-09",
         headline:
-          "2025年6月期決算：純利益261億円（+94%）で3期連続最高益、US事業初黒字化",
+          "通期売上高計画を4.9%上方修正、売上営業利益率が14.4%→19.2%に大幅改善",
       },
       {
         date: "2025-12-18",
         headline:
-          "「メルカリバンク」を開始、メルカリアプリ内で銀行口座開設・即時送金・ATM出金が可能に",
+          "「メルカリ ハロ」サービス終了、スポットワーク事業から撤退し越境EC・Fintechに経営資源集中",
       },
       {
-        date: "2025-12-22",
+        date: "2025-09-30",
         headline:
-          "チャットサポートを導入、24時間対応のチャットbotと有人オペレーターによるサポート体制を整備",
+          "メルカリグローバルアプリ提供開始（台湾・香港）、2026年春に米国展開、3年で50カ国以上を計画",
       },
     ],
   },
@@ -314,40 +314,40 @@ export const specialtyCompanies: Competitor[] = [
     overview:
       "ファッションEC「ZOZOTOWN」を運営する国内最大級のアパレルECプラットフォーム。商品取扱高6,143億円を誇り、マルチサイズ展開やコスメ事業の拡大、計測技術を活用したテクノロジーの収益化を推進。2025年4月には英国Lyst社を完全子会社化しグローバル展開を加速。",
     financials: {
-      revenue: "2,131億円",
-      revenueYoy: "+8.2%",
-      operatingProfit: "647億円",
-      opMargin: "30.4%",
-      keyMetric: "6,143億円",
+      revenue: "2,315億円（予想）",
+      revenueYoy: "+8.6%",
+      operatingProfit: "692億円（予想）",
+      opMargin: "29.9%",
+      keyMetric: "5,029億円（3Q累計）",
       keyMetricLabel: "商品取扱高",
-      keyMetricYoy: "+7.0%",
-      fiscalYear: "2025年3月期",
+      keyMetricYoy: "+9.1%",
+      fiscalYear: "2026年3月期（予想）",
     },
     pl: {
-      revenue: "2,131億円",
-      cogs: "735億円",
-      grossProfit: "1,396億円",
-      grossMargin: "65.5%",
-      sga: "749億円",
+      revenue: "1,718億円（3Q累計）",
+      cogs: "596億円",
+      grossProfit: "1,122億円",
+      grossMargin: "65.3%",
+      sga: "572億円",
       rd: "非開示（SGA内含む）",
-      operatingProfit: "647億円",
-      opMargin: "30.4%",
-      netIncome: "453億円",
-      netMargin: "21.3%",
-      fiscalYear: "2025年3月期",
+      operatingProfit: "549億円",
+      opMargin: "31.9%",
+      netIncome: "379億円",
+      netMargin: "22.1%",
+      fiscalYear: "2026年3月期3Q累計",
     },
     bs: {
-      totalAssets: "1,878億円",
-      currentAssets: "1,400億円",
-      cash: "914億円",
-      fixedAssets: "478億円",
-      totalLiab: "890億円",
-      currentLiab: "690億円",
-      fixedLiab: "200億円",
+      totalAssets: "1,876億円",
+      currentAssets: "1,350億円",
+      cash: "869億円",
+      fixedAssets: "526億円",
+      totalLiab: "920億円",
+      currentLiab: "700億円",
+      fixedLiab: "220億円",
       interestBearingDebt: "200億円",
-      equity: "987億円",
-      equityRatio: "52.6%",
-      fiscalYear: "2025年3月期",
+      equity: "955億円",
+      equityRatio: "50.9%",
+      fiscalYear: "2026年3月期3Q末",
     },
     cf: {
       operatingCF: "601億円",
@@ -356,7 +356,7 @@ export const specialtyCompanies: Competitor[] = [
       freeCF: "451億円",
       capex: "-80億円",
       dividends: "-200億円",
-      fiscalYear: "2025年3月期",
+      fiscalYear: "2025年3月期（通期確定）",
     },
     strategy: {
       title: "成長戦略",
@@ -374,7 +374,7 @@ export const specialtyCompanies: Competitor[] = [
       "営業利益率30.4%という圧倒的な高収益体質",
       "ZOZOTOWNの強固なブランド力と1,500万超の会員基盤",
       "計測テクノロジーとマルチサイズによる差別化",
-      "現金914億円の潤沢なキャッシュポジション",
+      "現金869億円の潤沢なキャッシュポジション",
     ],
     challenges: [
       "国内アパレルEC市場の成長鈍化（取扱高成長率7.0%→1.5%予想）",
@@ -384,24 +384,24 @@ export const specialtyCompanies: Competitor[] = [
     ],
     latestNews: [
       {
-        date: "2025-04-30",
+        date: "2026-01-30",
         headline:
-          "2025年3月期決算：売上高2,131億円（+8.2%）、営業利益647億円（+7.8%）で増収増益",
+          "2026年3月期3Q決算：商品取扱高5,029億円（+9.1%）、売上高1,718億円（+6.7%）、営業利益549億円（+6.1%）で増収増益",
       },
       {
-        date: "2025-04-01",
+        date: "2026-01-30",
         headline:
-          "英国ファッションプラットフォーム「Lyst」運営のLYST社を完全子会社化、グローバル展開を加速",
+          "通期予想据え置き：売上高2,315億円（+8.6%）、営業利益692億円（+6.9%）、純利益478億円（+5.4%）",
       },
       {
-        date: "2025-10-12",
+        date: "2025-10-31",
         headline:
-          "ZOZOTOWN20周年記念「ZOZOFES」をKアリーナ横浜で開催、2日間で約4万人が来場",
+          "2026年3月期2Q決算：Lyst子会社化の効果で売上増、アクティブ会員数1,252万人・出店ショップ1,686店",
       },
       {
-        date: "2025-06-01",
+        date: "2025-07-31",
         headline:
-          "マッチングアプリ「ZOZOマッチ」をリリース、ファッション診断AIで好みの相手を紹介",
+          "1Q決算でLYST社が商品取扱高75億円・売上10億円を計上、通期業績予想を上方修正",
       },
     ],
   },
@@ -422,7 +422,7 @@ export const specialtyCompanies: Competitor[] = [
       keyMetric: "2,420万点超",
       keyMetricLabel: "取扱商品数",
       keyMetricYoy: "拡大中",
-      fiscalYear: "2025年12月期",
+      fiscalYear: "2025年12月期（確定）",
     },
     pl: {
       revenue: "3,338億円",
@@ -435,7 +435,7 @@ export const specialtyCompanies: Competitor[] = [
       opMargin: "13.8%",
       netIncome: "324億円",
       netMargin: "9.7%",
-      fiscalYear: "2025年12月期",
+      fiscalYear: "2025年12月期（確定）",
     },
     bs: {
       totalAssets: "1,932億円",
@@ -448,7 +448,7 @@ export const specialtyCompanies: Competitor[] = [
       interestBearingDebt: "150億円",
       equity: "1,229億円",
       equityRatio: "63.4%",
-      fiscalYear: "2025年12月期",
+      fiscalYear: "2025年12月期（確定）",
     },
     cf: {
       operatingCF: "337億円",
@@ -457,7 +457,7 @@ export const specialtyCompanies: Competitor[] = [
       freeCF: "137億円",
       capex: "-180億円",
       dividends: "-100億円",
-      fiscalYear: "2025年12月期",
+      fiscalYear: "2025年12月期（確定）",
     },
     strategy: {
       title: "成長戦略",
@@ -485,24 +485,24 @@ export const specialtyCompanies: Competitor[] = [
     ],
     latestNews: [
       {
-        date: "2026-02-03",
+        date: "2026-02-24",
         headline:
-          "2025年12月期決算：売上高3,338億円（+15.9%）、営業利益461億円（+24.6%）で大幅増収増益",
+          "水戸物流センターでプロロジスとオンサイトPPA契約締結、屋根上太陽光発電を2028年4月稼働予定",
       },
       {
         date: "2026-02-03",
         headline:
-          "2026年12月期業績予想：売上高3,813億円（+14.2%）、営業利益530億円（+14.9%）を見込む",
+          "2025年12月期決算：売上高3,338億円（+15.9%）、営業利益461億円（+24.6%）、純利益324億円（+23%）で大幅増収増益",
+      },
+      {
+        date: "2026-02-03",
+        headline:
+          "2026年12月期業績予想：売上高3,813億円（+14.2%）、営業利益530億円（+14.9%）、純利益361億円（+11.5%）",
       },
       {
         date: "2025-05-01",
         headline:
-          "茨城県水戸市で新物流センター起工式、投資額504億円・2028年5月稼働予定",
-      },
-      {
-        date: "2025-04-01",
-        headline:
-          "加工品サービスの提供を開始、図面不要で特注加工品の注文が可能に",
+          "水戸物流センター起工式、投資額504億円・延床7.4万m2・2028年5月稼働予定、笠間DCの3倍の生産性を目指す",
       },
     ],
   },
