@@ -50,14 +50,38 @@ const mainSections = [
 ];
 
 const industryHighlights = [
-  { slug: "ict", title: "情報通信", titleEn: "ICT", color: "#3b82f6" },
-  { slug: "ai", title: "AI", titleEn: "AI", color: "#8b5cf6" },
-  { slug: "automotive", title: "自動車", titleEn: "Automotive", color: "#ef4444" },
-  { slug: "finance", title: "金融機関", titleEn: "Finance", color: "#f59e0b" },
-  { slug: "pharma", title: "医薬品", titleEn: "Pharma", color: "#10b981" },
-  { slug: "energy", title: "エネルギー", titleEn: "Energy", color: "#f97316" },
-  { slug: "logistics", title: "物流・運輸", titleEn: "Logistics", color: "#6366f1" },
-  { slug: "entertainment", title: "エンタメ", titleEn: "Entertainment", color: "#d946ef" },
+  {
+    slug: "ict", title: "情報通信", titleEn: "ICT", color: "#3b82f6",
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8" /><path d="M12 17v4" /></svg>,
+  },
+  {
+    slug: "ai", title: "AI", titleEn: "AI", color: "#8b5cf6",
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a4 4 0 0 1 4 4v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V6a4 4 0 0 1 4-4z" /><path d="M9 8v1a3 3 0 0 0 6 0V8" /><path d="M12 12v3" /><path d="M8 22h8" /><path d="M7 15h10" /><path d="M9 15v7" /><path d="M15 15v7" /></svg>,
+  },
+  {
+    slug: "automotive", title: "自動車", titleEn: "Automotive", color: "#ef4444",
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10l-3.5-5H7L3.5 10l-2 1.1C.7 11.3 0 12.1 0 13v3c0 .6.4 1 1 1h2" /><circle cx="7" cy="17" r="2" /><circle cx="17" cy="17" r="2" /><path d="M5 17h10" /></svg>,
+  },
+  {
+    slug: "finance", title: "金融機関", titleEn: "Finance", color: "#f59e0b",
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18" /><path d="M3 10h18" /><path d="M5 6l7-3 7 3" /><path d="M4 10v11" /><path d="M20 10v11" /><path d="M8 14v3" /><path d="M12 14v3" /><path d="M16 14v3" /></svg>,
+  },
+  {
+    slug: "pharma", title: "医薬品", titleEn: "Pharma", color: "#10b981",
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 2h6v4H9z" /><path d="M7 6h10v4H7z" /><path d="M5 10h14v12H5z" /><path d="M12 14v4" /><path d="M10 16h4" /></svg>,
+  },
+  {
+    slug: "energy", title: "エネルギー", titleEn: "Energy", color: "#f97316",
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>,
+  },
+  {
+    slug: "logistics", title: "物流・運輸", titleEn: "Logistics", color: "#6366f1",
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 13.52 9H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></svg>,
+  },
+  {
+    slug: "entertainment", title: "エンタメ", titleEn: "Entertainment", color: "#d946ef",
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m7 2 10 5-10 5V2z" /><path d="M2 17h20v4H2z" /><path d="M12 12v5" /></svg>,
+  },
 ];
 
 export function HomeContent() {
@@ -181,9 +205,14 @@ export function HomeContent() {
                 href={`/industry/${ind.slug}`}
                 className="group bg-brief-card dark:bg-white/[0.03] border border-brief-border p-5 hover:border-[#1e8449] transition-all flex flex-col justify-between h-28"
               >
-                <h4 className="font-bold text-sm tracking-wide" style={{ color: ind.color }}>
-                  {ind.title}
-                </h4>
+                <div className="flex justify-between items-start">
+                  <h4 className="font-bold text-sm tracking-wide" style={{ color: ind.color }}>
+                    {ind.title}
+                  </h4>
+                  <span className="text-foreground/30 group-hover:text-[#1e8449] transition-colors">
+                    {ind.icon}
+                  </span>
+                </div>
                 <div className="flex justify-between items-end">
                   <span className="text-[9px] text-foreground/40 tracking-wider uppercase">
                     {ind.titleEn}
