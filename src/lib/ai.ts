@@ -444,4 +444,134 @@ Peter Steinbergerが「1時間で作ったプロトタイプ」が、4ヶ月で3
       },
     ],
   },
+  {
+    slug: "tpu-vs-gpu-2026",
+    title: "TPU vs GPU — AI計算を支える2大アクセラレーターの徹底比較",
+    titleEn:
+      "TPU vs GPU — A Deep Comparison of the Two Dominant AI Accelerators",
+    date: "2026-04-06",
+    author: "The Brief",
+    readTime: "18 min",
+    tags: ["TPU", "GPU", "半導体", "NVIDIA", "Google", "AI インフラ"],
+    summary:
+      "ChatGPTもClaudeもGeminiも、その背後で莫大な計算を担っているのはGPUとTPUだ。NVIDIAのGPUが支配するAIアクセラレーター市場に、GoogleのTPUが本格的な挑戦を仕掛けている。2026年時点のBlackwell Ultra (B300) とIronwood (TPU v7) を軸に、アーキテクチャ、性能、コスト、電力効率、ソフトウェアエコシステムまで多角的に比較する。",
+    sections: [
+      {
+        heading: "なぜ今TPUとGPUの比較が重要なのか",
+        headingEn: "Why TPU vs GPU Matters Now",
+        diagramId: "tpu-gpu-overview",
+        body: `生成AIのブーム以降、計算資源の確保はハイテク各社の最重要課題となった。GPT-4クラスのモデルを学習するには数万枚のアクセラレーターが必要で、1回の学習に数千万ドルのコストがかかる。この「AI計算インフラ」の覇権を巡る戦いの主役が、NVIDIAのGPUとGoogleのTPU（Tensor Processing Unit）だ。
+
+2026年現在、AIアクセラレーター市場は**NVIDIAが約80%のシェア**を握り、データセンター向けGPU売上は年間1,500億ドル規模に達した。しかしこの独占体制に地殻変動が起きている。GoogleがAnthropicに最大100万チップのTPUを供給する大型契約を結び、MetaもTPU導入を検討中と報じられた。「NVIDIAのGPU一択」の時代は終わりつつある。
+
+> TPUとGPUは似て非なるものだ。GPUが汎用的な並列計算を得意とする「万能戦士」なら、TPUはAI学習・推論に特化した「専門家」である。どちらが優れているかではなく、「何に使うか」で選ぶべき道具だ。
+
+本記事では、2026年時点の最新フラッグシップ —— NVIDIA Blackwell Ultra (B300) とGoogle Ironwood (TPU v7) —— を軸に、アーキテクチャからコスト、電力効率、ソフトウェアエコシステムまで徹底比較する。AI時代の計算インフラを理解するための「地図」を提供したい。`,
+      },
+      {
+        heading: "アーキテクチャの違い — SIMT vs Systolic Array",
+        headingEn: "Architecture — SIMT vs Systolic Array",
+        diagramId: "architecture-comparison",
+        body: `GPUとTPUの最も本質的な違いは、計算アーキテクチャそのものにある。
+
+【GPU（Graphics Processing Unit）】元々は3DグラフィックスのレンダリングのためにNVIDIAが開発した並列プロセッサだ。数千の小さなコア（CUDA コア / Tensor コア）を搭載し、**SIMT（Single Instruction Multiple Threads）**方式で大量のスレッドを同時に動かす。画像処理、科学計算、暗号通貨マイニング、AI学習まで、あらゆる並列計算に対応できる汎用性が最大の強みだ。NVIDIA Blackwell Ultra (B300) は2,080億個のトランジスタを搭載し、FP4精度で15 PFLOPSの演算性能を誇る。
+
+【TPU（Tensor Processing Unit）】Googleが2013年にAI専用プロセッサとして開発を開始し、2015年から社内で運用、2018年にGoogle Cloud経由で外部提供を始めた。中核となるのは**シストリック アレイ（Systolic Array）**と呼ばれる構造で、行列積和演算（MatMul）を圧倒的に高速化する。データがプロセッサ配列を「脈動（systolic）」するように流れ、中間結果をメモリに書き戻さずに次の演算に渡せるため、メモリ帯域のボトルネックを劇的に減らす。
+
+シストリックアレイはニューラルネットワークの基本演算（行列積）に特化しており、**電力あたりの演算性能で汎用GPUを凌駕する**。ただし、シェーダー処理やグラフィックス、動的な分岐を多用するワークロードには向かない。「AI学習・推論に一点集中した専用ASIC」という位置付けだ。
+
+> GPUは「何でもこなせる優秀な総合職」、TPUは「ある分野で世界トップの専門職」。この性格の違いが、後述するすべての比較ポイントに影響する。`,
+      },
+      {
+        heading: "性能対決 — FLOPS、メモリ帯域、スケールアップ",
+        headingEn: "Performance — FLOPS, Memory Bandwidth, Scale-Up",
+        diagramId: "performance-spec",
+        body: `2026年のフラッグシップ同士で性能を比較する。
+
+【NVIDIA Blackwell Ultra (B300)】FP4で15 PFLOPS、FP8で10 PFLOPS、HBM3e搭載で288GBメモリ、メモリ帯域は8TB/s。NVLink 5で1.8TB/sのチップ間通信が可能。72基を1ラックに集約した**GB300 NVL72システム**では、1.1 ExaFLOPS（FP4推論）に達する。2025年後半から本格出荷が始まり、主要クラウド事業者が争奪戦を繰り広げている。
+
+【Google Ironwood (TPU v7)】2025年11月に発表されたGoogleの第7世代TPU。1チップあたりFP8で4.6 PFLOPS、192GBのHBM3e、7.37TB/sのメモリ帯域を搭載する。前世代Trillium（TPU v6）から**4.2倍の性能向上**を実現した。最大9,216チップを単一のPodに集約でき、Pod全体では42.5 ExaFLOPSという驚異的な演算性能を発揮する。Googleは「史上最大のAIスーパーコンピューター」と位置付けている。
+
+【スケールアウトの思想】両者で設計思想が大きく異なる。NVIDIAは**NVL72（72チップ）**を最小のスケールアップ単位とし、その先はInfiniBandやSpectrum-Xでスケールアウトする。対してTPUは**ICI（Inter-Chip Interconnect）と光回線スイッチ（OCS）**を使い、9,216チップまでを単一の論理マシンとして扱える。「密結合する塊の大きさ」ではTPUが圧倒的にリードする。
+
+【推論性能】純粋なFLOPSではB300が勝るが、大規模モデルの推論では「モデル全体を1つのPodに載せられるか」が決定的に効く。Ironwood Podは1兆パラメータ級のモデルを単一Pod内で処理でき、分散推論のオーバーヘッドを最小化できる。AnthropicはClaude推論の大部分をIronwoodに移行中だ。`,
+      },
+      {
+        heading: "電力効率 — 「1ワットで何を学習できるか」",
+        headingEn: "Power Efficiency — Performance per Watt",
+        diagramId: "power-efficiency",
+        body: `AIデータセンターの最大の制約は、もはや「チップ数」ではなく「電力」だ。米国の大型AIデータセンターは1施設で1GW（原発1基分）規模の電力を消費する時代に入り、電力あたりの性能（Perf/Watt）が最重要指標となった。
+
+【Blackwell Ultra (B300)】1チップあたりのTDPは約1,400W。GB300 NVL72ラック全体では約120kWの電力を消費する。前世代Hopper（H100）と比べて、同一学習タスクあたりの消費電力を約25倍削減したとNVIDIAは主張している。ただし、絶対的な消費電力は前世代を大きく上回り、データセンター側の電力・冷却インフラへの投資圧力が急増した。
+
+【Ironwood (TPU v7)】1チップあたり約600W前後と推定される。Trillium（TPU v6）比で**電力あたり性能が2倍**向上した。Googleの内部ベンチマークでは、同等の学習ワークロードでBlackwell系GPUより**30-40%少ない電力**で完了できるという。GoogleがTPUを「自社のAI基盤」として開発し続ける最大の理由の一つが、この電力効率だ。データセンター全体の電力消費を最適化できる設計になっている。
+
+【液冷の常識化】両者とも空冷では対応困難な発熱密度に達しており、Direct-to-Chip液冷が標準となった。NVL72は液冷を前提に設計され、TPU v7 Podも液冷インフラを採用する。AIデータセンターは「空冷の時代」を終え、「液冷が前提のファシリティ」へと完全にシフトした。
+
+> 「計算あたりのコスト」は電気代とチップ減価償却費の合計でほぼ決まる。Perf/Wattが10%違えば、数億ドル規模のTCOに直結する。TPUの電力効率優位は、大規模運用では決定的な差になりうる。`,
+      },
+      {
+        heading: "コスト比較 — レンタルする時代の経済学",
+        headingEn: "Cost Economics — The Era of Renting Compute",
+        diagramId: "cost-comparison",
+        body: `ほとんどの企業はGPU/TPUを自社で購入するのではなく、クラウドから時間単位でレンタルする。そのため「1時間あたりのコスト」と「1回の学習にいくらかかるか」が実務上の判断基準となる。
+
+【GPU（NVIDIA H200 / B200）】AWS、Azure、GCP、CoreWeave、Lambda Labsなどが競って提供している。2026年4月時点の代表的な価格は、H200 SXMで時間あたり$3.00〜$4.50、B200で$6.00〜$9.00、B300で$10.00〜$14.00程度。オンデマンドは高めで、長期契約（Reserved）やSpotなら30-70%割引も可能だ。
+
+【TPU（Google Cloud TPU v5p / v6 Trillium / v7 Ironwood）】Google Cloud専用の提供となる。TPU v5pで時間あたり$4.20、Trilliumで$2.70（オンデマンド）、Ironwoodは主要顧客向けに段階的提供中で公開価格は限定的。Trillium以降はPer-chip課金で、オンデマンド利用のハードルは下がった。
+
+【学習ジョブでの実コスト】7Bパラメータモデルを1兆トークンで学習する場合、H100で約80-120万ドル、Trillium TPUで約40-70万ドルという試算が複数の研究機関から出ている。**TPUの方が2-3割安い**傾向が見られるが、これはモデル構造やソフトウェア最適化にも依存する。
+
+【ロックインのリスク】TPUはGoogle Cloud専用であり、マルチクラウド戦略を採る企業にとっては「囲い込み」の懸念がある。GPUはAWS、Azure、GCP、オンプレミスまで選択肢が広く、ベンダーロックインのリスクが低い。コストだけでなく「柔軟性」も含めた評価が必要だ。`,
+      },
+      {
+        heading: "ソフトウェアエコシステム — CUDAとXLAの戦い",
+        headingEn: "Software Ecosystem — CUDA vs XLA",
+        diagramId: "software-stack",
+        body: `ハードウェアの性能が同等でも、ソフトウェアエコシステムで差が開くのがAIアクセラレーターの世界だ。
+
+【CUDA — NVIDIAの18年間の蓄積】NVIDIAが2007年にCUDAを発表してから約18年。研究者、開発者、フレームワーク開発者の圧倒的多数がCUDA前提で開発を続けてきた。PyTorch、TensorFlow、JAX、Triton、FlashAttention、vLLM、TensorRT-LLMなど、主要な深層学習フレームワークとカーネルライブラリはすべてCUDAで最適化されている。**「AI = CUDA」という事実上の標準**が確立しており、これがNVIDIAの最も強固な堀（モート）だ。
+
+【JAX + XLA — TPUの武器】TPUを本気で使いこなすにはJAX（Googleが開発した数値計算フレームワーク）とXLA（Accelerated Linear Algebra コンパイラ）の習得が不可欠だ。XLAは計算グラフをTPUのシストリックアレイに最適化した機械語に変換する。PyTorch/XLAブリッジも存在するが、ネイティブのCUDA環境ほど成熟していない。Google自身がJAXで研究・本番ワークロードを動かしており、Gemini、Imagen、Veoといった主要モデルはすべてTPU + JAXで学習された。
+
+【PyTorch on TPU】近年、PyTorchをTPU上で動かす試みが進展している。\`torch_xla\`ライブラリを使えば既存のPyTorchコードを最小限の変更でTPUに移植可能だ。しかし「最適化の壁」は依然として高く、プロダクション環境での採用事例はまだ限定的だ。
+
+【抽象化の動き】vLLMやDeepSpeedのようなLLM推論・学習フレームワークは、近年ハードウェア抽象化を進めている。「どのアクセラレーターでも動く」ソフトウェアが増えれば、ハードウェア選択の自由度が高まる。2026年現在、この移行期にある。`,
+      },
+      {
+        heading: "誰が何を使っているか — 2026年の勢力図",
+        headingEn: "Who Uses What — The 2026 Landscape",
+        diagramId: "usage-map",
+        body: `2026年時点で、主要AI企業がどのアクセラレーターを使っているかを整理する。
+
+【OpenAI】歴史的にはMicrosoft Azure上のNVIDIA GPUが主力。しかし2025年後半からGoogle Cloud TPUの利用を開始したと報じられ、マルチアクセラレーター戦略に舵を切った。自社半導体（ソフトバンク系のAyar Labs、Broadcomと協業）の開発も進行中だ。
+
+【Anthropic】AWSのTrainium、NVIDIA GPU、Google TPUの**トリプルクラウド戦略**を採る。2025年10月には「Google TPUを最大100万チップ調達する」という報道があり、2026年以降Claudeの学習・推論の主力はIronwood TPUに移行する見込み。Amazonからの多額出資を受けながらTrainiumとTPUも併用する、複雑なハードウェア戦略だ。
+
+【Google DeepMind】当然ながらすべてをTPUで動かす。Gemini 3 Pro / Ultra、Imagen、Veo、AlphaFoldなど、主要モデルはすべてTPUで学習されている。TPUはGoogle自身のAI戦略の「自社調達の軸」であり、外部への提供は戦略的副産物という位置付けだ。
+
+【Meta】NVIDIA GPU（H100 / H200 / B200）を圧倒的大量に調達。Llama シリーズの学習・推論もGPU中心だ。ただし自社ASIC「MTIA」の開発を進めており、推論ワークロードの一部を自社チップに移行している。2026年初頭にはTPU導入の検討報道も出ており、マルチベンダー化の流れは止まらない。
+
+【Microsoft / Azure】NVIDIA GPUが主力だが、自社ASIC「Maia 100」を2024年から運用開始。OpenAIとの協業とも絡み、自社チップの比重を徐々に高めている。
+
+【xAI / Tesla】NVIDIA GPU一択。xAIのColossusクラスタは10万基のH100からスタートし、20万基、さらに100万基への拡張計画が進行中。「とにかくGPUを集める」という力技の戦略だ。`,
+      },
+      {
+        heading: "2026年以降の展望 — 独占か、分散か",
+        headingEn: "Outlook Beyond 2026 — Monopoly or Diversification",
+        diagramId: "future-outlook",
+        body: `AIアクセラレーター市場の未来を占う上で、3つの大きな流れを押さえておきたい。
+
+【1. 自社ASICの時代】Google TPUの成功は、「大手IT企業が自社でAI半導体を作る」という流れを加速させた。Amazon Trainium/Inferentia、Microsoft Maia、Meta MTIA、さらにはTeslaのDojo、AppleのAシリーズ内AIアクセラレーターなど、自社専用チップの開発競争が過熱している。NVIDIA独占の時代は、少なくとも自社運用するハイパースケーラーの領域では終わりつつある。
+
+【2. 電力制約が決定打になる】前述の通り、AIデータセンターの最大のボトルネックは電力だ。1GW級の施設を建設するには原発1基分の電力と数年の建設期間が必要で、「性能だけでなく電力効率」が選定基準の中心になる。Perf/Wattに優れたTPUや、専用設計の推論ASICが存在感を増すだろう。
+
+【3. ソフトウェアの民主化】vLLM、SGLang、TensorRT-LLMなどの推論フレームワーク、さらにはTriton、Mojoのようなハードウェア抽象化言語が、CUDAの独占性を徐々に相対化しつつある。「どのチップでも同じコードが動く」世界が近づけば、ハードウェア競争は純粋な性能・コスト勝負となり、NVIDIAのソフトウェアモートは弱まる可能性がある。
+
+> NVIDIAの独占は今後数年続くだろう。しかし、「TPUもGPUも使い分ける」マルチアクセラレーター戦略は、2026年以降のAI企業のスタンダードになる。1社依存のリスクを避け、ワークロードに最適なチップを選ぶ時代が始まっている。
+
+最終的に、TPUとGPUのどちらかが勝者になるのではなく、**「用途に応じた使い分け」**が主流になるだろう。研究開発・プロトタイピングはGPU、大規模本番推論はTPU、汎用計算はGPU、特定ワークロードはTPU —— そんな住み分けが進む。読者自身がAI基盤を選ぶ立場にあるなら、ベンチマークだけでなく、電力、コスト、ソフトウェアの成熟度、ロックインのリスクを総合的に評価してほしい。`,
+      },
+    ],
+  },
 ];

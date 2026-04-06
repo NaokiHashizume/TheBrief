@@ -23,6 +23,16 @@ import {
   MarketShareDiagram,
   StrengthsSummaryDiagram,
 } from "@/components/AiModelDiagrams";
+import {
+  TpuGpuOverviewDiagram,
+  ArchitectureComparisonDiagram,
+  PerformanceSpecDiagram,
+  PowerEfficiencyDiagram,
+  CostComparisonDiagram,
+  SoftwareStackDiagram,
+  UsageMapDiagram,
+  FutureOutlookDiagram,
+} from "@/components/TpuVsGpuDiagrams";
 
 export function generateStaticParams() {
   return aiArticles.map((a) => ({ slug: a.slug }));
@@ -114,6 +124,14 @@ const diagramMap: Record<string, React.FC> = {
   "context-window": ContextWindowDiagram,
   "market-share": MarketShareDiagram,
   "strengths-summary": StrengthsSummaryDiagram,
+  "tpu-gpu-overview": TpuGpuOverviewDiagram,
+  "architecture-comparison": ArchitectureComparisonDiagram,
+  "performance-spec": PerformanceSpecDiagram,
+  "power-efficiency": PowerEfficiencyDiagram,
+  "cost-comparison": CostComparisonDiagram,
+  "software-stack": SoftwareStackDiagram,
+  "usage-map": UsageMapDiagram,
+  "future-outlook": FutureOutlookDiagram,
 };
 
 export default async function AiArticlePage({
