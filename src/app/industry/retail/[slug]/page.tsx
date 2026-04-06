@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { retailArticles } from "@/lib/retail";
-import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import {
   RetailMarketOverviewDiagram as RetailMarketScaleDiagram,
   CvsBusinessModelDiagram as ConvenienceStoreDiagram,
@@ -320,6 +321,30 @@ export default async function RetailArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+
+      {/* FAQ Structured Data */}
+      <FAQJsonLd
+        items={article.sections
+          .flatMap((s) =>
+            s.body.split("\n\n").filter((p) => p.trim().startsWith("【"))
+          )
+          .map((p) => {
+            const end = p.indexOf("】");
+            return {
+              question: p.slice(1, end),
+              answer: p.slice(end + 1).trim(),
+            };
+          })
+          .slice(0, 10)}
+      />
+
+      {/* Related Articles */}
+      <RelatedArticles
+        currentSlug={slug}
+        articles={retailArticles}
+        basePath="/industry/retail"
+        accentColor="#14b8a6"
+      />
 
       {/* Article Navigation */}
       <div className="mt-14 pt-8 border-t border-brief-border">

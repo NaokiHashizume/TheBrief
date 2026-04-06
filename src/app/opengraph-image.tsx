@@ -6,7 +6,6 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function OgImage() {
-  // Load font from Google Fonts
   const fontData = await fetch(
     "https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKfsukDQ.ttf"
   ).then((res) => res.arrayBuffer());
@@ -21,7 +20,7 @@ export default async function OgImage() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          background: "#fafaf8",
+          background: "#1a1a1a",
           fontFamily: "Playfair Display",
         }}
       >
@@ -31,7 +30,7 @@ export default async function OgImage() {
             fontSize: 24,
             fontWeight: 700,
             letterSpacing: "8px",
-            color: "rgba(26,26,26,0.35)",
+            color: "rgba(255,255,255,0.35)",
             textTransform: "uppercase" as const,
             marginBottom: 8,
           }}
@@ -39,36 +38,35 @@ export default async function OgImage() {
           THE
         </div>
 
-        {/* "Brief" with red dot */}
+        {/* "Brief" — each letter segment separate so red dot is relative to "i" */}
         <div
           style={{
             display: "flex",
-            position: "relative",
+            alignItems: "baseline",
+            fontSize: 120,
+            fontWeight: 900,
+            color: "#ffffff",
+            lineHeight: 1,
+            letterSpacing: "-2px",
           }}
         >
-          <div
-            style={{
-              fontSize: 120,
-              fontWeight: 900,
-              color: "#1a1a1a",
-              lineHeight: 1,
-              letterSpacing: "-2px",
-            }}
-          >
-            Brief
+          <div style={{ display: "flex" }}>Br</div>
+          <div style={{ display: "flex", position: "relative" }}>
+            <div style={{ display: "flex" }}>&#305;</div>
+            {/* Red dot replacing the "i" dot */}
+            <div
+              style={{
+                position: "absolute",
+                top: 6,
+                left: 5,
+                width: 20,
+                height: 20,
+                borderRadius: "50%",
+                background: "#c0392b",
+              }}
+            />
           </div>
-          {/* Red dot over the "i" */}
-          <div
-            style={{
-              position: "absolute",
-              top: -2,
-              left: 164,
-              width: 14,
-              height: 14,
-              borderRadius: "50%",
-              background: "#c0392b",
-            }}
-          />
+          <div style={{ display: "flex" }}>ef</div>
         </div>
 
         {/* Tagline */}
@@ -77,7 +75,7 @@ export default async function OgImage() {
             marginTop: 36,
             fontSize: 16,
             letterSpacing: "6px",
-            color: "rgba(26,26,26,0.3)",
+            color: "rgba(255,255,255,0.3)",
             textTransform: "uppercase",
           }}
         >
@@ -91,7 +89,7 @@ export default async function OgImage() {
             bottom: 40,
             fontSize: 14,
             letterSpacing: "3px",
-            color: "rgba(26,26,26,0.2)",
+            color: "rgba(255,255,255,0.2)",
           }}
         >
           thebrief.info

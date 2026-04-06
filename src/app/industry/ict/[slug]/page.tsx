@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ictArticles } from "@/lib/ict";
-import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import {
   TcpIpLayerDiagram,
   PacketJourneyDiagram,
@@ -390,6 +391,30 @@ export default async function IctArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+
+      {/* FAQ Structured Data */}
+      <FAQJsonLd
+        items={article.sections
+          .flatMap((s) =>
+            s.body.split("\n\n").filter((p) => p.trim().startsWith("【"))
+          )
+          .map((p) => {
+            const end = p.indexOf("】");
+            return {
+              question: p.slice(1, end),
+              answer: p.slice(end + 1).trim(),
+            };
+          })
+          .slice(0, 10)}
+      />
+
+      {/* Related Articles */}
+      <RelatedArticles
+        currentSlug={slug}
+        articles={ictArticles}
+        basePath="/industry/ict"
+        accentColor="#3b82f6"
+      />
 
       {/* ── Article Navigation ── */}
       <div className="mt-20 pt-12 border-t border-foreground/[0.04]">

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { diningArticles } from "@/lib/dining";
-import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -209,6 +210,30 @@ export default async function ArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+
+      {/* FAQ Structured Data */}
+      <FAQJsonLd
+        items={article.sections
+          .flatMap((s) =>
+            s.body.split("\n\n").filter((p) => p.trim().startsWith("【"))
+          )
+          .map((p) => {
+            const end = p.indexOf("】");
+            return {
+              question: p.slice(1, end),
+              answer: p.slice(end + 1).trim(),
+            };
+          })
+          .slice(0, 10)}
+      />
+
+      {/* Related Articles */}
+      <RelatedArticles
+        currentSlug={articleSlug}
+        articles={diningArticles}
+        basePath="/industry/dining"
+        accentColor="#e11d48"
+      />
 
       <div className="mt-20 pt-12 border-t border-foreground/[0.04]">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

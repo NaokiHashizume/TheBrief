@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { WebsiteJsonLd } from "@/components/JsonLd";
+import { WebsiteJsonLd, NewsMediaOrganizationJsonLd } from "@/components/JsonLd";
 import { HomeContent } from "@/components/HomeContent";
 
 export const metadata: Metadata = {
@@ -10,6 +10,7 @@ export default function Home() {
   return (
     <div>
       <WebsiteJsonLd />
+      <NewsMediaOrganizationJsonLd />
       <HomeContent />
     </div>
   );

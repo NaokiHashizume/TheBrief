@@ -1,3 +1,55 @@
+export function NewsMediaOrganizationJsonLd() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "NewsMediaOrganization",
+    name: "The Brief",
+    url: "https://thebrief.info",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://thebrief.info/icon.svg",
+    },
+    sameAs: ["https://x.com/thebrief_info"],
+    description:
+      "日本の政治経済・金融から業界情報、テクノロジー・AI、ライフスタイルまで。シンプルに届けるニュース&オピニオン。",
+    foundingDate: "2026",
+    actionableFeedbackPolicy: "https://thebrief.info/contact",
+    publishingPrinciples: "https://thebrief.info/about",
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function FAQJsonLd({
+  items,
+}: {
+  items: { question: string; answer: string }[];
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
 export function WebsiteJsonLd() {
   const data = {
     "@context": "https://schema.org",

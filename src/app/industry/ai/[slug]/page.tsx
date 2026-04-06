@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { aiArticles } from "@/lib/ai";
-import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import ShareButton from "@/components/ShareButton";
 import {
   Gemma4ModelFamilyDiagram,
@@ -342,6 +343,30 @@ export default async function AiArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+
+      {/* FAQ Structured Data */}
+      <FAQJsonLd
+        items={article.sections
+          .flatMap((s) =>
+            s.body.split("\n\n").filter((p) => p.trim().startsWith("【"))
+          )
+          .map((p) => {
+            const end = p.indexOf("】");
+            return {
+              question: p.slice(1, end),
+              answer: p.slice(end + 1).trim(),
+            };
+          })
+          .slice(0, 10)}
+      />
+
+      {/* Related Articles */}
+      <RelatedArticles
+        currentSlug={slug}
+        articles={aiArticles}
+        basePath="/industry/ai"
+        accentColor="#8b5cf6"
+      />
 
       {/* ── Article Navigation ── */}
       <div className="mt-20 pt-12 border-t border-foreground/[0.04]">
