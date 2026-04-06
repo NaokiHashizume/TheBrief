@@ -31,6 +31,12 @@ interface CFProfile {
   financing: number;
 }
 
+interface FinancialNotes {
+  pl: string;
+  bs: string;
+  cf: string;
+}
+
 interface IndustryData {
   slug: string;
   label: string;
@@ -41,6 +47,7 @@ interface IndustryData {
   pl: PLProfile;
   bs: BSProfile;
   cf: CFProfile;
+  notes: FinancialNotes;
 }
 
 const industries: IndustryData[] = [
@@ -58,6 +65,11 @@ const industries: IndustryData[] = [
     pl: { cost: 72, sga: 25, profit: 3 },
     bs: { currentAssets: 55, fixedAssets: 45, currentLiab: 40, fixedLiab: 20, equity: 40 },
     cf: { operating: 80, investing: -40, financing: -30 },
+    notes: {
+      pl: "薄利多売型。原価率が高く営業利益率は3%前後と極めて薄い。PB（自社ブランド）比率の拡大が利益率改善のカギ。",
+      bs: "棚卸資産（在庫）と買掛金が大きく、流動資産・流動負債の比率が高い。店舗は賃借が多くリース負債が固定負債に計上。",
+      cf: "日銭商売で営業CFは安定。店舗改装・システム投資で投資CFはマイナス。自社株買い・配当で財務CFもマイナス傾向。",
+    },
   },
   {
     slug: "trading",
@@ -73,6 +85,11 @@ const industries: IndustryData[] = [
     pl: { cost: 82, sga: 12, profit: 6 },
     bs: { currentAssets: 50, fixedAssets: 50, currentLiab: 30, fixedLiab: 35, equity: 35 },
     cf: { operating: 70, investing: -50, financing: -15 },
+    notes: {
+      pl: "仲介型で原価率が極めて高い（82%）。販管費は低く抑えられ、「口銭（マージン）」の積み上げで利益を確保する構造。",
+      bs: "海外資源権益・関連会社株式が固定資産に。貿易金融に伴う売掛金・借入金が大きく、BSが膨らみやすい。",
+      cf: "資源権益やM&Aへの積極投資で投資CFのマイナスが大きい。営業CFは安定しており、フリーCFで株主還元を強化。",
+    },
   },
   {
     slug: "automotive",
@@ -88,6 +105,11 @@ const industries: IndustryData[] = [
     pl: { cost: 75, sga: 17, profit: 8 },
     bs: { currentAssets: 45, fixedAssets: 55, currentLiab: 25, fixedLiab: 30, equity: 45 },
     cf: { operating: 90, investing: -60, financing: -25 },
+    notes: {
+      pl: "製造業だが原価率はやや高め。EV化に伴うR&D費が販管費を押し上げ。トヨタの営業利益率は10%超と業界突出。",
+      bs: "工場・設備が固定資産に。金融子会社（自動車ローン）を連結するためBS規模が膨らむ。自己資本比率は比較的高い。",
+      cf: "営業CFは潤沢。工場・EV設備投資で投資CFは大幅マイナス。自社株買い・配当で財務CFもマイナス。",
+    },
   },
   {
     slug: "construction",
@@ -103,6 +125,11 @@ const industries: IndustryData[] = [
     pl: { cost: 78, sga: 17, profit: 5 },
     bs: { currentAssets: 40, fixedAssets: 60, currentLiab: 25, fixedLiab: 40, equity: 35 },
     cf: { operating: 60, investing: -45, financing: -10 },
+    notes: {
+      pl: "ゼネコンは工事原価率が高い（78%）。不動産デベは販管費が低く利益率が高い。業界平均では5%程度。",
+      bs: "不動産（土地・建物）が固定資産の大半。開発案件の借入金で固定負債が大きく、レバレッジ経営が特徴。",
+      cf: "マンション引渡し時期により営業CFが四半期で大きく変動。不動産取得で投資CFはマイナス。借入依存で財務CFは小幅。",
+    },
   },
   {
     slug: "finance",
@@ -118,6 +145,11 @@ const industries: IndustryData[] = [
     pl: { cost: 45, sga: 30, profit: 25 },
     bs: { currentAssets: 70, fixedAssets: 30, currentLiab: 75, fixedLiab: 15, equity: 10 },
     cf: { operating: 100, investing: -30, financing: -60 },
+    notes: {
+      pl: "原価＝信用コスト（貸倒引当金）。利ざや（NIM）で稼ぐため原価率が低く、営業利益率25%と高い。人件費が販管費の大半。",
+      bs: "預金（流動負債）で資金を集め貸出（流動資産）で運用するため、BSが巨大。自己資本比率は10%前後と低いが規制上は正常。",
+      cf: "貸出・預金変動で営業CFは非常に大きい。投資CFは債券売買で変動。配当・劣後債償還で財務CFはマイナス。",
+    },
   },
   {
     slug: "ict",
@@ -133,6 +165,11 @@ const industries: IndustryData[] = [
     pl: { cost: 50, sga: 35, profit: 15 },
     bs: { currentAssets: 35, fixedAssets: 65, currentLiab: 20, fixedLiab: 35, equity: 45 },
     cf: { operating: 85, investing: -55, financing: -25 },
+    notes: {
+      pl: "通信インフラの減価償却が原価に。ARPU（顧客単価）×契約数で安定収益。SaaS/SI企業は販管費（人件費）が大きい。",
+      bs: "通信基地局・光ファイバーなどネットワーク設備が固定資産の大半。設備投資のための長期借入で固定負債が大きい。",
+      cf: "サブスク型で営業CFが極めて安定。5G・データセンター投資で投資CFは大幅マイナス。株主還元も積極的。",
+    },
   },
   {
     slug: "pharma",
@@ -148,6 +185,11 @@ const industries: IndustryData[] = [
     pl: { cost: 40, sga: 45, profit: 15 },
     bs: { currentAssets: 45, fixedAssets: 55, currentLiab: 20, fixedLiab: 25, equity: 55 },
     cf: { operating: 75, investing: -50, financing: -20 },
+    notes: {
+      pl: "原価率が低い（40%）一方、R&D費・MR人件費が販管費を押し上げ45%。新薬上市時は利益率が急上昇（パテントクリフの逆）。",
+      bs: "特許権・のれんなど無形資産が固定資産に。M&A資金の借入がある一方、自己資本比率55%と財務基盤は堅実。",
+      cf: "ロイヤリティ収入で営業CFは安定。パイプライン投資・M&Aで投資CFは大幅マイナス。新薬成功で一気にCF改善。",
+    },
   },
   {
     slug: "services",
@@ -163,6 +205,11 @@ const industries: IndustryData[] = [
     pl: { cost: 55, sga: 33, profit: 12 },
     bs: { currentAssets: 50, fixedAssets: 50, currentLiab: 25, fixedLiab: 25, equity: 50 },
     cf: { operating: 70, investing: -35, financing: -30 },
+    notes: {
+      pl: "人件費が原価・販管費の大半を占める労働集約型。稼働率が利益率に直結。コンサルは人月単価×稼働率で収益が決まる。",
+      bs: "有形資産が少なくアセットライト。のれん（M&A）や人材関連投資が中心。自己資本比率50%と健全。",
+      cf: "先払い型の契約が多く営業CFは安定。大型M&A時に投資CFが急拡大。人材投資は費用計上のためBSに現れにくい。",
+    },
   },
   {
     slug: "food",
@@ -178,6 +225,11 @@ const industries: IndustryData[] = [
     pl: { cost: 60, sga: 32, profit: 8 },
     bs: { currentAssets: 40, fixedAssets: 60, currentLiab: 25, fixedLiab: 30, equity: 45 },
     cf: { operating: 75, investing: -40, financing: -30 },
+    notes: {
+      pl: "原材料費（農産物・包装材）が原価の大半。広告宣伝費とブランド投資が販管費に。高付加価値品シフトで利益率は改善傾向。",
+      bs: "工場・製造設備が固定資産に。海外子会社ののれんも。飲料・調味料は棚卸資産回転が早く、流動性は良好。",
+      cf: "ブランド力で営業CFは安定的。工場更新・海外拡大投資で投資CFはマイナス。配当性向40%前後で財務CFもマイナス。",
+    },
   },
   {
     slug: "energy",
@@ -193,6 +245,11 @@ const industries: IndustryData[] = [
     pl: { cost: 85, sga: 10, profit: 5 },
     bs: { currentAssets: 30, fixedAssets: 70, currentLiab: 20, fixedLiab: 45, equity: 35 },
     cf: { operating: 80, investing: -65, financing: -10 },
+    notes: {
+      pl: "原油・LNG調達コストが原価の大半（85%）。市況連動で利益が大きく変動。電力は燃料費調整で一部転嫁。",
+      bs: "発電所・精製プラント・鉱区権益が固定資産に（70%）。設備投資のための長期借入が固定負債を押し上げ。",
+      cf: "市況好調時は営業CFが膨らむ。脱炭素投資（再エネ・水素）で投資CFは業界最大級のマイナス。",
+    },
   },
   {
     slug: "materials",
@@ -208,6 +265,11 @@ const industries: IndustryData[] = [
     pl: { cost: 72, sga: 20, profit: 8 },
     bs: { currentAssets: 40, fixedAssets: 60, currentLiab: 20, fixedLiab: 35, equity: 45 },
     cf: { operating: 70, investing: -55, financing: -10 },
+    notes: {
+      pl: "原材料費（鉄鉱石・ナフサ等）が原価の大半。市況品は価格転嫁が難しく利益率が変動。スペシャリティ化学は高利益率。",
+      bs: "高炉・化学プラントなど大規模設備が固定資産に。設備更新サイクルが長く減価償却負担が重い。",
+      cf: "設備集約型で投資CFのマイナスが大きい。グリーンスチール・半導体素材への投資が今後さらに拡大見込み。",
+    },
   },
   {
     slug: "logistics",
@@ -223,6 +285,11 @@ const industries: IndustryData[] = [
     pl: { cost: 70, sga: 22, profit: 8 },
     bs: { currentAssets: 25, fixedAssets: 75, currentLiab: 20, fixedLiab: 40, equity: 40 },
     cf: { operating: 80, investing: -60, financing: -15 },
+    notes: {
+      pl: "燃料費・人件費が原価の大半。鉄道は固定費型で乗客数が損益分岐を左右。宅配は薄利多売（利益率3〜5%）。",
+      bs: "線路・車両・駅舎・倉庫が固定資産の75%。インフラ投資のため固定負債が大きく、レバレッジが高い。",
+      cf: "鉄道の定期券収入で営業CFは安定。車両更新・新線建設で投資CFは大幅マイナス。駅ナカ開発が非鉄道CF貢献。",
+    },
   },
   {
     slug: "dining",
@@ -238,6 +305,11 @@ const industries: IndustryData[] = [
     pl: { cost: 65, sga: 30, profit: 5 },
     bs: { currentAssets: 30, fixedAssets: 70, currentLiab: 30, fixedLiab: 35, equity: 35 },
     cf: { operating: 65, investing: -45, financing: -15 },
+    notes: {
+      pl: "食材原価（F）＋人件費（L）のFL比率が60%超。営業利益率5%前後と薄く、客単価×回転率の最大化が生命線。",
+      bs: "店舗内装・厨房設備が固定資産に。IFRS適用企業はリース負債（賃借店舗）が固定負債に計上され、BSが膨らむ。",
+      cf: "日銭商売で営業CFは比較的安定。新規出店投資で投資CFはマイナス。コロナ後は出店抑制でCF改善傾向。",
+    },
   },
   {
     slug: "specialty",
@@ -253,6 +325,11 @@ const industries: IndustryData[] = [
     pl: { cost: 60, sga: 30, profit: 10 },
     bs: { currentAssets: 55, fixedAssets: 45, currentLiab: 35, fixedLiab: 20, equity: 45 },
     cf: { operating: 70, investing: -50, financing: -15 },
+    notes: {
+      pl: "EC大手は物流費が原価に。プラットフォーム型は手数料・広告収入で利益率10%。実店舗型は人件費・賃料で利益率3〜5%。",
+      bs: "EC企業は倉庫・物流設備とソフトウェアが資産に。家電量販は棚卸資産が大きい。流動資産比率が比較的高い。",
+      cf: "EC大手はサブスク（Prime等）で営業CFが安定。物流センター投資で投資CFはマイナス。成長投資を優先しFCFは薄い。",
+    },
   },
   {
     slug: "daily",
@@ -268,6 +345,11 @@ const industries: IndustryData[] = [
     pl: { cost: 55, sga: 35, profit: 10 },
     bs: { currentAssets: 50, fixedAssets: 50, currentLiab: 25, fixedLiab: 20, equity: 55 },
     cf: { operating: 75, investing: -30, financing: -40 },
+    notes: {
+      pl: "原材料費は比較的低く、広告宣伝費・研究開発費が販管費の大半。ブランド力による価格プレミアムが利益率のカギ。",
+      bs: "工場・製造設備と無形資産（ブランド）が固定資産に。花王・ユニ・チャームは自己資本比率55%と財務健全。",
+      cf: "日用品の安定需要で営業CFはディフェンシブ。海外工場投資で投資CFはマイナス。配当・自社株買いで財務CFもマイナス。",
+    },
   },
   {
     slug: "entertainment",
@@ -283,6 +365,11 @@ const industries: IndustryData[] = [
     pl: { cost: 50, sga: 32, profit: 18 },
     bs: { currentAssets: 55, fixedAssets: 45, currentLiab: 20, fixedLiab: 15, equity: 65 },
     cf: { operating: 80, investing: -35, financing: -40 },
+    notes: {
+      pl: "IP（知的財産）型で原価率が低い（50%）。ゲーム・音楽はデジタル化で限界費用がほぼゼロ。営業利益率18%と高水準。",
+      bs: "IP・コンテンツ資産・のれんが固定資産に。任天堂は現預金1兆円超の無借金経営。自己資本比率65%と業界最高水準。",
+      cf: "ヒット作で営業CFが急増。IP投資（ゲーム開発・映画制作）で投資CFはマイナスだが規模は限定的。株主還元に積極的。",
+    },
   },
 ];
 
@@ -589,12 +676,19 @@ export function IndustryFinancialProfiles() {
               {/* PL */}
               <div className="mb-3">
                 <PLChart pl={ind.pl} color={ind.color} />
+                <p className="mt-1.5 text-[10px] text-foreground/45 leading-relaxed">{ind.notes.pl}</p>
               </div>
 
               {/* BS + CF side by side */}
               <div className="grid grid-cols-2 gap-3">
-                <BSChart bs={ind.bs} color={ind.color} />
-                <CFChart cf={ind.cf} color={ind.color} />
+                <div>
+                  <BSChart bs={ind.bs} color={ind.color} />
+                  <p className="mt-1.5 text-[10px] text-foreground/45 leading-relaxed">{ind.notes.bs}</p>
+                </div>
+                <div>
+                  <CFChart cf={ind.cf} color={ind.color} />
+                  <p className="mt-1.5 text-[10px] text-foreground/45 leading-relaxed">{ind.notes.cf}</p>
+                </div>
               </div>
             </div>
           );
