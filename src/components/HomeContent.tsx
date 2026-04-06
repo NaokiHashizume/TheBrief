@@ -73,7 +73,7 @@ const mainSections = [
 
 const industryHighlights = [
   { slug: "ict", title: "情報通信", titleEn: "ICT", color: "#3b82f6" },
-  { slug: "ai", title: "AI・人工知能", titleEn: "AI", color: "#8b5cf6" },
+  { slug: "ai", title: "AI", titleEn: "AI", color: "#8b5cf6" },
   { slug: "automotive", title: "自動車", titleEn: "Automotive", color: "#ef4444" },
   { slug: "finance", title: "金融機関", titleEn: "Finance", color: "#f59e0b" },
   { slug: "pharma", title: "医薬品", titleEn: "Pharma", color: "#10b981" },

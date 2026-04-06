@@ -166,9 +166,9 @@ const industries = [
   },
   {
     slug: "ai",
-    title: "AI・人工知能",
-    titleEn: "AI & Artificial Intelligence",
-    description: "大規模言語モデル、AIエージェント、オープンモデルなど人工知能分野の動向。",
+    title: "AI",
+    titleEn: "AI",
+    description: "大規模言語モデル、AIエージェント、オープンモデルなどAI分野の動向。",
     descriptionEn: "Large language models, AI agents, open-source models, and AI industry trends.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

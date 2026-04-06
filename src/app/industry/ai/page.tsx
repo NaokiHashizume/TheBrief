@@ -5,9 +5,9 @@ import { T } from "@/components/T";
 import { aiArticles } from "@/lib/ai";
 
 export const metadata: Metadata = {
-  title: "AI・人工知能 — Industry",
+  title: "AI — Industry",
   description:
-    "大規模言語モデル、AIエージェント、オープンモデルなど人工知能分野の最新動向と解説記事。",
+    "大規模言語モデル、AIエージェント、オープンモデルなどAI分野の最新動向と解説記事。",
   alternates: { canonical: "https://thebrief.info/industry/ai" },
 };
 
@@ -29,7 +29,7 @@ export default function AiPage() {
         items={[
           { name: "Home", href: "/" },
           { name: "Industry", href: "/industry" },
-          { name: "AI・人工知能", href: "/industry/ai" },
+          { name: "AI", href: "/industry/ai" },
         ]}
       />
 
@@ -43,7 +43,7 @@ export default function AiPage() {
           Industry
         </Link>
         <span>/</span>
-        <span>AI・人工知能</span>
+        <span>AI</span>
       </div>
 
       {/* Header */}
@@ -63,14 +63,14 @@ export default function AiPage() {
             </svg>
           </div>
           <div>
-            <h1 className="font-serif text-2xl md:text-3xl font-bold">AI・人工知能</h1>
+            <h1 className="font-serif text-2xl md:text-3xl font-bold">AI</h1>
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
-              AI & Artificial Intelligence
+              AI
             </span>
           </div>
         </div>
         <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-          大規模言語モデル、AIエージェント、オープンモデルなど、人工知能分野の最新動向と技術解説。
+          大規模言語モデル、AIエージェント、オープンモデルなど、AI分野の最新動向と技術解説。
         </p>
       </div>
 

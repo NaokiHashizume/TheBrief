@@ -37,7 +37,7 @@ export async function generateMetadata({
   if (!article) return { title: "Article Not Found" };
 
   return {
-    title: `${article.title} — AI・人工知能`,
+    title: `${article.title} — AI`,
     description: article.summary,
     alternates: {
       canonical: `https://thebrief.info/industry/ai/${article.slug}`,
@@ -170,7 +170,7 @@ export default async function AiArticlePage({
         {/* Category + Tags */}
         <div className="flex items-center gap-2.5 mb-5 flex-wrap">
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#8b5cf6]/60">
-            AI・人工知能
+            AI
           </span>
           <span className="w-px h-3 bg-[#8b5cf6]/15" />
           {article.tags.map((tag) => (
