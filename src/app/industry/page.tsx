@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
-import { IndustryBubbleChart, IndustryFinancialProfiles } from "@/components/IndustryBubbleChart";
 import { otherArticles } from "@/lib/other";
 import { T } from "@/components/T";
 
@@ -286,11 +285,24 @@ export default function IndustryPage() {
         <T k="industry.note" />
       </p>
 
-      {/* Bar chart */}
-      <IndustryBubbleChart />
-
-      {/* Financial Profiles (PL / BS / CF) */}
-      <IndustryFinancialProfiles />
+      {/* Overview link */}
+      <Link
+        href="/industry/overview"
+        className="mt-6 flex items-center gap-3 p-4 rounded-xl border border-brief-border hover:border-foreground/20 hover:bg-foreground/[0.02] transition-all"
+      >
+        <div className="w-10 h-10 rounded-lg bg-brief-red/10 flex items-center justify-center flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-brief-red">
+            <path d="M3 3v18h18" /><path d="M18 17V9" /><path d="M13 17V5" /><path d="M8 17v-3" />
+          </svg>
+        </div>
+        <div>
+          <h2 className="font-serif text-base font-bold"><T ja="業界概況ダッシュボード" en="Industry Overview Dashboard" /></h2>
+          <p className="text-xs text-foreground/55"><T ja="売上高・利益率・時価総額の比較チャートと財務プロファイル" en="Revenue, profitability & market cap charts with financial profiles" /></p>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-auto text-foreground/30 flex-shrink-0">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </Link>
 
       {/* Industry grid */}
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -358,73 +370,31 @@ export default function IndustryPage() {
         })}
       </div>
 
-      {/* その他 section */}
-      <div className="mt-14">
-        <div className="flex items-center gap-3 mb-4">
-          <div
-            className="w-10 h-10 rounded-lg flex items-center justify-center"
-            style={{ backgroundColor: "#8b5cf615", color: "#8b5cf6" }}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M12 16v-4" />
-              <path d="M12 8h.01" />
-            </svg>
-          </div>
-          <div>
-            <h2 className="font-serif text-xl font-bold"><T ja="その他" en="Cross-Sector" /></h2>
-            <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
-              Cross-Sector Analysis
-            </span>
-          </div>
+      {/* その他 section link */}
+      <Link
+        href="/industry/other"
+        className="mt-10 flex items-center gap-3 p-4 rounded-xl border border-brief-border hover:border-[#8b5cf6]/30 hover:bg-foreground/[0.02] transition-all"
+      >
+        <div
+          className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+          style={{ backgroundColor: "#8b5cf615", color: "#8b5cf6" }}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 16v-4" />
+            <path d="M12 8h.01" />
+          </svg>
         </div>
-        <p className="text-sm text-foreground/55 leading-relaxed mb-4">
-          <T ja="特定業界に限定されないクロスセクター分析、経済圏戦争、地政学リスクなど、業界横断的なテーマの記事。" en="Cross-sector analysis, economic bloc competition, geopolitical risks, and other cross-industry themes." />
-        </p>
-
-        <div className="space-y-3">
-          {otherArticles.map((article) => (
-            <Link
-              key={article.slug}
-              href={`/industry/other/${article.slug}`}
-              className="group block p-4 rounded-xl border border-brief-border hover:border-[#8b5cf6]/30 bg-brief-card transition-all"
-            >
-              <div className="flex items-center gap-2 mb-1.5">
-                <time className="text-[10px] tabular-nums text-foreground/45">
-                  {article.date}
-                </time>
-                <span className="text-[10px] text-foreground/45">·</span>
-                <span className="text-[10px] text-foreground/45">{article.readTime}</span>
-              </div>
-              <h3 className="text-sm font-bold leading-snug group-hover:text-[#8b5cf6] transition-colors">
-                {article.title}
-              </h3>
-              <p className="mt-1.5 text-[12px] text-foreground/50 leading-relaxed line-clamp-2">
-                {article.summary}
-              </p>
-              <div className="mt-2 flex flex-wrap gap-1.5">
-                {article.tags.slice(0, 4).map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[9px] px-2 py-0.5 rounded-full bg-[#8b5cf6]/8 text-[#8b5cf6]/70 font-medium"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </Link>
-          ))}
+        <div>
+          <h2 className="font-serif text-base font-bold"><T ja="その他（業界横断）" en="Cross-Sector Analysis" /></h2>
+          <p className="text-xs text-foreground/55">
+            <T ja={`${otherArticles.length}件の記事 — 経済圏戦争、地政学リスクなど`} en={`${otherArticles.length} articles — economic blocs, geopolitical risks, and more`} />
+          </p>
         </div>
-
-        <div className="mt-4 text-right">
-          <Link
-            href="/industry/other"
-            className="text-xs text-[#8b5cf6] hover:underline"
-          >
-            <T ja="その他の記事をすべて見る →" en="View all cross-sector articles →" />
-          </Link>
-        </div>
-      </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-auto text-foreground/30 flex-shrink-0">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </Link>
     </div>
   );
 }

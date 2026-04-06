@@ -5,14 +5,10 @@ import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import {
   economicIndicators,
   categoryLabels,
-  economyNews,
-  newsCategoryLabels,
   type EconomicIndicator,
-  type EconomyNewsItem,
   type IndicatorStatus,
   type TrendDirection,
 } from "@/lib/economy";
-import { economyArticles } from "@/lib/economyArticles";
 
 export const metadata: Metadata = {
   title: "Economy — 日本経済指標",
@@ -169,31 +165,6 @@ function IndicatorCard({ indicator }: { indicator: EconomicIndicator }) {
   );
 }
 
-/* Group news items by month */
-function groupNewsByMonth(news: EconomyNewsItem[]): { month: string; items: EconomyNewsItem[] }[] {
-  const groups: { month: string; items: EconomyNewsItem[] }[] = [];
-  for (const item of news) {
-    const month = item.date.slice(0, 7); // "2026-04"
-    const last = groups[groups.length - 1];
-    if (last && last.month === month) {
-      last.items.push(item);
-    } else {
-      groups.push({ month, items: [item] });
-    }
-  }
-  return groups;
-}
-
-function formatMonth(ym: string): { ja: string; en: string } {
-  const [year, month] = ym.split("-");
-  const monthNum = parseInt(month);
-  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  return {
-    ja: `${year}年${monthNum}月`,
-    en: `${monthNames[monthNum - 1]} ${year}`,
-  };
-}
-
 export default function EconomyPage() {
   // Group indicators by category
   const categories = Object.entries(categoryLabels);
@@ -215,9 +186,6 @@ export default function EconomyPage() {
     (latest, i) => (i.lastUpdated > latest ? i.lastUpdated : latest),
     economicIndicators[0].lastUpdated
   );
-
-  // Group news by month
-  const newsGroups = groupNewsByMonth(economyNews);
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
@@ -259,12 +227,6 @@ export default function EconomyPage() {
             <T ja={group.label.ja} en={group.label.en} />
           </a>
         ))}
-        <a
-          href="#economy-news"
-          className="px-3 py-1.5 text-[11px] font-medium rounded-full border border-brief-border bg-brief-card hover:border-foreground/20 hover:bg-foreground/5 transition-colors"
-        >
-          <T ja="ニュース" en="News" />
-        </a>
       </div>
 
       {/* Summary Dashboard */}
@@ -367,167 +329,45 @@ export default function EconomyPage() {
         </div>
       ))}
 
-      {/* Economy News Timeline */}
-      <div className="mt-14" id="economy-news">
-        <div className="flex items-center gap-4 mb-6 scroll-mt-20">
-          <div>
-            <h2 className="font-serif text-xl font-bold"><T ja="経済ニュース" en="Economic News" /></h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">
-              <T ja="Economic News Timeline" en="Timeline" />
-            </span>
-          </div>
-          <div className="flex-1 h-px bg-foreground/5" />
-        </div>
-
-        <div className="relative">
-          {/* Vertical timeline line */}
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-foreground/5" />
-
-          {newsGroups.map((group) => (
-            <div key={group.month}>
-              {/* Month header */}
-              <div className="relative pl-7 pb-4">
-                <div className="absolute left-0 top-0.5 w-[15px] h-[15px] rounded-sm bg-foreground/10 z-10 flex items-center justify-center">
-                  <span className="text-[7px] font-bold text-foreground/50">
-                    {parseInt(group.month.split("-")[1])}
-                  </span>
-                </div>
-                <div className="text-xs font-medium text-foreground/60 tracking-wide">
-                  <T ja={formatMonth(group.month).ja} en={formatMonth(group.month).en} />
-                </div>
-              </div>
-
-              <div className="space-y-0">
-                {group.items.map((item, i) => {
-                  const impactColor =
-                    item.impact === "positive"
-                      ? "bg-green-600 dark:bg-green-500"
-                      : item.impact === "negative"
-                        ? "bg-red-600 dark:bg-red-500"
-                        : "bg-yellow-600 dark:bg-yellow-500";
-                  const impactBorder =
-                    item.impact === "positive"
-                      ? "border-green-500/20"
-                      : item.impact === "negative"
-                        ? "border-red-500/20"
-                        : "border-yellow-500/20";
-
-                  return (
-                    <div key={i} className="relative pl-7 pb-6 last:pb-0 group">
-                      {/* Timeline dot */}
-                      <div
-                        className={`absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-background ${impactColor} z-10`}
-                      />
-
-                      {/* Date */}
-                      <div className="text-[10px] tabular-nums text-foreground/45 mb-1">
-                        {item.date}
-                        <span
-                          className={`ml-2 px-1.5 py-0.5 rounded text-[9px] font-medium ${
-                            item.impact === "positive"
-                              ? "bg-green-500/10 text-green-700 dark:text-green-400"
-                              : item.impact === "negative"
-                                ? "bg-red-500/10 text-red-700 dark:text-red-400"
-                                : "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400"
-                          }`}
-                        >
-                          <T ja={newsCategoryLabels[item.category]} en={{ policy: "Policy", market: "Market", trade: "Trade", fiscal: "Fiscal", labor: "Labor", corporate: "Corporate" }[item.category] ?? newsCategoryLabels[item.category]} />
-                        </span>
-                      </div>
-
-                      {/* Content card */}
-                      <div
-                        className={`p-3 rounded-lg bg-brief-card border ${impactBorder} group-hover:bg-foreground/[0.02] transition-colors`}
-                      >
-                        <h3 className="text-sm font-medium leading-snug">
-                          {item.title}
-                        </h3>
-                        <p className="mt-1.5 text-[11px] text-foreground/55 leading-relaxed">
-                          {item.summary}
-                        </p>
-
-                        {/* Related indicators */}
-                        {item.relatedIndicators && item.relatedIndicators.length > 0 && (
-                          <div className="mt-2 flex flex-wrap gap-1.5">
-                            {item.relatedIndicators.map((nameEn) => {
-                              const ind = economicIndicators.find((e) => e.nameEn === nameEn);
-                              if (!ind) return null;
-                              const c = statusColor(ind.status);
-                              return (
-                                <a
-                                  key={nameEn}
-                                  href={`#indicator-${nameEn.replace(/[\s/()]/g, "-")}`}
-                                  className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] ${c.bg} ${c.text} hover:opacity-80 transition-opacity`}
-                                >
-                                  <span className={`w-1.5 h-1.5 rounded-full ${c.dot}`} />
-                                  <T ja={ind.name} en={ind.nameEn} />
-                                </a>
-                              );
-                            })}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+      {/* Navigation to related pages */}
+      <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <Link
+          href="/economy/news"
+          className="group p-5 rounded-xl border-2 border-dashed border-[#f59e0b]/30 hover:border-[#f59e0b] hover:bg-[#f59e0b]/[0.03] transition-all"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[#f59e0b]/10 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#f59e0b]">
+                <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
+              </svg>
             </div>
-          ))}
-        </div>
+            <div>
+              <h2 className="font-serif text-lg font-bold"><T ja="経済ニュース" en="Economic News" /></h2>
+              <p className="text-xs text-foreground/55"><T ja="タイムライン形式の最新ニュース" en="Latest news in timeline format" /></p>
+            </div>
+          </div>
+        </Link>
+        <Link
+          href="/economy/articles"
+          className="group p-5 rounded-xl border-2 border-dashed border-[#f59e0b]/30 hover:border-[#f59e0b] hover:bg-[#f59e0b]/[0.03] transition-all"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[#f59e0b]/10 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#f59e0b]">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
+            </div>
+            <div>
+              <h2 className="font-serif text-lg font-bold"><T ja="深掘り記事" en="In-Depth Articles" /></h2>
+              <p className="text-xs text-foreground/55"><T ja="経済テーマの解説記事" en="Analysis articles on economic themes" /></p>
+            </div>
+          </div>
+        </Link>
       </div>
 
-      {/* Economy Articles */}
-      {economyArticles.length > 0 && (
-        <div className="mt-14" id="economy-articles">
-          <div className="flex items-center gap-4 mb-6 scroll-mt-20">
-            <div>
-              <h2 className="font-serif text-xl font-bold"><T ja="深掘り記事" en="In-Depth Articles" /></h2>
-              <span className="text-[9px] tracking-[2px] uppercase text-foreground/40">
-                In-Depth Analysis
-              </span>
-            </div>
-            <div className="flex-1 h-px bg-foreground/5" />
-          </div>
-
-          <div className="space-y-4">
-            {[...economyArticles].sort((a, b) => b.date.localeCompare(a.date)).map((article) => (
-              <Link
-                key={article.slug}
-                href={`/economy/${article.slug}`}
-                className="block group p-5 rounded-xl border border-brief-border hover:border-[#f59e0b]/30 bg-brief-card hover:bg-foreground/[0.02] transition-all"
-              >
-                <div className="flex items-center gap-2 mb-2 flex-wrap">
-                  <span className="text-[9px] px-2 py-0.5 rounded-full bg-[#f59e0b]/10 text-[#f59e0b] font-medium">
-                    Economy
-                  </span>
-                  {article.tags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[9px] px-2 py-0.5 rounded-full bg-foreground/5 text-foreground/50"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <h3 className="text-base font-bold group-hover:text-[#f59e0b] transition-colors leading-snug">
-                  {article.title}
-                </h3>
-                <p className="mt-2 text-[12px] text-foreground/55 leading-relaxed line-clamp-2">
-                  {article.summary}
-                </p>
-                <div className="mt-3 flex items-center gap-3 text-[10px] text-foreground/40">
-                  <time>{article.date}</time>
-                  <span>·</span>
-                  <span>{article.readTime}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* Data sources note */}
-      <div className="mt-14 p-5 rounded-xl border border-dashed border-brief-border">
+      <div className="mt-8 p-5 rounded-xl border border-dashed border-brief-border">
         <h3 className="text-sm font-medium mb-2 text-foreground/70"><T ja="データソースについて" en="About Data Sources" /></h3>
         <p className="text-[11px] text-foreground/45 leading-relaxed">
           <T

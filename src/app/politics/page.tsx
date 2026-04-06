@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { politicsNews } from "@/lib/politicsNews";
+
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 
@@ -216,73 +216,33 @@ export default function PoliticsPage() {
         </div>
       </Link>
 
-      {/* 最新ニュース タイムライン */}
-      <div className="mt-14">
-        <div className="flex items-center gap-4 mb-6">
-          <div className="flex items-center gap-2">
+      {/* 最新ニュース リンク */}
+      <Link
+        href="/politics/news"
+        className="group mt-8 flex items-center justify-between w-full p-5 rounded-xl border-2 border-dashed border-brief-red/30 hover:border-brief-red hover:bg-brief-red/[0.03] transition-all duration-200"
+      >
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-10 rounded-full bg-brief-red/10 flex items-center justify-center flex-shrink-0">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brief-red opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brief-red" />
             </span>
-            <h2 className="font-serif text-xl font-bold"><T ja="最新ニュース" en="Latest News" /></h2>
-            <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Latest</span>
           </div>
-          <div className="flex-1 h-px bg-foreground/5" />
+          <div>
+            <h2 className="font-serif text-xl font-bold"><T ja="最新ニュース" en="Latest News" /></h2>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Politics News Timeline</span>
+            <p className="text-sm text-foreground/55 mt-0.5">
+              <T ja="政治に関する最新ニュースをタイムラインで表示" en="Latest politics news in timeline format" />
+            </p>
+          </div>
         </div>
-
-        <div className="relative pl-6">
-          {/* Vertical line */}
-          <div className="absolute left-[7px] top-0 bottom-0 w-px bg-foreground/5" />
-
-          {politicsNews.map((news, i) => {
-            const isFirst = i === 0;
-            const prevDate = i > 0 ? politicsNews[i - 1].date : null;
-            const showDate = news.date !== prevDate;
-
-            return (
-              <div key={`${news.date}-${news.time}`}>
-                {showDate && (
-                  <div className="relative flex items-center gap-3 pb-3 pt-1">
-                    <div className="absolute left-[-19px] w-3 h-px bg-foreground/10" />
-                    <span className="text-[10px] font-medium text-foreground/45 tabular-nums tracking-wider">
-                      {new Date(news.date).toLocaleDateString("ja-JP", { month: "long", day: "numeric", weekday: "short" })}
-                    </span>
-                  </div>
-                )}
-                <div className="relative flex gap-4 pb-5">
-                  {/* Dot */}
-                  <div
-                    className={`absolute left-[-21px] top-1 w-3 h-3 rounded-full border-2 ${
-                      isFirst
-                        ? "bg-brief-red border-brief-red"
-                        : "bg-background border-white/20"
-                    }`}
-                  />
-
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[10px] tabular-nums text-foreground/50">{news.time}</span>
-                      <span
-                        className="text-[9px] font-bold px-1.5 py-0.5 rounded text-white"
-                        style={{ backgroundColor: news.tagColor }}
-                      >
-                        {news.tag}
-                      </span>
-                    </div>
-                    <h3 className={`text-sm font-medium leading-snug ${isFirst ? "text-foreground" : "text-foreground/70"}`}>
-                      {news.title}
-                    </h3>
-                    <p className="mt-1 text-xs text-foreground/50 leading-relaxed">
-                      {news.summary}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        <div className="flex items-center gap-2 text-brief-red">
+          <span className="text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">View</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }
