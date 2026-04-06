@@ -63,7 +63,6 @@ export function RelatedArticles({
             <div
               className="text-sm font-medium leading-snug line-clamp-2 transition-colors"
               style={{ color: "inherit" }}
-              onMouseEnter={() => {}}
             >
               <span className="group-hover:text-[var(--accent)] transition-colors">
                 {a.title}
