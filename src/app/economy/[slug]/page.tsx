@@ -23,6 +23,15 @@ import {
   InternationalComparisonDiagram,
   FutureDebatesDiagram,
 } from "@/components/ConsumptionTaxDiagrams";
+import {
+  USIranTimelineDiagram,
+  SanctionsArchitectureDiagram,
+  IranEconomicImpactDiagram,
+  IranOilExportsDiagram,
+  NuclearNegotiationsDiagram,
+  ProtestsAndWarDiagram,
+  CeasefireConditionsDiagram,
+} from "@/components/USIranDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -109,6 +118,13 @@ const diagramMap: Record<string, React.FC> = {
   "regressivity": RegressivityDiagram,
   "international-comparison": InternationalComparisonDiagram,
   "future-debates": FutureDebatesDiagram,
+  "us-iran-timeline": USIranTimelineDiagram,
+  "sanctions-architecture": SanctionsArchitectureDiagram,
+  "iran-economic-impact": IranEconomicImpactDiagram,
+  "iran-oil-exports": IranOilExportsDiagram,
+  "nuclear-negotiations": NuclearNegotiationsDiagram,
+  "protests-and-war": ProtestsAndWarDiagram,
+  "ceasefire-conditions": CeasefireConditionsDiagram,
 };
 
 export default async function EconomyArticlePage({
