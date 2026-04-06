@@ -5,7 +5,7 @@ import { materialsArticles } from "@/lib/materials";
 
 export const metadata: Metadata = {
   title: "素材 — Industry",
-  description: "化学、鉄鋼、非鉄金属、セメント、繊維など素材メーカーの動向。",
+  description: "化学、鉄鋼、非鉄金属、セメント、繊維など素材メーカーの最新動向。",
   alternates: { canonical: "https://thebrief.info/industry/materials" },
 };
 
@@ -41,7 +41,7 @@ export default function Page() {
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">Materials</span>
           </div>
         </div>
-        <p className="mt-3 text-sm text-foreground/60 leading-relaxed">化学、鉄鋼、非鉄金属、セメント、繊維など素材メーカーの動向。</p>
+        <p className="mt-3 text-sm text-foreground/60 leading-relaxed">化学、鉄鋼、非鉄金属、セメント、繊維など素材メーカーの最新動向。</p>
       </div>
       <div className="h-px bg-brief-border mb-8" />
       <div className="space-y-4">

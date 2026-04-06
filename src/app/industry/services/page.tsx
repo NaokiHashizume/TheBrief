@@ -5,7 +5,7 @@ import { servicesArticles } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "サービス — Industry",
-  description: "人材、警備、教育、コンサルティング、BPOなどサービス業全般。",
+  description: "人材、警備、教育、コンサルティング、BPOなどサービス業全般の最新動向。",
   alternates: { canonical: "https://thebrief.info/industry/services" },
 };
 
@@ -41,7 +41,7 @@ export default function Page() {
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">Services</span>
           </div>
         </div>
-        <p className="mt-3 text-sm text-foreground/60 leading-relaxed">人材、警備、教育、コンサルティング、BPOなどサービス業全般。</p>
+        <p className="mt-3 text-sm text-foreground/60 leading-relaxed">人材、警備、教育、コンサルティング、BPOなどサービス業全般の最新動向。</p>
       </div>
       <div className="h-px bg-brief-border mb-8" />
       <div className="space-y-4">

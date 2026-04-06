@@ -239,7 +239,7 @@ const industries = [
   },
 ];
 
-const activeIndustries = new Set(["ict", "trading", "retail", "ai", "automotive", "construction"]);
+const activeIndustries = new Set(["ict", "trading", "retail", "ai", "automotive", "construction", "services", "finance", "pharma", "food", "energy", "materials", "logistics", "dining", "specialty", "daily", "entertainment"]);
 
 export default function IndustryPage() {
   return (

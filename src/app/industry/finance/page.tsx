@@ -5,7 +5,7 @@ import { financeArticles } from "@/lib/finance";
 
 export const metadata: Metadata = {
   title: "金融機関 — Industry",
-  description: "メガバンク、証券、保険、デジタル決済、暗号資産、新NISA関連。",
+  description: "メガバンク、証券、保険、デジタル決済、暗号資産、新NISA関連の最新動向。",
   alternates: { canonical: "https://thebrief.info/industry/finance" },
 };
 
@@ -41,7 +41,7 @@ export default function Page() {
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">Financial Institutions</span>
           </div>
         </div>
-        <p className="mt-3 text-sm text-foreground/60 leading-relaxed">メガバンク、証券、保険、デジタル決済、暗号資産、新NISA関連。</p>
+        <p className="mt-3 text-sm text-foreground/60 leading-relaxed">メガバンク、証券、保険、デジタル決済、暗号資産、新NISA関連の最新動向。</p>
       </div>
       <div className="h-px bg-brief-border mb-8" />
       <div className="space-y-4">

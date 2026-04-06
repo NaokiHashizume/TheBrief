@@ -5,7 +5,7 @@ import { pharmaArticles } from "@/lib/pharma";
 
 export const metadata: Metadata = {
   title: "医薬品・医療介護 — Industry",
-  description: "新薬開発、医療DX、バイオテクノロジー、介護・ヘルスケア。",
+  description: "新薬開発、医療DX、バイオテクノロジー、介護・ヘルスケアの最新動向。",
   alternates: { canonical: "https://thebrief.info/industry/pharma" },
 };
 
@@ -41,7 +41,7 @@ export default function Page() {
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">Pharma & Healthcare</span>
           </div>
         </div>
-        <p className="mt-3 text-sm text-foreground/60 leading-relaxed">新薬開発、医療DX、バイオテクノロジー、介護・ヘルスケア。</p>
+        <p className="mt-3 text-sm text-foreground/60 leading-relaxed">新薬開発、医療DX、バイオテクノロジー、介護・ヘルスケアの最新動向。</p>
       </div>
       <div className="h-px bg-brief-border mb-8" />
       <div className="space-y-4">
