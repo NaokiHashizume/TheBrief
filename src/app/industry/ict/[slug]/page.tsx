@@ -40,6 +40,14 @@ import {
   IownRoadmapDiagram,
   IownComparisonDiagram,
 } from "@/components/IownDiagrams";
+import {
+  KddiFraudScaleDiagram,
+  KddiFraudMechanismDiagram,
+  KddiFraudFailuresDiagram,
+  KddiFraudFinancialDiagram,
+  KddiFraudAccountabilityDiagram,
+  KddiFraudPreventionDiagram,
+} from "@/components/KddiFraudDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -147,6 +155,12 @@ const diagramMap: Record<string, React.FC> = {
   "dtc-concept": DtcConceptDiagram,
   "iown-roadmap": IownRoadmapDiagram,
   "iown-comparison": IownComparisonDiagram,
+  "kddi-fraud-scale": KddiFraudScaleDiagram,
+  "kddi-fraud-mechanism": KddiFraudMechanismDiagram,
+  "kddi-fraud-failures": KddiFraudFailuresDiagram,
+  "kddi-fraud-financial": KddiFraudFinancialDiagram,
+  "kddi-fraud-accountability": KddiFraudAccountabilityDiagram,
+  "kddi-fraud-prevention": KddiFraudPreventionDiagram,
 };
 
 export default async function IctArticlePage({
