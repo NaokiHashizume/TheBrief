@@ -42,7 +42,6 @@ export default async function TwitterImage() {
         <div
           style={{
             display: "flex",
-            alignItems: "baseline",
             position: "relative",
           }}
         >
@@ -55,47 +54,20 @@ export default async function TwitterImage() {
               letterSpacing: "-2px",
             }}
           >
-            Br
+            Brief
           </div>
+          {/* Red dot over the "i" */}
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              position: "relative",
+              position: "absolute",
+              top: -2,
+              left: 164,
+              width: 14,
+              height: 14,
+              borderRadius: "50%",
+              background: "#c0392b",
             }}
-          >
-            <div
-              style={{
-                width: 14,
-                height: 14,
-                borderRadius: "50%",
-                background: "#c0392b",
-                marginBottom: -8,
-              }}
-            />
-            <div
-              style={{
-                fontSize: 120,
-                fontWeight: 900,
-                color: "#1a1a1a",
-                lineHeight: 1,
-              }}
-            >
-              i
-            </div>
-          </div>
-          <div
-            style={{
-              fontSize: 120,
-              fontWeight: 900,
-              color: "#1a1a1a",
-              lineHeight: 1,
-              letterSpacing: "-2px",
-            }}
-          >
-            ef
-          </div>
+          />
         </div>
 
         {/* Tagline */}
