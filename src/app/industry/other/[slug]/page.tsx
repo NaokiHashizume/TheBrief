@@ -12,6 +12,16 @@ import {
   EuBricsDiagram,
   JapanStrategyDiagram,
 } from "@/components/EconomicBlocDiagrams";
+import {
+  DxOverviewStatsDiagram,
+  DxManufacturingDiagram,
+  DxConstructionDiagram,
+  DxHealthcareDiagram,
+  DxLogisticsDiagram,
+  DxFinanceDiagram,
+  DxRetailDiagram,
+  DxSuccessConditionsDiagram,
+} from "@/components/DxChallengeDiagrams";
 
 export function generateStaticParams() {
   return otherArticles.map((a) => ({ slug: a.slug }));
@@ -179,6 +189,14 @@ export default async function OtherArticlePage({
             {section.diagramId === "trade-blocs" && <TradeBlocsDiagram />}
             {section.diagramId === "eu-brics" && <EuBricsDiagram />}
             {section.diagramId === "japan-strategy" && <JapanStrategyDiagram />}
+            {section.diagramId === "dx-overview-stats" && <DxOverviewStatsDiagram />}
+            {section.diagramId === "dx-manufacturing" && <DxManufacturingDiagram />}
+            {section.diagramId === "dx-construction" && <DxConstructionDiagram />}
+            {section.diagramId === "dx-healthcare" && <DxHealthcareDiagram />}
+            {section.diagramId === "dx-logistics" && <DxLogisticsDiagram />}
+            {section.diagramId === "dx-finance" && <DxFinanceDiagram />}
+            {section.diagramId === "dx-retail" && <DxRetailDiagram />}
+            {section.diagramId === "dx-success-conditions" && <DxSuccessConditionsDiagram />}
 
             {/* Section body */}
             <div className="space-y-4">
