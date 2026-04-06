@@ -142,11 +142,18 @@ export function HomeContent() {
         </p>
       </section>
 
-      {/* ━━━ Three Pillars — Newspaper Column Layout ━━━ */}
-      <section className="max-w-[1400px] mx-auto px-6 pb-16">
-        <div className="border-t-2 border-b border-foreground pt-2 pb-1 mb-8">
-          <h2 className="font-serif text-2xl font-bold">
-            {locale === "ja" ? "3つの軸" : "Pillars of Power"}
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="h-px bg-brief-border" />
+      </div>
+
+      {/* ━━━ Four Pillars ━━━ */}
+      <section className="max-w-5xl mx-auto px-4 py-16">
+        <div className="text-center mb-10">
+          <span className="text-[10px] tracking-[3px] uppercase text-brief-red font-medium">
+            {locale === "ja" ? "コンテンツ" : "Content"}
+          </span>
+          <h2 className="font-serif text-2xl md:text-3xl font-bold mt-2">
+            {locale === "ja" ? "4つの軸で日本を読み解く" : "Four Pillars of Japan"}
           </h2>
         </div>
 
