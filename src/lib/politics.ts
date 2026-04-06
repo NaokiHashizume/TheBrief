@@ -112,9 +112,9 @@ export const cabinet: CabinetMember[] = [
 export const legislatorRankingTop: RankedLegislator[] = [
   { rank: 1, name: "小泉 進次郎", nameEn: "Koizumi Shinjiro", party: "自由民主党", partyColor: "#3CA324", role: "防衛大臣", chamber: "house", score: 94, metrics: { legislation: 88, socialMedia: 95, mediaPresence: 98, committee: 90 }, x: "https://x.com/shinjirokoiz", website: "https://shinjiro.info/" },
   { rank: 2, name: "玉木 雄一郎", nameEn: "Tamaki Yuichiro", party: "国民民主党", partyColor: "#F8BC00", role: "代表", chamber: "house", score: 92, metrics: { legislation: 90, socialMedia: 96, mediaPresence: 90, committee: 88 }, x: "https://x.com/tamakiyuichiro", website: "https://tamakinet.jp/" },
-  { rank: 3, name: "音喜多 駿", nameEn: "Otokita Shun", party: "日本維新の会", partyColor: "#6FBA2C", role: "政調会長", chamber: "council", score: 90, metrics: { legislation: 85, socialMedia: 98, mediaPresence: 88, committee: 86 }, x: "https://x.com/otokita", website: "https://otokitashun.com/" },
-  { rank: 4, name: "高市 早苗", nameEn: "Takaichi Sanae", party: "自由民主党", partyColor: "#3CA324", role: "総裁（内閣総理大臣）", chamber: "house", score: 89, metrics: { legislation: 82, socialMedia: 92, mediaPresence: 97, committee: 80 }, x: "https://x.com/takaichi_sanae", website: "https://www.sanae.gr.jp/" },
-  { rank: 5, name: "安野 貴博", nameEn: "Anno Takahiro", party: "チームみらい", partyColor: "#66FFCC", role: "代表", chamber: "council", score: 87, metrics: { legislation: 78, socialMedia: 97, mediaPresence: 90, committee: 72 }, x: "https://x.com/takahiroanno", website: "https://team-mir.ai/" },
+  { rank: 3, name: "高市 早苗", nameEn: "Takaichi Sanae", party: "自由民主党", partyColor: "#3CA324", role: "総裁（内閣総理大臣）", chamber: "house", score: 89, metrics: { legislation: 82, socialMedia: 92, mediaPresence: 97, committee: 80 }, x: "https://x.com/takaichi_sanae", website: "https://www.sanae.gr.jp/" },
+  { rank: 4, name: "安野 貴博", nameEn: "Anno Takahiro", party: "チームみらい", partyColor: "#66FFCC", role: "代表", chamber: "council", score: 87, metrics: { legislation: 78, socialMedia: 97, mediaPresence: 90, committee: 72 }, x: "https://x.com/takahiroanno", website: "https://team-mir.ai/" },
+  { rank: 5, name: "斎藤 アレックス", nameEn: "Saito Alex", party: "日本維新の会", partyColor: "#6FBA2C", role: "政調会長", chamber: "house", score: 85, metrics: { legislation: 80, socialMedia: 88, mediaPresence: 82, committee: 84 }, x: "https://x.com/saito_alex1", website: "https://saito-alex.jp/" },
 ];
 
 // 議員活動ランキング Bottom 5
@@ -207,7 +207,6 @@ export const legislators: Legislator[] = [
   { name: "青柳 仁士", nameEn: "Aoyagi Hitoshi", party: "日本維新の会", role: "衆議院議員", chamber: "house", x: "https://x.com/aoyagihitoshi" },
   { name: "遠藤 敬", nameEn: "Endo Takashi", party: "日本維新の会", role: "国対委員長", chamber: "house", x: "https://x.com/endotakashi01" },
   // ━━━━━━━━━━ 日本維新の会 — 参議院 ━━━━━━━━━━
-  { name: "音喜多 駿", nameEn: "Otokita Shun", party: "日本維新の会", role: "政調会長", chamber: "council", x: "https://x.com/otokita", website: "https://otokitashun.com/" },
   { name: "梅村 みずほ", nameEn: "Umemura Mizuho", party: "日本維新の会", role: "参議院議員", chamber: "council", x: "https://x.com/umemura_mizuho" },
   { name: "柳ヶ瀬 裕文", nameEn: "Yanagase Hirofumi", party: "日本維新の会", role: "参議院議員", chamber: "council", x: "https://x.com/yanagase_urfm" },
   { name: "浅田 均", nameEn: "Asada Hitoshi", party: "日本維新の会", role: "参議院議員", chamber: "council" },
@@ -552,7 +551,6 @@ export const legislators: Legislator[] = [
   // ── 日本維新の会 — 衆議院（追加30名）──
   { name: "馬場 伸幸", nameEn: "Baba Nobuyuki2", party: "日本維新の会", role: "議員", chamber: "house" },
   { name: "藤田 文武", nameEn: "Fujita Fumitake2", party: "日本維新の会", role: "議員", chamber: "house" },
-  { name: "音喜多 駿", nameEn: "Otokita Shun2", party: "日本維新の会", role: "議員", chamber: "house" },
   { name: "足立 康史", nameEn: "Adachi Yasushi2", party: "日本維新の会", role: "議員", chamber: "house" },
   { name: "青柳 仁士", nameEn: "Aoyagi Hitoshi2", party: "日本維新の会", role: "議員", chamber: "house" },
   { name: "池下 卓", nameEn: "Ikeshita Taku2", party: "日本維新の会", role: "議員", chamber: "house" },
@@ -791,7 +789,6 @@ export const legislators: Legislator[] = [
   // ── 日本維新の会 — 参議院（追加13名）──
   { name: "片山 大介", nameEn: "Katayama D2", party: "日本維新の会", role: "議員", chamber: "council" },
   { name: "柳ヶ瀬 裕文", nameEn: "Yanagase H4", party: "日本維新の会", role: "議員", chamber: "council" },
-  { name: "音喜多 駿", nameEn: "Otokita S3", party: "日本維新の会", role: "議員", chamber: "council" },
   { name: "石井 章", nameEn: "Ishii Akira", party: "日本維新の会", role: "議員", chamber: "council" },
   { name: "室井 邦彦", nameEn: "Muroi Kunihiko", party: "日本維新の会", role: "議員", chamber: "council" },
   { name: "高木 佳保里", nameEn: "Takagi Kahori", party: "日本維新の会", role: "議員", chamber: "council" },
