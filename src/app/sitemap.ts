@@ -69,6 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/politics/passed`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/politics/enacted`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/politics/news`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
+    { url: `${SITE_URL}/politics/articles`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
   ];
 
   const debatePages: MetadataRoute.Sitemap = debates.map((d) => ({

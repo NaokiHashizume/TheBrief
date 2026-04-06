@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Logo } from "./Logo";
 import { NewsletterForm } from "./NewsletterForm";
 import { useLanguage } from "./LanguageProvider";
@@ -53,9 +54,9 @@ export function Footer() {
               {t("footer.sections")}
             </h4>
             <ul className="space-y-3 text-white/70">
-              <li><a href="/politics" className="hover:text-white transition-colors">Politics</a></li>
-              <li><a href="/economy" className="hover:text-white transition-colors">Economy</a></li>
-              <li><a href="/industry" className="hover:text-white transition-colors">Industry</a></li>
+              <li><Link href="/politics" className="hover:text-white transition-colors">Politics</Link></li>
+              <li><Link href="/economy" className="hover:text-white transition-colors">Economy</Link></li>
+              <li><Link href="/industry" className="hover:text-white transition-colors">Industry</Link></li>
               <li><span className="text-white/30 cursor-default">University</span></li>
             </ul>
           </div>
@@ -67,9 +68,9 @@ export function Footer() {
             <ul className="space-y-3 text-white/70">
               <li><span className="text-white/30 cursor-default">Lifestyle</span></li>
               <li><span className="text-white/30 cursor-default">Opinion</span></li>
-              <li><a href="/about" className="hover:text-white transition-colors">About</a></li>
-              <li><a href="/politics/government" className="hover:text-white transition-colors">官公庁リンク集</a></li>
-              <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
+              <li><Link href="/politics/government" className="hover:text-white transition-colors">官公庁リンク集</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -78,14 +79,14 @@ export function Footer() {
               Account
             </h4>
             <ul className="space-y-3 text-white/70">
-              <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/35">
           <span>&copy; {new Date().getFullYear()} The Brief. All rights reserved.</span>
-          <a href="/privacy" className="hover:text-white/60 transition-colors">Privacy Policy</a>
+          <Link href="/privacy" className="hover:text-white/60 transition-colors">Privacy Policy</Link>
         </div>
       </div>
     </footer>

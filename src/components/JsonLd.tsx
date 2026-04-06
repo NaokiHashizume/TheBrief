@@ -10,7 +10,19 @@ export function WebsiteJsonLd() {
       "@type": "Organization",
       name: "The Brief",
       url: "https://thebrief.info",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://thebrief.info/icon.svg",
+      },
       sameAs: ["https://x.com/thebrief_info"],
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://thebrief.info/?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
     },
     inLanguage: "ja",
   };
@@ -53,6 +65,10 @@ export function ArticleJsonLd({
       "@type": "Organization",
       name: "The Brief",
       url: "https://thebrief.info",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://thebrief.info/icon.svg",
+      },
     },
     mainEntityOfPage: {
       "@type": "WebPage",

@@ -1,17 +1,25 @@
 {
-  "name": "The Brief",
+  "name": "The Brief — Politics · Economy · Industry · Trends",
   "short_name": "The Brief",
   "description": "日本の政治経済・金融から業界情報、テクノロジー・AI、ライフスタイルまで。シンプルに届けるニュース&オピニオン。",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fafaf8",
-  "theme_color": "#fafaf8",
+  "theme_color": "#c0392b",
   "lang": "ja",
+  "categories": ["news", "business", "politics"],
   "icons": [
     {
       "src": "/icon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
     }
   ]
 }
