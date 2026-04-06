@@ -216,6 +216,36 @@ export default function PoliticsPage() {
         </div>
       </Link>
 
+      {/* 官公庁リンク集 */}
+      <Link
+        href="/politics/government"
+        className="group mt-4 flex items-center justify-between w-full p-5 rounded-xl border-2 border-dashed border-[#3b82f6]/30 hover:border-[#3b82f6] hover:bg-[#3b82f6]/[0.03] transition-all duration-200"
+      >
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-10 rounded-full bg-[#3b82f6]/10 flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#3b82f6]">
+              <path d="M3 21h18" />
+              <path d="M5 21V7l7-4 7 4v14" />
+              <path d="M9 21v-4h6v4" />
+              <path d="M10 10h4" />
+            </svg>
+          </div>
+          <div>
+            <h2 className="font-serif text-xl font-bold"><T ja="官公庁リンク集" en="Government Directory" /></h2>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Government Directory</span>
+            <p className="text-sm text-foreground/55 mt-0.5">
+              <T ja="省庁・官公庁の公式サイトリンク集" en="Official links to government ministries and agencies" />
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 text-[#3b82f6]">
+          <span className="text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">View</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </div>
+      </Link>
+
       {/* 最新ニュース リンク */}
       <Link
         href="/politics/news"

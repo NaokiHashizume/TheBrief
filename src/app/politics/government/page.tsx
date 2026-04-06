@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "官公庁リンク集 — Government Directory",
   description:
     "日本の省庁・官公庁の公式サイトリンク集。内閣府、全11省、主要な庁・委員会、独立機関、政府データポータルを網羅。",
-  alternates: { canonical: "https://thebrief.info/government" },
+  alternates: { canonical: "https://thebrief.info/politics/government" },
 };
 
 interface GovLink {
@@ -378,7 +378,8 @@ export default function GovernmentPage() {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "官公庁リンク集", href: "/government" },
+          { name: "Politics", href: "/politics" },
+          { name: "官公庁リンク集", href: "/politics/government" },
         ]}
       />
 
@@ -386,6 +387,10 @@ export default function GovernmentPage() {
       <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">
           Home
+        </Link>
+        <span>/</span>
+        <Link href="/politics" className="hover:text-foreground transition-colors">
+          Politics
         </Link>
         <span>/</span>
         <span>官公庁リンク集</span>
