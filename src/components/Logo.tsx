@@ -1,7 +1,9 @@
-export function Logo({ className = "" }: { className?: string }) {
+export function Logo({ className = "", light = false }: { className?: string; light?: boolean }) {
+  const textFill = light ? "fill-white" : "fill-foreground";
+  const theColor = light ? "text-white/55" : "text-foreground/55";
   return (
     <div className={`flex flex-col items-start ${className}`}>
-      <span className="font-serif text-[11px] font-bold tracking-[5px] text-foreground/55 uppercase leading-none">
+      <span className={`font-serif text-[11px] font-bold tracking-[5px] uppercase leading-none ${theColor}`}>
         The
       </span>
       <svg
@@ -11,11 +13,11 @@ export function Logo({ className = "" }: { className?: string }) {
         className="h-[36px] w-auto"
         aria-label="Brief"
       >
-        <text x="0" y="62" fontFamily="'Playfair Display', serif" fontSize="68" fontWeight="900" className="fill-foreground">B</text>
-        <text x="46" y="62" fontFamily="'Playfair Display', serif" fontSize="68" fontWeight="900" className="fill-foreground">r</text>
-        <text x="78" y="62" fontFamily="'Playfair Display', serif" fontSize="68" fontWeight="900" className="fill-foreground">ı</text>
+        <text x="0" y="62" fontFamily="'Playfair Display', serif" fontSize="68" fontWeight="900" className={textFill}>B</text>
+        <text x="46" y="62" fontFamily="'Playfair Display', serif" fontSize="68" fontWeight="900" className={textFill}>r</text>
+        <text x="78" y="62" fontFamily="'Playfair Display', serif" fontSize="68" fontWeight="900" className={textFill}>ı</text>
         <circle cx="90" cy="8" r="7" fill="#c0392b" />
-        <text x="100" y="62" fontFamily="'Playfair Display', serif" fontSize="68" fontWeight="900" className="fill-foreground">ef</text>
+        <text x="100" y="62" fontFamily="'Playfair Display', serif" fontSize="68" fontWeight="900" className={textFill}>ef</text>
       </svg>
     </div>
   );

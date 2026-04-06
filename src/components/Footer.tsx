@@ -29,8 +29,8 @@ export function Footer() {
         {/* Footer columns */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-14 text-sm">
           <div className="col-span-2 md:col-span-1">
-            <div className="opacity-90 invert brightness-200">
-              <Logo />
+            <div className="opacity-90">
+              <Logo light />
             </div>
             <p className="mt-4 text-white/40 text-xs leading-relaxed max-w-xs">
               Politics · Economy · Industry · Trends
