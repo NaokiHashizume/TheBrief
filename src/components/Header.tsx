@@ -13,9 +13,9 @@ const categories = [
 
 export function Header() {
   return (
-    <header className="bg-brief-card border-b border-brief-rule sticky top-0 z-40">
+    <header className="bg-background border-b border-brief-rule sticky top-0 z-40">
       {/* Utility bar */}
-      <div className="border-b border-brief-rule">
+      <div className="border-b border-brief-rule bg-background">
         <div className="max-w-[1400px] mx-auto px-6 h-9 flex items-center justify-between text-[10px] text-foreground/50 uppercase tracking-[2px] font-medium">
           <span className="hidden sm:inline">Politics · Economy · Industry · Trends</span>
           <div className="flex items-center gap-4">
