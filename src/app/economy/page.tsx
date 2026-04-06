@@ -364,6 +364,24 @@ export default function EconomyPage() {
             </div>
           </div>
         </Link>
+        <Link
+          href="/economy/us-iran-relations"
+          className="group p-5 rounded-xl border-2 border-dashed border-[#f59e0b]/30 hover:border-[#f59e0b] hover:bg-[#f59e0b]/[0.03] transition-all sm:col-span-2"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[#f59e0b]/10 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#f59e0b]">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+            </div>
+            <div>
+              <h2 className="font-serif text-lg font-bold"><T ja="米国vsイラン — 70年の対立構造と2026年戦争の全貌" en="US vs Iran — 70 Years of Confrontation and the 2026 War" /></h2>
+              <p className="text-xs text-foreground/55"><T ja="経済制裁、核開発、ホルムズ海峡封鎖の影響を多角的に分析" en="Multi-angle analysis of sanctions, nuclear development, and the Hormuz Strait blockade" /></p>
+            </div>
+          </div>
+        </Link>
       </div>
 
       {/* Data sources note */}
