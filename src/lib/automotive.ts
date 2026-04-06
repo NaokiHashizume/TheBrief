@@ -1,3 +1,41 @@
+export interface PLDetail {
+  revenue: string;
+  cogs: string;
+  grossProfit: string;
+  grossMargin: string;
+  sga: string;
+  rd: string;
+  operatingProfit: string;
+  opMargin: string;
+  netIncome: string;
+  netMargin: string;
+  fiscalYear: string;
+}
+
+export interface BSDetail {
+  totalAssets: string;
+  currentAssets: string;
+  cash: string;
+  fixedAssets: string;
+  totalLiab: string;
+  currentLiab: string;
+  fixedLiab: string;
+  interestBearingDebt: string;
+  equity: string;
+  equityRatio: string;
+  fiscalYear: string;
+}
+
+export interface CFDetail {
+  operatingCF: string;
+  investingCF: string;
+  financingCF: string;
+  freeCF: string;
+  capex: string;
+  dividends: string;
+  fiscalYear: string;
+}
+
 export interface Automaker {
   slug: string;
   name: string;
@@ -15,6 +53,9 @@ export interface Automaker {
     salesYoy: string;
     fiscalYear: string;
   };
+  pl: PLDetail;
+  bs: BSDetail;
+  cf: CFDetail;
   evStrategy: {
     summary: string;
     keyModels: string[];
@@ -46,6 +87,41 @@ export const automakers: Automaker[] = [
       globalSales: "975万台（見通し）",
       salesYoy: "+4.1%",
       fiscalYear: "2026年3月期（見通し）",
+    },
+    pl: {
+      revenue: "46兆3,527億円",
+      cogs: "35兆2,718億円",
+      grossProfit: "11兆809億円",
+      grossMargin: "23.9%",
+      sga: "6兆1,574億円",
+      rd: "1兆3,400億円",
+      operatingProfit: "4兆9,235億円",
+      opMargin: "10.6%",
+      netIncome: "4兆9,449億円",
+      netMargin: "10.7%",
+      fiscalYear: "2025年3月期",
+    },
+    bs: {
+      totalAssets: "90兆4,817億円",
+      currentAssets: "29兆8,693億円",
+      cash: "9兆4,835億円",
+      fixedAssets: "60兆6,124億円",
+      totalLiab: "55兆7,884億円",
+      currentLiab: "28兆5,898億円",
+      fixedLiab: "27兆1,986億円",
+      interestBearingDebt: "29兆3,000億円",
+      equity: "34兆6,933億円",
+      equityRatio: "38.3%",
+      fiscalYear: "2025年3月期",
+    },
+    cf: {
+      operatingCF: "+5兆4,862億円",
+      investingCF: "-6兆574億円",
+      financingCF: "+6,119億円",
+      freeCF: "-5,712億円",
+      capex: "2兆1,000億円",
+      dividends: "1兆1,000億円",
+      fiscalYear: "2025年3月期",
     },
     evStrategy: {
       summary:
@@ -90,6 +166,41 @@ export const automakers: Automaker[] = [
       salesYoy: "-7.3%",
       fiscalYear: "2026年3月期（見通し）",
     },
+    pl: {
+      revenue: "20兆4,288億円",
+      cogs: "15兆3,959億円",
+      grossProfit: "5兆329億円",
+      grossMargin: "24.6%",
+      sga: "3兆5,752億円",
+      rd: "1兆2,000億円",
+      operatingProfit: "1兆4,577億円",
+      opMargin: "7.1%",
+      netIncome: "9,425億円",
+      netMargin: "4.6%",
+      fiscalYear: "2025年3月期",
+    },
+    bs: {
+      totalAssets: "28兆6,291億円",
+      currentAssets: "10兆2,800億円",
+      cash: "3兆8,936億円",
+      fixedAssets: "18兆3,491億円",
+      totalLiab: "19兆6,131億円",
+      currentLiab: "10兆9,800億円",
+      fixedLiab: "8兆6,331億円",
+      interestBearingDebt: "8兆7,000億円",
+      equity: "9兆160億円",
+      equityRatio: "31.5%",
+      fiscalYear: "2025年3月期",
+    },
+    cf: {
+      operatingCF: "+1兆4,285億円",
+      investingCF: "-1兆6,140億円",
+      financingCF: "+786億円",
+      freeCF: "-1,855億円",
+      capex: "6,800億円",
+      dividends: "2,900億円",
+      fiscalYear: "2025年3月期",
+    },
     evStrategy: {
       summary:
         "Honda 0 Seriesの米国生産を撤回。0 α SUVをインド生産でインド・日本から展開し、低コスト化を図る。独自ASIMO OSとSDV基盤で差別化を目指すが、EV戦略は大幅な軌道修正を余儀なくされた。全固体電池パイロットラインは2025年1月に稼働開始。",
@@ -133,6 +244,41 @@ export const automakers: Automaker[] = [
       salesYoy: "-4.4%",
       fiscalYear: "2026年3月期（見通し）",
     },
+    pl: {
+      revenue: "12兆6,857億円",
+      cogs: "10兆5,295億円",
+      grossProfit: "2兆1,562億円",
+      grossMargin: "17.0%",
+      sga: "1兆6,974億円",
+      rd: "6,200億円",
+      operatingProfit: "4,588億円",
+      opMargin: "3.6%",
+      netIncome: "1,905億円",
+      netMargin: "1.5%",
+      fiscalYear: "2025年3月期",
+    },
+    bs: {
+      totalAssets: "20兆6,225億円",
+      currentAssets: "8兆9,300億円",
+      cash: "1兆5,461億円",
+      fixedAssets: "11兆6,925億円",
+      totalLiab: "15兆2,000億円",
+      currentLiab: "8兆1,000億円",
+      fixedLiab: "7兆1,000億円",
+      interestBearingDebt: "7兆8,000億円",
+      equity: "5兆4,225億円",
+      equityRatio: "26.3%",
+      fiscalYear: "2025年3月期",
+    },
+    cf: {
+      operatingCF: "+7,830億円",
+      investingCF: "-6,120億円",
+      financingCF: "-1,430億円",
+      freeCF: "+1,710億円",
+      capex: "4,600億円",
+      dividends: "700億円",
+      fiscalYear: "2025年3月期",
+    },
     evStrategy: {
       summary:
         "新型Leafを2026年1月に国内投入。Ariyaも継続展開。ただし構造改革が最優先で、EV拡大投資は抑制。全固体電池は2028年度の実用化を目指し横浜工場で開発加速。FY2026は6,300億円の最終赤字を見込む。",
@@ -175,6 +321,9 @@ export const automakers: Automaker[] = [
       salesYoy: "+4.9%",
       fiscalYear: "2026年3月期（見通し）",
     },
+    pl: { revenue: "5兆7,532億円", cogs: "4兆2,388億円", grossProfit: "1兆5,144億円", grossMargin: "26.3%", sga: "9,287億円", rd: "2,100億円", operatingProfit: "5,857億円", opMargin: "10.2%", netIncome: "3,537億円", netMargin: "6.1%", fiscalYear: "2025年3月期" },
+    bs: { totalAssets: "5兆4,200億円", currentAssets: "2兆8,100億円", cash: "8,700億円", fixedAssets: "2兆6,100億円", totalLiab: "2兆9,500億円", currentLiab: "1兆8,200億円", fixedLiab: "1兆1,300億円", interestBearingDebt: "4,500億円", equity: "2兆4,700億円", equityRatio: "45.6%", fiscalYear: "2025年3月期" },
+    cf: { operatingCF: "+5,580億円", investingCF: "-3,210億円", financingCF: "-1,860億円", freeCF: "+2,370億円", capex: "2,800億円", dividends: "780億円", fiscalYear: "2025年3月期" },
     evStrategy: {
       summary:
         "初の量産BEV「e VITARA」を欧州（2025年9月）、日本（2026年1月）で投入。トヨタとの提携で開発。49kWh（FWD）と61kWh（FWD/AWD）の2仕様。インドでのEV投入も視野に。",
@@ -217,6 +366,9 @@ export const automakers: Automaker[] = [
       salesYoy: "-10.1%",
       fiscalYear: "2026年3月期（見通し）",
     },
+    pl: { revenue: "5兆285億円", cogs: "3兆8,718億円", grossProfit: "1兆1,567億円", grossMargin: "23.0%", sga: "7,936億円", rd: "1,700億円", operatingProfit: "2,509億円", opMargin: "5.0%", netIncome: "1,490億円", netMargin: "3.0%", fiscalYear: "2025年3月期" },
+    bs: { totalAssets: "3兆7,200億円", currentAssets: "1兆6,100億円", cash: "5,200億円", fixedAssets: "2兆1,100億円", totalLiab: "2兆1,800億円", currentLiab: "1兆1,400億円", fixedLiab: "1兆400億円", interestBearingDebt: "5,800億円", equity: "1兆5,400億円", equityRatio: "41.4%", fiscalYear: "2025年3月期" },
+    cf: { operatingCF: "+3,120億円", investingCF: "-2,450億円", financingCF: "-410億円", freeCF: "+670億円", capex: "2,100億円", dividends: "350億円", fiscalYear: "2025年3月期" },
     evStrategy: {
       summary:
         "EZ-6（EV）を中国投入済、Mazda6e（EV）を欧州投入予定。2027年にレンジエクステンダー搭載電動SUVを計画。新型CX-5はICE/HEVが主力だが、電動化への布石も。",
@@ -258,6 +410,9 @@ export const automakers: Automaker[] = [
       salesYoy: "--",
       fiscalYear: "2026年3月期（見通し）",
     },
+    pl: { revenue: "4兆7,029億円", cogs: "3兆4,955億円", grossProfit: "1兆2,074億円", grossMargin: "25.7%", sga: "6,824億円", rd: "2,000億円", operatingProfit: "5,250億円", opMargin: "11.2%", netIncome: "3,752億円", netMargin: "8.0%", fiscalYear: "2025年3月期" },
+    bs: { totalAssets: "4兆2,900億円", currentAssets: "1兆8,800億円", cash: "6,400億円", fixedAssets: "2兆4,100億円", totalLiab: "2兆5,300億円", currentLiab: "1兆2,700億円", fixedLiab: "1兆2,600億円", interestBearingDebt: "4,200億円", equity: "1兆7,600億円", equityRatio: "41.0%", fiscalYear: "2025年3月期" },
+    cf: { operatingCF: "+4,350億円", investingCF: "-2,680億円", financingCF: "-1,520億円", freeCF: "+1,670億円", capex: "2,200億円", dividends: "680億円", fiscalYear: "2025年3月期" },
     evStrategy: {
       summary:
         "ソルテラ（トヨタbZ4Xの兄弟車）が唯一のBEV。追加EVモデルの開発を急ぐが、関税対策と収益確保が最優先。フォレスターHVをインディアナ工場で生産開始。",
@@ -301,6 +456,9 @@ export const automakers: Automaker[] = [
       salesYoy: "-6.0%",
       fiscalYear: "2026年3月期（見通し）",
     },
+    pl: { revenue: "2兆8,641億円", cogs: "2兆1,023億円", grossProfit: "7,618億円", grossMargin: "26.6%", sga: "5,865億円", rd: "1,300億円", operatingProfit: "1,753億円", opMargin: "6.1%", netIncome: "1,583億円", netMargin: "5.5%", fiscalYear: "2025年3月期" },
+    bs: { totalAssets: "2兆7,800億円", currentAssets: "1兆2,500億円", cash: "4,300億円", fixedAssets: "1兆5,300億円", totalLiab: "1兆6,200億円", currentLiab: "8,900億円", fixedLiab: "7,300億円", interestBearingDebt: "3,100億円", equity: "1兆1,600億円", equityRatio: "41.7%", fiscalYear: "2025年3月期" },
+    cf: { operatingCF: "+2,010億円", investingCF: "-1,230億円", financingCF: "-680億円", freeCF: "+780億円", capex: "1,100億円", dividends: "470億円", fiscalYear: "2025年3月期" },
     evStrategy: {
       summary:
         "PHEV（プラグインハイブリッド）を主軸に据える。アウトランダーPHEVが主力。フルBEVへの移行は慎重姿勢。中国メーカーとの競争激化のなか、PHEVの差別化を図る。",
@@ -342,6 +500,9 @@ export const automakers: Automaker[] = [
       salesYoy: "-2.0%",
       fiscalYear: "2025年3月期",
     },
+    pl: { revenue: "1兆2,720億円", cogs: "1兆580億円", grossProfit: "2,140億円", grossMargin: "16.8%", sga: "1,890億円", rd: "650億円", operatingProfit: "250億円", opMargin: "2.0%", netIncome: "-40億円", netMargin: "赤字", fiscalYear: "2025年3月期" },
+    bs: { totalAssets: "9,800億円", currentAssets: "4,500億円", cash: "1,200億円", fixedAssets: "5,300億円", totalLiab: "6,200億円", currentLiab: "3,800億円", fixedLiab: "2,400億円", interestBearingDebt: "1,500億円", equity: "3,600億円", equityRatio: "36.7%", fiscalYear: "2025年3月期" },
+    cf: { operatingCF: "+580億円", investingCF: "-420億円", financingCF: "-110億円", freeCF: "+160億円", capex: "380億円", dividends: "—", fiscalYear: "2025年3月期" },
     evStrategy: {
       summary:
         "認証不正からの回復が最優先。2026年に軽自動車向けストロングハイブリッドで燃費30km/L（WLTC）を目標。フルBEVは未定。",
@@ -381,6 +542,9 @@ export const automakers: Automaker[] = [
       salesYoy: "--",
       fiscalYear: "2025年3月期",
     },
+    pl: { revenue: "3兆2,356億円", cogs: "2兆4,267億円", grossProfit: "8,089億円", grossMargin: "25.0%", sga: "5,794億円", rd: "1,500億円", operatingProfit: "2,295億円", opMargin: "7.1%", netIncome: "1,987億円", netMargin: "6.1%", fiscalYear: "2025年3月期" },
+    bs: { totalAssets: "3兆5,600億円", currentAssets: "1兆5,800億円", cash: "3,900億円", fixedAssets: "1兆9,800億円", totalLiab: "1兆8,500億円", currentLiab: "9,200億円", fixedLiab: "9,300億円", interestBearingDebt: "4,800億円", equity: "1兆7,100億円", equityRatio: "48.0%", fiscalYear: "2025年3月期" },
+    cf: { operatingCF: "+3,200億円", investingCF: "-1,980億円", financingCF: "-950億円", freeCF: "+1,220億円", capex: "1,600億円", dividends: "530億円", fiscalYear: "2025年3月期" },
     evStrategy: {
       summary:
         "商用車のクリーンエネルギー化を推進。BEVトラック・FCVトラックの開発を進めるが、乗用車EVとは異なるタイムラインで段階的に移行。",
@@ -419,6 +583,9 @@ export const automakers: Automaker[] = [
       salesYoy: "--",
       fiscalYear: "2025年3月期",
     },
+    pl: { revenue: "1兆6,972億円", cogs: "1兆3,917億円", grossProfit: "3,055億円", grossMargin: "18.0%", sga: "2,480億円", rd: "700億円", operatingProfit: "575億円", opMargin: "3.4%", netIncome: "280億円", netMargin: "1.6%", fiscalYear: "2025年3月期" },
+    bs: { totalAssets: "1兆5,200億円", currentAssets: "6,800億円", cash: "1,800億円", fixedAssets: "8,400億円", totalLiab: "1兆800億円", currentLiab: "5,200億円", fixedLiab: "5,600億円", interestBearingDebt: "3,200億円", equity: "4,400億円", equityRatio: "28.9%", fiscalYear: "2025年3月期" },
+    cf: { operatingCF: "+1,080億円", investingCF: "-650億円", financingCF: "-380億円", freeCF: "+430億円", capex: "580億円", dividends: "—", fiscalYear: "2025年3月期" },
     evStrategy: {
       summary:
         "ARCHION発足により三菱ふそうと共同で商用車の電動化を推進。ダイムラートラックの技術基盤を活用し、BEVトラック・FCVトラックの開発を加速。",

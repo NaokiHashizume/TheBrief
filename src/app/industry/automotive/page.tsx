@@ -85,6 +85,85 @@ export default function AutomotivePage() {
 
       <div className="h-px bg-brief-border mb-8" />
 
+      {/* PL/BS/CF Navigation */}
+      <div className="mb-10">
+        <h2 className="text-[10px] tracking-[2px] uppercase text-foreground/45 mb-4">
+          <T ja="財務諸表で比較する" en="Compare by Financial Statements" />
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <Link
+            href="/industry/automotive/pl"
+            className="group p-5 rounded-xl border border-brief-border hover:border-[#ef4444]/30 hover:shadow-sm transition-all"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: "#ef444415", color: "#ef4444" }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 3v18h18" /><path d="M18 17V9" /><path d="M13 17V5" /><path d="M8 17v-3" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-serif font-bold text-base group-hover:text-[#ef4444] transition-colors">PL</h3>
+                <span className="text-[9px] tracking-wider uppercase text-foreground/40">Profit & Loss</span>
+              </div>
+            </div>
+            <p className="text-[11px] text-foreground/55 leading-relaxed">
+              <T
+                ja="売上高・売上原価・販管費・営業利益・純利益を比較"
+                en="Revenue, COGS, SGA, operating profit & net income"
+              />
+            </p>
+          </Link>
+
+          <Link
+            href="/industry/automotive/bs"
+            className="group p-5 rounded-xl border border-brief-border hover:border-[#3b82f6]/30 hover:shadow-sm transition-all"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: "#3b82f615", color: "#3b82f6" }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="3" width="7" height="18" rx="1" /><rect x="14" y="3" width="7" height="18" rx="1" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-serif font-bold text-base group-hover:text-[#3b82f6] transition-colors">BS</h3>
+                <span className="text-[9px] tracking-wider uppercase text-foreground/40">Balance Sheet</span>
+              </div>
+            </div>
+            <p className="text-[11px] text-foreground/55 leading-relaxed">
+              <T
+                ja="総資産・流動資産・固定資産・負債・自己資本比率を比較"
+                en="Total assets, liabilities, equity & equity ratio"
+              />
+            </p>
+          </Link>
+
+          <Link
+            href="/industry/automotive/cf"
+            className="group p-5 rounded-xl border border-brief-border hover:border-[#10b981]/30 hover:shadow-sm transition-all"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: "#10b98115", color: "#10b981" }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-serif font-bold text-base group-hover:text-[#10b981] transition-colors">CF</h3>
+                <span className="text-[9px] tracking-wider uppercase text-foreground/40">Cash Flow</span>
+              </div>
+            </div>
+            <p className="text-[11px] text-foreground/55 leading-relaxed">
+              <T
+                ja="営業CF・投資CF・財務CF・フリーCF・設備投資を比較"
+                en="Operating, investing, financing CF & free cash flow"
+              />
+            </p>
+          </Link>
+        </div>
+      </div>
+
+      <div className="h-px bg-brief-border mb-8" />
+
       {/* Automaker Cards */}
       <AutomakerCards automakers={automakers} />
     </div>
