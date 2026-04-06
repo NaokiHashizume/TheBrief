@@ -4,6 +4,8 @@ import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 import { constructionArticles } from "@/lib/construction";
 import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
+import { CompetitorCards } from "@/components/CompetitorCards";
+import { constructionCompanies } from "@/lib/constructionCompanies";
 
 export const metadata: Metadata = {
   title: "建設・不動産 — Industry",
@@ -75,6 +77,10 @@ export default function ConstructionPage() {
       <div className="h-px bg-brief-border mb-8" />
 
       <IndustryFinancialNav slug="construction" />
+
+      <CompetitorCards companies={constructionCompanies} title="日本の主要建設企業" />
+
+      <div className="h-px bg-brief-border my-8" />
 
       {/* Articles */}
       <div className="space-y-4">

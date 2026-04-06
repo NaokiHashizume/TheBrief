@@ -4,6 +4,8 @@ import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 import { entertainmentArticles } from "@/lib/entertainment";
 import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
+import { CompetitorCards } from "@/components/CompetitorCards";
+import { entertainmentCompanies } from "@/lib/entertainmentCompanies";
 
 export const metadata: Metadata = {
   title: "エンタメ — Industry",
@@ -47,6 +49,11 @@ export default function Page() {
       </div>
       <div className="h-px bg-brief-border mb-8" />
       <IndustryFinancialNav slug="entertainment" />
+
+      <CompetitorCards companies={entertainmentCompanies} title="日本の主要エンタメ企業" />
+
+      <div className="h-px bg-brief-border my-8" />
+
       <div className="space-y-4">
         {sortedArticles.map((article) => (
           <Link key={article.slug} href={`/industry/entertainment/${article.slug}`} className="group block p-5 rounded-xl border border-brief-border hover:border-[#d946ef]/30 bg-brief-card transition-all">

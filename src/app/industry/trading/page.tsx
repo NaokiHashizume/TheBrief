@@ -4,6 +4,8 @@ import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 import { tradingArticles } from "@/lib/trading";
 import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
+import { CompetitorCards } from "@/components/CompetitorCards";
+import { tradingCompanies } from "@/lib/tradingCompanies";
 
 export const metadata: Metadata = {
   title: "商社・卸売 — Industry",
@@ -73,6 +75,10 @@ export default function TradingPage() {
       <div className="h-px bg-brief-border mb-8" />
 
       <IndustryFinancialNav slug="trading" />
+
+      <CompetitorCards companies={tradingCompanies} title="日本の主要総合商社" />
+
+      <div className="h-px bg-brief-border my-8" />
 
       {/* Articles */}
       <div className="space-y-4">

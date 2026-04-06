@@ -3,6 +3,9 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 import { aiArticles } from "@/lib/ai";
+import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
+import { CompetitorCards } from "@/components/CompetitorCards";
+import { aiCompanies } from "@/lib/aiCompanies";
 
 export const metadata: Metadata = {
   title: "AI — Industry",
@@ -75,6 +78,12 @@ export default function AiPage() {
       </div>
 
       <div className="h-px bg-brief-border mb-8" />
+
+      <IndustryFinancialNav slug="ai" />
+
+      <CompetitorCards companies={aiCompanies} title="日本の主要AI企業" />
+
+      <div className="h-px bg-brief-border my-8" />
 
       {/* Articles */}
       <div className="space-y-4">

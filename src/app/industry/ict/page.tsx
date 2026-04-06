@@ -4,6 +4,8 @@ import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 import { ictArticles } from "@/lib/ict";
 import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
+import { CompetitorCards } from "@/components/CompetitorCards";
+import { ictCompanies } from "@/lib/ictCompanies";
 
 export const metadata: Metadata = {
   title: "情報通信 — Industry",
@@ -73,6 +75,10 @@ export default function IctPage() {
       <div className="h-px bg-brief-border mb-8" />
 
       <IndustryFinancialNav slug="ict" />
+
+      <CompetitorCards companies={ictCompanies} title="日本の主要情報通信企業" />
+
+      <div className="h-px bg-brief-border my-8" />
 
       {/* Articles */}
       <div className="space-y-4">
