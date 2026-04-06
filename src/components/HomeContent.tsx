@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { useLanguage } from "./LanguageProvider";
 import { Logo } from "./Logo";
-import { sampleStories } from "@/lib/stories";
-import { StoryCardCompact } from "./StoryTimeline";
 
 const mainSections = [
   {
@@ -67,6 +65,28 @@ const mainSections = [
       { ja: "業界一覧（17業界）", en: "Industry list (17 sectors)", href: "/industry" },
       { ja: "業界概況ダッシュボード", en: "Industry overview dashboard", href: "/industry/overview" },
       { ja: "AI・半導体・自動車・エネルギー…", en: "AI, semiconductors, automotive, energy...", href: "/industry" },
+    ],
+  },
+  {
+    href: "/university",
+    color: "#6366f1",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 8 12 4l9 4-9 4-9-4Z" />
+        <path d="M7 10.5V15c0 1 2.2 3 5 3s5-2 5-3v-4.5" />
+        <path d="M21 9v6" />
+      </svg>
+    ),
+    titleJa: "University",
+    titleEn: "University",
+    descJa: "学問体系・研究領域・大学知の入口",
+    descEn: "Discipline Map, Research Fields & University Knowledge",
+    statsJa: "6大分類 / 39中分類 / 256小分類",
+    statsEn: "6 major fields / 39 subfields / 256 topics",
+    items: [
+      { ja: "学問の体系図", en: "Academic discipline map", href: "/university" },
+      { ja: "形式科学から自然科学へ", en: "From formal to natural sciences", href: "/university#formal" },
+      { ja: "社会科学・学際領域まで俯瞰", en: "Survey social and interdisciplinary fields", href: "/university#social" },
     ],
   },
 ];
@@ -239,37 +259,6 @@ export function HomeContent() {
           </Link>
         </div>
       </section>
-
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="h-px bg-brief-border" />
-      </div>
-
-      {/* ━━━ Storylines ━━━ */}
-      <section className="max-w-5xl mx-auto px-4 py-16">
-        <div className="text-center mb-10">
-          <span className="text-[10px] tracking-[3px] uppercase text-brief-red font-medium">
-            {locale === "ja" ? "ストーリーライン" : "Storylines"}
-          </span>
-          <h2 className="font-serif text-2xl md:text-3xl font-bold mt-2">
-            {locale === "ja" ? "いま追っているストーリー" : "Stories We're Following"}
-          </h2>
-          <p className="mt-3 text-sm text-foreground/50 max-w-lg mx-auto">
-            {locale === "ja"
-              ? "一つの出来事の始まりから現在までを時系列で追い、全体像を掴めるようにします。"
-              : "We follow events from beginning to present, building a complete picture over time."}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sampleStories.map((story) => (
-            <StoryCardCompact key={story.slug} story={story} />
-          ))}
-        </div>
-      </section>
-
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="h-px bg-brief-border" />
-      </div>
 
       {/* ━━━ How we're different ━━━ */}
       <section className="max-w-5xl mx-auto px-4 py-16">

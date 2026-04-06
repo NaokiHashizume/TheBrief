@@ -60,14 +60,6 @@ export const translations = {
   "cat.opinion.title": { ja: "オピニオン", en: "Opinion" },
   "cat.university.title": { ja: "大学", en: "University" },
 
-  // Storylines
-  "storylines.title": { ja: "いま追っているストーリー", en: "Stories We're Following" },
-  "storylines.subtitle": { ja: "Storylines", en: "Storylines" },
-  "storylines.desc": {
-    ja: "一つの出来事の始まりから現在までを時系列で追い、全体像を掴めるようにします。",
-    en: "We follow events from beginning to present, building a complete picture over time.",
-  },
-
   // CTA
   "cta.title": { ja: "ニュースの「線」を、一緒に追おう。", en: "Follow the storylines with us." },
   "cta.desc": {
