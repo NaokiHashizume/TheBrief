@@ -139,7 +139,6 @@ export function AcademicDisciplines() {
               大分類から中分類、小分類までをたどる、Universityセクションの土台になる俯瞰マップです。上段のボックスで領域を開き、さらに各分野を展開すると代表的な科目が見られます。
             </p>
           </div>
-
           <div className="grid grid-cols-3 gap-2 self-start text-center text-[11px] text-slate-300/75">
             <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-3">
               <div className="text-lg font-bold text-white">{data.length}</div>

@@ -48,19 +48,10 @@ const mainSections = [
   {
     href: "/university",
     color: "#6366f1",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 8 12 4l9 4-9 4-9-4Z" />
-        <path d="M7 10.5V15c0 1 2.2 3 5 3s5-2 5-3v-4.5" />
-        <path d="M21 9v6" />
-      </svg>
-    ),
     titleJa: "University",
     titleEn: "University",
     descJa: "学問体系・研究領域・大学知の入口",
     descEn: "Discipline Map, Research Fields & University Knowledge",
-    statsJa: "6大分類 / 39中分類 / 256小分類",
-    statsEn: "6 major fields / 39 subfields / 256 topics",
     items: [
       { ja: "学問の体系図", en: "Academic discipline map", href: "/university" },
       { ja: "形式科学から自然科学へ", en: "From formal to natural sciences", href: "/university#formal" },
@@ -142,22 +133,15 @@ export function HomeContent() {
         </p>
       </section>
 
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="h-px bg-brief-border" />
-      </div>
-
-      {/* ━━━ Four Pillars ━━━ */}
-      <section className="max-w-5xl mx-auto px-4 py-16">
-        <div className="text-center mb-10">
-          <span className="text-[10px] tracking-[3px] uppercase text-brief-red font-medium">
-            {locale === "ja" ? "コンテンツ" : "Content"}
-          </span>
-          <h2 className="font-serif text-2xl md:text-3xl font-bold mt-2">
-            {locale === "ja" ? "4つの軸で日本を読み解く" : "Four Pillars of Japan"}
+      {/* ━━━ Four Pillars — Newspaper Column Layout ━━━ */}
+      <section className="max-w-[1400px] mx-auto px-6 pb-16">
+        <div className="border-t-2 border-b border-foreground pt-2 pb-1 mb-8">
+          <h2 className="font-serif text-2xl font-bold">
+            {locale === "ja" ? "4つの軸" : "Four Pillars"}
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-0">
           {mainSections.map((sec, idx) => (
             <div
               key={sec.href}

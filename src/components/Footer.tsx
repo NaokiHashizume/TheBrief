@@ -17,7 +17,7 @@ export function Footer() {
               <Logo light />
             </div>
             <p className="mt-4 text-white/40 text-xs leading-relaxed max-w-xs">
-              Politics · Economy · Industry · Trends
+              Politics · Economy · Industry · University
             </p>
             <div className="mt-3 flex items-center gap-3">
               <a
@@ -64,7 +64,7 @@ export function Footer() {
               <li><Link href="/politics" className="hover:text-white transition-colors">Politics</Link></li>
               <li><Link href="/economy" className="hover:text-white transition-colors">Economy</Link></li>
               <li><Link href="/industry" className="hover:text-white transition-colors">Industry</Link></li>
-              <li><span className="text-white/30 cursor-default">University</span></li>
+              <li><Link href="/university" className="hover:text-white transition-colors">University</Link></li>
             </ul>
           </div>
 
