@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { useLanguage } from "./LanguageProvider";
 import { Logo } from "./Logo";
-import { sampleStories } from "@/lib/stories";
-import { StoryCardCompact } from "./StoryTimeline";
 
 const mainSections = [
   {
@@ -45,6 +43,28 @@ const mainSections = [
       { ja: "業界一覧（17業界）", en: "Industry list (17 sectors)", href: "/industry" },
       { ja: "業界概況ダッシュボード", en: "Industry overview dashboard", href: "/industry/overview" },
       { ja: "AI・半導体・自動車・エネルギー…", en: "AI, semiconductors, automotive, energy...", href: "/industry" },
+    ],
+  },
+  {
+    href: "/university",
+    color: "#6366f1",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 8 12 4l9 4-9 4-9-4Z" />
+        <path d="M7 10.5V15c0 1 2.2 3 5 3s5-2 5-3v-4.5" />
+        <path d="M21 9v6" />
+      </svg>
+    ),
+    titleJa: "University",
+    titleEn: "University",
+    descJa: "学問体系・研究領域・大学知の入口",
+    descEn: "Discipline Map, Research Fields & University Knowledge",
+    statsJa: "6大分類 / 39中分類 / 256小分類",
+    statsEn: "6 major fields / 39 subfields / 256 topics",
+    items: [
+      { ja: "学問の体系図", en: "Academic discipline map", href: "/university" },
+      { ja: "形式科学から自然科学へ", en: "From formal to natural sciences", href: "/university#formal" },
+      { ja: "社会科学・学際領域まで俯瞰", en: "Survey social and interdisciplinary fields", href: "/university#social" },
     ],
   },
 ];
@@ -227,76 +247,35 @@ export function HomeContent() {
         </div>
       </section>
 
-      {/* ━━━ Storylines ━━━ */}
-      <section className="max-w-[1400px] mx-auto px-6 pb-16 relative">
-        <div className="border-t border-foreground pt-2 mb-8 relative">
-          <div className="absolute -top-3 left-0 bg-background pr-4">
-            <span className="text-xs font-bold uppercase tracking-[2px] flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-brief-red" />
-              {locale === "ja" ? "連載ストーリー" : "Ongoing Storylines"}
+      {/* ━━━ How we're different ━━━ */}
+      <section className="max-w-5xl mx-auto px-4 py-16">
+        <div className="p-8 bg-brief-card border border-brief-border rounded-2xl">
+          <div className="text-center mb-8">
+            <span className="text-[10px] tracking-[3px] uppercase text-brief-red font-medium">
+              {locale === "ja" ? "The Briefとは" : "About"}
             </span>
+            <h2 className="font-serif text-xl md:text-2xl font-bold mt-2">
+              {locale === "ja" ? "ニュースを「点」ではなく「線」で追う" : "News as Storylines, Not Isolated Events"}
+            </h2>
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sampleStories.map((story) => (
-            <StoryCardCompact key={story.slug} story={story} />
-          ))}
-        </div>
-      </section>
-
-      {/* ━━━ Editorial Philosophy ━━━ */}
-      <section className="max-w-4xl mx-auto text-center px-4 py-20 border-y border-brief-rule mb-0">
-        <span className="font-serif text-3xl text-brief-red leading-none">&ldquo;</span>
-        <h2 className="font-serif text-2xl md:text-4xl leading-tight font-bold mb-8">
-          {locale === "ja" ? (
-            <>
-              ニュースを「点」ではなく
-              <br />
-              「線」で繋ぐ。
-            </>
-          ) : (
-            <>
-              Connecting dots,
-              <br />
-              not just reporting noise.
-            </>
-          )}
-        </h2>
-        <p className="text-base text-foreground/50 leading-relaxed font-light max-w-2xl mx-auto">
-          {locale === "ja"
-            ? "政治・経済・産業を横断する文脈と因果を紐解き、「なぜ今これが起きているのか」を伝えるメディアです。情報の洪水の中で、意味のある繋がりを。"
-            : "At The Brief, we bridge the corridors of Kasumigaseki (Politics), the boardrooms of Marunouchi (Economy), and the factory floors of Aichi (Industry) — delivering synthesis over volume for leaders navigating modern Japan."}
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-10 border-t border-brief-rule">
-          {[
-            {
-              ja: "政治の決定が経済に、経済の動きが業界に、業界の変化が私たちの生活にどう影響するか。領域を超えた繋がりを伝えます。",
-              en: "How political decisions affect the economy, how economic trends shape industries, and how changes impact our daily lives.",
-              labelJa: "繋がりを見せる",
-              labelEn: "Show Connections",
-            },
-            {
-              ja: "専門用語を避け、誰でも理解できる言葉で伝えます。複雑な構造もビジュアルとともに直感的に把握できます。",
-              en: "We avoid jargon and explain in plain language. Complex structures become intuitive through visuals.",
-              labelJa: "わかりやすく",
-              labelEn: "Clear & Simple",
-            },
-            {
-              ja: "各業界のPL/BS/CF分析、経済指標ダッシュボード、政策進捗トラッカーなど、データに基づいた情報を提供します。",
-              en: "PL/BS/CF analysis by industry, economic indicator dashboards, and policy progress trackers — all data-driven.",
-              labelJa: "データで伝える",
-              labelEn: "Data-Driven",
-            },
-          ].map((item) => (
-            <div key={item.labelEn} className="text-center">
-              <h3 className="text-sm font-bold mb-2">{locale === "ja" ? item.labelJa : item.labelEn}</h3>
-              <p className="text-[11px] text-foreground/50 leading-relaxed">
-                {locale === "ja" ? item.ja : item.en}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <span className="text-[10px] tracking-[2px] uppercase text-foreground/45">
+                {locale === "ja" ? "従来のニュース" : "Traditional News"}
+              </span>
+              <div className="mt-3 flex items-center gap-4">
+                <div className="w-3 h-3 rounded-full bg-foreground/10" />
+                <div className="w-3 h-3 rounded-full bg-foreground/10" />
+                <div className="w-3 h-3 rounded-full bg-foreground/10" />
+                <div className="w-3 h-3 rounded-full bg-foreground/10" />
+                <div className="w-3 h-3 rounded-full bg-foreground/10" />
+              </div>
+              <p className="mt-3 text-sm text-foreground/50">
+                {locale === "ja" ? "バラバラの「点」として伝えられる情報" : "Information delivered as disconnected dots"}
               </p>
             </div>
-          ))}
+          </div>
         </div>
       </section>
 

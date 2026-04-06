@@ -32,6 +32,17 @@ import {
   ProtestsAndWarDiagram,
   CeasefireConditionsDiagram,
 } from "@/components/USIranDiagrams";
+import {
+  FiscalPhilosophyDiagram,
+  BudgetBreakdownDiagram,
+  PBSurplusDiagram,
+  DefenseSpendingDiagram,
+  GrowthInvestmentDiagram,
+  HouseholdMeasuresDiagram,
+  InterestRateRiskDiagram,
+  FiscalSustainabilityDiagram,
+  ThreeScenariosDiagram,
+} from "@/components/TakaichiFiscalDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -125,6 +136,15 @@ const diagramMap: Record<string, React.FC> = {
   "nuclear-negotiations": NuclearNegotiationsDiagram,
   "protests-and-war": ProtestsAndWarDiagram,
   "ceasefire-conditions": CeasefireConditionsDiagram,
+  "fiscal-philosophy": FiscalPhilosophyDiagram,
+  "budget-breakdown": BudgetBreakdownDiagram,
+  "pb-surplus": PBSurplusDiagram,
+  "defense-spending": DefenseSpendingDiagram,
+  "growth-investment": GrowthInvestmentDiagram,
+  "household-measures": HouseholdMeasuresDiagram,
+  "interest-rate-risk": InterestRateRiskDiagram,
+  "fiscal-sustainability": FiscalSustainabilityDiagram,
+  "three-scenarios": ThreeScenariosDiagram,
 };
 
 export default async function EconomyArticlePage({

@@ -1,6 +1,4 @@
 import type { MetadataRoute } from "next";
-import { sampleStories } from "@/lib/stories";
-
 export const dynamic = "force-static";
 import { debates } from "@/lib/debates";
 import { enactedItems } from "@/lib/enacted";
@@ -101,6 +99,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/economy/articles`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
   ];
 
+  const universityPages: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/university`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+  ];
+
   const economyArticlePages: MetadataRoute.Sitemap = economyArticles.map((a) => ({
     url: `${SITE_URL}/economy/${a.slug}`,
     lastModified: new Date(a.date),
@@ -142,17 +144,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  // ── Stories ──
-  const storyPages: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/story`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    ...sampleStories.map((s) => ({
-      url: `${SITE_URL}/story/${s.slug}`,
-      lastModified: new Date(s.lastUpdated),
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
-    })),
-  ];
-
   return [
     ...staticPages,
     ...politicsPages,
@@ -161,8 +152,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...enactedPages,
     ...economyPages,
     ...economyArticlePages,
+    ...universityPages,
     ...industryPages,
     ...industryArticlePages,
-    ...storyPages,
   ];
 }
