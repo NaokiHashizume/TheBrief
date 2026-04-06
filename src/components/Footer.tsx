@@ -50,6 +50,7 @@ export function Footer() {
               <li><span className="text-foreground/45 cursor-default">Lifestyle</span></li>
               <li><span className="text-foreground/45 cursor-default">Opinion</span></li>
               <li><a href="/about" className="hover:text-foreground transition-colors">About</a></li>
+              <li><a href="/government" className="hover:text-foreground transition-colors">官公庁リンク集</a></li>
               <li><a href="/contact" className="hover:text-foreground transition-colors">Contact</a></li>
             </ul>
           </div>
