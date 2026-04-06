@@ -152,6 +152,15 @@ function IndicatorCard({ indicator }: { indicator: EconomicIndicator }) {
         </div>
       )}
 
+      <div className="mb-2 rounded-lg border border-brief-border bg-foreground/[0.03] px-2.5 py-2">
+        <div className="text-[9px] tracking-[1.4px] uppercase text-foreground/40 mb-1">
+          <T ja="どう見るか" en="Why It Matters" />
+        </div>
+        <p className="text-[11px] text-foreground/60 leading-relaxed">
+          {indicator.purpose}
+        </p>
+      </div>
+
       {/* Description */}
       <p className="text-[11px] text-foreground/50 leading-relaxed">
         {indicator.description}

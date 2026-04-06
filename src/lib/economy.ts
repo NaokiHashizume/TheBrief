@@ -4,6 +4,7 @@ export type IndicatorStatus = "good" | "bad" | "neutral";
 export interface EconomicIndicator {
   name: string;
   nameEn: string;
+  purpose: string;
   value: string;
   unit: string;
   trend: TrendDirection;
@@ -19,6 +20,7 @@ export const economicIndicators: EconomicIndicator[] = [
   {
     name: "GDP成長率",
     nameEn: "GDP Growth Rate",
+    purpose: "景気全体の伸びや縮みを確認し、日本経済が拡大局面か減速局面かを判断するために見る指標。",
     value: "0.8",
     unit: "%",
     trend: "down",
@@ -32,6 +34,7 @@ export const economicIndicators: EconomicIndicator[] = [
   {
     name: "消費者物価指数 (CPI)",
     nameEn: "CPI (YoY)",
+    purpose: "モノやサービスの値上がり圧力を把握し、家計負担や日銀の金融政策の方向感を読むために見る指標。",
     value: "1.6",
     unit: "%",
     trend: "down",
@@ -45,6 +48,7 @@ export const economicIndicators: EconomicIndicator[] = [
   {
     name: "完全失業率",
     nameEn: "Unemployment Rate",
+    purpose: "雇用環境の強さを確認し、景気後退の兆しや賃金上昇余地を見極めるために見る指標。",
     value: "2.6",
     unit: "%",
     trend: "down",
@@ -58,6 +62,7 @@ export const economicIndicators: EconomicIndicator[] = [
   {
     name: "日経平均株価",
     nameEn: "Nikkei 225",
+    purpose: "市場が日本企業の業績や先行きリスクをどう織り込んでいるかをざっくり掴むために見る指標。",
     value: "53,414",
     unit: "円",
     trend: "up",
@@ -71,6 +76,7 @@ export const economicIndicators: EconomicIndicator[] = [
   {
     name: "円ドル為替レート",
     nameEn: "USD/JPY",
+    purpose: "輸入物価、企業収益、海外投資の採算に直結する円安・円高の流れを確認するために見る指標。",
     value: "159.8",
     unit: "円/ドル",
     trend: "up",
@@ -84,6 +90,7 @@ export const economicIndicators: EconomicIndicator[] = [
   {
     name: "経常収支",
     nameEn: "Current Account",
+    purpose: "日本が海外との取引や投資でどれだけ稼げているかを確認し、対外的な稼ぐ力を測るために見る指標。",
     value: "+9,426",
     unit: "億円",
     trend: "up",
@@ -97,6 +104,7 @@ export const economicIndicators: EconomicIndicator[] = [
   {
     name: "貿易収支",
     nameEn: "Trade Balance",
+    purpose: "輸出と輸入のバランスを確認し、為替や資源価格が日本経済に与える影響を読むために見る指標。",
     value: "+573",
     unit: "億円",
     trend: "down",
@@ -110,6 +118,7 @@ export const economicIndicators: EconomicIndicator[] = [
   {
     name: "日銀政策金利",
     nameEn: "BOJ Policy Rate",
+    purpose: "住宅ローン金利や企業の資金調達コストに影響する金融政策スタンスを確認するために見る指標。",
     value: "0.75",
     unit: "%",
     trend: "up",
@@ -123,6 +132,7 @@ export const economicIndicators: EconomicIndicator[] = [
   {
     name: "10年国債利回り",
     nameEn: "10Y JGB Yield",
+    purpose: "長期金利の水準を確認し、将来の成長期待やインフレ見通し、市場の金利観を把握するために見る指標。",
     value: "2.39",
     unit: "%",
     trend: "up",
@@ -136,6 +146,7 @@ export const economicIndicators: EconomicIndicator[] = [
   {
     name: "マネーストック M2",
     nameEn: "Money Supply M2",
+    purpose: "市中にどれだけお金が出回っているかを確認し、金融緩和の効き具合や資金需要をみるために見る指標。",
     value: "1,274.9",
     unit: "兆円",
     trend: "down",
@@ -149,6 +160,7 @@ export const economicIndicators: EconomicIndicator[] = [
   {
     name: "鉱工業生産指数",
     nameEn: "Industrial Production",
+    purpose: "工場の生産活動の強弱を確認し、輸出や設備投資を含む景気の先行きを読むために見る指標。",
     value: "横ばい",
     unit: "",
     trend: "flat",
@@ -162,6 +174,7 @@ export const economicIndicators: EconomicIndicator[] = [
   {
     name: "消費支出",
     nameEn: "Consumer Spending",
+    purpose: "家計が実際にどれだけお金を使っているかを確認し、内需の強さを判断するために見る指標。",
     value: "+0.8",
     unit: "% (前年比)",
     trend: "up",
@@ -175,6 +188,7 @@ export const economicIndicators: EconomicIndicator[] = [
   {
     name: "有効求人倍率",
     nameEn: "Job-to-Applicant Ratio",
+    purpose: "企業の採用意欲と労働需給の逼迫度を確認し、人手不足や賃金上昇圧力をみるために見る指標。",
     value: "1.18",
     unit: "倍",
     trend: "down",
