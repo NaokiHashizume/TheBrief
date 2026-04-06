@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 import { tradingArticles } from "@/lib/trading";
+import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
 
 export const metadata: Metadata = {
   title: "商社・卸売 — Industry",
@@ -70,6 +71,8 @@ export default function TradingPage() {
       </div>
 
       <div className="h-px bg-brief-border mb-8" />
+
+      <IndustryFinancialNav slug="trading" />
 
       {/* Articles */}
       <div className="space-y-4">

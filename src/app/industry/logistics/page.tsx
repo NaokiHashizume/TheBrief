@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 import { logisticsArticles } from "@/lib/logistics";
+import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
 
 export const metadata: Metadata = {
   title: "物流・運輸 — Industry",
@@ -45,6 +46,7 @@ export default function Page() {
         <p className="mt-3 text-sm text-foreground/60 leading-relaxed">宅配、鉄道、航空、海運、倉庫、2024年問題とその後の対応。</p>
       </div>
       <div className="h-px bg-brief-border mb-8" />
+      <IndustryFinancialNav slug="logistics" />
       <div className="space-y-4">
         {sortedArticles.map((article) => (
           <Link key={article.slug} href={`/industry/logistics/${article.slug}`} className="group block p-5 rounded-xl border border-brief-border hover:border-[#6366f1]/30 bg-brief-card transition-all">

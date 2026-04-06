@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 import { entertainmentArticles } from "@/lib/entertainment";
+import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
 
 export const metadata: Metadata = {
   title: "エンタメ — Industry",
@@ -45,6 +46,7 @@ export default function Page() {
         <p className="mt-3 text-sm text-foreground/60 leading-relaxed">ゲーム・音楽・映画・動画配信・テーマパークなどエンタメ業界の動向。</p>
       </div>
       <div className="h-px bg-brief-border mb-8" />
+      <IndustryFinancialNav slug="entertainment" />
       <div className="space-y-4">
         {sortedArticles.map((article) => (
           <Link key={article.slug} href={`/industry/entertainment/${article.slug}`} className="group block p-5 rounded-xl border border-brief-border hover:border-[#d946ef]/30 bg-brief-card transition-all">

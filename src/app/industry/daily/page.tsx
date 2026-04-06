@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 import { dailyArticles } from "@/lib/daily";
+import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
 
 export const metadata: Metadata = {
   title: "生活・日用品 — Industry",
@@ -45,6 +46,7 @@ export default function Page() {
         <p className="mt-3 text-sm text-foreground/60 leading-relaxed">トイレタリー、化粧品、生活雑貨、日用品メーカーの動向。</p>
       </div>
       <div className="h-px bg-brief-border mb-8" />
+      <IndustryFinancialNav slug="daily" />
       <div className="space-y-4">
         {sortedArticles.map((article) => (
           <Link key={article.slug} href={`/industry/daily/${article.slug}`} className="group block p-5 rounded-xl border border-brief-border hover:border-[#06b6d4]/30 bg-brief-card transition-all">

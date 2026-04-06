@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 import { specialtyArticles } from "@/lib/specialty";
+import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
 
 export const metadata: Metadata = {
   title: "専門店・EC — Industry",
@@ -45,6 +46,7 @@ export default function Page() {
         <p className="mt-3 text-sm text-foreground/60 leading-relaxed">EC市場、家電量販、アパレル専門店、フリマアプリなど専門小売。</p>
       </div>
       <div className="h-px bg-brief-border mb-8" />
+      <IndustryFinancialNav slug="specialty" />
       <div className="space-y-4">
         {sortedArticles.map((article) => (
           <Link key={article.slug} href={`/industry/specialty/${article.slug}`} className="group block p-5 rounded-xl border border-brief-border hover:border-[#ec4899]/30 bg-brief-card transition-all">

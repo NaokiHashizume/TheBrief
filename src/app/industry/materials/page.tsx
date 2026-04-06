@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 import { materialsArticles } from "@/lib/materials";
+import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
 
 export const metadata: Metadata = {
   title: "素材 — Industry",
@@ -45,6 +46,7 @@ export default function Page() {
         <p className="mt-3 text-sm text-foreground/60 leading-relaxed">化学、鉄鋼、非鉄金属、セメント、繊維など素材メーカーの最新動向。</p>
       </div>
       <div className="h-px bg-brief-border mb-8" />
+      <IndustryFinancialNav slug="materials" />
       <div className="space-y-4">
         {sortedArticles.map((article) => (
           <Link key={article.slug} href={`/industry/materials/${article.slug}`} className="group block p-5 rounded-xl border border-brief-border hover:border-[#0ea5e9]/30 bg-brief-card transition-all">

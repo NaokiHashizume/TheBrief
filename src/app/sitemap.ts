@@ -121,10 +121,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
-    // Automotive financial statement pages
-    { url: `${SITE_URL}/industry/automotive/pl`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/industry/automotive/bs`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/industry/automotive/cf`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    // PL/BS/CF financial statement pages for all industries
+    ...["retail", "trading", "automotive", "construction", "finance", "ict", "pharma", "services", "food", "energy", "materials", "logistics", "dining", "specialty", "daily", "entertainment"].flatMap((s) => [
+      { url: `${SITE_URL}/industry/${s}/pl`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
+      { url: `${SITE_URL}/industry/${s}/bs`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
+      { url: `${SITE_URL}/industry/${s}/cf`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
+    ]),
   ];
 
   // ── Industry — article detail pages ──

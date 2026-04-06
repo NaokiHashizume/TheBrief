@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 import { pharmaArticles } from "@/lib/pharma";
+import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
 
 export const metadata: Metadata = {
   title: "医薬品・医療介護 — Industry",
@@ -45,6 +46,7 @@ export default function Page() {
         <p className="mt-3 text-sm text-foreground/60 leading-relaxed">新薬開発、医療DX、バイオテクノロジー、介護・ヘルスケアの最新動向。</p>
       </div>
       <div className="h-px bg-brief-border mb-8" />
+      <IndustryFinancialNav slug="pharma" />
       <div className="space-y-4">
         {sortedArticles.map((article) => (
           <Link key={article.slug} href={`/industry/pharma/${article.slug}`} className="group block p-5 rounded-xl border border-brief-border hover:border-[#10b981]/30 bg-brief-card transition-all">

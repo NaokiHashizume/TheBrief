@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
 import { retailArticles } from "@/lib/retail";
+import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
 
 export const metadata: Metadata = {
   title: "小売 — Industry",
@@ -75,6 +76,8 @@ export default function RetailPage() {
       </div>
 
       <div className="h-px bg-brief-border mb-8" />
+
+      <IndustryFinancialNav slug="retail" />
 
       {/* Articles */}
       <div className="space-y-4">
