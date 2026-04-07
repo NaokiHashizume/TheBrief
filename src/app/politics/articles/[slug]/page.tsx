@@ -39,6 +39,15 @@ import {
   DmaInternationalDiagram,
   DmaConcernsDiagram,
 } from "@/components/DmaDiagrams";
+import {
+  ElecOverviewDiagram,
+  ElecLowerHouseDiagram,
+  ElecUpperHouseDiagram,
+  ElecDhondtDiagram,
+  ElecDisparityDiagram,
+  ElecLocalDiagram,
+  ElecTurnoutDiagram,
+} from "@/components/ElectoralSystemDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -137,6 +146,13 @@ const diagramMap: Record<string, React.FC> = {
   "dma-regional": DmaRegionalDiagram,
   "dma-international": DmaInternationalDiagram,
   "dma-concerns": DmaConcernsDiagram,
+  "elec-overview": ElecOverviewDiagram,
+  "elec-lower-house": ElecLowerHouseDiagram,
+  "elec-upper-house": ElecUpperHouseDiagram,
+  "elec-dhondt": ElecDhondtDiagram,
+  "elec-disparity": ElecDisparityDiagram,
+  "elec-local": ElecLocalDiagram,
+  "elec-turnout": ElecTurnoutDiagram,
 };
 
 export default async function PoliticsArticlePage({
