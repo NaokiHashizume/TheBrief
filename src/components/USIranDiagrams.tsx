@@ -1,20 +1,20 @@
 "use client";
 
 /* ─────────────────────────────────────────────
-   US-Iran Timeline Diagram
+   米イラン関係 タイムライン
    ───────────────────────────────────────────── */
 export function USIranTimelineDiagram() {
   const events = [
-    { year: "1953", label: "CIA coup in Iran", detail: "Operation Ajax overthrows PM Mossadegh, restores Shah", severity: "critical" },
-    { year: "1979", label: "Islamic Revolution", detail: "Shah overthrown; Ayatollah Khomeini establishes theocracy", severity: "critical" },
-    { year: "1979-81", label: "Hostage Crisis", detail: "444 days — 52 US diplomats held at Tehran embassy", severity: "critical" },
-    { year: "1980-88", label: "Iran-Iraq War", detail: "US backs Iraq; ~1M casualties; chemical weapons used", severity: "high" },
-    { year: "2002", label: "Nuclear program revealed", detail: "NCRI exposes secret enrichment facilities at Natanz", severity: "high" },
-    { year: "2015", label: "JCPOA signed", detail: "P5+1 nuclear deal — Iran limits enrichment for sanctions relief", severity: "response" },
-    { year: "2018", label: "Trump exits JCPOA", detail: "\"Maximum pressure\" campaign; reimposed all US sanctions", severity: "critical" },
-    { year: "2020", label: "Soleimani killed", detail: "US drone strike on IRGC-QF commander at Baghdad airport", severity: "critical" },
-    { year: "2025", label: "Snapback sanctions", detail: "UN sanctions restored Sep 2025; JCPOA effectively dead", severity: "high" },
-    { year: "2026", label: "US-Israel strikes on Iran", detail: "Operation Epic Fury — massive air campaign begins Feb 28", severity: "critical" },
+    { year: "1953", label: "CIAによるイラン・クーデター", detail: "アジャックス作戦でモサッデク首相を失脚、シャー復権", severity: "critical" },
+    { year: "1979", label: "イスラム革命", detail: "シャー打倒、ホメイニ師がイスラム共和制を樹立", severity: "critical" },
+    { year: "1979-81", label: "在テヘラン米大使館人質事件", detail: "444日間 — 米外交官52名がテヘラン大使館で拘束", severity: "critical" },
+    { year: "1980-88", label: "イラン・イラク戦争", detail: "米国はイラクを支援、犠牲者約100万人、化学兵器使用", severity: "high" },
+    { year: "2002", label: "核開発計画の暴露", detail: "反体制派NCRIがナタンズの秘密濃縮施設を暴露", severity: "high" },
+    { year: "2015", label: "JCPOA調印", detail: "P5+1核合意 — イランは制裁解除と引き換えに濃縮を制限", severity: "response" },
+    { year: "2018", label: "トランプがJCPOA離脱", detail: "「最大圧力」政策、米制裁を全面再発動", severity: "critical" },
+    { year: "2020", label: "ソレイマニ司令官殺害", detail: "バグダッド空港で米軍ドローンが革命防衛隊コッズ部隊司令官を暗殺", severity: "critical" },
+    { year: "2025", label: "スナップバック制裁", detail: "2025年9月に国連制裁が復活、JCPOAは事実上消滅", severity: "high" },
+    { year: "2026", label: "米・イスラエル合同攻撃", detail: "「エピック・フューリー作戦」 — 2月28日に大規模空爆開始", severity: "critical" },
   ];
 
   const severityColor = {
@@ -27,28 +27,28 @@ export function USIranTimelineDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Vertical timeline of US-Iran relations from 1953 CIA coup to 2026 military strikes"
+      aria-label="1953年のCIAクーデターから2026年の軍事攻撃までの米イラン関係の縦型タイムライン"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        US-Iran Relations Timeline
+        米イラン関係 タイムライン
       </div>
       <div className="text-xs text-foreground/50 mb-5">
-        Seven decades of confrontation — key turning points
+        70年にわたる対立 — 主要な転換点
       </div>
 
       {/* Legend */}
       <div className="flex flex-wrap mb-5 text-[9px] text-foreground/50">
         <span className="flex items-center mr-4 mb-1">
           <span className="w-2 h-2 rounded-full bg-[#dc2626] mr-1.5" />
-          Critical
+          重大局面
         </span>
         <span className="flex items-center mr-4 mb-1">
           <span className="w-2 h-2 rounded-full bg-[#f59e0b] mr-1.5" />
-          High impact
+          高影響
         </span>
         <span className="flex items-center mr-4 mb-1">
           <span className="w-2 h-2 rounded-full bg-[#3b82f6] mr-1.5" />
-          Response / diplomacy
+          対応・外交
         </span>
       </div>
 
@@ -94,27 +94,27 @@ export function USIranTimelineDiagram() {
 }
 
 /* ─────────────────────────────────────────────
-   Sanctions Architecture Diagram
+   制裁の三層構造
    ───────────────────────────────────────────── */
 export function SanctionsArchitectureDiagram() {
   const pillars = [
     {
-      name: "US Unilateral",
+      name: "米国の単独制裁",
       color: "#dc2626",
       bgColor: "#dc262610",
-      targets: ["OFAC / Treasury-led", "Energy sector", "Banking & finance", "IRGC designated as FTO"],
+      targets: ["財務省OFAC主導", "エネルギー部門", "銀行・金融", "革命防衛隊（IRGC）をFTOに指定"],
     },
     {
-      name: "UN Security Council",
+      name: "国連安保理制裁",
       color: "#3b82f6",
       bgColor: "#3b82f610",
-      targets: ["6 rounds (2006-2010)", "Arms embargo + travel bans", "Snapped back Sep 2025", "JCPOA sunset Oct 2025"],
+      targets: ["6本の決議（2006-2010）", "武器禁輸＋渡航禁止", "2025年9月にスナップバック発動", "2025年10月にJCPOA終了"],
     },
     {
-      name: "EU Sanctions",
+      name: "EU制裁",
       color: "#8b5cf6",
       bgColor: "#8b5cf610",
-      targets: ["Aligned with UN framework", "Oil import ban (Jul 2012)", "Insurance & reinsurance ban", "Central Bank of Iran targeted"],
+      targets: ["国連枠組みに準拠", "原油輸入禁止（2012年7月）", "保険・再保険禁止", "イラン中央銀行が対象"],
     },
   ];
 
@@ -122,13 +122,13 @@ export function SanctionsArchitectureDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Three-pillar sanctions architecture diagram showing US, UN, and EU sanctions on Iran"
+      aria-label="米国・国連・EUの3層からなるイラン制裁構造を示す図"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Iran Sanctions Architecture
+        イラン制裁の三層構造
       </div>
       <div className="text-xs text-foreground/50 mb-5">
-        Three pillars of the international sanctions regime
+        国際制裁レジームの3つの柱
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3">
@@ -167,10 +167,10 @@ export function SanctionsArchitectureDiagram() {
       {/* SWIFT callout */}
       <div className="mt-4 p-3 rounded-lg bg-red-500/5 border border-red-500/10">
         <div className="text-[10px] font-medium text-red-600 dark:text-red-400">
-          SWIFT Disconnect — March 2012
+          SWIFTからの切断 — 2012年3月
         </div>
         <div className="text-[11px] text-foreground/55 mt-1 leading-relaxed">
-          Iranian banks cut off from SWIFT network — first time in history a country was disconnected from global financial messaging. Described as a &quot;financial nuclear weapon.&quot;
+          イランの銀行がSWIFTネットワークから切断 — 国家単位での切断は史上初。「金融の核兵器」と評された。
         </div>
       </div>
     </div>
@@ -178,36 +178,36 @@ export function SanctionsArchitectureDiagram() {
 }
 
 /* ─────────────────────────────────────────────
-   Iran Economic Impact Diagram
+   イラン経済への影響
    ───────────────────────────────────────────── */
 export function IranEconomicImpactDiagram() {
   const stats = [
     {
       label: "GDP",
-      before: "$600B",
-      after: "$356B",
+      before: "6,000億ドル",
+      after: "3,560億ドル",
       change: "▼41%",
       color: "#dc2626",
     },
     {
-      label: "Oil Exports",
-      before: "2.2M bpd",
-      after: "0.7M bpd",
+      label: "石油輸出量",
+      before: "日量220万バレル",
+      after: "日量70万バレル",
       change: "▼68%",
       color: "#dc2626",
     },
     {
-      label: "Frozen Assets",
+      label: "凍結資産",
       before: "",
-      after: "$100-120B",
-      change: "Held abroad",
+      after: "1,000-1,200億ドル",
+      change: "海外で凍結",
       color: "#f59e0b",
     },
     {
-      label: "Inflation",
+      label: "インフレ率",
       before: "",
       after: "60%",
-      change: "Peak rate",
+      change: "ピーク時",
       color: "#f59e0b",
     },
   ];
@@ -216,13 +216,13 @@ export function IranEconomicImpactDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Iran economic impact statistics showing GDP decline, oil export losses, frozen assets, and inflation"
+      aria-label="GDP減少、石油輸出損失、凍結資産、インフレを示すイラン経済への影響の統計"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Iran Economic Impact
+        イラン経済への影響
       </div>
       <div className="text-xs text-foreground/50 mb-5">
-        Cumulative toll of sanctions and isolation
+        制裁と孤立の累積的打撃
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-4">
@@ -260,16 +260,16 @@ export function IranEconomicImpactDiagram() {
 }
 
 /* ─────────────────────────────────────────────
-   Iran Oil Exports Diagram
+   イラン石油輸出の推移
    ───────────────────────────────────────────── */
 export function IranOilExportsDiagram() {
   const exports = [
-    { year: "2011", bpd: 2.2, label: "2.2M", note: "Pre-sanctions peak" },
-    { year: "2013", bpd: 0.7, label: "0.7M", note: "Obama-era sanctions bite" },
-    { year: "2016", bpd: 2.0, label: "2.0M", note: "Post-JCPOA recovery" },
-    { year: "2019", bpd: 0.4, label: "0.4M", note: "Trump max pressure" },
-    { year: "2024", bpd: 1.5, label: "1.5M", note: "Biden lax enforcement" },
-    { year: "Sep 2025", bpd: 2.13, label: "2.13M", note: "Pre-war peak" },
+    { year: "2011", bpd: 2.2, label: "220万", note: "制裁前のピーク" },
+    { year: "2013", bpd: 0.7, label: "70万", note: "オバマ期の制裁効果" },
+    { year: "2016", bpd: 2.0, label: "200万", note: "JCPOA後の回復" },
+    { year: "2019", bpd: 0.4, label: "40万", note: "トランプ最大圧力" },
+    { year: "2024", bpd: 1.5, label: "150万", note: "バイデン期の緩い執行" },
+    { year: "2025年9月", bpd: 2.13, label: "213万", note: "戦争前ピーク" },
   ];
 
   const maxBpd = 2.5;
@@ -278,13 +278,13 @@ export function IranOilExportsDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Horizontal bar chart of Iran oil exports from 2011 to September 2025"
+      aria-label="2011年から2025年9月までのイラン石油輸出量の横棒グラフ"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Iran Oil Exports Over Time
+        イラン石油輸出の推移
       </div>
       <div className="text-xs text-foreground/50 mb-5">
-        Million barrels per day (bpd) — sanctions impact cycle
+        日量バレル数 — 制裁影響のサイクル
       </div>
 
       <div>
@@ -322,24 +322,24 @@ export function IranOilExportsDiagram() {
 
       {/* China note */}
       <div className="mt-4 p-3 rounded-lg bg-foreground/[0.02] text-[10px] text-foreground/50 leading-relaxed">
-        <span className="font-semibold">China factor:</span> By 2024-25, China bought ~90% of Iran&apos;s oil exports via &quot;dark fleet&quot; tankers and ship-to-ship transfers, undermining US sanctions enforcement.
+        <span className="font-semibold">中国ファクター：</span>2024〜25年時点で、中国は「影の艦隊」タンカーとSTS（船舶間移送）を通じてイランの石油輸出の約9割を購入し、米制裁の執行を骨抜きにしている。
       </div>
     </div>
   );
 }
 
 /* ─────────────────────────────────────────────
-   Nuclear Negotiations Diagram
+   核交渉のタイムライン
    ───────────────────────────────────────────── */
 export function NuclearNegotiationsDiagram() {
   const events = [
-    { date: "Jul 2015", label: "JCPOA signed", detail: "P5+1 nuclear deal — Iran caps enrichment at 3.67%", severity: "response" },
-    { date: "May 2018", label: "US withdrawal", detail: "Trump exits JCPOA; \"maximum pressure\" begins", severity: "critical" },
-    { date: "Apr-Jun 2025", label: "Muscat talks", detail: "Secret US-Iran back-channel via Oman; no breakthrough", severity: "response" },
-    { date: "Jun 2025", label: "War begins", detail: "Military escalation ends diplomatic track", severity: "critical" },
-    { date: "Aug 2025", label: "Snapback triggered", detail: "UK triggers UN snapback mechanism; all UN sanctions restored", severity: "high" },
-    { date: "Oct 2025", label: "JCPOA expires", detail: "UN SC Res. 2231 sunset — deal formally dead", severity: "critical" },
-    { date: "Feb 2026", label: "Final talks fail", detail: "Last-ditch diplomacy collapses; strikes begin weeks later", severity: "critical" },
+    { date: "2015年7月", label: "JCPOA調印", detail: "P5+1核合意 — イランは濃縮を3.67%に制限", severity: "response" },
+    { date: "2018年5月", label: "米国の離脱", detail: "トランプがJCPOA離脱、「最大圧力」開始", severity: "critical" },
+    { date: "2025年4-6月", label: "マスカット協議", detail: "オマーンを介した米イラン秘密協議、突破口なし", severity: "response" },
+    { date: "2025年6月", label: "戦争勃発", detail: "軍事的エスカレーションが外交ルートを断絶", severity: "critical" },
+    { date: "2025年8月", label: "スナップバック発動", detail: "英国がスナップバック条項を発動、国連制裁が全面復活", severity: "high" },
+    { date: "2025年10月", label: "JCPOA失効", detail: "国連安保理決議2231号が期限切れ — 合意は正式に消滅", severity: "critical" },
+    { date: "2026年2月", label: "最終協議が決裂", detail: "土壇場の外交が崩壊、数週間後に攻撃開始", severity: "critical" },
   ];
 
   const severityColor = {
@@ -352,13 +352,13 @@ export function NuclearNegotiationsDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Timeline of nuclear negotiations from JCPOA signing in 2015 to final talks failing in February 2026"
+      aria-label="2015年のJCPOA調印から2026年2月の最終協議決裂までの核交渉タイムライン"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Nuclear Negotiations Timeline
+        核交渉のタイムライン
       </div>
       <div className="text-xs text-foreground/50 mb-5">
-        From JCPOA to collapse — the diplomatic arc
+        JCPOAから崩壊まで — 外交の軌跡
       </div>
 
       <div className="relative">
@@ -401,34 +401,34 @@ export function NuclearNegotiationsDiagram() {
 }
 
 /* ─────────────────────────────────────────────
-   Protests and War Diagram
+   抗議運動と戦争
    ───────────────────────────────────────────── */
 export function ProtestsAndWarDiagram() {
   const protests = [
-    { label: "Inflation at 60%", detail: "Food & fuel prices soaring under sanctions" },
-    { label: "200+ cities", detail: "Nationwide protests spread across provinces" },
-    { label: "Dec 28 protests erupt", detail: "Triggered by economic collapse and war toll" },
-    { label: "Jan 8-9 crackdown", detail: "Regime deploys IRGC; mass arrests and internet blackout" },
+    { label: "インフレ率60%", detail: "制裁下で食料・燃料価格が高騰" },
+    { label: "200都市以上に拡大", detail: "全国各州で抗議運動が広がる" },
+    { label: "12月28日 抗議勃発", detail: "経済崩壊と戦争被害が引き金" },
+    { label: "1月8-9日 弾圧", detail: "革命防衛隊投入、大量逮捕とネット遮断" },
   ];
 
   const warEvents = [
-    { label: "Feb 28 — Operation Epic Fury", detail: "US-Israel joint air campaign begins" },
-    { label: "Khamenei killed", detail: "Supreme Leader dies in leadership bunker strike" },
-    { label: "Hormuz Strait closed", detail: "IRGC declares blockade; global oil prices spike" },
-    { label: "Regime fragmentation", detail: "IRGC factions compete for control; chain of command breaks" },
+    { label: "2月28日 エピック・フューリー作戦", detail: "米・イスラエル合同空爆開始" },
+    { label: "ハメネイ師死亡", detail: "最高指導者が指導部地下壕への攻撃で死亡" },
+    { label: "ホルムズ海峡封鎖", detail: "革命防衛隊が封鎖を宣言、世界の原油価格が急騰" },
+    { label: "体制の分裂", detail: "革命防衛隊各派が支配権を争い指揮系統が崩壊" },
   ];
 
   return (
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Two-column diagram comparing domestic protests and military war events in Iran"
+      aria-label="国内抗議運動と軍事戦争の出来事を比較する2列の図"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Domestic Crisis &amp; War
+        国内危機と戦争
       </div>
       <div className="text-xs text-foreground/50 mb-5">
-        Internal unrest collides with external military campaign
+        国内の動乱と外部からの軍事作戦が交錯
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2">
@@ -438,7 +438,7 @@ export function ProtestsAndWarDiagram() {
           style={{ borderColor: "#f59e0b30", backgroundColor: "#f59e0b10" }}
         >
           <div className="text-xs font-bold mb-3" style={{ color: "#f59e0b" }}>
-            Domestic Protests
+            国内抗議運動
           </div>
           <div>
             {protests.map((item, i) => (
@@ -466,7 +466,7 @@ export function ProtestsAndWarDiagram() {
           style={{ borderColor: "#dc262630", backgroundColor: "#dc262610" }}
         >
           <div className="text-xs font-bold mb-3" style={{ color: "#dc2626" }}>
-            Military War
+            軍事戦争
           </div>
           <div>
             {warEvents.map((item, i) => (
@@ -493,36 +493,36 @@ export function ProtestsAndWarDiagram() {
 }
 
 /* ─────────────────────────────────────────────
-   Ceasefire Conditions Diagram
+   停戦交渉の条件
    ───────────────────────────────────────────── */
 export function CeasefireConditionsDiagram() {
   const iranConditions = [
-    "Immediate end to all airstrikes",
-    "Full lifting of UN & US sanctions",
-    "Withdrawal of naval forces from Persian Gulf",
-    "Recognition of Iran\u2019s regional security role",
-    "Reparations for civilian infrastructure damage",
+    "全空爆の即時停止",
+    "国連・米制裁の全面解除",
+    "ペルシャ湾からの海軍撤退",
+    "イランの地域安全保障上の役割の承認",
+    "民間インフラ被害への賠償",
   ];
 
   const usConditions = [
-    "Complete nuclear program dismantlement",
-    "IRGC disarmament & disbandment",
-    "End support for regional proxies (Hezbollah, Houthis)",
-    "Reopen Strait of Hormuz unconditionally",
-    "International inspectors with full access",
+    "核計画の完全な解体",
+    "革命防衛隊（IRGC）の武装解除・解体",
+    "地域代理勢力（ヒズボラ、フーシ派）への支援停止",
+    "ホルムズ海峡の無条件再開放",
+    "国際査察団の完全アクセス",
   ];
 
   return (
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Two-column comparison of Iran and US ceasefire conditions with current status"
+      aria-label="イランと米国の停戦条件を比較する2列の図と現状"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Ceasefire Negotiations
+        停戦交渉
       </div>
       <div className="text-xs text-foreground/50 mb-5">
-        Iran&apos;s 5 conditions vs. US key demands
+        イランの5条件 vs 米国の主要要求
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2">
@@ -532,7 +532,7 @@ export function CeasefireConditionsDiagram() {
           style={{ borderColor: "#dc262630", backgroundColor: "#dc262610" }}
         >
           <div className="text-xs font-bold mb-3" style={{ color: "#dc2626" }}>
-            Iran&apos;s 5 Conditions
+            イランの5条件
           </div>
           <div>
             {iranConditions.map((cond, i) => (
@@ -557,7 +557,7 @@ export function CeasefireConditionsDiagram() {
           style={{ borderColor: "#3b82f630", backgroundColor: "#3b82f610" }}
         >
           <div className="text-xs font-bold mb-3" style={{ color: "#3b82f6" }}>
-            US Key Demands
+            米国の主要要求
           </div>
           <div>
             {usConditions.map((demand, i) => (
@@ -580,19 +580,19 @@ export function CeasefireConditionsDiagram() {
       {/* Status callout */}
       <div className="mt-4 p-3 rounded-lg bg-foreground/[0.02] border border-brief-border">
         <div className="text-[10px] font-medium text-foreground/60 mb-1.5">
-          Current Status
+          現状
         </div>
         <div>
           <div className="flex items-center">
             <span className="w-2 h-2 rounded-full bg-[#f59e0b] mr-2" />
             <span className="text-[11px] text-foreground/55">
-              45-day ceasefire talks underway via Omani mediation
+              オマーン仲介で45日間の停戦協議が進行中
             </span>
           </div>
           <div className="flex items-center mt-1.5">
             <span className="w-2 h-2 rounded-full bg-[#dc2626] mr-2" />
             <span className="text-[11px] text-foreground/55">
-              Apr 5 ultimatum rejected by Iran — talks at impasse
+              4月5日の最後通牒をイランが拒否、協議は膠着
             </span>
           </div>
         </div>
