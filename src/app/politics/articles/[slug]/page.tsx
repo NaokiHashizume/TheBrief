@@ -31,6 +31,14 @@ import {
   NiaVsNscDiagram,
   NiaStakeholdersDiagram,
 } from "@/components/NiaDiagrams";
+import {
+  DmaOverviewDiagram,
+  DmaVsCurrentDiagram,
+  DmaThreeRolesDiagram,
+  DmaRegionalDiagram,
+  DmaInternationalDiagram,
+  DmaConcernsDiagram,
+} from "@/components/DmaDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -123,6 +131,12 @@ const diagramMap: Record<string, React.FC> = {
   "nia-international": NiaInternationalDiagram,
   "nia-vs-nsc": NiaVsNscDiagram,
   "nia-stakeholders": NiaStakeholdersDiagram,
+  "dma-overview": DmaOverviewDiagram,
+  "dma-vs-current": DmaVsCurrentDiagram,
+  "dma-three-roles": DmaThreeRolesDiagram,
+  "dma-regional": DmaRegionalDiagram,
+  "dma-international": DmaInternationalDiagram,
+  "dma-concerns": DmaConcernsDiagram,
 };
 
 export default async function PoliticsArticlePage({
