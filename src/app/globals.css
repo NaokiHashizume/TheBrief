@@ -12,7 +12,8 @@
   --color-brief-card: var(--card-color);
   --color-brief-muted: var(--muted-color);
   --color-brief-rule: var(--rule-color);
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: var(--font-noto-sans-jp), 'Noto Sans JP', system-ui, sans-serif;
+  --font-serif: var(--font-playfair), 'Playfair Display', Georgia, serif;
 }
 
 /* Light theme (default) */

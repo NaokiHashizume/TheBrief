@@ -21,7 +21,7 @@ export function Header() {
     <header className="bg-background border-b border-brief-rule sticky top-0 z-40">
       {/* Utility bar */}
       <div className="border-b border-brief-rule bg-background">
-        <div className="max-w-[1400px] mx-auto px-6 h-9 flex items-center justify-between text-[10px] text-foreground/50 uppercase tracking-[2px] font-medium">
+        <div className="max-w-[1400px] mx-auto px-6 h-7 flex items-center justify-between text-[10px] text-foreground/50 uppercase tracking-[2px] font-medium">
           <span className="hidden sm:inline">Politics · Economy · Industry · University · Column</span>
           <div className="flex items-center gap-4">
             <LanguageToggle />
@@ -64,7 +64,7 @@ export function Header() {
       </div>
 
       {/* Masthead */}
-      <div className="max-w-[1400px] mx-auto px-6 py-5 flex items-center relative">
+      <div className="max-w-[1400px] mx-auto px-6 py-3 flex items-center relative">
         {/* Hamburger menu button — left side */}
         <button
           onClick={toggle}
@@ -84,10 +84,22 @@ export function Header() {
             <Logo className="items-center" />
           </Link>
         </div>
+
+        {/* Search button — right side */}
+        <Link
+          href="/search"
+          className="absolute right-6 p-2 -mr-2 rounded-lg hover:bg-foreground/5 transition-colors group"
+          aria-label="サイト内検索"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/50 group-hover:text-foreground transition-colors">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </Link>
       </div>
 
       {/* Category navigation */}
-      <nav className="max-w-[1400px] mx-auto px-6 flex justify-center gap-10 border-t border-brief-rule py-3">
+      <nav className="max-w-[1400px] mx-auto px-6 flex justify-center gap-10 border-t border-brief-rule py-2">
         {categories.map((cat) => (
           <Link
             key={cat.href}

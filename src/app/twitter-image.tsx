@@ -5,10 +5,21 @@ export const alt = "The Brief — Politics · Economy · Industry · Trends";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+async function loadPlayfair(): Promise<ArrayBuffer | null> {
+  try {
+    const res = await fetch(
+      "https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKfsukDQ.ttf",
+      { cache: "force-cache" }
+    );
+    if (!res.ok) return null;
+    return await res.arrayBuffer();
+  } catch {
+    return null;
+  }
+}
+
 export default async function TwitterImage() {
-  const fontData = await fetch(
-    "https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKfsukDQ.ttf"
-  ).then((res) => res.arrayBuffer());
+  const fontData = await loadPlayfair();
 
   return new ImageResponse(
     (
@@ -98,14 +109,16 @@ export default async function TwitterImage() {
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: "Playfair Display",
-          data: fontData,
-          style: "normal",
-          weight: 900,
-        },
-      ],
+      fonts: fontData
+        ? [
+            {
+              name: "Playfair Display",
+              data: fontData,
+              style: "normal",
+              weight: 900,
+            },
+          ]
+        : undefined,
     }
   );
 }
