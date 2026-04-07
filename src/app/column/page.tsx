@@ -53,6 +53,16 @@ const specials: SpecialItem[] = [
 
 const columns: ColumnItem[] = [
   {
+    slug: "nisa-year-two-review",
+    title: "新NISA 2年目の見直し方 — つみたて枠と成長投資枠の最適配分",
+    titleEn: "New NISA — A Year-Two Tune-up",
+    summary:
+      "1年目に『とりあえず満額』で始めた新NISAを、2年目以降にどう調整するか。生涯1,800万円・年360万円の枠を、コア／サテライトとライフステージ別に整理し直すための実用ガイド。",
+    date: "2026-04-08",
+    readTime: "約 10 分",
+    tags: ["投資", "NISA", "ライフハック"],
+  },
+  {
     slug: "furusato-tax-breakeven",
     title: "ふるさと納税の損益分岐点 — 2026年改正後の本当の損得",
     titleEn: "The Real Economics of Furusato Nozei in 2026",
