@@ -53,6 +53,16 @@ const specials: SpecialItem[] = [
 
 const columns: ColumnItem[] = [
   {
+    slug: "middle-school-exam-economics",
+    title: "中学受験の経済学 — 総額と『投資対効果』を冷静に計算する",
+    titleEn: "The Economics of Middle-School Entrance Exams",
+    summary:
+      "首都圏で中学受験率は約20%。塾代＋私立中高6年間で総額700〜900万円の選択を、機会費用・代替パスも含めて整理し、家計と価値観に合った判断のフレームを示します。",
+    date: "2026-04-08",
+    readTime: "約 12 分",
+    tags: ["教育", "家計", "ライフプラン"],
+  },
+  {
     slug: "salaryman-side-business-tax",
     title: "サラリーマンが副業を始める前に知る税務 — 20万円の壁から開業届まで",
     titleEn: "Tax Basics for the Salaried Side-Hustler",
