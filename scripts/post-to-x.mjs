@@ -18,7 +18,7 @@
  *   SITE_URL          既定 https://thebrief.info
  */
 
-import { readFile, readdir } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { createHmac, randomBytes } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -26,6 +26,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, "..");
 const LIB_DIR = path.join(REPO_ROOT, "src", "lib");
+const HISTORY_FILE = path.join(__dirname, "x-post-history.json");
 const SITE_URL = process.env.SITE_URL || "https://thebrief.info";
 
 // ── どのファイルがどの URL prefix を持つか ──
@@ -85,14 +86,51 @@ async function loadArticles() {
   return all;
 }
 
-// ── 2. スロットから決定論的に選ぶ ──
-// 1 日 4 スロット想定: floor(epochMinutes / (60*6)) を index 化
-function pickArticle(articles) {
+// ── 2. 投稿履歴の読み書き ──
+async function loadHistory() {
+  try {
+    const text = await readFile(HISTORY_FILE, "utf8");
+    const data = JSON.parse(text);
+    if (!Array.isArray(data.posts)) return { posts: [] };
+    return data;
+  } catch {
+    return { posts: [] };
+  }
+}
+
+async function saveHistory(history) {
+  await writeFile(HISTORY_FILE, JSON.stringify(history, null, 2) + "\n", "utf8");
+}
+
+// ── 3. LRU 選択: 最も古く投稿された (or 未投稿の) 記事を選ぶ ──
+// 一巡するまで重複が発生しない。
+function pickArticle(articles, history) {
   if (articles.length === 0) throw new Error("記事が 1 件も読めませんでした");
-  const slot = Math.floor(Date.now() / (1000 * 60 * 60 * 6));
-  // 軽い撹拌
-  const idx = Math.abs((slot * 2654435761) % articles.length);
-  return articles[idx];
+
+  const lastPostedBySlug = new Map();
+  for (const entry of history.posts) {
+    // 同じ slug が複数あれば最新の postedAt を採用
+    const prev = lastPostedBySlug.get(entry.slug);
+    if (!prev || entry.postedAt > prev) {
+      lastPostedBySlug.set(entry.slug, entry.postedAt);
+    }
+  }
+
+  // 未投稿 → 最古投稿 → 新しい順で並び替え。同条件は元の順 (= ファイルの登場順)
+  const sorted = [...articles]
+    .map((a, i) => ({
+      a,
+      i,
+      lastPosted: lastPostedBySlug.get(a.slug) || "",
+    }))
+    .sort((x, y) => {
+      if (x.lastPosted !== y.lastPosted) {
+        return x.lastPosted < y.lastPosted ? -1 : 1;
+      }
+      return x.i - y.i;
+    });
+
+  return sorted[0].a;
 }
 
 // ── 3. ツイート本文を組み立てる ──
@@ -215,7 +253,10 @@ async function main() {
   const articles = await loadArticles();
   console.log(`[post-to-x] loaded ${articles.length} articles`);
 
-  const article = pickArticle(articles);
+  const history = await loadHistory();
+  console.log(`[post-to-x] history entries: ${history.posts.length}`);
+
+  const article = pickArticle(articles, history);
   const text = buildTweet(article);
 
   console.log("[post-to-x] selected:", article.url);
@@ -223,12 +264,23 @@ async function main() {
   console.log("[post-to-x] length:", [...text].length, "code points");
 
   if (process.env.X_DRY_RUN === "1") {
-    console.log("[post-to-x] DRY RUN — skipping API call");
+    console.log("[post-to-x] DRY RUN — skipping API call & history write");
     return;
   }
 
   const result = await postTweet(text);
   console.log("[post-to-x] posted:", JSON.stringify(result));
+
+  // 投稿成功 → 履歴に追記して保存
+  const tweetId = result?.data?.id || null;
+  history.posts.push({
+    slug: article.slug,
+    url: article.url,
+    tweetId,
+    postedAt: new Date().toISOString(),
+  });
+  await saveHistory(history);
+  console.log(`[post-to-x] history updated (${history.posts.length} entries)`);
 }
 
 main().catch((err) => {

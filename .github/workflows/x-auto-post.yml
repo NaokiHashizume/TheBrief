@@ -27,6 +27,9 @@ concurrency:
   group: x-auto-post
   cancel-in-progress: false
 
+permissions:
+  contents: write
+
 jobs:
   post:
     runs-on: ubuntu-latest
@@ -47,3 +50,16 @@ jobs:
           X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
           X_DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
         run: node scripts/post-to-x.mjs
+
+      - name: Commit updated post history
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/x-post-history.json
+          if git diff --cached --quiet; then
+            echo "No history changes to commit"
+          else
+            git commit -m "chore: update X post history [skip ci]"
+            git push
+          fi
