@@ -146,6 +146,35 @@ export default function PoliticsPage() {
         ))}
       </div>
 
+      {/* 日本が抱える課題 button */}
+      <Link
+        href="/politics/challenges"
+        className="group mt-8 flex items-center justify-between w-full p-5 rounded-xl border-2 border-dashed border-[#ef4444]/30 hover:border-[#ef4444] hover:bg-[#ef4444]/[0.03] transition-all duration-200"
+      >
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-10 rounded-full bg-[#ef4444]/10 flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#ef4444]">
+              <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+              <line x1="12" y1="9" x2="12" y2="13" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+          </div>
+          <div>
+            <h2 className="font-serif text-xl font-bold"><T ja="日本が抱える課題" en="Japan's Challenges" /></h2>
+            <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">Structural Challenges</span>
+            <p className="text-sm text-foreground/55 mt-0.5">
+              <T ja="少子化・高齢化・財政・安全保障・労働力・エネルギー・食料の7課題をカテゴリ別に" en="Seven structural challenges Japan faces, organized by category" />
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 text-[#ef4444]">
+          <span className="text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">View</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </div>
+      </Link>
+
       {/* 審議中 button */}
       <Link
         href="/politics/debates"

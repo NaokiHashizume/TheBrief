@@ -66,6 +66,7 @@ const menuItems = [
       { labelJa: "ニュース", labelEn: "News", href: "/politics/news" },
       { labelJa: "記事", labelEn: "Articles", href: "/politics/articles" },
       { labelJa: "官公庁リンク", labelEn: "Gov Links", href: "/politics/government" },
+      { labelJa: "日本が抱える課題", labelEn: "Japan's Challenges", href: "/politics/challenges" },
     ],
   },
   {
