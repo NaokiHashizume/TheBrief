@@ -245,7 +245,9 @@ export function Sidebar() {
                     <button
                       onClick={() => toggleSection(item.href)}
                       className="p-2 rounded hover:bg-foreground/5 transition-colors"
-                      aria-label={expanded ? "閉じる" : "開く"}
+                      aria-label={expanded ? `${item.labelJa}メニューを閉じる` : `${item.labelJa}メニューを開く`}
+                      aria-expanded={expanded}
+                      aria-controls={`sidebar-section-${item.href.replace(/\//g, "-")}`}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -266,7 +268,10 @@ export function Sidebar() {
                 </div>
 
                 {hasChildren && expanded && (
-                  <div className="ml-5 pl-3 border-l border-brief-rule mt-1 mb-2 space-y-0.5">
+                  <div
+                    id={`sidebar-section-${item.href.replace(/\//g, "-")}`}
+                    className="ml-5 pl-3 border-l border-brief-rule mt-1 mb-2 space-y-0.5"
+                  >
                     {item.children!.map((child) => {
                       const childActive = pathname === child.href;
                       return (

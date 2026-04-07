@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
+import { Noto_Sans_JP, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -11,6 +13,22 @@ const SITE_URL = "https://thebrief.info";
 const SITE_NAME = "The Brief";
 const SITE_DESCRIPTION =
   "日本の政治経済・金融から業界情報、テクノロジー・AI、ライフスタイルまで。シンプルに届けるニュース&オピニオン。";
+
+const notoSansJp = Noto_Sans_JP({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-noto-sans-jp",
+  display: "swap",
+  preload: true,
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["700", "900"],
+  variable: "--font-playfair",
+  display: "swap",
+  preload: true,
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -51,6 +69,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ja_JP",
+    alternateLocale: ["en_US"],
     url: SITE_URL,
     siteName: SITE_NAME,
     title: "The Brief — Politics · Economy · Industry · Trends",
@@ -74,6 +93,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_URL,
+    languages: {
+      "ja-JP": SITE_URL,
+      "x-default": SITE_URL,
+    },
     types: {
       "application/rss+xml": [{ url: "/feed.xml", title: "The Brief RSS Feed" }],
     },
@@ -87,9 +110,7 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
       "max-image-preview": "large",
-      "max-snippet": -1,
     },
   },
 };
@@ -100,34 +121,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="h-full" suppressHydrationWarning>
+    <html
+      lang="ja"
+      className={`h-full ${notoSansJp.variable} ${playfair.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');var d=t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches);if(d)document.documentElement.classList.add('dark')}catch(e){}})()`,
           }}
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
-          rel="stylesheet"
-        />
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-277DL28PJW" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-277DL28PJW');`,
-          }}
-        />
-        {/* Google AdSense */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6798688011773123"
-          crossOrigin="anonymous"
-        />
       </head>
       <body
-        className="min-h-full flex flex-col antialiased bg-background text-foreground"
-        style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+        className={`min-h-full flex flex-col antialiased bg-background text-foreground ${notoSansJp.className}`}
       >
         <ThemeProvider>
           <LanguageProvider>
@@ -140,6 +147,22 @@ export default function RootLayout({
             </SidebarProvider>
           </LanguageProvider>
         </ThemeProvider>
+
+        {/* Google Analytics — afterInteractive で TBT を改善 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-277DL28PJW"
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-277DL28PJW');`}
+        </Script>
+
+        {/* Google AdSense — lazyOnload で初期描画をブロックしない */}
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6798688011773123"
+          strategy="lazyOnload"
+          crossOrigin="anonymous"
+        />
       </body>
     </html>
   );

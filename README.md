@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Brief
 
-## Getting Started
+> 日本の政治・経済・業界・トレンドをシンプルに届けるニュース&オピニオンメディア。
 
-First, run the development server:
+[https://thebrief.info](https://thebrief.info)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org) (App Router, static export)
+- **UI**: React 19 + TypeScript 5
+- **Styling**: Tailwind CSS v4
+- **Fonts**: Noto Sans JP / Playfair Display (`next/font/google` でセルフホスト)
+- **OG画像**: `next/og` (`ImageResponse`)
+- **Deploy**: Cloudflare Pages (`out/` を静的配信)
+- **Analytics**: Google Analytics 4 / Google AdSense (`next/script`)
+
+## Project structure
+
+```
+src/
+├── app/                # App Router pages, layouts, sitemap, robots, OG images
+│   ├── politics/       # 政治セクション
+│   ├── economy/        # 経済セクション
+│   ├── industry/       # 業界セクション (17業界)
+│   ├── university/     # 学問セクション
+│   ├── column/         # コラム
+│   └── ...
+├── components/         # UI コンポーネント (Header, Sidebar, ShareButton, JsonLd, etc.)
+└── lib/                # データレイヤ (記事、議員、業界別データなど)
+public/
+├── _headers            # Cloudflare Pages 用キャッシュ/セキュリティヘッダ
+└── manifest.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev          # http://localhost:3000
+npm run build        # 静的エクスポート → out/
+npm run lint         # ESLint
+npm run typecheck    # TypeScript チェック
+npm run test         # Vitest
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy
 
-## Learn More
+Cloudflare Pages の build command を `npm run build`、output directory を `out` に設定。
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npx wrangler pages deploy out
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| 変数名 | 用途 | 必須 |
+| --- | --- | --- |
+| `NEXT_PUBLIC_CONTACT_ENDPOINT` | お問い合わせフォームの送信先 (Formspree, Cloudflare Pages Functions など)。未設定の場合は `mailto:` フォールバック。 | × |
 
-## Deploy on Vercel
+## SEO / Accessibility
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- メタデータ・OGP・Twitter Card を `app/layout.tsx` で集中管理
+- `JsonLd.tsx` に NewsMediaOrganization / WebSite / Article / Breadcrumb / FAQ schema
+- `sitemap.xml` / `robots.txt` / `feed.xml` を動的生成
+- Skip link / `aria-*` 属性 / `prefers-reduced-motion` 対応
+- 多言語(ja/en)切替: `LanguageProvider` + `T` コンポーネント
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Conventions
+
+詳細は `AGENTS.md` を参照してください。
+
+## License
+
+All rights reserved.
