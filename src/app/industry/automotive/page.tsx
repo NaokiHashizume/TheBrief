@@ -2,9 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { automakers, industryStats } from "@/lib/automotive";
+import { automotiveArticles } from "@/lib/automotiveArticles";
 import { AutomakerCards } from "@/components/AutomakerCards";
 import { IndustryFinancialNav } from "@/components/IndustryFinancialNav";
 import { T } from "@/components/T";
+
+function parseReadTime(rt: string): number {
+  const m = rt.match(/(\d+)/);
+  return m ? parseInt(m[1], 10) : 0;
+}
 
 export const metadata: Metadata = {
   title: "自動車 — Industry",
@@ -14,6 +20,12 @@ export const metadata: Metadata = {
 };
 
 export default function AutomotivePage() {
+  const sortedArticles = [...automotiveArticles].sort((a, b) => {
+    const dateCmp = b.date.localeCompare(a.date);
+    if (dateCmp !== 0) return dateCmp;
+    return parseReadTime(a.readTime) - parseReadTime(b.readTime);
+  });
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       <BreadcrumbJsonLd
@@ -90,6 +102,33 @@ export default function AutomotivePage() {
 
       {/* Automaker Cards */}
       <AutomakerCards automakers={automakers} />
+
+      <div className="h-px bg-brief-border my-10" />
+
+      {/* Articles */}
+      <div className="mb-4 flex items-baseline justify-between">
+        <h2 className="font-serif text-xl md:text-2xl font-bold"><T ja="自動車の記事" en="Automotive Articles" /></h2>
+        <span className="text-[10px] uppercase tracking-[2px] text-foreground/40">{sortedArticles.length} {sortedArticles.length === 1 ? "article" : "articles"}</span>
+      </div>
+      <div className="space-y-4">
+        {sortedArticles.map((article) => (
+          <Link key={article.slug} href={`/industry/automotive/${article.slug}`} className="group block p-5 rounded-xl border border-brief-border hover:border-[#ef4444]/30 bg-brief-card transition-all">
+            <div className="flex items-center gap-2 mb-2">
+              <time className="text-[10px] tabular-nums text-foreground/45">{article.date}</time>
+              <span className="text-[10px] text-foreground/45">·</span>
+              <span className="text-[10px] text-foreground/45">{article.readTime}</span>
+            </div>
+            <h3 className="font-serif text-lg font-bold leading-snug group-hover:text-[#ef4444] transition-colors">{article.title}</h3>
+            <p className="mt-2 text-sm text-foreground/55 leading-relaxed line-clamp-2">{article.summary}</p>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {article.tags.map((tag) => (<span key={tag} className="text-[9px] px-2 py-0.5 rounded-full bg-[#ef4444]/8 text-[#ef4444]/70 font-medium">{tag}</span>))}
+            </div>
+          </Link>
+        ))}
+      </div>
+      <div className="mt-8 p-5 rounded-xl border border-dashed border-brief-border text-center">
+        <p className="text-sm text-foreground/45 italic"><T ja="記事は順次追加されます。" en="More articles coming soon." /></p>
+      </div>
     </div>
   );
 }
