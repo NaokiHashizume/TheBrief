@@ -22,6 +22,15 @@ import {
   AprilReformsDefenseTaxDiagram,
   AprilReformsGXETSDiagram,
 } from "@/components/AprilReformsDiagrams";
+import {
+  NiaOverviewDiagram,
+  NiaCurrentMapDiagram,
+  NiaStructureDiagram,
+  NiaPhase2Diagram,
+  NiaInternationalDiagram,
+  NiaVsNscDiagram,
+  NiaStakeholdersDiagram,
+} from "@/components/NiaDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -107,6 +116,13 @@ const diagramMap: Record<string, React.FC> = {
   "april-reforms-pension": AprilReformsPensionDiagram,
   "april-reforms-defense-tax": AprilReformsDefenseTaxDiagram,
   "april-reforms-gx-ets": AprilReformsGXETSDiagram,
+  "nia-overview": NiaOverviewDiagram,
+  "nia-current-map": NiaCurrentMapDiagram,
+  "nia-structure": NiaStructureDiagram,
+  "nia-phase2": NiaPhase2Diagram,
+  "nia-international": NiaInternationalDiagram,
+  "nia-vs-nsc": NiaVsNscDiagram,
+  "nia-stakeholders": NiaStakeholdersDiagram,
 };
 
 export default async function PoliticsArticlePage({
