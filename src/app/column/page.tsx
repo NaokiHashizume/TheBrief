@@ -21,6 +21,36 @@ type ColumnItem = {
   tags: string[];
 };
 
+type SpecialItem = {
+  slug: string;
+  label: string;
+  title: string;
+  description: string;
+  count: string;
+  accent: string;
+};
+
+const specials: SpecialItem[] = [
+  {
+    slug: "movies-special",
+    label: "Special / Movies",
+    title: "映画特集 — 政治・経済・社会を読み解く名作10選",
+    description:
+      "金融危機、報道の自由、企業倫理、戦争と政治。TheBriefが扱うテーマを物語として体験できる映画10本を厳選しました。",
+    count: "10 films",
+    accent: "#7c3aed",
+  },
+  {
+    slug: "reading-special",
+    label: "Special / Reading",
+    title: "読書特集 — 政治・経済・社会を考えるための10冊",
+    description:
+      "経済学、行動科学、政治哲学、ジャーナリズム。ニュースの背景にある思想と歴史を学ぶ定番と新定番の10冊。",
+    count: "10 books",
+    accent: "#d97706",
+  },
+];
+
 const columns: ColumnItem[] = [
   {
     slug: "salaryman-tax-saving",
@@ -87,6 +117,60 @@ export default function ColumnIndexPage() {
         <p className="mt-5 max-w-2xl text-sm md:text-[15px] leading-relaxed text-foreground/70">
           Politics・Economy・Industry・University では拾いきれない、日々の暮らしや働き方、お金の仕組みについての短い読み物をコラムとしてまとめます。ちょっとした工夫で得をすることや、知らないと損する制度を中心に。
         </p>
+      </section>
+
+      {/* Specials */}
+      <section className="mt-10">
+        <div className="mb-4 flex items-baseline justify-between">
+          <h2 className="font-serif text-2xl font-bold">特集</h2>
+          <span className="text-[11px] uppercase tracking-[2px] text-foreground/40">
+            {specials.length} specials
+          </span>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          {specials.map((s) => (
+            <Link
+              key={s.slug}
+              href={`/column/${s.slug}`}
+              className="group block p-6 rounded-2xl border border-brief-border bg-brief-card transition-all hover:-translate-y-0.5"
+              style={{
+                background: `linear-gradient(135deg, ${s.accent}10, rgba(255,255,255,0.4))`,
+              }}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <span
+                  className="text-[10px] px-2 py-0.5 rounded-md font-semibold uppercase tracking-[2px]"
+                  style={{
+                    color: s.accent,
+                    backgroundColor: `${s.accent}14`,
+                  }}
+                >
+                  {s.label}
+                </span>
+                <span className="text-[10px] tabular-nums text-foreground/45">{s.count}</span>
+              </div>
+
+              <h3
+                className="font-serif text-lg md:text-xl font-bold leading-snug transition-colors group-hover:text-[color:var(--hover-color)]"
+                style={{ ["--hover-color" as string]: s.accent }}
+              >
+                {s.title}
+              </h3>
+
+              <p className="mt-3 text-sm text-foreground/60 leading-relaxed line-clamp-3">
+                {s.description}
+              </p>
+
+              <p
+                className="mt-4 text-xs font-semibold"
+                style={{ color: s.accent }}
+              >
+                特集を読む →
+              </p>
+            </Link>
+          ))}
+        </div>
       </section>
 
       {/* Column list */}
