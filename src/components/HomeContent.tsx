@@ -13,25 +13,25 @@ const snapshotStats = [
     noteEn: "Politics / Economy / Industry / University",
   },
   {
-    value: "19",
+    value: "17",
     labelJa: "業界ページ",
     labelEn: "Industry pages",
     noteJa: "AI・情報通信・自動車・金融・エネルギーなど",
     noteEn: "AI, ICT, automotive, finance, energy, and more",
   },
   {
-    value: "4",
-    labelJa: "経済記事",
-    labelEn: "Economy articles",
-    noteJa: "財政政策・消費税・地政学リスクを深掘り",
-    noteEn: "Fiscal policy, tax, and geopolitical risk analysis",
+    value: "39",
+    labelJa: "大学レクチャー",
+    labelEn: "University lectures",
+    noteJa: "形式・自然・人文・社会・応用・学際の全分野",
+    noteEn: "Formal, natural, humanities, social, applied, interdisciplinary",
   },
   {
-    value: "8",
+    value: "10",
     labelJa: "政治サブページ",
     labelEn: "Politics sub-pages",
-    noteJa: "国会・内閣・法案・議員・官公庁リンク集",
-    noteEn: "Diet, Cabinet, bills, legislators, and more",
+    noteJa: "国会・内閣・法案・議員・課題・官公庁",
+    noteEn: "Diet, Cabinet, bills, legislators, challenges, and more",
   },
 ];
 
@@ -41,8 +41,8 @@ const mainSections = [
     color: "#e53e3e",
     titleJa: "Politics",
     titleEn: "Politics",
-    descJa: "国会、内閣、議員、法案の現在地を一画面で。",
-    descEn: "Track the Diet, Cabinet, legislators, and bills in one place.",
+    descJa: "国会、内閣、議員、法案、日本が抱える課題までを一画面で。",
+    descEn: "Track the Diet, Cabinet, legislators, bills, and Japan's structural challenges.",
     items: [
       {
         ja: "衆議院・参議院の議席数と勢力図",
@@ -55,9 +55,9 @@ const mainSections = [
         href: "/politics/debates",
       },
       {
-        ja: "第2次高市内閣と主要閣僚",
-        en: "2nd Takaichi Cabinet and ministers",
-        href: "/politics/cabinet",
+        ja: "日本が抱える7つの構造的課題",
+        en: "Japan's seven structural challenges",
+        href: "/politics/challenges",
       },
     ],
   },
@@ -91,12 +91,12 @@ const mainSections = [
     color: "#1e8449",
     titleJa: "Industry",
     titleEn: "Industry",
-    descJa: "19業界の構造、企業、収益モデル、テーマ別記事。",
-    descEn: "Nineteen sectors, business models, and theme-based articles.",
+    descJa: "17業界の構造、企業、収益モデル、テーマ別記事。",
+    descEn: "Seventeen sectors, business models, and theme-based articles.",
     items: [
       {
-        ja: "19業界の一覧と主要テーマ",
-        en: "All 19 sectors and their key themes",
+        ja: "17業界の一覧と主要テーマ",
+        en: "All 17 sectors and their key themes",
         href: "/industry",
       },
       {
@@ -116,23 +116,23 @@ const mainSections = [
     color: "#6366f1",
     titleJa: "University",
     titleEn: "University",
-    descJa: "学問体系を俯瞰し、研究領域への入口をつくる。",
-    descEn: "A structured entry point into academic disciplines and research.",
+    descJa: "6カテゴリ・39分野のレクチャーで学問体系を体験する。",
+    descEn: "Six domains and 39 fields of structured lectures across academia.",
     items: [
       {
-        ja: "学問の全体マップ",
-        en: "High-level academic map",
+        ja: "6カテゴリ・39分野の全体マップ",
+        en: "Six domains, 39 fields — academic map",
         href: "/university",
       },
       {
-        ja: "形式科学・自然科学の詳細",
-        en: "Formal and natural sciences detail",
-        href: "/university/formal",
+        ja: "数学レクチャー（形式科学）",
+        en: "Mathematics lecture (formal sciences)",
+        href: "/university/formal/math",
       },
       {
-        ja: "社会科学・学際領域の詳細",
-        en: "Social sciences and interdisciplinary detail",
-        href: "/university/social",
+        ja: "データサイエンスレクチャー（学際領域）",
+        en: "Data science lecture (interdisciplinary)",
+        href: "/university/interdisciplinary/data-science",
       },
     ],
   },
@@ -140,14 +140,14 @@ const mainSections = [
 
 const featuredDestinations = [
   {
-    href: "/politics/debates",
+    href: "/politics/challenges",
     accent: "#e53e3e",
     eyebrowJa: "Politics Now",
     eyebrowEn: "Politics Now",
-    titleJa: "法案の進行状況を追う",
-    titleEn: "Track bills in motion",
-    bodyJa: "審議中、成立済、施行済の3段階で国会の現在地を素早く把握できます。",
-    bodyEn: "Follow legislative movement across debating, passed, and enacted stages.",
+    titleJa: "日本が抱える7つの課題を俯瞰する",
+    titleEn: "Survey Japan's seven challenges",
+    bodyJa: "少子高齢化、財政、エネルギー、安全保障など、日本が直面する構造的課題をまとめています。",
+    bodyEn: "Demographics, fiscal pressure, energy, and security — the structural issues facing Japan.",
   },
   {
     href: "/economy",
@@ -172,12 +172,12 @@ const featuredDestinations = [
   {
     href: "/university",
     accent: "#6366f1",
-    eyebrowJa: "Knowledge Map",
-    eyebrowEn: "Knowledge Map",
-    titleJa: "学問の全体像を俯瞰する",
-    titleEn: "Survey the academic landscape",
-    bodyJa: "形式科学から学際領域まで、大分類から中分類へたどれる構造で学問体系を整理しています。",
-    bodyEn: "Formal sciences to interdisciplinary fields — navigate the academic taxonomy from domains to subfields.",
+    eyebrowJa: "Lecture Library",
+    eyebrowEn: "Lecture Library",
+    titleJa: "39の講義で学問を体験する",
+    titleEn: "Experience scholarship through 39 lectures",
+    bodyJa: "形式・自然・人文・社会・応用・学際の6カテゴリ・39分野を、章立て形式の統一されたレクチャーで読み進められます。",
+    bodyEn: "Read 39 unified, chapter-based lectures spanning all six academic domains.",
   },
 ];
 
@@ -313,15 +313,15 @@ export function HomeContent() {
           <h1 className="mt-8 max-w-4xl font-serif text-[32px] font-bold leading-[1.15] tracking-tight md:text-[56px]">
             {locale === "ja" ? (
               <>
-                日本の政治・経済・産業を
+                日本の政治・経済・産業・学問を
                 <br className="hidden md:block" />
                 <span className="text-brief-red">構造から理解する。</span>
               </>
             ) : (
               <>
-                Understand Japan&apos;s politics,
+                Understand Japan&apos;s politics, economy,
                 <br className="hidden md:block" />
-                economy, and industry{" "}
+                industry, and scholarship{" "}
                 <span className="text-brief-red">structurally.</span>
               </>
             )}
@@ -329,8 +329,8 @@ export function HomeContent() {
 
           <p className="mt-5 max-w-3xl text-sm leading-relaxed text-foreground/62 md:text-[15px]">
             {locale === "ja"
-              ? "国会の議席構成、経済指標ダッシュボード、19業界の分析、そして学問体系のマップ。The Briefは、日本の今をデータと構造で整理し、次に何を読むべきかを明確にします。"
-              : "Diet seat composition, economic indicator dashboards, analysis across 19 industries, and an academic discipline map. The Brief organizes Japan's current landscape with data and structure."}
+              ? "国会の議席構成と日本が抱える課題、経済指標ダッシュボード、17業界の構造分析、そして6カテゴリ・39分野にわたる大学レクチャー。The Briefは、日本の今をデータと構造で整理し、次に何を読むべきかを明確にします。"
+              : "Diet seat composition and Japan's structural challenges, economic dashboards, 17 industry deep-dives, and 39 university lectures across six academic domains. The Brief organizes Japan's current landscape with data and structure."}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -472,7 +472,7 @@ export function HomeContent() {
               href="/industry"
               className="text-sm flex items-center gap-1 hover:text-[#1e8449] transition-colors group"
             >
-              <span>{locale === "ja" ? "全19業界を見る" : "View all 19 sectors"}</span>
+              <span>{locale === "ja" ? "全17業界を見る" : "View all 17 sectors"}</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
                 <polyline points="9 18 15 12 9 6" />
               </svg>
@@ -510,19 +510,19 @@ export function HomeContent() {
 
       <section className="max-w-3xl mx-auto px-4 py-16 text-center">
         <h2 className="font-serif text-2xl md:text-3xl font-bold">
-          {locale === "ja" ? "日本の今を、構造で読む。" : "Read Japan through structure."}
+          {locale === "ja" ? "日本の今と、知の全体像を構造で読む。" : "Read Japan and the world of knowledge — structurally."}
         </h2>
         <p className="mt-4 text-sm text-foreground/50 leading-relaxed max-w-xl mx-auto font-light">
           {locale === "ja"
-            ? "制度を知るなら Politics、景気を読むなら Economy、業界を比べるなら Industry、知の全体像なら University。"
-            : "Politics for institutions, Economy for macro indicators, Industry for sector comparison, University for the knowledge map."}
+            ? "制度を知るなら Politics、景気を読むなら Economy、業界を比べるなら Industry、学問を体験するなら University。"
+            : "Politics for institutions, Economy for macro indicators, Industry for sector comparison, University to experience scholarship."}
         </p>
         <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
           <Link
-            href="/economy"
+            href="/university"
             className="px-6 py-2.5 bg-brief-red text-white text-sm font-medium rounded-sm hover:bg-brief-red/90 transition-all"
           >
-            {locale === "ja" ? "Economy を開く" : "Open Economy"}
+            {locale === "ja" ? "University を開く" : "Open University"}
           </Link>
           <Link
             href="/industry"
