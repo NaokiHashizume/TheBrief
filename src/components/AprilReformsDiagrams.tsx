@@ -23,7 +23,7 @@ function Card({
     >
       <figcaption className="mb-5">
         <div className="text-[10px] tracking-[2.5px] uppercase font-bold text-brief-red/60 mb-1">
-          Figure
+          図表
         </div>
         <div className="font-serif text-[15px] font-bold text-foreground">{title}</div>
         {subtitle && (

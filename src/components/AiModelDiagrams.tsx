@@ -329,7 +329,7 @@ export function ContextWindowDiagram() {
                 {m.name}
               </span>
               <span className="text-[10px] text-foreground/45 tabular-nums">
-                {(m.tokens / 1000).toLocaleString()}K tokens
+                {(m.tokens / 1000).toLocaleString()}Kトークン
               </span>
             </div>
             <div className="h-5 bg-foreground/[0.04] rounded-full overflow-hidden">
@@ -342,7 +342,7 @@ export function ContextWindowDiagram() {
                 }}
               >
                 <span className="text-[9px] font-medium text-foreground/50">
-                  max output: {m.maxOutput}
+                  最大出力: {m.maxOutput}
                 </span>
               </div>
             </div>

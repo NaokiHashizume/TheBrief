@@ -37,7 +37,7 @@ export function ConductorComparisonDiagram() {
   const materials = [
     {
       name: "導体",
-      nameEn: "Conductor",
+      nameEn: "導体",
       examples: "銅、金、アルミニウム",
       bandGap: "0 eV",
       desc: "電気をよく通す。自由電子が豊富。",
@@ -46,7 +46,7 @@ export function ConductorComparisonDiagram() {
     },
     {
       name: "半導体",
-      nameEn: "Semiconductor",
+      nameEn: "半導体",
       examples: "シリコン、ゲルマニウム",
       bandGap: "0.1〜4 eV",
       desc: "条件次第で電気を通したり通さなかったりする。",
@@ -55,7 +55,7 @@ export function ConductorComparisonDiagram() {
     },
     {
       name: "絶縁体",
-      nameEn: "Insulator",
+      nameEn: "絶縁体",
       examples: "ガラス、ゴム、セラミック",
       bandGap: "4 eV 以上",
       desc: "電気をほとんど通さない。",
@@ -428,7 +428,7 @@ export function ChipTypesDiagram() {
   const types = [
     {
       name: "ロジック半導体",
-      nameEn: "Logic",
+      nameEn: "ロジック",
       examples: "CPU, GPU, SoC",
       use: "演算・制御処理",
       color: "#3b82f6",
@@ -436,7 +436,7 @@ export function ChipTypesDiagram() {
     },
     {
       name: "メモリ半導体",
-      nameEn: "Memory",
+      nameEn: "メモリ",
       examples: "DRAM, NAND Flash",
       use: "データの記憶・保存",
       color: "#8b5cf6",
@@ -444,7 +444,7 @@ export function ChipTypesDiagram() {
     },
     {
       name: "アナログ半導体",
-      nameEn: "Analog",
+      nameEn: "アナログ",
       examples: "パワーIC, センサー",
       use: "アナログ信号処理",
       color: "#f59e0b",
@@ -452,7 +452,7 @@ export function ChipTypesDiagram() {
     },
     {
       name: "ディスクリート",
-      nameEn: "Discrete",
+      nameEn: "ディスクリート",
       examples: "パワー半導体, IGBT",
       use: "電力変換・制御",
       color: "#10b981",
@@ -460,7 +460,7 @@ export function ChipTypesDiagram() {
     },
     {
       name: "光半導体",
-      nameEn: "Opto",
+      nameEn: "光半導体",
       examples: "LED, イメージセンサー",
       use: "光電変換",
       color: "#ef4444",
