@@ -29,7 +29,7 @@ function Card({
           className="text-[10px] tracking-[2.5px] uppercase font-bold mb-1"
           style={{ color: `${MSFT}aa` }}
         >
-          Figure
+          図
         </div>
         <div className="font-serif text-[15px] font-bold text-foreground">
           {title}
@@ -191,7 +191,7 @@ export function MsftJpTalentDiagram() {
             className="text-[11px] tracking-[2px] uppercase font-bold"
             style={{ color: AI }}
           >
-            Target by 2030
+            2030年までの目標
           </div>
           <div
             className="text-[36px] font-bold tabular-nums mt-1"

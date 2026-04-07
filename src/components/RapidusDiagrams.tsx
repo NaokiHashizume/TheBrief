@@ -28,7 +28,7 @@ function Card({
           className="text-[10px] tracking-[2.5px] uppercase font-bold mb-1"
           style={{ color: `${ICT}99` }}
         >
-          Figure
+          図表
         </div>
         <div className="font-serif text-[15px] font-bold text-foreground">
           {title}

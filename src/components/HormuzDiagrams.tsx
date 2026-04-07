@@ -70,7 +70,7 @@ export function CrisisTimelineDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        2026 Hormuz Strait Crisis
+        2026年ホルムズ海峡危機
       </div>
       <div className="text-xs text-foreground/50 mb-5">
         2026年2月〜3月の主要イベント
@@ -160,7 +160,7 @@ export function OilDependencyDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        Japan&apos;s Energy Import Sources (2025)
+        日本のエネルギー輸入元（2025年）
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -274,7 +274,7 @@ export function EconomicImpactDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Economic Impact Scenarios
+        経済影響シナリオ
       </div>
       <div className="text-xs text-foreground/50 mb-5">
         原油価格シナリオ別の日本経済への影響試算（NRI・日本総研）
@@ -377,7 +377,7 @@ export function OilReservesDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Japan&apos;s Strategic Petroleum Reserves
+        日本の戦略石油備蓄
       </div>
       <div className="text-xs text-foreground/50 mb-5">
         2026年1月末時点（IEA協調放出後）
@@ -502,7 +502,7 @@ export function IndustryImpactDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Industry Impact Assessment
+        産業別影響評価
       </div>
       <div className="text-xs text-foreground/50 mb-4">
         産業別の影響度（5段階: 1=軽微 〜 5=深刻）
@@ -629,7 +629,7 @@ export function HistoricalComparisonDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card overflow-x-auto">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Historical Oil Crisis Comparison
+        過去の石油危機との比較
       </div>
       <div className="text-xs text-foreground/50 mb-4">
         過去の石油危機との比較
@@ -712,7 +712,7 @@ export function EnergyStrategyDiagram() {
   const strategies = [
     {
       timeframe: "短期",
-      timeframeEn: "Short-term",
+      timeframeEn: "短期",
       period: "〜6カ月",
       color: "#3b82f6",
       items: [
@@ -723,7 +723,7 @@ export function EnergyStrategyDiagram() {
     },
     {
       timeframe: "中期",
-      timeframeEn: "Mid-term",
+      timeframeEn: "中期",
       period: "1〜5年",
       color: "#8b5cf6",
       items: [
@@ -734,7 +734,7 @@ export function EnergyStrategyDiagram() {
     },
     {
       timeframe: "長期",
-      timeframeEn: "Long-term",
+      timeframeEn: "長期",
       period: "5〜15年",
       color: "#10b981",
       items: [
@@ -748,7 +748,7 @@ export function EnergyStrategyDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Japan&apos;s Energy Security Roadmap
+        日本のエネルギー安全保障ロードマップ
       </div>
       <div className="text-xs text-foreground/50 mb-5">
         エネルギー安全保障の構造的対策ロードマップ

@@ -29,7 +29,7 @@ function Card({
           className="text-[10px] tracking-[2.5px] uppercase font-bold mb-1"
           style={{ color: `${ECON}aa` }}
         >
-          Figure
+          図
         </div>
         <div className="font-serif text-[15px] font-bold text-foreground">
           {title}
@@ -56,7 +56,7 @@ export function GxEtsOverviewDiagram() {
           style={{ backgroundColor: "#94a3b820" }}
         >
           <div className="text-[10px] tracking-[1.5px] uppercase font-bold text-foreground/60">
-            BEFORE 2025
+            2025年以前
           </div>
           <div className="text-[14px] font-bold text-foreground mt-1">
             GXリーグ（自主参加）
@@ -78,7 +78,7 @@ export function GxEtsOverviewDiagram() {
             className="text-[10px] tracking-[1.5px] uppercase font-bold"
             style={{ color: ECON }}
           >
-            FROM 2026-04
+            2026年4月から
           </div>
           <div className="text-[14px] font-bold text-foreground mt-1">
             GX-ETS（義務制度）
@@ -370,7 +370,7 @@ export function GxEtsInternationalDiagram() {
           <div key={c.name}>
             <div className="flex justify-between text-[12px] mb-1">
               <span className="font-bold text-foreground">
-                {c.name} <span className="text-foreground/50 font-normal">since {c.since}</span>
+                {c.name} <span className="text-foreground/50 font-normal">{c.since}年〜</span>
               </span>
               <span className="font-bold tabular-nums" style={{ color: c.color }}>
                 {c.price}/t
