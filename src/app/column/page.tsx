@@ -23,6 +23,16 @@ type ColumnItem = {
 
 const columns: ColumnItem[] = [
   {
+    slug: "salaryman-tax-saving",
+    title: "社会人のための節税方法 — 知らないと損する7つの制度",
+    titleEn: "A Salaryman's Guide to Tax Saving in 2026",
+    summary:
+      "会社員でも使える節税策は意外と多い。ふるさと納税・iDeCo・新NISA・医療費控除・生命保険料控除・住宅ローン控除・特定支出控除の7つを、2026年現在の制度に沿って整理します。",
+    date: "2026-04-07",
+    readTime: "約 10 分",
+    tags: ["税金", "節税", "ライフハック"],
+  },
+  {
     slug: "overtime-april-june",
     title: "なぜ4月から6月は残業したらダメなのか",
     titleEn: "Why You Shouldn't Work Overtime from April to June",
