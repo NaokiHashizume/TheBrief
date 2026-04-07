@@ -53,6 +53,16 @@ const specials: SpecialItem[] = [
 
 const columns: ColumnItem[] = [
   {
+    slug: "salaryman-side-business-tax",
+    title: "サラリーマンが副業を始める前に知る税務 — 20万円の壁から開業届まで",
+    titleEn: "Tax Basics for the Salaried Side-Hustler",
+    summary:
+      "20万円の壁、雑所得と事業所得の境目、開業届と青色申告、家事按分、住民税の普通徴収。副業を始める前に最低限知っておきたい税務の基本を整理します。",
+    date: "2026-04-08",
+    readTime: "約 11 分",
+    tags: ["副業", "税金", "ライフハック"],
+  },
+  {
     slug: "own-vs-rent-2026",
     title: "持ち家 vs 賃貸 — 2026年の金利と物価で再計算する",
     titleEn: "Own vs Rent — Recalculated for 2026",
