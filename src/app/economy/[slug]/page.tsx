@@ -70,6 +70,14 @@ import {
   P2026CascadeDiagram,
   P2026SolutionsDiagram,
 } from "@/components/Problem2026Diagrams";
+import {
+  BojHistoryDiagram,
+  BojTerminalDiagram,
+  BojNeutralRateDiagram,
+  BojPoliticsDiagram,
+  BojImpactDiagram,
+  BojTriggersDiagram,
+} from "@/components/BojRateHikeDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -193,6 +201,12 @@ const diagramMap: Record<string, React.FC> = {
   "p2026-bankruptcy-stats": P2026BankruptcyStatsDiagram,
   "p2026-cascade": P2026CascadeDiagram,
   "p2026-solutions": P2026SolutionsDiagram,
+  "boj-history": BojHistoryDiagram,
+  "boj-terminal": BojTerminalDiagram,
+  "boj-neutral-rate": BojNeutralRateDiagram,
+  "boj-politics": BojPoliticsDiagram,
+  "boj-impact": BojImpactDiagram,
+  "boj-triggers": BojTriggersDiagram,
 };
 
 export default async function EconomyArticlePage({
