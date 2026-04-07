@@ -14,6 +14,14 @@ import {
   RetailInnovationDiagram,
   ShoshaRetailStrategyDiagram,
 } from "@/components/RetailDiagrams";
+import {
+  ShoshaOverviewDiagram,
+  ShoshaRevenueModelDiagram,
+  ShoshaFiveComparisonDiagram,
+  ShoshaBuffettDiagram,
+  ShoshaSegmentsDiagram,
+  ShoshaFutureDiagram,
+} from "@/components/SogoShoshaDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -181,6 +189,12 @@ export default async function TradingArticlePage({
             {section.diagramId === "retail-challenges" && <RetailChallengesDiagram />}
             {section.diagramId === "retail-innovation" && <RetailInnovationDiagram />}
             {section.diagramId === "shosha-retail-strategy" && <ShoshaRetailStrategyDiagram />}
+            {section.diagramId === "shosha-overview" && <ShoshaOverviewDiagram />}
+            {section.diagramId === "shosha-revenue-model" && <ShoshaRevenueModelDiagram />}
+            {section.diagramId === "shosha-five-comparison" && <ShoshaFiveComparisonDiagram />}
+            {section.diagramId === "shosha-buffett" && <ShoshaBuffettDiagram />}
+            {section.diagramId === "shosha-segments" && <ShoshaSegmentsDiagram />}
+            {section.diagramId === "shosha-future" && <ShoshaFutureDiagram />}
 
             {/* Section body */}
             <div className="space-y-4">
