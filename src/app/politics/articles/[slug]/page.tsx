@@ -12,6 +12,16 @@ import {
   JapanLaborShortageDiagram,
   JapanSelfSufficiencyDiagram,
 } from "@/components/JapanChallengesDiagrams";
+import {
+  AprilReformsOverviewDiagram,
+  AprilReformsJointCustodyDiagram,
+  AprilReformsBicycleDiagram,
+  AprilReformsHyakuSanjuDiagram,
+  AprilReformsChildcareFundDiagram,
+  AprilReformsPensionDiagram,
+  AprilReformsDefenseTaxDiagram,
+  AprilReformsGXETSDiagram,
+} from "@/components/AprilReformsDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -89,6 +99,14 @@ const diagramMap: Record<string, React.FC> = {
   "japan-defense-spending": JapanDefenseSpendingDiagram,
   "japan-labor-shortage": JapanLaborShortageDiagram,
   "japan-self-sufficiency": JapanSelfSufficiencyDiagram,
+  "april-reforms-overview": AprilReformsOverviewDiagram,
+  "april-reforms-joint-custody": AprilReformsJointCustodyDiagram,
+  "april-reforms-bicycle": AprilReformsBicycleDiagram,
+  "april-reforms-130man": AprilReformsHyakuSanjuDiagram,
+  "april-reforms-childcare-fund": AprilReformsChildcareFundDiagram,
+  "april-reforms-pension": AprilReformsPensionDiagram,
+  "april-reforms-defense-tax": AprilReformsDefenseTaxDiagram,
+  "april-reforms-gx-ets": AprilReformsGXETSDiagram,
 };
 
 export default async function PoliticsArticlePage({
