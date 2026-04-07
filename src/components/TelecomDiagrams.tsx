@@ -144,7 +144,7 @@ export function ModulationTypesDiagram() {
     {
       name: "AM",
       full: "振幅変調",
-      nameEn: "Amplitude Modulation",
+      nameEn: "振幅変調方式",
       desc: "波の高さを変えてデータを表現",
       example: "AMラジオ",
       path: "M0,18 Q10,4 20,18 Q30,32 40,18 Q50,10 60,18 Q70,26 80,18 Q90,4 100,18 Q110,32 120,18",
@@ -152,7 +152,7 @@ export function ModulationTypesDiagram() {
     {
       name: "FM",
       full: "周波数変調",
-      nameEn: "Frequency Modulation",
+      nameEn: "周波数変調方式",
       desc: "波の速さを変えてデータを表現",
       example: "FMラジオ",
       path: "M0,18 Q5,4 10,18 Q15,32 20,18 Q25,4 30,18 Q35,32 40,18 Q50,4 60,18 Q70,32 80,18 Q85,4 90,18 Q95,32 100,18 Q105,4 110,18 Q115,32 120,18",
@@ -160,7 +160,7 @@ export function ModulationTypesDiagram() {
     {
       name: "PM",
       full: "位相変調",
-      nameEn: "Phase Modulation",
+      nameEn: "位相変調方式",
       desc: "波のタイミングをずらしてデータを表現",
       example: "デジタル通信",
       path: "M0,18 Q10,4 20,18 Q30,32 40,18 Q50,32 60,18 Q70,4 80,18 Q90,32 100,18 Q110,4 120,18",
@@ -297,7 +297,7 @@ export function CellNetworkDiagram() {
                   )}
                 </svg>
                 <div className="text-[7px] text-foreground/25 mt-0.5 font-medium">
-                  {isCenter ? "現在" : isActive ? "移動中" : "Cell"}
+                  {isCenter ? "現在" : isActive ? "移動中" : "セル"}
                 </div>
               </div>
             );
@@ -308,13 +308,13 @@ export function CellNetworkDiagram() {
       <div className="p-4 rounded-xl bg-foreground/[0.015] border border-foreground/[0.04] mb-4">
         <div className="text-[11px] font-semibold text-foreground/45 mb-2.5 tracking-wide">ハンドオーバー</div>
         <div className="flex items-center gap-2 text-[10px] text-foreground/40 overflow-x-auto">
-          <span className="flex-shrink-0 px-2.5 py-1 rounded-md bg-foreground/[0.04] border border-foreground/[0.06] font-medium">Cell A</span>
+          <span className="flex-shrink-0 px-2.5 py-1 rounded-md bg-foreground/[0.04] border border-foreground/[0.06] font-medium">セルA</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-foreground/15 flex-shrink-0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           <span className="flex-shrink-0 text-foreground/25 text-[9px]">電波弱</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-foreground/15 flex-shrink-0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           <span className="flex-shrink-0 px-2.5 py-1 rounded-md bg-foreground/[0.06] border border-foreground/[0.08] font-semibold text-foreground/50">切替</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-foreground/15 flex-shrink-0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          <span className="flex-shrink-0 px-2.5 py-1 rounded-md bg-foreground/[0.04] border border-foreground/[0.06] font-medium">Cell B</span>
+          <span className="flex-shrink-0 px-2.5 py-1 rounded-md bg-foreground/[0.04] border border-foreground/[0.06] font-medium">セルB</span>
         </div>
       </div>
       {/* Carrier shares */}

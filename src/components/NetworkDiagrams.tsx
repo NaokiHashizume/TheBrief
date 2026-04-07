@@ -93,9 +93,9 @@ export function TcpIpLayerDiagram() {
         })}
       </div>
       <div className="mt-3 flex items-center justify-between text-[9px] text-foreground/20 font-medium">
-        <span>User-facing</span>
+        <span>ユーザー側</span>
         <div className="flex-1 mx-3 h-px bg-gradient-to-r from-foreground/5 via-foreground/10 to-foreground/5" />
-        <span>Hardware</span>
+        <span>ハードウェア側</span>
       </div>
     </DiagramCard>
   );
@@ -174,7 +174,7 @@ export function DnsHierarchyDiagram() {
         {/* Root */}
         <div className="px-6 py-3 rounded-xl bg-foreground/[0.03] border border-foreground/[0.06] text-center">
           <div className="text-sm font-bold text-foreground/60">. (ルート)</div>
-          <div className="text-[9px] text-foreground/30 mt-0.5">Root Servers — 世界13系統</div>
+          <div className="text-[9px] text-foreground/30 mt-0.5">ルートサーバー — 世界13系統</div>
         </div>
         <div className="h-5 border-l border-dashed border-foreground/10" />
         {/* TLD */}

@@ -424,7 +424,7 @@ export function ThreeScenariosDiagram() {
   const scenarios = [
     {
       name: "楽観",
-      nameEn: "Optimistic",
+      nameEn: "楽観シナリオ",
       growth: "名目GDP 3%+",
       pb: "PB黒字定着",
       risk: "低",
@@ -433,7 +433,7 @@ export function ThreeScenariosDiagram() {
     },
     {
       name: "基本",
-      nameEn: "Base",
+      nameEn: "基本シナリオ",
       growth: "名目GDP 1-2%",
       pb: "補正込みで赤字",
       risk: "中",
@@ -442,7 +442,7 @@ export function ThreeScenariosDiagram() {
     },
     {
       name: "悲観",
-      nameEn: "Pessimistic",
+      nameEn: "悲観シナリオ",
       growth: "成長鈍化",
       pb: "赤字拡大",
       risk: "高",

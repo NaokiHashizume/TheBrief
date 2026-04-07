@@ -50,7 +50,7 @@ export function Gemma4ModelFamilyDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Gemma 4 Model Family
+        Gemma 4 モデルファミリー
       </div>
       <div className="text-xs text-foreground/50 mb-5">
         4つのモデルバリエーション — エッジからクラウドまで
@@ -174,7 +174,7 @@ export function Gemma4BenchmarkDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Benchmark Performance
+        ベンチマーク性能
       </div>
       <div className="text-xs text-foreground/50 mb-4">
         主要ベンチマークでのスコア比較（%）
@@ -241,7 +241,7 @@ export function Gemma4ArchitectureDiagram() {
   const layers = [
     {
       name: "入力トークン化",
-      nameEn: "Tokenization",
+      nameEn: "トークン化処理",
       detail: "語彙サイズ 262K、140以上の言語に対応",
       color: "#6366f1",
     },
@@ -253,25 +253,25 @@ export function Gemma4ArchitectureDiagram() {
     },
     {
       name: "ハイブリッドアテンション層",
-      nameEn: "Hybrid Attention Layers",
+      nameEn: "ハイブリッド注意機構",
       detail: "ローカル（スライディングウィンドウ 512-1024トークン）と グローバル（フルコンテキスト）を交互配置",
       color: "#3b82f6",
     },
     {
       name: "Shared KV Cache",
-      nameEn: "Key-Value Cache Sharing",
+      nameEn: "KVキャッシュ共有",
       detail: "後半N層が前半層のKVを再利用 → メモリ使用量を大幅削減",
       color: "#f59e0b",
     },
     {
       name: "ビジョン / オーディオエンコーダ",
-      nameEn: "Vision (~550M) / Audio (~300M)",
+      nameEn: "視覚（約550M）/ 音声（約300M）",
       detail: "可変アスペクト比対応、トークンバジェット設定可能（70〜1120）",
       color: "#ec4899",
     },
     {
       name: "出力生成",
-      nameEn: "Output Generation",
+      nameEn: "出力生成処理",
       detail: "テキスト出力、JSON構造化出力、Function Callingに対応",
       color: "#8b5cf6",
     },
@@ -280,7 +280,7 @@ export function Gemma4ArchitectureDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        Gemma 4 Architecture
+        Gemma 4 アーキテクチャ
       </div>
       <div className="space-y-2">
         {layers.map((layer, i) => (
@@ -384,7 +384,7 @@ export function OpenModelComparisonDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card overflow-x-auto">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Open Model Landscape (2026)
+        オープンモデル動向（2026年）
       </div>
       <div className="text-xs text-foreground/50 mb-4">
         主要オープンモデル比較（2026年4月時点）
@@ -514,7 +514,7 @@ export function Gemma4UseCasesDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Deployment & Use Cases
+        デプロイとユースケース
       </div>
       <div className="text-xs text-foreground/50 mb-5">
         モデル選択ガイド — ユースケース別の推奨構成
@@ -567,7 +567,7 @@ export function Gemma4CodeExampleDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Quick Start Code Examples
+        クイックスタート コード例
       </div>
       <div className="text-xs text-foreground/50 mb-4">
         Hugging Face Transformers を使った基本的な使い方

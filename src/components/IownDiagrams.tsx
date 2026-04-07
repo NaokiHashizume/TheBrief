@@ -105,11 +105,11 @@ export function IownOverviewDiagram() {
    ───────────────────────────────────────────── */
 export function ApnArchitectureDiagram() {
   const layers = [
-    { name: "端末・デバイス", nameEn: "Terminals", desc: "光電融合チップ搭載端末・サーバー" },
-    { name: "アクセスネットワーク", nameEn: "Access Network", desc: "FTTH・基地局からの光接続" },
-    { name: "メトロネットワーク", nameEn: "Metro Network", desc: "都市内光波長パス" },
-    { name: "コアネットワーク", nameEn: "Core Network", desc: "長距離光波長パス（End-to-End）" },
-    { name: "データセンター", nameEn: "Data Center", desc: "光電融合スイッチ・GPUクラスタ" },
+    { name: "端末・デバイス", nameEn: "端末層", desc: "光電融合チップ搭載端末・サーバー" },
+    { name: "アクセスネットワーク", nameEn: "アクセス網", desc: "FTTH・基地局からの光接続" },
+    { name: "メトロネットワーク", nameEn: "都市網", desc: "都市内光波長パス" },
+    { name: "コアネットワーク", nameEn: "基幹網", desc: "長距離光波長パス（エンド・ツー・エンド）" },
+    { name: "データセンター", nameEn: "DC層", desc: "光電融合スイッチ・GPUクラスタ" },
   ];
 
   return (
@@ -215,11 +215,11 @@ export function PhotonicConvergenceDiagram() {
    ───────────────────────────────────────────── */
 export function DtcConceptDiagram() {
   return (
-    <DiagramCard label="Digital Twin Computing コンセプト">
+    <DiagramCard label="デジタルツインコンピューティング コンセプト">
       <div className="flex flex-col items-center mt-3">
         {/* Real world */}
         <div className="w-full p-4 rounded-xl bg-foreground/[0.02] border border-foreground/[0.05]">
-          <div className="text-[11px] font-semibold text-foreground/50 mb-2">現実世界（Physical World）</div>
+          <div className="text-[11px] font-semibold text-foreground/50 mb-2">現実世界（フィジカル空間）</div>
           <div className="flex flex-wrap gap-2">
             {["人間", "モノ（IoT）", "都市インフラ", "自然環境"].map((item) => (
               <span key={item} className="text-[10px] text-foreground/45 px-2.5 py-1 bg-foreground/[0.025] rounded-md border border-foreground/[0.04]">
@@ -237,7 +237,7 @@ export function DtcConceptDiagram() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             {[
               { label: "モノのツイン", desc: "機器・設備の精密デジタル複製" },
-              { label: "ヒトのツイン", desc: "Another Me — 自律的デジタル分身" },
+              { label: "ヒトのツイン", desc: "もう一人の自分 — 自律的デジタル分身" },
               { label: "社会のツイン", desc: "都市・経済・交通のシミュレーション" },
             ].map((twin) => (
               <div key={twin.label} className="p-3 rounded-lg bg-foreground/[0.02] border border-foreground/[0.04]">
@@ -254,7 +254,7 @@ export function DtcConceptDiagram() {
         <div className="w-full p-4 rounded-xl bg-foreground/[0.02] border border-foreground/[0.05]">
           <div className="text-[11px] font-semibold text-foreground/50 mb-2">計算・予測・最適化</div>
           <div className="flex flex-wrap gap-2">
-            {["未来予測", "What-If分析", "多世界シミュレーション", "フィードバック"].map((item) => (
+            {["未来予測", "もしも分析", "多世界シミュレーション", "フィードバック"].map((item) => (
               <span key={item} className="text-[10px] text-foreground/45 px-2.5 py-1 bg-foreground/[0.025] rounded-md border border-foreground/[0.04]">
                 {item}
               </span>

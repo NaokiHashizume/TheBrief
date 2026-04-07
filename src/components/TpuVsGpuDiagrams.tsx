@@ -29,10 +29,10 @@ export function TpuGpuOverviewDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="TPU vs GPU overview"
+      aria-label="TPU と GPU の概要"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        AI Accelerator Landscape
+        AIアクセラレーターの全体像
       </div>
       <div className="text-xs text-foreground/50 mb-5">
         2026年のAI計算インフラを支える2大アクセラレーター
@@ -94,13 +94,13 @@ export function ArchitectureComparisonDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Architecture comparison"
+      aria-label="アーキテクチャ比較"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Architecture
+        アーキテクチャ
       </div>
       <div className="text-xs text-foreground/50 mb-5">
-        SIMT（GPU）と Systolic Array（TPU）の根本的な違い
+        SIMT（GPU）とシストリックアレイ（TPU）の根本的な違い
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -116,7 +116,7 @@ export function ArchitectureComparisonDiagram() {
             GPU — SIMT
           </div>
           <div className="text-[10px] text-foreground/50 mb-3">
-            Single Instruction, Multiple Threads
+            単一命令・複数スレッド方式
           </div>
           <div className="grid grid-cols-8 gap-1 mb-3">
             {Array.from({ length: 32 }).map((_, i) => (
@@ -141,7 +141,7 @@ export function ArchitectureComparisonDiagram() {
           }}
         >
           <div className="text-xs font-bold text-[#4285f4] mb-2">
-            TPU — Systolic Array
+            TPU — シストリックアレイ
           </div>
           <div className="text-[10px] text-foreground/50 mb-3">
             行列積和演算に特化した「脈動型」構造
@@ -204,10 +204,10 @@ export function PerformanceSpecDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Performance specs"
+      aria-label="性能スペック比較"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Spec Sheet (2026)
+        スペックシート（2026年）
       </div>
       <div className="text-xs text-foreground/50 mb-5">
         NVIDIA Blackwell Ultra (B300) vs Google Ironwood (TPU v7)
@@ -252,10 +252,10 @@ export function PowerEfficiencyDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Power efficiency"
+      aria-label="電力効率比較"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Perf / Watt (相対値)
+        電力あたり性能（相対値）
       </div>
       <div className="text-xs text-foreground/50 mb-5">
         各世代アクセラレーターの電力あたり性能（H100を30として正規化）
@@ -310,7 +310,7 @@ export function CostComparisonDiagram() {
     {
       name: "B300",
       rate: "$10.00 – $14.00",
-      provider: "Limited availability",
+      provider: "提供数限定",
       color: "#76b900",
     },
     {
@@ -327,7 +327,7 @@ export function CostComparisonDiagram() {
     },
     {
       name: "Ironwood (v7)",
-      rate: "Contact sales",
+      rate: "個別見積",
       provider: "Google Cloud",
       color: "#4285f4",
     },
@@ -337,10 +337,10 @@ export function CostComparisonDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Cost comparison"
+      aria-label="コスト比較"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Cloud Rental Pricing
+        クラウド利用料金
       </div>
       <div className="text-xs text-foreground/50 mb-5">
         オンデマンド価格（$/chip/hour, 2026年4月時点）
@@ -390,25 +390,25 @@ export function CostComparisonDiagram() {
 export function SoftwareStackDiagram() {
   const stacks = [
     {
-      name: "GPU Stack",
+      name: "GPU スタック",
       color: "#76b900",
       layers: [
-        { name: "Application", items: "PyTorch / TensorFlow / JAX" },
-        { name: "Library", items: "Triton / FlashAttention / vLLM" },
-        { name: "Runtime", items: "CUDA / cuDNN / TensorRT" },
-        { name: "Driver", items: "NVIDIA Driver" },
-        { name: "Hardware", items: "Blackwell / Hopper GPU" },
+        { name: "アプリケーション", items: "PyTorch / TensorFlow / JAX" },
+        { name: "ライブラリ", items: "Triton / FlashAttention / vLLM" },
+        { name: "ランタイム", items: "CUDA / cuDNN / TensorRT" },
+        { name: "ドライバ", items: "NVIDIA Driver" },
+        { name: "ハードウェア", items: "Blackwell / Hopper GPU" },
       ],
     },
     {
-      name: "TPU Stack",
+      name: "TPU スタック",
       color: "#4285f4",
       layers: [
-        { name: "Application", items: "JAX / PyTorch-XLA" },
-        { name: "Library", items: "Flax / Haiku / MaxText" },
-        { name: "Runtime", items: "XLA Compiler" },
-        { name: "Driver", items: "libtpu" },
-        { name: "Hardware", items: "TPU v5 / v6 / v7" },
+        { name: "アプリケーション", items: "JAX / PyTorch-XLA" },
+        { name: "ライブラリ", items: "Flax / Haiku / MaxText" },
+        { name: "ランタイム", items: "XLA Compiler" },
+        { name: "ドライバ", items: "libtpu" },
+        { name: "ハードウェア", items: "TPU v5 / v6 / v7" },
       ],
     },
   ];
@@ -417,10 +417,10 @@ export function SoftwareStackDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Software stack"
+      aria-label="ソフトウェアスタック比較"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Software Ecosystem
+        ソフトウェアエコシステム
       </div>
       <div className="text-xs text-foreground/50 mb-5">
         CUDA（18年の蓄積）vs XLA（JAX中心の新興エコシステム）
@@ -482,10 +482,10 @@ export function UsageMapDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Usage map"
+      aria-label="主要企業の利用状況"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Who Uses What (2026)
+        どの企業が何を使っているか（2026年）
       </div>
       <div className="text-xs text-foreground/50 mb-5">
         主要AI企業のアクセラレーター利用比率（推定）
@@ -568,10 +568,10 @@ export function FutureOutlookDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
-      aria-label="Future outlook"
+      aria-label="今後の展望"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
-        Beyond 2026
+        2026年以降の展望
       </div>
       <div className="text-xs text-foreground/50 mb-5">
         AIアクセラレーター市場を動かす4つの潮流
