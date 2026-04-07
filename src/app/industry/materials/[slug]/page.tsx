@@ -4,7 +4,24 @@ import Link from "next/link";
 import { materialsArticles } from "@/lib/materials";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import {
+  SemiMatOverviewDiagram,
+  SemiMatShareDiagram,
+  SemiMatWhyDiagram,
+  SemiMatCompaniesDiagram,
+  SemiMatGeopoliticsDiagram,
+  SemiMat2030Diagram,
+} from "@/components/SemiMaterialsDiagrams";
 import ShareButton from "@/components/ShareButton";
+
+const diagramMap: Record<string, React.FC> = {
+  "semi-mat-overview": SemiMatOverviewDiagram,
+  "semi-mat-share": SemiMatShareDiagram,
+  "semi-mat-why": SemiMatWhyDiagram,
+  "semi-mat-companies": SemiMatCompaniesDiagram,
+  "semi-mat-geopolitics": SemiMatGeopoliticsDiagram,
+  "semi-mat-2030": SemiMat2030Diagram,
+};
 
 export function generateStaticParams() {
   return materialsArticles.map((a) => ({ slug: a.slug }));
@@ -157,6 +174,7 @@ export default async function ArticlePage({
       <article>
         {article.sections.map((section, i) => {
           const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
+          const DiagramComponent = section.diagramId ? diagramMap[section.diagramId] : null;
           return (
             <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
               <div className="mb-8">
@@ -204,6 +222,7 @@ export default async function ArticlePage({
                   );
                 })}
               </div>
+              {DiagramComponent && <DiagramComponent />}
             </section>
           );
         })}
