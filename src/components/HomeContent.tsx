@@ -181,6 +181,53 @@ const featuredDestinations = [
   },
 ];
 
+const columnHighlights = [
+  {
+    href: "/column/salaryman-tax-saving",
+    label: "Column",
+    accent: "#0d9488",
+    titleJa: "社会人のための節税方法 — 知らないと損する7つの制度",
+    titleEn: "A Salaryman's Guide to Tax Saving in 2026",
+    bodyJa: "ふるさと納税・iDeCo・新NISAから特定支出控除まで、会社員でも使える節税策7つを2026年制度で整理。",
+    bodyEn: "Seven tax-saving levers Japanese employees can use under the 2026 system.",
+    metaJa: "2026-04-07 · 約10分",
+    metaEn: "2026-04-07 · 10 min",
+  },
+  {
+    href: "/column/overtime-april-june",
+    label: "Column",
+    accent: "#0d9488",
+    titleJa: "なぜ4月から6月は残業したらダメなのか",
+    titleEn: "Why You Shouldn't Work Overtime from April to June",
+    bodyJa: "標準報酬月額と定時決定の仕組みから、4〜6月の残業が手取りに効く理由を解説。",
+    bodyEn: "How standard remuneration timing turns spring overtime into a yearlong tax hit.",
+    metaJa: "2026-04-07 · 約8分",
+    metaEn: "2026-04-07 · 8 min",
+  },
+  {
+    href: "/column/movies-special",
+    label: "Special / Movies",
+    accent: "#7c3aed",
+    titleJa: "映画特集 — 政治・経済・社会を読み解く名作10選",
+    titleEn: "Films That Explain Politics, Economy and Society",
+    bodyJa: "金融危機、報道の自由、企業倫理、戦争と政治。TheBriefのテーマを物語で体験できる10本。",
+    bodyEn: "Ten films that turn TheBrief's themes — finance, press freedom, war, ethics — into stories.",
+    metaJa: "10 films",
+    metaEn: "10 films",
+  },
+  {
+    href: "/column/reading-special",
+    label: "Special / Reading",
+    accent: "#d97706",
+    titleJa: "読書特集 — 政治・経済・社会を考えるための10冊",
+    titleEn: "Ten Books for Politics, Economy and Society",
+    bodyJa: "経済学、行動科学、政治哲学、ジャーナリズム。ニュースの背景にある思想と歴史を学ぶ10冊。",
+    bodyEn: "Economics, behavioral science, political philosophy and journalism — ten essentials.",
+    metaJa: "10 books",
+    metaEn: "10 books",
+  },
+];
+
 const industryHighlights = [
   {
     slug: "ict",
@@ -508,14 +555,62 @@ export function HomeContent() {
         </div>
       </section>
 
+      <section className="max-w-6xl mx-auto px-4 pb-16">
+        <div className="mb-6 flex items-end justify-between gap-3 border-b border-foreground/20 pb-4">
+          <div>
+            <span className="text-[10px] tracking-[3px] uppercase text-[#0d9488] font-bold block mb-1">
+              {locale === "ja" ? "Column" : "Column"}
+            </span>
+            <h2 className="font-serif text-xl md:text-2xl font-bold">
+              {locale === "ja" ? "暮らしとお金、本と映画の小話" : "Notes on life, money, books and films"}
+            </h2>
+          </div>
+          <Link
+            href="/column"
+            className="text-sm flex items-center gap-1 hover:text-[#0d9488] transition-colors group whitespace-nowrap"
+          >
+            <span>{locale === "ja" ? "Column一覧" : "All columns"}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {columnHighlights.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group rounded-[20px] border border-brief-border bg-brief-card p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/20"
+            >
+              <div
+                className="text-[10px] font-bold uppercase tracking-[2.4px]"
+                style={{ color: item.accent }}
+              >
+                {item.label}
+              </div>
+              <h3 className="mt-2 font-serif text-lg md:text-xl font-bold leading-snug">
+                {locale === "ja" ? item.titleJa : item.titleEn}
+              </h3>
+              <p className="mt-2 text-[13px] leading-relaxed text-foreground/58 line-clamp-3">
+                {locale === "ja" ? item.bodyJa : item.bodyEn}
+              </p>
+              <div className="mt-3 text-[10px] uppercase tracking-[1.6px] text-foreground/40 tabular-nums">
+                {locale === "ja" ? item.metaJa : item.metaEn}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className="max-w-3xl mx-auto px-4 py-16 text-center">
         <h2 className="font-serif text-2xl md:text-3xl font-bold">
           {locale === "ja" ? "日本の今と、知の全体像を構造で読む。" : "Read Japan and the world of knowledge — structurally."}
         </h2>
         <p className="mt-4 text-sm text-foreground/50 leading-relaxed max-w-xl mx-auto font-light">
           {locale === "ja"
-            ? "制度を知るなら Politics、景気を読むなら Economy、業界を比べるなら Industry、学問を体験するなら University。"
-            : "Politics for institutions, Economy for macro indicators, Industry for sector comparison, University to experience scholarship."}
+            ? "制度を知るなら Politics、景気を読むなら Economy、業界を比べるなら Industry、学問を体験するなら University、暮らしを考えるなら Column。"
+            : "Politics for institutions, Economy for indicators, Industry for sectors, University for scholarship, Column for everyday life."}
         </p>
         <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
           <Link
