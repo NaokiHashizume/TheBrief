@@ -29,6 +29,24 @@ export const metadata: Metadata = {
   },
 };
 
+type StreamingService = "netflix" | "prime" | "unext" | "hulu" | "disney" | "appletv";
+
+type ServiceMeta = {
+  label: string;
+  short: string;
+  bg: string;
+  fg: string;
+};
+
+const SERVICES: Record<StreamingService, ServiceMeta> = {
+  netflix: { label: "Netflix", short: "N", bg: "#E50914", fg: "#ffffff" },
+  prime: { label: "Prime Video", short: "Prime", bg: "#00A8E1", fg: "#ffffff" },
+  unext: { label: "U-NEXT", short: "U-NEXT", bg: "#000000", fg: "#ffffff" },
+  hulu: { label: "Hulu", short: "hulu", bg: "#1CE783", fg: "#0b0b0b" },
+  disney: { label: "Disney+", short: "D+", bg: "#113CCF", fg: "#ffffff" },
+  appletv: { label: "Apple TV+", short: "tv+", bg: "#0b0b0b", fg: "#ffffff" },
+};
+
 type Film = {
   title: string;
   titleEn: string;
@@ -37,6 +55,7 @@ type Film = {
   category: string;
   summary: string;
   why: string;
+  services: StreamingService[];
 };
 
 const films: Film[] = [
@@ -49,6 +68,7 @@ const films: Film[] = [
     summary:
       "2008年のサブプライム住宅ローン危機を予見した投資家たちの実話。CDS、MBS、CDOといった専門用語が、テンポの良い演出と有名人によるカメオ解説で誰にでも理解できるように描かれる。",
     why: "金融商品の構造と、それが連鎖的に崩壊する仕組みを物語として体感できる。リーマン・ショックの仕組みを学ぶ最適な入口。",
+    services: ["netflix", "prime", "unext"],
   },
   {
     title: "マージン・コール",
@@ -59,6 +79,7 @@ const films: Film[] = [
     summary:
       "リーマン・ショック前夜、ある投資銀行の24時間を描く密室劇。経営陣がリスクに気づいた瞬間から下す判断の連続が、緊張感のある会話劇として進行する。",
     why: "投資銀行の組織の意思決定がどう行われるか、危機時に何を優先するのかが見える。",
+    services: ["prime", "unext"],
   },
   {
     title: "インサイド・ジョブ",
@@ -69,6 +90,7 @@ const films: Film[] = [
     summary:
       "金融危機の構造的原因を、規制緩和の歴史、格付機関の責任、学界と業界の癒着といった多角的な視点から告発するアカデミー賞受賞ドキュメンタリー。",
     why: "なぜ危機を防げなかったのか、誰が責任を負うべきだったのかを冷静に学べる。",
+    services: ["prime", "unext"],
   },
   {
     title: "スポットライト 世紀のスクープ",
@@ -79,6 +101,7 @@ const films: Film[] = [
     summary:
       "ボストン・グローブ紙の調査報道チームが、カトリック教会の児童虐待事件を暴いていく実話。取材の地道さと、組織と向き合うジャーナリズムの本質を描く。",
     why: "ファクトを積み重ねる報道の力と、それを支える編集体制の重要性が伝わる。",
+    services: ["netflix", "prime", "unext"],
   },
   {
     title: "ペンタゴン・ペーパーズ／最高機密文書",
@@ -89,6 +112,7 @@ const films: Film[] = [
     summary:
       "ベトナム戦争に関する機密文書「ペンタゴン・ペーパーズ」の報道を巡る、ワシントン・ポスト紙と政府の対立を描いた作品。報道の自由という原則の重みが浮かび上がる。",
     why: "国家機密と報道の自由が衝突したとき、メディアが何を選ぶべきかを考えさせる。",
+    services: ["prime", "unext"],
   },
   {
     title: "ダーク・ウォーターズ 巨大企業が恐れた男",
@@ -99,6 +123,7 @@ const films: Film[] = [
     summary:
       "化学大手デュポンによる有害物質PFOAの汚染を、20年以上かけて追及した弁護士の実話。企業と地域社会、規制当局の関係性が静かに描かれる。",
     why: "企業の社会的責任とESG投資が議論される今、外部不経済の現場を知ることができる。",
+    services: ["netflix", "unext"],
   },
   {
     title: "シティズンフォー スノーデンの暴露",
@@ -109,6 +134,7 @@ const films: Film[] = [
     summary:
       "NSAの大量監視プログラムを内部告発したエドワード・スノーデンに、香港のホテルで行われた取材を記録したドキュメンタリー。",
     why: "プライバシー、国家、テクノロジーの三つ巴が現実の場面として記録されている。",
+    services: ["prime", "unext"],
   },
   {
     title: "シリコンバレーを駆け抜けた男",
@@ -119,6 +145,7 @@ const films: Film[] = [
     summary:
       "Facebook創業者マーク・ザッカーバーグと共同創業者の関係、訴訟、急成長を描いた群像劇。シリコンバレー型のスタートアップ文化を象徴する一本。",
     why: "プラットフォーム企業がどう生まれ、何を犠牲にしてスケールするのかが見える。",
+    services: ["netflix", "prime"],
   },
   {
     title: "シン・ゴジラ",
@@ -129,6 +156,7 @@ const films: Film[] = [
     summary:
       "未曾有の災害に直面した日本政府の意思決定プロセスを、リアルな会議シーンの連続で描く。怪獣映画の枠を超えた行政組織のドキュメンタリー的側面を持つ。",
     why: "日本の縦割り行政・閣議・自衛隊の指揮系統がどう動くかを物語として理解できる。",
+    services: ["prime", "unext", "hulu"],
   },
   {
     title: "13ミニッツ ヒトラー暗殺、13分の誤算",
@@ -139,10 +167,33 @@ const films: Film[] = [
     summary:
       "1939年、ヒトラー暗殺を試みた一人の市井の職人ゲオルク・エルザーの実話。全体主義の中で個人がどう抵抗を選択したかを問い直す。",
     why: "民主主義が損なわれていく過程と、個人の判断の重さを考える契機になる。",
+    services: ["prime", "unext"],
   },
 ];
 
 const categories = Array.from(new Set(films.map((f) => f.category)));
+
+function ServiceBadge({ service }: { service: StreamingService }) {
+  const meta = SERVICES[service];
+  return (
+    <span
+      title={meta.label}
+      aria-label={meta.label}
+      className="inline-flex items-center justify-center rounded-md text-[10px] font-bold tracking-tight px-2 py-1 min-w-[28px]"
+      style={{
+        backgroundColor: meta.bg,
+        color: meta.fg,
+        fontFamily:
+          service === "netflix"
+            ? "Impact, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+            : undefined,
+        letterSpacing: service === "netflix" ? "0.5px" : undefined,
+      }}
+    >
+      {meta.short}
+    </span>
+  );
+}
 
 export default function MoviesSpecialPage() {
   return (
@@ -205,6 +256,18 @@ export default function MoviesSpecialPage() {
             </span>
           ))}
         </div>
+
+        <div className="mt-6 flex items-center gap-3 flex-wrap">
+          <span className="text-[10px] uppercase tracking-[1.5px] text-foreground/45">
+            主要配信サービス
+          </span>
+          {(Object.keys(SERVICES) as StreamingService[]).map((s) => (
+            <ServiceBadge key={s} service={s} />
+          ))}
+        </div>
+        <p className="mt-3 text-[11px] text-foreground/50 leading-relaxed">
+          ※ 配信状況は2026年4月時点の目安です。各サービスの取り扱いは予告なく変更されるため、視聴前に最新の配信状況をご確認ください。
+        </p>
       </section>
 
       {/* Films */}
@@ -252,6 +315,15 @@ export default function MoviesSpecialPage() {
               </p>
 
               <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{f.summary}</p>
+
+              <div className="mt-4 flex items-center gap-2 flex-wrap">
+                <span className="text-[10px] uppercase tracking-[1.5px] text-foreground/45">
+                  配信
+                </span>
+                {f.services.map((s) => (
+                  <ServiceBadge key={s} service={s} />
+                ))}
+              </div>
 
               <div className="mt-4 p-3 rounded-lg border border-dashed border-brief-border">
                 <p className="text-[11px] uppercase tracking-[1.5px] text-foreground/45 mb-1">
