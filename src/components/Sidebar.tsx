@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback } from "react";
+import { createContext, useContext, useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "./LanguageProvider";
@@ -175,6 +175,18 @@ export function Sidebar() {
   const pathname = usePathname();
   const { locale } = useLanguage();
 
+  // サイドバーオープン中は背景スクロールを抑止
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (isOpen) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
+  }, [isOpen]);
+
   const toggleSection = (href: string) => {
     setExpandedSections((prev) =>
       prev.includes(href) ? prev.filter((h) => h !== href) : [...prev, href]
@@ -198,9 +210,13 @@ export function Sidebar() {
 
       {/* Sidebar panel */}
       <nav
-        className={`fixed left-0 top-0 h-full w-64 bg-background border-r border-brief-rule z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed left-0 top-0 h-full w-[min(280px,85vw)] bg-background border-r border-brief-rule z-50 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } overflow-y-auto`}
+        style={{
+          paddingTop: "env(safe-area-inset-top)",
+          paddingBottom: "env(safe-area-inset-bottom)",
+        }}
       >
         {/* Header */}
         <div className="sticky top-0 bg-background border-b border-brief-rule px-4 py-4 flex items-center justify-between">

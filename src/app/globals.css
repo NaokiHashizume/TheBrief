@@ -40,11 +40,51 @@
   --rule-color: rgba(255, 255, 255, 0.12);
 }
 
+html {
+  /* iOS Safari の長押しで起きるテキストサイズ自動調整を無効化 */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* 横スクロール禁止 (子要素のはみ出しによるレイアウト崩れを防止) */
+  overflow-x: hidden;
+  /* iPhone のノッチ・Home Indicator に被らない */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* iOS でフォーカス時に自動ズームしないようフォントを 16px 以上に */
+@media (max-width: 640px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="number"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* タップハイライト色を抑える */
+a, button {
+  -webkit-tap-highlight-color: rgba(192, 57, 43, 0.1);
+}
+
+/* 横スクロールするバーのスクロールバーを隠す */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 ::selection {

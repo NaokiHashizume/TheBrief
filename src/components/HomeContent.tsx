@@ -351,13 +351,13 @@ export function HomeContent() {
 
   return (
     <div>
-      <section className="max-w-6xl mx-auto px-4 pt-14 pb-14">
-        <div className="rounded-[28px] border border-brief-rule bg-[linear-gradient(135deg,rgba(229,62,62,0.05),rgba(255,255,255,0.92),rgba(99,102,241,0.08))] p-8 md:p-10 dark:bg-[linear-gradient(135deg,rgba(229,62,62,0.08),rgba(17,17,17,0.96),rgba(99,102,241,0.14))]">
+      <section className="max-w-6xl mx-auto px-4 pt-10 sm:pt-14 pb-14">
+        <div className="rounded-[22px] sm:rounded-[28px] border border-brief-rule bg-[linear-gradient(135deg,rgba(229,62,62,0.05),rgba(255,255,255,0.92),rgba(99,102,241,0.08))] p-6 sm:p-8 md:p-10 dark:bg-[linear-gradient(135deg,rgba(229,62,62,0.08),rgba(17,17,17,0.96),rgba(99,102,241,0.14))]">
           <div className="flex justify-center md:justify-start">
-            <Logo className="items-center scale-[1.55] origin-left" />
+            <Logo className="items-center md:scale-[1.55] md:origin-left" />
           </div>
 
-          <h1 className="mt-8 max-w-4xl font-serif text-[32px] font-bold leading-[1.15] tracking-tight md:text-[56px]">
+          <h1 className="mt-6 sm:mt-8 max-w-4xl font-serif text-[28px] sm:text-[32px] font-bold leading-[1.15] tracking-tight md:text-[56px]">
             {locale === "ja" ? (
               <>
                 日本の政治・経済・産業・学問を
