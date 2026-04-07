@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { createContext, useContext, useState, useEffect, useCallback } from "react";
@@ -16,16 +17,27 @@ const LanguageContext = createContext<LanguageContextType>({
   t: (key) => translate(key, "ja"),
 });
 
+function readStoredLocale(): Locale {
+  if (typeof window === "undefined") return "ja";
+  try {
+    const saved = localStorage.getItem("locale") as Locale | null;
+    if (saved === "en" || saved === "ja") return saved;
+  } catch {
+    /* ignore */
+  }
+  return "ja";
+}
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  // SSR では常に "ja"。クライアント初回描画では遅延初期化で stored 値を読む
   const [locale, setLocaleState] = useState<Locale>("ja");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("locale") as Locale | null;
-    if (saved === "en" || saved === "ja") {
-      setLocaleState(saved);
-    }
+    // Hydration safety: SSR は "ja" 固定で描画し、マウント後に保存値へ切替
+    const saved = readStoredLocale();
     setMounted(true);
+    if (saved !== "ja") setLocaleState(saved);
   }, []);
 
   const setLocale = useCallback((l: Locale) => {

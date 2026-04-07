@@ -8,8 +8,11 @@ export function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-brief-dark text-white border-t-[6px] border-brief-red mt-16">
-      <div className="max-w-[1400px] mx-auto px-6 pt-16 pb-8">
+    <footer
+      className="bg-brief-dark text-white border-t-[6px] border-brief-red mt-16"
+      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+    >
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 pt-12 sm:pt-16 pb-8">
         {/* Footer columns */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-14 text-sm">
           <div className="col-span-2 md:col-span-1">
