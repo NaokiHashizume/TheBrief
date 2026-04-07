@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { UniversityCategory } from "@/lib/university";
 import { getUniversityCounts } from "@/lib/university";
 
@@ -48,49 +49,79 @@ export function UniversityCategoryDetail({ category }: { category: UniversityCat
       </section>
 
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        {category.subs.map((sub) => (
-          <article
-            key={sub.name}
-            className="rounded-[24px] border border-brief-border bg-brief-card p-5 transition-colors hover:border-foreground/20"
-          >
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <div
-                  className="text-[10px] font-bold uppercase tracking-[2.6px]"
-                  style={{ color: category.color }}
-                >
-                  Subfield
+        {category.subs.map((sub) => {
+          const cardInner = (
+            <>
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <div
+                    className="text-[10px] font-bold uppercase tracking-[2.6px]"
+                    style={{ color: category.color }}
+                  >
+                    Subfield
+                  </div>
+                  <h2 className="mt-2 font-serif text-2xl font-bold">{sub.name}</h2>
                 </div>
-                <h2 className="mt-2 font-serif text-2xl font-bold">{sub.name}</h2>
-              </div>
-              <div
-                className="rounded-full px-3 py-1 text-[11px] font-semibold"
-                style={{
-                  backgroundColor: `${category.color}14`,
-                  color: category.color,
-                }}
-              >
-                {sub.items.length}科目
-              </div>
-            </div>
-
-            <div className="mt-5 flex flex-wrap gap-2">
-              {sub.items.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border px-3 py-1.5 text-xs font-medium"
+                <div
+                  className="rounded-full px-3 py-1 text-[11px] font-semibold"
                   style={{
-                    borderColor: `${category.color}33`,
-                    backgroundColor: `${category.color}12`,
+                    backgroundColor: `${category.color}14`,
                     color: category.color,
                   }}
                 >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </article>
-        ))}
+                  {sub.items.length}科目
+                </div>
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {sub.items.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border px-3 py-1.5 text-xs font-medium"
+                    style={{
+                      borderColor: `${category.color}33`,
+                      backgroundColor: `${category.color}12`,
+                      color: category.color,
+                    }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+
+              {sub.href && (
+                <div
+                  className="mt-5 flex items-center justify-between text-[11px] uppercase tracking-[2px]"
+                  style={{ color: category.color }}
+                >
+                  <span>講義を読む</span>
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                </div>
+              )}
+            </>
+          );
+
+          if (sub.href) {
+            return (
+              <Link
+                key={sub.name}
+                href={sub.href}
+                className="group block rounded-[24px] border border-brief-border bg-brief-card p-5 transition-all hover:-translate-y-0.5 hover:border-foreground/20"
+              >
+                {cardInner}
+              </Link>
+            );
+          }
+
+          return (
+            <article
+              key={sub.name}
+              className="rounded-[24px] border border-brief-border bg-brief-card p-5 transition-colors hover:border-foreground/20"
+            >
+              {cardInner}
+            </article>
+          );
+        })}
       </section>
     </div>
   );
