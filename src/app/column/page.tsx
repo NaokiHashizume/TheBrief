@@ -53,6 +53,16 @@ const specials: SpecialItem[] = [
 
 const columns: ColumnItem[] = [
   {
+    slug: "furusato-tax-breakeven",
+    title: "ふるさと納税の損益分岐点 — 2026年改正後の本当の損得",
+    titleEn: "The Real Economics of Furusato Nozei in 2026",
+    summary:
+      "2025年10月のポイント還元廃止、2026年10月の地場産品基準見直し。改正続きのふるさと納税は本当にまだ得なのか。年収・寄附額・還元率の3変数で『損益分岐点』を計算し、誰がいくら得をするのかを整理します。",
+    date: "2026-04-08",
+    readTime: "約 9 分",
+    tags: ["税金", "ふるさと納税", "ライフハック"],
+  },
+  {
     slug: "salaryman-tax-saving",
     title: "社会人のための節税方法 — 知らないと損する7つの制度",
     titleEn: "A Salaryman's Guide to Tax Saving in 2026",
