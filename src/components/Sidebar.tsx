@@ -37,7 +37,7 @@ export function SidebarProvider({ children }: { children: React.ReactNode }) {
 /* ── Menu data ── */
 const menuItems = [
   {
-    labelJa: "ホーム",
+    labelJa: "Home",
     labelEn: "Home",
     href: "/",
     icon: (
