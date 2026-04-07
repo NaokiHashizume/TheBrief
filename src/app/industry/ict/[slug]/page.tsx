@@ -49,6 +49,15 @@ import {
   KddiFraudAccountabilityDiagram,
   KddiFraudPreventionDiagram,
 } from "@/components/KddiFraudDiagrams";
+import {
+  RapidusOverviewDiagram,
+  RapidusIim1TimelineDiagram,
+  RapidusInvestorsDiagram,
+  RapidusMetiBudgetDiagram,
+  RapidusTsmcMsftDiagram,
+  RapidusRoadmapDiagram,
+  RapidusRisksDiagram,
+} from "@/components/RapidusDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -162,6 +171,13 @@ const diagramMap: Record<string, React.FC> = {
   "kddi-fraud-financial": KddiFraudFinancialDiagram,
   "kddi-fraud-accountability": KddiFraudAccountabilityDiagram,
   "kddi-fraud-prevention": KddiFraudPreventionDiagram,
+  "rapidus-overview": RapidusOverviewDiagram,
+  "rapidus-iim1-timeline": RapidusIim1TimelineDiagram,
+  "rapidus-investors": RapidusInvestorsDiagram,
+  "rapidus-meti-budget": RapidusMetiBudgetDiagram,
+  "rapidus-tsmc-msft": RapidusTsmcMsftDiagram,
+  "rapidus-roadmap": RapidusRoadmapDiagram,
+  "rapidus-risks": RapidusRisksDiagram,
 };
 
 export default async function IctArticlePage({
