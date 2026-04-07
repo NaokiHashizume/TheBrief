@@ -63,7 +63,8 @@ export const universityCategories: UniversityCategory[] = [
     lead: "制度、市場、政治、教育、心理、地域など、人間社会を構成する仕組みを分析する領域です。政策や実務との接続も強い分野です。",
     subs: [
       { name: "経済学", items: ["ミクロ経済学", "マクロ経済学", "計量経済学", "行動経済学", "開発経済学", "労働経済学", "国際経済学", "金融経済学", "公共経済学", "環境経済学"], href: "/university/social/economics" },
-      { name: "経営学", items: ["経営戦略", "組織論", "マーケティング", "会計学", "ファイナンス", "人的資源管理", "経営情報学", "イノベーション論"], href: "/university/social/business" },
+      { name: "経営学", items: ["経営戦略", "組織論", "マーケティング", "ファイナンス", "人的資源管理", "経営情報学", "イノベーション論"], href: "/university/social/business" },
+      { name: "会計学", items: ["複式簿記", "財務会計", "原価計算", "管理会計", "IFRS", "サステナビリティ会計"], href: "/university/social/accounting" },
       { name: "法学", items: ["憲法", "民法", "刑法", "商法", "行政法", "国際法", "法哲学", "知的財産法", "労働法", "環境法"], href: "/university/social/law" },
       { name: "政治学", items: ["政治理論", "比較政治学", "国際関係論", "行政学", "公共政策", "政治経済学", "選挙研究", "安全保障論"], href: "/university/social/political-science" },
       { name: "社会学", items: ["社会理論", "家族社会学", "都市社会学", "犯罪社会学", "医療社会学", "教育社会学", "メディア社会学", "ジェンダー論", "社会階層論"], href: "/university/social/sociology" },
