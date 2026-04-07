@@ -53,6 +53,14 @@ import {
   GxEtsInternationalDiagram,
   GxEtsStakeholdersDiagram,
 } from "@/components/GxEtsDiagrams";
+import {
+  DctOverviewDiagram,
+  DctMechanismDiagram,
+  DctThreeTaxesDiagram,
+  DctByFirmSizeDiagram,
+  DctIndividualDiagram,
+  DctFutureDiagram,
+} from "@/components/DefenseCorporateTaxDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -163,6 +171,12 @@ const diagramMap: Record<string, React.FC> = {
   "gxets-power-impact": GxEtsPowerImpactDiagram,
   "gxets-international": GxEtsInternationalDiagram,
   "gxets-stakeholders": GxEtsStakeholdersDiagram,
+  "dct-overview": DctOverviewDiagram,
+  "dct-mechanism": DctMechanismDiagram,
+  "dct-three-taxes": DctThreeTaxesDiagram,
+  "dct-by-firm-size": DctByFirmSizeDiagram,
+  "dct-individual": DctIndividualDiagram,
+  "dct-future": DctFutureDiagram,
 };
 
 export default async function EconomyArticlePage({
