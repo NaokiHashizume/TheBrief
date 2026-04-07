@@ -1,0 +1,49 @@
+name: X auto post
+
+# TheBrief の記事を 1 日 4 回 X に自動投稿する。
+# 使い方:
+#   1. リポジトリ Settings → Secrets and variables → Actions に下記を登録
+#        X_API_KEY        (Consumer Key / API Key)
+#        X_API_SECRET     (Consumer Secret / API Key Secret)
+#        X_ACCESS_TOKEN
+#        X_ACCESS_SECRET
+#   2. cron は UTC。下記は JST 08:00 / 12:00 / 18:00 / 21:00 に対応。
+#   3. workflow_dispatch から手動でドライラン (dry_run=true) も可能。
+
+on:
+  schedule:
+    - cron: "0 23 * * *" # JST 08:00
+    - cron: "0 3 * * *"  # JST 12:00
+    - cron: "0 9 * * *"  # JST 18:00
+    - cron: "0 12 * * *" # JST 21:00
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "true なら投稿せず本文のみ生成"
+        required: false
+        default: "false"
+
+concurrency:
+  group: x-auto-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Post to X
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+          X_DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
+        run: node scripts/post-to-x.mjs
