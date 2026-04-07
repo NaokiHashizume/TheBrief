@@ -53,6 +53,16 @@ const specials: SpecialItem[] = [
 
 const columns: ColumnItem[] = [
   {
+    slug: "own-vs-rent-2026",
+    title: "持ち家 vs 賃貸 — 2026年の金利と物価で再計算する",
+    titleEn: "Own vs Rent — Recalculated for 2026",
+    summary:
+      "金利上昇・新築マンション1.3億円時代に、2010年代の『買えるなら買え』はそのまま使えるのか。金利・維持費・税制効果・流動性の4変数で持ち家と賃貸の総コストを再計算します。",
+    date: "2026-04-08",
+    readTime: "約 11 分",
+    tags: ["住まい", "ライフプラン", "金融"],
+  },
+  {
     slug: "nisa-year-two-review",
     title: "新NISA 2年目の見直し方 — つみたて枠と成長投資枠の最適配分",
     titleEn: "New NISA — A Year-Two Tune-up",
