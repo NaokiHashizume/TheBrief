@@ -30,15 +30,17 @@ export function SearchClient() {
   const [error, setError] = useState<string | null>(null);
   const apiRef = useRef<PagefindAPI | null>(null);
 
-  // Pagefind は build 時に out/_pagefind/pagefind.js が生成される
+  // Pagefind は build 時に out/_pagefind/pagefind.js が生成される。
+  // バンドラに静的解析されない形でブラウザのネイティブ動的 import を呼ぶ。
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        // @vite-ignore
-        const mod: PagefindAPI = await import(
-          /* webpackIgnore: true */ "/_pagefind/pagefind.js" as string
-        );
+        const dynamicImport = new Function(
+          "p",
+          "return import(p)"
+        ) as (p: string) => Promise<PagefindAPI>;
+        const mod = await dynamicImport("/_pagefind/pagefind.js");
         if (!cancelled) {
           apiRef.current = mod;
           setPagefindReady(true);
