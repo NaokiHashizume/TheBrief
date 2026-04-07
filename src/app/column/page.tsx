@@ -41,6 +41,15 @@ const specials: SpecialItem[] = [
     accent: "#7c3aed",
   },
   {
+    slug: "documentary-special",
+    label: "Special / Documentaries",
+    title: "ドキュメンタリー特集 — 世界の構造を映像で読み解く10本",
+    description:
+      "テック、AI倫理、環境、労働、報道の自由、企業不祥事。事実に基づく10本のドキュメンタリーで、ニュースの背景にある構造を体感する。",
+    count: "10 films",
+    accent: "#0891b2",
+  },
+  {
     slug: "reading-special",
     label: "Special / Reading",
     title: "読書特集 — 政治・経済・社会を考えるための10冊",
