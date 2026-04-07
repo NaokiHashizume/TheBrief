@@ -4,6 +4,7 @@ import { debates } from "@/lib/debates";
 import { enactedItems } from "@/lib/enacted";
 import { passedItems } from "@/lib/passed";
 import { ictArticles } from "@/lib/ict";
+import { politicsArticles } from "@/lib/politicsArticles";
 import { economyArticles } from "@/lib/economyArticles";
 import { aiArticles } from "@/lib/ai";
 import { retailArticles } from "@/lib/retail";
@@ -93,6 +94,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const politicsArticlePages: MetadataRoute.Sitemap = politicsArticles.map((a) => ({
+    url: `${SITE_URL}/politics/articles/${a.slug}`,
+    lastModified: new Date(a.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   // ── Economy ──
   const economyPages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/economy`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
@@ -157,6 +165,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...debatePages,
     ...passedPages,
     ...enactedPages,
+    ...politicsArticlePages,
     ...economyPages,
     ...economyArticlePages,
     ...universityPages,
