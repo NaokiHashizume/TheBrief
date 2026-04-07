@@ -43,6 +43,16 @@ import {
   FiscalSustainabilityDiagram,
   ThreeScenariosDiagram,
 } from "@/components/TakaichiFiscalDiagrams";
+import {
+  GxEtsOverviewDiagram,
+  GxEtsTargetsDiagram,
+  GxEtsPhasesDiagram,
+  GxEtsFossilLevyDiagram,
+  GxEtsBondLinkDiagram,
+  GxEtsPowerImpactDiagram,
+  GxEtsInternationalDiagram,
+  GxEtsStakeholdersDiagram,
+} from "@/components/GxEtsDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -145,6 +155,14 @@ const diagramMap: Record<string, React.FC> = {
   "interest-rate-risk": InterestRateRiskDiagram,
   "fiscal-sustainability": FiscalSustainabilityDiagram,
   "three-scenarios": ThreeScenariosDiagram,
+  "gxets-overview": GxEtsOverviewDiagram,
+  "gxets-targets": GxEtsTargetsDiagram,
+  "gxets-phases": GxEtsPhasesDiagram,
+  "gxets-fossil-levy": GxEtsFossilLevyDiagram,
+  "gxets-bond-link": GxEtsBondLinkDiagram,
+  "gxets-power-impact": GxEtsPowerImpactDiagram,
+  "gxets-international": GxEtsInternationalDiagram,
+  "gxets-stakeholders": GxEtsStakeholdersDiagram,
 };
 
 export default async function EconomyArticlePage({
