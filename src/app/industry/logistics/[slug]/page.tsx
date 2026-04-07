@@ -4,7 +4,22 @@ import Link from "next/link";
 import { logisticsArticles } from "@/lib/logistics";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import {
+  Log24RecapDiagram,
+  Log24WagesDiagram,
+  Log24WaitDiagram,
+  Log24RefuseDiagram,
+  Log242026Diagram,
+} from "@/components/Logistics2024Diagrams";
 import ShareButton from "@/components/ShareButton";
+
+const diagramMap: Record<string, React.FC> = {
+  "log24-recap": Log24RecapDiagram,
+  "log24-wages": Log24WagesDiagram,
+  "log24-wait": Log24WaitDiagram,
+  "log24-refuse": Log24RefuseDiagram,
+  "log24-2026": Log242026Diagram,
+};
 
 export function generateStaticParams() {
   return logisticsArticles.map((a) => ({ slug: a.slug }));
@@ -157,6 +172,7 @@ export default async function ArticlePage({
       <article>
         {article.sections.map((section, i) => {
           const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
+          const DiagramComponent = section.diagramId ? diagramMap[section.diagramId] : null;
           return (
             <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
               <div className="mb-8">
@@ -204,6 +220,7 @@ export default async function ArticlePage({
                   );
                 })}
               </div>
+              {DiagramComponent && <DiagramComponent />}
             </section>
           );
         })}
