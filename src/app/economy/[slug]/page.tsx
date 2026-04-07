@@ -61,6 +61,15 @@ import {
   DctIndividualDiagram,
   DctFutureDiagram,
 } from "@/components/DefenseCorporateTaxDiagrams";
+import {
+  P2026OverviewDiagram,
+  P2026LogisticsLawDiagram,
+  P2026DoctorRulesDiagram,
+  P2026ConstructionDiagram,
+  P2026BankruptcyStatsDiagram,
+  P2026CascadeDiagram,
+  P2026SolutionsDiagram,
+} from "@/components/Problem2026Diagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -177,6 +186,13 @@ const diagramMap: Record<string, React.FC> = {
   "dct-by-firm-size": DctByFirmSizeDiagram,
   "dct-individual": DctIndividualDiagram,
   "dct-future": DctFutureDiagram,
+  "p2026-overview": P2026OverviewDiagram,
+  "p2026-logistics-law": P2026LogisticsLawDiagram,
+  "p2026-doctor-rules": P2026DoctorRulesDiagram,
+  "p2026-construction": P2026ConstructionDiagram,
+  "p2026-bankruptcy-stats": P2026BankruptcyStatsDiagram,
+  "p2026-cascade": P2026CascadeDiagram,
+  "p2026-solutions": P2026SolutionsDiagram,
 };
 
 export default async function EconomyArticlePage({
