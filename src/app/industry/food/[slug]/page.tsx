@@ -4,7 +4,22 @@ import Link from "next/link";
 import { foodArticles } from "@/lib/food";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import {
+  FoodSsrFormulaDiagram,
+  FoodSsrByItemDiagram,
+  FoodSsrInternationalDiagram,
+  FoodSsrHistoryDiagram,
+  FoodSsr2030TargetDiagram,
+} from "@/components/FoodSelfSufficiencyDiagrams";
 import ShareButton from "@/components/ShareButton";
+
+const diagramMap: Record<string, React.FC> = {
+  "food-ssr-formula": FoodSsrFormulaDiagram,
+  "food-ssr-by-item": FoodSsrByItemDiagram,
+  "food-ssr-international": FoodSsrInternationalDiagram,
+  "food-ssr-history": FoodSsrHistoryDiagram,
+  "food-ssr-2030-target": FoodSsr2030TargetDiagram,
+};
 
 export function generateStaticParams() {
   return foodArticles.map((a) => ({ slug: a.slug }));
@@ -157,6 +172,7 @@ export default async function ArticlePage({
       <article>
         {article.sections.map((section, i) => {
           const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
+          const DiagramComponent = section.diagramId ? diagramMap[section.diagramId] : null;
           return (
             <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
               <div className="mb-8">
@@ -204,6 +220,7 @@ export default async function ArticlePage({
                   );
                 })}
               </div>
+              {DiagramComponent && <DiagramComponent />}
             </section>
           );
         })}
