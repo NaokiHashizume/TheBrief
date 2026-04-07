@@ -33,6 +33,15 @@ import {
   UsageMapDiagram,
   FutureOutlookDiagram,
 } from "@/components/TpuVsGpuDiagrams";
+import {
+  MsftJpOverviewDiagram,
+  MsftJpInfraDiagram,
+  MsftJpSecurityDiagram,
+  MsftJpTalentDiagram,
+  MsftJpVsCloudDiagram,
+  MsftJpSemiLinkDiagram,
+  MsftJpImpactDiagram,
+} from "@/components/MsftJpDiagrams";
 
 export function generateStaticParams() {
   return aiArticles.map((a) => ({ slug: a.slug }));
@@ -132,6 +141,13 @@ const diagramMap: Record<string, React.FC> = {
   "software-stack": SoftwareStackDiagram,
   "usage-map": UsageMapDiagram,
   "future-outlook": FutureOutlookDiagram,
+  "msft-jp-overview": MsftJpOverviewDiagram,
+  "msft-jp-infra": MsftJpInfraDiagram,
+  "msft-jp-security": MsftJpSecurityDiagram,
+  "msft-jp-talent": MsftJpTalentDiagram,
+  "msft-jp-vs-cloud": MsftJpVsCloudDiagram,
+  "msft-jp-semi-link": MsftJpSemiLinkDiagram,
+  "msft-jp-impact": MsftJpImpactDiagram,
 };
 
 export default async function AiArticlePage({

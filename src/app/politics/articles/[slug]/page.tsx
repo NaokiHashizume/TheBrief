@@ -22,6 +22,32 @@ import {
   AprilReformsDefenseTaxDiagram,
   AprilReformsGXETSDiagram,
 } from "@/components/AprilReformsDiagrams";
+import {
+  NiaOverviewDiagram,
+  NiaCurrentMapDiagram,
+  NiaStructureDiagram,
+  NiaPhase2Diagram,
+  NiaInternationalDiagram,
+  NiaVsNscDiagram,
+  NiaStakeholdersDiagram,
+} from "@/components/NiaDiagrams";
+import {
+  DmaOverviewDiagram,
+  DmaVsCurrentDiagram,
+  DmaThreeRolesDiagram,
+  DmaRegionalDiagram,
+  DmaInternationalDiagram,
+  DmaConcernsDiagram,
+} from "@/components/DmaDiagrams";
+import {
+  ElecOverviewDiagram,
+  ElecLowerHouseDiagram,
+  ElecUpperHouseDiagram,
+  ElecDhondtDiagram,
+  ElecDisparityDiagram,
+  ElecLocalDiagram,
+  ElecTurnoutDiagram,
+} from "@/components/ElectoralSystemDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -107,6 +133,26 @@ const diagramMap: Record<string, React.FC> = {
   "april-reforms-pension": AprilReformsPensionDiagram,
   "april-reforms-defense-tax": AprilReformsDefenseTaxDiagram,
   "april-reforms-gx-ets": AprilReformsGXETSDiagram,
+  "nia-overview": NiaOverviewDiagram,
+  "nia-current-map": NiaCurrentMapDiagram,
+  "nia-structure": NiaStructureDiagram,
+  "nia-phase2": NiaPhase2Diagram,
+  "nia-international": NiaInternationalDiagram,
+  "nia-vs-nsc": NiaVsNscDiagram,
+  "nia-stakeholders": NiaStakeholdersDiagram,
+  "dma-overview": DmaOverviewDiagram,
+  "dma-vs-current": DmaVsCurrentDiagram,
+  "dma-three-roles": DmaThreeRolesDiagram,
+  "dma-regional": DmaRegionalDiagram,
+  "dma-international": DmaInternationalDiagram,
+  "dma-concerns": DmaConcernsDiagram,
+  "elec-overview": ElecOverviewDiagram,
+  "elec-lower-house": ElecLowerHouseDiagram,
+  "elec-upper-house": ElecUpperHouseDiagram,
+  "elec-dhondt": ElecDhondtDiagram,
+  "elec-disparity": ElecDisparityDiagram,
+  "elec-local": ElecLocalDiagram,
+  "elec-turnout": ElecTurnoutDiagram,
 };
 
 export default async function PoliticsArticlePage({

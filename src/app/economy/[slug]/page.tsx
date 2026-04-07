@@ -43,6 +43,41 @@ import {
   FiscalSustainabilityDiagram,
   ThreeScenariosDiagram,
 } from "@/components/TakaichiFiscalDiagrams";
+import {
+  GxEtsOverviewDiagram,
+  GxEtsTargetsDiagram,
+  GxEtsPhasesDiagram,
+  GxEtsFossilLevyDiagram,
+  GxEtsBondLinkDiagram,
+  GxEtsPowerImpactDiagram,
+  GxEtsInternationalDiagram,
+  GxEtsStakeholdersDiagram,
+} from "@/components/GxEtsDiagrams";
+import {
+  DctOverviewDiagram,
+  DctMechanismDiagram,
+  DctThreeTaxesDiagram,
+  DctByFirmSizeDiagram,
+  DctIndividualDiagram,
+  DctFutureDiagram,
+} from "@/components/DefenseCorporateTaxDiagrams";
+import {
+  P2026OverviewDiagram,
+  P2026LogisticsLawDiagram,
+  P2026DoctorRulesDiagram,
+  P2026ConstructionDiagram,
+  P2026BankruptcyStatsDiagram,
+  P2026CascadeDiagram,
+  P2026SolutionsDiagram,
+} from "@/components/Problem2026Diagrams";
+import {
+  BojHistoryDiagram,
+  BojTerminalDiagram,
+  BojNeutralRateDiagram,
+  BojPoliticsDiagram,
+  BojImpactDiagram,
+  BojTriggersDiagram,
+} from "@/components/BojRateHikeDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -145,6 +180,33 @@ const diagramMap: Record<string, React.FC> = {
   "interest-rate-risk": InterestRateRiskDiagram,
   "fiscal-sustainability": FiscalSustainabilityDiagram,
   "three-scenarios": ThreeScenariosDiagram,
+  "gxets-overview": GxEtsOverviewDiagram,
+  "gxets-targets": GxEtsTargetsDiagram,
+  "gxets-phases": GxEtsPhasesDiagram,
+  "gxets-fossil-levy": GxEtsFossilLevyDiagram,
+  "gxets-bond-link": GxEtsBondLinkDiagram,
+  "gxets-power-impact": GxEtsPowerImpactDiagram,
+  "gxets-international": GxEtsInternationalDiagram,
+  "gxets-stakeholders": GxEtsStakeholdersDiagram,
+  "dct-overview": DctOverviewDiagram,
+  "dct-mechanism": DctMechanismDiagram,
+  "dct-three-taxes": DctThreeTaxesDiagram,
+  "dct-by-firm-size": DctByFirmSizeDiagram,
+  "dct-individual": DctIndividualDiagram,
+  "dct-future": DctFutureDiagram,
+  "p2026-overview": P2026OverviewDiagram,
+  "p2026-logistics-law": P2026LogisticsLawDiagram,
+  "p2026-doctor-rules": P2026DoctorRulesDiagram,
+  "p2026-construction": P2026ConstructionDiagram,
+  "p2026-bankruptcy-stats": P2026BankruptcyStatsDiagram,
+  "p2026-cascade": P2026CascadeDiagram,
+  "p2026-solutions": P2026SolutionsDiagram,
+  "boj-history": BojHistoryDiagram,
+  "boj-terminal": BojTerminalDiagram,
+  "boj-neutral-rate": BojNeutralRateDiagram,
+  "boj-politics": BojPoliticsDiagram,
+  "boj-impact": BojImpactDiagram,
+  "boj-triggers": BojTriggersDiagram,
 };
 
 export default async function EconomyArticlePage({

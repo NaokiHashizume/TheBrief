@@ -19,7 +19,8 @@ export const universityCategories: UniversityCategory[] = [
     desc: "論理・記号・構造を扱う",
     lead: "抽象的なルールや構造を扱い、他分野の基盤言語にもなる領域です。数式、論理、計算、システム設計の考え方がここに集まります。",
     subs: [
-      { name: "数学", items: ["代数学", "解析学", "幾何学", "位相幾何学", "数論", "確率論", "統計学", "離散数学"], href: "/university/formal/math" },
+      { name: "数学", items: ["代数学", "解析学", "幾何学", "位相幾何学", "数論", "確率論", "離散数学"], href: "/university/formal/math" },
+      { name: "統計学", items: ["記述統計", "確率分布", "推測統計", "回帰分析", "ベイズ統計"], href: "/university/formal/statistics" },
       { name: "論理学", items: ["形式論理学", "数理論理学", "哲学的論理学", "計算論理学"], href: "/university/formal/logic" },
       { name: "計算機科学", items: ["アルゴリズム理論", "計算理論", "情報理論", "暗号理論", "形式言語理論"], href: "/university/formal/computer-science" },
       { name: "システム科学", items: ["制御理論", "サイバネティクス", "システム工学", "オペレーションズ・リサーチ"], href: "/university/formal/systems-science" },
@@ -62,9 +63,11 @@ export const universityCategories: UniversityCategory[] = [
     lead: "制度、市場、政治、教育、心理、地域など、人間社会を構成する仕組みを分析する領域です。政策や実務との接続も強い分野です。",
     subs: [
       { name: "経済学", items: ["ミクロ経済学", "マクロ経済学", "計量経済学", "行動経済学", "開発経済学", "労働経済学", "国際経済学", "金融経済学", "公共経済学", "環境経済学"], href: "/university/social/economics" },
-      { name: "経営学", items: ["経営戦略", "組織論", "マーケティング", "会計学", "ファイナンス", "人的資源管理", "経営情報学", "イノベーション論"], href: "/university/social/business" },
+      { name: "経営学", items: ["経営戦略", "組織論", "マーケティング", "ファイナンス", "人的資源管理", "経営情報学", "イノベーション論"], href: "/university/social/business" },
+      { name: "会計学", items: ["複式簿記", "財務会計", "原価計算", "管理会計", "IFRS", "サステナビリティ会計"], href: "/university/social/accounting" },
       { name: "法学", items: ["憲法", "民法", "刑法", "商法", "行政法", "国際法", "法哲学", "知的財産法", "労働法", "環境法"], href: "/university/social/law" },
-      { name: "政治学", items: ["政治理論", "比較政治学", "国際関係論", "行政学", "公共政策", "政治経済学", "選挙研究", "安全保障論"], href: "/university/social/political-science" },
+      { name: "政治学", items: ["政治理論", "比較政治学", "行政学", "公共政策", "政治経済学", "選挙研究", "安全保障論"], href: "/university/social/political-science" },
+      { name: "国際関係論", items: ["リアリズム", "リベラリズム", "コンストラクティビズム", "国際政治経済", "グローバルガバナンス", "経済安全保障"], href: "/university/social/international-relations" },
       { name: "社会学", items: ["社会理論", "家族社会学", "都市社会学", "犯罪社会学", "医療社会学", "教育社会学", "メディア社会学", "ジェンダー論", "社会階層論"], href: "/university/social/sociology" },
       { name: "心理学", items: ["認知心理学", "発達心理学", "社会心理学", "臨床心理学", "神経心理学", "産業・組織心理学", "教育心理学", "進化心理学", "知覚心理学"], href: "/university/social/psychology" },
       { name: "教育学", items: ["教育哲学", "教育史", "教育方法学", "カリキュラム論", "生涯教育", "特別支援教育", "比較教育学"], href: "/university/social/education" },

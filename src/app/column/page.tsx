@@ -41,6 +41,15 @@ const specials: SpecialItem[] = [
     accent: "#7c3aed",
   },
   {
+    slug: "documentary-special",
+    label: "Special / Documentaries",
+    title: "ドキュメンタリー特集 — 世界の構造を映像で読み解く10本",
+    description:
+      "テック、AI倫理、環境、労働、報道の自由、企業不祥事。事実に基づく10本のドキュメンタリーで、ニュースの背景にある構造を体感する。",
+    count: "10 films",
+    accent: "#0891b2",
+  },
+  {
     slug: "reading-special",
     label: "Special / Reading",
     title: "読書特集 — 政治・経済・社会を考えるための10冊",
@@ -52,6 +61,56 @@ const specials: SpecialItem[] = [
 ];
 
 const columns: ColumnItem[] = [
+  {
+    slug: "middle-school-exam-economics",
+    title: "中学受験の経済学 — 総額と『投資対効果』を冷静に計算する",
+    titleEn: "The Economics of Middle-School Entrance Exams",
+    summary:
+      "首都圏で中学受験率は約20%。塾代＋私立中高6年間で総額700〜900万円の選択を、機会費用・代替パスも含めて整理し、家計と価値観に合った判断のフレームを示します。",
+    date: "2026-04-08",
+    readTime: "約 12 分",
+    tags: ["教育", "家計", "ライフプラン"],
+  },
+  {
+    slug: "salaryman-side-business-tax",
+    title: "サラリーマンが副業を始める前に知る税務 — 20万円の壁から開業届まで",
+    titleEn: "Tax Basics for the Salaried Side-Hustler",
+    summary:
+      "20万円の壁、雑所得と事業所得の境目、開業届と青色申告、家事按分、住民税の普通徴収。副業を始める前に最低限知っておきたい税務の基本を整理します。",
+    date: "2026-04-08",
+    readTime: "約 11 分",
+    tags: ["副業", "税金", "ライフハック"],
+  },
+  {
+    slug: "own-vs-rent-2026",
+    title: "持ち家 vs 賃貸 — 2026年の金利と物価で再計算する",
+    titleEn: "Own vs Rent — Recalculated for 2026",
+    summary:
+      "金利上昇・新築マンション1.3億円時代に、2010年代の『買えるなら買え』はそのまま使えるのか。金利・維持費・税制効果・流動性の4変数で持ち家と賃貸の総コストを再計算します。",
+    date: "2026-04-08",
+    readTime: "約 11 分",
+    tags: ["住まい", "ライフプラン", "金融"],
+  },
+  {
+    slug: "nisa-year-two-review",
+    title: "新NISA 2年目の見直し方 — つみたて枠と成長投資枠の最適配分",
+    titleEn: "New NISA — A Year-Two Tune-up",
+    summary:
+      "1年目に『とりあえず満額』で始めた新NISAを、2年目以降にどう調整するか。生涯1,800万円・年360万円の枠を、コア／サテライトとライフステージ別に整理し直すための実用ガイド。",
+    date: "2026-04-08",
+    readTime: "約 10 分",
+    tags: ["投資", "NISA", "ライフハック"],
+  },
+  {
+    slug: "furusato-tax-breakeven",
+    title: "ふるさと納税の損益分岐点 — 2026年改正後の本当の損得",
+    titleEn: "The Real Economics of Furusato Nozei in 2026",
+    summary:
+      "2025年10月のポイント還元廃止、2026年10月の地場産品基準見直し。改正続きのふるさと納税は本当にまだ得なのか。年収・寄附額・還元率の3変数で『損益分岐点』を計算し、誰がいくら得をするのかを整理します。",
+    date: "2026-04-08",
+    readTime: "約 9 分",
+    tags: ["税金", "ふるさと納税", "ライフハック"],
+  },
   {
     slug: "salaryman-tax-saving",
     title: "社会人のための節税方法 — 知らないと損する7つの制度",

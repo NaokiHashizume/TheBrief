@@ -4,7 +4,24 @@ import Link from "next/link";
 import { entertainmentArticles } from "@/lib/entertainment";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import {
+  AnimeOverviewDiagram,
+  AnimeCommitteeDiagram,
+  AnimeStudioPlDiagram,
+  AnimeThreeStudiosDiagram,
+  AnimeStreamingDiagram,
+  AnimeFutureDiagram,
+} from "@/components/AnimeStudioDiagrams";
 import ShareButton from "@/components/ShareButton";
+
+const diagramMap: Record<string, React.FC> = {
+  "anime-overview": AnimeOverviewDiagram,
+  "anime-committee": AnimeCommitteeDiagram,
+  "anime-studio-pl": AnimeStudioPlDiagram,
+  "anime-three-studios": AnimeThreeStudiosDiagram,
+  "anime-streaming": AnimeStreamingDiagram,
+  "anime-future": AnimeFutureDiagram,
+};
 
 export function generateStaticParams() {
   return entertainmentArticles.map((a) => ({ slug: a.slug }));
@@ -157,6 +174,7 @@ export default async function ArticlePage({
       <article>
         {article.sections.map((section, i) => {
           const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
+          const DiagramComponent = section.diagramId ? diagramMap[section.diagramId] : null;
           return (
             <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
               <div className="mb-8">
@@ -204,6 +222,7 @@ export default async function ArticlePage({
                   );
                 })}
               </div>
+              {DiagramComponent && <DiagramComponent />}
             </section>
           );
         })}
