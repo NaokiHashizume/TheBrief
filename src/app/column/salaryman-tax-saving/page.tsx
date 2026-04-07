@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import ShareButton from "@/components/ShareButton";
 
 const COLUMN_COLOR = "#0d9488";
 
@@ -557,7 +558,11 @@ export default function SalarymanTaxSavingPage() {
         </p>
       </div>
 
-      <div className="mt-10 text-center">
+      <div className="mt-8 flex justify-center">
+        <ShareButton title={TITLE} />
+      </div>
+
+      <div className="mt-6 text-center">
         <Link
           href="/column"
           className="inline-flex items-center gap-2 text-[12px] text-foreground/40 hover:text-foreground/70 transition-colors font-medium tracking-wide"
