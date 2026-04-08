@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { T } from "@/components/T";
 import { SearchClient } from "./SearchClient";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export default function SearchPage() {
     <div className="max-w-3xl mx-auto px-6 py-16">
       <h1 className="font-serif text-4xl font-bold mb-2">Search</h1>
       <p className="text-sm text-foreground/55 mb-8">
-        サイト内のすべての記事・ニュース・コラムを横断検索します。
+        <T ja="サイト内のすべての記事・ニュース・コラムを横断検索します。" en="Search across all articles, news, and columns on the site." />
       </p>
       <SearchClient />
     </div>

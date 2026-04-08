@@ -3,6 +3,19 @@ import Link from "next/link";
 import { T } from "@/components/T";
 import { cabinet } from "@/lib/politics";
 
+// Phase 1 inline translations (lib stays JP-only)
+const partyEnMap: Record<string, string> = {
+  "自由民主党": "Liberal Democratic Party",
+  "公明党": "Komeito",
+  "日本維新の会": "Nippon Ishin",
+  "国民民主党": "DPP",
+  "立憲民主党": "CDP",
+  "無所属": "Independent",
+};
+const noteEnMap: Record<string, string> = {
+  "史上初の女性首相": "Japan's first female Prime Minister",
+};
+
 export const metadata: Metadata = {
   title: "内閣 — 第2次高市内閣",
   description:
@@ -68,15 +81,21 @@ export default function CabinetPage() {
           {/* PM highlight */}
           <div className="p-6 bg-brief-card">
             <span className="text-[10px] tracking-[2px] uppercase text-foreground/50">
-              {cabinet[0].positionEn}
+              <T ja={cabinet[0].position} en={cabinet[0].positionEn} />
             </span>
             <div className="mt-1 flex items-baseline gap-3">
-              <h3 className="font-serif text-2xl font-bold">{cabinet[0].name}</h3>
+              <h3 className="font-serif text-2xl font-bold">
+                <T ja={cabinet[0].name} en={cabinet[0].nameEn} />
+              </h3>
               <span className="text-sm text-foreground/55">{cabinet[0].nameEn}</span>
             </div>
-            <span className="text-xs text-foreground/50">{cabinet[0].party}</span>
+            <span className="text-xs text-foreground/50">
+              <T ja={cabinet[0].party} en={partyEnMap[cabinet[0].party] ?? cabinet[0].party} />
+            </span>
             {cabinet[0].note && (
-              <span className="ml-2 text-xs text-brief-red">{cabinet[0].note}</span>
+              <span className="ml-2 text-xs text-brief-red">
+                <T ja={cabinet[0].note} en={noteEnMap[cabinet[0].note] ?? cabinet[0].note} />
+              </span>
             )}
           </div>
 
@@ -85,12 +104,18 @@ export default function CabinetPage() {
             {cabinet.slice(1).map((member) => (
               <div key={member.positionEn} className="px-6 py-4 flex items-center justify-between">
                 <div>
-                  <div className="text-xs text-foreground/50 mb-0.5">{member.position}</div>
-                  <div className="font-medium">{member.name}</div>
+                  <div className="text-xs text-foreground/50 mb-0.5">
+                    <T ja={member.position} en={member.positionEn} />
+                  </div>
+                  <div className="font-medium">
+                    <T ja={member.name} en={member.nameEn} />
+                  </div>
                 </div>
                 <div className="text-right">
                   <div className="text-xs text-foreground/45">{member.nameEn}</div>
-                  <div className="text-xs text-foreground/50">{member.party}</div>
+                  <div className="text-xs text-foreground/50">
+                    <T ja={member.party} en={partyEnMap[member.party] ?? member.party} />
+                  </div>
                 </div>
               </div>
             ))}

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { T } from "@/components/T";
+import { useLanguage } from "@/components/LanguageProvider";
 
 interface PagefindResult {
   id: string;
@@ -27,8 +29,9 @@ export function SearchClient() {
   const [results, setResults] = useState<ResolvedResult[]>([]);
   const [loading, setLoading] = useState(false);
   const [pagefindReady, setPagefindReady] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<"load" | "search" | null>(null);
   const apiRef = useRef<PagefindAPI | null>(null);
+  const { locale } = useLanguage();
 
   // Pagefind は build 時に out/_pagefind/pagefind.js が生成される。
   // バンドラに静的解析されない形でブラウザのネイティブ動的 import を呼ぶ。
@@ -46,7 +49,7 @@ export function SearchClient() {
           setPagefindReady(true);
         }
       } catch {
-        if (!cancelled) setError("検索インデックスを読み込めませんでした。");
+        if (!cancelled) setError("load");
       }
     })();
     return () => {
@@ -78,7 +81,7 @@ export function SearchClient() {
         );
         if (!cancelled) setResults(resolved);
       } catch {
-        if (!cancelled) setError("検索に失敗しました。");
+        if (!cancelled) setError("search");
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -92,7 +95,7 @@ export function SearchClient() {
   return (
     <div>
       <label htmlFor="search-input" className="sr-only">
-        検索ワード
+        <T ja="検索ワード" en="Search terms" />
       </label>
       <input
         id="search-input"
@@ -100,21 +103,25 @@ export function SearchClient() {
         autoFocus
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="キーワードを入力..."
+        placeholder={locale === "en" ? "Enter keywords..." : "キーワードを入力..."}
         className="w-full px-5 py-4 text-base border border-brief-border rounded-xl bg-transparent focus:outline-none focus:border-brief-red"
         disabled={!pagefindReady && !error}
       />
 
       {!pagefindReady && !error && (
-        <p className="mt-4 text-xs text-foreground/40">検索インデックスを読み込み中...</p>
+        <p className="mt-4 text-xs text-foreground/40"><T ja="検索インデックスを読み込み中..." en="Loading search index..." /></p>
       )}
       {error && (
         <p className="mt-4 text-xs text-brief-red" role="alert">
-          {error}
+          {error === "load" ? (
+            <T ja="検索インデックスを読み込めませんでした。" en="Failed to load the search index." />
+          ) : (
+            <T ja="検索に失敗しました。" en="Search failed." />
+          )}
         </p>
       )}
 
-      {loading && <p className="mt-6 text-sm text-foreground/45">検索中...</p>}
+      {loading && <p className="mt-6 text-sm text-foreground/45"><T ja="検索中..." en="Searching..." /></p>}
 
       {!loading && results.length > 0 && (
         <ul className="mt-8 space-y-4">
@@ -134,7 +141,10 @@ export function SearchClient() {
 
       {!loading && query && results.length === 0 && pagefindReady && !error && (
         <p className="mt-6 text-sm text-foreground/45">
-          「{query}」に一致する記事は見つかりませんでした。
+          <T
+            ja={<>「{query}」に一致する記事は見つかりませんでした。</>}
+            en={<>No articles found matching &ldquo;{query}&rdquo;.</>}
+          />
         </p>
       )}
     </div>
