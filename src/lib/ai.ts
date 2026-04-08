@@ -2,6 +2,134 @@ import type { IndustryArticle } from "./ict";
 
 export const aiArticles: IndustryArticle[] = [
   {
+    slug: "meta-muse-spark-2026",
+    title: "MetaのAI新モデル「Muse Spark」完全解説 — 30億人のSNSを動かす\u201c個人超知能\u201dの実力と限界",
+    titleEn: "Meta's New AI Model 'Muse Spark' — The Capabilities and Limits of 'Personal Superintelligence' for 3 Billion Users",
+    date: "2026-04-09",
+    author: "",
+    readTime: "12 min",
+    tags: ["Meta", "Muse Spark", "LLM", "マルチモーダル", "AI戦略", "SNS統合", "Alexandr Wang"],
+    summary: "Metaは2026年4月8日、Meta Superintelligence Labs（MSL）初のAIモデル「Muse Spark」をリリースした。音声・テキスト・画像のマルチモーダル入力に対応し、Instant・Thinking・Contemplatingの3モードを持つ。HealthBench Hardと視覚推論では全競合を超える一方、ARC AGI 2では大きく劣る。Llamaシリーズと異なりクローズドソース。Instagram・WhatsApp・Facebook・AIグラスへの統合を予定し、30億人のSNSユーザーへの展開が最大のインパクトとなる。本記事はベンチマーク・技術仕様・SNS統合・投資背景・日本への影響を整理する。",
+    sections: [
+      {
+        heading: "なぜ今、MetaはMuse Sparkを出したのか",
+        headingEn: "Why Meta Released Muse Spark Now",
+        diagramId: "muse-spark-overview",
+        body: `2026年4月8日、Metaは **「Muse Spark」** を発表した。これはMeta Superintelligence Labs（MSL）から生まれた最初のモデルであり、Metaにとって単なる新製品ではなく、AIへの大規模な方向転換を象徴する存在だ。
+
+背景にはCEO マーク・ザッカーバーグの危機感がある。2024年末、Llamaシリーズの進捗に不満を抱いたザッカーバーグは組織を大幅に再編。**Alexandr Wang**（元Scale AI CEO）を招聘し、MSLを設立した。MetaはScale AIに **約143億ドル（約2兆円）を投じて49%の株式**を取得するという異例の投資も行っている。
+
+> 「これは個人超知能（Personal Superintelligence）への第一歩だ。」― ザッカーバーグ（2026年4月8日）
+
+Muse Sparkは9ヶ月間にわたるアーキテクチャの再構築の産物で、Llama 4 Maverick比で **同等性能を1桁以上少ない計算量** で実現したとMetaは述べている。発表と同時にMeta株は **9%急騰** した。`,
+      },
+      {
+        heading: "3つのモードと入出力の仕様",
+        headingEn: "Three Modes and I/O Specifications",
+        diagramId: "muse-spark-modes",
+        body: `Muse Sparkは用途に応じた3つの動作モードを持つ。
+
+【Instantモード】カジュアルな質問や日常的なタスクに即応。レスポンスタイムを最優先した軽量推論。
+
+【Thinkingモード】複雑な質問に対して数秒の思考時間を確保し、より正確な回答を生成。数学・科学・コーディングで特に有効。
+
+【Contemplatingモード】複数のサブエージェントを並列起動し、それぞれ異なる角度からタスクを処理。旅行計画・長期プロジェクトの分析など複合的な依頼に対応する。Humanity's Last Examで **58%**、FrontierScience Researchで **38%** を達成した。
+
+**入力**: テキスト・音声・画像の3形式に対応。画像を「見て理解する」視覚的推論が強く、ユーザーが撮影した写真から栄養情報や機器のトラブルシューティングが可能。
+
+**出力**: 現時点ではテキストのみ。画像・動画生成は非対応（将来実装予定）。
+
+**料金**: 全モード無料。レート制限あり。限定的なAPIプレビューも開始されており、法人向け提供も視野に入っている。`,
+      },
+      {
+        heading: "ベンチマーク — 得意領域と弱点が明確",
+        headingEn: "Benchmarks — Clear Strengths and Weaknesses",
+        diagramId: "muse-spark-benchmarks",
+        body: `Muse Sparkのベンチマーク結果は「万能ではないが、特定領域では最強」という特徴的なプロファイルを示す。
+
+**圧倒的強み**
+
+【HealthBench Hard】**42.8%** — 全競合を上回る業界1位。Claude Opus 4.6・GPT-5.4・Gemini 3.1 Proいずれも下回る数値。医師との協業で磨かれた健康情報の質が反映されている。
+
+【CharXiv Reasoning（視覚推論）】**86.4** — 2位のGPT-5.4（82.8）、Gemini 3.1 Pro（80.2）を上回る。グラフや図表の読み取り・解析に強い。
+
+**競合と僅差**
+
+【MMMU Pro（マルチモーダル理解）】**80.4%** — 2位。1位はGemini 3.1 Pro（83.9%）。
+
+【GPQA Diamond（PhD水準推論）】**89.5%** — GPT-5.4（92.8%）・Claude Opus 4.6（92.7%）・Gemini 3.1 Pro（94.3%）に及ばない。
+
+**明確な弱点**
+
+【ARC AGI 2（抽象推論）】**42.5** — Gemini 3.1 Pro（76.5）・GPT-5.4（76.1）に大きく劣る。パターン認識・論理的な抽象思考は他社モデルが依然リードしている。`,
+      },
+      {
+        heading: "Alexandr Wangと$143億の賭け",
+        headingEn: "Alexandr Wang and the $14.3 Billion Bet",
+        diagramId: "muse-spark-investment",
+        body: `Muse Sparkを語る上で外せないのが、2025年にMetaが仕掛けた大型人事と投資だ。
+
+**Alexandr Wang**は2016年にScale AIを共同創業し、AIデータラベリング市場を制覇した人物。データ品質とモデル訓練の関係を誰よりも熟知している彼を、ザッカーバーグはMSLのトップとして迎え入れた。
+
+同時に**MetaはScale AIに143億ドルを投じ49%を取得**。これはMetaが単にモデルを作るだけでなく、高品質な訓練データの供給源を内製化したことを意味する。Muse Sparkの「計算効率1桁超の改善」は、この人材・データの統合なしには実現しなかった可能性が高い。
+
+財務面では、Metaは2026年の設備投資を **$1,150〜1,350億（前年$722億から約80%増）** と見込んでいる。データセンター・GPU調達・研究人材に資金が注ぎ込まれており、AI分野への本気度は数字が証明している。
+
+> BofAはMuse Spark発表を受けてMetaの格付けを維持し、「AI能力の大幅なギャップ縮小」と評価した。（BofA Research, 2026年4月）`,
+      },
+      {
+        heading: "SNS統合の衝撃 — 30億人へのリーチ",
+        headingEn: "The Impact of SNS Integration — Reaching 3 Billion Users",
+        diagramId: "muse-spark-sns",
+        body: `Muse SparkがGPT-5.4やClaude Opus 4.6と根本的に異なる点は、**展開規模**だ。
+
+現在、Muse Sparkはmeta.aiとMeta AIアプリ（米国）で利用可能。しかしMetaが持つプラットフォームはこれだけではない。
+
+【Instagram】世界20億人以上が利用。写真・動画の視覚理解が強いMuse Sparkとの相性は高く、投稿内容の解析・ショッピング提案・クリエイター向けコンテンツ生成に活用される見込み。
+
+【WhatsApp】メッセージ文脈を理解したAIアシスタントとして機能。健康相談・翻訳・スケジュール調整への統合が予定されている。
+
+【Facebook】ザッカーバーグは「Instagramでシェアされたコンテンツを引用した推薦機能」の実装を予告している。
+
+【AIグラス（Ray-Ban Meta）】リアルタイムの視覚情報とMuse Sparkの組み合わせで、ウェアラブルAIアシスタントの性能が大幅に向上する可能性がある。
+
+OpenAIやAnthropicがAPIや独自アプリで利用者を集める一方、MetaはSNSという **すでに生活に溶け込んだプラットフォーム**を通じてAIを普及させる戦略を取る。これがMetaの最大の差別化要因だ。`,
+      },
+      {
+        heading: "Llamaからの転換 — クローズドソースが意味すること",
+        headingEn: "Departure from Llama — What Going Closed Source Means",
+        diagramId: "muse-spark-vs-llama",
+        body: `Metaはこれまで **Llamaシリーズ** をオープンソースで公開し、AI民主化の旗手として評価されてきた。しかしMuse Sparkは当面クローズドソースでの提供となる。
+
+この転換には複数の理由が考えられる。
+
+**能力閾値の問題**: Muse Sparkは単に賢いだけでなく、「悪用すれば危険になり得る能力」を持つ可能性がある。MetaはAdvanced AI Scaling Frameworkに基づき、生物・化学兵器などのハイリスク領域での強力な拒否行動を実証済みだと説明している。
+
+**競争優位の確保**: Llamaのオープン化はエコシステム形成に貢献したが、商業的優位性の確保という観点では課題もあった。クローズドモデルはAPI収益化と機能差別化を可能にする。
+
+**将来のオープン化は継続**: Metaは「Muse Sparkの一部バージョンをオープンソースライセンスで公開する意向」を表明している。完全なクローズド化への転換ではなく、段階的な公開を検討中だ。
+
+Llamaを活用してきた開発者・研究者コミュニティにとってはサプライズだが、商業的成熟という観点では自然な進化とも言える。`,
+      },
+      {
+        heading: "日本への影響と今後の見方",
+        headingEn: "Impact on Japan and Outlook",
+        diagramId: "muse-spark-japan",
+        body: `Muse Sparkの日本語対応状況は現時点で公式発表がなく、米国での展開が先行している。ただし以下の点で日本市場への影響は避けられない。
+
+**SNS経由の間接影響**: InstagramとWhatsAppの日本ユーザーは機能展開のタイミングで自動的にMuse Sparkを利用することになる。特にInstagramでのショッピング・コンテンツ推薦への統合は、ECや広告市場に影響を与え得る。
+
+**競合各社への圧力**: GPT-5.4やClaude Opus 4.6との競争が激化することで、各社の日本語性能向上・価格競争が加速する可能性がある。日本企業のAI調達コスト低下につながり得る。
+
+**HealthBench性能の意義**: 医療・ヘルスケア分野でのAI活用は日本でも関心が高い。Muse Sparkが健康情報分野でトップ性能を示した事実は、医療AIの競争地図を塗り替える可能性がある。
+
+**投資家視点**: Meta株の9%急騰は、SNSプラットフォームとAIの統合がいかに市場から評価されているかを示す。日本のSNS関連株・AI関連株への影響も注視が必要だ。
+
+Muse Sparkは「最強のAI」ではないが、**最も多くの人に届くAI**になる可能性が最も高いモデルだ。技術的な優劣だけでなく、プラットフォーム統合という視点でその意義を評価する必要がある。`,
+      },
+    ],
+  },
+  {
     slug: "anthropic-project-glasswing-mythos",
     title: "Anthropic「Project Glasswing」始動 — Mythos PreviewでOS・ブラウザのゼロデイを自動修正、11社が参加",
     titleEn: "Anthropic Launches Project Glasswing — Mythos Preview Hunts Zero-Days Across Major OSes and Browsers",

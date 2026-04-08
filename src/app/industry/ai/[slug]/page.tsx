@@ -52,6 +52,15 @@ import {
   GlasswingStrategyDiagram,
   GlasswingTimelineDiagram,
 } from "@/components/GlasswingDiagrams";
+import {
+  MuseSparkOverviewDiagram,
+  MuseSparkModesDiagram,
+  MuseSparkBenchmarksDiagram,
+  MuseSparkInvestmentDiagram,
+  MuseSparkSnsDiagram,
+  MuseSparkVsLlamaDiagram,
+  MuseSparkJapanDiagram,
+} from "@/components/MuseSparkDiagrams";
 
 export function generateStaticParams() {
   return aiArticles.map((a) => ({ slug: a.slug }));
@@ -165,6 +174,13 @@ const diagramMap: Record<string, React.FC> = {
   "glasswing-safety": GlasswingSafetyDiagram,
   "glasswing-strategy": GlasswingStrategyDiagram,
   "glasswing-timeline": GlasswingTimelineDiagram,
+  "muse-spark-overview": MuseSparkOverviewDiagram,
+  "muse-spark-modes": MuseSparkModesDiagram,
+  "muse-spark-benchmarks": MuseSparkBenchmarksDiagram,
+  "muse-spark-investment": MuseSparkInvestmentDiagram,
+  "muse-spark-sns": MuseSparkSnsDiagram,
+  "muse-spark-vs-llama": MuseSparkVsLlamaDiagram,
+  "muse-spark-japan": MuseSparkJapanDiagram,
 };
 
 export default async function AiArticlePage({
