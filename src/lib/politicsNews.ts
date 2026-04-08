@@ -16,6 +16,17 @@ export interface PoliticsNewsItem {
 
 export const politicsNews: PoliticsNewsItem[] = [
   {
+    date: "2026-04-08",
+    time: "22:00",
+    title: "米・イランが2週間の即時停戦で合意、ホルムズ海峡全面再開へ",
+    summary: "トランプ大統領とイランが即時停戦に合意（パキスタンが仲介）。ホルムズ海峡の安全な通航を2週間認め、米・イスラエルの軍事作戦を停止。10日からイスラマバードで最終合意に向けた交渉開始。日経平均は翌8日に2,879円高と歴代3位の急騰を記録。",
+    tag: "外交",
+    tagColor: "#2b6cb0",
+    titleEn: "US and Iran agree on two-week ceasefire; Strait of Hormuz to fully reopen",
+    summaryEn: "President Trump and Iran reached an immediate ceasefire agreement brokered by Pakistan. Iran will allow safe transit through the Strait of Hormuz for two weeks while the US and Israel halt military operations. Negotiations toward a final agreement begin in Islamabad on April 10. The Nikkei 225 surged 2,879 yen the following day — the third-largest single-day gain on record.",
+    tagEn: "Diplomacy",
+  },
+  {
     date: "2026-04-07",
     time: "09:00",
     title: "トランプ大統領の対イラン猶予期限が到来、今後の対応に注目",
