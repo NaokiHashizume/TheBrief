@@ -1,5 +1,7 @@
 "use client";
 
+import { T } from "@/components/T";
+
 /* ─────────────────────────────────────────────
    AI Model Overview Stats Banner
    ───────────────────────────���───────────────── */
@@ -8,23 +10,41 @@ export function AiModelOverviewDiagram() {
     <div className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
         <div className="text-2xl font-bold text-[#10b981]">GPT-5.4</div>
-        <div className="text-[10px] text-foreground/50 mt-1">OpenAI 最新モデル</div>
-        <div className="text-[9px] text-foreground/35">2026年3月5日</div>
+        <div className="text-[10px] text-foreground/50 mt-1">
+          <T ja="OpenAI 最新モデル" en="OpenAI latest model" />
+        </div>
+        <div className="text-[9px] text-foreground/35">
+          <T ja="2026年3月5日" en="March 5, 2026" />
+        </div>
       </div>
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
         <div className="text-2xl font-bold text-[#3b82f6]">Gemini 3.1</div>
-        <div className="text-[10px] text-foreground/50 mt-1">Google 最新モデル</div>
-        <div className="text-[9px] text-foreground/35">2026年2月19日</div>
+        <div className="text-[10px] text-foreground/50 mt-1">
+          <T ja="Google 最新モデル" en="Google latest model" />
+        </div>
+        <div className="text-[9px] text-foreground/35">
+          <T ja="2026年2月19日" en="February 19, 2026" />
+        </div>
       </div>
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
         <div className="text-2xl font-bold text-[#f59e0b]">Opus 4.6</div>
-        <div className="text-[10px] text-foreground/50 mt-1">Anthropic 最新モデル</div>
-        <div className="text-[9px] text-foreground/35">2026年2月5日</div>
+        <div className="text-[10px] text-foreground/50 mt-1">
+          <T ja="Anthropic 最新モデル" en="Anthropic latest model" />
+        </div>
+        <div className="text-[9px] text-foreground/35">
+          <T ja="2026年2月5日" en="February 5, 2026" />
+        </div>
       </div>
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
-        <div className="text-2xl font-bold text-[#8b5cf6]">3社</div>
-        <div className="text-[10px] text-foreground/50 mt-1">AI覇権を争う</div>
-        <div className="text-[9px] text-foreground/35">2026年現在</div>
+        <div className="text-2xl font-bold text-[#8b5cf6]">
+          <T ja="3社" en="3 labs" />
+        </div>
+        <div className="text-[10px] text-foreground/50 mt-1">
+          <T ja="AI覇権を争う" en="Battling for AI supremacy" />
+        </div>
+        <div className="text-[9px] text-foreground/35">
+          <T ja="2026年現在" en="As of 2026" />
+        </div>
       </div>
     </div>
   );
@@ -49,7 +69,7 @@ export function ModelTimelineDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        主要モデルリリース タイムライン (2025-2026)
+        <T ja="主要モデルリリース タイムライン (2025-2026)" en="Major model release timeline (2025-2026)" />
       </div>
       <div className="space-y-1.5">
         {events.map((e, i) => (
@@ -98,7 +118,7 @@ export function BenchmarkComparisonDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        主要ベンチマーク比較 — フラッグシップモデル
+        <T ja="主要ベンチマーク比較 — フラッグシップモデル" en="Benchmark comparison — flagship models" />
       </div>
       <div className="flex gap-4 mb-4 flex-wrap">
         <div className="flex items-center gap-1.5">
@@ -181,7 +201,10 @@ export function BenchmarkComparisonDiagram() {
         ))}
       </div>
       <div className="mt-3 text-[9px] text-foreground/35">
-        ※ ベンチマーク結果は各社公式発表および独立評価に基づく（2026年3月時点）。SWE-bench Proはデータ汚染リスクが低い新基準。
+        <T
+          ja="※ ベンチマーク結果は各社公式発表および独立評価に基づく（2026年3月時点）。SWE-bench Proはデータ汚染リスクが低い新基準。"
+          en="* Benchmark results are based on each vendor's official announcements and independent evaluations (as of March 2026). SWE-bench Pro is a newer standard with lower data-contamination risk."
+        />
       </div>
     </div>
   );
@@ -192,29 +215,37 @@ export function BenchmarkComparisonDiagram() {
    ─────────────────────────────────────��─────── */
 export function PricingComparisonDiagram() {
   const models = [
-    { name: "GPT-5.4", tier: "フラッグシップ", input: "$2.50", output: "$15.00", color: "#10b981" },
-    { name: "GPT-5.4 Mini", tier: "軽量", input: "$0.25", output: "$2.00", color: "#10b981" },
-    { name: "o3", tier: "推論特化", input: "$10.00", output: "$40.00", color: "#10b981" },
-    { name: "Gemini 3.1 Pro", tier: "フラッグシップ", input: "$2.00", output: "$12.00", color: "#3b82f6" },
-    { name: "Gemini 3 Flash", tier: "軽量", input: "$0.15", output: "$0.60", color: "#3b82f6" },
-    { name: "Claude Opus 4.6", tier: "フラッグシップ", input: "$5.00", output: "$25.00", color: "#f59e0b" },
-    { name: "Claude Sonnet 4.6", tier: "バランス", input: "$3.00", output: "$15.00", color: "#f59e0b" },
-    { name: "Claude Haiku 4.5", tier: "軽量", input: "$1.00", output: "$5.00", color: "#f59e0b" },
+    { name: "GPT-5.4", tier: "フラッグシップ", tierEn: "Flagship", input: "$2.50", output: "$15.00", color: "#10b981" },
+    { name: "GPT-5.4 Mini", tier: "軽量", tierEn: "Lightweight", input: "$0.25", output: "$2.00", color: "#10b981" },
+    { name: "o3", tier: "推論特化", tierEn: "Reasoning-focused", input: "$10.00", output: "$40.00", color: "#10b981" },
+    { name: "Gemini 3.1 Pro", tier: "フラッグシップ", tierEn: "Flagship", input: "$2.00", output: "$12.00", color: "#3b82f6" },
+    { name: "Gemini 3 Flash", tier: "軽量", tierEn: "Lightweight", input: "$0.15", output: "$0.60", color: "#3b82f6" },
+    { name: "Claude Opus 4.6", tier: "フラッグシップ", tierEn: "Flagship", input: "$5.00", output: "$25.00", color: "#f59e0b" },
+    { name: "Claude Sonnet 4.6", tier: "バランス", tierEn: "Balanced", input: "$3.00", output: "$15.00", color: "#f59e0b" },
+    { name: "Claude Haiku 4.5", tier: "軽量", tierEn: "Lightweight", input: "$1.00", output: "$5.00", color: "#f59e0b" },
   ];
 
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        API料金比較 — 100万トークンあたり (USD)
+        <T ja="API料金比較 — 100万トークンあたり (USD)" en="API pricing comparison — per 1M tokens (USD)" />
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-left min-w-[450px]">
           <thead>
             <tr className="border-b border-brief-border">
-              <th className="text-[10px] text-foreground/45 font-medium py-2 pr-3">モデル</th>
-              <th className="text-[10px] text-foreground/45 font-medium py-2 px-3">ティア</th>
-              <th className="text-[10px] text-foreground/45 font-medium py-2 px-3 text-right">入力</th>
-              <th className="text-[10px] text-foreground/45 font-medium py-2 pl-3 text-right">出力</th>
+              <th className="text-[10px] text-foreground/45 font-medium py-2 pr-3">
+                <T ja="モデル" en="Model" />
+              </th>
+              <th className="text-[10px] text-foreground/45 font-medium py-2 px-3">
+                <T ja="ティア" en="Tier" />
+              </th>
+              <th className="text-[10px] text-foreground/45 font-medium py-2 px-3 text-right">
+                <T ja="入力" en="Input" />
+              </th>
+              <th className="text-[10px] text-foreground/45 font-medium py-2 pl-3 text-right">
+                <T ja="出力" en="Output" />
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -225,7 +256,9 @@ export function PricingComparisonDiagram() {
                     {m.name}
                   </span>
                 </td>
-                <td className="py-2 px-3 text-[10px] text-foreground/50">{m.tier}</td>
+                <td className="py-2 px-3 text-[10px] text-foreground/50">
+                  <T ja={m.tier} en={m.tierEn} />
+                </td>
                 <td className="py-2 px-3 text-xs tabular-nums text-right">{m.input}</td>
                 <td className="py-2 pl-3 text-xs tabular-nums text-right">{m.output}</td>
               </tr>
@@ -234,7 +267,10 @@ export function PricingComparisonDiagram() {
         </table>
       </div>
       <div className="mt-3 text-[9px] text-foreground/35">
-        ※ バッチAPIは約50%割引。プロンプトキャッシュでさらに最大90%節約可能。価格は2026年3月時点。
+        <T
+          ja="※ バッチAPIは約50%割引。プロンプトキャッシュでさらに最大90%節約可能。価格は2026年3月時点。"
+          en="* Batch API offers roughly 50% off; prompt caching can save up to an additional 90%. Prices as of March 2026."
+        />
       </div>
     </div>
   );
@@ -245,27 +281,29 @@ export function PricingComparisonDiagram() {
    ───────────────��───────────────────────────── */
 export function MultimodalCapsDiagram() {
   const capabilities = [
-    { name: "テキスト入出力", gpt: true, gemini: true, claude: true },
-    { name: "画像入力（認識）", gpt: true, gemini: true, claude: true },
-    { name: "画像生成", gpt: true, gemini: true, claude: false },
-    { name: "音声入力", gpt: true, gemini: true, claude: false },
-    { name: "音声生成", gpt: true, gemini: true, claude: false },
-    { name: "動画入力", gpt: true, gemini: true, claude: false },
-    { name: "動画生成", gpt: true, gemini: true, claude: false },
-    { name: "コンピュータ操作", gpt: true, gemini: false, claude: true },
-    { name: "コード実行", gpt: true, gemini: true, claude: true },
+    { name: "テキスト入出力", nameEn: "Text I/O", gpt: true, gemini: true, claude: true },
+    { name: "画像入力（認識）", nameEn: "Image input (vision)", gpt: true, gemini: true, claude: true },
+    { name: "画像生成", nameEn: "Image generation", gpt: true, gemini: true, claude: false },
+    { name: "音声入力", nameEn: "Audio input", gpt: true, gemini: true, claude: false },
+    { name: "音声生成", nameEn: "Audio generation", gpt: true, gemini: true, claude: false },
+    { name: "動画入力", nameEn: "Video input", gpt: true, gemini: true, claude: false },
+    { name: "動画生成", nameEn: "Video generation", gpt: true, gemini: true, claude: false },
+    { name: "コンピュータ操作", nameEn: "Computer use", gpt: true, gemini: false, claude: true },
+    { name: "コード実行", nameEn: "Code execution", gpt: true, gemini: true, claude: true },
   ];
 
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        マルチモーダル対応状況
+        <T ja="マルチモーダル対応状況" en="Multimodal capability matrix" />
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-left min-w-[400px]">
           <thead>
             <tr className="border-b border-brief-border">
-              <th className="text-[10px] text-foreground/45 font-medium py-2 pr-3">機能</th>
+              <th className="text-[10px] text-foreground/45 font-medium py-2 pr-3">
+                <T ja="機能" en="Capability" />
+              </th>
               <th className="text-[10px] text-foreground/45 font-medium py-2 px-3 text-center">ChatGPT</th>
               <th className="text-[10px] text-foreground/45 font-medium py-2 px-3 text-center">Gemini</th>
               <th className="text-[10px] text-foreground/45 font-medium py-2 pl-3 text-center">Claude</th>
@@ -274,7 +312,9 @@ export function MultimodalCapsDiagram() {
           <tbody>
             {capabilities.map((c) => (
               <tr key={c.name} className="border-b border-brief-border/50 last:border-0">
-                <td className="py-2 pr-3 text-xs text-foreground/70">{c.name}</td>
+                <td className="py-2 pr-3 text-xs text-foreground/70">
+                  <T ja={c.name} en={c.nameEn} />
+                </td>
                 <td className="py-2 px-3 text-center">
                   <span className={c.gpt ? "text-[#10b981]" : "text-foreground/20"}>
                     {c.gpt ? "\u25CF" : "\u2014"}
@@ -296,7 +336,10 @@ export function MultimodalCapsDiagram() {
         </table>
       </div>
       <div className="mt-3 text-[9px] text-foreground/35">
-        {"\u25CF"} = 対応　{"\u2014"} = 未対応または限定的（2026年4月時点）
+        <T
+          ja={`${"\u25CF"} = 対応　${"\u2014"} = 未対応または限定的（2026年4月時点）`}
+          en={`${"\u25CF"} = Supported   ${"\u2014"} = Not supported or limited (as of April 2026)`}
+        />
       </div>
     </div>
   );
@@ -319,7 +362,7 @@ export function ContextWindowDiagram() {
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        コンテキストウィンドウ比較
+        <T ja="コンテキストウィンドウ比較" en="Context window comparison" />
       </div>
       <div className="space-y-3">
         {models.map((m) => (
@@ -329,7 +372,8 @@ export function ContextWindowDiagram() {
                 {m.name}
               </span>
               <span className="text-[10px] text-foreground/45 tabular-nums">
-                {(m.tokens / 1000).toLocaleString()}Kトークン
+                {(m.tokens / 1000).toLocaleString()}
+                <T ja="Kトークン" en="K tokens" />
               </span>
             </div>
             <div className="h-5 bg-foreground/[0.04] rounded-full overflow-hidden">
@@ -342,7 +386,7 @@ export function ContextWindowDiagram() {
                 }}
               >
                 <span className="text-[9px] font-medium text-foreground/50">
-                  最大出力: {m.maxOutput}
+                  <T ja="最大出力: " en="Max output: " />{m.maxOutput}
                 </span>
               </div>
             </div>
@@ -350,7 +394,10 @@ export function ContextWindowDiagram() {
         ))}
       </div>
       <div className="mt-3 text-[9px] text-foreground/35">
-        ※ コンテキストウィンドウは入力+出力の合計容量。大きいほど長文の処理が可能。
+        <T
+          ja="※ コンテキストウィンドウは入力+出力の合計容量。大きいほど長文の処理が可能。"
+          en="* Context window is the combined input + output capacity. Larger windows enable processing of longer documents."
+        />
       </div>
     </div>
   );
@@ -361,32 +408,34 @@ export function ContextWindowDiagram() {
    ────────���────────────────────────────���─────── */
 export function MarketShareDiagram() {
   const consumer = [
-    { name: "ChatGPT", share: 45.3, prev: 69.1, color: "#10b981" },
-    { name: "Gemini", share: 25.2, prev: 14.7, color: "#3b82f6" },
-    { name: "その他", share: 29.5, prev: 16.2, color: "#94a3b8" },
+    { name: "ChatGPT", nameEn: "ChatGPT", share: 45.3, prev: 69.1, color: "#10b981" },
+    { name: "Gemini", nameEn: "Gemini", share: 25.2, prev: 14.7, color: "#3b82f6" },
+    { name: "その他", nameEn: "Others", share: 29.5, prev: 16.2, color: "#94a3b8" },
   ];
 
   const enterprise = [
-    { name: "Anthropic", share: 40, prev: 12, color: "#f59e0b" },
-    { name: "OpenAI", share: 27, prev: 50, color: "#10b981" },
-    { name: "Google", share: 21, prev: 7, color: "#3b82f6" },
-    { name: "その他", share: 12, prev: 31, color: "#94a3b8" },
+    { name: "Anthropic", nameEn: "Anthropic", share: 40, prev: 12, color: "#f59e0b" },
+    { name: "OpenAI", nameEn: "OpenAI", share: 27, prev: 50, color: "#10b981" },
+    { name: "Google", nameEn: "Google", share: 21, prev: 7, color: "#3b82f6" },
+    { name: "その他", nameEn: "Others", share: 12, prev: 31, color: "#94a3b8" },
   ];
 
   return (
     <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
-        市場シェアの変動 (2025年初頭 → 2026年)
+        <T ja="市場シェアの変動 (2025年初頭 → 2026年)" en="Market share shifts (early 2025 → 2026)" />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <div className="text-xs font-semibold text-foreground/70 mb-3">コンシューマー市場</div>
+          <div className="text-xs font-semibold text-foreground/70 mb-3">
+            <T ja="コンシューマー市場" en="Consumer market" />
+          </div>
           <div className="space-y-2">
             {consumer.map((c) => (
               <div key={c.name}>
                 <div className="flex items-center justify-between mb-0.5">
                   <span className="text-[11px] font-medium" style={{ color: c.color }}>
-                    {c.name}
+                    <T ja={c.name} en={c.nameEn} />
                   </span>
                   <span className="text-[10px] tabular-nums text-foreground/50">
                     {c.prev}% → <span className="font-bold">{c.share}%</span>
@@ -414,13 +463,15 @@ export function MarketShareDiagram() {
           </div>
         </div>
         <div>
-          <div className="text-xs font-semibold text-foreground/70 mb-3">エンタープライズ市場</div>
+          <div className="text-xs font-semibold text-foreground/70 mb-3">
+            <T ja="エンタープライズ市場" en="Enterprise market" />
+          </div>
           <div className="space-y-2">
             {enterprise.map((c) => (
               <div key={c.name}>
                 <div className="flex items-center justify-between mb-0.5">
                   <span className="text-[11px] font-medium" style={{ color: c.color }}>
-                    {c.name}
+                    <T ja={c.name} en={c.nameEn} />
                   </span>
                   <span className="text-[10px] tabular-nums text-foreground/50">
                     {c.prev}% → <span className="font-bold">{c.share}%</span>
