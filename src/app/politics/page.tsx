@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
+import { PageMasthead } from "@/components/PageMasthead";
 import { debates } from "@/lib/debates";
 import { passedItems } from "@/lib/passed";
 import { enactedItems } from "@/lib/enacted";
@@ -79,20 +80,34 @@ export default function PoliticsPage() {
         ]}
       />
 
-      {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
-        <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-        <span>/</span>
-        <span>Politics</span>
-      </div>
-
-      <h1 className="font-serif text-3xl md:text-4xl font-bold">Politics</h1>
-      <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-        <T ja="日本の国会（衆議院・参議院）の政党別議席数、内閣の顔ぶれ、主要議員をわかりやすくまとめています。" en="A clear overview of Japan's National Diet (House of Representatives & House of Councillors), seat distribution by party, Cabinet members, and key legislators." />
-      </p>
-      <p className="mt-2 text-xs text-foreground/45">
-        Last updated: 2026-04-04 <T ja="※最新の情報に基づき随時更新" en="— Updated regularly with the latest data" />
-      </p>
+      <PageMasthead
+        breadcrumbs={[
+          { ja: "Home", en: "Home", href: "/" },
+          { ja: "Politics", en: "Politics" },
+        ]}
+        eyebrow="Politics Now"
+        eyebrowEn="Politics Now"
+        accent="#e53e3e"
+        live
+        title={<T ja="Politics" en="Politics" />}
+        titleEn="国会・内閣・議員 — 日本政治の全体像"
+        description={
+          <T
+            ja="日本の国会（衆議院・参議院）の政党別議席数、内閣の顔ぶれ、主要議員をわかりやすくまとめています。"
+            en="A clear overview of Japan&rsquo;s National Diet (House of Representatives &amp; House of Councillors), seat distribution by party, Cabinet members, and key legislators."
+          />
+        }
+        meta={
+          <>
+            Last updated: 2026-04-04{" "}
+            <T
+              ja="※最新の情報に基づき随時更新"
+              en="— Updated regularly with the latest data"
+            />
+          </>
+        }
+        dateLabel="2026-04-04"
+      />
 
       {/* いまの政治 ダッシュボード */}
       <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-3">

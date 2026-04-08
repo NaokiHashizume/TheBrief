@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { T } from "@/components/T";
+import { PageMasthead } from "@/components/PageMasthead";
 import { getUniversityCounts, universityCategories } from "@/lib/university";
 
 export const metadata: Metadata = {
@@ -21,32 +22,34 @@ export default function UniversityPage() {
         ]}
       />
 
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
-        <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
-        <span>/</span>
-        <span>University</span>
-      </div>
-
-      <section className="relative overflow-hidden rounded-[30px] border border-brief-rule bg-[linear-gradient(135deg,rgba(99,102,241,0.08),rgba(59,130,246,0.05),rgba(255,255,255,0.8))] px-6 py-8 md:px-8 md:py-10 dark:bg-[linear-gradient(135deg,rgba(99,102,241,0.12),rgba(15,23,42,0.98),rgba(2,6,23,1))]">
-        <div className="absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.14),transparent_60%)] dark:bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.18),transparent_55%)]" />
-        <div className="relative">
-          <span className="inline-flex rounded-full border border-[#6366f1]/20 bg-[#6366f1]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[2.8px] text-[#4f46e5] dark:border-[#818cf8]/30 dark:bg-[#818cf8]/10 dark:text-[#c7d2fe]">
-            University
-          </span>
-          <h1 className="mt-4 font-serif text-3xl font-bold md:text-5xl">
-            <T
-              ja={<>学問の地図を、<br className="hidden sm:block" />一枚で見渡す。</>}
-              en={<>The map of academia,<br className="hidden sm:block" />on a single page.</>}
-            />
-          </h1>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-foreground/70 md:text-[15px]">
-            <T
-              ja="Politics、Economy、Industryに続く第4のセクションとして、Universityを新設しました。研究と教育の入口として、学問分野を大分類から俯瞰し、各領域の中分類と代表科目まで辿れる構造にしています。"
-              en="University is the fourth section after Politics, Economy, and Industry. As an entry point to research and education, it surveys academic disciplines from broad categories down to sub-fields and representative courses."
-            />
-          </p>
-        </div>
-      </section>
+      <PageMasthead
+        breadcrumbs={[
+          { ja: "Home", en: "Home", href: "/" },
+          { ja: "University", en: "University" },
+        ]}
+        eyebrow="Lecture Library"
+        eyebrowEn="Lecture Library"
+        accent="#6366f1"
+        title={
+          <T
+            ja={<>学問の地図を、<br className="hidden sm:block" />一枚で見渡す。</>}
+            en={
+              <>
+                The map of academia,
+                <br className="hidden sm:block" />
+                on a single page.
+              </>
+            }
+          />
+        }
+        titleEn="University — 6 domains, 42 fields"
+        description={
+          <T
+            ja="Politics、Economy、Industryに続く第4のセクションとして、Universityを新設しました。研究と教育の入口として、学問分野を大分類から俯瞰し、各領域の中分類と代表科目まで辿れる構造にしています。"
+            en="University is the fourth section after Politics, Economy, and Industry. As an entry point to research and education, it surveys academic disciplines from broad categories down to sub-fields and representative courses."
+          />
+        }
+      />
 
       <section className="mt-8">
         <div className="mb-4">
