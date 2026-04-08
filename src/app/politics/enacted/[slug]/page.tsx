@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { enactedItems } from "@/lib/enacted";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import ShareButton from "@/components/ShareButton";
+import { T } from "@/components/T";
 
 export function generateStaticParams() {
   return enactedItems.map((d) => ({ slug: d.slug }));
@@ -56,34 +57,39 @@ export default async function EnactedDetailPage({
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <Link href="/politics/enacted" className="hover:text-foreground transition-colors">施行済</Link>
+        <Link href="/politics/enacted" className="hover:text-foreground transition-colors"><T ja="施行済" en="Enacted" /></Link>
         <span>/</span>
-        <span className="truncate max-w-[150px]">{item.title}</span>
+        <span className="truncate max-w-[150px]"><T ja={item.title} en={item.titleEn ?? item.title} /></span>
       </div>
 
       {/* Header */}
       <div className="flex items-center gap-2 flex-wrap mb-3">
         <span className="text-[10px] font-bold px-2.5 py-1 rounded-full text-white bg-green-600">
-          施行済
+          <T ja="施行済" en="Enacted" />
         </span>
-        <span className="text-xs text-foreground/45">{item.committee}</span>
-        <span className="text-xs text-foreground/50 tabular-nums">{item.enactedDate} 成立 → {item.effectiveDate} 施行</span>
+        <span className="text-xs text-foreground/45"><T ja={item.committee} en={item.committeeEn ?? item.committee} /></span>
+        <span className="text-xs text-foreground/50 tabular-nums">
+          <T
+            ja={`${item.enactedDate} 成立 → ${item.effectiveDate} 施行`}
+            en={`${item.enactedDate} enacted → ${item.effectiveDate} effective`}
+          />
+        </span>
       </div>
 
-      <h1 className="font-serif text-2xl md:text-3xl font-bold">{item.title}</h1>
+      <h1 className="font-serif text-2xl md:text-3xl font-bold"><T ja={item.title} en={item.titleEn ?? item.title} /></h1>
       <span className="text-[10px] tracking-[2px] uppercase text-foreground/45">
         {item.titleEn}
       </span>
       <p className="mt-4 text-sm text-foreground/60 leading-relaxed">
-        {item.summary}
+        <T ja={item.summary} en={item.summaryEn ?? item.summary} />
       </p>
 
       {/* Vote result */}
       <div className="mt-6 p-4 bg-brief-card rounded-xl">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs text-foreground/55">投票結果</span>
+          <span className="text-xs text-foreground/55"><T ja="投票結果" en="Vote Result" /></span>
           <span className="text-xs text-foreground/45 tabular-nums">
-            賛成率 {forPct}%
+            <T ja={`賛成率 ${forPct}%`} en={`${forPct}% in favor`} />
           </span>
         </div>
         <div className="h-3 rounded-full overflow-hidden bg-foreground/5 flex">
@@ -105,16 +111,16 @@ export default async function EnactedDetailPage({
         <div className="flex items-center gap-4 mt-2 text-xs text-foreground/50">
           <span className="flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-green-500" />
-            賛成 {item.voteResult.for}
+            <T ja="賛成" en="For" /> {item.voteResult.for}
           </span>
           <span className="flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-red-500" />
-            反対 {item.voteResult.against}
+            <T ja="反対" en="Against" /> {item.voteResult.against}
           </span>
           {item.voteResult.abstain && (
             <span className="flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-yellow-500/50" />
-              棄権 {item.voteResult.abstain}
+              <T ja="棄権" en="Abstain" /> {item.voteResult.abstain}
             </span>
           )}
         </div>
@@ -124,7 +130,7 @@ export default async function EnactedDetailPage({
       <div className="mt-10">
         <SectionHeader title="概要" titleEn="Overview" />
         <div className="p-5 bg-brief-card rounded-xl text-sm text-foreground/70 leading-relaxed">
-          {item.detail}
+          <T ja={item.detail} en={item.detailEn ?? item.detail} />
         </div>
       </div>
 
@@ -137,7 +143,7 @@ export default async function EnactedDetailPage({
               <span className="w-5 h-5 rounded-full bg-green-500/10 text-green-400 text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
                 {i + 1}
               </span>
-              <span className="text-foreground/70">{point}</span>
+              <span className="text-foreground/70"><T ja={point} en={item.keyPointsEn?.[i] ?? point} /></span>
             </li>
           ))}
         </ul>
@@ -149,7 +155,7 @@ export default async function EnactedDetailPage({
         <div className="border border-brief-border rounded-xl overflow-hidden divide-y divide-brief-border">
           {item.parties.map((p) => (
             <div key={p.name} className="px-5 py-3 flex items-center justify-between gap-4">
-              <span className="font-medium text-sm">{p.name}</span>
+              <span className="font-medium text-sm"><T ja={p.name} en={p.nameEn ?? p.name} /></span>
               <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
                 p.vote === "賛成"
                   ? "bg-green-500/10 text-green-400"
@@ -157,7 +163,7 @@ export default async function EnactedDetailPage({
                     ? "bg-red-500/10 text-red-400"
                     : "bg-yellow-500/10 text-yellow-400"
               }`}>
-                {p.vote}
+                <T ja={p.vote} en={p.voteEn ?? p.vote} />
               </span>
             </div>
           ))}
@@ -183,7 +189,7 @@ export default async function EnactedDetailPage({
                 <div>
                   <span className="text-[10px] text-foreground/45 tabular-nums">{t.date}</span>
                   <p className={`text-sm mt-0.5 ${isLast ? "text-foreground font-medium" : "text-foreground/60"}`}>
-                    {t.event}
+                    <T ja={t.event} en={t.eventEn ?? t.event} />
                   </p>
                 </div>
               </div>
@@ -196,7 +202,7 @@ export default async function EnactedDetailPage({
       <div className="mt-10">
         <SectionHeader title="影響・効果" titleEn="Impact" />
         <div className="p-5 border-l-2 border-green-500/50 bg-green-500/5 rounded-r-xl text-sm text-foreground/70 leading-relaxed">
-          {item.impact}
+          <T ja={item.impact} en={item.impactEn ?? item.impact} />
         </div>
       </div>
 
@@ -211,21 +217,21 @@ export default async function EnactedDetailPage({
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6" />
           </svg>
-          施行済の一覧に戻る
+          <T ja="施行済の一覧に戻る" en="Back to enacted laws" />
         </Link>
       </div>
 
       {/* 関連セクション */}
       <div className="mt-12 pt-8 border-t border-brief-border">
-        <h3 className="text-xs tracking-wider uppercase text-foreground/45 font-medium mb-4">関連セクション</h3>
+        <h3 className="text-xs tracking-wider uppercase text-foreground/45 font-medium mb-4"><T ja="関連セクション" en="Related Sections" /></h3>
         <div className="flex flex-wrap gap-3">
           <Link href="/politics/debates" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-brief-red/20 hover:border-brief-red/50 hover:bg-brief-red/[0.03] transition-all text-sm">
             <span className="w-2 h-2 rounded-full bg-brief-red" />
-            <span className="text-foreground/70">審議中の法案</span>
+            <span className="text-foreground/70"><T ja="審議中の法案" en="Bills Under Deliberation" /></span>
           </Link>
           <Link href="/politics/passed" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-amber-500/20 hover:border-amber-500/50 hover:bg-amber-500/[0.03] transition-all text-sm">
             <span className="w-2 h-2 rounded-full bg-amber-500" />
-            <span className="text-foreground/70">成立済（未施行）</span>
+            <span className="text-foreground/70"><T ja="成立済（未施行）" en="Passed (Not Yet Enforced)" /></span>
           </Link>
         </div>
       </div>

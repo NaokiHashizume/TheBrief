@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { passedItems } from "@/lib/passed";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import ShareButton from "@/components/ShareButton";
+import { T } from "@/components/T";
 
 export function generateStaticParams() {
   return passedItems.map((d) => ({ slug: d.slug }));
@@ -58,34 +59,34 @@ export default async function PassedDetailPage({
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <Link href="/politics/passed" className="hover:text-foreground transition-colors">成立済</Link>
+        <Link href="/politics/passed" className="hover:text-foreground transition-colors"><T ja="成立済" en="Passed" /></Link>
         <span>/</span>
-        <span className="truncate max-w-[150px]">{item.title}</span>
+        <span className="truncate max-w-[150px]"><T ja={item.title} en={item.titleEn ?? item.title} /></span>
       </div>
 
       {/* Header */}
       <div className="flex items-center gap-2 flex-wrap mb-3">
         <span className="text-[10px] font-bold px-2.5 py-1 rounded-full text-white bg-amber-600">
-          成立済・未施行
+          <T ja="成立済・未施行" en="Passed / Not Yet Enforced" />
         </span>
-        <span className="text-xs text-foreground/45">{item.category}</span>
-        <span className="text-xs text-foreground/50 tabular-nums">{item.dietSession}</span>
+        <span className="text-xs text-foreground/45"><T ja={item.category} en={item.categoryEn ?? item.category} /></span>
+        <span className="text-xs text-foreground/50 tabular-nums"><T ja={item.dietSession} en={item.dietSessionEn ?? item.dietSession} /></span>
       </div>
 
-      <h1 className="font-serif text-2xl md:text-3xl font-bold">{item.title}</h1>
+      <h1 className="font-serif text-2xl md:text-3xl font-bold"><T ja={item.title} en={item.titleEn ?? item.title} /></h1>
       <span className="text-[10px] tracking-[2px] uppercase text-foreground/45">
         {item.titleEn}
       </span>
       <p className="mt-4 text-sm text-foreground/60 leading-relaxed">
-        {item.summary}
+        <T ja={item.summary} en={item.summaryEn ?? item.summary} />
       </p>
 
       {/* Timeline countdown */}
       <div className="mt-6 p-4 bg-amber-500/[0.05] border border-amber-500/20 rounded-xl">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs text-foreground/55">施行までのタイムライン</span>
+          <span className="text-xs text-foreground/55"><T ja="施行までのタイムライン" en="Timeline to Entry into Force" /></span>
           <span className="text-xs font-bold text-amber-400 tabular-nums">
-            あと{daysUntil}日
+            <T ja={`あと${daysUntil}日`} en={`${daysUntil} days left`} />
           </span>
         </div>
         <div className="flex items-center gap-4 text-sm">
@@ -93,19 +94,19 @@ export default async function PassedDetailPage({
             <div className="w-3 h-3 rounded-full bg-amber-500" />
             <div>
               <span className="text-foreground/70 font-medium">{item.enactedDate}</span>
-              <span className="text-foreground/45 ml-1">成立</span>
+              <span className="text-foreground/45 ml-1"><T ja="成立" en="Enacted" /></span>
             </div>
           </div>
           <div className="flex-1 h-px bg-amber-500/20 relative">
             <div className="absolute left-1/2 -translate-x-1/2 -top-3 text-[9px] text-foreground/45">
-              準備期間
+              <T ja="準備期間" en="Preparation Period" />
             </div>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full border-2 border-amber-500 bg-background" />
             <div>
               <span className="text-foreground/70 font-medium">{item.effectiveDate}</span>
-              <span className="text-foreground/45 ml-1">施行予定</span>
+              <span className="text-foreground/45 ml-1"><T ja="施行予定" en="Scheduled Entry into Force" /></span>
             </div>
           </div>
         </div>
@@ -115,7 +116,7 @@ export default async function PassedDetailPage({
       <div className="mt-10">
         <SectionHeader title="概要" titleEn="Overview" />
         <div className="p-5 bg-brief-card rounded-xl text-sm text-foreground/70 leading-relaxed">
-          {item.detail}
+          <T ja={item.detail} en={item.detailEn ?? item.detail} />
         </div>
       </div>
 
@@ -128,7 +129,7 @@ export default async function PassedDetailPage({
               <span className="w-5 h-5 rounded-full bg-amber-500/10 text-amber-400 text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
                 {i + 1}
               </span>
-              <span className="text-foreground/70">{point}</span>
+              <span className="text-foreground/70"><T ja={point} en={item.keyPointsEn?.[i] ?? point} /></span>
             </li>
           ))}
         </ul>
@@ -138,7 +139,7 @@ export default async function PassedDetailPage({
       <div className="mt-10">
         <SectionHeader title="影響・効果" titleEn="Impact" />
         <div className="p-5 border-l-2 border-amber-500/50 bg-amber-500/5 rounded-r-xl text-sm text-foreground/70 leading-relaxed">
-          {item.impact}
+          <T ja={item.impact} en={item.impactEn ?? item.impact} />
         </div>
       </div>
 
@@ -153,21 +154,21 @@ export default async function PassedDetailPage({
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6" />
           </svg>
-          成立済の一覧に戻る
+          <T ja="成立済の一覧に戻る" en="Back to passed laws" />
         </Link>
       </div>
 
       {/* 関連セクション */}
       <div className="mt-12 pt-8 border-t border-brief-border">
-        <h3 className="text-xs tracking-wider uppercase text-foreground/45 font-medium mb-4">関連セクション</h3>
+        <h3 className="text-xs tracking-wider uppercase text-foreground/45 font-medium mb-4"><T ja="関連セクション" en="Related Sections" /></h3>
         <div className="flex flex-wrap gap-3">
           <Link href="/politics/debates" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-brief-red/20 hover:border-brief-red/50 hover:bg-brief-red/[0.03] transition-all text-sm">
             <span className="w-2 h-2 rounded-full bg-brief-red" />
-            <span className="text-foreground/70">審議中の法案</span>
+            <span className="text-foreground/70"><T ja="審議中の法案" en="Bills Under Deliberation" /></span>
           </Link>
           <Link href="/politics/enacted" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-green-500/20 hover:border-green-500/50 hover:bg-green-500/[0.03] transition-all text-sm">
             <span className="w-2 h-2 rounded-full bg-green-500" />
-            <span className="text-foreground/70">施行済</span>
+            <span className="text-foreground/70"><T ja="施行済" en="Enacted" /></span>
           </Link>
         </div>
       </div>
