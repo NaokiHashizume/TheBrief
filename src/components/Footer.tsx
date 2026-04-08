@@ -79,7 +79,6 @@ export function Footer() {
               <li><span className="text-white/30 cursor-default">Lifestyle</span></li>
               <li><span className="text-white/30 cursor-default">Opinion</span></li>
               <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
-              <li><Link href="/politics/government" className="hover:text-white transition-colors">{locale === "en" ? "Government Links" : "官公庁リンク集"}</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
