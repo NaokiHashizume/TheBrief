@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { SkipLink } from "@/components/SkipLink";
 import { Sidebar, SidebarProvider } from "@/components/Sidebar";
+import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 
 const SITE_URL = "https://thebrief.info";
 const SITE_NAME = "The Brief";
@@ -145,6 +146,7 @@ export default function RootLayout({
               <Header />
               <main id="main-content" className="flex-1">{children}</main>
               <Footer />
+              <AnalyticsEvents />
             </SidebarProvider>
           </LanguageProvider>
         </ThemeProvider>
