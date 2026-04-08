@@ -3,8 +3,10 @@
  * TheBrief 自動 X (Twitter) 投稿スクリプト
  *
  * - src/lib 配下の記事メタデータ (slug / title / tags) を正規表現で抽出
- * - 実行スロット (UTC 時刻) から決定論的に 1 件選択 → 同日に重複しにくい
- * - エンゲージメント向けテンプレでツイート文を生成
+ * - LRU ローテーションで過去投稿と重複しない記事を選択
+ * - Claude API + Web 検索で「いまの日本のトレンドに乗せた」ツイート文を動的生成
+ *   (ANTHROPIC_API_KEY 未設定時は静的テンプレにフォールバック)
+ * - 記事ページの OGP 画像を取得して X にメディアアップロード → ツイートに添付
  * - X API v2 POST /2/tweets へ OAuth1.0a で投稿
  *
  * 必要な環境変数:
@@ -14,6 +16,7 @@
  *   X_ACCESS_SECRET
  *
  * オプション環境変数:
+ *   ANTHROPIC_API_KEY 設定すると Claude Haiku + Web 検索で文面動的生成
  *   X_DRY_RUN=1       投稿せずに生成内容のみ表示
  *   SITE_URL          既定 https://thebrief.info
  */
@@ -168,7 +171,109 @@ function buildTweet(article) {
   return tpl({ title: safeTitle, url: article.url, hashtags });
 }
 
-// ── 4. OAuth 1.0a 署名 → POST /2/tweets ──
+// ── 4. Claude API + Web 検索でツイート文を動的生成 ──
+async function generateTweetWithClaude(article) {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) return null;
+
+  const prompt = `あなたは X (旧 Twitter) でインプレッションを最大化するソーシャルメディア戦略家です。
+TheBrief の以下の記事を、いまの日本のトレンド・時事と関連付けてクリックされやすい日本語のツイート文に仕上げてください。
+必ず最初に web_search で「いま日本で話題のニュース・キーワード」を 1〜2 回調べてから書いてください。
+
+【記事】
+タイトル: ${article.title}
+URL: ${article.url}
+タグ: ${article.tags?.join(", ") || "(なし)"}
+
+【厳守ルール】
+- X 上の文字数は 270 文字以内 (URL は 23 文字相当として計算)
+- 本文中に ${article.url} をそのまま 1 回含める (短縮 URL や別形式に変えない)
+- ハッシュタグは 2〜4 個。必ず #TheBrief を含む
+- 絵文字は 1〜3 個まで
+- 冒頭に「いま話題の◯◯と関連して...」のようなフックを入れる
+- 嘘・誇張・捏造は禁止。記事タイトルと矛盾しない範囲のみ
+- 出力はツイート本文そのものだけ。前置き・解説・引用符・コードブロック・「以下が...」のような文言は一切不要`;
+
+  try {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "claude-haiku-4-5-20251001",
+        max_tokens: 1024,
+        tools: [
+          { type: "web_search_20250305", name: "web_search", max_uses: 2 },
+        ],
+        messages: [{ role: "user", content: prompt }],
+      }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      console.warn("[post-to-x] Claude API error:", JSON.stringify(data));
+      return null;
+    }
+    const textBlocks = (data.content || []).filter((b) => b.type === "text");
+    let tweet = textBlocks[textBlocks.length - 1]?.text?.trim();
+    if (!tweet) return null;
+
+    // コードフェンス・引用符除去
+    tweet = tweet
+      .replace(/^```[a-z]*\n?/i, "")
+      .replace(/\n?```$/, "")
+      .trim();
+    tweet = tweet.replace(/^["「『]+/, "").replace(/["」』]+$/, "").trim();
+
+    // URL が含まれていなければフォールバック
+    if (!tweet.includes(article.url)) {
+      console.warn("[post-to-x] Claude output missing article URL — fallback");
+      return null;
+    }
+    return tweet;
+  } catch (err) {
+    console.warn("[post-to-x] Claude generation failed:", err.message);
+    return null;
+  }
+}
+
+// ── 5. 記事ページから OGP 画像を取得 ──
+async function fetchOgImage(articleUrl) {
+  try {
+    const htmlRes = await fetch(articleUrl, {
+      headers: { "user-agent": "TheBrief-XPoster/1.0" },
+    });
+    if (!htmlRes.ok) {
+      console.warn(`[post-to-x] OGP HTML fetch ${htmlRes.status}`);
+      return null;
+    }
+    const html = await htmlRes.text();
+    const m = html.match(
+      /<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i,
+    );
+    if (!m) {
+      console.warn("[post-to-x] og:image meta not found");
+      return null;
+    }
+    let imgUrl = m[1];
+    if (imgUrl.startsWith("/")) imgUrl = SITE_URL + imgUrl;
+    const imgRes = await fetch(imgUrl);
+    if (!imgRes.ok) {
+      console.warn(`[post-to-x] OGP image fetch ${imgRes.status}`);
+      return null;
+    }
+    const buf = Buffer.from(await imgRes.arrayBuffer());
+    const contentType = imgRes.headers.get("content-type") || "image/png";
+    return { buf, contentType, sourceUrl: imgUrl };
+  } catch (err) {
+    console.warn("[post-to-x] OGP fetch failed:", err.message);
+    return null;
+  }
+}
+
+// ── 6. OAuth 1.0a 署名 → POST /2/tweets ──
 function percentEncode(str) {
   return encodeURIComponent(str).replace(
     /[!*'()]/g,
@@ -200,10 +305,7 @@ function buildAuthHeader(method, url, params, consumerSecret, tokenSecret) {
   return header;
 }
 
-async function postTweet(text) {
-  const url = "https://api.x.com/2/tweets";
-  const method = "POST";
-
+function getOAuthParams() {
   const consumerKey = process.env.X_API_KEY;
   const consumerSecret = process.env.X_API_SECRET;
   const accessToken = process.env.X_ACCESS_TOKEN;
@@ -215,30 +317,87 @@ async function postTweet(text) {
     );
   }
 
-  const oauthParams = {
-    oauth_consumer_key: consumerKey,
-    oauth_nonce: randomBytes(16).toString("hex"),
-    oauth_signature_method: "HMAC-SHA1",
-    oauth_timestamp: Math.floor(Date.now() / 1000).toString(),
-    oauth_token: accessToken,
-    oauth_version: "1.0",
+  return {
+    consumerKey,
+    consumerSecret,
+    accessToken,
+    accessSecret,
+    oauthBase: {
+      oauth_consumer_key: consumerKey,
+      oauth_signature_method: "HMAC-SHA1",
+      oauth_token: accessToken,
+      oauth_version: "1.0",
+    },
   };
+}
 
+function freshOAuthParams(base) {
+  return {
+    ...base,
+    oauth_nonce: randomBytes(16).toString("hex"),
+    oauth_timestamp: Math.floor(Date.now() / 1000).toString(),
+  };
+}
+
+async function uploadMedia(image) {
+  // X v1.1 media upload (single-shot, OAuth 1.0a, multipart/form-data)
+  const url = "https://upload.twitter.com/1.1/media/upload.json";
+  const auth = getOAuthParams();
+  const oauthParams = freshOAuthParams(auth.oauthBase);
+
+  // multipart/form-data の場合、ボディフィールドは署名ベースに含めない
   const authHeader = buildAuthHeader(
-    method,
+    "POST",
     url,
     oauthParams,
-    consumerSecret,
-    accessSecret,
+    auth.consumerSecret,
+    auth.accessSecret,
   );
 
+  const form = new FormData();
+  const blob = new Blob([image.buf], { type: image.contentType });
+  const ext = image.contentType.includes("jpeg") ? "jpg" : "png";
+  form.append("media", blob, `image.${ext}`);
+
   const res = await fetch(url, {
-    method,
+    method: "POST",
+    headers: { Authorization: authHeader },
+    body: form,
+  });
+
+  const text = await res.text();
+  if (!res.ok) {
+    throw new Error(`Media upload ${res.status}: ${text}`);
+  }
+  const data = JSON.parse(text);
+  return data.media_id_string;
+}
+
+async function postTweet(text, mediaIds) {
+  const url = "https://api.x.com/2/tweets";
+  const auth = getOAuthParams();
+  const oauthParams = freshOAuthParams(auth.oauthBase);
+
+  const authHeader = buildAuthHeader(
+    "POST",
+    url,
+    oauthParams,
+    auth.consumerSecret,
+    auth.accessSecret,
+  );
+
+  const body =
+    mediaIds && mediaIds.length > 0
+      ? { text, media: { media_ids: mediaIds } }
+      : { text };
+
+  const res = await fetch(url, {
+    method: "POST",
     headers: {
       Authorization: authHeader,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ text }),
+    body: JSON.stringify(body),
   });
 
   const bodyText = await res.text();
@@ -257,27 +416,62 @@ async function main() {
   console.log(`[post-to-x] history entries: ${history.posts.length}`);
 
   const article = pickArticle(articles, history);
-  const text = buildTweet(article);
-
   console.log("[post-to-x] selected:", article.url);
+
+  // ── ツイート文生成 (Claude → fallback テンプレ) ──
+  let text = await generateTweetWithClaude(article);
+  let textSource;
+  if (text) {
+    textSource = "claude";
+    console.log("[post-to-x] text source: Claude (web_search)");
+  } else {
+    text = buildTweet(article);
+    textSource = "template";
+    console.log("[post-to-x] text source: template fallback");
+  }
   console.log("[post-to-x] tweet text:\n---\n" + text + "\n---");
   console.log("[post-to-x] length:", [...text].length, "code points");
+
+  // ── OGP 画像取得 ──
+  const image = await fetchOgImage(article.url);
+  if (image) {
+    console.log(
+      `[post-to-x] OGP image: ${image.sourceUrl} (${image.buf.length}B, ${image.contentType})`,
+    );
+  } else {
+    console.log("[post-to-x] OGP image: none — will post text only");
+  }
 
   if (process.env.X_DRY_RUN === "1") {
     console.log("[post-to-x] DRY RUN — skipping API call & history write");
     return;
   }
 
-  const result = await postTweet(text);
+  // ── メディアアップロード (失敗してもテキスト投稿は続行) ──
+  let mediaIds;
+  if (image) {
+    try {
+      const id = await uploadMedia(image);
+      mediaIds = [id];
+      console.log("[post-to-x] uploaded media id:", id);
+    } catch (err) {
+      console.warn("[post-to-x] media upload failed, posting text-only:", err.message);
+    }
+  }
+
+  // ── 本投稿 ──
+  const result = await postTweet(text, mediaIds);
   console.log("[post-to-x] posted:", JSON.stringify(result));
 
-  // 投稿成功 → 履歴に追記して保存
+  // ── 履歴更新 ──
   const tweetId = result?.data?.id || null;
   history.posts.push({
     slug: article.slug,
     url: article.url,
     tweetId,
     postedAt: new Date().toISOString(),
+    hasMedia: !!mediaIds,
+    textSource,
   });
   await saveHistory(history);
   console.log(`[post-to-x] history updated (${history.posts.length} entries)`);
