@@ -7,7 +7,7 @@ import { T } from "@/components/T";
    ───────────────────────────���───────────────── */
 export function AiModelOverviewDiagram() {
   return (
-    <div className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div role="img" aria-label="AI model overview statistics" className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
         <div className="text-2xl font-bold text-[#10b981]">GPT-5.4</div>
         <div className="text-[10px] text-foreground/50 mt-1">
@@ -67,7 +67,7 @@ export function ModelTimelineDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Major AI model release timeline 2025–2026" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="主要モデルリリース タイムライン (2025-2026)" en="Major model release timeline (2025-2026)" />
       </div>
@@ -116,7 +116,7 @@ export function BenchmarkComparisonDiagram() {
   const colors = { gpt: "#10b981", gemini: "#3b82f6", claude: "#f59e0b" };
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="AI model benchmark comparison chart" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="主要ベンチマーク比較 — フラッグシップモデル" en="Benchmark comparison — flagship models" />
       </div>
@@ -226,7 +226,7 @@ export function PricingComparisonDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="AI model API pricing comparison table" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="API料金比較 — 100万トークンあたり (USD)" en="API pricing comparison — per 1M tokens (USD)" />
       </div>
@@ -293,7 +293,7 @@ export function MultimodalCapsDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Multimodal capability matrix across AI models" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="マルチモーダル対応状況" en="Multimodal capability matrix" />
       </div>
@@ -360,7 +360,7 @@ export function ContextWindowDiagram() {
   const maxTokens = 2000000;
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Context window size comparison across AI models" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="コンテキストウィンドウ比較" en="Context window comparison" />
       </div>
@@ -421,7 +421,7 @@ export function MarketShareDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="AI market share shifts from 2025 to 2026" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="市場シェアの変動 (2025年初頭 → 2026年)" en="Market share shifts (early 2025 → 2026)" />
       </div>
@@ -524,7 +524,7 @@ export function StrengthsSummaryDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="AI model strengths summary by domain" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         分野別リーダーシップ — どのモデルが何に強いか
       </div>

@@ -57,6 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/privacy`, lastModified: now, changeFrequency: "monthly", priority: 0.3 },
     { url: `${SITE_URL}/feed.xml`, lastModified: now, changeFrequency: "daily", priority: 0.3 },
     { url: `${SITE_URL}/politics/government`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/politics/challenges`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
   ];
 
   // ── Politics ──
@@ -159,6 +160,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
+  // ── Column ──
+  const columnSlugs = [
+    "childcare-support-fund-2026",
+    "selective-surname-2026",
+    "digital-inheritance-2026",
+    "middle-school-exam-economics",
+    "salaryman-side-business-tax",
+    "own-vs-rent-2026",
+    "nisa-year-two-review",
+    "furusato-tax-breakeven",
+    "salaryman-tax-saving",
+    "overtime-april-june",
+    "museums-special-2026",
+    "movies-special",
+    "documentary-special",
+    "reading-special",
+  ];
+  const columnPages: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/column`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    ...columnSlugs.map((slug) => ({
+      url: `${SITE_URL}/column/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
   return [
     ...staticPages,
     ...politicsPages,
@@ -171,5 +199,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...universityPages,
     ...industryPages,
     ...industryArticlePages,
+    ...columnPages,
   ];
 }

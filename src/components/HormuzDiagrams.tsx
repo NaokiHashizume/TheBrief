@@ -88,7 +88,7 @@ export function CrisisTimelineDiagram() {
   };
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="2026 Strait of Hormuz crisis timeline" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="2026年ホルムズ海峡危機" en="2026 Strait of Hormuz Crisis" />
       </div>
@@ -180,7 +180,7 @@ export function OilDependencyDiagram() {
   const maxBar = 45;
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Japan oil and LNG import dependency by source country" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="日本のエネルギー輸入元（2025年）" en="Japan's energy import sources (2025)" />
       </div>
@@ -310,7 +310,7 @@ export function EconomicImpactDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Economic impact scenarios from the Hormuz crisis" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="経済影響シナリオ" en="Economic impact scenarios" />
       </div>
@@ -435,7 +435,7 @@ export function OilReservesDiagram() {
   const totalVolumeEn = "72.89 million kL";
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Japan strategic petroleum reserves breakdown" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="日本の戦略石油備蓄" en="Japan's strategic petroleum reserves" />
       </div>
@@ -586,7 +586,7 @@ export function IndustryImpactDiagram() {
   }
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Industry impact heatmap from energy supply disruption" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="産業別影響評価" en="Impact by industry" />
       </div>
@@ -741,7 +741,7 @@ export function HistoricalComparisonDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card overflow-x-auto">
+    <div role="img" aria-label="Historical oil crisis comparison including 2026 Hormuz crisis" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card overflow-x-auto">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="過去の石油危機との比較" en="Comparison with past oil crises" />
       </div>
@@ -868,7 +868,7 @@ export function EnergyStrategyDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Japan energy security strategy roadmap" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="日本のエネルギー安全保障ロードマップ" en="Japan's energy security roadmap" />
       </div>

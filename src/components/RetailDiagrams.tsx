@@ -7,7 +7,7 @@ import { T } from "@/components/T";
    ───────────────────────────────────────────── */
 export function RetailMarketOverviewDiagram() {
   return (
-    <div className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div role="img" aria-label="Retail market overview statistics" className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
         <div className="text-2xl font-bold text-[#78716c]">167兆</div>
         <div className="text-[10px] text-foreground/50 mt-1"><T ja="小売業販売額（2024年）" en="Retail sales (2024)" /></div>
@@ -43,7 +43,7 @@ export function CvsBusinessModelDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Convenience store business model and franchise structure" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="コンビニ3社の経営構造" en="Convenience Store Big 3 — Business Structure" />
       </div>
@@ -104,7 +104,7 @@ export function RetailFinancialsDiagram() {
   const maxSales = 101348;
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Revenue scale of major retailers in Japan" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="主要小売企業の売上規模" en="Revenue Scale of Major Retailers" />
       </div>
@@ -151,7 +151,7 @@ export function GrowthSectorsDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Retail growth sectors by format 2024" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="業態別販売額 成長率（2024年 前年比）" en="Retail Format Growth Rates (2024 YoY)" />
       </div>
@@ -197,7 +197,7 @@ export function EcLandscapeDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="E-commerce penetration by retail category 2024" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="分野別 EC化率（2024年）" en="E-commerce Penetration by Category (2024)" />
       </div>
@@ -253,7 +253,7 @@ export function RetailChallengesDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Structural challenges facing Japan's retail sector" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="日本の小売業が直面する構造的課題" en="Structural Challenges Facing Japan's Retail Sector" />
       </div>
@@ -301,7 +301,7 @@ export function RetailInnovationDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Retail innovation frontline 2025–2026" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="小売イノベーション最前線（2025-2026）" en="Retail Innovation Frontline (2025–2026)" />
       </div>
@@ -336,7 +336,7 @@ export function CvsBig3OverviewDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Convenience store big three overview and key metrics" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="コンビニ大手3社 — 基本データ" en="Convenience Store Big 3 — Key Metrics" />
       </div>
@@ -394,7 +394,7 @@ export function CvsSevenStrategyDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Seven-Eleven strengths and strategic challenges" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="セブン-イレブンの強みと課題" en="Seven-Eleven: Strengths & Challenges" />
       </div>
@@ -431,7 +431,7 @@ export function CvsSevenStrategyDiagram() {
    ───────────────────────────────────────────── */
 export function CvsFamimaStrategyDiagram() {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="FamilyMart growth strategy and Itochu synergies" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="ファミリーマートの成長戦略" en="FamilyMart Growth Strategy" />
       </div>
@@ -489,7 +489,7 @@ export function CvsLawsonStrategyDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Lawson new joint structure with Mitsubishi Corp. and KDDI" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="ローソンの新体制 — 三菱商事×KDDI" en="Lawson New Structure — Mitsubishi Corp. × KDDI" />
       </div>
@@ -546,7 +546,7 @@ export function CvsBig3ComparisonDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Convenience store big three comparison matrix" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="3社比較マトリクス" en="Three-Company Comparison Matrix" />
       </div>
@@ -594,7 +594,7 @@ export function CvsFranchiseModelDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Convenience store franchise model structure and royalty rates" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="フランチャイズモデルの構造" en="Franchise Model Structure" />
       </div>
@@ -637,7 +637,7 @@ export function CvsBig3FutureDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Future strategies of the convenience store big three" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="3社の未来戦略" en="Future Strategies of the Big 3" />
       </div>
@@ -690,7 +690,7 @@ export function ShoshaRetailStrategyDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Trading house retail strategy two approaches" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="商社のコンビニ戦略 — 2つのアプローチ" en="Trading Houses in Convenience Retail — Two Approaches" />
       </div>

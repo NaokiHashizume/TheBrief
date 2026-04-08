@@ -14,7 +14,7 @@ export function TaxRateHistoryDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Japan consumption tax rate history timeline" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="消費税率の推移" en="Consumption Tax Rate History" />
       </div>
@@ -52,7 +52,7 @@ export function TaxRateHistoryDiagram() {
    ───────────────────────────────────────────── */
 export function TaxRevenueStatsDiagram() {
   return (
-    <div className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div role="img" aria-label="Consumption tax revenue statistics" className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
         <div className="text-2xl font-bold text-[#dc2626]">25.0兆円</div>
         <div className="text-[10px] text-foreground/50 mt-1">
@@ -98,7 +98,7 @@ export function SocialSecurityBreakdownDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Social security spending breakdown funded by consumption tax" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-2">
         <T ja="社会保障関係費の内訳（2025年度予算）" en="Social Security Spending Breakdown (FY2025 Budget)" />
       </div>
@@ -162,7 +162,7 @@ export function SocialSecurityBreakdownDiagram() {
    ───────────────────────────────────────────── */
 export function NationalLocalSplitDiagram() {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="National and local consumption tax allocation split" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="消費税10%の配分構造" en="How the 10% Consumption Tax Is Allocated" />
       </div>
@@ -226,7 +226,7 @@ export function NationalLocalSplitDiagram() {
    ───────────────────────────────────────────── */
 export function ReducedRateItemsDiagram() {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Reduced tax rate items covered versus excluded" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="軽減税率（8%）の対象・非対象" en="Reduced Rate (8%) — Covered vs. Excluded Items" />
       </div>
@@ -295,7 +295,7 @@ export function InvoiceSystemDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Invoice system transition measures and impact" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="インボイス制度 — 経過措置と影響" en="Invoice System — Transition Measures & Impact" />
       </div>
@@ -356,7 +356,7 @@ export function RegressivityDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Regressive nature of consumption tax by income level" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-2">
         <T ja="消費税の逆進性 — 年収別の負担率（概算）" en="Regressive Nature of Consumption Tax — Effective Rate by Income (Estimate)" />
       </div>
@@ -418,7 +418,7 @@ export function InternationalComparisonDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="International VAT and consumption tax rate comparison" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="世界の消費税（VAT）率比較" en="Global VAT / Consumption Tax Rate Comparison" />
       </div>
@@ -521,7 +521,7 @@ export function FutureDebatesDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Key policy debates surrounding consumption tax" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="消費税をめぐる今後の論点" en="Key Debates Surrounding Consumption Tax" />
       </div>
