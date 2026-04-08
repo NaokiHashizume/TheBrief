@@ -311,7 +311,7 @@ export default function OwnVsRent2026Page() {
         <h1 className="font-serif text-[28px] sm:text-[40px] font-bold leading-[1.2] tracking-tight">
           <T
             ja={<><span style={{ color: COLUMN_COLOR }}>持ち家 vs 賃貸</span><br className="hidden sm:block" /><span className="text-foreground/70 text-[20px] sm:text-[28px]">— 2026年の金利と物価で再計算する</span></>}
-            en={<><span style={{ color: COLUMN_COLOR }}>Own vs Rent</span><br className="hidden sm:block" /><span className="text-foreground/70 text-[20px] sm:text-[28px]">— Recalculated for 2026's rates and prices</span></>}
+            en={<><span style={{ color: COLUMN_COLOR }}>Own vs Rent</span><br className="hidden sm:block" /><span className="text-foreground/70 text-[20px] sm:text-[28px]">— Recalculated for 2026&rsquo;s rates and prices</span></>}
           />
         </h1>
 
