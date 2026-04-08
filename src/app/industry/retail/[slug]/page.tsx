@@ -21,6 +21,12 @@ import {
   CvsFranchiseModelDiagram,
   CvsBig3FutureDiagram,
 } from "@/components/RetailDiagrams";
+import {
+  EcLogisticsVolumeDiagram,
+  EcAmazonLogisticsDiagram,
+  EcRakutenYamatoDiagram,
+  EcCarrierMarginsDiagram,
+} from "@/components/EcLogisticsDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -254,6 +260,10 @@ export default async function RetailArticlePage({
               {section.diagramId === "cvs-big3-comparison" && <CvsBig3ComparisonDiagram />}
               {section.diagramId === "cvs-franchise-model" && <CvsFranchiseModelDiagram />}
               {section.diagramId === "cvs-big3-future" && <CvsBig3FutureDiagram />}
+              {section.diagramId === "ec-logistics-volume" && <EcLogisticsVolumeDiagram />}
+              {section.diagramId === "ec-amazon-logistics" && <EcAmazonLogisticsDiagram />}
+              {section.diagramId === "ec-rakuten-yamato" && <EcRakutenYamatoDiagram />}
+              {section.diagramId === "ec-carrier-margins" && <EcCarrierMarginsDiagram />}
 
               {/* Section body */}
               <div className="space-y-5">

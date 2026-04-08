@@ -7,10 +7,12 @@ export interface IndustryArticle {
   readTime: string;
   tags: string[];
   summary: string;
+  summaryEn?: string;
   sections: {
     heading: string;
     headingEn?: string;
     body: string;
+    bodyEn?: string;
     diagramId?: string;
   }[];
 }
@@ -1000,6 +1002,321 @@ KDDI子会社の2461億円架空取引事件は、日本企業のガバナンス
 > 核心的な問い：楽天モバイルは「楽天経済圏のラストピース」なのか、それとも「終わりなき金食い虫」なのか。この問いへの答えが、楽天グループの企業価値を決定づける。
 
 三木谷CEOは長期目標として**営業利益1兆円**を掲げ、2026年はその道筋を明確にする年だと位置づけている。EC・フィンテック・モバイル・AIの4つの歯車が噛み合えば、楽天は日本のテック企業として新たなステージに立つことになる。その実現可能性を見極めるために、投資家は四半期ごとの数字を注視し続ける。`,
+      },
+    ],
+  },
+  {
+    slug: "ntt-law-revision-2026",
+    title: "改正NTT法と通信業界地図 — 廃止見送り・3年後の再検討、KDDI/SB/楽天モバイルの次の一手",
+    titleEn: "Japan's Revised NTT Law and the Next Telecom Map — Abolition Shelved, Reviewed Again in 3 Years",
+    date: "2026-04-08",
+    author: "",
+    readTime: "12 min",
+    tags: ["NTT法", "通信規制", "KDDI", "ソフトバンク", "楽天モバイル", "ユニバーサルサービス", "経済安全保障"],
+    summary:
+      "2025年5月21日、改正NTT法が参院本会議で成立し、2026年春に施行された。焦点だった法律そのものの廃止は見送られ、付則で「施行後3年を目処に改廃を含めて検討」と明記。研究開示義務は撤廃された一方、政府のNTT株3分の1以上保有と外資規制は維持、NTTの電柱等設備譲渡に新たに国の認可が必要となった。KDDI・ソフトバンク・楽天モバイルを含む183者の反対連合が勝ち取った「現状維持」の中身と、3年後の再検討に向けた各社の布陣を整理する。",
+    summaryEn:
+      "On May 21, 2025, Japan's revised NTT Law was enacted and took effect in spring 2026. Full abolition — the real prize for NTT's rivals — was shelved, with a supplementary provision calling for another review 'including possible abolition' roughly three years after enactment. NTT's obligation to disclose research results was scrapped, but the government's one-third shareholding and foreign ownership caps were kept, and NTT now needs state approval to sell off infrastructure like utility poles. This article unpacks what the 183-organization opposition alliance (KDDI, SoftBank, Rakuten Mobile and others) actually secured, and how each player is positioning for the next round.",
+    sections: [
+      {
+        heading: "何が決まったのか — 改正NTT法のポイント5つ",
+        headingEn: "What Was Decided — Five Key Points of the Revised NTT Law",
+        diagramId: "ntt-law-key-points",
+        body: `2025年5月21日、改正NTT法（正式名称「電気通信事業法及び日本電信電話株式会社等に関する法律の一部を改正する法律」）が参院本会議で与党の賛成多数により可決、成立した。施行は **2026年春**。1985年の民営化から40年、NTT法は大きな改定を経て新しいフェーズに入った。
+
+【ポイント1 / 研究開示義務の撤廃】NTTの研究成果を公表する義務は廃止された。NTTが主張してきた「グローバル競争で開示義務はハンデ」という論点に政府が応じた形だ。
+
+【ポイント2 / 固定電話ユニバーサルサービスの柔軟化】全国一律で固定電話を提供する義務は緩和され、**他に提供事業者がいない地域でのみ** NTTに義務を課す仕組みに変わった。携帯電話網を使う無線の固定電話も新たにユニバーサルサービスに位置づけられた。
+
+【ポイント3 / 政府の3分の1保有と外資規制は維持】最大の焦点だった政府のNTT株 **3分の1以上保有義務** と外資規制は据え置き。防衛財源を目的としたNTT株売却論はひとまず退けられた。
+
+【ポイント4 / 設備譲渡に国の認可】電柱・管路・とう道・局舎などNTTが保有する通信設備の譲渡には **新たに総務大臣の認可** が必要となった。民間への切り売りを規制する方向だ。
+
+【ポイント5 / 3年後の再検討】最重要の付則。**法施行後3年を目処** に、NTT法の「改廃を含め検討する」と明記された。つまり **2029年頃** に再び廃止論が俎上に上る。
+
+> 廃止論を主導した自民党の甘利明氏は2024年10月の衆院選で落選し、廃止機運そのものが一旦失速した。改正案は「NTTの主張を一部取り入れつつ、廃止は見送る」という中間的な着地となった。`,
+        bodyEn: `On May 21, 2025, the revised NTT Law (formally, the "Act for Partial Amendment of the Telecommunications Business Act and the Act on Nippon Telegraph and Telephone Corporation, Etc.") cleared the House of Councillors on a majority vote of the ruling bloc. It took effect in **spring 2026**. Forty years on from NTT's 1985 privatization, the law has entered a new phase.
+
+【Point 1 / Research disclosure obligation scrapped】The requirement for NTT to disclose its research results has been abolished. The government effectively accepted NTT's long-standing argument that mandatory disclosure was a handicap in global competition.
+
+【Point 2 / Softer universal service for fixed lines】The blanket nationwide fixed-line obligation has been relaxed. NTT is now required to provide fixed-line service **only in areas with no other provider**. Wireless "fixed phones" using mobile networks have been newly added to the universal service framework.
+
+【Point 3 / One-third government stake and foreign ownership caps kept】On the most contested point, the government's obligation to hold **at least one-third of NTT shares** and the foreign-ownership cap remain untouched. The idea of selling NTT shares to fund defense has been parked for now.
+
+【Point 4 / State approval for infrastructure transfers】Transfers of NTT-held telecom infrastructure — utility poles, conduits, underground ducts, exchanges — now require the **minister's approval**, a new curb on piecemeal sales to the private sector.
+
+【Point 5 / Another review in three years】The most important supplementary clause: **within three years of enactment**, the law must be reviewed again "including possible abolition." The abolition debate will, in other words, return to the agenda around **2029**.
+
+> Akira Amari, the LDP figure who led the push for abolition, lost his seat in the October 2024 general election, and the drive stalled with him. The revision landed somewhere in between: accept some of NTT's wishes, defer the abolition fight.`,
+      },
+      {
+        heading: "廃止反対連合 — なぜ183者がNTT法を守ったのか",
+        headingEn: "The Opposition Coalition — Why 183 Organizations Stood With the NTT Law",
+        diagramId: "ntt-law-opposition",
+        body: `2025年1月7日、**KDDI・ソフトバンク・楽天モバイル・LINEヤフー** を中心とする通信事業者、ケーブルテレビ各社、**地方自治体** を含む **183者** が連名で、NTT法見直しに関する意見書を総務省に提出した。この数字は規制論議としては異例の規模だ。
+
+【反対の論拠1 / 公正競争の担保】現行NTT法は、NTT持株・NTT東西・NTTドコモの業務範囲規制を通じて「巨大な垂直統合の再来」を防いでいる。廃止されれば、固定・モバイル・研究・卸売が一体化し、**ボトルネック設備（メタルケーブル・光ファイバ・電柱）を握るNTT東西** がグループ全体の競争優位に直結する——というのが3社の一致した懸念。
+
+【反対の論拠2 / 料金値上げリスク】地方自治体が加わった理由はシンプルだ。NTT東西の固定電話・光ブロードバンドが独占に戻れば、地方部で **料金値上げや提供終了** が起きかねない。ユニバーサルサービスの担保は法律に明記しておくべきだ、という主張。
+
+【反対の論拠3 / 安全保障と技術の国内保持】政府のNTT株3分の1保有と外資規制は、**通信インフラの外資買収リスク** を回避する唯一の歯止め。加えて研究開示義務は、NTT研究所が蓄積した日本の通信研究資産を業界全体の公共財としておくための仕組み——と主張された（この論拠は今回の改正で部分的に後退した）。
+
+> 「NTT法の廃止は、40年前に始まった電気通信競争政策を根本から覆す。一企業の世界戦略のために、日本全体の通信インフラの未来を差し出すわけにはいかない。」(反対連合声明 / 2024年1月)
+
+結果として、3年後の再検討余地を残しつつも、2026年時点の日本の通信競争政策は **「現状維持プラス微調整」** に落ち着いた。これが最大の勝ち筋だった、というのが反対連合の読みだ。`,
+        bodyEn: `On January 7, 2025, a coalition of **183 organizations** — including **KDDI, SoftBank, Rakuten Mobile and LINE Yahoo** along with cable TV operators and **local governments** — filed a joint opinion with the Ministry of Internal Affairs and Communications opposing the rewrite. For a regulatory debate, 183 signatories is an unusually large number.
+
+【Argument 1 / Safeguarding fair competition】The existing NTT Law, via scope-of-business rules on NTT Holdings, NTT East/West and NTT Docomo, has blocked a "return of the vertically integrated giant." If it were scrapped, fixed-line, mobile, R&D and wholesale would consolidate — and because **NTT East/West still controls bottleneck assets** (copper, fiber, utility poles), the rivals argue this would translate into a group-wide competitive advantage.
+
+【Argument 2 / Higher prices】Local governments joined the coalition for a simple reason. If NTT East/West's fixed-line and fiber broadband slide back toward monopoly, the risk of **price hikes and service withdrawal in rural areas** is real. Universal service, the argument went, needs to be nailed down in statute.
+
+【Argument 3 / Security and keeping tech at home】The one-third government shareholding and foreign-ownership cap are the only real brake on **foreign acquisition of telecom infrastructure**. On top of that, mandatory research disclosure kept NTT's accumulated research as a kind of national common good — an argument that, notably, lost ground in this round.
+
+> "Abolishing the NTT Law would overturn the telecom competition policy Japan has run for 40 years. We cannot hand over the future of the country's telecom infrastructure just to suit one company's global ambitions." — Joint statement, January 2024
+
+The result is a status quo with minor tweaks, with the option of a fresh fight three years down the line. From the coalition's point of view, that was the winning outcome.`,
+      },
+      {
+        heading: "NTT側の論理 — グローバルで戦える会社にしたい",
+        headingEn: "NTT's Case — Let Us Compete Globally",
+        diagramId: "ntt-global-strategy",
+        body: `一方のNTT側は、NTT法を「グローバル競争の足かせ」として繰り返し問題提起してきた。島田明社長は繰り返し、次の3点を主張している。
+
+【主張1 / 研究開示義務は時代遅れ】「IOWN構想や光電融合技術で世界と戦おうとしているのに、研究成果を逐次公表する義務を負っているのは日本のNTTだけだ。競合であるMicrosoft・Google・Amazonに、開発中の技術を無償で渡すようなものだ」——この主張は今回の改正で通った。
+
+【主張2 / 業務範囲規制は古い】NTT持株の「主たる事業は持株管理」という縛りや、NTT東西の「県境越えサービス禁止」（形骸化してはいるが明文化）など、1985年民営化時の規制は **クラウド・AI時代に合わない** という主張。今回の改正では手付かず。
+
+【主張3 / 外資規制と3分の1保有は経済合理性に反する】「インフラ安全保障は電気通信事業法の外資規制で担保できる。NTT法独自の外資規制と政府保有は **資金調達上の制約** を生むだけだ」——この主張は今回退けられた。
+
+NTTは改正法成立後の2025年5月21日コメントで **「3年後の再検討に向けて引き続き議論を続ける」** と明言。IOWNの商用展開と国際M&Aを進める上で、業務範囲規制と政府保有の緩和は譲れない論点だ。
+
+> NTTが2030年代に狙うのは、光電融合技術を軸にした **「NTT版NVIDIA」** の姿。そのためには研究成果を秘匿し、国際M&Aで海外人材を迅速に取り込み、株式発行で柔軟に資金調達したい——これがNTT経営陣の本音だ。`,
+        bodyEn: `NTT, for its part, has consistently framed the law as a drag on global competition. President Akira Shimada has repeatedly made three points.
+
+【Argument 1 / Research disclosure is an anachronism】"We're trying to take the IOWN initiative and photonics-based computing to the world, yet we're the only player required to publish our research progress as we go. It's effectively handing unfinished technology free of charge to Microsoft, Google and Amazon." This argument carried the day in this revision.
+
+【Argument 2 / Scope-of-business rules are stuck in 1985】The requirement that NTT Holdings' "principal business is holding-company management" and the old (largely nominal) prohibition on NTT East/West operating across prefectural borders are, NTT argues, **ill-suited to the cloud and AI era**. This round left those rules untouched.
+
+【Argument 3 / Foreign caps and one-third stake are economically irrational】"Infrastructure security can be handled by the Telecommunications Business Act's foreign-ownership rules. The NTT Law's own foreign caps and government stake only impose **financing constraints**." That argument was rejected this time.
+
+In its May 21, 2025 statement following enactment, NTT expressly said it would **"continue the conversation toward the three-year review."** With IOWN commercialization and international M&A on the roadmap, loosening the business-scope rules and the government stake is a line NTT is not ready to give up.
+
+> What NTT is really aiming for by the 2030s is something like an **"NTT version of NVIDIA"**, built around photonics. To get there, it wants to keep research confidential, scoop up overseas talent fast through M&A, and raise money flexibly in equity markets — that is the unvarnished management view.`,
+      },
+      {
+        heading: "KDDI・SB・楽天モバイルの次の一手",
+        headingEn: "Next Moves for KDDI, SoftBank and Rakuten Mobile",
+        diagramId: "three-rivals-strategy",
+        body: `3年後の再検討に向けて、3社はそれぞれ異なるポジショニングを取りつつある。
+
+【KDDI / 通信+ライフデザイン】auじぶん銀行・au PAY・povoなど金融・決済・ブランドの総合力で **「非通信領域で稼ぐ」** 路線を強化。通信単体の利益率低下をコングロマリット化で補う戦略。NTT法見直しにおいても、auカブコム・au Financial・ローソンとの連携を強調しつつ、**「通信会社の本業は通信」** というNTTへの牽制を続ける。
+
+【ソフトバンク / AI + SBエコノミック・ゾーン】孫正義氏率いるソフトバンクグループは、OpenAI出資・Stargate計画・Arm連携という **AIエコシステム投資** を軸に据えつつ、国内ではLINEヤフー・PayPayとの統合運営を進める。NTT法論議では「国内競争の公正性」を前面に出し、IOWN対抗という意味でも **独自のAIファースト戦略** を打ち出す。
+
+【楽天モバイル / コストの楽観】黒字化目前の楽天モバイルは、「仮想化ネットワーク（Open RAN）」と **自社Wi-Fi併用** で設備投資を抑え、プラチナバンド獲得とパートナー接続（KDDI協定等）を組み合わせて面展開を加速。3社のなかで最も規模が小さく、したがってNTT巨大化への抵抗が最も強い立場。三木谷氏は2025年5月の成立コメントでも「3年後の議論に向けて準備を続ける」と明言した。
+
+【共通項 / ボトルネック論】3社が一致するのは **「NTT東西がボトルネック設備を握る限り、NTTグループ全体に業務範囲規制が必要」** という論点。2029年の再検討でも、この論点は最前線になる。`,
+        bodyEn: `With the next review looming, the three rivals are staking out subtly different ground.
+
+【KDDI / Telecom + Life Design】Through au Jibun Bank, au PAY, povo and a stack of finance, payments and brand assets, KDDI is doubling down on **"earning outside pure telecom."** The strategy is to offset the structurally lower margins of connectivity with conglomerate-style cross-selling. In the NTT debate KDDI emphasizes its tie-ups with au Kabucom, au Financial and Lawson, while continuing to insist that **"a telecom company's core business is telecom"** — a jab aimed squarely at NTT.
+
+【SoftBank / AI + SB economic zone】Masayoshi Son's SoftBank Group frames its story around its **AI ecosystem** — the OpenAI stake, the Stargate project, Arm — while at home pushing integrated operations with LINE Yahoo and PayPay. In the NTT Law debate SoftBank leads with "fair domestic competition," and implicitly counters IOWN by leaning on its own **AI-first** positioning.
+
+【Rakuten Mobile / Cost optimism】With profitability in sight, Rakuten Mobile is trying to keep capex down through virtualized Open RAN networks and **its own Wi-Fi network**, while combining newly acquired platinum-band spectrum with partner roaming deals (including the agreement with KDDI) to fill gaps faster. As the smallest of the three, it has the strongest reason to resist a larger NTT. In his May 2025 statement on the enactment, Mikitani explicitly said the company would "keep preparing for the next round in three years."
+
+【Shared argument / the bottleneck】What binds the three together is a single thesis: **"As long as NTT East/West controls bottleneck facilities, the entire NTT group needs scope-of-business rules."** When the 2029 review comes around, this will again be the front line.`,
+      },
+      {
+        heading: "IOWNと国際M&A — NTTが2029年までに仕掛けること",
+        headingEn: "IOWN and International M&A — What NTT Will Push Before 2029",
+        diagramId: "ntt-2029-pipeline",
+        body: `研究開示義務の撤廃という成果を手にしたNTTは、2029年の再検討を見据えて **2つの軸** で攻めにいくと見られる。
+
+【軸1 / IOWN商用展開の加速】光電融合技術を使った **IOWN APN（All-Photonics Network）** の商用展開を、国内外のデータセンター事業者・ハイパースケーラ向けに加速する。2025年度に低消費電力・低遅延のPoCを終え、2026年から2028年にかけて大規模商用契約の獲得を目指す段階に入っている。研究成果の非公開化は、この分野で決定的な意味を持つ。
+
+【軸2 / 国際M&Aと海外事業の再編】NTT Data・NTT Ltd.を中心としたグローバル事業の統合（NTT DATAへの完全子会社化）は2023年に完了済み。次の一手として、**欧米クラウド・サイバーセキュリティ企業の追加買収** と、海外における規制対応型データセンターの拡大が予想される。業務範囲規制の緩和を2029年に勝ち取れれば、この動きは一段加速する。
+
+> 研究成果を開示しなくて良くなった結果、NTTは「IOWNで何が起きているか」を段階的にしか外部に見せない自由を手にした。これは業界にとって情報源の質が変わることを意味する。
+
+一方で、**電柱等設備の譲渡に国の認可** が新たに必要となった点は、NTT経営にとってはマイナス。非コア資産の売却によるROIC改善のオプションが狭まった。ここは次回改正で撤廃を目指す論点になる。`,
+        bodyEn: `Having secured the end of mandatory research disclosure, NTT is expected to push hard on **two fronts** ahead of the 2029 review.
+
+【Axis 1 / Accelerating IOWN commercialization】NTT will accelerate the commercial deployment of **IOWN APN (All-Photonics Network)** — its photonics-based transport — for domestic and overseas data-center operators and hyperscalers. Low-power, low-latency PoCs were wrapped up in fiscal 2025, and from 2026 through 2028 the goal is to land large-scale commercial contracts. In this domain, keeping research under wraps is decisive.
+
+【Axis 2 / International M&A and reshuffling overseas operations】Integration of global operations centered on NTT Data and NTT Ltd. (the full subsidiarization into NTT DATA) was completed in 2023. Next, expect additional **acquisitions of European and US cloud and cybersecurity companies**, plus expansion of regulation-ready data centers abroad. Should NTT win a loosening of scope-of-business rules in 2029, this agenda will move up a gear.
+
+> With research disclosure gone, NTT now has the freedom to show the outside world only a curated, stepped version of "what's happening inside IOWN." For the industry, that means a shift in the quality of the available information.
+
+On the other side, the new requirement for **ministerial approval on infrastructure transfers** is a minus for NTT management — it narrows the option of improving ROIC through non-core asset sales. Expect NTT to target this clause for removal in the next revision.`,
+      },
+      {
+        heading: "3年後に何を見るべきか — 2029年再検討の論点",
+        headingEn: "What to Watch Three Years From Now — The 2029 Review",
+        diagramId: "2029-review-agenda",
+        body: `2029年の再検討に向けて、読者が押さえておくべき5つの論点を整理する。
+
+【論点1 / 業務範囲規制】NTT持株の「持株管理に限定」、NTT東西の「県境越え禁止」「業務範囲規制」が残る限り、NTTは完全な垂直統合企業にはなれない。次の改正ではここが最大の論戦ポイントになる。
+
+【論点2 / 政府の3分の1保有】防衛費の財源をどう工面するかの議論と連動する。2029年までの防衛費 対GDP比2% 目標の進捗、税制改正、社会保険料、そして景気循環——これら全てがNTT株売却論の強弱を左右する。
+
+【論点3 / 外資規制】経済安全保障推進法との関係整理が焦点。電気通信事業法の外資規制と、NTT法独自の外資規制の二重構造をどう整理するかが論点化する。
+
+【論点4 / ユニバーサルサービスの将来】固定電話ユーザー数は2030年代に激減する見通し。携帯網による無線固定電話への置き換えをどこまで加速するか、メタル回線廃止のスケジュールをどう描くか——この議論はNTT東西の財務構造と直結する。
+
+【論点5 / IOWN・量子・AIの競争政策】NTT研究所が抱える光電融合・量子通信・大規模言語モデルの研究成果を、どう産業全体に還流させるか——研究開示義務が撤廃された現状、これは別途の競争政策として議論される必要がある。
+
+2029年の再検討は、2025年以上に **「通信会社の境界をどこに引くか」** という根源的な問いを扱う。4年後の議論に向けて、業界の地図が少しずつ描き換えられ始めている。`,
+        bodyEn: `Five things readers should watch heading into the 2029 review.
+
+【Point 1 / Scope-of-business rules】So long as NTT Holdings is restricted to "holding-company management" and NTT East/West are barred from crossing prefectural lines and from broader business activities, NTT cannot become a fully vertically integrated company. This will be the single biggest battleground in the next revision.
+
+【Point 2 / The government's 1/3 stake】The debate is wired into how Japan funds its defense buildup. Progress toward the 2% of GDP defense spending target by 2029, tax reform, social-insurance contributions, and the business cycle will all push the "sell down NTT shares" argument up or down.
+
+【Point 3 / Foreign ownership cap】The focus will be on how to reconcile this with the Economic Security Promotion Act. Japan ends up with a double layer of foreign-ownership restrictions — one in the Telecommunications Business Act and another specifically in the NTT Law — and that overlap will be on the agenda.
+
+【Point 4 / The future of universal service】Fixed-line subscribers are set to fall sharply through the 2030s. How fast wireless fixed-line replacements roll out, and how the metal-line retirement schedule is drawn, will hit NTT East/West's financials directly.
+
+【Point 5 / Competition policy for IOWN, quantum and AI】With the research-disclosure requirement gone, how the photonics, quantum-comms and large-language-model output of NTT Labs gets recycled into the broader industry needs to be debated as a separate matter of competition policy.
+
+The 2029 review will tackle an even more fundamental question than 2025 did: **where do we draw the boundary of a "telecom company"?** Four years out, the map of the industry is already being quietly redrawn.`,
+      },
+    ],
+  },
+  {
+    slug: "sovereign-cloud-japan-2026",
+    title: "クラウド国産化と経済安全保障 2026 — さくら採択後の本当の勝負",
+    titleEn: "Japan's Sovereign Cloud Moment — Why Sakura's Approval Is Only the Start",
+    date: "2026-04-08",
+    author: "",
+    readTime: "11 min",
+    tags: ["ガバメントクラウド", "クラウド", "経済安全保障", "さくらインターネット", "IIJ", "デジタル庁", "データ主権"],
+    summary:
+      "2026年3月27日、デジタル庁はさくらインターネットの「さくらのクラウド」を2026年度のガバメントクラウド提供事業者として正式採択した。305項目の技術要件すべてをクリアした国内勢は初。AWS・Google Cloud・Microsoft Azure・Oracleに並ぶ5社目で、唯一の日本企業となる。一方、IIJやソフトバンクは選定されず、Microsoftは日本に100億ドル投資しつつSoftBankとさくらを組み込む「ソブリンAI」戦略を打ち出した。本記事は経済安保とクラウドを貫く力学を整理する。",
+    summaryEn:
+      "On March 27, 2026, Japan's Digital Agency formally approved Sakura Internet's 'Sakura no Cloud' as a provider for the fiscal 2026 Government Cloud — the first domestic operator to clear all 305 technical requirements and the fifth provider overall alongside AWS, Google Cloud, Microsoft Azure and Oracle. IIJ and SoftBank were not selected. Meanwhile Microsoft committed $10 billion to Japan and folded SoftBank and Sakura into a 'sovereign AI' play. This article maps the forces pulling cloud and economic security together.",
+    sections: [
+      {
+        heading: "さくらインターネット採択 — 何が認められたか",
+        headingEn: "Sakura Gets the Green Light — What Exactly Was Approved",
+        diagramId: "govcloud-providers",
+        body: `2026年3月27日、デジタル庁は「令和8年度ガバメントクラウドサービス提供事業者」として **さくらインターネットの『さくらのクラウド』** を選定したと発表した。2023年11月の条件付き採択から約2年半、**305項目にわたる技術要件・セキュリティ要件** にすべて適合したことが確認された形だ。
+
+【既存の4社】AWS・Google Cloud・Microsoft Azure・Oracle Cloud Infrastructure。これまでガバメントクラウドはこの **米系4社の独占** で、実質的に日本の行政データは全て米国企業のインフラに乗る状態が続いてきた。
+
+【5社目 = さくらインターネット】ここに初めて **日本企業** が加わった意味は大きい。地方自治体を含む行政機関が、クラウドを選ぶ際に「国内事業者」という選択肢を初めて実質的に持てるようになった。
+
+【選ばれなかった事業者】IIJ・ソフトバンクも応募意向を示していたが、今回は選定外。NTTデータ・富士通は別の立ち位置から政府IT基盤に関与しており、クラウド事業者としての認定は受けていない。
+
+> さくらの田中邦裕社長は2023年の条件付き採択時、「2025年度末までに全要件を満たす」とコミットした。約束した期限ぎりぎりの2026年3月に認定を取り付けた形で、社内では一大プロジェクトだった。`,
+        bodyEn: `On March 27, 2026, Japan's Digital Agency announced that **Sakura Internet's "Sakura no Cloud"** had been selected as a fiscal 2026 Government Cloud provider. Following its conditional approval in November 2023, Sakura spent roughly two and a half years demonstrating compliance with **all 305 technical and security requirements**.
+
+【The existing four】AWS, Google Cloud, Microsoft Azure and Oracle Cloud Infrastructure. Until now, the Government Cloud has been a **four-way monopoly of US vendors**, effectively meaning Japan's administrative data has been running on American-owned infrastructure.
+
+【The fifth — Sakura Internet】The arrival of a **Japanese company** matters. For the first time, government bodies including local authorities will have a meaningful "domestic provider" option when choosing a cloud.
+
+【Who didn't make it】IIJ and SoftBank signaled interest but were not selected this round. NTT Data and Fujitsu engage with government IT in other ways and are not certified as cloud providers.
+
+> When Sakura was conditionally approved in 2023, CEO Kunihiro Tanaka committed to clearing all requirements by the end of fiscal 2025. The certification came right at the deadline, in March 2026 — a major internal project.`,
+      },
+      {
+        heading: "なぜ国産クラウドが必要なのか — 3つの論点",
+        headingEn: "Why a Domestic Cloud Matters — Three Arguments",
+        diagramId: "sovereign-cloud-why",
+        body: `「国産クラウド」を政策として推す理由は単一ではない。経済安保・産業政策・運用実態の3つが重なり合っている。
+
+【論点1 / データ主権と CLOUD Act】米国の **CLOUD Act** は、米国企業が国外で保管するデータに対しても米国司法当局の開示請求を可能にする。行政データが米クラウドに乗る限り、理論上、この法律の射程に入る。日本の経済安全保障推進法が重要インフラとして「情報処理」を位置づけた以上、この論点は避けて通れない。
+
+【論点2 / 産業政策 — 国内に技術と雇用を残す】米4社で占められたクラウド市場では、日本の技術者・データセンター・電力投資の経済効果がごく限定的になる。**IT人材の国内育成** や **地方データセンター投資** を進めるには、国内事業者の受け皿が要る——これが産業政策側の論理。
+
+【論点3 / 運用実態 — マルチクラウド時代の冗長性】一社依存のリスクは2024年のCrowdStrike障害で世界中が体感した。2025年にはAWS・Azureの大規模障害が複数発生し、**シングル・クラウド・ベンダー依存** の脆弱性が露呈。国内事業者を含むマルチクラウドは、可用性の観点からも合理性がある。
+
+> 総務省・デジタル庁の見立ては、3論点のいずれが最重要かでは内部でも温度差がある。経産省は産業政策、内閣官房は経済安保、デジタル庁は運用実態を強調する傾向がある。`,
+        bodyEn: `There is no single reason to push "domestic cloud" as policy. Three threads intertwine: economic security, industrial policy and operational reality.
+
+【Argument 1 / Data sovereignty and the CLOUD Act】The US **CLOUD Act** lets US law-enforcement compel US companies to hand over data even when it is stored outside the United States. So long as government data sits on a US cloud, it is theoretically within reach of that statute. With Japan's Economic Security Promotion Act now naming "information processing" as critical infrastructure, this argument cannot be sidestepped.
+
+【Argument 2 / Industrial policy — keep tech and jobs at home】A cloud market dominated by four US vendors generates limited multiplier effects for Japanese engineers, data centers and power investment. If the country wants to grow **IT talent domestically** and anchor **regional data-center investment**, it needs a domestic channel for that investment — this is the industrial-policy logic.
+
+【Argument 3 / Operational reality — redundancy in a multi-cloud era】The world felt the cost of single-vendor dependency during the 2024 CrowdStrike outage. In 2025, several large-scale AWS and Azure incidents exposed the fragility of **single-cloud-vendor lock-in**. A multi-cloud setup that includes a domestic provider makes sense on pure availability grounds.
+
+> Inside MIC and the Digital Agency, people disagree on which argument matters most. METI tends to lead with industrial policy, the Cabinet Office with economic security, and the Digital Agency with operational reality.`,
+      },
+      {
+        heading: "さくら vs 米系4社 — 規模・価格・機能の現実",
+        headingEn: "Sakura vs the Four US Hyperscalers — Scale, Price, Features",
+        diagramId: "sakura-vs-hyperscalers",
+        body: `認定を取ったとはいえ、さくらが米系4社と同等の選択肢になったわけではない。客観的な格差を整理する必要がある。
+
+【規模】AWSの年間売上は1,000億ドル超、Microsoft Azureも同等規模、Google Cloudが500億ドル規模。対してさくらインターネットの通期売上は **約300億円規模**。**単純比較で桁が3〜4つ違う**。この規模差は設備投資・R&D・グローバル展開に直結する。
+
+【価格】ハイパースケーラのスポットVMは、規模の経済で極めて低コスト。さくらはコモディティIaaSで米系と真正面から価格競争するのではなく、**『国内事業者であること』** というポジションで差別化せざるを得ない。
+
+【機能】マネージドDB・サーバレス・機械学習・データウェアハウス等、ハイパースケーラのマネージドサービス群は **数百に及ぶ**。さくらのラインナップはコアIaaS中心で、マネージド層は限定的。移行のたびにアプリ側のアーキテクチャを変える必要があり、**利用自治体側の工数** が課題となる。
+
+【勝ち筋】規模・機能で勝負できない代わりに、さくらは以下に賭ける:
+
+【賭け1 / 規制準拠の一次選択】経済安保上「国内事業者必須」となる案件で、自動的に候補に入る。
+【賭け2 / 地方データセンター網】北海道・福岡等に分散したデータセンターと低い電力コストを武器にする。
+【賭け3 / AI向け高性能計算】NVIDIA GPU搭載のAI向けクラウドを早期に立ち上げており、Microsoft・ソフトバンクとの協業で国産ソブリンAIの計算資源側を担う。`,
+        bodyEn: `Certification does not turn Sakura into a like-for-like alternative to the four US hyperscalers. The gaps are real.
+
+【Scale】AWS generates well over $100B a year. Azure is comparable. Google Cloud runs around $50B. Sakura Internet's annual revenue is about **¥30 billion ($200M)** — **three to four orders of magnitude smaller**. That gap translates directly into capex, R&D and global reach.
+
+【Price】The hyperscalers' spot VMs are cheap thanks to enormous economies of scale. Sakura cannot go head-to-head on commodity IaaS pricing. Its differentiation has to come from **"being a domestic operator."**
+
+【Features】Between them, AWS, Azure, GCP and OCI offer **hundreds** of managed services — databases, serverless, ML, data warehousing, and much more. Sakura's lineup is centered on core IaaS, with a much thinner managed layer. Migrating to it often means rearchitecting the application, which raises **switching costs for local governments**.
+
+【Where Sakura can win】Unable to compete on scale or feature breadth, Sakura is betting on the following:
+
+【Bet 1 / First pick when regulation demands domestic】In cases where economic-security rules mandate a domestic provider, Sakura is automatically on the shortlist.
+【Bet 2 / Regional data-center footprint】Distributed data centers in Hokkaido, Fukuoka and elsewhere, paired with low power costs, as a physical advantage.
+【Bet 3 / High-performance compute for AI】Sakura stood up an NVIDIA-GPU-based AI cloud early and, in partnership with Microsoft and SoftBank, supplies compute for Japan's "sovereign AI" stack.`,
+      },
+      {
+        heading: "Microsoft 100億ドル投資と『ソブリンAI』— 矛盾の解決策",
+        headingEn: "Microsoft's $10B Bet and 'Sovereign AI' — Reconciling the Contradiction",
+        diagramId: "microsoft-sovereign-ai",
+        body: `クラウド国産化論を複雑にするのが、2026年初頭に発表された **Microsoftの日本100億ドル投資** だ。Microsoftは2026年から2029年の間に、日本でのAIインフラに100億ドルを投じると発表。その中核には **SoftBankとさくらインターネットとの連携** が据えられている。
+
+【Microsoftの設計】データは日本国内で処理され、GPU・データセンターの一部は国内事業者（さくら・SoftBank）のインフラを活用。Azure は API 層として利用されるが、データと計算リソースは物理的に日本領土内にとどまる形にした。
+
+【「ソブリンクラウド」の意味】これは欧州でSAPやドイツテレコムと組んで実施しているモデルの日本版。**現地資本・現地ガバナンス・現地データ残留** を約束することで、経済安保を理由にしたクラウド国産化論を構造的に迂回する仕組みだ。
+
+> Microsoftの狙いは、クラウド国産化論の高まりに先回りして、**『国産=Sakura×日本資本、アプリ層=Microsoft』** というハイブリッド構造を事実上のデファクトにしてしまうこと。
+
+【日本側の受け取り方】デジタル庁はこの動きを歓迎するトーンだが、経産省には温度差がある。「形式的には国産、実質は米国依存」という批判は残り、2026年後半の政策論議で焦点化する可能性が高い。AWS・Google も同種のソブリンプログラムを強化せざるを得ず、国産とハイパースケーラの **境界線がどんどん曖昧になる** のが2026年の現実だ。`,
+        bodyEn: `What complicates the "domestic cloud" debate is the **$10 billion Microsoft investment in Japan** announced in early 2026. Microsoft said it would spend $10B on AI infrastructure in Japan between 2026 and 2029, with **partnerships with SoftBank and Sakura Internet** at its core.
+
+【Microsoft's design】Data is processed in Japan. GPUs and parts of the data-center footprint sit on domestic infrastructure (Sakura and SoftBank). Azure is used as the API layer, while data and compute remain physically inside Japanese territory.
+
+【What "sovereign cloud" means】This is the Japanese version of the European model Microsoft runs with SAP and Deutsche Telekom. By promising **local capital, local governance and local data residency**, it structurally routes around the economic-security case for a domestic cloud.
+
+> Microsoft's bet is to get ahead of the "domestic cloud" debate and turn **"domestic = Sakura × Japanese capital, application layer = Microsoft"** into the de facto norm.
+
+【How Japan is reading it】The Digital Agency welcomes the move, but METI is cooler. The criticism that this is "domestic in form, American in substance" has not gone away, and is likely to become a focal point in the policy debate later in 2026. AWS and Google Cloud are being pushed to strengthen their own sovereign programs, and **the line between "domestic" and "hyperscaler" is blurring fast** in 2026.`,
+      },
+      {
+        heading: "2026年以降に起きること — 3つの観測点",
+        headingEn: "What to Watch From 2026 Onward — Three Observation Points",
+        diagramId: "govcloud-watchlist",
+        body: `ガバメントクラウド周辺で2026年以降に注目すべき動きを3点に整理する。
+
+【観測1 / 自治体のクラウド選択が二極化するか】1,700以上ある地方自治体が、2025年度までにガバメントクラウドへ移行する目標を掲げて取り組んできた。2026年以降、「ハイパースケーラの機能と価格」か「さくらの国内事業者メリット」か、**調達基準に経済安保要件がどこまで反映されるか** が自治体ごとの選択を分ける。
+
+【観測2 / IIJ・NTT・富士通の再挑戦】今回選ばれなかったIIJや、別ルートで参入を狙うNTTデータ・富士通は、2027年度・2028年度の次期採択に向けて準備を進める。特にIIJはマルチクラウド接続・バックボーン保有という独自の強みがあり、次回採択の可能性は十分にある。
+
+【観測3 / 生成AI向け計算資源の『国産』定義】日本政府はソブリンAIの観点から、生成AI向けGPUクラウドの国産化にも力を入れている。ここで問題になるのは **「NVIDIA GPUを使えば国産か？」** という定義問題。ハードもソフトも米国由来で、国産と言えるのはオペレーションと物理的な所在地だけ——この線引きが2026年後半の政策論点になる。
+
+> 最終的に、クラウドの「国産」とは **ハードウェア/ソフトウェア/データ/運用/資本** のどれを国内に置くかという多次元の議論に解体されていく。2026年は、その議論の出発点としての1年になる。`,
+        bodyEn: `Three things to watch around the Government Cloud from 2026 onward.
+
+【Point 1 / Will local-government cloud choices split?】Japan has more than 1,700 local authorities, all working toward the target of migrating to the Government Cloud by the end of fiscal 2025. From 2026, the question is whether each authority prioritizes "hyperscaler features and pricing" or "Sakura's domestic-operator advantages" — and the answer will depend on **how far economic-security requirements get baked into procurement standards**.
+
+【Point 2 / IIJ, NTT, Fujitsu try again】IIJ, which was not chosen this round, along with NTT Data and Fujitsu pushing in through other channels, are preparing for the fiscal 2027 and 2028 selection rounds. IIJ in particular has real strengths in multi-cloud connectivity and its own backbone, and is a credible candidate next time.
+
+【Point 3 / Defining "domestic" for generative-AI compute】For sovereign AI, the government is also pushing for domestic GPU clouds. The awkward question is: **"If it runs on NVIDIA GPUs, is it really domestic?"** With hardware and software both originating in the US, all that is truly domestic is the operation and the physical location — and where exactly to draw that line will become a policy issue in the second half of 2026.
+
+> Ultimately, "domestic" for cloud breaks down into a multi-dimensional question: which of **hardware, software, data, operations and capital** should be inside the country? 2026 is the starting point for that argument.`,
       },
     ],
   },

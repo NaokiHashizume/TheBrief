@@ -23,6 +23,12 @@ import {
   ShoshaSegmentsDiagram,
   ShoshaFutureDiagram,
 } from "@/components/SogoShoshaDiagrams";
+import {
+  ShoshaFy26RankingDiagram,
+  ShoshaMitsubishiDropDiagram,
+  ShoshaItochuStrengthDiagram,
+  ShoshaBuffettEffectDiagram,
+} from "@/components/SogoShoshaFy26Diagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -196,6 +202,10 @@ export default async function TradingArticlePage({
             {section.diagramId === "shosha-buffett" && <ShoshaBuffettDiagram />}
             {section.diagramId === "shosha-segments" && <ShoshaSegmentsDiagram />}
             {section.diagramId === "shosha-future" && <ShoshaFutureDiagram />}
+            {section.diagramId === "shosha-fy26-ranking" && <ShoshaFy26RankingDiagram />}
+            {section.diagramId === "shosha-mitsubishi-drop" && <ShoshaMitsubishiDropDiagram />}
+            {section.diagramId === "shosha-itochu-strength" && <ShoshaItochuStrengthDiagram />}
+            {section.diagramId === "shosha-buffett-effect" && <ShoshaBuffettEffectDiagram />}
 
             {/* Section body */}
             <div className="space-y-4">

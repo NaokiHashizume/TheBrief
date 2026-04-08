@@ -71,6 +71,36 @@ const specials: SpecialItem[] = [
 
 const columns: ColumnItem[] = [
   {
+    slug: "childcare-support-fund-2026",
+    title: "子ども・子育て支援金の実額 — 年収別『月いくら』と2028年の1兆円",
+    titleEn: "The Child-Support Levy in Plain Numbers",
+    summary:
+      "2026年4月から医療保険料に上乗せされる『子ども・子育て支援金』。年収600万円で月575円、800万円で月767円、1,000万円で月959円。一律0.23%という支援金率の中身と、2028年度に1兆円まで段階的に引き上げられる計画を、年収別の実額で読み解きます。",
+    date: "2026-04-09",
+    readTime: "約 8 分",
+    tags: ["社会保障", "家計", "税・保険料"],
+  },
+  {
+    slug: "selective-surname-2026",
+    title: "選択的夫婦別姓の現在地 — 高市政権『旧姓の単記』はどこまで進むのか",
+    titleEn: "Selective Surname Debate in 2026",
+    summary:
+      "高市政権は選択的夫婦別姓には反対のまま、自民・維新の連立合意に基づき旧姓通称使用の法制化を進める方針。2026年2月には『旧氏の単記』の検討指示も。2026年通常国会で何が決まり、何が決まらないかを整理します。",
+    date: "2026-04-09",
+    readTime: "約 9 分",
+    tags: ["制度", "家族", "政治"],
+  },
+  {
+    slug: "digital-inheritance-2026",
+    title: "デジタル遺品の片付け方 — スマホの中の『見えない契約』で家族を困らせないために",
+    titleEn: "Digital End-of-Life Planning in 2026",
+    summary:
+      "国民生活センターは2024年11月にデジタル終活の警鐘を発表。故人のスマホが開けず、サブスク請求だけが続く。相続放棄を検討中のうっかり解約リスク。今日5分から始められるデジタル終活の最小セットを整理します。",
+    date: "2026-04-09",
+    readTime: "約 9 分",
+    tags: ["ライフプラン", "相続", "ライフハック"],
+  },
+  {
     slug: "middle-school-exam-economics",
     title: "中学受験の経済学 — 総額と『投資対効果』を冷静に計算する",
     titleEn: "The Economics of Middle-School Entrance Exams",

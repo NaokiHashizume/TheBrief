@@ -11,8 +11,26 @@ import {
   AutoSupplyChainDiagram,
   AutoEvShiftDiagram,
 } from "@/components/AutomotiveBizDiagrams";
+import {
+  HnTimelineDiagram,
+  RenissanNumbersDiagram,
+  HondaAfterDiagram,
+  HnNaCooperationDiagram,
+  HnRematchScenariosDiagram,
+  CnEuShareDiagram,
+  CnEuTariffsDiagram,
+  CnEuFactoriesDiagram,
+  CnEuMinPriceDiagram,
+  CnEuImpactDiagram,
+  SsbWhyDiagram,
+  SsbToyotaDiagram,
+  SsbNissanDiagram,
+  SsbRivalsDiagram,
+  SsbProductionRealityDiagram,
+} from "@/components/AutomotiveArticleDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { RecommendedReads } from "@/components/RecommendedReads";
+import { T } from "@/components/T";
 
 export function generateStaticParams() {
   return automotiveArticles.map((a) => ({ slug: a.slug }));
@@ -94,6 +112,21 @@ const diagramMap: Record<string, React.FC> = {
   "auto-regions": AutoRegionsDiagram,
   "auto-supply-chain": AutoSupplyChainDiagram,
   "auto-ev-shift": AutoEvShiftDiagram,
+  "hn-timeline": HnTimelineDiagram,
+  "renissan-numbers": RenissanNumbersDiagram,
+  "honda-after": HondaAfterDiagram,
+  "hn-na-cooperation": HnNaCooperationDiagram,
+  "hn-rematch-scenarios": HnRematchScenariosDiagram,
+  "cn-eu-share": CnEuShareDiagram,
+  "cn-eu-tariffs": CnEuTariffsDiagram,
+  "cn-eu-factories": CnEuFactoriesDiagram,
+  "cn-eu-minprice": CnEuMinPriceDiagram,
+  "cn-eu-impact": CnEuImpactDiagram,
+  "ssb-why": SsbWhyDiagram,
+  "ssb-toyota": SsbToyotaDiagram,
+  "ssb-nissan": SsbNissanDiagram,
+  "ssb-rivals": SsbRivalsDiagram,
+  "ssb-production-reality": SsbProductionRealityDiagram,
 };
 
 export default async function AutomotiveArticlePage({
@@ -140,11 +173,15 @@ export default async function AutomotiveArticlePage({
             <span key={tag} className="text-[10px] px-2.5 py-1 rounded-md bg-[#0ea5e9]/[0.05] text-[#0ea5e9]/70 font-medium tracking-wide border border-[#0ea5e9]/[0.08]">{tag}</span>
           ))}
         </div>
-        <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">{article.title}</h1>
+        <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">
+          <T ja={article.title} en={article.titleEn || article.title} />
+        </h1>
         {article.titleEn && (
           <p className="mt-2 text-[11px] tracking-[1px] text-foreground/25 font-medium uppercase">{article.titleEn}</p>
         )}
-        <p className="mt-6 text-[15px] text-foreground/65 leading-[1.9] border-l-2 border-[#0ea5e9]/20 pl-5">{article.summary}</p>
+        <p className="mt-6 text-[15px] text-foreground/65 leading-[1.9] border-l-2 border-[#0ea5e9]/20 pl-5">
+          <T ja={article.summary} en={article.summaryEn ?? article.summary} />
+        </p>
         <div className="mt-6 flex items-center gap-5 text-[11px] text-foreground/35 font-medium">
           <time className="tabular-nums">{article.date}</time>
           <span className="w-1 h-1 rounded-full bg-foreground/15" />
@@ -154,7 +191,36 @@ export default async function AutomotiveArticlePage({
 
       <article>
         {article.sections.map((section, i) => {
-          const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
+          const renderBody = (body: string) => {
+            const paragraphs = body.split("\n\n").filter((p) => p.trim());
+            return paragraphs.map((paragraph, j) => {
+              const trimmed = paragraph.trim();
+              if (trimmed.startsWith("> ")) {
+                return (
+                  <div key={j} className="my-8 pl-5 py-4 rounded-r-lg bg-[#0ea5e9]/[0.03] dark:bg-[#0ea5e9]/[0.06] border-l-3 border-[#0ea5e9]/25">
+                    <p className="text-[14px] text-foreground/70 leading-[1.9] italic"><RichText text={trimmed.slice(2)} /></p>
+                  </div>
+                );
+              }
+              if (trimmed.startsWith("【")) {
+                const end = trimmed.indexOf("】");
+                if (end > 0) {
+                  return (
+                    <div key={j} className="group pl-5 py-3 relative">
+                      <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-[#0ea5e9]/20" />
+                      <div className="text-[11px] font-bold text-[#0ea5e9]/70 tracking-wide mb-1.5">{trimmed.slice(1, end)}</div>
+                      <p className="text-[14px] text-foreground/75 leading-[1.9]"><RichText text={trimmed.slice(end + 1).trim()} /></p>
+                    </div>
+                  );
+                }
+              }
+              return (
+                <p key={j} className="text-[15px] text-foreground/75 leading-[2] tracking-[0.02em]">
+                  <RichText text={trimmed} />
+                </p>
+              );
+            });
+          };
           const DiagramComponent = section.diagramId ? diagramMap[section.diagramId] : null;
           return (
             <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
@@ -162,7 +228,9 @@ export default async function AutomotiveArticlePage({
                 <div className="flex items-center gap-4 mb-3">
                   <span className="text-[32px] sm:text-[40px] font-bold tabular-nums text-[#0ea5e9]/[0.08] leading-none select-none font-serif">{String(i + 1).padStart(2, "0")}</span>
                   <div className="flex-1">
-                    <h2 className="font-serif text-[22px] sm:text-[26px] font-bold leading-tight tracking-tight">{section.heading}</h2>
+                    <h2 className="font-serif text-[22px] sm:text-[26px] font-bold leading-tight tracking-tight">
+                      <T ja={section.heading} en={section.headingEn || section.heading} />
+                    </h2>
                     {section.headingEn && (
                       <span className="text-[10px] tracking-[2px] uppercase text-foreground/25 font-medium mt-0.5 block">{section.headingEn}</span>
                     )}
@@ -171,33 +239,14 @@ export default async function AutomotiveArticlePage({
                 <div className="h-px bg-gradient-to-r from-[#0ea5e9]/15 via-[#0ea5e9]/5 to-transparent" />
               </div>
               <div className="space-y-6">
-                {paragraphs.map((paragraph, j) => {
-                  const trimmed = paragraph.trim();
-                  if (trimmed.startsWith("> ")) {
-                    return (
-                      <div key={j} className="my-8 pl-5 py-4 rounded-r-lg bg-[#0ea5e9]/[0.03] dark:bg-[#0ea5e9]/[0.06] border-l-3 border-[#0ea5e9]/25">
-                        <p className="text-[14px] text-foreground/70 leading-[1.9] italic"><RichText text={trimmed.slice(2)} /></p>
-                      </div>
-                    );
-                  }
-                  if (trimmed.startsWith("【")) {
-                    const end = trimmed.indexOf("】");
-                    if (end > 0) {
-                      return (
-                        <div key={j} className="group pl-5 py-3 relative">
-                          <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-[#0ea5e9]/20" />
-                          <div className="text-[11px] font-bold text-[#0ea5e9]/70 tracking-wide mb-1.5">{trimmed.slice(1, end)}</div>
-                          <p className="text-[14px] text-foreground/75 leading-[1.9]"><RichText text={trimmed.slice(end + 1).trim()} /></p>
-                        </div>
-                      );
-                    }
-                  }
-                  return (
-                    <p key={j} className="text-[15px] text-foreground/75 leading-[2] tracking-[0.02em]">
-                      <RichText text={trimmed} />
-                    </p>
-                  );
-                })}
+                {section.bodyEn ? (
+                  <T
+                    ja={<>{renderBody(section.body)}</>}
+                    en={<>{renderBody(section.bodyEn)}</>}
+                  />
+                ) : (
+                  renderBody(section.body)
+                )}
               </div>
               {DiagramComponent && <DiagramComponent />}
             </section>
