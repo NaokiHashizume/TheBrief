@@ -82,7 +82,7 @@ async function loadArticles() {
         slug,
         title: rawTitle.replace(/\\"/g, '"'),
         tags,
-        url: `${SITE_URL}${urlPrefix}/${slug}?utm_source=twitter&utm_medium=social&utm_campaign=x-auto-post`,
+        url: `${SITE_URL}${urlPrefix}/${slug}`,
       });
     }
   }
