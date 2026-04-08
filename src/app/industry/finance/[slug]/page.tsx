@@ -6,6 +6,14 @@ import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd"
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
+import {
+  HormuzFinanceOverviewDiagram,
+  HormuzFinanceOilDiagram,
+  HormuzFinanceNikkeiDiagram,
+  HormuzFinanceEnergyDiagram,
+  HormuzFinanceImpactDiagram,
+  HormuzFinanceRiskDiagram,
+} from "@/components/HormuzFinanceDiagrams";
 
 export function generateStaticParams() {
   return financeArticles.map((a) => ({ slug: a.slug }));
@@ -69,6 +77,17 @@ function RichText({ text }: { text: string }) {
     </>
   );
 }
+
+import React from "react";
+
+const diagramMap: Record<string, React.FC> = {
+  "hormuz-finance-overview": HormuzFinanceOverviewDiagram,
+  "hormuz-finance-oil": HormuzFinanceOilDiagram,
+  "hormuz-finance-nikkei": HormuzFinanceNikkeiDiagram,
+  "hormuz-finance-energy": HormuzFinanceEnergyDiagram,
+  "hormuz-finance-impact": HormuzFinanceImpactDiagram,
+  "hormuz-finance-risk": HormuzFinanceRiskDiagram,
+};
 
 export default async function ArticlePage({
   params,
@@ -158,6 +177,7 @@ export default async function ArticlePage({
       <article>
         {article.sections.map((section, i) => {
           const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
+          const DiagramComponent = section.diagramId ? diagramMap[section.diagramId] : null;
           return (
             <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
               <div className="mb-8">
@@ -172,6 +192,7 @@ export default async function ArticlePage({
                 </div>
                 <div className="h-px bg-gradient-to-r from-[#f59e0b]/15 via-[#f59e0b]/5 to-transparent" />
               </div>
+              {DiagramComponent && <DiagramComponent />}
               <div className="space-y-6">
                 {paragraphs.map((paragraph, j) => {
                   const trimmed = paragraph.trim();
