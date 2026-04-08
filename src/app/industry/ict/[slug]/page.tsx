@@ -74,6 +74,14 @@ import {
   MicrosoftSovereignAiDiagram,
   GovCloudWatchlistDiagram,
 } from "@/components/SovereignCloudDiagrams";
+import {
+  QuantumJapanOverviewDiagram,
+  QuantumJapanPlayersDiagram,
+  QuantumJapanInvestmentDiagram,
+  QuantumJapanUseCasesDiagram,
+  QuantumJapanGapDiagram,
+  QuantumJapanTimelineDiagram,
+} from "@/components/QuantumJapan2026Diagrams";
 import ShareButton from "@/components/ShareButton";
 import { T } from "@/components/T";
 
@@ -206,6 +214,12 @@ const diagramMap: Record<string, React.FC> = {
   "sakura-vs-hyperscalers": SakuraVsHyperscalersDiagram,
   "microsoft-sovereign-ai": MicrosoftSovereignAiDiagram,
   "govcloud-watchlist": GovCloudWatchlistDiagram,
+  "quantum-japan-overview": QuantumJapanOverviewDiagram,
+  "quantum-japan-players": QuantumJapanPlayersDiagram,
+  "quantum-japan-investment": QuantumJapanInvestmentDiagram,
+  "quantum-japan-usecases": QuantumJapanUseCasesDiagram,
+  "quantum-japan-gap": QuantumJapanGapDiagram,
+  "quantum-japan-timeline": QuantumJapanTimelineDiagram,
 };
 
 export default async function IctArticlePage({
