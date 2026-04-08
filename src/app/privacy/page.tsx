@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
       <h1 className="font-serif text-3xl font-bold mb-8"><T ja="Privacy Policy" en="Privacy Policy" /></h1>
-      <p className="text-sm text-foreground/55 mb-8"><T ja="Last updated: April 4, 2026" en="Last updated: April 4, 2026" /></p>
+      <p className="text-sm text-foreground/55 mb-8"><T ja="Last updated: April 9, 2026" en="Last updated: April 9, 2026" /></p>
 
       <div className="prose-custom space-y-8 text-sm leading-relaxed text-foreground/70">
         <section>

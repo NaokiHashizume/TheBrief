@@ -167,7 +167,7 @@ export default function JapanChallengesPage() {
         />
       </p>
       <p className="mt-2 text-xs text-foreground/45">
-        Last updated: 2026-04-07
+        Last updated: 2026-04-09
       </p>
 
       {/* Challenge category grid */}

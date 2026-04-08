@@ -99,14 +99,14 @@ export default function PoliticsPage() {
         }
         meta={
           <>
-            Last updated: 2026-04-04{" "}
+            Last updated: 2026-04-09{" "}
             <T
               ja="※最新の情報に基づき随時更新"
               en="— Updated regularly with the latest data"
             />
           </>
         }
-        dateLabel="2026-04-04"
+        dateLabel="2026-04-09"
       />
 
       {/* いまの政治 ダッシュボード */}

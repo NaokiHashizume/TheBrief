@@ -36,7 +36,7 @@ export default function PassedPage() {
         <T ja="国会で可決・成立したが、2026年4月時点でまだ施行されていない主要法令の一覧です。" en="A list of major laws passed by the Diet but not yet enforced as of April 2026." />
       </p>
       <p className="mt-2 text-xs text-foreground/45">
-        <T ja="成立済法令一覧: 2026年4月4日時点 ｜ 施行予定日は各法令による" en="Passed laws: as of April 4, 2026 | Effective dates vary by law" />
+        <T ja="成立済法令一覧: 2026年4月9日時点 ｜ 施行予定日は各法令による" en="Passed laws: as of April 9, 2026 | Effective dates vary by law" />
       </p>
 
       <div className="mt-10 space-y-4">
