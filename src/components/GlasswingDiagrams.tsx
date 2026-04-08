@@ -348,7 +348,7 @@ export function GlasswingDiscoveriesDiagram() {
       </div>
 
       <div className="mt-4 text-[9px] text-foreground/35">
-        出典: Anthropic Project Glasswing、Tom's Hardware (2026-04-07)
+        出典: Anthropic Project Glasswing、Tom&apos;s Hardware (2026-04-07)
       </div>
     </div>
   );
