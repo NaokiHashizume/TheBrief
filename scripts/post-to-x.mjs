@@ -105,22 +105,21 @@ async function saveHistory(history) {
   await writeFile(HISTORY_FILE, JSON.stringify(history, null, 2) + "\n", "utf8");
 }
 
-// ── 3. LRU 選択: 最も古く投稿された (or 未投稿の) 記事を選ぶ ──
-// 一巡するまで重複が発生しない。
-function pickArticle(articles, history) {
+// ── 3. LRU 選択: 最も古く投稿された (or 未投稿の) 記事を順位付け ──
+// 一巡するまで重複が発生しない。配列を返すことで、URL が 404 だった場合に
+// 次の候補へフォールバックできる。
+function rankArticlesByLRU(articles, history) {
   if (articles.length === 0) throw new Error("記事が 1 件も読めませんでした");
 
   const lastPostedBySlug = new Map();
   for (const entry of history.posts) {
-    // 同じ slug が複数あれば最新の postedAt を採用
     const prev = lastPostedBySlug.get(entry.slug);
     if (!prev || entry.postedAt > prev) {
       lastPostedBySlug.set(entry.slug, entry.postedAt);
     }
   }
 
-  // 未投稿 → 最古投稿 → 新しい順で並び替え。同条件は元の順 (= ファイルの登場順)
-  const sorted = [...articles]
+  return [...articles]
     .map((a, i) => ({
       a,
       i,
@@ -131,9 +130,8 @@ function pickArticle(articles, history) {
         return x.lastPosted < y.lastPosted ? -1 : 1;
       }
       return x.i - y.i;
-    });
-
-  return sorted[0].a;
+    })
+    .map((entry) => entry.a);
 }
 
 // ── 3. ツイート本文を組み立てる ──
@@ -171,12 +169,48 @@ function buildTweet(article) {
   return tpl({ title: safeTitle, url: article.url, hashtags });
 }
 
-// ── 4. Claude API + Web 検索でツイート文を動的生成 ──
+// ── 4. X の重み計算 (twitter-text 互換) ──
+// Japanese / CJK / emoji / 多くの記号は 2 weight、ASCII 等は 1 weight。
+// URL は実 URL の長さに関わらず 23 weight 固定。上限は 280 weight。
+const X_MAX_WEIGHT = 280;
+
+function tweetWeight(text) {
+  // URL は 23 weight として扱うため長さ 23 のダミーに置換
+  const processed = text.replace(/https?:\/\/\S+/g, "x".repeat(23));
+  let weight = 0;
+  for (const ch of processed) {
+    const cp = ch.codePointAt(0);
+    if (
+      (cp >= 0x0000 && cp <= 0x10ff) ||
+      (cp >= 0x2000 && cp <= 0x200d) ||
+      (cp >= 0x2010 && cp <= 0x201f) ||
+      (cp >= 0x2032 && cp <= 0x2037)
+    ) {
+      weight += 1;
+    } else {
+      weight += 2;
+    }
+  }
+  return weight;
+}
+
+// ── 5. Claude 応答から <tweet>...</tweet> を抽出 ──
+function extractTweetFromClaude(rawText) {
+  const m = rawText.match(/<tweet>([\s\S]*?)<\/tweet>/i);
+  let tweet = m ? m[1] : rawText;
+  tweet = tweet.trim();
+  tweet = tweet.replace(/^```[a-z]*\n?/i, "").replace(/\n?```$/, "").trim();
+  tweet = tweet.replace(/^["「『]+/, "").replace(/["」』]+$/, "").trim();
+  return tweet;
+}
+
+// ── 6. Claude API + Web 検索でツイート文を動的生成 ──
+// 重み超過時は 1 回だけリトライ。最終的にダメなら null を返してテンプレへフォールバック。
 async function generateTweetWithClaude(article) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) return null;
 
-  const prompt = `あなたは X (旧 Twitter) でインプレッションを最大化するソーシャルメディア戦略家です。
+  const basePrompt = `あなたは X (旧 Twitter) でインプレッションを最大化するソーシャルメディア戦略家です。
 TheBrief の以下の記事を、いまの日本のトレンド・時事と関連付けてクリックされやすい日本語のツイート文に仕上げてください。
 必ず最初に web_search で「いま日本で話題のニュース・キーワード」を 1〜2 回調べてから書いてください。
 
@@ -186,68 +220,105 @@ URL: ${article.url}
 タグ: ${article.tags?.join(", ") || "(なし)"}
 
 【厳守ルール】
-- X 上の文字数は 270 文字以内 (URL は 23 文字相当として計算)
-- 本文中に ${article.url} をそのまま 1 回含める (短縮 URL や別形式に変えない)
+- X の重み計算で 250 以下に必ず収める。日本語は 1 文字 = 2 重み、URL は 23 重み固定、ASCII は 1 重み
+- 体感的には日本語本文 90 文字以内 + URL + ハッシュタグ程度がちょうど良い
+- 本文中に ${article.url} をそのまま 1 回だけ含める (短縮や別形式に変えない)
 - ハッシュタグは 2〜4 個。必ず #TheBrief を含む
 - 絵文字は 1〜3 個まで
-- 冒頭に「いま話題の◯◯と関連して...」のようなフックを入れる
+- 冒頭にフック (いま話題の◯◯と関連 / 衝撃の数字 / 問いかけ など) を入れる
 - 嘘・誇張・捏造は禁止。記事タイトルと矛盾しない範囲のみ
-- 出力はツイート本文そのものだけ。前置き・解説・引用符・コードブロック・「以下が...」のような文言は一切不要`;
 
-  try {
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "claude-haiku-4-5-20251001",
-        max_tokens: 1024,
-        tools: [
-          { type: "web_search_20250305", name: "web_search", max_uses: 2 },
-        ],
-        messages: [{ role: "user", content: prompt }],
-      }),
-    });
-    const data = await res.json();
-    if (!res.ok) {
-      console.warn("[post-to-x] Claude API error:", JSON.stringify(data));
-      return null;
+【出力フォーマット (厳守)】
+最終的なツイート本文を <tweet> と </tweet> で必ず囲んでください。
+タグの外には思考や調査メモを書いてかまいませんが、タグ内には本文以外の文字 (前置き・解説・引用符・コードブロック) を一切含めないでください。
+例: <tweet>ここに本文 #TheBrief https://...</tweet>`;
+
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    const prompt =
+      attempt === 1
+        ? basePrompt
+        : basePrompt +
+          `\n\n【再試行】前回出力は X の重み上限を超えていました。今回は日本語本文を 70 文字以内に抑え、ハッシュタグも 2 個程度に減らし、必ず重み 240 以下にしてください。`;
+
+    try {
+      const res = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "x-api-key": apiKey,
+          "anthropic-version": "2023-06-01",
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "claude-haiku-4-5-20251001",
+          max_tokens: 1024,
+          tools:
+            attempt === 1
+              ? [
+                  {
+                    type: "web_search_20250305",
+                    name: "web_search",
+                    max_uses: 2,
+                  },
+                ]
+              : [], // リトライ時は検索なし
+          messages: [{ role: "user", content: prompt }],
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        console.warn(
+          `[post-to-x] Claude API error (attempt ${attempt}):`,
+          JSON.stringify(data),
+        );
+        continue;
+      }
+      const textBlocks = (data.content || []).filter((b) => b.type === "text");
+      const joined = textBlocks.map((b) => b.text).join("\n");
+      const tweet = extractTweetFromClaude(joined);
+
+      if (!tweet) {
+        console.warn(`[post-to-x] Claude attempt ${attempt}: empty extraction`);
+        continue;
+      }
+      if (!tweet.includes(article.url)) {
+        console.warn(
+          `[post-to-x] Claude attempt ${attempt}: missing article URL`,
+        );
+        continue;
+      }
+      const w = tweetWeight(tweet);
+      console.log(
+        `[post-to-x] Claude attempt ${attempt}: weight=${w}/${X_MAX_WEIGHT}`,
+      );
+      if (w <= X_MAX_WEIGHT - 10) {
+        return tweet;
+      }
+      console.warn(
+        `[post-to-x] Claude attempt ${attempt}: too long (weight=${w}), retrying`,
+      );
+    } catch (err) {
+      console.warn(
+        `[post-to-x] Claude attempt ${attempt} failed:`,
+        err.message,
+      );
     }
-    const textBlocks = (data.content || []).filter((b) => b.type === "text");
-    let tweet = textBlocks[textBlocks.length - 1]?.text?.trim();
-    if (!tweet) return null;
-
-    // コードフェンス・引用符除去
-    tweet = tweet
-      .replace(/^```[a-z]*\n?/i, "")
-      .replace(/\n?```$/, "")
-      .trim();
-    tweet = tweet.replace(/^["「『]+/, "").replace(/["」』]+$/, "").trim();
-
-    // URL が含まれていなければフォールバック
-    if (!tweet.includes(article.url)) {
-      console.warn("[post-to-x] Claude output missing article URL — fallback");
-      return null;
-    }
-    return tweet;
-  } catch (err) {
-    console.warn("[post-to-x] Claude generation failed:", err.message);
-    return null;
   }
+  return null;
 }
 
-// ── 5. 記事ページから OGP 画像を取得 ──
-async function fetchOgImage(articleUrl) {
+// ── 7. 記事ページの到達性チェック + OGP 画像取得 ──
+// 戻り値: { reachable: boolean, image: { buf, contentType, sourceUrl } | null }
+//   reachable=false なら本番未デプロイ等で URL が 404 → ツイートしない方が良い
+async function fetchArticlePage(articleUrl) {
   try {
     const htmlRes = await fetch(articleUrl, {
       headers: { "user-agent": "TheBrief-XPoster/1.0" },
     });
     if (!htmlRes.ok) {
-      console.warn(`[post-to-x] OGP HTML fetch ${htmlRes.status}`);
-      return null;
+      console.warn(
+        `[post-to-x] article unreachable ${htmlRes.status}: ${articleUrl}`,
+      );
+      return { reachable: false, image: null };
     }
     const html = await htmlRes.text();
     const m = html.match(
@@ -255,21 +326,24 @@ async function fetchOgImage(articleUrl) {
     );
     if (!m) {
       console.warn("[post-to-x] og:image meta not found");
-      return null;
+      return { reachable: true, image: null };
     }
     let imgUrl = m[1];
     if (imgUrl.startsWith("/")) imgUrl = SITE_URL + imgUrl;
     const imgRes = await fetch(imgUrl);
     if (!imgRes.ok) {
       console.warn(`[post-to-x] OGP image fetch ${imgRes.status}`);
-      return null;
+      return { reachable: true, image: null };
     }
     const buf = Buffer.from(await imgRes.arrayBuffer());
     const contentType = imgRes.headers.get("content-type") || "image/png";
-    return { buf, contentType, sourceUrl: imgUrl };
+    return {
+      reachable: true,
+      image: { buf, contentType, sourceUrl: imgUrl },
+    };
   } catch (err) {
-    console.warn("[post-to-x] OGP fetch failed:", err.message);
-    return null;
+    console.warn("[post-to-x] fetchArticlePage failed:", err.message);
+    return { reachable: false, image: null };
   }
 }
 
@@ -415,7 +489,26 @@ async function main() {
   const history = await loadHistory();
   console.log(`[post-to-x] history entries: ${history.posts.length}`);
 
-  const article = pickArticle(articles, history);
+  // ── LRU 順に最大 5 件試行: 404 (本番未デプロイ等) はスキップ ──
+  const ranked = rankArticlesByLRU(articles, history);
+  const MAX_TRIES = 5;
+  let article = null;
+  let image = null;
+  for (const candidate of ranked.slice(0, MAX_TRIES)) {
+    console.log(`[post-to-x] candidate: ${candidate.url}`);
+    const fetched = await fetchArticlePage(candidate.url);
+    if (fetched.reachable) {
+      article = candidate;
+      image = fetched.image;
+      break;
+    }
+    console.log(`[post-to-x] skipping (unreachable): ${candidate.slug}`);
+  }
+  if (!article) {
+    throw new Error(
+      `LRU 上位 ${MAX_TRIES} 件すべて到達不可。本番デプロイ状況を確認してください`,
+    );
+  }
   console.log("[post-to-x] selected:", article.url);
 
   // ── ツイート文生成 (Claude → fallback テンプレ) ──
@@ -430,10 +523,10 @@ async function main() {
     console.log("[post-to-x] text source: template fallback");
   }
   console.log("[post-to-x] tweet text:\n---\n" + text + "\n---");
-  console.log("[post-to-x] length:", [...text].length, "code points");
+  console.log(
+    `[post-to-x] length: ${[...text].length} code points / weight ${tweetWeight(text)}/${X_MAX_WEIGHT}`,
+  );
 
-  // ── OGP 画像取得 ──
-  const image = await fetchOgImage(article.url);
   if (image) {
     console.log(
       `[post-to-x] OGP image: ${image.sourceUrl} (${image.buf.length}B, ${image.contentType})`,
