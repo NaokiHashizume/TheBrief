@@ -256,12 +256,21 @@ Tips スタイルの特徴:
 タグの外には思考や調査メモを書いてかまいませんが、タグ内には本文以外の文字 (前置き・解説・引用符・コードブロック) を一切含めないでください。
 例: <tweet>💡 知っておきたい Tips\n\n[insight] 詳しくはこちら↓\nhttps://... #ハッシュタグ</tweet>`;
 
+  const retryPrompt = `以下の記事を元に、短い Tips ツイートを作成してください。
+
+タイトル: ${article.title}
+URL: ${article.url}
+タグ: ${article.tags?.join(", ") || "(なし)"}
+
+ルール:
+- 日本語本文 60 文字以内 + URL + ハッシュタグ 2 個
+- X 重み 230 以下 (日本語=2、URL=23固定、ASCII=1)
+- URL は ${article.url} をそのまま含める
+- Tips らしいフレーム (💡 など) を冒頭に
+- <tweet>...</tweet> で囲む`;
+
   for (let attempt = 1; attempt <= 2; attempt++) {
-    const prompt =
-      attempt === 1
-        ? basePrompt
-        : basePrompt +
-          `\n\n【再試行】前回出力は X の重み上限を超えていました。今回は日本語本文を 70 文字以内に抑え、ハッシュタグも 2 個程度に減らし、必ず重み 240 以下にしてください。`;
+    const prompt = attempt === 1 ? basePrompt : retryPrompt;
 
     try {
       const res = await fetch("https://api.anthropic.com/v1/messages", {
