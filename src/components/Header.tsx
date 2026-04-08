@@ -5,6 +5,7 @@ import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
 import { useSidebar } from "./Sidebar";
+import { useLanguage } from "./LanguageProvider";
 
 const categories = [
   { label: "Politics", href: "/politics", color: "hover:text-[#e53e3e]" },
@@ -16,6 +17,7 @@ const categories = [
 
 export function Header() {
   const { toggle } = useSidebar();
+  const { locale } = useLanguage();
 
   return (
     <header
@@ -72,7 +74,7 @@ export function Header() {
         <button
           onClick={toggle}
           className="absolute left-4 sm:left-6 p-2 -ml-2 rounded-lg hover:bg-foreground/5 transition-colors group"
-          aria-label="メニューを開く"
+          aria-label={locale === "en" ? "Open menu" : "メニューを開く"}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/50 group-hover:text-foreground transition-colors">
             <line x1="3" y1="6" x2="21" y2="6" />
@@ -92,7 +94,7 @@ export function Header() {
         <Link
           href="/search"
           className="absolute right-4 sm:right-6 p-2 -mr-2 rounded-lg hover:bg-foreground/5 transition-colors group"
-          aria-label="サイト内検索"
+          aria-label={locale === "en" ? "Search" : "サイト内検索"}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/50 group-hover:text-foreground transition-colors">
             <circle cx="11" cy="11" r="8" />
@@ -104,7 +106,7 @@ export function Header() {
       {/* Category navigation — モバイルでは横スクロール、デスクトップでは中央寄せ */}
       <nav
         className="border-t border-brief-rule overflow-x-auto scrollbar-none"
-        aria-label="メインナビゲーション"
+        aria-label={locale === "en" ? "Main navigation" : "メインナビゲーション"}
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 flex justify-start sm:justify-center gap-6 sm:gap-10 py-2 whitespace-nowrap">
           {categories.map((cat) => (
