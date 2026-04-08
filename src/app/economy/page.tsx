@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { T } from "@/components/T";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { PageMasthead } from "@/components/PageMasthead";
 import {
   economicIndicators,
   categoryLabels,
@@ -209,25 +210,34 @@ export default function EconomyPage() {
         ]}
       />
 
-      {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
-        <Link href="/" className="hover:text-foreground transition-colors">
-          Home
-        </Link>
-        <span>/</span>
-        <span>Economy</span>
-      </div>
-
-      <h1 className="font-serif text-3xl md:text-4xl font-bold">Economy</h1>
-      <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-        <T
-          ja="日本の主要経済指標の最新値と動向を一覧で表示しています。色とトレンド矢印で、各指標の健全性を直感的に把握できます。"
-          en="Displays the latest values and trends of Japan's key economic indicators at a glance. Colors and trend arrows help you intuitively assess the health of each indicator."
-        />
-      </p>
-      <p className="mt-2 text-xs text-foreground/45">
-        <T ja="最終更新" en="Last updated" />: {latestUpdate} <T ja="※各指標の公表スケジュールに基づき随時更新" en="* Updated periodically based on each indicator's release schedule" />
-      </p>
+      <PageMasthead
+        breadcrumbs={[
+          { ja: "Home", en: "Home", href: "/" },
+          { ja: "Economy", en: "Economy" },
+        ]}
+        eyebrow="Economic Pulse"
+        eyebrowEn="Economic Pulse"
+        accent="#b9770e"
+        live
+        title={<T ja="Economy" en="Economy" />}
+        titleEn="日本の経済指標 — リアルタイムの動向"
+        description={
+          <T
+            ja="日本の主要経済指標の最新値と動向を一覧で表示しています。色とトレンド矢印で、各指標の健全性を直感的に把握できます。"
+            en="The latest values and trends of Japan&rsquo;s key economic indicators. Colors and trend arrows help you read the health of each indicator at a glance."
+          />
+        }
+        meta={
+          <>
+            <T ja="最終更新" en="Last updated" />: {latestUpdate}{" "}
+            <T
+              ja="※各指標の公表スケジュールに基づき随時更新"
+              en="— Updated periodically with each indicator&rsquo;s release schedule"
+            />
+          </>
+        }
+        dateLabel={latestUpdate}
+      />
 
       {/* Category Navigation Pills */}
       <div className="mt-6 flex flex-wrap gap-2">

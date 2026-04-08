@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { otherArticles } from "@/lib/other";
 import { T } from "@/components/T";
+import { PageMasthead } from "@/components/PageMasthead";
 
 export const metadata: Metadata = {
   title: "Industry — 業界別ニュース",
@@ -268,27 +269,24 @@ export default function IndustryPage() {
         ]}
       />
 
-      {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
-        <Link href="/" className="hover:text-foreground transition-colors">
-          Home
-        </Link>
-        <span>/</span>
-        <span>Industry</span>
-      </div>
-
-      <h1 className="font-serif text-3xl md:text-4xl font-bold">Industry</h1>
-      <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
-        <T k="industry.desc" />
-      </p>
-      <p className="mt-2 text-xs text-foreground/45">
-        <T k="industry.note" />
-      </p>
+      <PageMasthead
+        breadcrumbs={[
+          { ja: "Home", en: "Home", href: "/" },
+          { ja: "Industry", en: "Industry" },
+        ]}
+        eyebrow="Sector Index"
+        eyebrowEn="Sector Index"
+        accent="#1e8449"
+        title={<T ja="Industry" en="Industry" />}
+        titleEn="日本の主要18業界 — 構造と動向"
+        description={<T k="industry.desc" />}
+        meta={<T k="industry.note" />}
+      />
 
       {/* Overview link */}
       <Link
         href="/industry/overview"
-        className="mt-6 flex items-center gap-3 p-4 rounded-xl border border-brief-border hover:border-foreground/20 hover:bg-foreground/[0.02] transition-all"
+        className="flex items-center gap-3 p-4 rounded-xl border border-brief-border hover:border-foreground/20 hover:bg-foreground/[0.02] transition-all"
       >
         <div className="w-10 h-10 rounded-lg bg-brief-red/10 flex items-center justify-center flex-shrink-0">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-brief-red">
