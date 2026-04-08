@@ -35,6 +35,14 @@
       "postedAt": "2026-04-08T09:56:09.005Z",
       "hasMedia": true,
       "textSource": "claude"
+    },
+    {
+      "slug": "gemma-4-guide",
+      "url": "https://thebrief.info/industry/ai/gemma-4-guide",
+      "tweetId": "2041861535828733978",
+      "postedAt": "2026-04-08T12:51:40.917Z",
+      "hasMedia": true,
+      "textSource": "claude"
     }
   ]
 }
