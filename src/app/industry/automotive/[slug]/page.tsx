@@ -12,6 +12,7 @@ import {
   AutoEvShiftDiagram,
 } from "@/components/AutomotiveBizDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { RecommendedReads } from "@/components/RecommendedReads";
 
 export function generateStaticParams() {
   return automotiveArticles.map((a) => ({ slug: a.slug }));
@@ -205,6 +206,8 @@ export default async function AutomotiveArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+
+      <RecommendedReads currentSlug={slug} currentTags={article.tags} />
 
       <FAQJsonLd
         items={article.sections

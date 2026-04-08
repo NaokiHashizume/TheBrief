@@ -79,6 +79,7 @@ import {
   BojTriggersDiagram,
 } from "@/components/BojRateHikeDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { RecommendedReads } from "@/components/RecommendedReads";
 
 export function generateStaticParams() {
   return economyArticles.map((a) => ({ slug: a.slug }));
@@ -416,6 +417,8 @@ export default async function EconomyArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+
+      <RecommendedReads currentSlug={slug} currentTags={article.tags} />
 
       {/* Sources */}
       <div className="mt-14 p-5 rounded-2xl border border-dashed border-foreground/[0.08]">
