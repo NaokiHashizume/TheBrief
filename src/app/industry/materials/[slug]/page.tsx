@@ -4,6 +4,7 @@ import Link from "next/link";
 import { materialsArticles } from "@/lib/materials";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import {
   SemiMatOverviewDiagram,
   SemiMatShareDiagram,
@@ -12,6 +13,17 @@ import {
   SemiMatGeopoliticsDiagram,
   SemiMat2030Diagram,
 } from "@/components/SemiMaterialsDiagrams";
+import {
+  NaphthaBasicsDiagram,
+  NaphthaFlowDiagram,
+  NaphthaPrice2026Diagram,
+  NaphthaImportDiagram,
+  NaphthaCrackerRateDiagram,
+  NaphthaHouseholdDiagram,
+  NaphthaFormulaDiagram,
+  NaphthaAlternativesDiagram,
+  NaphthaTakeawayDiagram,
+} from "@/components/NaphthaDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 const diagramMap: Record<string, React.FC> = {
@@ -21,6 +33,15 @@ const diagramMap: Record<string, React.FC> = {
   "semi-mat-companies": SemiMatCompaniesDiagram,
   "semi-mat-geopolitics": SemiMatGeopoliticsDiagram,
   "semi-mat-2030": SemiMat2030Diagram,
+  "naphtha-basics": NaphthaBasicsDiagram,
+  "naphtha-flow": NaphthaFlowDiagram,
+  "naphtha-price-2026": NaphthaPrice2026Diagram,
+  "naphtha-import": NaphthaImportDiagram,
+  "naphtha-cracker-rate": NaphthaCrackerRateDiagram,
+  "naphtha-household": NaphthaHouseholdDiagram,
+  "naphtha-formula": NaphthaFormulaDiagram,
+  "naphtha-alternatives": NaphthaAlternativesDiagram,
+  "naphtha-takeaway": NaphthaTakeawayDiagram,
 };
 
 export function generateStaticParams() {
@@ -253,6 +274,8 @@ export default async function ArticlePage({
         basePath="/industry/materials"
         accentColor="#0ea5e9"
       />
+
+      <RecommendedReads currentSlug={articleSlug} currentTags={article.tags} />
 
       <div className="mt-20 pt-12 border-t border-foreground/[0.04]">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
