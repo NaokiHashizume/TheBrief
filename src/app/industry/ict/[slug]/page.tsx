@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ictArticles } from "@/lib/ict";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import {
   TcpIpLayerDiagram,
   PacketJourneyDiagram,
@@ -431,6 +432,8 @@ export default async function IctArticlePage({
         basePath="/industry/ict"
         accentColor="#3b82f6"
       />
+
+      <RecommendedReads currentSlug={slug} currentTags={article.tags} />
 
       {/* ── Article Navigation ── */}
       <div className="mt-20 pt-12 border-t border-foreground/[0.04]">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { tradingArticles } from "@/lib/trading";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import {
   RetailMarketOverviewDiagram,
   CvsBusinessModelDiagram,
@@ -267,6 +268,8 @@ export default async function TradingArticlePage({
         basePath="/industry/trading"
         accentColor="#78716c"
       />
+
+      <RecommendedReads currentSlug={slug} currentTags={article.tags} />
 
       {/* Article Navigation */}
       <div className="mt-14 pt-8 border-t border-brief-border">

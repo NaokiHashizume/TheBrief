@@ -4,6 +4,7 @@ import Link from "next/link";
 import { constructionArticles } from "@/lib/construction";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import {
   RedevelopmentMapDiagram,
   TokyoProjectsDiagram,
@@ -349,6 +350,8 @@ export default async function ConstructionArticlePage({
         basePath="/industry/construction"
         accentColor="#64748b"
       />
+
+      <RecommendedReads currentSlug={slug} currentTags={article.tags} />
 
       {/* ── Article Navigation ── */}
       <div className="mt-20 pt-12 border-t border-foreground/[0.04]">

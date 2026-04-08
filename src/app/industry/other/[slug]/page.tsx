@@ -4,6 +4,7 @@ import Link from "next/link";
 import { otherArticles } from "@/lib/other";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import {
   BlocOverviewDiagram,
   TariffTimelineDiagram,
@@ -265,6 +266,8 @@ export default async function OtherArticlePage({
         basePath="/industry/other"
         accentColor="#8b5cf6"
       />
+
+      <RecommendedReads currentSlug={slug} currentTags={article.tags} />
 
       {/* Article Navigation */}
       <div className="mt-14 pt-8 border-t border-brief-border">

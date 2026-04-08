@@ -4,6 +4,7 @@ import Link from "next/link";
 import { retailArticles } from "@/lib/retail";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import {
   RetailMarketOverviewDiagram as RetailMarketScaleDiagram,
   CvsBusinessModelDiagram as ConvenienceStoreDiagram,
@@ -345,6 +346,8 @@ export default async function RetailArticlePage({
         basePath="/industry/retail"
         accentColor="#14b8a6"
       />
+
+      <RecommendedReads currentSlug={slug} currentTags={article.tags} />
 
       {/* Article Navigation */}
       <div className="mt-14 pt-8 border-t border-brief-border">

@@ -49,6 +49,7 @@ import {
   ElecTurnoutDiagram,
 } from "@/components/ElectoralSystemDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { RecommendedReads } from "@/components/RecommendedReads";
 
 export function generateStaticParams() {
   return politicsArticles.map((a) => ({ slug: a.slug }));
@@ -365,6 +366,8 @@ export default async function PoliticsArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+
+      <RecommendedReads currentSlug={slug} currentTags={article.tags} />
 
       {/* Article Navigation */}
       <div className="mt-20 pt-12 border-t border-foreground/[0.04]">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { aiArticles } from "@/lib/ai";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
 import {
   Gemma4ModelFamilyDiagram,
@@ -417,6 +418,8 @@ export default async function AiArticlePage({
         basePath="/industry/ai"
         accentColor="#8b5cf6"
       />
+
+      <RecommendedReads currentSlug={slug} currentTags={article.tags} />
 
       {/* ── Article Navigation ── */}
       <div className="mt-20 pt-12 border-t border-foreground/[0.04]">

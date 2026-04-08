@@ -4,6 +4,7 @@ import Link from "next/link";
 import { pharmaArticles } from "@/lib/pharma";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -234,6 +235,8 @@ export default async function ArticlePage({
         basePath="/industry/pharma"
         accentColor="#10b981"
       />
+
+      <RecommendedReads currentSlug={articleSlug} currentTags={article.tags} />
 
       <div className="mt-20 pt-12 border-t border-foreground/[0.04]">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

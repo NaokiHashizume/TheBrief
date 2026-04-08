@@ -4,6 +4,7 @@ import Link from "next/link";
 import { logisticsArticles } from "@/lib/logistics";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import {
   Log24RecapDiagram,
   Log24WagesDiagram,
@@ -251,6 +252,8 @@ export default async function ArticlePage({
         basePath="/industry/logistics"
         accentColor="#6366f1"
       />
+
+      <RecommendedReads currentSlug={articleSlug} currentTags={article.tags} />
 
       <div className="mt-20 pt-12 border-t border-foreground/[0.04]">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
