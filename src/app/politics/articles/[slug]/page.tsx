@@ -48,6 +48,20 @@ import {
   ElecLocalDiagram,
   ElecTurnoutDiagram,
 } from "@/components/ElectoralSystemDiagrams";
+import {
+  Mg2yBudgetBreakdownDiagram,
+  Mg2ySeatGapDiagram,
+  Mg2yMarketSignalDiagram,
+  Mg2yRoadmapDiagram,
+  IchihyoGapNumbersDiagram,
+  IchihyoLawsuitMapDiagram,
+  IchihyoPrecedentCompareDiagram,
+  IchihyoNextReformDiagram,
+  IkuseiPurposeShiftDiagram,
+  IkuseiCareerPathDiagram,
+  IkuseiJapaneseReqDiagram,
+  IkuseiEmployerChecklistDiagram,
+} from "@/components/Politics2026Diagrams";
 import ShareButton from "@/components/ShareButton";
 import { RecommendedReads } from "@/components/RecommendedReads";
 
@@ -154,6 +168,18 @@ const diagramMap: Record<string, React.FC> = {
   "elec-disparity": ElecDisparityDiagram,
   "elec-local": ElecLocalDiagram,
   "elec-turnout": ElecTurnoutDiagram,
+  "mg2y-budget-breakdown": Mg2yBudgetBreakdownDiagram,
+  "mg2y-seat-gap": Mg2ySeatGapDiagram,
+  "mg2y-market-signal": Mg2yMarketSignalDiagram,
+  "mg2y-roadmap": Mg2yRoadmapDiagram,
+  "ichihyo-gap-numbers": IchihyoGapNumbersDiagram,
+  "ichihyo-lawsuit-map": IchihyoLawsuitMapDiagram,
+  "ichihyo-precedent-compare": IchihyoPrecedentCompareDiagram,
+  "ichihyo-next-reform": IchihyoNextReformDiagram,
+  "ikusei-purpose-shift": IkuseiPurposeShiftDiagram,
+  "ikusei-career-path": IkuseiCareerPathDiagram,
+  "ikusei-japanese-req": IkuseiJapaneseReqDiagram,
+  "ikusei-employer-checklist": IkuseiEmployerChecklistDiagram,
 };
 
 export default async function PoliticsArticlePage({

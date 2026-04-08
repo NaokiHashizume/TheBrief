@@ -59,7 +59,23 @@ import {
   RapidusRoadmapDiagram,
   RapidusRisksDiagram,
 } from "@/components/RapidusDiagrams";
+import {
+  NttLawKeyPointsDiagram,
+  NttLawOppositionDiagram,
+  NttGlobalStrategyDiagram,
+  ThreeRivalsStrategyDiagram,
+  Ntt2029PipelineDiagram,
+  Review2029AgendaDiagram,
+} from "@/components/NttLawDiagrams";
+import {
+  GovCloudProvidersDiagram,
+  SovereignCloudWhyDiagram,
+  SakuraVsHyperscalersDiagram,
+  MicrosoftSovereignAiDiagram,
+  GovCloudWatchlistDiagram,
+} from "@/components/SovereignCloudDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { T } from "@/components/T";
 
 export function generateStaticParams() {
   return ictArticles.map((a) => ({ slug: a.slug }));
@@ -179,6 +195,17 @@ const diagramMap: Record<string, React.FC> = {
   "rapidus-tsmc-msft": RapidusTsmcMsftDiagram,
   "rapidus-roadmap": RapidusRoadmapDiagram,
   "rapidus-risks": RapidusRisksDiagram,
+  "ntt-law-key-points": NttLawKeyPointsDiagram,
+  "ntt-law-opposition": NttLawOppositionDiagram,
+  "ntt-global-strategy": NttGlobalStrategyDiagram,
+  "three-rivals-strategy": ThreeRivalsStrategyDiagram,
+  "ntt-2029-pipeline": Ntt2029PipelineDiagram,
+  "2029-review-agenda": Review2029AgendaDiagram,
+  "govcloud-providers": GovCloudProvidersDiagram,
+  "sovereign-cloud-why": SovereignCloudWhyDiagram,
+  "sakura-vs-hyperscalers": SakuraVsHyperscalersDiagram,
+  "microsoft-sovereign-ai": MicrosoftSovereignAiDiagram,
+  "govcloud-watchlist": GovCloudWatchlistDiagram,
 };
 
 export default async function IctArticlePage({
@@ -251,19 +278,19 @@ export default async function IctArticlePage({
 
         {/* Title */}
         <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">
-          {article.title}
+          <T ja={article.title} en={article.titleEn} />
         </h1>
 
         {/* Subtitle */}
         {article.titleEn && (
           <p className="mt-2 text-[11px] tracking-[1px] text-foreground/25 font-medium uppercase">
-            {article.titleEn}
+            <T ja={article.titleEn} en={article.title} />
           </p>
         )}
 
         {/* Summary */}
         <p className="mt-6 text-[15px] text-foreground/65 leading-[1.9] border-l-2 border-[#3b82f6]/20 pl-5">
-          {article.summary}
+          <T ja={article.summary} en={article.summaryEn ?? article.summary} />
         </p>
 
         {/* Meta */}
@@ -298,7 +325,9 @@ export default async function IctArticlePage({
                   <span className="text-[11px] tabular-nums font-semibold text-[#3b82f6]/30 group-hover:text-[#3b82f6]/60 w-5 text-right transition-colors">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-[13px] font-medium">{section.heading}</span>
+                  <span className="text-[13px] font-medium">
+                    <T ja={section.heading} en={section.headingEn ?? section.heading} />
+                  </span>
                 </a>
                 {i < article.sections.length - 1 && (
                   <div className="ml-[30px] h-px bg-foreground/[0.03]" />
@@ -312,8 +341,67 @@ export default async function IctArticlePage({
       {/* ── Article Content ── */}
       <article>
         {article.sections.map((section, i) => {
-          const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
           const DiagramComponent = section.diagramId ? diagramMap[section.diagramId] : null;
+
+          const renderBody = (bodyText: string) => {
+            const paragraphs = bodyText.split("\n\n").filter((p) => p.trim());
+            return paragraphs.map((paragraph, j) => {
+              const trimmed = paragraph.trim();
+
+              // Callout box
+              if (trimmed.startsWith("> ")) {
+                const calloutText = trimmed.slice(2);
+                return (
+                  <div
+                    key={j}
+                    className="my-8 pl-5 py-4 rounded-r-lg bg-[#3b82f6]/[0.03] dark:bg-[#3b82f6]/[0.06] border-l-3 border-[#3b82f6]/25"
+                  >
+                    <div>
+                      <p className="text-[14px] text-foreground/70 leading-[1.9] italic">
+                        <RichText text={calloutText} />
+                      </p>
+                    </div>
+                  </div>
+                );
+              }
+
+              // 【bracket】labels
+              if (trimmed.startsWith("【")) {
+                const bracketEnd = trimmed.indexOf("】");
+                if (bracketEnd > 0) {
+                  const label = trimmed.slice(1, bracketEnd);
+                  const content = trimmed.slice(bracketEnd + 1).trim();
+                  return (
+                    <div key={j} className="group pl-5 py-3 relative">
+                      <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-[#3b82f6]/20 group-hover:bg-[#3b82f6]/35 transition-colors" />
+                      <div className="text-[11px] font-bold text-[#3b82f6]/60 tracking-wide mb-1.5">
+                        {label}
+                      </div>
+                      <p className="text-[14px] text-foreground/75 leading-[1.9]">
+                        <RichText text={content} />
+                      </p>
+                    </div>
+                  );
+                }
+              }
+
+              // Lead paragraph
+              const isLead = j === 0 || (j === 1 && paragraphs[0].trim().startsWith("> "));
+
+              return (
+                <p
+                  key={j}
+                  className={
+                    isLead
+                      ? "text-[16px] text-foreground/80 leading-[2] tracking-[0.02em] first-letter:text-[2em] first-letter:font-serif first-letter:font-bold first-letter:text-[#3b82f6]/40 first-letter:float-left first-letter:mr-1 first-letter:mt-1 first-letter:leading-[0.8]"
+                      : "text-[15px] text-foreground/75 leading-[2] tracking-[0.02em]"
+                  }
+                >
+                  <RichText text={trimmed} />
+                </p>
+              );
+            });
+          };
 
           return (
             <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
@@ -325,11 +413,11 @@ export default async function IctArticlePage({
                   </span>
                   <div className="flex-1">
                     <h2 className="font-serif text-[22px] sm:text-[26px] font-bold leading-tight tracking-tight">
-                      {section.heading}
+                      <T ja={section.heading} en={section.headingEn ?? section.heading} />
                     </h2>
                     {section.headingEn && (
                       <span className="text-[10px] tracking-[2px] uppercase text-foreground/25 font-medium mt-0.5 block">
-                        {section.headingEn}
+                        <T ja={section.headingEn} en={section.heading} />
                       </span>
                     )}
                   </div>
@@ -342,65 +430,11 @@ export default async function IctArticlePage({
 
               {/* Section body */}
               <div className="space-y-6">
-                {paragraphs.map((paragraph, j) => {
-                  const trimmed = paragraph.trim();
-
-                  // Callout box
-                  if (trimmed.startsWith("> ")) {
-                    const calloutText = trimmed.slice(2);
-                    return (
-                      <div
-                        key={j}
-                        className="my-8 pl-5 py-4 rounded-r-lg bg-[#3b82f6]/[0.03] dark:bg-[#3b82f6]/[0.06] border-l-3 border-[#3b82f6]/25"
-                      >
-                        <div>
-                          <p className="text-[14px] text-foreground/70 leading-[1.9] italic">
-                            <RichText text={calloutText} />
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  }
-
-                  // 【bracket】labels
-                  if (trimmed.startsWith("【")) {
-                    const bracketEnd = trimmed.indexOf("】");
-                    if (bracketEnd > 0) {
-                      const label = trimmed.slice(1, bracketEnd);
-                      const content = trimmed.slice(bracketEnd + 1).trim();
-                      return (
-                        <div
-                          key={j}
-                          className="group pl-5 py-3 relative"
-                        >
-                          <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-[#3b82f6]/20 group-hover:bg-[#3b82f6]/35 transition-colors" />
-                          <div className="text-[11px] font-bold text-[#3b82f6]/60 tracking-wide mb-1.5">
-                            {label}
-                          </div>
-                          <p className="text-[14px] text-foreground/75 leading-[1.9]">
-                            <RichText text={content} />
-                          </p>
-                        </div>
-                      );
-                    }
-                  }
-
-                  // Lead paragraph
-                  const isLead = j === 0 || (j === 1 && paragraphs[0].trim().startsWith("> "));
-
-                  return (
-                    <p
-                      key={j}
-                      className={
-                        isLead
-                          ? "text-[16px] text-foreground/80 leading-[2] tracking-[0.02em] first-letter:text-[2em] first-letter:font-serif first-letter:font-bold first-letter:text-[#3b82f6]/40 first-letter:float-left first-letter:mr-1 first-letter:mt-1 first-letter:leading-[0.8]"
-                          : "text-[15px] text-foreground/75 leading-[2] tracking-[0.02em]"
-                      }
-                    >
-                      <RichText text={trimmed} />
-                    </p>
-                  );
-                })}
+                {section.bodyEn ? (
+                  <T ja={<>{renderBody(section.body)}</>} en={<>{renderBody(section.bodyEn)}</>} />
+                ) : (
+                  renderBody(section.body)
+                )}
               </div>
             </section>
           );
