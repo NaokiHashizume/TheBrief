@@ -114,8 +114,8 @@ export function BroadsheetHero() {
   const liveFeed = restAfterAnchor.filter((a) => !usedSlugs.has(a.href)).slice(0, 8);
 
   return (
-    <section className="max-w-[1600px] mx-auto px-4 sm:px-6 pt-8 pb-16">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12">
+    <section className="max-w-6xl mx-auto px-4 pt-10 pb-14">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-10">
         {/* LEFT RAIL: Editor's Desk */}
         <aside className="col-span-1 lg:col-span-3 flex flex-col border-b lg:border-b-0 lg:border-r border-brief-rule pb-8 lg:pb-0 lg:pr-8">
           <h3 className="text-xs font-bold text-brief-red tracking-[3px] uppercase mb-6 flex items-center gap-2">
@@ -143,8 +143,8 @@ export function BroadsheetHero() {
             ))}
 
             {/* Data point card */}
-            <div className="relative overflow-hidden p-5 bg-foreground/[0.04] mt-2">
-              <div className="absolute top-0 left-0 w-1 h-full bg-foreground" />
+            <div className="relative overflow-hidden p-5 rounded-xl border border-brief-border bg-brief-card mt-2">
+              <div className="absolute top-0 left-0 w-1 h-full bg-brief-red" />
               <span className="text-[10px] font-bold uppercase tracking-[2.5px] text-foreground/55 block mb-1">
                 {locale === "ja" ? "Data Point" : "Data Point"}
               </span>
@@ -163,7 +163,7 @@ export function BroadsheetHero() {
 
         {/* CENTER STAGE: Anchor lead */}
         <section className="col-span-1 lg:col-span-6">
-          <Link href={anchor.href} className="group cursor-pointer block pb-10 border-b-2 border-foreground">
+          <Link href={anchor.href} className="group cursor-pointer block pb-10 border-b border-foreground/20">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
               <span className="bg-brief-red text-white text-[10px] font-bold px-2 py-0.5 tracking-[1.5px]">
                 {locale === "ja" ? "深掘り" : "DEEP DIVE"}
@@ -178,7 +178,7 @@ export function BroadsheetHero() {
               <time className="text-[11px] tabular-nums text-foreground/45 font-medium">{anchor.date}</time>
             </div>
 
-            <h2 className="font-serif text-[32px] sm:text-[44px] lg:text-[52px] font-black leading-[1.1] tracking-tight mb-6">
+            <h2 className="font-serif text-[30px] sm:text-[36px] lg:text-[44px] font-bold leading-[1.12] tracking-tight mb-6">
               <span className="hover-underline-magic">{anchor.title}</span>
             </h2>
 
@@ -285,7 +285,7 @@ export function BroadsheetHero() {
           </div>
 
           {/* Quote box */}
-          <div className="mt-6 border border-brief-border bg-brief-card p-5 italic font-serif text-[13px] relative">
+          <div className="mt-6 rounded-xl border border-brief-border bg-brief-card p-5 italic font-serif text-[13px] relative">
             <svg className="absolute top-3 left-3 opacity-20 text-foreground" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
               <path d="M9 11H6a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3v-7zm11 0h-3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3v-7z" />
             </svg>
