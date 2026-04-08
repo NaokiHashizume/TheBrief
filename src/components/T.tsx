@@ -7,7 +7,15 @@ import type { TranslationKey } from "@/lib/i18n";
  * Inline translated text component.
  * Use in Server Components for specific translatable strings.
  */
-export function T({ k, ja, en }: { k?: TranslationKey; ja?: string; en?: string }) {
+export function T({
+  k,
+  ja,
+  en,
+}: {
+  k?: TranslationKey;
+  ja?: React.ReactNode;
+  en?: React.ReactNode;
+}) {
   const { locale, t } = useLanguage();
   if (k) return <>{t(k)}</>;
   return <>{locale === "en" ? (en ?? ja ?? "") : (ja ?? "")}</>;
