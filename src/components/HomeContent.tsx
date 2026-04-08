@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Logo } from "./Logo";
 import { useLanguage } from "./LanguageProvider";
 import { LatestArticlesTimeline } from "./LatestArticlesTimeline";
+import { BroadsheetHero } from "./BroadsheetHero";
+import { MarketsIntelligence } from "./MarketsIntelligence";
+import { ResumeReadingPill } from "./ResumeReadingPill";
 
 const snapshotStats = [
   {
@@ -352,51 +354,9 @@ export function HomeContent() {
 
   return (
     <div>
-      <section className="max-w-6xl mx-auto px-4 pt-10 sm:pt-14 pb-14">
-        <div className="rounded-[22px] sm:rounded-[28px] border border-brief-rule bg-[linear-gradient(135deg,rgba(229,62,62,0.05),rgba(255,255,255,0.92),rgba(99,102,241,0.08))] p-6 sm:p-8 md:p-10 dark:bg-[linear-gradient(135deg,rgba(229,62,62,0.08),rgba(17,17,17,0.96),rgba(99,102,241,0.14))]">
-          <div className="flex justify-center md:justify-start">
-            <Logo className="items-center md:scale-[1.55] md:origin-left" />
-          </div>
+      <BroadsheetHero />
 
-          <h1 className="mt-6 sm:mt-8 max-w-4xl font-serif text-[28px] sm:text-[32px] font-bold leading-[1.15] tracking-tight md:text-[56px]">
-            {locale === "ja" ? (
-              <>
-                日本の政治・経済・産業・学問を
-                <br className="hidden md:block" />
-                <span className="text-brief-red">構造から理解する。</span>
-              </>
-            ) : (
-              <>
-                Understand Japan&apos;s politics, economy,
-                <br className="hidden md:block" />
-                industry, and scholarship{" "}
-                <span className="text-brief-red">structurally.</span>
-              </>
-            )}
-          </h1>
-
-          <p className="mt-5 max-w-3xl text-sm leading-relaxed text-foreground/62 md:text-[15px]">
-            {locale === "ja"
-              ? "国会の議席構成と日本が抱える課題、経済指標ダッシュボード、17業界の構造分析、そして6カテゴリ・39分野にわたる大学レクチャー。The Briefは、日本の今をデータと構造で整理し、次に何を読むべきかを明確にします。"
-              : "Diet seat composition and Japan's structural challenges, economic dashboards, 17 industry deep-dives, and 39 university lectures across six academic domains. The Brief organizes Japan's current landscape with data and structure."}
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/politics"
-              className="px-5 py-2.5 rounded-sm bg-brief-red text-white text-sm font-medium hover:bg-brief-red/90 transition-colors"
-            >
-              {locale === "ja" ? "Politics を見る" : "Explore Politics"}
-            </Link>
-            <Link
-              href="/economy"
-              className="px-5 py-2.5 rounded-sm border border-brief-border bg-brief-card text-sm font-medium hover:bg-foreground/[0.04] transition-colors"
-            >
-              {locale === "ja" ? "Economy を見る" : "Explore Economy"}
-            </Link>
-          </div>
-        </div>
-      </section>
+      <MarketsIntelligence />
 
       <section className="max-w-6xl mx-auto px-4 pb-14">
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -630,6 +590,8 @@ export function HomeContent() {
           </Link>
         </div>
       </section>
+
+      <ResumeReadingPill />
     </div>
   );
 }

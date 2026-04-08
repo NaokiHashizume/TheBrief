@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { materialsArticles } from "@/lib/materials";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
+import { ArticleViewTracker } from "@/components/ArticleViewTracker";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import {
@@ -122,6 +123,13 @@ export default async function ArticlePage({
 
   return (
     <div className="max-w-[720px] mx-auto px-5 sm:px-6 py-16">
+      <ArticleViewTracker
+        href={`/industry/materials/${article.slug}`}
+        title={article.title}
+        titleEn={article.titleEn}
+        category="Materials"
+        readTime={article.readTime}
+      />
       <ArticleJsonLd
         title={article.title}
         description={article.summary}
