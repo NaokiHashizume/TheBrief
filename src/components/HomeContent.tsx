@@ -376,9 +376,12 @@ export function HomeContent() {
 
       <LatestArticlesTimeline />
 
-      <section className="max-w-[1400px] mx-auto px-6 pb-16">
-        <div className="border-t-2 border-b border-foreground pt-2 pb-1 mb-8">
-          <h2 className="font-serif text-2xl font-bold">
+      <section className="max-w-6xl mx-auto px-4 pb-16">
+        <div className="mb-8 border-b border-foreground/20 pb-4">
+          <span className="text-[10px] tracking-[3px] uppercase text-foreground/45 font-bold block mb-1">
+            {locale === "ja" ? "Explore" : "Explore"}
+          </span>
+          <h2 className="font-serif text-xl md:text-2xl font-bold">
             {locale === "ja" ? "4つのセクション" : "Four Sections"}
           </h2>
         </div>
@@ -467,54 +470,52 @@ export function HomeContent() {
         </div>
       </section>
 
-      <section className="max-w-[1400px] mx-auto px-6 pb-16">
-        <div className="bg-brief-gray dark:bg-white/[0.03] border border-brief-rule p-6 md:p-8">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 border-b border-foreground/20 pb-4 gap-3">
-            <div>
-              <span className="text-[10px] tracking-[3px] uppercase text-[#1e8449] font-bold block mb-1">
-                {locale === "ja" ? "Industry Radar" : "Industry Radar"}
-              </span>
-              <h3 className="font-serif text-xl md:text-2xl font-bold">
-                {locale === "ja" ? "注目業界へすぐ入る" : "Jump into the most active sectors"}
-              </h3>
-            </div>
-            <Link
-              href="/industry"
-              className="text-sm flex items-center gap-1 hover:text-[#1e8449] transition-colors group"
-            >
-              <span>{locale === "ja" ? "全17業界を見る" : "View all 17 sectors"}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </Link>
+      <section className="max-w-6xl mx-auto px-4 pb-14">
+        <div className="mb-6 flex items-end justify-between gap-3 border-b border-foreground/20 pb-4">
+          <div>
+            <span className="text-[10px] tracking-[3px] uppercase text-[#1e8449] font-bold block mb-1">
+              {locale === "ja" ? "Industry Radar" : "Industry Radar"}
+            </span>
+            <h2 className="font-serif text-xl md:text-2xl font-bold">
+              {locale === "ja" ? "注目業界へすぐ入る" : "Jump into the most active sectors"}
+            </h2>
           </div>
+          <Link
+            href="/industry"
+            className="text-sm flex items-center gap-1 hover:text-[#1e8449] transition-colors group whitespace-nowrap"
+          >
+            <span>{locale === "ja" ? "全18業界" : "All 18 sectors"}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </Link>
+        </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-            {industryHighlights.map((industry) => (
-              <Link
-                key={industry.slug}
-                href={`/industry/${industry.slug}`}
-                className="group bg-brief-card dark:bg-white/[0.03] border border-brief-border p-5 hover:border-[#1e8449] transition-all flex flex-col justify-between h-28"
-              >
-                <div className="flex justify-between items-start">
-                  <h4 className="font-bold text-sm tracking-wide" style={{ color: industry.color }}>
-                    {industry.title}
-                  </h4>
-                  <span className="text-foreground/30 group-hover:text-[#1e8449] transition-colors">
-                    {industry.icon}
-                  </span>
-                </div>
-                <div className="flex justify-between items-end">
-                  <span className="text-[9px] text-foreground/40 tracking-wider uppercase">
-                    {industry.titleEn}
-                  </span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/20 group-hover:text-[#1e8449] transition-colors">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </div>
-              </Link>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          {industryHighlights.map((industry) => (
+            <Link
+              key={industry.slug}
+              href={`/industry/${industry.slug}`}
+              className="group rounded-xl border border-brief-border bg-brief-card p-5 hover:border-foreground/20 hover:shadow-sm transition-all flex flex-col justify-between h-28"
+            >
+              <div className="flex justify-between items-start">
+                <h4 className="font-bold text-sm tracking-wide" style={{ color: industry.color }}>
+                  {industry.title}
+                </h4>
+                <span className="text-foreground/30 group-hover:text-[#1e8449] transition-colors">
+                  {industry.icon}
+                </span>
+              </div>
+              <div className="flex justify-between items-end">
+                <span className="text-[9px] text-foreground/40 tracking-wider uppercase">
+                  {industry.titleEn}
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/20 group-hover:text-[#1e8449] transition-colors">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
