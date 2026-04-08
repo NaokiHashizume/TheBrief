@@ -61,6 +61,15 @@ import {
   MuseSparkVsLlamaDiagram,
   MuseSparkJapanDiagram,
 } from "@/components/MuseSparkDiagrams";
+import {
+  AiLandscape2026OverviewDiagram,
+  AiLandscape2026ModelsDiagram,
+  AiLandscape2026BenchmarkDiagram,
+  AiLandscape2026StrategyDiagram,
+  AiLandscape2026JapanDiagram,
+  AiLandscape2026TimelineDiagram,
+  AiLandscape2026FutureDiagram,
+} from "@/components/AiLandscape2026Diagrams";
 
 export function generateStaticParams() {
   return aiArticles.map((a) => ({ slug: a.slug }));
@@ -181,6 +190,13 @@ const diagramMap: Record<string, React.FC> = {
   "muse-spark-sns": MuseSparkSnsDiagram,
   "muse-spark-vs-llama": MuseSparkVsLlamaDiagram,
   "muse-spark-japan": MuseSparkJapanDiagram,
+  "ai-landscape-overview": AiLandscape2026OverviewDiagram,
+  "ai-landscape-models": AiLandscape2026ModelsDiagram,
+  "ai-landscape-benchmark": AiLandscape2026BenchmarkDiagram,
+  "ai-landscape-strategy": AiLandscape2026StrategyDiagram,
+  "ai-landscape-japan": AiLandscape2026JapanDiagram,
+  "ai-landscape-timeline": AiLandscape2026TimelineDiagram,
+  "ai-landscape-future": AiLandscape2026FutureDiagram,
 };
 
 export default async function AiArticlePage({
