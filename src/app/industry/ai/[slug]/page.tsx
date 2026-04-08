@@ -42,6 +42,15 @@ import {
   MsftJpSemiLinkDiagram,
   MsftJpImpactDiagram,
 } from "@/components/MsftJpDiagrams";
+import {
+  GlasswingOverviewDiagram,
+  GlasswingBenchmarkDiagram,
+  GlasswingPartnersDiagram,
+  GlasswingDiscoveriesDiagram,
+  GlasswingSafetyDiagram,
+  GlasswingStrategyDiagram,
+  GlasswingTimelineDiagram,
+} from "@/components/GlasswingDiagrams";
 
 export function generateStaticParams() {
   return aiArticles.map((a) => ({ slug: a.slug }));
@@ -148,6 +157,13 @@ const diagramMap: Record<string, React.FC> = {
   "msft-jp-vs-cloud": MsftJpVsCloudDiagram,
   "msft-jp-semi-link": MsftJpSemiLinkDiagram,
   "msft-jp-impact": MsftJpImpactDiagram,
+  "glasswing-overview": GlasswingOverviewDiagram,
+  "glasswing-benchmarks": GlasswingBenchmarkDiagram,
+  "glasswing-partners": GlasswingPartnersDiagram,
+  "glasswing-discoveries": GlasswingDiscoveriesDiagram,
+  "glasswing-safety": GlasswingSafetyDiagram,
+  "glasswing-strategy": GlasswingStrategyDiagram,
+  "glasswing-timeline": GlasswingTimelineDiagram,
 };
 
 export default async function AiArticlePage({
