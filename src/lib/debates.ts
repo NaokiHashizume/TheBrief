@@ -2,20 +2,75 @@
 // 2026年4月時点（第221回特別国会）
 // ソース: clb.go.jp, sangiin.go.jp, shugiin.go.jp
 
+export type DebateStatus = "審議中" | "可決" | "否決" | "継続審議";
+
 export interface Debate {
   slug: string;
   title: string;
   titleEn: string;
   committee: string;
-  status: "審議中" | "可決" | "否決" | "継続審議";
+  committeeEn?: string;
+  status: DebateStatus;
   statusColor: string;
   impact: string;
+  impactEn?: string;
   summary: string;
+  summaryEn?: string;
   detail: string;
+  detailEn?: string;
   keyPoints: string[];
-  parties: { name: string; position: string }[];
-  timeline: { date: string; event: string }[];
+  keyPointsEn?: string[];
+  parties: { name: string; nameEn?: string; position: string; positionEn?: string }[];
+  timeline: { date: string; event: string; eventEn?: string }[];
   lastUpdated: string;
+}
+
+// Shared English lookups for repetitive strings.
+export const STATUS_EN: Record<DebateStatus, string> = {
+  審議中: "Under Deliberation",
+  可決: "Passed",
+  否決: "Rejected",
+  継続審議: "Carried Over",
+};
+
+export const COMMITTEE_EN: Record<string, string> = {
+  予算委員会: "Budget Committee",
+  財務金融委員会: "Finance and Financial Affairs Committee",
+  内閣委員会: "Cabinet Committee",
+  経済産業委員会: "Economy, Trade and Industry Committee",
+  国土交通委員会: "Land, Infrastructure, Transport and Tourism Committee",
+  環境委員会: "Environment Committee",
+  安全保障委員会: "Security Committee",
+  法務委員会: "Judicial Affairs Committee",
+  外務委員会: "Foreign Affairs Committee",
+  厚生労働委員会: "Health, Labour and Welfare Committee",
+  農林水産委員会: "Agriculture, Forestry and Fisheries Committee",
+  総務委員会: "General Affairs Committee",
+  地方創生特別委員会: "Special Committee on Regional Revitalization",
+  文部科学委員会: "Education, Culture, Sports, Science and Technology Committee",
+  "政治倫理・選挙制度特別委員会": "Special Committee on Political Ethics and Election Law",
+  災害対策特別委員会: "Special Committee on Disaster Countermeasures",
+  財政金融委員会: "Financial Affairs Committee",
+};
+
+export const PARTY_EN: Record<string, string> = {
+  自由民主党: "Liberal Democratic Party",
+  日本維新の会: "Japan Innovation Party",
+  中道改革連合: "Centrist Reform Coalition",
+  国民民主党: "Democratic Party for the People",
+  日本共産党: "Japanese Communist Party",
+};
+
+export function getCommitteeEn(ja: string): string {
+  return COMMITTEE_EN[ja] ?? ja;
+}
+
+export function getPartyNameEn(ja: string): string {
+  return PARTY_EN[ja] ?? ja;
+}
+
+export function getStatusEn(ja: DebateStatus): string {
+  return STATUS_EN[ja] ?? ja;
 }
 
 export const debates: Debate[] = [
@@ -30,8 +85,11 @@ export const debates: Debate[] = [
     status: "審議中",
     statusColor: "#e53e3e",
     impact: "国民生活に直結する年間122.3兆円の支出計画。防衛・社会保障・教育の優先順位が決まる。",
+    impactEn: "A 122.3 trillion yen annual spending plan that directly affects daily life. Sets priorities for defense, social security and education.",
     summary: "一般会計総額122.3兆円の過去最大規模の予算案。暫定予算で4月1日〜11日を手当てし、本予算は4月11日に自然成立の見込み。",
+    summaryEn: "A record 122.3 trillion yen general account budget. An interim budget covers April 1-11, and the main budget is expected to take effect automatically on April 11.",
     detail: "令和8年度（2026年度）予算案は、一般会計総額122兆3,000億円と2年連続で過去最大を更新。防衛費は8.5兆円規模、少子化対策やデジタル投資も重点配分。1月23日に衆議院が解散され、2月8日の総選挙を経て第221回特別国会が2月18日に召集。2月20日に予算案が国会に提出され、3月13日に衆議院を通過。参議院での議決が年度内に間に合わず、4月1日〜11日の暫定予算が3月30日に成立。憲法の30日ルールにより4月11日に本予算が自然成立の見込み。",
+    detailEn: "The FY2026 budget totals 122.3 trillion yen in the general account, a record for the second consecutive year. Defense spending is around 8.5 trillion yen, with priority allocations for child-rearing measures and digital investment. After the House of Representatives was dissolved on January 23 and the February 8 general election, the 221st Extraordinary Diet convened on February 18. The budget was submitted on February 20 and passed the Lower House on March 13. With the Upper House unable to vote before the fiscal year began, a stopgap budget covering April 1-11 was enacted on March 30. Under the Constitution's 30-day rule, the main budget is expected to take effect automatically on April 11.",
     keyPoints: [
       "一般会計総額122.3兆円（2年連続過去最大）",
       "防衛費8.5兆円（GDP比2%目標に向けた増額）",
@@ -39,21 +97,28 @@ export const debates: Debate[] = [
       "4月11日に本予算が自然成立の見込み（30日ルール）",
       "衆院での審議時間は約59時間（過去20年で最短）",
     ],
+    keyPointsEn: [
+      "General account total of 122.3 trillion yen (record high for second straight year)",
+      "Defense spending of 8.5 trillion yen (increase toward the 2% of GDP target)",
+      "Stopgap budget (April 1-11) enacted on March 30",
+      "Main budget expected to pass automatically on April 11 (30-day rule)",
+      "Lower House deliberations totaled about 59 hours (shortest in 20 years)",
+    ],
     parties: [
-      { name: "自由民主党", position: "賛成（与党として提出）" },
-      { name: "日本維新の会", position: "条件付き賛成（連立パートナーとして協力）" },
-      { name: "中道改革連合", position: "反対（防衛費財源の不透明さを批判）" },
-      { name: "国民民主党", position: "修正要求（教育予算の増額を主張）" },
-      { name: "日本共産党", position: "反対（防衛費増と社会保障費圧縮を批判）" },
+      { name: "自由民主党", position: "賛成（与党として提出）", positionEn: "In favor (submitted as ruling party)" },
+      { name: "日本維新の会", position: "条件付き賛成（連立パートナーとして協力）", positionEn: "Conditional support (cooperating as coalition partner)" },
+      { name: "中道改革連合", position: "反対（防衛費財源の不透明さを批判）", positionEn: "Opposed (criticizes opacity of defense funding sources)" },
+      { name: "国民民主党", position: "修正要求（教育予算の増額を主張）", positionEn: "Demands amendments (calls for increased education budget)" },
+      { name: "日本共産党", position: "反対（防衛費増と社会保障費圧縮を批判）", positionEn: "Opposed (criticizes defense increases and social security cuts)" },
     ],
     timeline: [
-      { date: "2026-01-23", event: "第220回通常国会召集、即日衆議院解散" },
-      { date: "2026-02-08", event: "第51回衆議院総選挙" },
-      { date: "2026-02-18", event: "第221回特別国会召集" },
-      { date: "2026-02-20", event: "予算案を国会に提出" },
-      { date: "2026-03-13", event: "衆議院本会議で可決、参議院に送付" },
-      { date: "2026-03-30", event: "暫定予算（4/1〜4/11）が成立" },
-      { date: "2026-04-05", event: "参議院予算委でトランプ関税の経済影響を緊急質疑" },
+      { date: "2026-01-23", event: "第220回通常国会召集、即日衆議院解散", eventEn: "220th Ordinary Diet convened; House of Representatives dissolved the same day" },
+      { date: "2026-02-08", event: "第51回衆議院総選挙", eventEn: "51st House of Representatives general election" },
+      { date: "2026-02-18", event: "第221回特別国会召集", eventEn: "221st Extraordinary Diet convened" },
+      { date: "2026-02-20", event: "予算案を国会に提出", eventEn: "Budget submitted to the Diet" },
+      { date: "2026-03-13", event: "衆議院本会議で可決、参議院に送付", eventEn: "Passed House of Representatives plenary and sent to House of Councillors" },
+      { date: "2026-03-30", event: "暫定予算（4/1〜4/11）が成立", eventEn: "Stopgap budget (April 1-11) enacted" },
+      { date: "2026-04-05", event: "参議院予算委でトランプ関税の経済影響を緊急質疑", eventEn: "Emergency questioning on economic impact of Trump tariffs at Upper House Budget Committee" },
     ],
     lastUpdated: "2026-04-06",
   },
@@ -69,24 +134,33 @@ export const debates: Debate[] = [
     status: "審議中",
     statusColor: "#e53e3e",
     impact: "地域金融機関の経営基盤強化に関わり、地方経済に影響。",
+    impactEn: "Concerns the financial foundation of regional financial institutions and affects local economies.",
     summary: "金融機関の経営基盤強化のための公的資金注入制度の延長・拡充を盛り込んだ改正案。",
+    summaryEn: "An amendment extending and expanding the public capital injection scheme to strengthen the financial base of financial institutions.",
     detail: "金融機能の強化のための特別措置に関する法律等の一部を改正する法律案。地域金融機関の経営統合や資本増強を支援する公的資金注入スキームの期限延長・適用要件の見直しを行う。地方銀行の経営環境悪化やマイナス金利解除後の金融再編を見据えた制度整備。",
+    detailEn: "A bill amending the Act on Special Measures for Strengthening Financial Functions and related laws. It extends the deadline and revises the eligibility criteria for the public capital injection scheme that supports regional financial institutions' consolidation and capital reinforcement. The reform anticipates deteriorating conditions for regional banks and financial restructuring following the exit from negative interest rates.",
     keyPoints: [
       "公的資金注入制度の期限延長",
       "地域金融機関の経営統合支援の拡充",
       "金融機関の資本増強手続きの簡素化",
       "金融システムの安定性確保",
     ],
+    keyPointsEn: [
+      "Extension of the public capital injection scheme",
+      "Expanded support for consolidation among regional financial institutions",
+      "Simplified procedures for capital reinforcement at financial institutions",
+      "Ensuring the stability of the financial system",
+    ],
     parties: [
-      { name: "自由民主党", position: "賛成（政府提出法案）" },
-      { name: "日本維新の会", position: "賛成（金融安定化を支持）" },
-      { name: "中道改革連合", position: "条件付き賛成（モラルハザード防止を要求）" },
-      { name: "国民民主党", position: "賛成" },
-      { name: "日本共産党", position: "反対（公的資金による救済に批判的）" },
+      { name: "自由民主党", position: "賛成（政府提出法案）", positionEn: "In favor (cabinet-submitted bill)" },
+      { name: "日本維新の会", position: "賛成（金融安定化を支持）", positionEn: "In favor (supports financial stability)" },
+      { name: "中道改革連合", position: "条件付き賛成（モラルハザード防止を要求）", positionEn: "Conditional support (demands moral hazard prevention)" },
+      { name: "国民民主党", position: "賛成", positionEn: "In favor" },
+      { name: "日本共産党", position: "反対（公的資金による救済に批判的）", positionEn: "Opposed (critical of public funds bailouts)" },
     ],
     timeline: [
-      { date: "2026-02-20", event: "法案を閣議決定・国会提出" },
-      { date: "2026-03-25", event: "財務金融委員会で審議開始" },
+      { date: "2026-02-20", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
+      { date: "2026-03-25", event: "財務金融委員会で審議開始", eventEn: "Deliberations begin in Finance and Financial Affairs Committee" },
     ],
     lastUpdated: "2026-04-06",
   },
@@ -98,8 +172,11 @@ export const debates: Debate[] = [
     status: "審議中",
     statusColor: "#e53e3e",
     impact: "南海トラフ・首都直下地震に備え、3,000万人以上の被災想定地域に影響。",
+    impactEn: "Addresses preparations for Nankai Trough and Tokyo inland earthquakes, affecting projected disaster zones with over 30 million residents.",
     summary: "内閣府防災担当を発展させ、独立した「防災庁」を新設する法案。2026年秋の発足を目指す。",
+    summaryEn: "A bill elevating the Cabinet Office's disaster management unit into a standalone Disaster Prevention Agency, targeted to launch in autumn 2026.",
     detail: "南海トラフ地震や首都直下地震への備えを強化するため、現在の内閣府防災担当を独立した「防災庁」に格上げする法案。防災庁長官に他省庁への勧告権限を付与し、災害対応の司令塔機能を強化。平時から災害に備えた体制を構築するとともに、被災者支援や復旧・復興の一元的な管理を行う。能登半島地震（2024年1月）の教訓を踏まえ、初動対応の迅速化と自治体支援の強化も盛り込む。",
+    detailEn: "To strengthen preparedness for a Nankai Trough or Tokyo inland earthquake, the bill upgrades the Cabinet Office's disaster management section into a standalone Disaster Prevention Agency. The agency's director would gain authority to issue recommendations to other ministries, reinforcing the command role during disasters. A permanent readiness structure and unified management of victim support, recovery and reconstruction are also included. Drawing on lessons from the January 2024 Noto Peninsula earthquake, faster initial response and enhanced municipal support are also part of the bill.",
     keyPoints: [
       "内閣府防災担当を「防災庁」に格上げ",
       "防災庁長官に他省庁への勧告権限を付与",
@@ -107,17 +184,24 @@ export const debates: Debate[] = [
       "被災者支援・復旧復興の一元管理",
       "2026年秋の発足を目指す",
     ],
+    keyPointsEn: [
+      "Upgrade Cabinet Office disaster management into a Disaster Prevention Agency",
+      "Grant the agency head authority to issue recommendations to other ministries",
+      "Establish a permanent peacetime disaster preparedness structure",
+      "Centralized management of victim support, recovery and reconstruction",
+      "Target launch in autumn 2026",
+    ],
     parties: [
-      { name: "自由民主党", position: "賛成（政府提出法案）" },
-      { name: "日本維新の会", position: "賛成（防災体制の強化を支持）" },
-      { name: "中道改革連合", position: "賛成（能登半島地震の教訓を重視）" },
-      { name: "国民民主党", position: "賛成（地方自治体支援の拡充を要望）" },
-      { name: "日本共産党", position: "条件付き賛成（予算の十分な確保を要求）" },
+      { name: "自由民主党", position: "賛成（政府提出法案）", positionEn: "In favor (cabinet-submitted bill)" },
+      { name: "日本維新の会", position: "賛成（防災体制の強化を支持）", positionEn: "In favor (supports strengthening disaster preparedness)" },
+      { name: "中道改革連合", position: "賛成（能登半島地震の教訓を重視）", positionEn: "In favor (emphasizes lessons from the Noto Peninsula earthquake)" },
+      { name: "国民民主党", position: "賛成（地方自治体支援の拡充を要望）", positionEn: "In favor (urges expanded support for local governments)" },
+      { name: "日本共産党", position: "条件付き賛成（予算の十分な確保を要求）", positionEn: "Conditional support (demands sufficient budget allocation)" },
     ],
     timeline: [
-      { date: "2025-12-26", event: "防災庁設置の基本方針を閣議決定" },
-      { date: "2026-03-06", event: "設置法案・関連法案を閣議決定・国会提出" },
-      { date: "2026-03-20", event: "衆議院内閣委員会で審議開始" },
+      { date: "2025-12-26", event: "防災庁設置の基本方針を閣議決定", eventEn: "Cabinet approved the basic policy to establish the Disaster Prevention Agency" },
+      { date: "2026-03-06", event: "設置法案・関連法案を閣議決定・国会提出", eventEn: "Establishment bill and related bills approved by Cabinet and submitted to the Diet" },
+      { date: "2026-03-20", event: "衆議院内閣委員会で審議開始", eventEn: "Deliberations begin in the House of Representatives Cabinet Committee" },
     ],
     lastUpdated: "2026-04-06",
   },
@@ -129,23 +213,31 @@ export const debates: Debate[] = [
     status: "審議中",
     statusColor: "#e53e3e",
     impact: "防災庁設置に伴い関連する既存法律の整備。災害対策基本法など多数の法律に影響。",
+    impactEn: "Harmonizes existing laws to accompany the establishment of the Disaster Prevention Agency, affecting the Disaster Countermeasures Basic Act and many others.",
     summary: "防災庁設置法の施行に伴い、災害対策基本法等の関連法律を一括整備する法案。",
+    summaryEn: "A bill comprehensively updating related laws, including the Disaster Countermeasures Basic Act, in conjunction with the Disaster Prevention Agency Establishment Act.",
     detail: "防災庁設置法の施行に伴う関係法律の整備等に関する法律案。防災庁の新設に合わせ、災害対策基本法、災害救助法、被災者生活再建支援法等の関連法律における「内閣府防災担当」の規定を「防災庁」に改めるとともに、防災庁長官の権限・所掌事務に関する規定を整備する。",
+    detailEn: "A bill adjusting related laws in step with the enforcement of the Disaster Prevention Agency Establishment Act. References to the Cabinet Office disaster management unit in the Disaster Countermeasures Basic Act, Disaster Relief Act, Act on Support for Reconstructing Livelihoods of Disaster Victims and other laws are changed to the Disaster Prevention Agency, and provisions on the agency head's authority and responsibilities are added.",
     keyPoints: [
       "災害対策基本法等の関連法律における所管変更",
       "防災庁長官の権限に関する規定の整備",
       "防災庁設置法と一体で審議",
     ],
+    keyPointsEn: [
+      "Change of jurisdiction in the Disaster Countermeasures Basic Act and related laws",
+      "Provisions on the powers of the Disaster Prevention Agency head",
+      "Deliberated jointly with the Disaster Prevention Agency Establishment Act",
+    ],
     parties: [
-      { name: "自由民主党", position: "賛成（政府提出法案）" },
-      { name: "日本維新の会", position: "賛成" },
-      { name: "中道改革連合", position: "賛成" },
-      { name: "国民民主党", position: "賛成" },
-      { name: "日本共産党", position: "条件付き賛成" },
+      { name: "自由民主党", position: "賛成（政府提出法案）", positionEn: "In favor (cabinet-submitted bill)" },
+      { name: "日本維新の会", position: "賛成", positionEn: "In favor" },
+      { name: "中道改革連合", position: "賛成", positionEn: "In favor" },
+      { name: "国民民主党", position: "賛成", positionEn: "In favor" },
+      { name: "日本共産党", position: "条件付き賛成", positionEn: "Conditional support" },
     ],
     timeline: [
-      { date: "2026-03-06", event: "防災庁設置法案と同時に国会提出" },
-      { date: "2026-03-20", event: "内閣委員会で防災庁設置法案と一括審議開始" },
+      { date: "2026-03-06", event: "防災庁設置法案と同時に国会提出", eventEn: "Submitted to the Diet alongside the Disaster Prevention Agency Establishment Act" },
+      { date: "2026-03-20", event: "内閣委員会で防災庁設置法案と一括審議開始", eventEn: "Deliberated jointly with the establishment bill in the Cabinet Committee" },
     ],
     lastUpdated: "2026-04-04",
   },
