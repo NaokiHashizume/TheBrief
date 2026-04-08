@@ -32,6 +32,15 @@ type SpecialItem = {
 
 const specials: SpecialItem[] = [
   {
+    slug: "museums-special-2026",
+    label: "Special / Museums 2026",
+    title: "美術館特集 2026 — 一度は訪れたい日本の美術館10選",
+    description:
+      "建築・コレクション・地域性。東京から直島・青森まで、2026年に体験したい日本の美術館10館を厳選。週末旅行と出張のついでに使える、見どころと『なぜ今行くべきか』の手引き。",
+    count: "10 museums",
+    accent: "#be185d",
+  },
+  {
     slug: "movies-special",
     label: "Special / Movies",
     title: "映画特集 — 政治・経済・社会を読み解く名作10選",
