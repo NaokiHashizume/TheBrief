@@ -16,14 +16,14 @@ const snapshotStats = [
     noteEn: "Politics / Economy / Industry / University",
   },
   {
-    value: "17",
+    value: "18",
     labelJa: "業界ページ",
     labelEn: "Industry pages",
-    noteJa: "AI・情報通信・自動車・金融・エネルギーなど",
-    noteEn: "AI, ICT, automotive, finance, energy, and more",
+    noteJa: "AI・情報通信・自動車・金融・エネルギー・素材など",
+    noteEn: "AI, ICT, automotive, finance, energy, materials, and more",
   },
   {
-    value: "39",
+    value: "42",
     labelJa: "大学レクチャー",
     labelEn: "University lectures",
     noteJa: "形式・自然・人文・社会・応用・学際の全分野",
@@ -94,12 +94,12 @@ const mainSections = [
     color: "#1e8449",
     titleJa: "Industry",
     titleEn: "Industry",
-    descJa: "17業界の構造、企業、収益モデル、テーマ別記事。",
-    descEn: "Seventeen sectors, business models, and theme-based articles.",
+    descJa: "18業界の構造、企業、収益モデル、テーマ別記事。",
+    descEn: "Eighteen sectors, business models, and theme-based articles.",
     items: [
       {
-        ja: "17業界の一覧と主要テーマ",
-        en: "All 17 sectors and their key themes",
+        ja: "18業界の一覧と主要テーマ",
+        en: "All 18 sectors and their key themes",
         href: "/industry",
       },
       {
@@ -119,12 +119,12 @@ const mainSections = [
     color: "#6366f1",
     titleJa: "University",
     titleEn: "University",
-    descJa: "6カテゴリ・39分野のレクチャーで学問体系を体験する。",
-    descEn: "Six domains and 39 fields of structured lectures across academia.",
+    descJa: "6カテゴリ・42分野のレクチャーで学問体系を体験する。",
+    descEn: "Six domains and 42 fields of structured lectures across academia.",
     items: [
       {
-        ja: "6カテゴリ・39分野の全体マップ",
-        en: "Six domains, 39 fields — academic map",
+        ja: "6カテゴリ・42分野の全体マップ",
+        en: "Six domains, 42 fields — academic map",
         href: "/university",
       },
       {
@@ -177,46 +177,46 @@ const featuredDestinations = [
     accent: "#6366f1",
     eyebrowJa: "Lecture Library",
     eyebrowEn: "Lecture Library",
-    titleJa: "39の講義で学問を体験する",
-    titleEn: "Experience scholarship through 39 lectures",
-    bodyJa: "形式・自然・人文・社会・応用・学際の6カテゴリ・39分野を、章立て形式の統一されたレクチャーで読み進められます。",
-    bodyEn: "Read 39 unified, chapter-based lectures spanning all six academic domains.",
+    titleJa: "42の講義で学問を体験する",
+    titleEn: "Experience scholarship through 42 lectures",
+    bodyJa: "形式・自然・人文・社会・応用・学際の6カテゴリ・42分野を、章立て形式の統一されたレクチャーで読み進められます。",
+    bodyEn: "Read 42 unified, chapter-based lectures spanning all six academic domains.",
   },
 ];
 
 const columnHighlights = [
   {
-    href: "/column/salaryman-tax-saving",
+    href: "/column/own-vs-rent-2026",
     label: "Column",
     accent: "#0d9488",
-    titleJa: "社会人のための節税方法 — 知らないと損する7つの制度",
-    titleEn: "A Salaryman's Guide to Tax Saving in 2026",
-    bodyJa: "ふるさと納税・iDeCo・新NISAから特定支出控除まで、会社員でも使える節税策7つを2026年制度で整理。",
-    bodyEn: "Seven tax-saving levers Japanese employees can use under the 2026 system.",
-    metaJa: "2026-04-07 · 約10分",
-    metaEn: "2026-04-07 · 10 min",
+    titleJa: "持ち家 vs 賃貸 — 2026年の金利と物価で再計算する",
+    titleEn: "Own vs Rent — Recalculated for 2026",
+    bodyJa: "金利上昇と物価高の2026年に、持ち家と賃貸の損益分岐点をフルコストで再計算する。",
+    bodyEn: "Recalculate the buy-vs-rent break-even with 2026 rates and prices.",
+    metaJa: "2026-04-08",
+    metaEn: "2026-04-08",
   },
   {
-    href: "/column/overtime-april-june",
+    href: "/column/nisa-year-two-review",
     label: "Column",
     accent: "#0d9488",
-    titleJa: "なぜ4月から6月は残業したらダメなのか",
-    titleEn: "Why You Shouldn't Work Overtime from April to June",
-    bodyJa: "標準報酬月額と定時決定の仕組みから、4〜6月の残業が手取りに効く理由を解説。",
-    bodyEn: "How standard remuneration timing turns spring overtime into a yearlong tax hit.",
-    metaJa: "2026-04-07 · 約8分",
-    metaEn: "2026-04-07 · 8 min",
+    titleJa: "新NISA 2年目の見直し方 — つみたて枠と成長投資枠の最適配分",
+    titleEn: "New NISA — A Year-Two Tune-up",
+    bodyJa: "つみたて枠と成長投資枠の配分を、2年目の家計と相場前提で見直す手順。",
+    bodyEn: "Rebalance the tsumitate and growth slots after one year of New NISA.",
+    metaJa: "2026-04-08",
+    metaEn: "2026-04-08",
   },
   {
-    href: "/column/movies-special",
-    label: "Special / Movies",
+    href: "/column/museums-special-2026",
+    label: "Special / Museums",
     accent: "#7c3aed",
-    titleJa: "映画特集 — 政治・経済・社会を読み解く名作10選",
-    titleEn: "Films That Explain Politics, Economy and Society",
-    bodyJa: "金融危機、報道の自由、企業倫理、戦争と政治。TheBriefのテーマを物語で体験できる10本。",
-    bodyEn: "Ten films that turn TheBrief's themes — finance, press freedom, war, ethics — into stories.",
-    metaJa: "10 films",
-    metaEn: "10 films",
+    titleJa: "美術館特集 2026 — 一度は訪れたい日本の美術館13選",
+    titleEn: "Japan Museums 2026 — Thirteen You Should Visit",
+    bodyJa: "建築・コレクション・体験設計から選ぶ、2026年に訪れたい日本の美術館13選。",
+    bodyEn: "Thirteen Japanese museums chosen by architecture, collection, and experience design.",
+    metaJa: "13 museums",
+    metaEn: "13 museums",
   },
   {
     href: "/column/reading-special",
@@ -335,15 +335,15 @@ const industryHighlights = [
     ),
   },
   {
-    slug: "entertainment",
-    title: "エンタメ",
-    titleEn: "Entertainment",
-    color: "#d946ef",
+    slug: "materials",
+    title: "素材",
+    titleEn: "Materials",
+    color: "#0ea5e9",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m7 2 10 5-10 5V2z" />
-        <path d="M2 17h20v4H2z" />
-        <path d="M12 12v5" />
+        <path d="M12 2 2 7l10 5 10-5-10-5z" />
+        <path d="m2 17 10 5 10-5" />
+        <path d="m2 12 10 5 10-5" />
       </svg>
     ),
   },
