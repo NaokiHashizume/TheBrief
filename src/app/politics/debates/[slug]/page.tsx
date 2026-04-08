@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { debates } from "@/lib/debates";
+import { debates, getCommitteeEn, getPartyNameEn, getStatusEn } from "@/lib/debates";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import ShareButton from "@/components/ShareButton";
+import { T } from "@/components/T";
 
 export function generateStaticParams() {
   return debates.map((d) => ({ slug: d.slug }));
@@ -53,9 +54,13 @@ export default async function DebateDetailPage({
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
         <span>/</span>
-        <Link href="/politics/debates" className="hover:text-foreground transition-colors">審議中</Link>
+        <Link href="/politics/debates" className="hover:text-foreground transition-colors">
+          <T ja="審議中" en="Under Debate" />
+        </Link>
         <span>/</span>
-        <span className="truncate max-w-[150px]">{debate.title}</span>
+        <span className="truncate max-w-[150px]">
+          <T ja={debate.title} en={debate.titleEn} />
+        </span>
       </div>
 
       {/* Header */}
@@ -64,31 +69,41 @@ export default async function DebateDetailPage({
           className="text-[10px] font-bold px-2.5 py-1 rounded-full text-white"
           style={{ backgroundColor: debate.statusColor }}
         >
-          {debate.status}
+          <T ja={debate.status} en={getStatusEn(debate.status)} />
         </span>
-        <span className="text-xs text-foreground/45">{debate.committee}</span>
+        <span className="text-xs text-foreground/45">
+          <T ja={debate.committee} en={debate.committeeEn ?? getCommitteeEn(debate.committee)} />
+        </span>
       </div>
 
-      <h1 className="font-serif text-2xl md:text-3xl font-bold">{debate.title}</h1>
+      <h1 className="font-serif text-2xl md:text-3xl font-bold">
+        <T ja={debate.title} en={debate.titleEn} />
+      </h1>
       <span className="text-[10px] tracking-[2px] uppercase text-foreground/45">
         {debate.titleEn}
       </span>
       <p className="mt-4 text-sm text-foreground/60 leading-relaxed">
-        {debate.summary}
+        <T ja={debate.summary} en={debate.summaryEn ?? debate.summary} />
       </p>
-      <p className="mt-2 text-xs text-foreground/50">Last updated: {debate.lastUpdated}</p>
+      <p className="mt-2 text-xs text-foreground/50">
+        <T ja="最終更新" en="Last updated" />: {debate.lastUpdated}
+      </p>
 
       {/* なぜ重要か */}
       <div className="mt-6 p-4 border-l-2 border-brief-red bg-brief-red/[0.03] rounded-r-lg">
-        <div className="text-[10px] tracking-wider uppercase text-brief-red font-bold mb-1">なぜ重要か</div>
-        <p className="text-sm text-foreground/70 leading-relaxed">{debate.impact}</p>
+        <div className="text-[10px] tracking-wider uppercase text-brief-red font-bold mb-1">
+          <T ja="なぜ重要か" en="Why It Matters" />
+        </div>
+        <p className="text-sm text-foreground/70 leading-relaxed">
+          <T ja={debate.impact} en={debate.impactEn ?? debate.impact} />
+        </p>
       </div>
 
       {/* Detail */}
       <div className="mt-10">
         <SectionHeader title="概要" titleEn="Overview" />
         <div className="p-5 bg-brief-card rounded-xl text-sm text-foreground/70 leading-relaxed">
-          {debate.detail}
+          <T ja={debate.detail} en={debate.detailEn ?? debate.detail} />
         </div>
       </div>
 
@@ -101,7 +116,9 @@ export default async function DebateDetailPage({
               <span className="w-5 h-5 rounded-full bg-brief-red/10 text-brief-red text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
                 {i + 1}
               </span>
-              <span className="text-foreground/70">{point}</span>
+              <span className="text-foreground/70">
+                <T ja={point} en={debate.keyPointsEn?.[i] ?? point} />
+              </span>
             </li>
           ))}
         </ul>
@@ -113,8 +130,12 @@ export default async function DebateDetailPage({
         <div className="border border-brief-border rounded-xl overflow-hidden divide-y divide-brief-border">
           {debate.parties.map((p) => (
             <div key={p.name} className="px-5 py-3 flex items-center justify-between gap-4">
-              <span className="font-medium text-sm">{p.name}</span>
-              <span className="text-xs text-foreground/55 text-right">{p.position}</span>
+              <span className="font-medium text-sm">
+                <T ja={p.name} en={p.nameEn ?? getPartyNameEn(p.name)} />
+              </span>
+              <span className="text-xs text-foreground/55 text-right">
+                <T ja={p.position} en={p.positionEn ?? p.position} />
+              </span>
             </div>
           ))}
         </div>
@@ -139,7 +160,7 @@ export default async function DebateDetailPage({
                 <div>
                   <span className="text-[10px] text-foreground/45 tabular-nums">{t.date}</span>
                   <p className={`text-sm mt-0.5 ${isLatest ? "text-foreground font-medium" : "text-foreground/60"}`}>
-                    {t.event}
+                    <T ja={t.event} en={t.eventEn ?? t.event} />
                   </p>
                 </div>
               </div>
@@ -159,24 +180,26 @@ export default async function DebateDetailPage({
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6" />
           </svg>
-          審議中の一覧に戻る
+          <T ja="審議中の一覧に戻る" en="Back to debates list" />
         </Link>
       </div>
 
       {/* 関連セクション */}
       <div className="mt-12 pt-8 border-t border-brief-border">
-        <h3 className="text-xs tracking-wider uppercase text-foreground/45 font-medium mb-4">関連セクション</h3>
+        <h3 className="text-xs tracking-wider uppercase text-foreground/45 font-medium mb-4">
+          <T ja="関連セクション" en="Related Sections" />
+        </h3>
         <div className="flex flex-wrap gap-3">
           <Link href="/politics/passed" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-amber-500/20 hover:border-amber-500/50 hover:bg-amber-500/[0.03] transition-all text-sm">
             <span className="w-2 h-2 rounded-full bg-amber-500" />
-            <span className="text-foreground/70">成立済（未施行）</span>
+            <span className="text-foreground/70"><T ja="成立済（未施行）" en="Passed (Not Yet in Force)" /></span>
           </Link>
           <Link href="/politics/enacted" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-green-500/20 hover:border-green-500/50 hover:bg-green-500/[0.03] transition-all text-sm">
             <span className="w-2 h-2 rounded-full bg-green-500" />
-            <span className="text-foreground/70">施行済</span>
+            <span className="text-foreground/70"><T ja="施行済" en="In Force" /></span>
           </Link>
           <Link href="/politics/diet" className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-brief-border hover:border-foreground/20 transition-all text-sm">
-            <span className="text-foreground/70">国会の仕組み</span>
+            <span className="text-foreground/70"><T ja="国会の仕組み" en="How the Diet Works" /></span>
           </Link>
         </div>
       </div>
@@ -188,7 +211,7 @@ function SectionHeader({ title, titleEn }: { title: string; titleEn: string }) {
   return (
     <div className="flex items-center gap-4 mb-4">
       <div>
-        <h2 className="font-serif text-lg font-bold">{title}</h2>
+        <h2 className="font-serif text-lg font-bold"><T ja={title} en={titleEn} /></h2>
         <span className="text-[9px] tracking-[2px] uppercase text-foreground/50">{titleEn}</span>
       </div>
       <div className="flex-1 h-px bg-brief-border" />
