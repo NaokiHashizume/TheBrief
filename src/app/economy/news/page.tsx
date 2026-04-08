@@ -6,6 +6,7 @@ import {
   economicIndicators,
   economyNews,
   newsCategoryLabels,
+  newsCategoryLabelsEn,
   type EconomyNewsItem,
   type IndicatorStatus,
 } from "@/lib/economy";

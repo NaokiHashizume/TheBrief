@@ -9,6 +9,9 @@ export interface PoliticsNewsItem {
   tag: string;
   tagColor: string;
   source?: string;
+  titleEn?: string;
+  summaryEn?: string;
+  tagEn?: string;
 }
 
 export const politicsNews: PoliticsNewsItem[] = [
@@ -19,6 +22,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "トランプ大統領がイランに設定した猶予期限が4月6日夜（日本時間7日午前9時）に到来。ホルムズ海峡の全面再開は実現しておらず、米国の次の対応が焦点に。",
     tag: "外交",
     tagColor: "#2b6cb0",
+    titleEn: "Trump's grace period for Iran expires; next US move in focus",
+    summaryEn: "The grace period President Trump set for Iran expired on the night of April 6 (9:00 a.m. JST on April 7). A full reopening of the Strait of Hormuz has not been achieved, and attention now turns to the US response.",
+    tagEn: "Diplomacy",
   },
   {
     date: "2026-04-07",
@@ -27,6 +33,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "自民・梶山国対委員長と立憲・笠国対委員長が会談し、4月から6月にかけて月1回の党首討論を実施することで合意。予算成立後の重要法案審議に向けた与野党対話の枠組み。",
     tag: "国会",
     tagColor: "#e53e3e",
+    titleEn: "Ruling and opposition parties agree to hold monthly leaders' debates from April to June",
+    summaryEn: "LDP Diet Affairs chief Kajiyama and CDP counterpart Ryu met and agreed to hold party leaders' debates once a month from April through June, setting a framework for dialogue ahead of key legislative deliberations after the budget passes.",
+    tagEn: "Diet",
   },
   {
     date: "2026-04-06",
@@ -35,6 +44,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "再審制度改正法案について、検察の即時抗告を全面禁止するか制限にとどめるかで与党内の意見が割れ、政府は4月7日予定の閣議決定を見送り。自民党内からは「全面禁止を求める声がほとんど」との指摘も。今国会中の成立を目指し調整継続。",
     tag: "法案",
     tagColor: "#38a169",
+    titleEn: "Retrial law reform bill: cabinet decision on April 7 postponed",
+    summaryEn: "With the ruling bloc split over whether to fully ban or merely restrict prosecutors' immediate appeals, the government postponed the cabinet decision on the retrial system reform bill planned for April 7. LDP members note that most voices favor a full ban. Coordination continues with the aim of passage this Diet session.",
+    tagEn: "Legislation",
   },
   {
     date: "2026-04-05",
@@ -43,6 +55,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "イランの許可を得て15隻がホルムズ海峡を通過。商船三井のLNG船「ソハール」の通過も確認された。ただし湾内にはなお約2,190隻が足止め状態。",
     tag: "外交",
     tagColor: "#2b6cb0",
+    titleEn: "15 vessels pass through Strait of Hormuz, including MOL LNG carrier",
+    summaryEn: "Fifteen vessels passed through the Strait of Hormuz with Iran's permission, including Mitsui O.S.K. Lines' LNG carrier 'Sohar.' About 2,190 ships remain stranded in the Gulf.",
+    tagEn: "Diplomacy",
   },
   {
     date: "2026-04-04",
@@ -51,6 +66,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "イランが封鎖開始後初めて日本と欧州の関係船舶のホルムズ海峡通航を認めた。米国と距離を置く国への便宜供与で国際社会の切り崩しを図る狙いとみられる。",
     tag: "外交",
     tagColor: "#2b6cb0",
+    titleEn: "Iran permits Japanese and European ships through Strait of Hormuz for first time",
+    summaryEn: "For the first time since the blockade began, Iran allowed Japanese and European affiliated vessels to transit the Strait of Hormuz, apparently aiming to split the international community by extending favors to countries keeping distance from the US.",
+    tagEn: "Diplomacy",
   },
   {
     date: "2026-04-04",
@@ -59,6 +77,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "3月11日に開始された米USTRのセクション301調査（日本含む16カ国対象）について、経済産業省が与党経済対策本部で対応方針を報告。枠組み合意に基づく15%関税の維持と追加関税回避が交渉の焦点。",
     tag: "政策",
     tagColor: "#d69e2e",
+    titleEn: "Government briefs ruling parties on response to Section 301 probe; USTR deadline July 24",
+    summaryEn: "METI reported its response strategy to the ruling parties' economic headquarters regarding the USTR Section 301 investigation launched March 11 covering 16 countries including Japan. Talks focus on maintaining the 15% tariff under the framework agreement and avoiding additional tariffs.",
+    tagEn: "Policy",
   },
   {
     date: "2026-04-04",
@@ -67,6 +88,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "4月1日施行の所得制限撤廃による私立高校授業料の実質無償化。各地の高校で新学期に合わせた手続きが本格化。約300万人の高校生が対象。",
     tag: "施行",
     tagColor: "#805ad5",
+    titleEn: "High school tuition-free reform enacted; procedures begin nationwide with new term",
+    summaryEn: "The amendment lifting income limits and effectively making private high school tuition free took effect April 1. Schools nationwide are now processing applications for the new school year, covering roughly 3 million high school students.",
+    tagEn: "Enacted",
   },
   {
     date: "2026-04-04",
@@ -75,6 +99,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "衆議院通過から30日ルールにより、参議院の議決がなくても4月11日に本予算が自然成立する。暫定予算は4月1日〜11日をカバー。",
     tag: "予算",
     tagColor: "#e53e3e",
+    titleEn: "FY2026 main budget set to pass automatically on April 11",
+    summaryEn: "Under the 30-day rule from Lower House passage, the main budget will automatically take effect on April 11 even without an Upper House vote. A provisional budget covers April 1 through 11.",
+    tagEn: "Budget",
   },
   {
     date: "2026-04-04",
@@ -83,6 +110,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "3月19日に閣議決定された改正案について、重要企業の海外活動支援やサプライチェーン保護強化をめぐる質疑が行われた。",
     tag: "法案",
     tagColor: "#38a169",
+    titleEn: "Economic Security Promotion Act amendment: questioning begins in Lower House Cabinet Committee",
+    summaryEn: "Questioning began on the amendment approved by the cabinet on March 19, covering overseas activity support for critical companies and strengthened supply chain protection.",
+    tagEn: "Legislation",
   },
   {
     date: "2026-04-03",
@@ -91,6 +121,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "改正民法が施行され、離婚後の共同親権が選択可能に。77年ぶりの大改正で、各地の家庭裁判所に問い合わせが殺到。",
     tag: "施行",
     tagColor: "#805ad5",
+    titleEn: "Joint custody system begins April 1; family courts flooded with inquiries",
+    summaryEn: "The amended Civil Code took effect, allowing joint custody after divorce. It is the first major revision in 77 years, and family courts nationwide have been flooded with inquiries.",
+    tagEn: "Enacted",
   },
   {
     date: "2026-04-03",
@@ -99,6 +132,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "3歳未満の未就園児が保育所を利用できる新制度が4月1日にスタート。子ども・子育て支援金の徴収も同日開始。",
     tag: "施行",
     tagColor: "#805ad5",
+    titleEn: "'Childcare for All' system launches with many applications on day one",
+    summaryEn: "A new system allowing unenrolled children under age 3 to use daycare facilities began on April 1. Collection of the child and child-rearing support levy also started the same day.",
+    tagEn: "Enacted",
   },
   {
     date: "2026-04-02",
@@ -107,6 +143,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "安全保障・インテリジェンスの専門家を招き、国家情報会議の権限と国会監視のあり方について意見聴取が行われた。",
     tag: "法案",
     tagColor: "#38a169",
+    titleEn: "National Intelligence Bureau bill: expert hearings held in Lower House Cabinet Committee",
+    summaryEn: "Security and intelligence experts were invited to testify on the powers of the National Intelligence Council and the form of Diet oversight.",
+    tagEn: "Legislation",
   },
   {
     date: "2026-04-01",
@@ -115,6 +154,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "防衛財源確保法（2023年成立）に基づく法人税の付加税がスタート。防衛費GDP比2%目標の安定財源として機能する。",
     tag: "施行",
     tagColor: "#805ad5",
+    titleEn: "Special defense corporate tax begins today",
+    summaryEn: "A corporate tax surcharge under the Defense Funding Act (enacted 2023) took effect, serving as a stable revenue source for the goal of defense spending at 2% of GDP.",
+    tagEn: "Enacted",
   },
   {
     date: "2026-04-01",
@@ -123,6 +165,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "教育費負担軽減策として、私立高校授業料の所得制限撤廃による実質無償化と、公立小学校の給食費無償化が4月1日より施行。",
     tag: "施行",
     tagColor: "#805ad5",
+    titleEn: "Private high school tuition and public elementary school lunches become effectively free",
+    summaryEn: "As measures to ease the education cost burden, effective tuition-free status for private high schools via removal of income limits, and free lunches at public elementary schools, took effect April 1.",
+    tagEn: "Enacted",
   },
   {
     date: "2026-03-30",
@@ -131,6 +176,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "衆院選による審議の遅れで年度内の本予算成立が困難となり、4月1日〜11日の11日間をカバーする暫定予算が成立。11年ぶりの暫定予算編成。",
     tag: "予算",
     tagColor: "#e53e3e",
+    titleEn: "Provisional budget of 8.6 trillion yen passes Upper House",
+    summaryEn: "With the Lower House election delaying deliberations and making fiscal-year passage of the main budget difficult, a provisional budget covering the 11 days from April 1 to 11 was enacted — the first such budget in 11 years.",
+    tagEn: "Budget",
   },
   {
     date: "2026-03-19",
@@ -139,6 +187,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "有識者会議の提言を踏まえ、重要物資のサプライチェーン強靱化や重要企業の海外展開支援を盛り込んだ改正案を閣議決定。",
     tag: "法案",
     tagColor: "#38a169",
+    titleEn: "Cabinet approves Economic Security Promotion Act amendment for Diet submission",
+    summaryEn: "Based on recommendations from an expert panel, the cabinet approved an amendment including supply chain resilience for critical materials and overseas expansion support for key companies.",
+    tagEn: "Legislation",
   },
   {
     date: "2026-03-13",
@@ -147,6 +198,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "一般会計総額122.3兆円の予算案が衆議院本会議で可決。審議時間は約59時間と過去20年で最短。参議院での審議入りへ。",
     tag: "予算",
     tagColor: "#e53e3e",
+    titleEn: "FY2026 budget bill passes Lower House, sent to Upper House",
+    summaryEn: "A general-account budget totaling 122.3 trillion yen passed the Lower House plenary. Deliberations lasted about 59 hours, the shortest in 20 years. The bill now moves to Upper House debate.",
+    tagEn: "Budget",
   },
   {
     date: "2026-03-13",
@@ -155,6 +209,9 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "内閣情報調査室を改組し「国家情報局」を新設する法案を閣議決定。首相直属の国家情報会議を設置し、7月の発足を目指す。",
     tag: "法案",
     tagColor: "#38a169",
+    titleEn: "Cabinet approves bill to create National Intelligence Council and Bureau",
+    summaryEn: "The cabinet approved a bill to reorganize the Cabinet Intelligence and Research Office into a new 'National Intelligence Bureau.' A National Intelligence Council directly under the prime minister will be established, targeting a July launch.",
+    tagEn: "Legislation",
   },
   {
     date: "2026-03-06",
@@ -163,5 +220,8 @@ export const politicsNews: PoliticsNewsItem[] = [
     summary: "内閣府防災担当を独立した「防災庁」に格上げする法案を閣議決定。2026年秋の発足を目指し、国会審議へ。",
     tag: "法案",
     tagColor: "#38a169",
+    titleEn: "Cabinet approves bill to establish Disaster Management Agency",
+    summaryEn: "The cabinet approved a bill elevating the Cabinet Office's disaster management section into an independent 'Disaster Management Agency,' targeting a fall 2026 launch and moving to Diet deliberations.",
+    tagEn: "Legislation",
   },
 ];

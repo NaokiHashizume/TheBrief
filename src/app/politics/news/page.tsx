@@ -85,14 +85,14 @@ export default function PoliticsNewsPage() {
                         className="text-[9px] font-bold px-1.5 py-0.5 rounded text-white"
                         style={{ backgroundColor: news.tagColor }}
                       >
-                        {news.tag}
+                        <T ja={news.tag} en={news.tagEn ?? news.tag} />
                       </span>
                     </div>
                     <h3 className={`text-sm font-medium leading-snug ${isFirst ? "text-foreground" : "text-foreground/70"}`}>
-                      {news.title}
+                      <T ja={news.title} en={news.titleEn ?? news.title} />
                     </h3>
                     <p className="mt-1 text-xs text-foreground/50 leading-relaxed">
-                      {news.summary}
+                      <T ja={news.summary} en={news.summaryEn ?? news.summary} />
                     </p>
                   </div>
                 </div>

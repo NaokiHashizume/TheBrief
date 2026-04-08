@@ -134,9 +134,13 @@ function IndicatorCard({ indicator }: { indicator: EconomicIndicator }) {
       {/* Value + Sparkline */}
       <div className="flex items-center justify-between gap-2 mb-2">
         <div className="flex items-baseline gap-1.5">
-          <span className="text-2xl font-bold tabular-nums">{indicator.value}</span>
+          <span className="text-2xl font-bold tabular-nums">
+            <T ja={indicator.value} en={indicator.valueEn ?? indicator.value} />
+          </span>
           {indicator.unit && (
-            <span className="text-xs text-foreground/55">{indicator.unit}</span>
+            <span className="text-xs text-foreground/55">
+              <T ja={indicator.unit} en={indicator.unitEn ?? indicator.unit} />
+            </span>
           )}
           <span className={`text-lg font-medium ml-1 ${colors.text}`}>{arrow}</span>
         </div>
@@ -148,7 +152,7 @@ function IndicatorCard({ indicator }: { indicator: EconomicIndicator }) {
       {/* Change from previous period */}
       {indicator.change && (
         <div className="text-[10px] text-foreground/50 mb-2 tabular-nums">
-          {indicator.change}
+          <T ja={indicator.change} en={indicator.changeEn ?? indicator.change} />
         </div>
       )}
 
@@ -157,13 +161,13 @@ function IndicatorCard({ indicator }: { indicator: EconomicIndicator }) {
           <T ja="どう見るか" en="Why It Matters" />
         </div>
         <p className="text-[11px] text-foreground/60 leading-relaxed">
-          {indicator.purpose}
+          <T ja={indicator.purpose} en={indicator.purposeEn ?? indicator.purpose} />
         </p>
       </div>
 
       {/* Description */}
       <p className="text-[11px] text-foreground/50 leading-relaxed">
-        {indicator.description}
+        <T ja={indicator.description} en={indicator.descriptionEn ?? indicator.description} />
       </p>
 
       {/* Last updated */}
