@@ -269,7 +269,7 @@ export default function DocumentarySpecialPage() {
         ]}
       />
 
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/column" className="hover:text-foreground transition-colors">Column</Link>
@@ -354,7 +354,7 @@ export default function DocumentarySpecialPage() {
           {docs.map((d, i) => (
             <article
               key={d.titleEn}
-              className="p-6 rounded-2xl border border-brief-border bg-brief-card"
+              className="p-6 rounded-xl border border-brief-border bg-brief-card"
             >
               <div className="flex items-center gap-2 mb-3">
                 <span
@@ -411,7 +411,7 @@ export default function DocumentarySpecialPage() {
         </div>
       </section>
 
-      <div className="mt-10 flex items-center justify-between gap-4 p-5 rounded-2xl border border-brief-border bg-brief-card">
+      <div className="mt-10 flex items-center justify-between gap-4 p-5 rounded-xl border border-brief-border bg-brief-card">
         <p className="text-sm text-foreground/60">
           <T
             ja="特集は不定期で更新します。映画特集・読書特集もあわせてどうぞ。"

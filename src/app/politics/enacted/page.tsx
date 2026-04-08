@@ -23,7 +23,7 @@ export default function EnactedPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
@@ -62,7 +62,7 @@ export default function EnactedPage() {
                 <h2 className="font-serif text-lg font-bold group-hover:text-green-400 transition-colors">
                   <T ja={item.title} en={item.titleEn ?? item.title} />
                 </h2>
-                <span className="text-[9px] tracking-[1px] uppercase text-foreground/45">
+                <span className="text-[10px] tracking-[1px] uppercase text-foreground/45">
                   {item.titleEn}
                 </span>
                 <p className="mt-2 text-sm text-foreground/45 leading-relaxed line-clamp-2">

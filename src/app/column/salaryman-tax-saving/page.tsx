@@ -614,7 +614,7 @@ export default function SalarymanTaxSavingPage() {
 
       {/* Table of contents */}
       <nav className="mb-16 relative">
-        <div className="relative p-6 sm:p-8 rounded-2xl border border-foreground/[0.06] bg-foreground/[0.015]">
+        <div className="relative p-6 sm:p-8 rounded-xl border border-foreground/[0.06] bg-foreground/[0.015]">
           <div className="flex items-center gap-3 mb-5">
             <div
               className="w-6 h-6 rounded-md flex items-center justify-center"
@@ -805,7 +805,7 @@ export default function SalarymanTaxSavingPage() {
 
       {/* Disclaimer */}
       <div
-        className="mt-6 rounded-2xl border p-5"
+        className="mt-6 rounded-xl border p-5"
         style={{
           borderColor: `${COLUMN_COLOR}22`,
           backgroundColor: `${COLUMN_COLOR}08`,

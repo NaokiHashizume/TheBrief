@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function UniversityPage() {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
+    <div className="max-w-5xl mx-auto px-4 py-12">
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },

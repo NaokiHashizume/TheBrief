@@ -464,7 +464,7 @@ export default function ChildcareSupportFundPage() {
       </article>
 
       <div
-        className="mt-6 rounded-2xl border p-5"
+        className="mt-6 rounded-xl border p-5"
         style={{
           borderColor: `${COLUMN_COLOR}22`,
           backgroundColor: `${COLUMN_COLOR}08`,

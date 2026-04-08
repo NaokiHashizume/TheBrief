@@ -183,7 +183,7 @@ export default function ColumnIndexPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <span>Column</span>
@@ -231,7 +231,7 @@ export default function ColumnIndexPage() {
             <Link
               key={s.slug}
               href={`/column/${s.slug}`}
-              className="group block p-6 rounded-2xl border border-brief-border bg-brief-card transition-all hover:-translate-y-0.5"
+              className="group block p-6 rounded-xl border border-brief-border bg-brief-card transition-all hover:-translate-y-0.5"
               style={{
                 background: `linear-gradient(135deg, ${s.accent}10, rgba(255,255,255,0.4))`,
               }}
@@ -285,7 +285,7 @@ export default function ColumnIndexPage() {
             <Link
               key={c.slug}
               href={`/column/${c.slug}`}
-              className="group block p-6 rounded-2xl border border-brief-border bg-brief-card transition-all hover:-translate-y-0.5"
+              className="group block p-6 rounded-xl border border-brief-border bg-brief-card transition-all hover:-translate-y-0.5"
               style={{ transition: "border-color 0.2s" }}
             >
               <div className="flex items-center gap-2 mb-3">
