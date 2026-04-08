@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { useLanguage } from "./LanguageProvider";
+import { LatestArticlesTimeline } from "./LatestArticlesTimeline";
 
 const snapshotStats = [
   {
@@ -412,6 +413,8 @@ export function HomeContent() {
           ))}
         </div>
       </section>
+
+      <LatestArticlesTimeline />
 
       <section className="max-w-[1400px] mx-auto px-6 pb-16">
         <div className="border-t-2 border-b border-foreground pt-2 pb-1 mb-8">
