@@ -75,6 +75,14 @@
       "postedAt": "2026-04-08T22:02:24.636Z",
       "hasMedia": true,
       "textSource": "template"
+    },
+    {
+      "slug": "how-networks-work",
+      "url": "https://thebrief.info/industry/ict/how-networks-work",
+      "tweetId": "2042001202334871777",
+      "postedAt": "2026-04-08T22:06:40.034Z",
+      "hasMedia": true,
+      "textSource": "claude"
     }
   ]
 }
