@@ -6,36 +6,6 @@ import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd"
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import {
-  RetailMarketOverviewDiagram as RetailMarketScaleDiagram,
-  CvsBusinessModelDiagram as ConvenienceStoreDiagram,
-  RetailFinancialsDiagram as RetailFormatsDiagram,
-  RetailChallengesDiagram,
-  RetailInnovationDiagram as RetailDxDiagram,
-  GrowthSectorsDiagram as RetailValueChainDiagram,
-  EcLandscapeDiagram as RetailFutureDiagram,
-  CvsBig3OverviewDiagram,
-  CvsSevenStrategyDiagram,
-  CvsFamimaStrategyDiagram,
-  CvsLawsonStrategyDiagram,
-  CvsBig3ComparisonDiagram,
-  CvsFranchiseModelDiagram,
-  CvsBig3FutureDiagram,
-} from "@/components/RetailDiagrams";
-import {
-  EcLogisticsVolumeDiagram,
-  EcAmazonLogisticsDiagram,
-  EcRakutenYamatoDiagram,
-  EcCarrierMarginsDiagram,
-} from "@/components/EcLogisticsDiagrams";
-import {
-  RetailDxOverviewDiagram,
-  RetailCashierlessDiagram,
-  RetailPointsDiagram,
-  RetailVsAmazonDiagram,
-  RetailCostDiagram,
-  RetailFuture2026Diagram,
-} from "@/components/RetailDx2026Diagrams";
-import {
   MinistopPerformanceDiagram,
   MinistopCvsComparisonDiagram,
   MinistopFraudImpactDiagram,
@@ -45,17 +15,10 @@ import {
 import ShareButton from "@/components/ShareButton";
 import { TagLink } from "@/components/TagLink";
 
-export function generateStaticParams() {
-  return retailArticles.map((a) => ({ slug: a.slug }));
-}
+const SLUG = "ministop-deficit-2026";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
-  const article = retailArticles.find((a) => a.slug === slug);
+export async function generateMetadata(): Promise<Metadata> {
+  const article = retailArticles.find((a) => a.slug === SLUG);
   if (!article) return { title: "Article Not Found" };
 
   return {
@@ -120,16 +83,19 @@ function RichText({ text }: { text: string }) {
   );
 }
 
-export default async function RetailArticlePage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const article = retailArticles.find((a) => a.slug === slug);
+const diagramMap: Record<string, React.ReactNode> = {
+  "ministop-performance": <MinistopPerformanceDiagram />,
+  "ministop-cvs-comparison": <MinistopCvsComparisonDiagram />,
+  "ministop-fraud-impact": <MinistopFraudImpactDiagram />,
+  "ministop-aeon-position": <MinistopAeonPositionDiagram />,
+  "ministop-scenarios": <MinistopScenariosDiagram />,
+};
+
+export default function MinistopDeficitPage() {
+  const article = retailArticles.find((a) => a.slug === SLUG);
   if (!article) notFound();
 
-  const articleIndex = retailArticles.findIndex((a) => a.slug === slug);
+  const articleIndex = retailArticles.findIndex((a) => a.slug === SLUG);
   const prevArticle =
     articleIndex > 0 ? retailArticles[articleIndex - 1] : null;
   const nextArticle =
@@ -151,7 +117,7 @@ export default async function RetailArticlePage({
         items={[
           { name: "Home", href: "/" },
           { name: "Industry", href: "/industry" },
-          { name: "小売", href: "/industry/retail" },
+          { name: "小売業", href: "/industry/retail" },
           {
             name: article.title,
             href: `/industry/retail/${article.slug}`,
@@ -176,8 +142,10 @@ export default async function RetailArticlePage({
           href="/industry/retail"
           className="hover:text-foreground transition-colors"
         >
-          小売
+          小売業
         </Link>
+        <span>/</span>
+        <span className="text-foreground/75 line-clamp-1">{article.title}</span>
       </div>
 
       {/* Header */}
@@ -258,35 +226,7 @@ export default async function RetailArticlePage({
               </div>
 
               {/* Diagram */}
-              {section.diagramId === "retail-market-scale" && <RetailMarketScaleDiagram />}
-              {section.diagramId === "retail-formats" && <RetailFormatsDiagram />}
-              {section.diagramId === "convenience-store" && <ConvenienceStoreDiagram />}
-              {section.diagramId === "retail-challenges" && <RetailChallengesDiagram />}
-              {section.diagramId === "retail-dx" && <RetailDxDiagram />}
-              {section.diagramId === "retail-value-chain" && <RetailValueChainDiagram />}
-              {section.diagramId === "retail-future" && <RetailFutureDiagram />}
-              {section.diagramId === "cvs-big3-overview" && <CvsBig3OverviewDiagram />}
-              {section.diagramId === "cvs-seven-strategy" && <CvsSevenStrategyDiagram />}
-              {section.diagramId === "cvs-famima-strategy" && <CvsFamimaStrategyDiagram />}
-              {section.diagramId === "cvs-lawson-strategy" && <CvsLawsonStrategyDiagram />}
-              {section.diagramId === "cvs-big3-comparison" && <CvsBig3ComparisonDiagram />}
-              {section.diagramId === "cvs-franchise-model" && <CvsFranchiseModelDiagram />}
-              {section.diagramId === "cvs-big3-future" && <CvsBig3FutureDiagram />}
-              {section.diagramId === "ec-logistics-volume" && <EcLogisticsVolumeDiagram />}
-              {section.diagramId === "ec-amazon-logistics" && <EcAmazonLogisticsDiagram />}
-              {section.diagramId === "ec-rakuten-yamato" && <EcRakutenYamatoDiagram />}
-              {section.diagramId === "ec-carrier-margins" && <EcCarrierMarginsDiagram />}
-              {section.diagramId === "retail-dx-overview" && <RetailDxOverviewDiagram />}
-              {section.diagramId === "retail-cashierless" && <RetailCashierlessDiagram />}
-              {section.diagramId === "retail-points" && <RetailPointsDiagram />}
-              {section.diagramId === "retail-vs-amazon" && <RetailVsAmazonDiagram />}
-              {section.diagramId === "retail-cost" && <RetailCostDiagram />}
-              {section.diagramId === "retail-future-2026" && <RetailFuture2026Diagram />}
-              {section.diagramId === "ministop-performance" && <MinistopPerformanceDiagram />}
-              {section.diagramId === "ministop-cvs-comparison" && <MinistopCvsComparisonDiagram />}
-              {section.diagramId === "ministop-fraud-impact" && <MinistopFraudImpactDiagram />}
-              {section.diagramId === "ministop-aeon-position" && <MinistopAeonPositionDiagram />}
-              {section.diagramId === "ministop-scenarios" && <MinistopScenariosDiagram />}
+              {section.diagramId && diagramMap[section.diagramId]}
 
               {/* Section body */}
               <div className="space-y-5">
@@ -374,13 +314,13 @@ export default async function RetailArticlePage({
 
       {/* Related Articles */}
       <RelatedArticles
-        currentSlug={slug}
+        currentSlug={SLUG}
         articles={retailArticles}
         basePath="/industry/retail"
         accentColor="#14b8a6"
       />
 
-      <RecommendedReads currentSlug={slug} currentTags={article.tags} />
+      <RecommendedReads currentSlug={SLUG} currentTags={article.tags} />
 
       {/* Article Navigation */}
       <div className="mt-14 pt-8 border-t border-brief-border">
