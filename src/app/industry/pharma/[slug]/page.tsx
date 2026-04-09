@@ -2,6 +2,14 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { pharmaArticles } from "@/lib/pharma";
+import {
+  Glp1OverviewDiagram,
+  Glp1ClinicalDataDiagram,
+  Glp1JapanMarketDiagram,
+  Glp1InsuranceDiagram,
+  Glp1RisksDiagram,
+  Glp1FutureDiagram,
+} from "@/components/Glp1JapanDiagrams";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
@@ -172,6 +180,12 @@ export default async function ArticlePage({
                 </div>
                 <div className="h-px bg-gradient-to-r from-[#10b981]/15 via-[#10b981]/5 to-transparent" />
               </div>
+              {section.diagramId === "glp1-overview" && <Glp1OverviewDiagram />}
+              {section.diagramId === "glp1-clinical-data" && <Glp1ClinicalDataDiagram />}
+              {section.diagramId === "glp1-japan-market" && <Glp1JapanMarketDiagram />}
+              {section.diagramId === "glp1-insurance" && <Glp1InsuranceDiagram />}
+              {section.diagramId === "glp1-risks" && <Glp1RisksDiagram />}
+              {section.diagramId === "glp1-future" && <Glp1FutureDiagram />}
               <div className="space-y-6">
                 {paragraphs.map((paragraph, j) => {
                   const trimmed = paragraph.trim();

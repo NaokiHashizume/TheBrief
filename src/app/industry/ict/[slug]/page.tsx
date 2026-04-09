@@ -82,6 +82,14 @@ import {
   QuantumJapanGapDiagram,
   QuantumJapanTimelineDiagram,
 } from "@/components/QuantumJapan2026Diagrams";
+import {
+  Japan5GCoverageMapDiagram,
+  Japan5GAdoptionComparisonDiagram,
+  Japan5GCarriersDiagram,
+  Japan5GIndustrialUseDiagram,
+  Japan5GRevenueDiagram,
+  Japan5GFutureDiagram,
+} from "@/components/Japan5G2026Diagrams";
 import ShareButton from "@/components/ShareButton";
 import { T } from "@/components/T";
 
@@ -220,6 +228,12 @@ const diagramMap: Record<string, React.FC> = {
   "quantum-japan-usecases": QuantumJapanUseCasesDiagram,
   "quantum-japan-gap": QuantumJapanGapDiagram,
   "quantum-japan-timeline": QuantumJapanTimelineDiagram,
+  "5g-coverage-map": Japan5GCoverageMapDiagram,
+  "5g-adoption-comparison": Japan5GAdoptionComparisonDiagram,
+  "5g-carriers": Japan5GCarriersDiagram,
+  "5g-industrial-use": Japan5GIndustrialUseDiagram,
+  "5g-revenue": Japan5GRevenueDiagram,
+  "5g-future": Japan5GFutureDiagram,
 };
 
 export default async function IctArticlePage({
