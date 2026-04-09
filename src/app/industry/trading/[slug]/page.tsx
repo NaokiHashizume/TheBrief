@@ -29,6 +29,14 @@ import {
   ShoshaItochuStrengthDiagram,
   ShoshaBuffettEffectDiagram,
 } from "@/components/SogoShoshaFy26Diagrams";
+import {
+  TradingProfitComparisonDiagram,
+  TradingAiInvestmentDiagram,
+  TradingEnergyPortfolioDiagram,
+  TradingBuffettDiagram,
+  TradingGlobalDiagram,
+  TradingFutureDiagram,
+} from "@/components/TradingCompany2026Diagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -206,6 +214,12 @@ export default async function TradingArticlePage({
             {section.diagramId === "shosha-mitsubishi-drop" && <ShoshaMitsubishiDropDiagram />}
             {section.diagramId === "shosha-itochu-strength" && <ShoshaItochuStrengthDiagram />}
             {section.diagramId === "shosha-buffett-effect" && <ShoshaBuffettEffectDiagram />}
+            {section.diagramId === "trading-profit-comparison" && <TradingProfitComparisonDiagram />}
+            {section.diagramId === "trading-ai-investment" && <TradingAiInvestmentDiagram />}
+            {section.diagramId === "trading-energy-portfolio" && <TradingEnergyPortfolioDiagram />}
+            {section.diagramId === "trading-buffett" && <TradingBuffettDiagram />}
+            {section.diagramId === "trading-global" && <TradingGlobalDiagram />}
+            {section.diagramId === "trading-future" && <TradingFutureDiagram />}
 
             {/* Section body */}
             <div className="space-y-4">
