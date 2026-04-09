@@ -27,6 +27,14 @@ import {
   EcRakutenYamatoDiagram,
   EcCarrierMarginsDiagram,
 } from "@/components/EcLogisticsDiagrams";
+import {
+  RetailDxOverviewDiagram,
+  RetailCashierlessDiagram,
+  RetailPointsDiagram,
+  RetailVsAmazonDiagram,
+  RetailCostDiagram,
+  RetailFuture2026Diagram,
+} from "@/components/RetailDx2026Diagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -264,6 +272,12 @@ export default async function RetailArticlePage({
               {section.diagramId === "ec-amazon-logistics" && <EcAmazonLogisticsDiagram />}
               {section.diagramId === "ec-rakuten-yamato" && <EcRakutenYamatoDiagram />}
               {section.diagramId === "ec-carrier-margins" && <EcCarrierMarginsDiagram />}
+              {section.diagramId === "retail-dx-overview" && <RetailDxOverviewDiagram />}
+              {section.diagramId === "retail-cashierless" && <RetailCashierlessDiagram />}
+              {section.diagramId === "retail-points" && <RetailPointsDiagram />}
+              {section.diagramId === "retail-vs-amazon" && <RetailVsAmazonDiagram />}
+              {section.diagramId === "retail-cost" && <RetailCostDiagram />}
+              {section.diagramId === "retail-future-2026" && <RetailFuture2026Diagram />}
 
               {/* Section body */}
               <div className="space-y-5">
