@@ -8,105 +8,6 @@ import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
 import { TagLink } from "@/components/TagLink";
 import {
-  Gemma4ModelFamilyDiagram,
-  Gemma4BenchmarkDiagram,
-  Gemma4ArchitectureDiagram,
-  OpenModelComparisonDiagram,
-  Gemma4UseCasesDiagram,
-  Gemma4CodeExampleDiagram,
-} from "@/components/Gemma4Diagrams";
-import {
-  AiModelOverviewDiagram,
-  ModelTimelineDiagram,
-  BenchmarkComparisonDiagram,
-  PricingComparisonDiagram,
-  MultimodalCapsDiagram,
-  ContextWindowDiagram,
-  MarketShareDiagram,
-  StrengthsSummaryDiagram,
-} from "@/components/AiModelDiagrams";
-import {
-  TpuGpuOverviewDiagram,
-  ArchitectureComparisonDiagram,
-  PerformanceSpecDiagram,
-  PowerEfficiencyDiagram,
-  CostComparisonDiagram,
-  SoftwareStackDiagram,
-  UsageMapDiagram,
-  FutureOutlookDiagram,
-} from "@/components/TpuVsGpuDiagrams";
-import {
-  MsftJpOverviewDiagram,
-  MsftJpInfraDiagram,
-  MsftJpSecurityDiagram,
-  MsftJpTalentDiagram,
-  MsftJpVsCloudDiagram,
-  MsftJpSemiLinkDiagram,
-  MsftJpImpactDiagram,
-} from "@/components/MsftJpDiagrams";
-import {
-  GlasswingOverviewDiagram,
-  GlasswingBenchmarkDiagram,
-  GlasswingPartnersDiagram,
-  GlasswingDiscoveriesDiagram,
-  GlasswingSafetyDiagram,
-  GlasswingStrategyDiagram,
-  GlasswingTimelineDiagram,
-} from "@/components/GlasswingDiagrams";
-import {
-  MuseSparkOverviewDiagram,
-  MuseSparkModesDiagram,
-  MuseSparkBenchmarksDiagram,
-  MuseSparkInvestmentDiagram,
-  MuseSparkSnsDiagram,
-  MuseSparkVsLlamaDiagram,
-  MuseSparkJapanDiagram,
-} from "@/components/MuseSparkDiagrams";
-import {
-  AiLandscape2026OverviewDiagram,
-  AiLandscape2026ModelsDiagram,
-  AiLandscape2026BenchmarkDiagram,
-  AiLandscape2026StrategyDiagram,
-  AiLandscape2026JapanDiagram,
-  AiLandscape2026TimelineDiagram,
-  AiLandscape2026FutureDiagram,
-} from "@/components/AiLandscape2026Diagrams";
-import {
-  ClaudeOpus46OverviewDiagram,
-  ClaudeOpus46BenchmarksDiagram,
-  ClaudeOpus46SafetyDiagram,
-  ClaudeOpus46VsRivalsDiagram,
-  ClaudeOpus46JapanDiagram,
-  ClaudeOpus46UsecasesDiagram,
-} from "@/components/ClaudeOpus46Diagrams";
-import {
-  LlmOverviewDiagram,
-  LlmTransformerDiagram,
-  LlmParamsDiagram,
-  LlmComparisonDiagram,
-  LlmHallucinationDiagram,
-  LlmRagDiagram,
-  LlmJapanDiagram,
-  LlmUsecaseDiagram,
-} from "@/components/LlmGuideDiagrams";
-import {
-  VibeCodingOverviewDiagram,
-  VibeCodingStatsDiagram,
-  VibeCodingToolsDiagram,
-  VibeCodingProductivityDiagram,
-  VibeCodingSecurityDiagram,
-  VibeCodingJapanDiagram,
-  VibeCodingAgenticDiagram,
-} from "@/components/VibeCodingDiagrams";
-import {
-  TokenOverviewDiagram,
-  TokenBpeDiagram,
-  TokenCjkDiagram,
-  TokenContextDiagram,
-  TokenPricingDiagram,
-  TokenFutureDiagram,
-} from "@/components/LlmTokenDiagrams";
-import {
   CmaArchitectureDiagram,
   CmaDecouplingDiagram,
   CmaPlatformComparisonDiagram,
@@ -115,28 +16,15 @@ import {
   CmaAutonomyLevelsDiagram,
   CmaCompetitorMatrixDiagram,
 } from "@/components/ClaudeManagedAgentsDiagrams";
-import {
-  ClaudenomicsOverviewDiagram,
-  ClaudenomicsPricingDiagram,
-  ClaudenomicsCachingDiagram,
-  ClaudenomicsBatchDiagram,
-  ClaudenomicsRoutingDiagram,
-  ClaudenomicsRevenueDiagram,
-  ClaudenomicsParadoxDiagram,
-  ClaudenomicsStrategyDiagram,
-} from "@/components/ClaudenomicsDiagrams";
+
+const SLUG = "claude-managed-agents-2026";
 
 export function generateStaticParams() {
-  return aiArticles.map((a) => ({ slug: a.slug }));
+  return [{ slug: SLUG }];
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
-  const article = aiArticles.find((a) => a.slug === slug);
+export async function generateMetadata(): Promise<Metadata> {
+  const article = aiArticles.find((a) => a.slug === SLUG);
   if (!article) return { title: "Article Not Found" };
 
   return {
@@ -144,12 +32,12 @@ export async function generateMetadata({
     description: article.summary,
     keywords: article.tags,
     alternates: {
-      canonical: `https://thebrief.info/industry/ai/${article.slug}`,
+      canonical: `https://thebrief.info/industry/ai/${SLUG}`,
     },
     openGraph: {
       title: article.title,
       description: article.summary,
-      url: `https://thebrief.info/industry/ai/${article.slug}`,
+      url: `https://thebrief.info/industry/ai/${SLUG}`,
       type: "article",
       locale: "ja_JP",
       siteName: "The Brief",
@@ -201,79 +89,7 @@ function RichText({ text }: { text: string }) {
   );
 }
 
-/* Diagram renderer mapped by ID */
 const diagramMap: Record<string, React.FC> = {
-  "gemma4-model-family": Gemma4ModelFamilyDiagram,
-  "gemma4-benchmarks": Gemma4BenchmarkDiagram,
-  "gemma4-architecture": Gemma4ArchitectureDiagram,
-  "gemma4-comparison": OpenModelComparisonDiagram,
-  "gemma4-code-example": Gemma4CodeExampleDiagram,
-  "gemma4-use-cases": Gemma4UseCasesDiagram,
-  "ai-model-overview": AiModelOverviewDiagram,
-  "model-timeline": ModelTimelineDiagram,
-  "benchmark-comparison": BenchmarkComparisonDiagram,
-  "pricing-comparison": PricingComparisonDiagram,
-  "multimodal-caps": MultimodalCapsDiagram,
-  "context-window": ContextWindowDiagram,
-  "market-share": MarketShareDiagram,
-  "strengths-summary": StrengthsSummaryDiagram,
-  "tpu-gpu-overview": TpuGpuOverviewDiagram,
-  "architecture-comparison": ArchitectureComparisonDiagram,
-  "performance-spec": PerformanceSpecDiagram,
-  "power-efficiency": PowerEfficiencyDiagram,
-  "cost-comparison": CostComparisonDiagram,
-  "software-stack": SoftwareStackDiagram,
-  "usage-map": UsageMapDiagram,
-  "future-outlook": FutureOutlookDiagram,
-  "msft-jp-overview": MsftJpOverviewDiagram,
-  "msft-jp-infra": MsftJpInfraDiagram,
-  "msft-jp-security": MsftJpSecurityDiagram,
-  "msft-jp-talent": MsftJpTalentDiagram,
-  "msft-jp-vs-cloud": MsftJpVsCloudDiagram,
-  "msft-jp-semi-link": MsftJpSemiLinkDiagram,
-  "msft-jp-impact": MsftJpImpactDiagram,
-  "glasswing-overview": GlasswingOverviewDiagram,
-  "glasswing-benchmarks": GlasswingBenchmarkDiagram,
-  "glasswing-partners": GlasswingPartnersDiagram,
-  "glasswing-discoveries": GlasswingDiscoveriesDiagram,
-  "glasswing-safety": GlasswingSafetyDiagram,
-  "glasswing-strategy": GlasswingStrategyDiagram,
-  "glasswing-timeline": GlasswingTimelineDiagram,
-  "muse-spark-overview": MuseSparkOverviewDiagram,
-  "muse-spark-modes": MuseSparkModesDiagram,
-  "muse-spark-benchmarks": MuseSparkBenchmarksDiagram,
-  "muse-spark-investment": MuseSparkInvestmentDiagram,
-  "muse-spark-sns": MuseSparkSnsDiagram,
-  "muse-spark-vs-llama": MuseSparkVsLlamaDiagram,
-  "muse-spark-japan": MuseSparkJapanDiagram,
-  "claude-opus-overview": ClaudeOpus46OverviewDiagram,
-  "claude-opus-benchmarks": ClaudeOpus46BenchmarksDiagram,
-  "claude-opus-safety": ClaudeOpus46SafetyDiagram,
-  "claude-opus-vs-rivals": ClaudeOpus46VsRivalsDiagram,
-  "claude-opus-japan": ClaudeOpus46JapanDiagram,
-  "claude-opus-usecases": ClaudeOpus46UsecasesDiagram,
-  "ai-landscape-overview": AiLandscape2026OverviewDiagram,
-  "ai-landscape-models": AiLandscape2026ModelsDiagram,
-  "ai-landscape-benchmark": AiLandscape2026BenchmarkDiagram,
-  "ai-landscape-strategy": AiLandscape2026StrategyDiagram,
-  "ai-landscape-japan": AiLandscape2026JapanDiagram,
-  "ai-landscape-timeline": AiLandscape2026TimelineDiagram,
-  "ai-landscape-future": AiLandscape2026FutureDiagram,
-  "llm-overview": LlmOverviewDiagram,
-  "llm-transformer": LlmTransformerDiagram,
-  "llm-params": LlmParamsDiagram,
-  "llm-comparison": LlmComparisonDiagram,
-  "llm-hallucination": LlmHallucinationDiagram,
-  "llm-rag": LlmRagDiagram,
-  "llm-japan": LlmJapanDiagram,
-  "llm-usecase": LlmUsecaseDiagram,
-  "vibe-coding-overview": VibeCodingOverviewDiagram,
-  "vibe-coding-stats": VibeCodingStatsDiagram,
-  "vibe-coding-tools": VibeCodingToolsDiagram,
-  "vibe-coding-productivity": VibeCodingProductivityDiagram,
-  "vibe-coding-security": VibeCodingSecurityDiagram,
-  "vibe-coding-japan": VibeCodingJapanDiagram,
-  "vibe-coding-agentic": VibeCodingAgenticDiagram,
   "cma-architecture": CmaArchitectureDiagram,
   "cma-decoupling": CmaDecouplingDiagram,
   "cma-platform-comparison": CmaPlatformComparisonDiagram,
@@ -281,31 +97,16 @@ const diagramMap: Record<string, React.FC> = {
   "cma-japan-impact": CmaJapanImpactDiagram,
   "cma-autonomy-levels": CmaAutonomyLevelsDiagram,
   "cma-competitor-matrix": CmaCompetitorMatrixDiagram,
-  "claudenomics-overview": ClaudenomicsOverviewDiagram,
-  "claudenomics-pricing": ClaudenomicsPricingDiagram,
-  "claudenomics-caching": ClaudenomicsCachingDiagram,
-  "claudenomics-batch": ClaudenomicsBatchDiagram,
-  "claudenomics-routing": ClaudenomicsRoutingDiagram,
-  "claudenomics-revenue": ClaudenomicsRevenueDiagram,
-  "claudenomics-paradox": ClaudenomicsParadoxDiagram,
-  "claudenomics-strategy": ClaudenomicsStrategyDiagram,
 };
 
-export default async function AiArticlePage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const article = aiArticles.find((a) => a.slug === slug);
+export default async function Page() {
+  const article = aiArticles.find((a) => a.slug === SLUG);
   if (!article) notFound();
 
-  const articleIndex = aiArticles.findIndex((a) => a.slug === slug);
+  const articleIndex = aiArticles.findIndex((a) => a.slug === SLUG);
   const prevArticle = articleIndex > 0 ? aiArticles[articleIndex - 1] : null;
   const nextArticle =
-    articleIndex < aiArticles.length - 1
-      ? aiArticles[articleIndex + 1]
-      : null;
+    articleIndex < aiArticles.length - 1 ? aiArticles[articleIndex + 1] : null;
 
   return (
     <div className="max-w-[720px] mx-auto px-5 sm:px-6 py-16">
@@ -315,14 +116,14 @@ export default async function AiArticlePage({
         datePublished={article.date}
         dateModified={article.date}
         author="The Brief"
-        url={`https://thebrief.info/industry/ai/${article.slug}`}
+        url={`https://thebrief.info/industry/ai/${SLUG}`}
       />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
           { name: "Industry", href: "/industry" },
           { name: "AI", href: "/industry/ai" },
-          { name: article.title, href: `/industry/ai/${article.slug}` },
+          { name: article.title, href: `/industry/ai/${SLUG}` },
         ]}
       />
 
@@ -343,7 +144,6 @@ export default async function AiArticlePage({
 
       {/* ── Hero Header ── */}
       <header className="mb-14">
-        {/* Category + Tags */}
         <div className="flex items-center gap-2.5 mb-5 flex-wrap">
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#8b5cf6]/60">
             AI
@@ -354,24 +154,20 @@ export default async function AiArticlePage({
           ))}
         </div>
 
-        {/* Title */}
         <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">
           {article.title}
         </h1>
 
-        {/* Subtitle */}
         {article.titleEn && (
           <p className="mt-2 text-[11px] tracking-[1px] text-foreground/25 font-medium uppercase">
             {article.titleEn}
           </p>
         )}
 
-        {/* Summary */}
         <p className="mt-6 text-[15px] text-foreground/65 leading-[1.9] border-l-2 border-[#8b5cf6]/20 pl-5">
           {article.summary}
         </p>
 
-        {/* Meta */}
         <div className="mt-6 flex items-center gap-5 text-[11px] text-foreground/35 font-medium">
           <time className="tabular-nums">{article.date}</time>
           <span className="w-1 h-1 rounded-full bg-foreground/15" />
@@ -422,7 +218,6 @@ export default async function AiArticlePage({
 
           return (
             <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
-              {/* Section heading */}
               <div className="mb-8">
                 <div className="flex items-center gap-4 mb-3">
                   <span className="text-[32px] sm:text-[40px] font-bold tabular-nums text-[#8b5cf6]/[0.08] leading-none select-none font-serif">
@@ -442,15 +237,12 @@ export default async function AiArticlePage({
                 <div className="h-px bg-gradient-to-r from-[#8b5cf6]/15 via-[#8b5cf6]/5 to-transparent" />
               </div>
 
-              {/* Diagram */}
               {DiagramComponent && <DiagramComponent />}
 
-              {/* Section body */}
               <div className="space-y-6">
                 {paragraphs.map((paragraph, j) => {
                   const trimmed = paragraph.trim();
 
-                  // Callout box
                   if (trimmed.startsWith("> ")) {
                     const calloutText = trimmed.slice(2);
                     return (
@@ -458,26 +250,20 @@ export default async function AiArticlePage({
                         key={j}
                         className="my-8 pl-5 py-4 rounded-r-lg bg-[#8b5cf6]/[0.03] dark:bg-[#8b5cf6]/[0.06] border-l-3 border-[#8b5cf6]/25"
                       >
-                        <div>
-                          <p className="text-[14px] text-foreground/70 leading-[1.9] italic">
-                            <RichText text={calloutText} />
-                          </p>
-                        </div>
+                        <p className="text-[14px] text-foreground/70 leading-[1.9] italic">
+                          <RichText text={calloutText} />
+                        </p>
                       </div>
                     );
                   }
 
-                  // 【bracket】labels
                   if (trimmed.startsWith("【")) {
                     const bracketEnd = trimmed.indexOf("】");
                     if (bracketEnd > 0) {
                       const label = trimmed.slice(1, bracketEnd);
                       const content = trimmed.slice(bracketEnd + 1).trim();
                       return (
-                        <div
-                          key={j}
-                          className="group pl-5 py-3 relative"
-                        >
+                        <div key={j} className="group pl-5 py-3 relative">
                           <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-[#8b5cf6]/20 group-hover:bg-[#8b5cf6]/35 transition-colors" />
                           <div className="text-[11px] font-bold text-[#8b5cf6]/60 tracking-wide mb-1.5">
                             {label}
@@ -490,7 +276,6 @@ export default async function AiArticlePage({
                     }
                   }
 
-                  // Lead paragraph
                   const isLead = j === 0 || (j === 1 && paragraphs[0].trim().startsWith("> "));
 
                   return (
@@ -514,7 +299,6 @@ export default async function AiArticlePage({
 
       <ShareButton title={article.title} />
 
-      {/* FAQ Structured Data */}
       <FAQJsonLd
         items={article.sections
           .flatMap((s) =>
@@ -530,17 +314,15 @@ export default async function AiArticlePage({
           .slice(0, 10)}
       />
 
-      {/* Related Articles */}
       <RelatedArticles
-        currentSlug={slug}
+        currentSlug={SLUG}
         articles={aiArticles}
         basePath="/industry/ai"
         accentColor="#8b5cf6"
       />
 
-      <RecommendedReads currentSlug={slug} currentTags={article.tags} />
+      <RecommendedReads currentSlug={SLUG} currentTags={article.tags} />
 
-      {/* ── Article Navigation ── */}
       <div className="mt-20 pt-12 border-t border-foreground/[0.04]">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {prevArticle ? (
