@@ -1559,4 +1559,120 @@ The 2029 review will tackle an even more fundamental question than 2025 did: **w
       },
     ],
   },
+  {
+    slug: "unix-linux-guide",
+    title: "UNIXとLinux完全ガイド — 歴史から現代の活用まで",
+    titleEn: "Complete Guide to UNIX and Linux — From History to Modern Usage",
+    date: "2026-04-09",
+    author: "",
+    readTime: "12 min",
+    tags: ["Linux", "UNIX", "OS", "オープンソース", "クラウド", "サーバー", "インフラ"],
+    summary:
+      "世界のクラウドインフラの90%以上、Androidを通じてスマートフォン市場の72%超を支配するLinux。1969年のUNIX誕生から半世紀以上を経て、なぜオープンソースのOSが現代デジタル社会の基盤となったのか。歴史・アーキテクチャ・ディストリビューション比較・日本での活用事例を通じ、「UNIXの遣産を継ぐOS」が今後も支配的である理由と、日本企業がLinux活用で出遅れている本質的な問題を問い直す。",
+    summaryEn:
+      "Linux dominates over 90% of the world's cloud infrastructure and, through Android, controls more than 72% of the smartphone market. More than half a century after UNIX's birth in 1969, why has an open-source OS become the foundation of modern digital society? Through history, architecture, distribution comparisons, and Japanese use cases, this guide examines why 'the OS that inherited UNIX's legacy' will continue to dominate — and the structural reasons Japanese companies are lagging behind in Linux adoption.",
+    sections: [
+      {
+        heading: "UNIXの誕生——1969年ベル研究所から始まった革命",
+        headingEn: "The Birth of UNIX — The Revolution That Started at Bell Labs in 1969",
+        diagramId: "unix-linux-timeline",
+        body: `1969年、AT&Tベル研究所のケン・トンプソンとデニス・リッチーは、内部プロジェクト用に小さなOSを作り始めた。それが**UNIX**だ。当時の商用OSはメインフレーム専用で高価であり、研究者が自由に使えるコンピューティング環境は存在しなかった。
+
+> この記事でわかること：UNIXとLinuxの歴史的経緯と技術的関係、Linuxが世界インフラを支配する理由、主要ディストリビューションの選び方、日本でのLinux活用の現状と課題、そして202 6年以降のLinuxエコシステムの展望。
+
+1973年、UNIXはC言語で書き直された。この決断が歴史を変えた。アセンブラで書かれたOSは特定のCPUアーキテクチャに依存するが、C言語で書かれたUNIXは異なるハードウェアへの移植が可能になった。「OSの移植性」という概念を初めて実現したのがUNIXだ。`,
+        bodyEn: `In 1969, Ken Thompson and Dennis Ritchie at AT&T Bell Labs began building a small OS for internal use. That was UNIX. Commercial operating systems of the era were mainframe-exclusive and expensive; no freely accessible computing environment existed for researchers.
+
+> What this article covers: the historical and technical relationship between UNIX and Linux, why Linux dominates global infrastructure, how to choose a Linux distribution, the current state of Linux adoption in Japan, and the outlook for the Linux ecosystem beyond 2026.
+
+In 1973, UNIX was rewritten in the C programming language. That decision changed history. An OS written in assembly was tied to a specific CPU architecture, but UNIX written in C could be ported to different hardware. UNIX was the first OS to realize the concept of "portability."`,
+      },
+      {
+        heading: "LinuxはなぞUNIXではないのか——法的・技術的な切断線",
+        headingEn: "Why Linux Is Not UNIX — The Legal and Technical Dividing Line",
+        diagramId: "unix-linux-comparison",
+        body: `LinuxはUNIXを参考にしているが、UNIXではない。この区別は単なる技術的な話にとどまらず、**知的財産・ライセンス・産業構造**に深く関わる。
+
+[インライン表示のため一部省略]`,
+        bodyEn: `Linux is inspired by UNIX, but it is not UNIX. This distinction goes beyond mere technical trivia — it deeply involves intellectual property, licensing, and industrial structure.
+
+[Abbreviated for inline display]`,
+      },
+      {
+        heading: "世界インフラの支配者——Linuxのシェア統計が示す衆撃",
+        headingEn: "Ruler of World Infrastructure — The Shocking Statistics of Linux's Market Share",
+        diagramId: "linux-share-stats",
+        body: `Linuxの普及を「デスクトップOSシェア3%」で語る人がいる。それは木を見て森を見ない典型だ。デスクトップ以外のあらゆる領域でLinuxは**支配的**だ。
+
+**クラウドインフラ：** パブリッククラウド（AWS・Azure・GCP）のワークロードの90%以上がLinux上で動作する。
+
+**サーバー市場：** Webサーバーの75%以上がLinuxを使用。スーパーコンピュータに至っては、世界Top500のリストの100%がLinuxで動作している（2017年以降）。
+
+**スマートフォン：** AndroidはLinuxカーネルをベースとしており、2025年のモバイルOS市場シェアは72.77%。`,
+        bodyEn: `Some describe Linux's reach in terms of "3% desktop OS market share." That's a textbook case of missing the forest for the trees. In every domain beyond the desktop, Linux is dominant.
+
+**Cloud Infrastructure:** Over 90% of public cloud (AWS, Azure, GCP) workloads run on Linux.
+
+**Server Market:** Over 75% of web servers use Linux. For supercomputers, 100% of the world's Top 500 have run Linux since 2017.
+
+**Smartphones:** Android is based on the Linux kernel, holding 72.77% of the mobile OS market in 2025.`,
+      },
+      {
+        heading: "ディストリビューション比較——Ubuntu・RHEL・Debianはどう選ぶ",
+        headingEn: "Distribution Comparison — How to Choose Ubuntu, RHEL, or Debian",
+        diagramId: "linux-distro-comparison",
+        body: `Linuxには数百のディストリビューション（ディストロ）が存在する。「どれを選ぶか」は用途・組織規模・サポートの要件によって大きく異なる。
+
+[インライン表示のため一部省略]`,
+        bodyEn: `Linux has hundreds of distributions. "Which to choose" varies greatly by use case, organizational size, and support requirements.
+
+[Abbreviated for inline display]`,
+      },
+      {
+        heading: "Linuxカーネルアーキテクチャ—⁄40年の進化が生んだ設計思想",
+        headingEn: "Linux Kernel Architecture — The Design Philosophy Born from 40 Years of Evolution",
+        diagramId: "linux-kernel-architecture",
+        body: `Linuxカーネルは2025年初頪に**4,000万行**のコードに達し、2015年から倍増した。
+
+[インライン表示のため一部省略]`,
+        bodyEn: `The Linux kernel reached 40 million lines of code in early 2025, doubling since 2015.
+
+[Abbreviated for inline display]`,
+      },
+      {
+        heading: "日本でのLinux活用——普及しているようで遅れている本当の理由",
+        headingEn: "Linux Adoption in Japan — Why It's Superficially Widespread but Structurally Behind",
+        body: `Linux Foundation Japanが2025年12月に発表した「日本のオープンソースの現状2025」報告書は、日本企業のOSS活用の現状を赤裸々に示している。**69%の組織がOSSからのビジネス価値が向上したと回答**する一方で、ガバナンスとセキュリティの成熟度には大きなギャップが存在する。
+
+> OSSを使うことと、OSSのエコシステムに貢献することは全く別の行為だ。使うだけではエコシステムに「フリーライド」しており、長期的には技術的主権を外資に委ねることになる。`,
+        bodyEn: `The "State of Open Source Japan 2025" report reveals a candid picture of OSS adoption in Japanese companies. While 69% of organizations report increased business value from OSS, significant gaps exist in governance and security maturity.
+
+> Using OSS and contributing to the OSS ecosystem are entirely different activities. Mere usage amounts to "free-riding" on the ecosystem.`,
+      },
+      {
+        heading: "2026年以降のLinux——Rust・AI・量子の交差点で",
+        headingEn: "Linux Beyond 2026 — At the Intersection of Rust, AI, and Quantum",
+        body: `2026年4月、**Linux 7.0**が登場する可能性がある（2026年2月日に Linux 6.19がリリースされ、6.xシリーズ最終版となった）。
+
+Rustの本格採用により、2026ー2028年にかけて新規コードのバグ密度が有意に改善すると予測される。Linuxの本質的な強みは**オープンソースによる集合知**だ。`,
+        bodyEn: `In April 2026, Linux 7.0 may appear (Linux 6.19 was released on February 8, 2026, as the final version in the 6.x series).
+
+With Rust's full adoption, bug density in new code is projected to improve significantly through 2026-2028. Linux's fundamental strength is the collective intelligence of open source.`,
+      },
+      {
+        heading: "まとめ——「UNIXの遣産」を超えて、Linuxが問い直す技術的主権",
+        headingEn: "Conclusion — Beyond the 'UNIX Legacy': Linux and the Question of Technological Sovereignty",
+        body: `LinuxはUNIXの「精神的後継者」であるが、それ以上の存在になった。
+
+日本への示唆は明確だ。**使うことと、作ること（コントリビューション）は違う**。
+
+UNIX誕生かご57年。Linuxカーネルの誕生かご35年。コードは変わり続けているが、根底にある哲学——**「シンプルさ・移植性・オープンさ」**——は変わっていない。`,
+        bodyEn: `Linux has become more than a "spiritual successor" to UNIX.
+
+The implications for Japan are clear. Using something and creating (contributing to) something are different.
+
+57 years since UNIX's birth. 35 years since the Linux kernel's birth. Code keeps changing, but the underlying philosophy — simplicity, portability, and openness — has not.`,
+      },
+    ],
+  },
 ];
