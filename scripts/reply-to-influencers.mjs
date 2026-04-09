@@ -25,16 +25,13 @@ const HISTORY_FILE = path.join(__dirname, "x-reply-history.json");
 // ── エンゲージメント対象アカウント ──
 // X Analytics で高パフォーマンスが確認された分野ごとのインフルエンサー
 const TARGET_ACCOUNTS = [
-  // 政治・経済
-  { username: "ds_nakajima",    topic: "政治・選挙",    lang: "ja" },
-  { username: "masaki_finance", topic: "金融・マクロ経済", lang: "ja" },
-  { username: "econ_watch",     topic: "経済統計",      lang: "ja" },
-  { username: "poli_analyst",   topic: "政策分析",      lang: "ja" },
-  // テック・AI
+  // テック・AI（確認済み: 日本語、関連性高）
   { username: "masahirochaen",  topic: "AI・テック",    lang: "ja" },
+  { username: "ds_nakajima",    topic: "政治・AI",      lang: "ja" },
   { username: "daifukujinji",   topic: "テクノロジー",  lang: "ja" },
-  // 追加候補（コメントアウトで管理）
-  // { username: "om_patel5",      topic: "startup",      lang: "en" },
+  // 追加候補（ユーザー名確認後にコメントを外す）
+  // { username: "masaki_finance", topic: "金融・マクロ経済", lang: "ja" },
+  // { username: "econ_watch",     topic: "経済統計",      lang: "ja" },
 ];
 
 // ── TheBrief 関連トピック（リプライ対象の判断基準） ──
