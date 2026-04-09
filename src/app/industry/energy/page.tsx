@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   title: "資源エネルギー — Industry",
   description: "石油・ガス、電力、再生可能エネルギー、原子力、脱炭素戦略の最新動向。",
   alternates: { canonical: "https://thebrief.info/industry/energy" },
+  openGraph: {
+    title: "資源エネルギー — Industry",
+    description: "石油・ガス、電力、再生可能エネルギー、原子力、脱炭素戦略の最新動向。",
+    url: "https://thebrief.info/industry/energy",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "資源エネルギー — Industry",
+    description: "石油・ガス、電力、再生可能エネルギー、原子力、脱炭素戦略の最新動向。",
+  },
 };
 
 function parseReadTime(rt: string): number {

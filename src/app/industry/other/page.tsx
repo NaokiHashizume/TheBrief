@@ -8,6 +8,21 @@ export const metadata: Metadata = {
   description:
     "特定業界に限定されないクロスセクター分析、経済圏戦争、地政学リスクなど、業界横断的なテーマの最新動向と解説記事。",
   alternates: { canonical: "https://thebrief.info/industry/other" },
+  openGraph: {
+    title: "その他 — Industry",
+    description:
+      "特定業界に限定されないクロスセクター分析、経済圏戦争、地政学リスクなど、業界横断的なテーマの最新動向と解説記事。",
+    url: "https://thebrief.info/industry/other",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "その他 — Industry",
+    description:
+      "特定業界に限定されないクロスセクター分析、経済圏戦争、地政学リスクなど、業界横断的なテーマの最新動向と解説記事。",
+  },
 };
 
 function parseReadTime(rt: string): number {

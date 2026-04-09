@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   title: "医薬品・医療介護 — Industry",
   description: "新薬開発、医療DX、バイオテクノロジー、介護・ヘルスケアの最新動向。",
   alternates: { canonical: "https://thebrief.info/industry/pharma" },
+  openGraph: {
+    title: "医薬品・医療介護 — Industry",
+    description: "新薬開発、医療DX、バイオテクノロジー、介護・ヘルスケアの最新動向。",
+    url: "https://thebrief.info/industry/pharma",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "医薬品・医療介護 — Industry",
+    description: "新薬開発、医療DX、バイオテクノロジー、介護・ヘルスケアの最新動向。",
+  },
 };
 
 function parseReadTime(rt: string): number {

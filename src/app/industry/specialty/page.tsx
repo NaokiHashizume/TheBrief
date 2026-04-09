@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   title: "専門店・EC — Industry",
   description: "EC市場、家電量販、アパレル専門店、フリマアプリなど専門小売。",
   alternates: { canonical: "https://thebrief.info/industry/specialty" },
+  openGraph: {
+    title: "専門店・EC — Industry",
+    description: "EC市場、家電量販、アパレル専門店、フリマアプリなど専門小売。",
+    url: "https://thebrief.info/industry/specialty",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "専門店・EC — Industry",
+    description: "EC市場、家電量販、アパレル専門店、フリマアプリなど専門小売。",
+  },
 };
 
 function parseReadTime(rt: string): number {

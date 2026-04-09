@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   title: "金融機関 — Industry",
   description: "メガバンク、証券、保険、デジタル決済、暗号資産、新NISA関連の最新動向。",
   alternates: { canonical: "https://thebrief.info/industry/finance" },
+  openGraph: {
+    title: "金融機関 — Industry",
+    description: "メガバンク、証券、保険、デジタル決済、暗号資産、新NISA関連の最新動向。",
+    url: "https://thebrief.info/industry/finance",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "金融機関 — Industry",
+    description: "メガバンク、証券、保険、デジタル決済、暗号資産、新NISA関連の最新動向。",
+  },
 };
 
 function parseReadTime(rt: string): number {

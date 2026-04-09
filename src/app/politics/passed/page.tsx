@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   description:
     "国会で可決・成立したが、まだ施行されていない主要法令の一覧。日本版DBS、民事訴訟IT化など。",
   alternates: { canonical: "https://thebrief.info/politics/passed" },
+  openGraph: {
+    title: "成立済 — 成立したが未施行の主要法令",
+    description: "国会で可決・成立したが、まだ施行されていない主要法令の一覧。日本版DBS、民事訴訟IT化など。",
+    url: "https://thebrief.info/politics/passed",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "成立済 — 成立したが未施行の主要法令",
+    description: "国会で可決・成立したが、まだ施行されていない主要法令の一覧。日本版DBS、民事訴訟IT化など。",
+  },
 };
 
 export default function PassedPage() {

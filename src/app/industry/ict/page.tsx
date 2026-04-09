@@ -12,6 +12,21 @@ export const metadata: Metadata = {
   description:
     "通信キャリア、IT企業、SaaS、クラウド、サイバーセキュリティなど情報通信業界の最新動向と解説記事。",
   alternates: { canonical: "https://thebrief.info/industry/ict" },
+  openGraph: {
+    title: "情報通信 — Industry",
+    description:
+      "通信キャリア、IT企業、SaaS、クラウド、サイバーセキュリティなど情報通信業界の最新動向と解説記事。",
+    url: "https://thebrief.info/industry/ict",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "情報通信 — Industry",
+    description:
+      "通信キャリア、IT企業、SaaS、クラウド、サイバーセキュリティなど情報通信業界の最新動向と解説記事。",
+  },
 };
 
 function parseReadTime(rt: string): number {

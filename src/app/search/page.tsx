@@ -7,6 +7,19 @@ export const metadata: Metadata = {
   description: "The Brief 内のニュース・記事・コラムを検索します。",
   alternates: { canonical: "https://thebrief.info/search" },
   robots: { index: false, follow: true },
+  openGraph: {
+    title: "検索 / Search",
+    description: "The Brief 内のニュース・記事・コラムを検索します。",
+    url: "https://thebrief.info/search",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "検索 / Search",
+    description: "The Brief 内のニュース・記事・コラムを検索します。",
+  },
 };
 
 export default function SearchPage() {

@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   description:
     "国会で現在審議されている法案・議題の一覧。予算案、AI規制法、少子化対策など主要な議論の概要と各政党の立場をまとめます。",
   alternates: { canonical: "https://thebrief.info/politics/debates" },
+  openGraph: {
+    title: "審議中 — 国会で審議中の法案・議題",
+    description: "国会で現在審議されている法案・議題の一覧。予算案、AI規制法、少子化対策など主要な議論の概要と各政党の立場をまとめます。",
+    url: "https://thebrief.info/politics/debates",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "審議中 — 国会で審議中の法案・議題",
+    description: "国会で現在審議されている法案・議題の一覧。予算案、AI規制法、少子化対策など主要な議論の概要と各政党の立場をまとめます。",
+  },
 };
 
 export default function DebatesPage() {

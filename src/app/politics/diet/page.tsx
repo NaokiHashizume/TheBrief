@@ -171,6 +171,19 @@ export const metadata: Metadata = {
   description:
     "日本の国会を構成する衆議院と参議院の役割、政党別議席数をわかりやすく解説します。",
   alternates: { canonical: "https://thebrief.info/politics/diet" },
+  openGraph: {
+    title: "国会 — 衆議院・参議院の構成",
+    description: "日本の国会を構成する衆議院と参議院の役割、政党別議席数をわかりやすく解説します。",
+    url: "https://thebrief.info/politics/diet",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "国会 — 衆議院・参議院の構成",
+    description: "日本の国会を構成する衆議院と参議院の役割、政党別議席数をわかりやすく解説します。",
+  },
 };
 
 function ChamberExplainer({

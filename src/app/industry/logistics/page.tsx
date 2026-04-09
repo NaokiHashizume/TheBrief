@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   title: "物流・運輸 — Industry",
   description: "宅配、鉄道、航空、海運、倉庫、2024年問題とその後の対応。",
   alternates: { canonical: "https://thebrief.info/industry/logistics" },
+  openGraph: {
+    title: "物流・運輸 — Industry",
+    description: "宅配、鉄道、航空、海運、倉庫、2024年問題とその後の対応。",
+    url: "https://thebrief.info/industry/logistics",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "物流・運輸 — Industry",
+    description: "宅配、鉄道、航空、海運、倉庫、2024年問題とその後の対応。",
+  },
 };
 
 function parseReadTime(rt: string): number {

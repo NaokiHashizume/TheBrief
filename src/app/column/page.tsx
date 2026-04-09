@@ -7,6 +7,19 @@ export const metadata: Metadata = {
   description:
     "Politics・Economy・Industry・Universityでは拾いきれない、暮らしとお金にまつわる小話をコラム形式でまとめます。",
   alternates: { canonical: "https://thebrief.info/column" },
+  openGraph: {
+    title: "Column — 暮らしとお金の小話",
+    description: "Politics・Economy・Industry・Universityでは拾いきれない、暮らしとお金にまつわる小話をコラム形式でまとめます。",
+    url: "https://thebrief.info/column",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Column — 暮らしとお金の小話",
+    description: "Politics・Economy・Industry・Universityでは拾いきれない、暮らしとお金にまつわる小話をコラム形式でまとめます。",
+  },
 };
 
 const COLUMN_COLOR = "#0d9488";

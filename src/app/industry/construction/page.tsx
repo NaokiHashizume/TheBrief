@@ -12,6 +12,21 @@ export const metadata: Metadata = {
   description:
     "ゼネコン、住宅メーカー、不動産デベロッパー、REIT、都市再開発など建設・不動産業界の最新動向と解説記事。",
   alternates: { canonical: "https://thebrief.info/industry/construction" },
+  openGraph: {
+    title: "建設・不動産 — Industry",
+    description:
+      "ゼネコン、住宅メーカー、不動産デベロッパー、REIT、都市再開発など建設・不動産業界の最新動向と解説記事。",
+    url: "https://thebrief.info/industry/construction",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "建設・不動産 — Industry",
+    description:
+      "ゼネコン、住宅メーカー、不動産デベロッパー、REIT、都市再開発など建設・不動産業界の最新動向と解説記事。",
+  },
 };
 
 function parseReadTime(rt: string): number {

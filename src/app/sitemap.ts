@@ -23,6 +23,7 @@ import { tradingArticles } from "@/lib/trading";
 import { dailyArticles } from "@/lib/daily";
 import { otherArticles } from "@/lib/other";
 import { universityCategories } from "@/lib/university";
+import { allLectures } from "@/lib/lectures";
 
 const SITE_URL = "https://thebrief.info";
 
@@ -116,6 +117,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "weekly" as const,
       priority: 0.7,
+    })),
+    ...allLectures.map((lecture) => ({
+      url: `${SITE_URL}/university/${lecture.category}/${lecture.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
     })),
   ];
 

@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   title: "物流・運輸 CF（キャッシュフロー計算書） — Industry",
   description: "物流・運輸のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",
   alternates: { canonical: "https://thebrief.info/industry/logistics/cf" },
+  openGraph: {
+    title: "物流・運輸 CF（キャッシュフロー計算書） — Industry",
+    description: "物流・運輸のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",
+    url: "https://thebrief.info/industry/logistics/cf",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "物流・運輸 CF（キャッシュフロー計算書） — Industry",
+    description: "物流・運輸のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",
+  },
 };
 
 export default function Page() {

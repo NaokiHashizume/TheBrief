@@ -17,6 +17,21 @@ export const metadata: Metadata = {
   description:
     "トヨタ、ホンダ、日産、スズキ、マツダ、SUBARU、三菱、ダイハツ、いすゞ、日野 — 日本の主要自動車メーカー10社の業績・EV戦略・最新動向を一覧比較。",
   alternates: { canonical: "https://thebrief.info/industry/automotive" },
+  openGraph: {
+    title: "自動車 — Industry",
+    description:
+      "トヨタ、ホンダ、日産、スズキ、マツダ、SUBARU、三菱、ダイハツ、いすゞ、日野 — 日本の主要自動車メーカー10社の業績・EV戦略・最新動向を一覧比較。",
+    url: "https://thebrief.info/industry/automotive",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "自動車 — Industry",
+    description:
+      "トヨタ、ホンダ、日産、スズキ、マツダ、SUBARU、三菱、ダイハツ、いすゞ、日野 — 日本の主要自動車メーカー10社の業績・EV戦略・最新動向を一覧比較。",
+  },
 };
 
 export default function AutomotivePage() {

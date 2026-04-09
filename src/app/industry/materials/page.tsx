@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   title: "素材 — Industry",
   description: "化学、鉄鋼、非鉄金属、セメント、繊維など素材メーカーの最新動向。",
   alternates: { canonical: "https://thebrief.info/industry/materials" },
+  openGraph: {
+    title: "素材 — Industry",
+    description: "化学、鉄鋼、非鉄金属、セメント、繊維など素材メーカーの最新動向。",
+    url: "https://thebrief.info/industry/materials",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "素材 — Industry",
+    description: "化学、鉄鋼、非鉄金属、セメント、繊維など素材メーカーの最新動向。",
+  },
 };
 
 function parseReadTime(rt: string): number {

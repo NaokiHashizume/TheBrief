@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   description:
     "日本の政治に関する解説記事。政策課題、制度解説、政治動向の分析を掲載。",
   alternates: { canonical: "https://thebrief.info/politics/articles" },
+  openGraph: {
+    title: "政治記事 — Politics Articles",
+    description: "日本の政治に関する解説記事。政策課題、制度解説、政治動向の分析を掲載。",
+    url: "https://thebrief.info/politics/articles",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "政治記事 — Politics Articles",
+    description: "日本の政治に関する解説記事。政策課題、制度解説、政治動向の分析を掲載。",
+  },
 };
 
 function parseReadTime(rt: string): number {

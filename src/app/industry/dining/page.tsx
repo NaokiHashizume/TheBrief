@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   title: "外食 — Industry",
   description: "ファミレス、ファストフード、居酒屋、カフェチェーンなど外食産業の動向。",
   alternates: { canonical: "https://thebrief.info/industry/dining" },
+  openGraph: {
+    title: "外食 — Industry",
+    description: "ファミレス、ファストフード、居酒屋、カフェチェーンなど外食産業の動向。",
+    url: "https://thebrief.info/industry/dining",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "外食 — Industry",
+    description: "ファミレス、ファストフード、居酒屋、カフェチェーンなど外食産業の動向。",
+  },
 };
 
 function parseReadTime(rt: string): number {

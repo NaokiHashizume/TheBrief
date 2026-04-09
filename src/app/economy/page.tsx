@@ -16,6 +16,19 @@ export const metadata: Metadata = {
   description:
     "日本の主要経済指標を一覧表示。GDP成長率、消費者物価指数、失業率、日経平均、為替レート、日銀政策金利など、最新の数値と動向をわかりやすくまとめます。",
   alternates: { canonical: "https://thebrief.info/economy" },
+  openGraph: {
+    title: "Economy — 日本経済指標",
+    description: "日本の主要経済指標を一覧表示。GDP成長率、消費者物価指数、失業率、日経平均、為替レート、日銀政策金利など、最新の数値と動向をわかりやすくまとめます。",
+    url: "https://thebrief.info/economy",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Economy — 日本経済指標",
+    description: "日本の主要経済指標を一覧表示。GDP成長率、消費者物価指数、失業率、日経平均、為替レート、日銀政策金利など、最新の数値と動向をわかりやすくまとめます。",
+  },
 };
 
 function trendArrow(trend: TrendDirection): string {

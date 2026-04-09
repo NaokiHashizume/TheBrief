@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   title: "金融機関 CF（キャッシュフロー計算書） — Industry",
   description: "金融機関のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",
   alternates: { canonical: "https://thebrief.info/industry/finance/cf" },
+  openGraph: {
+    title: "金融機関 CF（キャッシュフロー計算書） — Industry",
+    description: "金融機関のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",
+    url: "https://thebrief.info/industry/finance/cf",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "金融機関 CF（キャッシュフロー計算書） — Industry",
+    description: "金融機関のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",
+  },
 };
 
 export default function Page() {

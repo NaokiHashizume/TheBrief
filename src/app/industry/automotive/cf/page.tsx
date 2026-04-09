@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   description:
     "日本の主要自動車メーカー10社のキャッシュフロー計算書（CF）を比較。営業CF・投資CF・財務CF・フリーCFを一覧。",
   alternates: { canonical: "https://thebrief.info/industry/automotive/cf" },
+  openGraph: {
+    title: "自動車 CF（キャッシュフロー計算書） — Industry",
+    description: "日本の主要自動車メーカー10社のキャッシュフロー計算書（CF）を比較。営業CF・投資CF・財務CF・フリーCFを一覧。",
+    url: "https://thebrief.info/industry/automotive/cf",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "自動車 CF（キャッシュフロー計算書） — Industry",
+    description: "日本の主要自動車メーカー10社のキャッシュフロー計算書（CF）を比較。営業CF・投資CF・財務CF・フリーCFを一覧。",
+  },
 };
 
 export default function AutomotiveCFPage() {

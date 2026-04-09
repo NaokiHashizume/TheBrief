@@ -21,11 +21,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug, subject } = await params;
   const lecture = getLecture(slug, subject);
   if (!lecture) return {};
+  const url = `https://thebrief.info/university/${slug}/${subject}`;
+
   return {
     title: `${lecture.title} — ${lecture.badge} | University`,
     description: lecture.description,
-    alternates: {
-      canonical: `https://thebrief.info/university/${slug}/${subject}`,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${lecture.title} — ${lecture.badge} | University | TheBrief`,
+      description: lecture.description,
+      url,
+      siteName: "TheBrief",
+      locale: "ja_JP",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${lecture.title} — ${lecture.badge} | University | TheBrief`,
+      description: lecture.description,
     },
   };
 }

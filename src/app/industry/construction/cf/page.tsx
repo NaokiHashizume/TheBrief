@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   title: "建設・不動産 CF（キャッシュフロー計算書） — Industry",
   description: "建設・不動産のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",
   alternates: { canonical: "https://thebrief.info/industry/construction/cf" },
+  openGraph: {
+    title: "建設・不動産 CF（キャッシュフロー計算書） — Industry",
+    description: "建設・不動産のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",
+    url: "https://thebrief.info/industry/construction/cf",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "建設・不動産 CF（キャッシュフロー計算書） — Industry",
+    description: "建設・不動産のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",
+  },
 };
 
 export default function Page() {

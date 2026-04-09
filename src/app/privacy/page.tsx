@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "The Briefのプライバシーポリシー。個人情報の収集、使用、Cookie、Google AdSenseに関する方針を説明します。",
   alternates: { canonical: "https://thebrief.info/privacy" },
+  openGraph: {
+    title: "Privacy Policy",
+    description: "The Briefのプライバシーポリシー。個人情報の収集、使用、Cookie、Google AdSenseに関する方針を説明します。",
+    url: "https://thebrief.info/privacy",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy",
+    description: "The Briefのプライバシーポリシー。個人情報の収集、使用、Cookie、Google AdSenseに関する方針を説明します。",
+  },
 };
 
 export default function PrivacyPolicy() {

@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   title: "金融機関 BS（貸借対照表） — Industry",
   description: "金融機関の貸借対照表（BS）の業界構造を解説。資産構成・負債構造・自己資本比率の特徴と主要企業。",
   alternates: { canonical: "https://thebrief.info/industry/finance/bs" },
+  openGraph: {
+    title: "金融機関 BS（貸借対照表） — Industry",
+    description: "金融機関の貸借対照表（BS）の業界構造を解説。資産構成・負債構造・自己資本比率の特徴と主要企業。",
+    url: "https://thebrief.info/industry/finance/bs",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "金融機関 BS（貸借対照表） — Industry",
+    description: "金融機関の貸借対照表（BS）の業界構造を解説。資産構成・負債構造・自己資本比率の特徴と主要企業。",
+  },
 };
 
 export default function Page() {

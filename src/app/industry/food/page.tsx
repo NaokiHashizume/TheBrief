@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   title: "食品 — Industry",
   description: "食品メーカー、飲料、乳業、冷凍食品、調味料など食品業界の最新動向。",
   alternates: { canonical: "https://thebrief.info/industry/food" },
+  openGraph: {
+    title: "食品 — Industry",
+    description: "食品メーカー、飲料、乳業、冷凍食品、調味料など食品業界の最新動向。",
+    url: "https://thebrief.info/industry/food",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "食品 — Industry",
+    description: "食品メーカー、飲料、乳業、冷凍食品、調味料など食品業界の最新動向。",
+  },
 };
 
 function parseReadTime(rt: string): number {

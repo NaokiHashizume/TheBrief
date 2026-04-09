@@ -12,6 +12,21 @@ export const metadata: Metadata = {
   description:
     "総合商社、専門商社、卸売業。資源・食料・素材のグローバル取引から小売戦略まで、商社・卸売業界の最新動向と解説記事。",
   alternates: { canonical: "https://thebrief.info/industry/trading" },
+  openGraph: {
+    title: "商社・卸売 — Industry",
+    description:
+      "総合商社、専門商社、卸売業。資源・食料・素材のグローバル取引から小売戦略まで、商社・卸売業界の最新動向と解説記事。",
+    url: "https://thebrief.info/industry/trading",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "商社・卸売 — Industry",
+    description:
+      "総合商社、専門商社、卸売業。資源・食料・素材のグローバル取引から小売戦略まで、商社・卸売業界の最新動向と解説記事。",
+  },
 };
 
 function parseReadTime(rt: string): number {

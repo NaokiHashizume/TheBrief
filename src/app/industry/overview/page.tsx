@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   description:
     "日本の主要業界を売上高・利益率・時価総額で比較するビジュアルダッシュボード。財務プロファイル（PL/BS/CF）も掲載。",
   alternates: { canonical: "https://thebrief.info/industry/overview" },
+  openGraph: {
+    title: "業界概況 — Industry Overview",
+    description: "日本の主要業界を売上高・利益率・時価総額で比較するビジュアルダッシュボード。財務プロファイル（PL/BS/CF）も掲載。",
+    url: "https://thebrief.info/industry/overview",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "業界概況 — Industry Overview",
+    description: "日本の主要業界を売上高・利益率・時価総額で比較するビジュアルダッシュボード。財務プロファイル（PL/BS/CF）も掲載。",
+  },
 };
 
 export default function IndustryOverviewPage() {

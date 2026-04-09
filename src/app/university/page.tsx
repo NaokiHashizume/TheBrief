@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   description:
     "大学・研究の世界を大分類から俯瞰。形式科学、自然科学、人文科学、社会科学、応用科学、学際領域まで、主要な学問分野を一覧できます。",
   alternates: { canonical: "https://thebrief.info/university" },
+  openGraph: {
+    title: "University — 学問体系と研究領域",
+    description: "大学・研究の世界を大分類から俯瞰。形式科学、自然科学、人文科学、社会科学、応用科学、学際領域まで、主要な学問分野を一覧できます。",
+    url: "https://thebrief.info/university",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "University — 学問体系と研究領域",
+    description: "大学・研究の世界を大分類から俯瞰。形式科学、自然科学、人文科学、社会科学、応用科学、学際領域まで、主要な学問分野を一覧できます。",
+  },
 };
 
 export default function UniversityPage() {

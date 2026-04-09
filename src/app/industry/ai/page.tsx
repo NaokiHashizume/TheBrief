@@ -12,6 +12,21 @@ export const metadata: Metadata = {
   description:
     "大規模言語モデル、AIエージェント、オープンモデルなどAI分野の最新動向と解説記事。",
   alternates: { canonical: "https://thebrief.info/industry/ai" },
+  openGraph: {
+    title: "AI — Industry",
+    description:
+      "大規模言語モデル、AIエージェント、オープンモデルなどAI分野の最新動向と解説記事。",
+    url: "https://thebrief.info/industry/ai",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI — Industry",
+    description:
+      "大規模言語モデル、AIエージェント、オープンモデルなどAI分野の最新動向と解説記事。",
+  },
 };
 
 function parseReadTime(rt: string): number {

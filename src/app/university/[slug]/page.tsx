@@ -21,10 +21,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {};
   }
 
+  const description = `${category.label}の中分類と代表科目を一覧化。${category.desc}を軸に、大学で学ばれる主要領域を俯瞰できます。`;
+  const url = `https://thebrief.info/university/${category.id}`;
+
   return {
     title: `${category.label} — University`,
-    description: `${category.label}の中分類と代表科目を一覧化。${category.desc}を軸に、大学で学ばれる主要領域を俯瞰できます。`,
-    alternates: { canonical: `https://thebrief.info/university/${category.id}` },
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${category.label} — University | TheBrief`,
+      description,
+      url,
+      siteName: "TheBrief",
+      locale: "ja_JP",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${category.label} — University | TheBrief`,
+      description,
+    },
   };
 }
 

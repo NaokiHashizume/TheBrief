@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { enactedItems } from "@/lib/enacted";
-import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import ShareButton from "@/components/ShareButton";
 import { T } from "@/components/T";
 
@@ -42,6 +42,14 @@ export default async function EnactedDetailPage({
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
+      <ArticleJsonLd
+        title={item.title}
+        description={item.summary}
+        datePublished={item.enactedDate}
+        dateModified={item.enactedDate}
+        author="The Brief"
+        url={`https://thebrief.info/politics/enacted/${item.slug}`}
+      />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },

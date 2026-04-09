@@ -21,6 +21,19 @@ export const metadata: Metadata = {
   description:
     "第2次高市内閣の施政方針・政策進捗と全閣僚一覧。「責任ある積極財政」の実現度を可視化。",
   alternates: { canonical: "https://thebrief.info/politics/cabinet" },
+  openGraph: {
+    title: "内閣 — 第2次高市内閣",
+    description: "第2次高市内閣の施政方針・政策進捗と全閣僚一覧。「責任ある積極財政」の実現度を可視化。",
+    url: "https://thebrief.info/politics/cabinet",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "内閣 — 第2次高市内閣",
+    description: "第2次高市内閣の施政方針・政策進捗と全閣僚一覧。「責任ある積極財政」の実現度を可視化。",
+  },
 };
 
 export default function CabinetPage() {

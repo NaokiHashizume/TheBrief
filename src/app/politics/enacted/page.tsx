@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   description:
     "2026年に施行・発効した主要法令の一覧。政治資金規正法改正、子育て支援法、共同親権など。",
   alternates: { canonical: "https://thebrief.info/politics/enacted" },
+  openGraph: {
+    title: "施行済 — 2026年に施行された主要法令",
+    description: "2026年に施行・発効した主要法令の一覧。政治資金規正法改正、子育て支援法、共同親権など。",
+    url: "https://thebrief.info/politics/enacted",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "施行済 — 2026年に施行された主要法令",
+    description: "2026年に施行・発効した主要法令の一覧。政治資金規正法改正、子育て支援法、共同親権など。",
+  },
 };
 
 export default function EnactedPage() {

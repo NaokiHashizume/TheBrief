@@ -13,6 +13,19 @@ export const metadata: Metadata = {
   description:
     "衆議院・参議院の政党別議席数、内閣の顔ぶれ、主要議員の一覧。日本の政治の全体像をわかりやすくまとめます。",
   alternates: { canonical: "https://thebrief.info/politics" },
+  openGraph: {
+    title: "Politics — 国会・内閣・議員",
+    description: "衆議院・参議院の政党別議席数、内閣の顔ぶれ、主要議員の一覧。日本の政治の全体像をわかりやすくまとめます。",
+    url: "https://thebrief.info/politics",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Politics — 国会・内閣・議員",
+    description: "衆議院・参議院の政党別議席数、内閣の顔ぶれ、主要議員の一覧。日本の政治の全体像をわかりやすくまとめます。",
+  },
 };
 
 const sections = [

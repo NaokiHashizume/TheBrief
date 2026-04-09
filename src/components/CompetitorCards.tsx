@@ -15,6 +15,8 @@ function CompetitorCard({ company }: { company: Competitor }) {
       <button
         onClick={() => setOpen(!open)}
         className="w-full text-left p-4 sm:p-5 flex items-start gap-4 hover:bg-foreground/[0.02] transition-colors"
+        aria-label={open ? `${company.name}の詳細を閉じる` : `${company.name}の詳細を開く`}
+        aria-expanded={open}
       >
         {/* Logo badge */}
         <div
