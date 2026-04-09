@@ -1,35 +1,28 @@
-name: X auto post
+name: X influencer reply
 
-# TheBrief の記事を 1日3回（8:00 / 12:00 / 18:00 JST）X に自動投稿する。
-# 使い方:
-#   1. リポジトリ Settings → Secrets and variables → Actions に下記を登録
-#        X_API_KEY        (Consumer Key / API Key)
-#        X_API_SECRET     (Consumer Secret / API Key Secret)
-#        X_ACCESS_TOKEN
-#        X_ACCESS_SECRET
-#   2. workflow_dispatch から手動でドライラン (dry_run=true) も可能。
+# インフルエンサーの最新ツイートに Claude でリプライを生成して投稿する。
+# 1日2回（9:00 / 20:00 JST）実行。
 
 on:
   schedule:
-    - cron: "0 23 * * *"  # 08:00 JST
-    - cron: "0 3 * * *"   # 12:00 JST
-    - cron: "0 9 * * *"   # 18:00 JST
+    - cron: "0 0 * * *"   # 09:00 JST
+    - cron: "0 11 * * *"  # 20:00 JST
   workflow_dispatch:
     inputs:
       dry_run:
-        description: "true なら投稿せず本文のみ生成"
+        description: "true なら投稿せず生成内容のみ表示"
         required: false
         default: "false"
 
 concurrency:
-  group: x-auto-post
+  group: x-reply
   cancel-in-progress: false
 
 permissions:
   contents: write
 
 jobs:
-  post:
+  reply:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -40,26 +33,27 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Post to X
+      - name: Reply to influencers
         env:
           X_API_KEY: ${{ secrets.X_API_KEY }}
           X_API_SECRET: ${{ secrets.X_API_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           X_DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
-        run: node scripts/post-to-x.mjs
+        run: node scripts/reply-to-influencers.mjs
 
-      - name: Commit updated post history
+      - name: Commit updated reply history
         if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/x-post-history.json
+          git add scripts/x-reply-history.json
           if git diff --cached --quiet; then
             echo "No history changes to commit"
           else
-            git commit -m "chore: update X post history [skip ci]"
+            git commit -m "chore: update X reply history [skip ci]"
             git pull --rebase origin claude/develop-the-brief-BT7fX
             git push
           fi
