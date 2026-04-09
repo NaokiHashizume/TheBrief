@@ -13,6 +13,14 @@ import {
   AnimeStreamingDiagram,
   AnimeFutureDiagram,
 } from "@/components/AnimeStudioDiagrams";
+import {
+  MonakiOverviewDiagram,
+  MonakiMembersDiagram,
+  MonakiVsJunretsuDiagram,
+  MonakiSnsStraegyDiagram,
+  MonakiSocialContextDiagram,
+  MonakiTimelineDiagram,
+} from "@/components/MonakiDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { TagLink } from "@/components/TagLink";
 
@@ -23,6 +31,12 @@ const diagramMap: Record<string, React.FC> = {
   "anime-three-studios": AnimeThreeStudiosDiagram,
   "anime-streaming": AnimeStreamingDiagram,
   "anime-future": AnimeFutureDiagram,
+  "monaki-overview": MonakiOverviewDiagram,
+  "monaki-members": MonakiMembersDiagram,
+  "monaki-vs-junretsu": MonakiVsJunretsuDiagram,
+  "monaki-sns-strategy": MonakiSnsStraegyDiagram,
+  "monaki-social-context": MonakiSocialContextDiagram,
+  "monaki-timeline": MonakiTimelineDiagram,
 };
 
 export function generateStaticParams() {
