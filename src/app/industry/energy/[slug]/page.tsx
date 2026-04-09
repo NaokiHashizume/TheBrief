@@ -6,6 +6,24 @@ import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd"
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
+import {
+  RenewEnergyMixDiagram,
+  RenewSolarStatusDiagram,
+  RenewOffshoreWindDiagram,
+  RenewHydrogenDiagram,
+  RenewCostComparisonDiagram,
+  RenewRoadmapDiagram,
+} from "@/components/RenewableEnergy2026Diagrams";
+
+/* Diagram renderer mapped by ID */
+const diagramMap: Record<string, React.FC> = {
+  "renew-energy-mix": RenewEnergyMixDiagram,
+  "renew-solar-status": RenewSolarStatusDiagram,
+  "renew-offshore-wind": RenewOffshoreWindDiagram,
+  "renew-hydrogen": RenewHydrogenDiagram,
+  "renew-cost-comparison": RenewCostComparisonDiagram,
+  "renew-roadmap": RenewRoadmapDiagram,
+};
 
 export function generateStaticParams() {
   return energyArticles.map((a) => ({ slug: a.slug }));
@@ -158,6 +176,7 @@ export default async function ArticlePage({
       <article>
         {article.sections.map((section, i) => {
           const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
+          const DiagramComponent = section.diagramId ? diagramMap[section.diagramId] : null;
           return (
             <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
               <div className="mb-8">
@@ -172,6 +191,7 @@ export default async function ArticlePage({
                 </div>
                 <div className="h-px bg-gradient-to-r from-[#f97316]/15 via-[#f97316]/5 to-transparent" />
               </div>
+              {DiagramComponent && <DiagramComponent />}
               <div className="space-y-6">
                 {paragraphs.map((paragraph, j) => {
                   const trimmed = paragraph.trim();
