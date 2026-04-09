@@ -19,6 +19,245 @@ export interface IndustryArticle {
 
 export const ictArticles: IndustryArticle[] = [
   {
+    slug: "japan-5g-adoption-2026",
+    title: "日本の5G普及率2026 — 整備は進んでも使われない「幻のインフラ」の真実",
+    titleEn: "Japan's 5G Adoption in 2026 — The Phantom Infrastructure Nobody Uses",
+    date: "2026-04-09",
+    author: "",
+    readTime: "12 min",
+    tags: ["5G", "NTTドコモ", "KDDI", "ソフトバンク", "楽天モバイル", "通信インフラ", "キラーアプリ"],
+    summary:
+      "2024年度末、日本の5G人口カバー率は98.4%に達した。全国1,741市区町村すべてに5G基地局が立ち、インフラとしての「整備」はほぼ完成した。それでも5Gが「使われている」実感を持つ人は少ない。NSA方式中心の展開が「なんちゃって5G」を量産し、キャリアの収益は4G時代と変わらず、5G本来の超高速・超低遅延・多数同時接続の恩恵は産業現場の実証実験にとどまる。5G普及の本当の問題は電波でも設備でもなく「キラーアプリがない」こと——インフラ投資先行・需要創出後追いという日本通信業界の構造的パターンを批評する。",
+    summaryEn:
+      "By the end of FY2024, Japan's 5G population coverage reached 98.4%, with base stations in all 1,741 municipalities. Infrastructure-wise, the rollout is essentially complete. Yet few users feel the benefit of 5G in daily life. NSA-based deployments flood the market with 'fake 5G,' carrier revenues remain unchanged from the 4G era, and 5G's promised ultra-high speed, ultra-low latency, and massive connectivity benefits remain confined to industrial pilot programs. The real problem isn't the radio waves or the towers — it's the absence of a killer app. An analysis of Japan's telecom industry's structural pattern of front-loading infrastructure investment while demand creation lags behind.",
+    sections: [
+      {
+        heading: "カバー率98.4%の「嘘」——インフラと利用の深い溝",
+        headingEn: "The Lie Behind 98.4% Coverage — The Deep Gap Between Infrastructure and Usage",
+        diagramId: "5g-coverage-map",
+        body: `2025年9月、総務省は2024年度末（2025年3月末）の5G人口カバー率が **98.4%** に達したと発表した。全国1,741市区町村すべてに5G基地局が整備され、都道府県別の最低値（島根県）でも88.4%を確保。政府目標（2030年度末99%）を大幅に前倒しで達成したかに見える。
+
+> この記事でわかること：カバー率とは何か、なぜ高い数字が「5Gが使える」を意味しないのか、各キャリアの基地局戦略の差異、韓国・米国・中国との比較で見える日本固有の課題、そして「キラーアプリ不在」という本質的問題。
+
+しかし「カバー率98.4%」という数字には、重要な文脈が埋まっている。この数字は **NSA（ノンスタンドアローン）方式** の基地局を含む。NSAとは既存の4Gコアネットワークに5Gの無線アクセス部分をつなぐ方式で、ネットワークの制御は4Gが担う。つまり「5Gの電波は届いているが、5Gの本来能力は発揮されていない」状態が全国の大半を占める。
+
+超高速・超低遅延・多数同時接続という5Gの三大特性を完全に実現するには、5G専用コアネットワークを使う **SA（スタンドアローン）方式** が必要だ。2025年3月末時点でSA対応の5G基地局は全体の約51%（15万5,721局）。SAに基づくサービスはKDDIのネットワークスライシング商用化など一部に限られ、一般ユーザーの日常利用には届いていない。
+
+カバー率の数字は「電波が届く可能性のある人口比」に過ぎない。実際に5G端末を持ち、5Gエリアで5Gを利用し、4Gに比べて有意な体験差を感じている人の割合——「実質的な5G利用率」——はこれをはるかに下回る。`,
+      },
+      {
+        heading: "ドコモ・au・ソフトバンク・楽天の5G戦略格差",
+        headingEn: "The 5G Strategy Gap Among Docomo, au, SoftBank & Rakuten",
+        diagramId: "5g-carriers",
+        body: `2025年3月末時点の5G基地局数は、**KDDI（au）が11万37局**、**ソフトバンクが10万4,441局** と10万局超えを達成。これに対して **NTTドコモは5万2,532局**、**楽天モバイルは3万5,108局** と大きく水をあけられている。
+
+【NTTドコモの遅れと挽回策】ドコモの5G基地局数は3メガキャリアで最下位。背景にはNSA展開を優先した戦略的判断があるが、結果的に「5G体感品質」でauに遅れを取った。ドコモは2025年度下期から2026年度にかけて基地局建設を急ピッチで拡充すると発表。5G契約者の「つながらない」批判に対応するため、5G SA（スタンドアローン）への移行も加速している。
+
+【KDDIの5G先行戦略】KDDIは5G SA対応基地局の比率でも先行しており、2025年度第4四半期までに5G SAの人口カバー率を90%以上に引き上げると宣言。2025年11月には国立競技場でのサッカー日本代表戦中継にネットワークスライシングを商用利用するなど、5G固有機能の実用化で一歩抜け出している。
+
+【ソフトバンクの都市集中戦略】ソフトバンクは東名阪の主要エリアに5G SAを先行展開し、2025年には札幌・福岡・仙台へ拡張。大都市でのミリ波（mmWave）活用にも積極的で、エリア密度より「使える5G」の質を重視する方向性を示す。
+
+【楽天の独自路線とミリ波特化】楽天モバイルの基地局数は最少だが、2023年度末のミリ波（5G高周波数帯）基地局数では1位となるユニークな戦略を持つ。ただしミリ波は直進性が強く屋外での広域展開に向かないため、スタジアム・空港・商業施設など特定高密度環境に絞った展開となっている。
+
+> 「基地局数の多さ」と「使える5G」は別物だ。キャリア各社が5G基地局数を競う一方で、ユーザーが日常的に5Gを活用する機会は限られており、ARPUへの寄与も4G比で顕著な差が生まれていない。`,
+      },
+      {
+        heading: "韓国・米国・中国との比較——先行者の失敗が教えること",
+        headingEn: "Comparing with South Korea, US & China — Lessons from First Movers",
+        diagramId: "5g-adoption-comparison",
+        body: `韓国は2019年に世界初の5G商用サービスを開始した「5G先進国」だ。しかし先行者としての現実は厳しい。世界初の称号を得るために品質より速度を優先した展開は、「エリアは広いが実際はつながらない」「4Gより遅いこともある」という消費者の失望を招いた。一時は56万人が5G契約を解除してLTEに戻るという前代未聞の事態も起きた。
+
+2025年時点の各国5G契約比率を見ると、米国では5G接続数が全体の74%に達し、北米全体で約2.89億件の5G接続を記録。中国は2025年末で約14億件の5G接続を見込み、5Gが標準的な通信方式となりつつある。一方、日本は5G契約が全体の70%超に達する予測（2026年）があるものの、「5G対応端末を持っていても実質的には4G同等の体験」という状況が続く。
+
+【日本固有の問題：NSA依存とキャリア選択】米国のT-MobileはSA方式を中心とした5G展開で「真の5G」を先行実現し、差別化に成功した。中国は政府主導で基地局整備と同時にアプリ・産業ユースケース開発を官民一体で推進し、5G産業利用で世界最多の事例を持つ。日本は「インフラを整えれば需要が生まれる」という発想でNSA中心の展開を選択したが、需要が自発的に生まれることはなかった。
+
+【韓国が示す警告】韓国では5Gの「キラーアプリがない」問題が早期から議論されてきた。VR/AR体験・自動運転支援・スマート工場といった5Gならではのユースケースが消費者レベルで定着せず、「動画をより速く見られる」以上の価値を消費者は感じられない。韓国の失敗は日本の未来図の一つとも読める。
+
+> 5G普及の先行者利益は「インフラを整えた国」ではなく「キラーアプリを先に持った国」に帰属する。中国がスマート工場・遠隔医療・自動運転で5Gユースケースを量産する中、日本は依然として「実証実験」段階にとどまっている。`,
+      },
+      {
+        heading: "産業5Gの実態——スマート工場・遠隔医療・自動運転は「本番」か",
+        headingEn: "Industrial 5G Reality — Are Smart Factories, Remote Surgery & Autonomous Vehicles Actually Live?",
+        diagramId: "5g-industrial-use",
+        body: `5Gの「キラーアプリ」として期待される産業応用のうち、日本で実際に動いているものはどの程度あるか。ローカル5G（企業・団体が自ら5G基地局を構築するプライベートネットワーク）の事例を中心に実態を整理する。
+
+【スマート工場】製造業でのローカル5G活用は最も事例が豊富だ。大阪港・夢洲コンテナターミナルではローカル5Gによる作業のデジタル化で年間約2,700万円のコスト削減効果が見込まれる。しかし全国の工場への普及率は依然低く、5G導入済みの工場は国内製造業全体の数%に過ぎない。コスト（ローカル5G基地局の初期投資は数千万〜数億円）と設計・運用の専門人材確保が障壁となっている。
+
+【遠隔医療】脳神経外科領域での「スマート治療室」やへき地病院での5G中継診断支援など実証実験は積み重なっている。地方病院の内視鏡検査映像を5Gで都市部の専門医に伝送し遠隔指示を行う仕組みは技術的に確立されている。ただし制度面（医師法・保険適用）・通信インフラの整備コスト・医療機関のIT人材不足が普及を阻んでいる。
+
+【自動運転・インフラ連携】自動運転に5Gが使われる「C-V2X（セルラーV2X）」の商用展開は国内でほぼ皆無。2026年時点でも公道での5G自動運転支援は実証段階で、完全な商用化はLS（レベル4）自動運転が解禁される2027〜2028年以降と見られる。
+
+> 「産業用5Gは有望だが遅い」——これが2026年の現実だ。実証実験は蓄積されているが、スケールアップにコスト・人材・制度の三重障壁が立ちはだかり、本番稼働への転換率が極めて低い。5Gの産業利用が本格化するには、技術ではなく制度改革と投資コスト低下が先決となっている。`,
+      },
+      {
+        heading: "5G収益の現実——キャリアはARPUを上げられていない",
+        headingEn: "The 5G Revenue Reality — Carriers Aren't Growing ARPU",
+        diagramId: "5g-revenue",
+        body: `日本の通信市場は **2025年に1,175億ドル規模** に達し、2030年までに1,600億ドルを超える成長が予測されている。しかし5G特有の収益創出という観点では、各キャリアの決算が示す実態は厳しい。
+
+ARPUの動向を見ると、MNO3社（ドコモ・KDDI・ソフトバンク）のARPUは2020年の通信料金値下げ圧力以降、長期的な下降基調にあった。2023年度からわずかに回復傾向は見られるが、4G時代から構造的に上昇したわけではない。5Gに移行しても「安い料金プランでの利用」が主流で、5G特有の高付加価値サービスへの課金が成立していない。
+
+【5G対応端末の普及と「5G有名無実化」】スマートフォン市場では5G対応端末が急速に普及しているが、ユーザーが5G料金プランを選ぶのは「5Gならではの体験」への対価ではなく、新機種が5G対応になったためだ。つまり端末買い替えのタイミングで自動的に5G加入者になっても、利用実態は4G同等のままというケースが大多数を占める。
+
+【楽天の赤字継続と5G投資の重荷】楽天モバイルは5G・4Gの基地局建設に多額の設備投資を続けながら、月額ARPUはドコモ（月35〜39ドル）に対して15〜18ドルと大幅に低い。設備投資の重さに対して収益化スピードが追いつかず、5Gへの先行投資が財務上の重荷になっている。
+
+> 5Gで収益を上げる方法は二つ——「高付加価値コンシューマーサービス（これはキラーアプリがない限り不可能）」か「産業向けBtoBサービス（これはまだ立ち上がっていない）」。現状、どちらも機能していないため、5Gはコスト要因であっても収益要因になっていない。`,
+      },
+      {
+        heading: "「キラーアプリがない」本当の理由——構造的問題の解剖",
+        headingEn: "Why There's No Killer App — Dissecting the Structural Problem",
+        body: `「5Gのキラーアプリがない」という指摘はよく聞かれるが、なぜキラーアプリが生まれないのかはあまり分析されない。問題は技術的制約ではなく、日本の通信産業の **構造的なパターン** にある。
+
+【パターン①：インフラ先行・需要後追い】日本の通信業界は歴史的に「まずインフラを整備し、その後に需要が生まれる」という発想でイノベーションを進めてきた。光ブロードバンドでも同様のパターンが見られた。しかし5G時代は「需要をつくるためにインフラを整備する」という逆の発想——すなわちユースケース起点のネットワーク設計——が求められる。
+
+【パターン②：コンテンツ産業とキャリアの分断】5Gのキラーアプリとなりうるゲーム・XR（拡張現実）・メタバース・ライブ配信などのコンテンツ産業は、通信キャリアとは別の事業者が担う。キャリアはインフラを提供するが、コンテンツ投資には動かない。コンテンツ側も「5G専用」の体験設計をせず、4G互換のサービスを維持する。この分断が「5Gを使わなければ楽しめないコンテンツ」の誕生を妨げている。
+
+【パターン③：企業のリスク回避と実証実験の罠】産業利用でも「実証実験を繰り返すが本番稼働に至らない」という日本特有の問題が5Gにも現れている。調達・承認プロセスの重さ、ROI計算の難しさ、専門人材不足——量子コンピュータと全く同じ構造的障壁だ。「やっているが進まない」が5G産業利用の現実だ。
+
+> 韓国で「5G先進国が失望の声を浴びる」現象が起きたのは、技術の問題ではなくエコシステム構築の失敗だ。日本はその失敗例を観察しながら同じ道を歩んでいる。インフラを整えれば需要が生まれるという幻想——これが「幻のインフラ」の正体だ。`,
+      },
+      {
+        heading: "6G時代への布石——5Gの失敗から学ぶことはできるか",
+        headingEn: "Preparing for 6G — Can Japan Learn from 5G's Failures?",
+        diagramId: "5g-future",
+        body: `日本政府は2030年代の**6G（第6世代移動通信）**商用化に向けた研究開発を進めており、NTTは「IOWN（Innovative Optical and Wireless Network）」構想を軸に国際標準の形成を狙う。しかし5Gの教訓を活かせなければ、6Gでも同じ轍を踏むリスクがある。
+
+【6Gで変えるべきこと】5Gの最大の失敗は「インフラが先にできたが、何に使うかを後から考えた」点だ。6Gでは研究開発の初期段階からユースケース（XR空間コンピューティング、空飛ぶクルマの通信制御、脳神経インターフェースへの応用など）を中心に据え、そのユースケースのために必要な通信特性を逆算してネットワークを設計する「ユースケース・ファースト」のアプローチが求められる。
+
+【5G SAの完全移行が最初の関門】6Gを論じる前に、まず5G SAへの完全移行を完成させる必要がある。2026年は5G SAの本格普及元年と位置付けられており、KDDI・ソフトバンクが先行展開するSAネットワークでネットワークスライシング・超低遅延の実用サービスを育てることが急務だ。これが実現しなければ、5Gは「世界最高のNSAカバー率を達成した4G拡張版」として歴史に刻まれるだけになる。
+
+【産業利用の制度改革が鍵】5Gの産業利用を阻む制度的障壁（医師法・保険適用・道路交通法）の改革を5G普及と並行して進めることが、5Gを「幻のインフラ」で終わらせないための唯一の道だ。2026年の改正道路交通法によるレベル4自動運転の実用化や、遠隔医療の保険適用拡大は、5G産業利用の「最後のトリガー」になりうる。
+
+5Gが「幻のインフラ」で終わるか、「真の産業変革インフラ」になるかは、2026〜2028年の3年間にかかっている。電波でも基地局でもなく、**コンテンツ・制度・エコシステム**——この三つを一体で動かせるかどうかが、日本の5G戦略の真価を決める。`,
+      },
+      {
+        heading: "まとめ——「幻のインフラ」を「実のインフラ」にするために",
+        headingEn: "Conclusion — Turning the Phantom Infrastructure Into Real Infrastructure",
+        body: `カバー率98.4%は数字として正しい。しかしその数字が「日本は5Gを使いこなしている」を意味しないことも正しい。
+
+5Gの本質的な問題を整理すると：**第一に**、NSA方式中心の展開が「5G体験の希薄化」を生んだ。**第二に**、キャリア各社が基地局数を競いながらもARPU上昇に結びつかない収益構造に陥っている。**第三に**、産業向けユースケースは実証実験の域を出ず、本番稼働への転換率が低い。**第四に**、コンテンツ産業とキャリアの分断が「5G専用の体験」の誕生を妨げている。
+
+韓国・米国・中国が示す教訓は明確だ。5G先行者利益は「電波を飛ばした国」ではなく「5Gでしか得られない体験を最初に作った国」に帰属する。
+
+日本が5Gで遅れているのは技術力ではない。**「何のためにインフラを整備するのか」という問いへの答えを、インフラ整備の後から探している**——この順序の問題だ。ICT先進国を自認する日本が6Gで同じ轍を踏まないために、今こそ「ユースケース・ファースト」への転換が求められる。
+
+> 2026年の日本にとって5Gは「未来のインフラ」ではなく「今の課題」だ。SAへの移行、産業利用の制度改革、コンテンツエコシステムの再構築——この三つを2028年までに完成させることが、日本が5Gで「本当の勝者」になるための最低条件となっている。`,
+      },
+    ],
+  },
+  {
+    slug: "japan-quantum-computing-2026",
+    title: "日本の量子コンピュータ戦略2026 — 政府400億円投資の真価と産業応用の現実",
+    titleEn: "Japan's Quantum Computing Strategy 2026 — Is the ¥40 Billion Investment Paying Off?",
+    date: "2026-04-09",
+    author: "",
+    readTime: "11 min",
+    tags: ["量子コンピュータ", "富士通", "理化学研究所", "IBM", "AI", "半導体", "経済安全保障"],
+    summary:
+      "2025年を「量子産業化元年」と宣言した日本政府は、METI・文科省・内閣府を合わせ年間400億円超の量子技術予算を投じている。富士通と理化学研究所は世界最大級の256量子ビット超伝導量子コンピュータを達成し、2026年には1,000量子ビットを目指す。しかし技術力の進展とは裏腹に、産業応用の実用化は依然として限定的だ。人材不足・エコシステムの未成熟・企業の意思決定スピードという「三重苦」が、日本の量子優位の実現を阻んでいる。IBMやGoogleと組む戦略は賢明か、それとも自前開発の放棄か——日本の量子戦略の真価を問う。",
+    summaryEn:
+      "Japan declared 2025 its 'Year One of Quantum Industrialization,' committing over ¥40 billion annually across METI, MEXT, and the Cabinet Office. Fujitsu and RIKEN achieved a world-class 256-qubit superconducting quantum computer and are targeting 1,000 qubits by 2026. Yet despite technological progress, industrial deployment remains limited — a triple deficit in talent, ecosystem maturity, and corporate decision-making speed holds Japan back. Is partnering with IBM and Google a smart strategy, or an abandonment of homegrown development?",
+    sections: [
+      {
+        heading: "「量子産業化元年」の宣言と400億円の重み",
+        headingEn: "The '¥40 Billion Declaration' and What It Means",
+        diagramId: "quantum-japan-overview",
+        body: `2025年、石破茂首相は日本を **「量子産業化元年」** と位置付け、量子技術を国家戦略技術領域の6分野の一つに格上げした。経済産業省・文部科学省・内閣府を合わせた量子関連予算は年間 **400億円超**（基金を含むと1,000億円規模）に達し、「10年で利用者1,000万人・生産額50兆円」という野心的な数値目標を掲げた。
+
+> この記事でわかること：日本の量子コンピュータ開発の現在地、政府投資の実態、富士通・理研・NECの技術水準、IBM・Google・IonQとの差と協業の論理、そして金融・創薬・製造での産業応用が「なぜ遅れるのか」という構造的問題。
+
+しかし、数値目標の華やかさと現場の地味な実態には、大きな乖離がある。量子コンピュータは「夢の技術」でも「まだ使えない技術」でもなく、**すでに特定の問題領域で経済的な優位性を生み出し始めている**。IonQが2025年に医療機器シミュレーションで古典HPC比12%の高速化を確認したのはその一例だ。問題は技術力ではなく、**日本企業が量子優位を実業に転換するスピード**にある。`,
+      },
+      {
+        heading: "富士通・理研 — 256量子ビットの達成と次の壁",
+        headingEn: "Fujitsu & RIKEN — The 256-Qubit Achievement and the Next Barrier",
+        diagramId: "quantum-japan-players",
+        body: `2025年4月、富士通と理化学研究所は **世界最大級の256量子ビット超伝導量子コンピュータ** の開発を発表した。2023年の64量子ビット機から4倍への拡張を達成し、高密度実装技術の革新がその背景にある。さらに2026年には **1,000量子ビット** を目標とし、2030年度には **1万物理量子ビット超** の研究開発を開始すると宣言した。
+
+【富士通の連携戦略】富士通は「Fujitsu Hybrid Quantum Computing Platform」を通じ、量子コンピュータと古典スーパーコンピュータを組み合わせたハイブリッド計算環境を企業・研究機関に提供。量子ビット単独では解けない問題を、古典計算と組み合わせて実用的な計算能力に変換する「量子・古典ハイブリッド」の商用展開を2025年度第一四半期から開始した。
+
+NECは超伝導方式に加え、量子アニーリング（特定の最適化問題に特化した量子計算）と量子ゲートの並行開発を続けている。大阪大学はアルバックと組んだ **「純国産量子コンピュータ」** を2025年大阪万博で公開し、部材調達から製造まで自前で完結する技術基盤を示した。
+
+> 「量子ビット数＝性能」は誤解：量子ビット数が増えても、エラー率が高ければ計算結果は信頼できない。現在の**NISQ（ノイズありの中規模量子）時代**に本当に重要なのは「量子ビット数」ではなく「エラー訂正後の論理量子ビット数」だ。富士通・理研の1,000量子ビットへの挑戦は、この誤り訂正問題の壁を越えるための布石でもある。`,
+      },
+      {
+        heading: "IBM・Google・IonQとの技術差 — 日本は本当に「負けて」いるか",
+        headingEn: "The Gap with IBM, Google & IonQ — Is Japan Really 'Losing'?",
+        diagramId: "quantum-japan-gap",
+        body: `Googleは2024年末、**Willowチップ**（105量子ビット）で量子誤り訂正の歴史的な閾値突破を達成した。従来の量子コンピュータは量子ビット数を増やすほどエラーも増えたが、Willowは「量子ビットを増やすほどエラーが指数関数的に減少する」現象を初めて実証。これは汎用的な誤り訂正量子コンピュータに向けた最重要マイルストーンの一つだ。
+
+IBMは **IBM Quantumネットワーク** を通じ、東京大学・慶應義塾大学と連携協定を結び、日本の研究機関に量子コンピュータへのクラウドアクセスを提供している。これにより日本の研究者はIBMの量子ハードウェアで実験を行い、知見をフィードバックする形の協業構造が生まれている。
+
+一方、IonQはイオントラップ方式で **36量子ビット** にもかかわらず、2025年に医療機器シミュレーションで古典HPCを12%上回る速度を達成した。量子ビット数より「量子ビットの品質（コヒーレンス時間・ゲート精度）」が重要であることを実証した事例だ。
+
+【技術方式別の現在地】超伝導方式（富士通・理研・IBM・Google）は量子ビット拡張が容易だが極低温環境（絶対零度近く）が必要。イオントラップ方式（IonQ・Quantinuum）は品質が高くエラー率が低いが拡張が難しい。光量子方式（NTT・Xanadu）はルーム温度で動作可能で通信との融合が期待されるが、計算能力ではまだ後れを取る。
+
+日本の技術水準は「量子ビット数」では世界トップクラスに近づきつつあるが、**誤り訂正・スタートアップ数・産業応用展開のスピード**では依然として米国に大きく水をあけられている。`,
+      },
+      {
+        heading: "IBM・Googleと組む日本企業は自前開発を諦めたのか",
+        headingEn: "Are Japanese Companies Partnering with IBM/Google Out of Necessity or Strategy?",
+        body: `「IBMと連携する東大・慶應は、米国に技術依存しているのでは」——この批判は一見もっともだが、実態は異なる。IBM Quantumネットワークの枠組みは **「使いながら学ぶ」** 仕組みであり、日本の研究者はIBMのハードウェアを使いつつ、アルゴリズム開発・応用研究の知見を蓄積している。そして富士通・理研はIBMとは独立した自前の超伝導ハードウェアを並行開発しており、技術的な「依存」ではなく「使い分け」だ。
+
+【量子コンピュータ開発の三層構造】
+レイヤー1（ハードウェア）：富士通・理研・NECが自前開発を継続
+レイヤー2（クラウドアクセス・実験環境）：IBM・Googleのクラウドを活用
+レイヤー3（アルゴリズム・応用開発）：日本独自の研究・産業応用を開発
+
+> 「プラットフォームを外資に依存し、応用だけ日本で開発する」戦略は、スマートフォン時代のAndroid活用と似た構図だ。問題は、その応用開発で日本が世界の標準を作れるかどうかだ。現状では、アルゴリズム開発でも米国・欧州のスタートアップが先行しており、日本の民間企業の参入スピードが問われる。
+
+富士通が2026年に量子棟を川崎に建設し、理研との連携センターを2029年まで延長したことは、**「自前ハードウェア開発を諦めていない」**意志の表れだ。しかし外資との協業は「依存」ではなく「エコシステムへの参加」であり、どちらか一方を選ぶ二項対立では問題を正確に捉えられない。`,
+      },
+      {
+        heading: "金融・創薬・製造 — 実証実験はなぜ本番稼働にならないのか",
+        headingEn: "Finance, Drug Discovery, Manufacturing — Why Pilots Don't Become Production",
+        diagramId: "quantum-japan-usecases",
+        body: `三菱UFJ・野村ホールディングス・大和証券などの金融大手は、量子コンピュータによるポートフォリオ最適化・デリバティブ価格計算・リスクシミュレーションの実証実験を進めている。製薬では、分子シミュレーションによる候補化合物の絞り込みが創薬コスト・期間の大幅短縮につながるとして、大手製薬各社が参入している。
+
+しかし **「実証実験」が「本番稼働」に転換しない**という日本特有の問題がある。その構造的原因は3つに整理できる：
+
+【原因①：調達・承認プロセスの重さ】大企業では量子コンピュータサービスの導入に、ITセキュリティ審査・法務審査・経営会議承認など複数のステップが必要。実証段階で有効性が示されても、本番システムへの組み込みまでに1〜2年を要するケースが多い。
+
+【原因②：ROI計算の難しさ】量子優位が「ある計算問題では古典より速い」という形で示されても、その計算が既存業務の何％を占め、どれだけのコスト削減になるかを数値化するのが難しい。経営層が「なぜ今、高コストの量子コンピュータを使うのか」を社内で説明できないまま、実証実験が続く。
+
+【原因③：専門人材の絶対的不足】量子力学と情報科学の両方に精通し、かつ自社の業務ドメインを理解した人材は市場にほぼ存在しない。育成には3〜5年を要するとされ、実証実験を担う外部委託頼みの体制では、内部に知見が蓄積されない。
+
+> 「やっているが進まない」は日本の量子産業化の現状を象徴する言葉だ。2025年をもって「量子産業化元年」と呼ぶ日本政府の宣言は正確だが、「元年」が何年続くかが問われている。`,
+      },
+      {
+        heading: "政府投資400億円 — 使い道の内訳と「置き去りにされた問題」",
+        headingEn: "The ¥40 Billion Investment — How It's Spent and What's Being Left Behind",
+        diagramId: "quantum-japan-investment",
+        body: `METIの量子コンピュータ産業化事業は **総額1,009億円超**（2024年度補正予算518億円を含む）が計上され、文科省の量子関連予算（令和7年度：361億円）と合わせると政府全体の量子関連支出は年間400〜500億円規模になる。2026〜2030年度の第7期科学技術・イノベーション基本計画では、量子は「国家戦略技術領域」に指定され、さらなる重点投資が継続する見通しだ。
+
+しかし投資の重点が **ハードウェアR&D** に偏っており、「実用化を加速するエコシステム整備」が置き去りにされているとの批判がある。
+
+【不十分な領域①：人材育成への配分】G-QuAT（量子技術者育成プログラム）は拡充されているが、企業側が求める「業務知識×量子アルゴリズム」の組み合わせ人材を育成するカリキュラムは未整備。量子力学を学べる大学院は増えたが、そこから企業に就職した人材が「すぐに使える」環境がない。
+
+【不十分な領域②：スタートアップ支援の薄さ】米国のQuantinuum（評価額100億ドル）・IonQ（上場）・PsiQuantum（70億ドル調達）に比べ、日本の量子スタートアップはQ-STARなど数社程度。スタートアップへのリスクマネーが圧倒的に少なく、大学発の研究成果が民間に移転する経路が細い。
+
+> 政府が「量産」を支援する一方、「量子を使いこなす」ための人・金・仕組みへの投資が追いついていない。これは半導体産業のエルピーダ失敗と同じ構図——「ハードウェアを作ることはできたが、それを使うエコシステムを育てることができなかった」——を量子でも繰り返すリスクを孕んでいる。`,
+      },
+      {
+        heading: "日本の「勝ち筋」はどこにあるか — 製造業・素材・精密機械との融合",
+        headingEn: "Where Can Japan Win? — Quantum for Manufacturing, Materials & Precision",
+        diagramId: "quantum-japan-timeline",
+        body: `量子コンピュータの応用で日本が比較優位を持てる可能性が最も高い領域は、**製造業・素材・精密機械**だ。トヨタ・本田・日立・デンソーといった企業が強みを持つ「工場のスケジューリング」「材料設計」「カーボンニュートラルに向けた触媒・電池材料探索」は、量子計算が最も有効な問題クラスである組み合わせ最適化・量子化学計算と相性が良い。
+
+富士通のデジタルアニーラ（量子インスパイアード技術）がすでに配送最適化で商用稼働中であることは、「量子的な考え方」を産業に適用する素地が日本に存在することを示している。次のステップは、真の量子コンピュータへの移行を前提に、業務プロセス自体を量子計算の特性に合わせて再設計することだ。
+
+【日本独自の量子優位シナリオ】
+ケース①「材料設計の量子化」：電池・触媒・半導体材料の設計に量子化学計算を組み込み、素材開発の時間を従来の数分の一に短縮。
+ケース②「工場スケジューリングの量子最適化」：複雑な製造工程の変数が数百万にのぼる場合に量子計算が優位。
+ケース③「創薬の分子シミュレーション国産化」：外資の量子クラウドに依存せず、国内製薬の知的財産を守りながら量子計算を活用する基盤整備。
+
+経済安全保障の観点でも、**量子コンピュータが解ける問題を他国に依存した計算環境で処理すること**は、機密情報の流出リスクを伴う。国産量子クラウドの整備は、経済安全保障政策としての側面も持ち始めている。
+
+2026年の日本の量子戦略は、「世界最大の量子ビット数を目指す競争」から「実業に使える量子優位を最初に確立する競争」へとフォーカスを移せるかが試される年だ。政府の400億円投資は、ハードウェアレースに使われるだけでは不十分——それを産業力に転換するエコシステムへの投資こそ、日本の量子戦略が2030年代に「勝ち」を確定させる鍵となる。`,
+      },
+    ],
+  },
+  {
     slug: "rapidus-2nm-pilot-line-2026",
     title: "Rapidus 2nm パイロットライン稼働 — 日本半導体「最後の挑戦」が動き出した",
     titleEn: "Rapidus' 2nm Pilot Line Goes Live — Japan's Last Stand in Advanced Semiconductors",
@@ -1317,6 +1556,122 @@ The 2029 review will tackle an even more fundamental question than 2025 did: **w
 【Point 3 / Defining "domestic" for generative-AI compute】For sovereign AI, the government is also pushing for domestic GPU clouds. The awkward question is: **"If it runs on NVIDIA GPUs, is it really domestic?"** With hardware and software both originating in the US, all that is truly domestic is the operation and the physical location — and where exactly to draw that line will become a policy issue in the second half of 2026.
 
 > Ultimately, "domestic" for cloud breaks down into a multi-dimensional question: which of **hardware, software, data, operations and capital** should be inside the country? 2026 is the starting point for that argument.`,
+      },
+    ],
+  },
+  {
+    slug: "unix-linux-guide",
+    title: "UNIXとLinux完全ガイド — 歴史から現代の活用まで",
+    titleEn: "Complete Guide to UNIX and Linux — From History to Modern Usage",
+    date: "2026-04-09",
+    author: "",
+    readTime: "12 min",
+    tags: ["Linux", "UNIX", "OS", "オープンソース", "クラウド", "サーバー", "インフラ"],
+    summary:
+      "世界のクラウドインフラの90%以上、Androidを通じてスマートフォン市場の72%超を支配するLinux。1969年のUNIX誕生から半世紀以上を経て、なぜオープンソースのOSが現代デジタル社会の基盤となったのか。歴史・アーキテクチャ・ディストリビューション比較・日本での活用事例を通じ、「UNIXの遣産を継ぐOS」が今後も支配的である理由と、日本企業がLinux活用で出遅れている本質的な問題を問い直す。",
+    summaryEn:
+      "Linux dominates over 90% of the world's cloud infrastructure and, through Android, controls more than 72% of the smartphone market. More than half a century after UNIX's birth in 1969, why has an open-source OS become the foundation of modern digital society? Through history, architecture, distribution comparisons, and Japanese use cases, this guide examines why 'the OS that inherited UNIX's legacy' will continue to dominate — and the structural reasons Japanese companies are lagging behind in Linux adoption.",
+    sections: [
+      {
+        heading: "UNIXの誕生——1969年ベル研究所から始まった革命",
+        headingEn: "The Birth of UNIX — The Revolution That Started at Bell Labs in 1969",
+        diagramId: "unix-linux-timeline",
+        body: `1969年、AT&Tベル研究所のケン・トンプソンとデニス・リッチーは、内部プロジェクト用に小さなOSを作り始めた。それが**UNIX**だ。当時の商用OSはメインフレーム専用で高価であり、研究者が自由に使えるコンピューティング環境は存在しなかった。
+
+> この記事でわかること：UNIXとLinuxの歴史的経緯と技術的関係、Linuxが世界インフラを支配する理由、主要ディストリビューションの選び方、日本でのLinux活用の現状と課題、そして202 6年以降のLinuxエコシステムの展望。
+
+1973年、UNIXはC言語で書き直された。この決断が歴史を変えた。アセンブラで書かれたOSは特定のCPUアーキテクチャに依存するが、C言語で書かれたUNIXは異なるハードウェアへの移植が可能になった。「OSの移植性」という概念を初めて実現したのがUNIXだ。`,
+        bodyEn: `In 1969, Ken Thompson and Dennis Ritchie at AT&T Bell Labs began building a small OS for internal use. That was UNIX. Commercial operating systems of the era were mainframe-exclusive and expensive; no freely accessible computing environment existed for researchers.
+
+> What this article covers: the historical and technical relationship between UNIX and Linux, why Linux dominates global infrastructure, how to choose a Linux distribution, the current state of Linux adoption in Japan, and the outlook for the Linux ecosystem beyond 2026.
+
+In 1973, UNIX was rewritten in the C programming language. That decision changed history. An OS written in assembly was tied to a specific CPU architecture, but UNIX written in C could be ported to different hardware. UNIX was the first OS to realize the concept of "portability."`,
+      },
+      {
+        heading: "LinuxはなぞUNIXではないのか——法的・技術的な切断線",
+        headingEn: "Why Linux Is Not UNIX — The Legal and Technical Dividing Line",
+        diagramId: "unix-linux-comparison",
+        body: `LinuxはUNIXを参考にしているが、UNIXではない。この区別は単なる技術的な話にとどまらず、**知的財産・ライセンス・産業構造**に深く関わる。
+
+[インライン表示のため一部省略]`,
+        bodyEn: `Linux is inspired by UNIX, but it is not UNIX. This distinction goes beyond mere technical trivia — it deeply involves intellectual property, licensing, and industrial structure.
+
+[Abbreviated for inline display]`,
+      },
+      {
+        heading: "世界インフラの支配者——Linuxのシェア統計が示す衆撃",
+        headingEn: "Ruler of World Infrastructure — The Shocking Statistics of Linux's Market Share",
+        diagramId: "linux-share-stats",
+        body: `Linuxの普及を「デスクトップOSシェア3%」で語る人がいる。それは木を見て森を見ない典型だ。デスクトップ以外のあらゆる領域でLinuxは**支配的**だ。
+
+**クラウドインフラ：** パブリッククラウド（AWS・Azure・GCP）のワークロードの90%以上がLinux上で動作する。
+
+**サーバー市場：** Webサーバーの75%以上がLinuxを使用。スーパーコンピュータに至っては、世界Top500のリストの100%がLinuxで動作している（2017年以降）。
+
+**スマートフォン：** AndroidはLinuxカーネルをベースとしており、2025年のモバイルOS市場シェアは72.77%。`,
+        bodyEn: `Some describe Linux's reach in terms of "3% desktop OS market share." That's a textbook case of missing the forest for the trees. In every domain beyond the desktop, Linux is dominant.
+
+**Cloud Infrastructure:** Over 90% of public cloud (AWS, Azure, GCP) workloads run on Linux.
+
+**Server Market:** Over 75% of web servers use Linux. For supercomputers, 100% of the world's Top 500 have run Linux since 2017.
+
+**Smartphones:** Android is based on the Linux kernel, holding 72.77% of the mobile OS market in 2025.`,
+      },
+      {
+        heading: "ディストリビューション比較——Ubuntu・RHEL・Debianはどう選ぶ",
+        headingEn: "Distribution Comparison — How to Choose Ubuntu, RHEL, or Debian",
+        diagramId: "linux-distro-comparison",
+        body: `Linuxには数百のディストリビューション（ディストロ）が存在する。「どれを選ぶか」は用途・組織規模・サポートの要件によって大きく異なる。
+
+[インライン表示のため一部省略]`,
+        bodyEn: `Linux has hundreds of distributions. "Which to choose" varies greatly by use case, organizational size, and support requirements.
+
+[Abbreviated for inline display]`,
+      },
+      {
+        heading: "Linuxカーネルアーキテクチャ—⁄40年の進化が生んだ設計思想",
+        headingEn: "Linux Kernel Architecture — The Design Philosophy Born from 40 Years of Evolution",
+        diagramId: "linux-kernel-architecture",
+        body: `Linuxカーネルは2025年初頪に**4,000万行**のコードに達し、2015年から倍増した。
+
+[インライン表示のため一部省略]`,
+        bodyEn: `The Linux kernel reached 40 million lines of code in early 2025, doubling since 2015.
+
+[Abbreviated for inline display]`,
+      },
+      {
+        heading: "日本でのLinux活用——普及しているようで遅れている本当の理由",
+        headingEn: "Linux Adoption in Japan — Why It's Superficially Widespread but Structurally Behind",
+        body: `Linux Foundation Japanが2025年12月に発表した「日本のオープンソースの現状2025」報告書は、日本企業のOSS活用の現状を赤裸々に示している。**69%の組織がOSSからのビジネス価値が向上したと回答**する一方で、ガバナンスとセキュリティの成熟度には大きなギャップが存在する。
+
+> OSSを使うことと、OSSのエコシステムに貢献することは全く別の行為だ。使うだけではエコシステムに「フリーライド」しており、長期的には技術的主権を外資に委ねることになる。`,
+        bodyEn: `The "State of Open Source Japan 2025" report reveals a candid picture of OSS adoption in Japanese companies. While 69% of organizations report increased business value from OSS, significant gaps exist in governance and security maturity.
+
+> Using OSS and contributing to the OSS ecosystem are entirely different activities. Mere usage amounts to "free-riding" on the ecosystem.`,
+      },
+      {
+        heading: "2026年以降のLinux——Rust・AI・量子の交差点で",
+        headingEn: "Linux Beyond 2026 — At the Intersection of Rust, AI, and Quantum",
+        body: `2026年4月、**Linux 7.0**が登場する可能性がある（2026年2月日に Linux 6.19がリリースされ、6.xシリーズ最終版となった）。
+
+Rustの本格採用により、2026ー2028年にかけて新規コードのバグ密度が有意に改善すると予測される。Linuxの本質的な強みは**オープンソースによる集合知**だ。`,
+        bodyEn: `In April 2026, Linux 7.0 may appear (Linux 6.19 was released on February 8, 2026, as the final version in the 6.x series).
+
+With Rust's full adoption, bug density in new code is projected to improve significantly through 2026-2028. Linux's fundamental strength is the collective intelligence of open source.`,
+      },
+      {
+        heading: "まとめ——「UNIXの遣産」を超えて、Linuxが問い直す技術的主権",
+        headingEn: "Conclusion — Beyond the 'UNIX Legacy': Linux and the Question of Technological Sovereignty",
+        body: `LinuxはUNIXの「精神的後継者」であるが、それ以上の存在になった。
+
+日本への示唆は明確だ。**使うことと、作ること（コントリビューション）は違う**。
+
+UNIX誕生かご57年。Linuxカーネルの誕生かご35年。コードは変わり続けているが、根底にある哲学——**「シンプルさ・移植性・オープンさ」**——は変わっていない。`,
+        bodyEn: `Linux has become more than a "spiritual successor" to UNIX.
+
+The implications for Japan are clear. Using something and creating (contributing to) something are different.
+
+57 years since UNIX's birth. 35 years since the Linux kernel's birth. Code keeps changing, but the underlying philosophy — simplicity, portability, and openness — has not.`,
       },
     ],
   },
