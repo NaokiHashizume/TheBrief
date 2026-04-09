@@ -53,6 +53,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — 小売`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/retail/${article.slug}`,
     },

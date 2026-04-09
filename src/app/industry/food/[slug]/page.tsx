@@ -38,6 +38,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — 食品`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/food/${article.slug}`,
     },

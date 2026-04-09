@@ -41,6 +41,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — 資源エネルギー`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/energy/${article.slug}`,
     },

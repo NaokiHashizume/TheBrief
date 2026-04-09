@@ -31,6 +31,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — 医薬品・医療介護`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/pharma/${article.slug}`,
     },

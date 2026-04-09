@@ -81,6 +81,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — Politics`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/politics/articles/${article.slug}`,
     },

@@ -39,6 +39,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — 建設・不動産`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/construction/${article.slug}`,
     },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
 import { T } from "@/components/T";
 
@@ -544,6 +545,8 @@ export default function OwnVsRent2026Page() {
       <div className="mt-8 flex justify-center">
         <ShareButton title={TITLE} />
       </div>
+
+      <RecommendedReads currentSlug="own-vs-rent-2026" currentTags={["住宅", "不動産", "家計"]} />
 
       <div className="mt-6 text-center">
         <Link

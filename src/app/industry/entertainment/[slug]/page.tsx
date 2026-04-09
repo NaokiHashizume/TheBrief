@@ -40,6 +40,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — エンタメ`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/entertainment/${article.slug}`,
     },

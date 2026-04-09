@@ -157,7 +157,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         <Script id="ga-init" strategy="afterInteractive">
-          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-277DL28PJW');`}
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-277DL28PJW',{send_page_view:true,cookie_flags:'SameSite=None;Secure',transport_url:'https://www.google-analytics.com'});`}
         </Script>
 
         {/* Google AdSense — lazyOnload で初期描画をブロックしない */}

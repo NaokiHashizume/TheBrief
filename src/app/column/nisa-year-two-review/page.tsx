@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
 import { T } from "@/components/T";
 
@@ -683,6 +684,8 @@ export default function NisaYearTwoReviewPage() {
       <div className="mt-8 flex justify-center">
         <ShareButton title={TITLE} />
       </div>
+
+      <RecommendedReads currentSlug="nisa-year-two-review" currentTags={["NISA", "投資", "資産形成"]} />
 
       <div className="mt-6 text-center">
         <Link

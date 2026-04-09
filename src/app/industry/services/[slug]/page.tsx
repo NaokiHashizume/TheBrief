@@ -23,6 +23,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — サービス`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/services/${article.slug}`,
     },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import { T } from "@/components/T";
 
 const COLUMN_COLOR = "#0d9488";
@@ -209,6 +210,13 @@ const books: Book[] = [
 export default function ReadingSpecialPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
+      <ArticleJsonLd
+        title={TITLE}
+        description={SUMMARY}
+        datePublished="2026-04-09"
+        author="The Brief"
+        url={URL}
+      />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
@@ -338,6 +346,8 @@ export default function ReadingSpecialPage() {
           ))}
         </div>
       </section>
+
+      <RecommendedReads currentSlug="reading-special" currentTags={["読書", "本", "文化"]} />
 
       {/* Footer nav */}
       <div className="mt-10 flex items-center justify-between gap-4 p-5 rounded-xl border border-brief-border bg-brief-card">

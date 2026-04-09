@@ -109,6 +109,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — 情報通信`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/ict/${article.slug}`,
     },

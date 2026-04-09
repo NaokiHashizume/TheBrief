@@ -39,6 +39,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — 金融機関`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/finance/${article.slug}`,
     },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
 import { T } from "@/components/T";
 
@@ -547,6 +548,8 @@ export default function MiddleSchoolExamEconomicsPage() {
       <div className="mt-8 flex justify-center">
         <ShareButton title={TITLE} />
       </div>
+
+      <RecommendedReads currentSlug="middle-school-exam-economics" currentTags={["教育", "中学受験", "経済"]} />
 
       <div className="mt-6 text-center">
         <Link

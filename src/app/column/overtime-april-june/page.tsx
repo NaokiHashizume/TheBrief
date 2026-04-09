@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
 import { T } from "@/components/T";
 
@@ -539,6 +540,8 @@ export default function OvertimeAprilJunePage() {
       <div className="mt-8 flex justify-center">
         <ShareButton title={TITLE} />
       </div>
+
+      <RecommendedReads currentSlug="overtime-april-june" currentTags={["残業", "給与", "社会保険"]} />
 
       <div className="mt-6 text-center">
         <Link

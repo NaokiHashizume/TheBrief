@@ -54,7 +54,8 @@ function useArticleRead(pathname: string) {
       pathname.includes("/politics/articles/") ||
       pathname.includes("/politics/debates/") ||
       pathname.includes("/economy/") ||
-      pathname.includes("/industry/");
+      pathname.includes("/industry/") ||
+      /\/university\/[^/]+\/[^/]+/.test(pathname);
 
     if (!isArticle) return;
 

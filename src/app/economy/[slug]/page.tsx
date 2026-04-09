@@ -97,6 +97,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — Economy`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/economy/${article.slug}`,
     },

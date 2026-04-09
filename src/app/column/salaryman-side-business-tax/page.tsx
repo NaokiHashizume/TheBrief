@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
 import { T } from "@/components/T";
 
@@ -682,6 +683,8 @@ export default function SalarymanSideBusinessTaxPage() {
       <div className="mt-8 flex justify-center">
         <ShareButton title={TITLE} />
       </div>
+
+      <RecommendedReads currentSlug="salaryman-side-business-tax" currentTags={["副業", "税金", "サラリーマン"]} />
 
       <div className="mt-6 text-center">
         <Link
