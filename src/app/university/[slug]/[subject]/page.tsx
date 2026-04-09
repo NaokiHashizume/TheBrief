@@ -3,8 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
-import { allLectures, getLecture, getLecturesByCategory } from "@/lib/lectures";
+import { allLectures, getLecture } from "@/lib/lectures";
 import { getUniversityCategory, universityCategories } from "@/lib/university";
+import { LectureRecommendations } from "@/components/LectureRecommendations";
 
 type PageProps = {
   params: Promise<{ slug: string; subject: string }>;
@@ -54,14 +55,8 @@ export default async function LecturePage({ params }: PageProps) {
 
   const ACCENT = category.color;
 
-  // Pick 2 recommended lectures from the same category (excluding current)
-  const sameCategoryLectures = getLecturesByCategory(slug).filter((l) => l.slug !== subject);
-  const recommended = sameCategoryLectures.length >= 2
-    ? sameCategoryLectures.slice(0, 2)
-    : [
-        ...sameCategoryLectures,
-        ...allLectures.filter((l) => l.category !== slug && l.slug !== subject),
-      ].slice(0, 2);
+  // Candidates for random recommendation (all lectures except current)
+  const candidates = allLectures.filter((l) => !(l.category === slug && l.slug === subject));
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
@@ -263,45 +258,8 @@ export default async function LecturePage({ params }: PageProps) {
         </ul>
       </section>
 
-      {/* Recommended lectures */}
-      {recommended.length > 0 && (
-        <section className="mt-10">
-          <div className="text-[10px] font-bold uppercase tracking-[2.8px] text-foreground/45 mb-4">
-            Next Lecture
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {recommended.map((rec) => {
-              const recCategory = universityCategories.find((c) => c.id === rec.category);
-              const recAccent = recCategory?.color ?? ACCENT;
-              return (
-                <Link
-                  key={rec.slug}
-                  href={`/university/${rec.category}/${rec.slug}`}
-                  className="group flex items-start gap-4 rounded-xl border border-brief-border bg-brief-card p-4 hover:border-foreground/20 transition-all duration-200"
-                >
-                  <div
-                    className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-[10px] font-bold uppercase tracking-[1.5px]"
-                    style={{ backgroundColor: `${recAccent}15`, color: recAccent }}
-                  >
-                    {rec.badge.split(" ").slice(-1)[0]}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-[9px] uppercase tracking-[2px] text-foreground/40 mb-0.5">
-                      {recCategory?.label ?? rec.category}
-                    </div>
-                    <div className="font-serif font-bold text-[15px] leading-snug group-hover:text-foreground transition-colors" style={{ color: recAccent }}>
-                      {rec.title}
-                    </div>
-                    <div className="text-[11px] text-foreground/50 mt-1 leading-relaxed line-clamp-2">
-                      {rec.subtitle}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-      )}
+      {/* Recommended lectures (randomised client-side) */}
+      <LectureRecommendations candidates={candidates} categories={universityCategories} />
 
       {/* Back link */}
       <div className="mt-10">

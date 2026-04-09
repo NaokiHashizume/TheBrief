@@ -70,6 +70,14 @@ import {
   AiLandscape2026TimelineDiagram,
   AiLandscape2026FutureDiagram,
 } from "@/components/AiLandscape2026Diagrams";
+import {
+  ClaudeOpus46OverviewDiagram,
+  ClaudeOpus46BenchmarksDiagram,
+  ClaudeOpus46SafetyDiagram,
+  ClaudeOpus46VsRivalsDiagram,
+  ClaudeOpus46JapanDiagram,
+  ClaudeOpus46UsecasesDiagram,
+} from "@/components/ClaudeOpus46Diagrams";
 
 export function generateStaticParams() {
   return aiArticles.map((a) => ({ slug: a.slug }));
@@ -190,6 +198,12 @@ const diagramMap: Record<string, React.FC> = {
   "muse-spark-sns": MuseSparkSnsDiagram,
   "muse-spark-vs-llama": MuseSparkVsLlamaDiagram,
   "muse-spark-japan": MuseSparkJapanDiagram,
+  "claude-opus-overview": ClaudeOpus46OverviewDiagram,
+  "claude-opus-benchmarks": ClaudeOpus46BenchmarksDiagram,
+  "claude-opus-safety": ClaudeOpus46SafetyDiagram,
+  "claude-opus-vs-rivals": ClaudeOpus46VsRivalsDiagram,
+  "claude-opus-japan": ClaudeOpus46JapanDiagram,
+  "claude-opus-usecases": ClaudeOpus46UsecasesDiagram,
   "ai-landscape-overview": AiLandscape2026OverviewDiagram,
   "ai-landscape-models": AiLandscape2026ModelsDiagram,
   "ai-landscape-benchmark": AiLandscape2026BenchmarkDiagram,

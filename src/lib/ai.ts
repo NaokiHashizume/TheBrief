@@ -2,6 +2,140 @@ import type { IndustryArticle } from "./ict";
 
 export const aiArticles: IndustryArticle[] = [
   {
+    slug: "claude-opus-46-deep-dive",
+    title: "Claude Opus 4.6の全貌 — Anthropicが「有用で安全なAI」を両立させた方法",
+    titleEn: "Inside Claude Opus 4.6 — How Anthropic Achieved Useful and Safe AI Together",
+    date: "2026-04-09",
+    author: "",
+    readTime: "12 min",
+    tags: ["Claude", "Anthropic", "Constitutional AI", "LLM", "AI安全性", "ベンチマーク", "エンタープライズAI"],
+    summary: "「Anthropicは安全のためにパフォーマンスを犠牲にしている」——この誤解は2026年も根強く残る。しかし実態は逆だ。ARC-AGI-2ではGemini・GPTに劣るが、企業が実際に必要とする法務・医療・コーディング・長文処理ではOpus 4.6は最強クラス。SWE-bench 80.8%・GPQA Diamond 91.3%・GDPval-AAで+144 Elo優位。Constitutional AIとRLHFを組み合わせた安全設計が、逆説的に高いビジネス性能を生む仕組みを徹底解説する。",
+    sections: [
+      {
+        heading: "「安全＝性能の犠牲」という誤解を解く",
+        headingEn: "Debunking the 'Safety = Performance Trade-off' Myth",
+        diagramId: "claude-opus-overview",
+        body: `2026年春、AIベンチマーク競争は熾烈を極めている。GPQA Diamondでは**Gemini 3.1 Pro（94.3%）**が首位に立ち、GPT-5.4（92.8%）、Claude Opus 4.6（91.3%）が続く。ARC-AGI-2ではGemini（77.1%）がリードし、Opus 4.6は68.8%と見劣りする数字だ。
+
+この数字だけを見た人が言う——「やはりAnthropicは安全性を優先しすぎてパフォーマンスが遅れている」と。
+
+しかしこれは根本的な誤解だ。**ベンチマークは何を測っているのか**を考える必要がある。ARC-AGI-2は「初見の抽象パターン認識」を測る。これは汎用知能の指標としては興味深いが、企業の現場で必要とされるタスクとは必ずしも一致しない。
+
+翻って、企業が実際に依頼するタスク——法務文書の解析、医療記録の要約、コードのリファクタリング、長文レポートの生成——においてはどうか。Anthropicの「GDPval-AA」評価（経済的に価値のある知識タスク）では、Opus 4.6はGPT-5.2に対して**+144 Eloの優位**を示す。
+
+> 「安全性と有用性はトレードオフではない。Anthropicの最大の賭けは、両者が同じパイプラインから生まれることを証明することだ。」
+
+本稿は、Claude Opus 4.6のベンチマーク・技術仕様・安全設計・競合比較・日本市場での採用状況を網羅し、この逆説の核心に迫る。`,
+      },
+      {
+        heading: "仕様とリリース背景",
+        headingEn: "Specifications and Release Context",
+        diagramId: "claude-opus-benchmarks",
+        body: `Claude Opus 4.6は**2026年2月5日**にリリースされた。Anthropicのフラッグシップモデルとして、Claude Codeを動かし、Agent Teams（マルチエージェント並列処理）を初搭載した。
+
+【コンテキストウィンドウ】標準200Kトークン、ベータ版では1Mトークンに拡張可能。金融・法務・医療分野の長大な文書を一括処理できる。
+
+【最大出力】128Kトークン。単一の応答で書籍1冊に相当するテキストを生成できる。
+
+【料金】入力$5／出力$25（100万トークンあたり）。GPT-5.4（$2.50/$20）・Gemini 3.1 Pro（$2/$10）と比べ高価だが、規制産業の意思決定者は「コンプライアンスリスクのコストを考えれば安い」と評価する。
+
+【Agent Teams】複数のサブエージェントを並列起動し、異なる角度から同じタスクを処理させる仕組み。複雑な調査・レポート生成・コードレビューを大幅に高速化する。
+
+主要ベンチマークを整理すると、SWE-bench Verified（ソフトウェアエンジニアリング）では**80.8%**を記録——Gemini 3.1 Pro（80.6%）・GPT-5.4（80.0%）と横並びでコーディング能力を証明する。GPQA Diamondでは91.3%とフロンティアモデル水準を維持。一方ARC-AGI-2は68.8%で、この点だけが「改善余地あり」と言える領域だ。`,
+      },
+      {
+        heading: "Constitutional AI — 安全性の仕組みを解剖する",
+        headingEn: "Constitutional AI — Anatomy of the Safety Mechanism",
+        diagramId: "claude-opus-safety",
+        body: `Anthropicの安全性技術の核心は**Constitutional AI（CAI）**だ。2022年に発表されたこのアプローチは、従来のRLHFとは一線を画す。
+
+従来のRLHF（人間フィードバック強化学習）は、大量の人間評価者がAIの応答に「良い/悪い」のラベルを付け、そのフィードバックで報酬モデルを訓練する。コストも時間もかかり、評価者のバイアスも混入する。
+
+CAIはこれを根本から変えた。「憲法的原則リスト」——人間が事前に設計した価値観のセット——をAI自身が参照し、自分の応答を批判・改善する。人間のラベリング作業を大幅に削減しながら、より一貫した安全性を担保する。
+
+> 「Constitutional AIはフィルターではなく、訓練インフラだ。」安全な応答を学ぶのと、質の高い応答を学ぶのは、同じ報酬信号から生まれる。
+
+**Project Glasswingとの接続**はその延長線上にある。AnthropicはClaude Mythos（未公開の最強モデル）が持つ攻撃的サイバー能力を自ら認識し、公開を見合わせた。代わりにその能力を使ってOSSの脆弱性を発見・修正するプロジェクトをAWS・Apple・Google・Microsoftら12社と立ち上げた（2026年4月7日）。
+
+この決断こそがAnthropicの「安全と有用性の両立」戦略の実践だ。最強モデルを隠すのではなく、その能力を公益のために使う——それがConstutitional AIの精神の具現化といえる。
+
+【Responsible Scaling Policy】モデルが危険能力の閾値を超えた場合にリリースを自動保留するポリシー。Opus 4.6はASL-3（高リスク）に分類されたが、十分な緩和策が確認されたためリリースされた。この透明性は規制当局や企業の信頼を高める。`,
+      },
+      {
+        heading: "GPT-5.4・Gemini 3.1 Proとの徹底比較",
+        headingEn: "Head-to-Head: GPT-5.4 and Gemini 3.1 Pro",
+        diagramId: "claude-opus-vs-rivals",
+        body: `3モデルを並べると、それぞれの「勝ち筋」が明確になる。
+
+**コーディング**ではほぼ三つ巴だ。SWE-bench VerifiedではOpus 4.6（80.8%）・Gemini（80.6%）・GPT-5.4（80.0%）が拮抗する。ただしGPT-5.4はUI自動化とcomputer useでリードし、Opus 4.6はAgent Teamsを活用した大規模コードベース処理で強みを持つ。
+
+**科学的推論**ではGemini 3.1 Proが圧倒する。GPQA Diamond 94.3%、ARC-AGI-2 77.1%——抽象推論と新規パターン認識ではGeminiが最強だ。ここがOpus 4.6の唯一の明確な弱点でもある。
+
+**ライティング品質**では評価者全員がOpus 4.6を最高評価した。文章のリズム、感情の表現、長文を通じたトーン維持——これらはLLMが苦手とする領域だが、Opus 4.6は別格だ。
+
+**ビジネス用途**こそが最大の逆転ポイントだ。GDPval-AA（経済的価値タスク：金融・法務・企業ドメイン）でOpus 4.6はGPT-5.2に対して**+144 Eloの差**をつける。「汎用推論は劣るが、仕事の役に立つ」——これが2026年のOpus 4.6の正確な評価だ。
+
+> 「GPT-5.4はUI自動化の王者、Gemini 3.1 Proは科学推論と費用対効果の勝者、Claude Opus 4.6はビジネスタスクとライティングのエース。三者は競合ではなく、補完関係にある。」
+
+料金面では、Opus 4.6（$5/$25 per 1M）はGemini（$2/$10）やGPT-5.4（$2.50/$20）より高い。しかし企業向け用途では「精度の1%向上が意思決定の質を変える」場面も多く、単純な価格比較は意味をなさない。`,
+      },
+      {
+        heading: "日本市場 — 「開発者中心」の浸透パターン",
+        headingEn: "Japan Market — Developer-first Penetration Pattern",
+        diagramId: "claude-opus-japan",
+        body: `Anthropicは2025年10月29日に**Anthropic Japan**を設立した。東京オフィス開設は単なる拠点設立以上の意味を持つ——日本の規制産業（金融・医療）に対して「高信頼AIプロバイダー」としての存在感を示す宣言だ。
+
+日本でのClaude採用は独特のパターンを見せる。Microsoftのイベントでも報告された通り、「**開発者中心**」の浸透が先行している。エンジニアやデータサイエンティストがAPI経由でClaudeを利用し、社内ツール・分析システム・コード生成に活用するケースが多い。
+
+**みずほフィナンシャルグループ**は従業員3万人へのClaude展開を進める。金融機関における大規模採用は、Constitutional AIによる安全性評価が「稟議を通りやすい」という実務的な評価の産物だ。
+
+**野村総合研究所（NRI）**は2025年11月に日本国内初のAmazon Bedrock向けAnthropic認定リセラーに選定され、2026年1月にAnthropicとのパートナーシップを拡大。コンサルティングファームが認定リセラーになることで、法人向けの導入支援体制が整いつつある。
+
+**クラスメソッド**（AWSエキスパート企業）は全社でClaude Codeを導入し、「コードベースの99%をClaude Codeが生成した」と報告している。エンジニアリング組織のAI化の最前線事例だ。
+
+日本市場の課題は明確だ。一般消費者向けの浸透は遅く、法人・開発者が先行する。データローカライゼーション規制・日本語品質・AI人材不足の3つが障壁として残る。ただし規制産業での信頼醸成という点で、Anthropicの「安全性ブランド」は他社にはない武器になる。`,
+      },
+      {
+        heading: "ビジネス用途で「最強クラス」たる理由",
+        headingEn: "Why Opus 4.6 Is Best-in-Class for Business Use",
+        diagramId: "claude-opus-usecases",
+        body: `ARC-AGI-2の数字だけを見れば「Geminiに劣る」ように見えるOpus 4.6だが、ビジネス用途では話が変わる。
+
+**法務・コンプライアンス**はOpus 4.6が最も輝く領域だ。200Kコンテキストで長大な契約書・規制文書・判例を一括処理し、Constitutional AIによる一貫性・正確性が法務チームの信頼を得る。規制当局の審査にも「Anthropicの安全フレームワーク下で動作している」という説明が通りやすい。
+
+**医療・ヘルスケア**では、診療記録の要約・医学文献の解析で高い評価を受ける。HIPAA準拠のエンタープライズデプロイが可能な点が、医療機関の導入障壁を下げる。
+
+**エンタープライズコーディング**ではSWE-bench 80.8%を背景に、Claude CodeによるCI/CD統合・大規模リファクタリングが現実化した。Agent Teamsにより、複数の開発サブタスクを並列処理できる。
+
+**長文コンテンツ生成**では他モデルを圧倒する。アニュアルレポート・技術白書・分析レポートの生成で、一貫したトーンと文体を長文全体で維持する能力はOpus 4.6だけが持つ際立った強みだ。
+
+> 「ARC-AGI-2のスコアを見て採用モデルを決めるのは、車を100m走のタイムで選ぶようなものだ。企業のAIは職場を走る。」
+
+一方で**抽象的パターン認識**（ARC-AGI-2 68.8%）は改善余地がある。「初見の問題を解く」純粋な汎用推論という点では、現時点でGeminiとGPT-5.4が上回る。これは本稿が認める唯一の弱点だ。
+
+実務的には「ビジネスタスクはOpus 4.6、数学・科学の純粋推論はGemini」という使い分けが合理的な結論になる。`,
+      },
+      {
+        heading: "安全と性能の「共進化」——Anthropicが証明しようとしていること",
+        headingEn: "Safety and Performance 'Co-evolution' — What Anthropic Is Proving",
+        diagramId: "claude-opus-overview",
+        body: `Anthropicの創業ストーリーは「OpenAIから安全性を重視する研究者たちが独立した」という語りで語られる。しかしこれを「安全性vs性能」の対立として理解すると、本質を見誤る。
+
+Anthropicの賭けは別のところにある——「安全な訓練プロセスこそが、最終的に最も有用なモデルを生む」という仮説だ。
+
+Constitutional AIはその証明実験だ。価値観の一貫性・応答の信頼性・有害コンテンツの排除を訓練段階から組み込むことで、業務での利用に耐える「使えるAI」が生まれる。単に有害な出力を減らすのではなく、応答の質そのものを向上させる。
+
+Project Glasswingもこの延長にある。「最強モデル（Mythos）を公開しない」という判断は、商業機会の喪失のように見える。しかし実際には、「最強の能力を公共の安全に使う」という選択が、規制当局・大企業・政府からの信頼を積み上げている。
+
+2026年以降、EU AI ActやG7のAIガバナンス規制が本格化するにつれ、「信頼できるAIプロバイダー」という評判は価格では買えない資産になる。Anthropicが「安全性のためにパフォーマンスを犠牲にしている」のではなく、「安全性によってパフォーマンスを証明している」のだ。
+
+> 「Anthropicの5年後の勝利シナリオは、最強のベンチマークスコアではない。規制が強化される世界で、唯一『使い続けられる』AIになることだ。」
+
+Claude Opus 4.6は、その道のりの上にある一つの答えだ。ARC-AGI-2でGeminiに劣り、料金でGPTに負けるが、企業の最前線でパフォーマンスを発揮する。これが「有用で安全なAIの両立」の現在地だ。`,
+      },
+    ],
+  },
+  {
     slug: "ai-landscape-2026",
     title: "2026年AI覇権地図 — Meta・OpenAI・Anthropic・Googleの戦略を1枚で整理する",
     titleEn: "AI Power Map 2026 — One Chart to Understand Meta, OpenAI, Anthropic, and Google",
