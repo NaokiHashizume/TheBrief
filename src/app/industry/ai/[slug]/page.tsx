@@ -79,6 +79,16 @@ import {
   ClaudeOpus46JapanDiagram,
   ClaudeOpus46UsecasesDiagram,
 } from "@/components/ClaudeOpus46Diagrams";
+import {
+  LlmOverviewDiagram,
+  LlmTransformerDiagram,
+  LlmParamsDiagram,
+  LlmComparisonDiagram,
+  LlmHallucinationDiagram,
+  LlmRagDiagram,
+  LlmJapanDiagram,
+  LlmUsecaseDiagram,
+} from "@/components/LlmGuideDiagrams";
 
 export function generateStaticParams() {
   return aiArticles.map((a) => ({ slug: a.slug }));
@@ -213,6 +223,14 @@ const diagramMap: Record<string, React.FC> = {
   "ai-landscape-japan": AiLandscape2026JapanDiagram,
   "ai-landscape-timeline": AiLandscape2026TimelineDiagram,
   "ai-landscape-future": AiLandscape2026FutureDiagram,
+  "llm-overview": LlmOverviewDiagram,
+  "llm-transformer": LlmTransformerDiagram,
+  "llm-params": LlmParamsDiagram,
+  "llm-comparison": LlmComparisonDiagram,
+  "llm-hallucination": LlmHallucinationDiagram,
+  "llm-rag": LlmRagDiagram,
+  "llm-japan": LlmJapanDiagram,
+  "llm-usecase": LlmUsecaseDiagram,
 };
 
 export default async function AiArticlePage({

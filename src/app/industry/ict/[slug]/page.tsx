@@ -90,6 +90,15 @@ import {
   Japan5GRevenueDiagram,
   Japan5GFutureDiagram,
 } from "@/components/Japan5G2026Diagrams";
+import {
+  VibeCodingOverviewDiagram,
+  VibeCodingStatsDiagram,
+  VibeCodingToolsDiagram,
+  VibeCodingProductivityDiagram,
+  VibeCodingSecurityDiagram,
+  VibeCodingJapanDiagram,
+  VibeCodingAgenticDiagram,
+} from "@/components/VibeCodingDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { TagLink } from "@/components/TagLink";
 import { T } from "@/components/T";
@@ -236,6 +245,13 @@ const diagramMap: Record<string, React.FC> = {
   "5g-industrial-use": Japan5GIndustrialUseDiagram,
   "5g-revenue": Japan5GRevenueDiagram,
   "5g-future": Japan5GFutureDiagram,
+  "vibe-coding-overview": VibeCodingOverviewDiagram,
+  "vibe-coding-stats": VibeCodingStatsDiagram,
+  "vibe-coding-tools": VibeCodingToolsDiagram,
+  "vibe-coding-productivity": VibeCodingProductivityDiagram,
+  "vibe-coding-security": VibeCodingSecurityDiagram,
+  "vibe-coding-japan": VibeCodingJapanDiagram,
+  "vibe-coding-agentic": VibeCodingAgenticDiagram,
 };
 
 export default async function IctArticlePage({
