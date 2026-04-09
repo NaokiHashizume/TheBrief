@@ -137,15 +137,15 @@ function rankArticlesByLRU(articles, history) {
 // ── 3. ツイート本文を組み立てる ──
 const TEMPLATES = [
   ({ title, url, hashtags }) =>
-    `💡 知っておきたい Tips\n\n${title}\n\n詳細はこちら👇\n${url}\n\n${hashtags}`,
+    `${title}👀\n\n業界全体を揺るがす動きが静かに始まっている。\n\n詳細が気になる人はこちら👇\n${url}\n\n${hashtags}`,
   ({ title, url, hashtags }) =>
-    `📌 今日の Tips\n\n${title}\n\n👉 ${url}\n\n${hashtags}`,
+    `知らないと損する話💡\n\n${title}\n\nその背景にある本当の理由とは——\n\n全容はこちら→\n${url}\n\n${hashtags}`,
   ({ title, url, hashtags }) =>
-    `🔑 押さえておきたいポイント\n\n${title}\n\n${url}\n\n${hashtags}`,
+    `${title}⚡️\n\nこの変化が他の業界にも波及する可能性がある。\n\n続きはこちら👇\n${url}\n\n${hashtags}`,
   ({ title, url, hashtags }) =>
-    `✅ 知らないと損する話\n\n${title}\n\n詳しくはこちら↓\n${url}\n\n${hashtags}`,
+    `注目🔥\n\n${title}\n\n多くの人がまだ気づいていない重要な動き。\n\n詳しくはこちら→\n${url}\n\n${hashtags}`,
   ({ title, url, hashtags }) =>
-    `📚 5分で学べる Tips\n\n${title}\n\n${url}\n\n${hashtags}`,
+    `${title}\n\n表向きの理由だけでは語れない構造的な問題がある。\n\n気になる人はこちら👇\n${url}\n\n${hashtags}`,
 ];
 
 function buildTweet(article) {
