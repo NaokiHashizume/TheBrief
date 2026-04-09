@@ -312,10 +312,9 @@ URL: ${article.url}
       }
       const baseUrl = article.url.split("?")[0];
       if (!tweet.includes(baseUrl)) {
-        console.warn(
-          `[post-to-x] Claude attempt ${attempt}: missing article URL`,
-        );
-        continue;
+        // URL が抜けていたら末尾に追加して再利用
+        tweet = tweet.trimEnd() + `\n${article.url}`;
+        console.log(`[post-to-x] Claude attempt ${attempt}: appended missing URL`);
       }
       const w = tweetWeight(tweet);
       console.log(
