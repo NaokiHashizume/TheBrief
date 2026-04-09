@@ -163,6 +163,14 @@
       "postedAt": "2026-04-09T13:26:07.159Z",
       "hasMedia": true,
       "textSource": "claude"
+    },
+    {
+      "slug": "ntt-law-revision-2026",
+      "url": "https://thebrief.info/industry/ict/ntt-law-revision-2026",
+      "tweetId": "2042235424920248480",
+      "postedAt": "2026-04-09T13:37:23.079Z",
+      "hasMedia": true,
+      "textSource": "template"
     }
   ]
 }
