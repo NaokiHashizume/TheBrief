@@ -89,6 +89,15 @@ import {
   LlmJapanDiagram,
   LlmUsecaseDiagram,
 } from "@/components/LlmGuideDiagrams";
+import {
+  VibeCodingOverviewDiagram,
+  VibeCodingStatsDiagram,
+  VibeCodingToolsDiagram,
+  VibeCodingProductivityDiagram,
+  VibeCodingSecurityDiagram,
+  VibeCodingJapanDiagram,
+  VibeCodingAgenticDiagram,
+} from "@/components/VibeCodingDiagrams";
 
 export function generateStaticParams() {
   return aiArticles.map((a) => ({ slug: a.slug }));
@@ -231,6 +240,13 @@ const diagramMap: Record<string, React.FC> = {
   "llm-rag": LlmRagDiagram,
   "llm-japan": LlmJapanDiagram,
   "llm-usecase": LlmUsecaseDiagram,
+  "vibe-coding-overview": VibeCodingOverviewDiagram,
+  "vibe-coding-stats": VibeCodingStatsDiagram,
+  "vibe-coding-tools": VibeCodingToolsDiagram,
+  "vibe-coding-productivity": VibeCodingProductivityDiagram,
+  "vibe-coding-security": VibeCodingSecurityDiagram,
+  "vibe-coding-japan": VibeCodingJapanDiagram,
+  "vibe-coding-agentic": VibeCodingAgenticDiagram,
 };
 
 export default async function AiArticlePage({
