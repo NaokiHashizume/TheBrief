@@ -14,6 +14,14 @@ import {
   HormuzFinanceImpactDiagram,
   HormuzFinanceRiskDiagram,
 } from "@/components/HormuzFinanceDiagrams";
+import {
+  BojPolicyRateDiagram,
+  BojInflationWagesDiagram,
+  BojMortgageImpactDiagram,
+  BojCorporateDebtDiagram,
+  BojVsFedDiagram,
+  BojScenarioDiagram,
+} from "@/components/BojRateHike2026Diagrams";
 
 export function generateStaticParams() {
   return financeArticles.map((a) => ({ slug: a.slug }));
@@ -87,6 +95,12 @@ const diagramMap: Record<string, React.FC> = {
   "hormuz-finance-energy": HormuzFinanceEnergyDiagram,
   "hormuz-finance-impact": HormuzFinanceImpactDiagram,
   "hormuz-finance-risk": HormuzFinanceRiskDiagram,
+  "boj-policy-rate": BojPolicyRateDiagram,
+  "boj-inflation-wages": BojInflationWagesDiagram,
+  "boj-mortgage-impact": BojMortgageImpactDiagram,
+  "boj-corporate-debt": BojCorporateDebtDiagram,
+  "boj-vs-fed": BojVsFedDiagram,
+  "boj-scenario": BojScenarioDiagram,
 };
 
 export default async function ArticlePage({

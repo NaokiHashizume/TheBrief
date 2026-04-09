@@ -13,6 +13,14 @@ import {
   TimelineDiagram,
   EconomicImpactDiagram,
 } from "@/components/UrbanDevelopmentDiagrams";
+import {
+  ConstructionWorkforceDiagram,
+  ConstructionBimDiagram,
+  ConstructionRobotsDiagram,
+  ConstructionCostDiagram,
+  ConstructionSmeGapDiagram,
+  ConstructionRoadmapDiagram,
+} from "@/components/ConstructionDx2026Diagrams";
 import ShareButton from "@/components/ShareButton";
 
 export function generateStaticParams() {
@@ -97,6 +105,12 @@ const diagramMap: Record<string, React.FC> = {
   "investment-scale": InvestmentScaleDiagram,
   "timeline": TimelineDiagram,
   "economic-impact": EconomicImpactDiagram,
+  "construction-workforce": ConstructionWorkforceDiagram,
+  "construction-bim": ConstructionBimDiagram,
+  "construction-robots": ConstructionRobotsDiagram,
+  "construction-cost": ConstructionCostDiagram,
+  "construction-sme-gap": ConstructionSmeGapDiagram,
+  "construction-roadmap": ConstructionRoadmapDiagram,
 };
 
 export default async function ConstructionArticlePage({

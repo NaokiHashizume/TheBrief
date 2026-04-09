@@ -2,6 +2,201 @@ import type { IndustryArticle } from "./ict";
 
 export const automotiveArticles: IndustryArticle[] = [
   {
+    slug: "ev-market-japan-2026",
+    title: "EV市場2026 — トヨタ・テスラ・中国EVの三角戦争、日本メーカーは生き残れるか",
+    titleEn: "EV Market 2026 — Toyota vs Tesla vs China: Can Japan Survive the Three-Way War?",
+    date: "2026-04-09",
+    author: "",
+    readTime: "14 min",
+    tags: ["EV", "トヨタ", "BYD", "テスラ", "中国EV", "全固体電池", "充電インフラ", "ハイブリッド"],
+    summary:
+      "2026年Q1、テスラがBYDを抜いてEV世界首位を奪還した。BYDは新税制で販売が25%減、テスラは358,023台で首位に返り咲いた。しかし**中国EVの本質的な競争力**——1台当たり$4,700のコスト優位——は変わっていない。トヨタはハイブリッドを「EVへの逃避」ではなく途上国を含めた現実的なCO2削減の最適解と位置づけるが、中国EVのコスト構造への根本的な回答を持っていない。日本メーカーの「生き残り」の条件を問う。",
+    summaryEn:
+      "In Q1 2026, Tesla reclaimed the global EV sales crown from BYD, which saw a 25% sales drop after China's new tax policy. But the structural cost advantage of Chinese EVs — a $4,700 per-vehicle gap with Tesla — hasn't changed. Toyota frames its hybrid strategy not as a retreat from EVs but as the optimal CO2 reduction path for emerging markets too. Yet it has no fundamental answer to China's cost structure. This article examines what 'survival' actually means for Japan's automakers.",
+    sections: [
+      {
+        heading: "2026年の「EV三角戦争」全体像",
+        headingEn: "The EV Three-Way War of 2026 — The Big Picture",
+        diagramId: "ev-market-share",
+        body: `2026年Q1、グローバルEV市場で予想外の「首位交代」が起きた。
+
+> この記事でわかること：2026年のEV市場勢力図、トヨタのハイブリッド戦略の論理、中国EVの欧州・日本進出、日本のEVインフラの遅れ、中国EVのコスト優位の構造、そして日本メーカーの生存シナリオ。
+
+【Q1 2026 の首位交代】テスラが358,023台でBYDの310,389台を抑え、グローバルBEV販売首位に返り咲いた。BYDの落ち込みは中国政府の新税制（車両価格の5%を消費者負担）が影響した一時的なものだ。ただし2月単月ではBYDが17.3%のシェアで依然首位、テスラは7.8%にとどまる。
+
+【三者三様の戦略】三角戦争の構図は、戦い方が根本的に異なる3勢力の激突だ。**BYD**は垂直統合・低コスト・PHEV多角展開で全方位を攻める。**テスラ**はソフトウェア・ブランド・FSD（自動運転）で価値の軸を変える。**トヨタ**はハイブリッドの世界最大市場シェアを基盤に、全固体電池で「2028年に一気に逆転」を狙う。
+
+【トヨタの位置】2月のBEV市場ランキングで9位というトヨタの数字は、単純比較では厳しい。しかしBEVだけでなく**HEV・PHEV・BEV・FCEV**の全域に製品を持つのはトヨタだけであり、「BEV単品での競争」で評価するのは不公平とも言える。
+
+三角戦争の真の意味は、「誰がBEV首位か」ではなく、**「誰が2030年の自動車市場を支配するか」** という問いにある。その答えは2026年現在、まだ確定していない。`,
+        bodyEn: `In Q1 2026, the global EV market saw an unexpected leadership change.
+
+> What this article covers: the 2026 EV market power map, Toyota's hybrid strategy logic, Chinese EV expansion into Europe and Japan, Japan's charging infrastructure gap, the structural cost advantage of Chinese EVs, and survival scenarios for Japanese automakers.
+
+【Q1 2026 leadership change】Tesla reclaimed global BEV sales leadership with 358,023 units, outpacing BYD's 310,389. BYD's drop was largely driven by China's new tax policy (adding a 5% cost to consumers), making it a temporary disruption. But in February alone, BYD still led with 17.3% market share; Tesla held 7.8%.
+
+【Three very different strategies】The triangular war pits three forces with fundamentally different approaches. **BYD** attacks across all segments through vertical integration, low cost, and a PHEV hedging strategy. **Tesla** changes the value axis with software, brand, and FSD autonomy. **Toyota** targets a 2028 leapfrog via solid-state batteries, anchored by the world's largest hybrid market share.
+
+【Toyota's position】Toyota at #9 in the February BEV ranking looks harsh in isolation. But Toyota is the only maker with products across HEV, PHEV, BEV and FCEV simultaneously — evaluating it purely on BEV volume misses the picture.
+
+The real question in this three-way war is not "who leads BEV sales" but **"who will dominate the 2030 auto market."** In April 2026, that answer remains open.`,
+      },
+      {
+        heading: "トヨタのハイブリッド戦略——「逃避」か「最適解」か",
+        headingEn: "Toyota's Hybrid Strategy — Retreat or Optimal Solution?",
+        diagramId: "ev-toyota-strategy",
+        body: `トヨタのハイブリッド継続方針は、欧米の一部メディアから「EVシフトへの抵抗」と批判される。しかしトヨタの論理は別のところにある。
+
+【途上国市場という現実】世界の新車市場の約4割はインド・ASEAN・中東・アフリカなどの新興・途上国市場が占める。これらの地域では充電インフラが整備されておらず、EVの普及には現実的な制約がある。仮に日本の全自動車をEVに置き換えても、世界のCO2削減効果は限定的だ。**HEVをグローバルで普及させる方が、CO2削減量は大きい**——これがトヨタの根拠だ。
+
+【数字で見るトヨタのHEV戦略】2026年2月、トヨタは2028年までにHEV・PHEVの生産を約30%増の670万台体制（全生産の約60%）へ引き上げる計画を発表した。HEVはガソリン車比でCO2を約30〜40%削減できる技術であり、充電インフラなしに世界中で即座に展開できる。
+
+【2026年の次世代BEVとその先】同時にトヨタは2026年、航続1,000km超・充電20分以下の次世代BEVを投入する。2027〜2028年には全固体電池搭載のフラッグシップEV、2030年には全固体電池の量産化を目指す。「ハイブリッド継続」と「EV投資」は対立でなく並走だ。
+
+【批評的視点：コスト競争力への回答がない】トヨタのハイブリッド戦略は途上国市場という文脈では説得力がある。しかし**中国EVのコスト構造には根本的な回答を持っていない**。BYDの$4,700/台のコスト優位は、補助金ではなく垂直統合・規模・低い人件費から生まれており、これをトヨタが短期間で覆すのは容易ではない。
+
+> ハイブリッド戦略は「現実的なCO2削減の最適解」である。しかし同時に、中国EVのコスト競争力という根本問題を先送りにするリスクも内包している。`,
+        bodyEn: `Toyota's continued commitment to hybrids has been criticized in some Western media as "resistance to the EV shift." But Toyota's logic runs deeper.
+
+【The developing-world reality】Roughly 40% of global new car sales come from emerging markets: India, ASEAN, the Middle East, Africa. These regions lack charging infrastructure, and EV adoption faces hard practical constraints. Even if Japan replaced every car with an EV, the global CO2 impact would be limited. **Deploying HEVs globally reduces more CO2 in aggregate** — that is Toyota's case.
+
+【Toyota's HEV targets by the numbers】In February 2026, Toyota announced plans to lift HEV/PHEV production by roughly 30% to 6.7 million units by 2028, representing about 60% of total output. HEVs cut CO2 by roughly 30–40% versus gasoline cars, and they work without any charging infrastructure, anywhere in the world, immediately.
+
+【The next-gen BEV roadmap for 2026 and beyond】In parallel, Toyota launches a next-gen BEV platform in 2026 targeting 1,000+ km range and sub-20-minute charging. Solid-state battery integration follows in 2027–2028 flagship EVs, with mass production by 2030. "Continuing hybrids" and "investing in BEVs" are not competing — they are parallel.
+
+【The critical view: no answer on cost competitiveness】Toyota's hybrid strategy is compelling in the context of emerging markets. But it has **no fundamental answer to China's EV cost structure**. BYD's $4,700 per-vehicle advantage over Tesla comes not from subsidies but from vertical integration, scale and lower labor costs — advantages Toyota cannot quickly reverse.
+
+> The hybrid strategy is a genuine optimal CO2 reduction solution. But it also carries the risk of deferring the deeper question: what to do about the structural cost competitiveness of Chinese EVs.`,
+      },
+      {
+        heading: "中国EVの日本・欧州進出——「関税の壁」を越えた先",
+        headingEn: "Chinese EVs in Japan and Europe — Past the Tariff Wall",
+        diagramId: "ev-china-advance",
+        body: `中国EVの海外展開は、関税という「壁」をものともせず加速している。
+
+【欧州での既成事実】2025年末、欧州で売れた新車の10台に1台が中国ブランドになった。EUがBYDに17%・SACIに35.3%の相殺関税を課したにもかかわらず、中国メーカーはPHEVへの転換（関税対象外）とハンガリー・スペインへの工場進出で関税を実質的に迂回した。
+
+【BYDの日本攻略——軽EV「Racco」】日本市場では、BYDが2026年Q2に日本専用設計の軽EV「Racco（ラッコ）」を投入する。BYDが特定の国向けに専用モデルを開発するのは初めてだ。軽自動車はダイハツ・スズキ・ホンダの牙城だが、価格次第では風穴を開ける可能性がある。
+
+【NIOのFirefly・XiaomiのYU7】NIOは欧州向けのコンパクト高級サブブランド「Firefly」で2026年初頭から北欧・西欧に展開を広げている。Xiaomiは月産4万台を超え、2027年のグローバル展開を計画する。中国EVは「まず国内で規模を作り、世界へ」という正攻法を取り始めた。
+
+【中国EV輸出の本当の脅威】輸出台数そのものより重要なのは、**価格の「底」の再定義**だ。欧州でBYDが€30,000〜45,000の価格帯に参入したことで、欧州メーカーは€40,000前後だったEVの価格を強制的に下げた。日本市場でも同様の「価格フロア引き下げ」が起きれば、日産・ホンダのEVラインナップへの圧力は避けられない。`,
+        bodyEn: `The international expansion of Chinese EVs is accelerating regardless of tariff walls.
+
+【Europe's new reality】By late 2025, one in ten new cars sold in Europe was a Chinese brand. Despite EU countervailing duties of 17% on BYD and 35.3% on SAIC, Chinese makers effectively routed around the tariffs by pivoting to PHEVs (exempt) and opening factories in Hungary and Spain.
+
+【BYD's Japan play — the kei EV 'Racco'】In Japan, BYD is launching the 'Racco' kei EV in Q2 2026 — the first BYD vehicle designed exclusively for a specific national market. The kei segment is the stronghold of Daihatsu, Suzuki and Honda; but at the right price, BYD could open a crack.
+
+【NIO's Firefly and Xiaomi's YU7】NIO is rolling its compact luxury sub-brand 'Firefly' across Nordic and Western Europe from early 2026. Xiaomi surpassed 40,000 units per month domestically and is planning its global expansion for 2027. Chinese EV brands are now playing a classic "build scale at home, then take the world" playbook.
+
+【The real threat from Chinese EV exports】More important than unit volumes is the **redefinition of the price floor**. BYD entering Europe's €30,000–€45,000 band forced European OEMs to cut EV prices from their previous €40,000+ clustering. If the same floor-reset happens in Japan, Nissan and Honda face inevitable pressure on their EV lineups.`,
+      },
+      {
+        heading: "日本のEV普及の「二重の壁」",
+        headingEn: "Japan's Two-Layer Barrier to EV Adoption",
+        diagramId: "ev-japan-infra",
+        body: `日本のEV普及率はなぜ低いのか。2025年通年の新車販売に占めるBEV+PHEVシェアはわずか2.66%。世界平均27.7%の10分の1以下だ。
+
+【壁①：充電インフラの絶対量不足】2024年末時点で急速充電器は12,313台、普通充電器は73,089台、合計85,402台（前年比+58%）と急増はしている。しかし政府の2030年目標は30万口で、現在の4.4倍が必要だ。集合住宅（マンション）での充電設備設置は法的・管理組合的な障壁が大きく、戸建て以外のEV利用者にとっては依然として「使いにくい」状況が続く。
+
+【壁②：車両価格の高さ】国産BEVはおおむね400〜600万円台が中心。ガソリン車・HEV比で100〜200万円高い。補助金（CEV補助金）で実質価格は下がるが、補助金の先行き不透明感から購入を見送るユーザーも多い。
+
+【2026年の転換点となるか】2026年は国内EV市場にとって試金石の年だ。日産が新型Leafを1月に投入、スズキe VITARAが国内展開、ホンダが軽EV「Super ONE」を年内に先行発売予定。加えてBYDの「Racco」投入も控える。複数の新車が重なることで、消費者の「EV選択肢がない」という状況は打破されつつある。
+
+【充電インフラの非線形な改善】充電器設置数の伸びは2024年に前年比58%増と急加速した。高速道路SAへの設置義務化・民間ガソリンスタンドへの転換促進・マンション向け補助金の拡充——政策の複合効果が出始めている。2028年頃には「充電インフラが障壁」という状況は相当改善される可能性がある。`,
+        bodyEn: `Why is Japan's EV adoption so low? BEV+PHEV share of 2025 new car sales was just 2.66% — less than one-tenth the global average of 27.7%.
+
+【Barrier 1: Absolute shortage of charging infrastructure】By end-2024, Japan had 12,313 fast chargers and 73,089 standard chargers — 85,402 total, up 58% year-on-year. Still, the government's 2030 target of 300,000 charging points requires 4.4x the current stock. Installing chargers in apartment buildings faces legal and management-committee obstacles, meaning EV ownership remains impractical for many non-detached households.
+
+【Barrier 2: Vehicle purchase price】Domestic BEVs cluster in the ¥4–6M range — ¥1–2M more than comparable gasoline or hybrid vehicles. Government subsidies (CEV grants) reduce the gap, but uncertainty about subsidy continuation leads many buyers to wait.
+
+【2026 as a potential turning point】2026 is a test for Japan's domestic EV market. Nissan launched the new Leaf in January; Suzuki rolled out the e VITARA; Honda is set to launch its kei EV 'Super ONE' by year-end; and BYD's 'Racco' is on the way. Multiple new entries arriving at once are breaking the "no EV options" excuse for Japanese consumers.
+
+【Non-linear charging infrastructure improvement】The 58% year-on-year surge in charger installations in 2024 reflects combined policy effects: mandatory installation at highway rest stops, incentives for petrol stations to convert, and expanded subsidies for apartment buildings. By around 2028, the charging infrastructure barrier may look substantially different.`,
+      },
+      {
+        heading: "BYDのコスト優位——補助金ではなく構造問題",
+        headingEn: "BYD's Cost Edge — A Structural Problem, Not a Subsidy Issue",
+        diagramId: "ev-cost-comparison",
+        body: `「中国EVが安いのは政府補助金のせいだ」——これは半分正しく、半分間違いだ。
+
+【$4,700のコスト差の内訳】Rhodium Groupの分析（2026年3月）によれば、BYDのテスラに対するコスト優位は1台当たり$4,700。そのうち補助金が占める割合はわずか5%だ。残り95%は**垂直統合・規模の経済・低い人件費・開発費の効率性**から来ている。
+
+【垂直統合の威力】BYDは電池（BYDブレードバッテリー）・半導体（BYD半導体）・車体・モーターを自社で製造する。サプライヤーへの依存を最小化することで、1台当たり$2,369のサプライヤーマークアップを節約している（テスラ Model 3比）。
+
+【「支払い期間」に見る資本力】BYDの仕入れ代金平均支払い期間は155日。テスラが60日、VWが43日、トヨタが41日。これは取引先に対する資金的な優位を示すと同時に、BYDが中国の金融システム（低金利融資・国有銀行との関係）を活用していることを示唆する。
+
+【トヨタが「根本的な回答を持っていない」意味】トヨタはBYDのコスト構造を「短期間で真似する」ことができない。垂直統合を進めるとサプライヤー（デンソー・アイシン等）との関係が毀損する。中国の低人件費は再現できない。規模の差は販売台数全体では小さいが、EV単体では大きい。
+
+> 「補助金廃止で中国EVの優位は消える」という主張は、根拠が薄い。むしろ中国EVの優位は構造的であり、欧州の関税政策がそれを証明した。`,
+        bodyEn: `"Chinese EVs are cheap because of government subsidies" — this is half right and half wrong.
+
+【The $4,700 cost gap unpacked】Rhodium Group analysis (March 2026) puts BYD's per-vehicle cost advantage over Tesla at $4,700. Of that, subsidies account for just 5%. The remaining 95% comes from **vertical integration, economies of scale, lower labor costs and R&D efficiency**.
+
+【The power of vertical integration】BYD manufactures its own batteries (BYD Blade Battery), semiconductors (BYD Semiconductor), bodies and motors. By minimizing dependence on outside suppliers, it saves $2,369 per vehicle in supplier markups versus Tesla's Model 3.
+
+【Payment terms as a proxy for financial strength】BYD pays suppliers after an average of 155 days. Tesla takes 60 days, VW 43 days, Toyota 41 days. This reflects both financial muscle over suppliers and BYD's access to China's financial system (low-rate state bank lending).
+
+【What it means that Toyota "has no fundamental answer"】Toyota cannot quickly replicate BYD's cost structure. Aggressive vertical integration would damage relationships with suppliers like Denso and Aisin. China's labor costs cannot be reproduced. Scale gaps are modest across total volume but wide on BEVs specifically.
+
+> The claim that "removing subsidies will erase China's EV advantage" lacks foundation. The advantage is structural — and Europe's tariff experience has proved it.`,
+      },
+      {
+        heading: "日本メーカーの「三角戦争」での生存戦略",
+        headingEn: "Japan's Automakers — Survival Strategies in the Three-Way War",
+        diagramId: "ev-future-scenario",
+        body: `三角戦争での日本メーカーの生き残りは、どのシナリオにあるか。
+
+【シナリオA：ハイブリッド持久戦（確度：高）】トヨタのHV戦略は、途上国市場という「中国EV純電気が届かない空間」で強く機能する。インド・ASEANでのHV支配は2030年以降も続く可能性がある。この市場を維持しながら全固体電池で2028年以降の先進国市場での逆転を狙う——これが最も現実的なシナリオだ。
+
+【シナリオB：全固体電池ブレークスルー（確度：中）】2027〜2028年にトヨタが全固体電池を量産化し、航続1,200km・充電10分を実現できれば、市場の評価軸が「コスト」から「性能」に変わる。BYDの液系バッテリー優位を技術で一気に飛び越えるシナリオだ。ただし出光のパイロット工場稼働と製造歩留まりの確立が前提。
+
+【シナリオC：中国EVによる置換加速（確度：中）】BYDが日本・欧州で価格の「底」を再定義し、日本メーカーの利益率の高い市場を次々と失う最悪シナリオ。日産は現在の財務体質では1〜2回の大きな打撃に耐えられない。
+
+【シナリオD：産業再編・提携加速（確度：中〜高）】ホンダ・日産の北米共同開発が深化し、スズキ・マツダ等が電池・SDVの調達で協力する「日本連合」が形成されれば、規模の不利を一部補える。ただし日本企業の提携は「決断の遅さ」が常に課題だ。
+
+【結論：時間との戦い】日本メーカーに残された時間は多くない。欧州では「2年で中国EVが市場の10%を取った」実例が出た。日本市場はインフラ・車両の供給側の制約からもう数年の猶予があるかもしれない。しかしその「猶予」を全固体電池・HV継続・提携加速のどれに使うかを今決めなければ、欧州の1年後を数年後に繰り返すことになる。`,
+        bodyEn: `Which survival scenarios are realistic for Japan's automakers in the three-way war?
+
+【Scenario A: Hybrid endurance (probability: high)】Toyota's HV strategy works powerfully in the space Chinese pure-EV players cannot reach: emerging markets. HV dominance in India and ASEAN may well persist beyond 2030. Maintaining that base while targeting an advanced-market reversal via solid-state batteries after 2028 is the most realistic scenario.
+
+【Scenario B: Solid-state breakthrough (probability: medium)】If Toyota achieves solid-state mass production in 2027–2028 with 1,200 km range and 10-minute charging, the market's evaluation axis shifts from cost to performance. This scenario leapfrogs BYD's liquid-battery advantage through technology. But it requires Idemitsu's pilot facility to ramp and production yields to be established first.
+
+【Scenario C: Chinese EV displacement acceleration (probability: medium)】BYD resets the price floor in Japan and Europe, and Japanese makers lose their high-margin markets one by one. The worst case. Nissan, in its current financial condition, cannot absorb one or two major market-share shocks.
+
+【Scenario D: Industry consolidation (probability: medium-to-high)】If Honda-Nissan North America cooperation deepens and Suzuki, Mazda and others cooperate on battery and SDV procurement, a "Japan consortium" could offset some scale disadvantages. The chronic obstacle: Japanese companies are slow to commit to alliances.
+
+【The verdict: a race against time】Japanese automakers do not have unlimited runway. Europe showed how Chinese EVs can take 10% of a market in two years. Japan's infrastructure and vehicle supply constraints may buy a few more years. But the question of where to deploy that time — solid-state batteries, HV continuation, or accelerated partnerships — must be decided now, or Japan will repeat Europe's one-year story in three to five years.`,
+      },
+      {
+        heading: "「三角戦争」の本当の問い——勝者は誰か",
+        headingEn: "The Real Question in the Three-Way War — Who Wins?",
+        body: `三角戦争の「勝者」は、「BEV販売台数で誰が一位か」ではない。
+
+【勝者の定義を変える】自動車産業の「支配」とは、最終的には**利益とキャッシュフローを持続的に生み出せるか**だ。テスラは「ソフトウェア企業が自動車を作る」という価値軸を提示した。BYDは「製造業の究極コスト競争力」を示した。トヨタは「全方位・全地域・全パワートレイン」という分散リスク戦略を持つ。
+
+【中国政府という変数】BYDの最大の「武器」は、実は中国市場という世界最大のEV市場での量産基盤だ。しかしその量産基盤は中国政府の政策次第でも揺れる。Q1 2026の販売25%減はその証左だ。BYDの海外展開が「中国市場の不安定性のヘッジ」という側面を持つことも見落とせない。
+
+【米国関税という変数】2025年以降の米国関税（中国製品への60%超の関税）は、BYDの北米直接進出をほぼ不可能にした。メキシコ経由の「迂回ルート」が封じられれば、中国EVの最大市場・北米はしばらく日本・欧州勢の守備範囲となる。
+
+【最終的な問い】トヨタのハイブリッド戦略は「現実的なCO2削減の最適解」だという主張は正しい。しかしそれだけでは中国EVのコスト競争力という「構造問題」を乗り越えられない。日本の自動車産業が2030年代に「ただ生き延びる」ではなく「競争力を持って勝つ」ためには、全固体電池の量産化・産業再編の加速・途上国市場でのHV深耕——三つを同時に進める必要がある。
+
+> 三角戦争に「最終的な勝者」はいないかもしれない。それぞれが異なる市場・技術・地域で「勝てる領域」を確保する共存の時代が、少なくとも2030年代半ばまでは続く可能性が高い。問題は、日本メーカーが「勝てる領域」を今から手に入れられるかどうかだ。`,
+        bodyEn: `The "winner" of the three-way war is not whoever leads BEV sales.
+
+【Redefining victory】In the auto industry, "domination" ultimately means **sustaining profit and cash flow**. Tesla reframed the value axis as "a software company that builds cars." BYD demonstrated manufacturing's ultimate cost competitiveness. Toyota's multi-pathway, multi-region, multi-powertrain approach is a distributed-risk strategy.
+
+【The Chinese government as a variable】BYD's most powerful "weapon" is actually its mass-production base in the world's largest EV market: China. But that base can be shaken by policy shifts. The 25% Q1 2026 sales drop is evidence. BYD's international push is partly a hedge against domestic market instability — an important nuance to not overlook.
+
+【US tariffs as a variable】US tariffs since 2025 (60%+ on Chinese goods) have made BYD's direct US market entry nearly impossible. If the Mexico workaround route is also sealed off, the world's largest auto market stays largely a Japanese-European battleground for the near term.
+
+【The fundamental question】Toyota's claim that hybrids are "the optimal CO2 reduction solution" is correct. But it alone cannot overcome China EVs' structural cost advantage. For Japan's auto industry to not just "survive into the 2030s" but "compete and win," three things must advance simultaneously: solid-state battery mass production, accelerated industry consolidation, and deeper HV penetration in emerging markets.
+
+> There may be no single "final winner" in the three-way war. A coexistence era — where each force controls its own winning territory across different markets, technologies and geographies — is probably the reality through at least the mid-2030s. The question is whether Japan's automakers can secure their winning territory before it's too late.`,
+      },
+    ],
+  },
+  {
     slug: "automotive-business-model-2026",
     title: "自動車産業のビジネスモデル — トヨタ・ホンダ・日産はどう稼いでいるか",
     titleEn: "How the Auto Industry Actually Makes Money",

@@ -28,6 +28,14 @@ import {
   SsbRivalsDiagram,
   SsbProductionRealityDiagram,
 } from "@/components/AutomotiveArticleDiagrams";
+import {
+  EvMarketShareDiagram,
+  EvToyotaStrategyDiagram,
+  EvChinaAdvanceDiagram,
+  EvJapanInfraDiagram,
+  EvCostComparisonDiagram,
+  EvFutureScenarioDiagram,
+} from "@/components/EvMarket2026Diagrams";
 import ShareButton from "@/components/ShareButton";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import { T } from "@/components/T";
@@ -127,6 +135,12 @@ const diagramMap: Record<string, React.FC> = {
   "ssb-nissan": SsbNissanDiagram,
   "ssb-rivals": SsbRivalsDiagram,
   "ssb-production-reality": SsbProductionRealityDiagram,
+  "ev-market-share": EvMarketShareDiagram,
+  "ev-toyota-strategy": EvToyotaStrategyDiagram,
+  "ev-china-advance": EvChinaAdvanceDiagram,
+  "ev-japan-infra": EvJapanInfraDiagram,
+  "ev-cost-comparison": EvCostComparisonDiagram,
+  "ev-future-scenario": EvFutureScenarioDiagram,
 };
 
 export default async function AutomotiveArticlePage({
