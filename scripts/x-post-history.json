@@ -147,6 +147,14 @@
       "postedAt": "2026-04-09T02:40:29.260Z",
       "hasMedia": true,
       "textSource": "claude"
+    },
+    {
+      "slug": "kddi-fraud-scandal",
+      "url": "https://thebrief.info/industry/ict/kddi-fraud-scandal",
+      "tweetId": "2042231205559664798",
+      "postedAt": "2026-04-09T13:20:37.439Z",
+      "hasMedia": true,
+      "textSource": "claude"
     }
   ]
 }
