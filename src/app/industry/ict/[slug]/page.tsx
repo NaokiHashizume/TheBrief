@@ -91,6 +91,7 @@ import {
   Japan5GFutureDiagram,
 } from "@/components/Japan5G2026Diagrams";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 import { T } from "@/components/T";
 
 export function generateStaticParams() {
@@ -296,12 +297,7 @@ export default async function IctArticlePage({
           </span>
           <span className="w-px h-3 bg-[#3b82f6]/15" />
           {article.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] px-2.5 py-1 rounded-md bg-[#3b82f6]/[0.05] text-[#3b82f6]/60 dark:text-[#60a5fa]/60 font-medium tracking-wide border border-[#3b82f6]/[0.08]"
-            >
-              {tag}
-            </span>
+            <TagLink key={tag} tag={tag} color="#3b82f6" />
           ))}
         </div>
 

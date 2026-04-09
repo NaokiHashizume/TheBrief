@@ -24,6 +24,7 @@ import { dailyArticles } from "@/lib/daily";
 import { otherArticles } from "@/lib/other";
 import { universityCategories } from "@/lib/university";
 import { allLectures } from "@/lib/lectures";
+import { getAllTags } from "@/lib/articleSources";
 
 const SITE_URL = "https://thebrief.info";
 
@@ -194,6 +195,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
+  const tagPages = getAllTags().map((tag) => ({
+    url: `${SITE_URL}/tags/${encodeURIComponent(tag)}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly" as const,
+    priority: 0.4,
+  }));
+
   return [
     ...staticPages,
     ...politicsPages,
@@ -207,5 +215,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...industryPages,
     ...industryArticlePages,
     ...columnPages,
+    ...tagPages,
   ];
 }

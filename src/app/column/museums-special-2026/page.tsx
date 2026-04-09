@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import { T } from "@/components/T";
+import { ExhibitionCalendar } from "@/components/ExhibitionCalendar";
 
 const COLUMN_COLOR = "#0d9488";
 const ACCENT = "#be185d";
@@ -663,6 +664,11 @@ export default function MuseumsSpecial2026Page() {
             en="* Opening hours, closing days and exhibition schedules are based on information publicly available as of April 2026. Dates and titles are subject to change — please check each museum's official information before visiting."
           />
         </p>
+      </section>
+
+      {/* Exhibition Calendar */}
+      <section className="mt-10">
+        <ExhibitionCalendar museums={museums} accent={ACCENT} />
       </section>
 
       {/* Museums */}

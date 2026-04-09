@@ -6,6 +6,7 @@ import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd"
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 import {
   Gemma4ModelFamilyDiagram,
   Gemma4BenchmarkDiagram,
@@ -273,12 +274,7 @@ export default async function AiArticlePage({
           </span>
           <span className="w-px h-3 bg-[#8b5cf6]/15" />
           {article.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] px-2.5 py-1 rounded-md bg-[#8b5cf6]/[0.05] text-[#8b5cf6]/60 dark:text-[#a78bfa]/60 font-medium tracking-wide border border-[#8b5cf6]/[0.08]"
-            >
-              {tag}
-            </span>
+            <TagLink key={tag} tag={tag} color="#8b5cf6" />
           ))}
         </div>
 

@@ -36,6 +36,7 @@ import {
   RetailFuture2026Diagram,
 } from "@/components/RetailDx2026Diagrams";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 
 export function generateStaticParams() {
   return retailArticles.map((a) => ({ slug: a.slug }));
@@ -179,12 +180,7 @@ export default async function RetailArticlePage({
             小売
           </span>
           {article.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[9px] px-2 py-0.5 rounded-full bg-[#14b8a6]/8 text-[#14b8a6]/70 font-medium"
-            >
-              {tag}
-            </span>
+            <TagLink key={tag} tag={tag} color="#10b981" />
           ))}
         </div>
 

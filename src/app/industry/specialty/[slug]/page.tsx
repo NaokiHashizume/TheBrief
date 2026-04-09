@@ -6,6 +6,7 @@ import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd"
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 
 export function generateStaticParams() {
   return specialtyArticles.map((a) => ({ slug: a.slug }));
@@ -116,7 +117,7 @@ export default async function ArticlePage({
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#ec4899]/60">専門店・EC</span>
           <span className="w-px h-3 bg-[#ec4899]/15" />
           {article.tags.map((tag) => (
-            <span key={tag} className="text-[10px] px-2.5 py-1 rounded-md bg-[#ec4899]/[0.05] text-[#ec4899]/60 dark:text-[#ec4899]/60 font-medium tracking-wide border border-[#ec4899]/[0.08]">{tag}</span>
+            <TagLink key={tag} tag={tag} color="#7c3aed" />
           ))}
         </div>
         <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">{article.title}</h1>

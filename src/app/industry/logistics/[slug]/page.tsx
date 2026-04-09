@@ -13,6 +13,7 @@ import {
   Log242026Diagram,
 } from "@/components/Logistics2024Diagrams";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 
 const diagramMap: Record<string, React.FC> = {
   "log24-recap": Log24RecapDiagram,
@@ -131,7 +132,7 @@ export default async function ArticlePage({
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#6366f1]/60">物流・運輸</span>
           <span className="w-px h-3 bg-[#6366f1]/15" />
           {article.tags.map((tag) => (
-            <span key={tag} className="text-[10px] px-2.5 py-1 rounded-md bg-[#6366f1]/[0.05] text-[#6366f1]/60 dark:text-[#6366f1]/60 font-medium tracking-wide border border-[#6366f1]/[0.08]">{tag}</span>
+            <TagLink key={tag} tag={tag} color="#6366f1" />
           ))}
         </div>
         <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">{article.title}</h1>

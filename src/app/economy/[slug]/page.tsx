@@ -79,6 +79,7 @@ import {
   BojTriggersDiagram,
 } from "@/components/BojRateHikeDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 import { RecommendedReads } from "@/components/RecommendedReads";
 
 export function generateStaticParams() {
@@ -260,12 +261,7 @@ export default async function EconomyArticlePage({
           </span>
           <span className="w-px h-3 bg-[#f59e0b]/15" />
           {article.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] px-2.5 py-1 rounded-md bg-[#f59e0b]/[0.06] text-[#f59e0b]/70 dark:text-[#fbbf24]/60 font-medium tracking-wide border border-[#f59e0b]/[0.1]"
-            >
-              {tag}
-            </span>
+            <TagLink key={tag} tag={tag} color="#b9770e" />
           ))}
         </div>
 

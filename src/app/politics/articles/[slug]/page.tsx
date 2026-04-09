@@ -63,6 +63,7 @@ import {
   IkuseiEmployerChecklistDiagram,
 } from "@/components/Politics2026Diagrams";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 import { RecommendedReads } from "@/components/RecommendedReads";
 
 export function generateStaticParams() {
@@ -235,12 +236,7 @@ export default async function PoliticsArticlePage({
           </span>
           <span className="w-px h-3 bg-brief-red/15" />
           {article.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] px-2.5 py-1 rounded-md bg-brief-red/[0.06] text-brief-red/70 font-medium tracking-wide border border-brief-red/[0.1]"
-            >
-              {tag}
-            </span>
+            <TagLink key={tag} tag={tag} color="#e53e3e" />
           ))}
         </div>
 

@@ -26,6 +26,7 @@ import {
   NaphthaTakeawayDiagram,
 } from "@/components/NaphthaDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 
 const diagramMap: Record<string, React.FC> = {
   "semi-mat-overview": SemiMatOverviewDiagram,
@@ -161,7 +162,7 @@ export default async function ArticlePage({
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#0ea5e9]/60">素材</span>
           <span className="w-px h-3 bg-[#0ea5e9]/15" />
           {article.tags.map((tag) => (
-            <span key={tag} className="text-[10px] px-2.5 py-1 rounded-md bg-[#0ea5e9]/[0.05] text-[#0ea5e9]/60 dark:text-[#0ea5e9]/60 font-medium tracking-wide border border-[#0ea5e9]/[0.08]">{tag}</span>
+            <TagLink key={tag} tag={tag} color="#64748b" />
           ))}
         </div>
         <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">{article.title}</h1>

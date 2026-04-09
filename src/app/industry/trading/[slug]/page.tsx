@@ -38,6 +38,7 @@ import {
   TradingFutureDiagram,
 } from "@/components/TradingCompany2026Diagrams";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 
 export function generateStaticParams() {
   return tradingArticles.map((a) => ({ slug: a.slug }));
@@ -132,12 +133,7 @@ export default async function TradingArticlePage({
             商社・卸売
           </span>
           {article.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[9px] px-2 py-0.5 rounded-full bg-[#78716c]/8 text-[#78716c]/70 font-medium"
-            >
-              {tag}
-            </span>
+            <TagLink key={tag} tag={tag} color="#0d9488" />
           ))}
         </div>
 

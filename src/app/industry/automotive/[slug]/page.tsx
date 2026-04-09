@@ -37,6 +37,7 @@ import {
   EvFutureScenarioDiagram,
 } from "@/components/EvMarket2026Diagrams";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import { T } from "@/components/T";
 
@@ -185,7 +186,7 @@ export default async function AutomotiveArticlePage({
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#0ea5e9]/60">自動車</span>
           <span className="w-px h-3 bg-[#0ea5e9]/15" />
           {article.tags.map((tag) => (
-            <span key={tag} className="text-[10px] px-2.5 py-1 rounded-md bg-[#0ea5e9]/[0.05] text-[#0ea5e9]/70 font-medium tracking-wide border border-[#0ea5e9]/[0.08]">{tag}</span>
+            <TagLink key={tag} tag={tag} color="#ef4444" />
           ))}
         </div>
         <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">

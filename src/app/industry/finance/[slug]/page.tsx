@@ -6,6 +6,7 @@ import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd"
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 import {
   HormuzFinanceOverviewDiagram,
   HormuzFinanceOilDiagram,
@@ -149,7 +150,7 @@ export default async function ArticlePage({
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#f59e0b]/60">金融機関</span>
           <span className="w-px h-3 bg-[#f59e0b]/15" />
           {article.tags.map((tag) => (
-            <span key={tag} className="text-[10px] px-2.5 py-1 rounded-md bg-[#f59e0b]/[0.05] text-[#f59e0b]/60 dark:text-[#f59e0b]/60 font-medium tracking-wide border border-[#f59e0b]/[0.08]">{tag}</span>
+            <TagLink key={tag} tag={tag} color="#f59e0b" />
           ))}
         </div>
         <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">{article.title}</h1>

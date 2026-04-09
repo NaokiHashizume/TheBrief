@@ -13,6 +13,7 @@ import {
   FoodSsr2030TargetDiagram,
 } from "@/components/FoodSelfSufficiencyDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 
 const diagramMap: Record<string, React.FC> = {
   "food-ssr-formula": FoodSsrFormulaDiagram,
@@ -131,7 +132,7 @@ export default async function ArticlePage({
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#84cc16]/60">食品</span>
           <span className="w-px h-3 bg-[#84cc16]/15" />
           {article.tags.map((tag) => (
-            <span key={tag} className="text-[10px] px-2.5 py-1 rounded-md bg-[#84cc16]/[0.05] text-[#84cc16]/60 dark:text-[#84cc16]/60 font-medium tracking-wide border border-[#84cc16]/[0.08]">{tag}</span>
+            <TagLink key={tag} tag={tag} color="#84cc16" />
           ))}
         </div>
         <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">{article.title}</h1>
