@@ -123,6 +123,14 @@
       "postedAt": "2026-04-09T01:37:39.461Z",
       "hasMedia": true,
       "textSource": "claude"
+    },
+    {
+      "slug": "claude-opus-46-deep-dive",
+      "url": "https://thebrief.info/industry/ai/claude-opus-46-deep-dive",
+      "tweetId": "2042065079152021628",
+      "postedAt": "2026-04-09T02:20:29.518Z",
+      "hasMedia": true,
+      "textSource": "claude"
     }
   ]
 }
