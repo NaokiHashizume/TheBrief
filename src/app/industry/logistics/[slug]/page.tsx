@@ -12,6 +12,14 @@ import {
   Log24RefuseDiagram,
   Log242026Diagram,
 } from "@/components/Logistics2024Diagrams";
+import {
+  LogisticsDriverShortageDiagram,
+  LogisticsCapacityGapDiagram,
+  LogisticsMajorPlayersDiagram,
+  LogisticsAutomationDiagram,
+  LogisticsCostDiagram,
+  LogisticsFutureDiagram,
+} from "@/components/Logistics2024ProblemDiagrams";
 import ShareButton from "@/components/ShareButton";
 
 const diagramMap: Record<string, React.FC> = {
@@ -20,6 +28,12 @@ const diagramMap: Record<string, React.FC> = {
   "log24-wait": Log24WaitDiagram,
   "log24-refuse": Log24RefuseDiagram,
   "log24-2026": Log242026Diagram,
+  "logistics-driver-shortage": LogisticsDriverShortageDiagram,
+  "logistics-capacity-gap": LogisticsCapacityGapDiagram,
+  "logistics-major-players": LogisticsMajorPlayersDiagram,
+  "logistics-automation": LogisticsAutomationDiagram,
+  "logistics-cost": LogisticsCostDiagram,
+  "logistics-future": LogisticsFutureDiagram,
 };
 
 export function generateStaticParams() {
