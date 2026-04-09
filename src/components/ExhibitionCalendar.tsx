@@ -10,6 +10,7 @@ type Exhibition = {
   periodEn: string;
   description: string;
   descriptionEn: string;
+  url?: string;
 };
 
 type MuseumData = {
@@ -266,49 +267,98 @@ export function ExhibitionCalendar({ museums, accent }: Props) {
                           zIndex: 3,
                         }}
                       >
-                        <div
-                          role="button"
-                          aria-label={museum.title + " — " + ex.title}
-                          style={{
-                            position: "absolute",
-                            top: 5,
-                            height: ROW_H - 10,
-                            left: `${leftPct}%`,
-                            width: `${widthPct}%`,
-                            backgroundColor: color,
-                            opacity: isActive ? 1 : 0.74,
-                            borderRadius: 4,
-                            overflow: "hidden",
-                            cursor: "pointer",
-                            transition: "opacity 0.12s",
-                            outline: isActive ? `2px solid ${color}` : "none",
-                            outlineOffset: 1,
-                            ...(isUnknown && {
-                              backgroundImage:
-                                "repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,0.18) 4px, rgba(255,255,255,0.18) 8px)",
-                            }),
-                          }}
-                          onMouseEnter={() => setActive({ mi, ei })}
-                          onMouseLeave={() => setActive(null)}
-                          onClick={() => setActive(isActive ? null : { mi, ei })}
-                        >
-                          <span
+                        {ex.url ? (
+                          <a
+                            href={ex.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={museum.title + " — " + ex.title}
                             style={{
                               display: "block",
-                              fontSize: 8,
-                              color: "white",
-                              fontWeight: 600,
-                              lineHeight: `${ROW_H - 10}px`,
-                              paddingLeft: 5,
-                              paddingRight: 4,
+                              position: "absolute",
+                              top: 5,
+                              height: ROW_H - 10,
+                              left: `${leftPct}%`,
+                              width: `${widthPct}%`,
+                              backgroundColor: color,
+                              opacity: isActive ? 1 : 0.74,
+                              borderRadius: 4,
                               overflow: "hidden",
-                              whiteSpace: "nowrap",
-                              textOverflow: "ellipsis",
+                              cursor: "pointer",
+                              transition: "opacity 0.12s",
+                              outline: isActive ? `2px solid ${color}` : "none",
+                              outlineOffset: 1,
+                              textDecoration: "none",
+                              ...(isUnknown && {
+                                backgroundImage:
+                                  "repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,0.18) 4px, rgba(255,255,255,0.18) 8px)",
+                              }),
                             }}
+                            onMouseEnter={() => setActive({ mi, ei })}
+                            onMouseLeave={() => setActive(null)}
                           >
-                            <T ja={ex.title} en={ex.titleEn} />
-                          </span>
-                        </div>
+                            <span
+                              style={{
+                                display: "block",
+                                fontSize: 8,
+                                color: "white",
+                                fontWeight: 600,
+                                lineHeight: `${ROW_H - 10}px`,
+                                paddingLeft: 5,
+                                paddingRight: 4,
+                                overflow: "hidden",
+                                whiteSpace: "nowrap",
+                                textOverflow: "ellipsis",
+                              }}
+                            >
+                              <T ja={ex.title} en={ex.titleEn} />
+                            </span>
+                          </a>
+                        ) : (
+                          <div
+                            role="button"
+                            aria-label={museum.title + " — " + ex.title}
+                            style={{
+                              position: "absolute",
+                              top: 5,
+                              height: ROW_H - 10,
+                              left: `${leftPct}%`,
+                              width: `${widthPct}%`,
+                              backgroundColor: color,
+                              opacity: isActive ? 1 : 0.74,
+                              borderRadius: 4,
+                              overflow: "hidden",
+                              cursor: "pointer",
+                              transition: "opacity 0.12s",
+                              outline: isActive ? `2px solid ${color}` : "none",
+                              outlineOffset: 1,
+                              ...(isUnknown && {
+                                backgroundImage:
+                                  "repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,0.18) 4px, rgba(255,255,255,0.18) 8px)",
+                              }),
+                            }}
+                            onMouseEnter={() => setActive({ mi, ei })}
+                            onMouseLeave={() => setActive(null)}
+                            onClick={() => setActive(isActive ? null : { mi, ei })}
+                          >
+                            <span
+                              style={{
+                                display: "block",
+                                fontSize: 8,
+                                color: "white",
+                                fontWeight: 600,
+                                lineHeight: `${ROW_H - 10}px`,
+                                paddingLeft: 5,
+                                paddingRight: 4,
+                                overflow: "hidden",
+                                whiteSpace: "nowrap",
+                                textOverflow: "ellipsis",
+                              }}
+                            >
+                              <T ja={ex.title} en={ex.titleEn} />
+                            </span>
+                          </div>
+                        )}
                       </div>
                     );
                   })}
@@ -376,6 +426,17 @@ export function ExhibitionCalendar({ museums, accent }: Props) {
             <p className="text-[11px] text-foreground/60 leading-relaxed">
               <T ja={ex.description} en={ex.descriptionEn} />
             </p>
+            {ex.url && (
+              <a
+                href={ex.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 mt-3 text-[10px] font-semibold underline underline-offset-2"
+                style={{ color }}
+              >
+                <T ja="公式サイト →" en="Official site →" />
+              </a>
+            )}
           </div>
         );
       })()}
