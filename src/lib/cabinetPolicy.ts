@@ -80,7 +80,7 @@ export const policyIndicators: PolicyGoal[] = [
     progress: 72,
     status: "on-track",
     statusLabel: "高水準を維持",
-    lastUpdated: "2026-03",
+    lastUpdated: "2026-04",
   },
   {
     id: "gdp",
@@ -93,7 +93,7 @@ export const policyIndicators: PolicyGoal[] = [
     progress: 55,
     status: "delayed",
     statusLabel: "政府目標を下回る見通し",
-    lastUpdated: "2026-02",
+    lastUpdated: "2026-04",
   },
   {
     id: "wages",
@@ -106,7 +106,7 @@ export const policyIndicators: PolicyGoal[] = [
     progress: 90,
     status: "on-track",
     statusLabel: "目標達成ペース",
-    lastUpdated: "2026-03",
+    lastUpdated: "2026-04",
   },
   {
     id: "cpi",
@@ -119,7 +119,7 @@ export const policyIndicators: PolicyGoal[] = [
     progress: 75,
     status: "on-track",
     statusLabel: "鈍化傾向で安定化",
-    lastUpdated: "2026-02",
+    lastUpdated: "2026-04",
   },
   {
     id: "food-tax",
@@ -145,7 +145,7 @@ export const policyIndicators: PolicyGoal[] = [
     progress: 65,
     status: "on-track",
     statusLabel: "段階的に増額中",
-    lastUpdated: "2026-03",
+    lastUpdated: "2026-04",
   },
   {
     id: "intelligence",
@@ -158,7 +158,7 @@ export const policyIndicators: PolicyGoal[] = [
     progress: 50,
     status: "on-track",
     statusLabel: "国会審議中",
-    lastUpdated: "2026-03",
+    lastUpdated: "2026-04",
   },
   {
     id: "disaster",
@@ -171,7 +171,7 @@ export const policyIndicators: PolicyGoal[] = [
     progress: 40,
     status: "on-track",
     statusLabel: "国会審議中",
-    lastUpdated: "2026-03",
+    lastUpdated: "2026-04",
   },
   {
     id: "childcare",

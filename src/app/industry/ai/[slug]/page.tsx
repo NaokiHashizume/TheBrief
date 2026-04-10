@@ -6,6 +6,7 @@ import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd"
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 import {
   Gemma4ModelFamilyDiagram,
   Gemma4BenchmarkDiagram,
@@ -52,6 +53,78 @@ import {
   GlasswingStrategyDiagram,
   GlasswingTimelineDiagram,
 } from "@/components/GlasswingDiagrams";
+import {
+  MuseSparkOverviewDiagram,
+  MuseSparkModesDiagram,
+  MuseSparkBenchmarksDiagram,
+  MuseSparkInvestmentDiagram,
+  MuseSparkSnsDiagram,
+  MuseSparkVsLlamaDiagram,
+  MuseSparkJapanDiagram,
+} from "@/components/MuseSparkDiagrams";
+import {
+  AiLandscape2026OverviewDiagram,
+  AiLandscape2026ModelsDiagram,
+  AiLandscape2026BenchmarkDiagram,
+  AiLandscape2026StrategyDiagram,
+  AiLandscape2026JapanDiagram,
+  AiLandscape2026TimelineDiagram,
+  AiLandscape2026FutureDiagram,
+} from "@/components/AiLandscape2026Diagrams";
+import {
+  ClaudeOpus46OverviewDiagram,
+  ClaudeOpus46BenchmarksDiagram,
+  ClaudeOpus46SafetyDiagram,
+  ClaudeOpus46VsRivalsDiagram,
+  ClaudeOpus46JapanDiagram,
+  ClaudeOpus46UsecasesDiagram,
+} from "@/components/ClaudeOpus46Diagrams";
+import {
+  LlmOverviewDiagram,
+  LlmTransformerDiagram,
+  LlmParamsDiagram,
+  LlmComparisonDiagram,
+  LlmHallucinationDiagram,
+  LlmRagDiagram,
+  LlmJapanDiagram,
+  LlmUsecaseDiagram,
+} from "@/components/LlmGuideDiagrams";
+import {
+  VibeCodingOverviewDiagram,
+  VibeCodingStatsDiagram,
+  VibeCodingToolsDiagram,
+  VibeCodingProductivityDiagram,
+  VibeCodingSecurityDiagram,
+  VibeCodingJapanDiagram,
+  VibeCodingAgenticDiagram,
+} from "@/components/VibeCodingDiagrams";
+import {
+  TokenOverviewDiagram,
+  TokenBpeDiagram,
+  TokenCjkDiagram,
+  TokenContextDiagram,
+  TokenPricingDiagram,
+  TokenFutureDiagram,
+} from "@/components/LlmTokenDiagrams";
+import {
+  CmaArchitectureDiagram,
+  CmaDecouplingDiagram,
+  CmaPlatformComparisonDiagram,
+  CmaStakeholdersDiagram,
+  CmaJapanImpactDiagram,
+  CmaAutonomyLevelsDiagram,
+  CmaCompetitorMatrixDiagram,
+} from "@/components/ClaudeManagedAgentsDiagrams";
+import {
+  ClaudenomicsOverviewDiagram,
+  ClaudenomicsPricingDiagram,
+  ClaudenomicsCachingDiagram,
+  ClaudenomicsBatchDiagram,
+  ClaudenomicsRoutingDiagram,
+  ClaudenomicsRevenueDiagram,
+  ClaudenomicsParadoxDiagram,
+  ClaudenomicsStrategyDiagram,
+} from "@/components/ClaudenomicsDiagrams";
 
 export function generateStaticParams() {
   return aiArticles.map((a) => ({ slug: a.slug }));
@@ -69,6 +142,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — AI`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/ai/${article.slug}`,
     },
@@ -165,6 +239,56 @@ const diagramMap: Record<string, React.FC> = {
   "glasswing-safety": GlasswingSafetyDiagram,
   "glasswing-strategy": GlasswingStrategyDiagram,
   "glasswing-timeline": GlasswingTimelineDiagram,
+  "muse-spark-overview": MuseSparkOverviewDiagram,
+  "muse-spark-modes": MuseSparkModesDiagram,
+  "muse-spark-benchmarks": MuseSparkBenchmarksDiagram,
+  "muse-spark-investment": MuseSparkInvestmentDiagram,
+  "muse-spark-sns": MuseSparkSnsDiagram,
+  "muse-spark-vs-llama": MuseSparkVsLlamaDiagram,
+  "muse-spark-japan": MuseSparkJapanDiagram,
+  "claude-opus-overview": ClaudeOpus46OverviewDiagram,
+  "claude-opus-benchmarks": ClaudeOpus46BenchmarksDiagram,
+  "claude-opus-safety": ClaudeOpus46SafetyDiagram,
+  "claude-opus-vs-rivals": ClaudeOpus46VsRivalsDiagram,
+  "claude-opus-japan": ClaudeOpus46JapanDiagram,
+  "claude-opus-usecases": ClaudeOpus46UsecasesDiagram,
+  "ai-landscape-overview": AiLandscape2026OverviewDiagram,
+  "ai-landscape-models": AiLandscape2026ModelsDiagram,
+  "ai-landscape-benchmark": AiLandscape2026BenchmarkDiagram,
+  "ai-landscape-strategy": AiLandscape2026StrategyDiagram,
+  "ai-landscape-japan": AiLandscape2026JapanDiagram,
+  "ai-landscape-timeline": AiLandscape2026TimelineDiagram,
+  "ai-landscape-future": AiLandscape2026FutureDiagram,
+  "llm-overview": LlmOverviewDiagram,
+  "llm-transformer": LlmTransformerDiagram,
+  "llm-params": LlmParamsDiagram,
+  "llm-comparison": LlmComparisonDiagram,
+  "llm-hallucination": LlmHallucinationDiagram,
+  "llm-rag": LlmRagDiagram,
+  "llm-japan": LlmJapanDiagram,
+  "llm-usecase": LlmUsecaseDiagram,
+  "vibe-coding-overview": VibeCodingOverviewDiagram,
+  "vibe-coding-stats": VibeCodingStatsDiagram,
+  "vibe-coding-tools": VibeCodingToolsDiagram,
+  "vibe-coding-productivity": VibeCodingProductivityDiagram,
+  "vibe-coding-security": VibeCodingSecurityDiagram,
+  "vibe-coding-japan": VibeCodingJapanDiagram,
+  "vibe-coding-agentic": VibeCodingAgenticDiagram,
+  "cma-architecture": CmaArchitectureDiagram,
+  "cma-decoupling": CmaDecouplingDiagram,
+  "cma-platform-comparison": CmaPlatformComparisonDiagram,
+  "cma-stakeholders": CmaStakeholdersDiagram,
+  "cma-japan-impact": CmaJapanImpactDiagram,
+  "cma-autonomy-levels": CmaAutonomyLevelsDiagram,
+  "cma-competitor-matrix": CmaCompetitorMatrixDiagram,
+  "claudenomics-overview": ClaudenomicsOverviewDiagram,
+  "claudenomics-pricing": ClaudenomicsPricingDiagram,
+  "claudenomics-caching": ClaudenomicsCachingDiagram,
+  "claudenomics-batch": ClaudenomicsBatchDiagram,
+  "claudenomics-routing": ClaudenomicsRoutingDiagram,
+  "claudenomics-revenue": ClaudenomicsRevenueDiagram,
+  "claudenomics-paradox": ClaudenomicsParadoxDiagram,
+  "claudenomics-strategy": ClaudenomicsStrategyDiagram,
 };
 
 export default async function AiArticlePage({
@@ -226,12 +350,7 @@ export default async function AiArticlePage({
           </span>
           <span className="w-px h-3 bg-[#8b5cf6]/15" />
           {article.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] px-2.5 py-1 rounded-md bg-[#8b5cf6]/[0.05] text-[#8b5cf6]/60 dark:text-[#a78bfa]/60 font-medium tracking-wide border border-[#8b5cf6]/[0.08]"
-            >
-              {tag}
-            </span>
+            <TagLink key={tag} tag={tag} color="#8b5cf6" />
           ))}
         </div>
 

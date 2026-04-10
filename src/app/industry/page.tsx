@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   description:
     "小売・自動車・金融・情報通信・医薬品など、日本の主要17業界の最新動向をまとめます。",
   alternates: { canonical: "https://thebrief.info/industry" },
+  openGraph: {
+    title: "Industry — 業界別ニュース",
+    description: "小売・自動車・金融・情報通信・医薬品など、日本の主要17業界の最新動向をまとめます。",
+    url: "https://thebrief.info/industry",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Industry — 業界別ニュース",
+    description: "小売・自動車・金融・情報通信・医薬品など、日本の主要17業界の最新動向をまとめます。",
+  },
 };
 
 const industries = [

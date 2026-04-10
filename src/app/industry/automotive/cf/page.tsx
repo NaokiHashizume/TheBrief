@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   description:
     "日本の主要自動車メーカー10社のキャッシュフロー計算書（CF）を比較。営業CF・投資CF・財務CF・フリーCFを一覧。",
   alternates: { canonical: "https://thebrief.info/industry/automotive/cf" },
+  openGraph: {
+    title: "自動車 CF（キャッシュフロー計算書） — Industry",
+    description: "日本の主要自動車メーカー10社のキャッシュフロー計算書（CF）を比較。営業CF・投資CF・財務CF・フリーCFを一覧。",
+    url: "https://thebrief.info/industry/automotive/cf",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "自動車 CF（キャッシュフロー計算書） — Industry",
+    description: "日本の主要自動車メーカー10社のキャッシュフロー計算書（CF）を比較。営業CF・投資CF・財務CF・フリーCFを一覧。",
+  },
 };
 
 export default function AutomotiveCFPage() {
@@ -24,7 +37,7 @@ export default function AutomotiveCFPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/industry" className="hover:text-foreground transition-colors">Industry</Link>

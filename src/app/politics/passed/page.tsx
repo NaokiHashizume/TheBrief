@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   description:
     "国会で可決・成立したが、まだ施行されていない主要法令の一覧。日本版DBS、民事訴訟IT化など。",
   alternates: { canonical: "https://thebrief.info/politics/passed" },
+  openGraph: {
+    title: "成立済 — 成立したが未施行の主要法令",
+    description: "国会で可決・成立したが、まだ施行されていない主要法令の一覧。日本版DBS、民事訴訟IT化など。",
+    url: "https://thebrief.info/politics/passed",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "成立済 — 成立したが未施行の主要法令",
+    description: "国会で可決・成立したが、まだ施行されていない主要法令の一覧。日本版DBS、民事訴訟IT化など。",
+  },
 };
 
 export default function PassedPage() {
@@ -23,7 +36,7 @@ export default function PassedPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
@@ -36,7 +49,7 @@ export default function PassedPage() {
         <T ja="国会で可決・成立したが、2026年4月時点でまだ施行されていない主要法令の一覧です。" en="A list of major laws passed by the Diet but not yet enforced as of April 2026." />
       </p>
       <p className="mt-2 text-xs text-foreground/45">
-        <T ja="成立済法令一覧: 2026年4月4日時点 ｜ 施行予定日は各法令による" en="Passed laws: as of April 4, 2026 | Effective dates vary by law" />
+        <T ja="成立済法令一覧: 2026年4月9日時点 ｜ 施行予定日は各法令による" en="Passed laws: as of April 9, 2026 | Effective dates vary by law" />
       </p>
 
       <div className="mt-10 space-y-4">
@@ -65,7 +78,7 @@ export default function PassedPage() {
                   <h2 className="font-serif text-lg font-bold group-hover:text-amber-400 transition-colors">
                     <T ja={item.title} en={item.titleEn ?? item.title} />
                   </h2>
-                  <span className="text-[9px] tracking-[1px] uppercase text-foreground/45">
+                  <span className="text-[10px] tracking-[1px] uppercase text-foreground/45">
                     {item.titleEn}
                   </span>
                   <p className="mt-2 text-sm text-foreground/45 leading-relaxed line-clamp-2">

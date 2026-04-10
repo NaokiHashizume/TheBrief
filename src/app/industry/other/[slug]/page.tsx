@@ -14,6 +14,7 @@ import {
   EuBricsDiagram,
   JapanStrategyDiagram,
 } from "@/components/EconomicBlocDiagrams";
+import { TagLink } from "@/components/TagLink";
 import {
   DxOverviewStatsDiagram,
   DxManufacturingDiagram,
@@ -41,6 +42,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — その他`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/other/${article.slug}`,
     },
@@ -117,12 +119,7 @@ export default async function OtherArticlePage({
             その他
           </span>
           {article.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[9px] px-2 py-0.5 rounded-full bg-[#8b5cf6]/8 text-[#8b5cf6]/70 font-medium"
-            >
-              {tag}
-            </span>
+            <TagLink key={tag} tag={tag} color="#94a3b8" />
           ))}
         </div>
 

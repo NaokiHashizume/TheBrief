@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   description:
     "日本経済の構造的テーマを掘り下げる解説記事。税制、金融政策、財政問題、貿易構造などを網羅。",
   alternates: { canonical: "https://thebrief.info/economy/articles" },
+  openGraph: {
+    title: "深掘り記事 — Economy Articles",
+    description: "日本経済の構造的テーマを掘り下げる解説記事。税制、金融政策、財政問題、貿易構造などを網羅。",
+    url: "https://thebrief.info/economy/articles",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "深掘り記事 — Economy Articles",
+    description: "日本経済の構造的テーマを掘り下げる解説記事。税制、金融政策、財政問題、貿易構造などを網羅。",
+  },
 };
 
 export default function EconomyArticlesPage() {
@@ -25,7 +38,7 @@ export default function EconomyArticlesPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/economy" className="hover:text-foreground transition-colors">Economy</Link>

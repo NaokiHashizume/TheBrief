@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   title: "建設・不動産 CF（キャッシュフロー計算書） — Industry",
   description: "建設・不動産のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",
   alternates: { canonical: "https://thebrief.info/industry/construction/cf" },
+  openGraph: {
+    title: "建設・不動産 CF（キャッシュフロー計算書） — Industry",
+    description: "建設・不動産のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",
+    url: "https://thebrief.info/industry/construction/cf",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "建設・不動産 CF（キャッシュフロー計算書） — Industry",
+    description: "建設・不動産のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",
+  },
 };
 
 export default function Page() {
@@ -19,7 +32,7 @@ export default function Page() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Industry", href: "/industry" }, { name: "建設・不動産", href: "/industry/construction" }, { name: "CF", href: "/industry/construction/cf" }]} />
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/industry" className="hover:text-foreground transition-colors">Industry</Link>

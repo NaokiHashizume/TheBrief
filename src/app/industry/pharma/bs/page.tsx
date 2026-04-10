@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   title: "医薬品・医療介護 BS（貸借対照表） — Industry",
   description: "医薬品・医療介護の貸借対照表（BS）の業界構造を解説。資産構成・負債構造・自己資本比率の特徴と主要企業。",
   alternates: { canonical: "https://thebrief.info/industry/pharma/bs" },
+  openGraph: {
+    title: "医薬品・医療介護 BS（貸借対照表） — Industry",
+    description: "医薬品・医療介護の貸借対照表（BS）の業界構造を解説。資産構成・負債構造・自己資本比率の特徴と主要企業。",
+    url: "https://thebrief.info/industry/pharma/bs",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "医薬品・医療介護 BS（貸借対照表） — Industry",
+    description: "医薬品・医療介護の貸借対照表（BS）の業界構造を解説。資産構成・負債構造・自己資本比率の特徴と主要企業。",
+  },
 };
 
 export default function Page() {
@@ -19,7 +32,7 @@ export default function Page() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Industry", href: "/industry" }, { name: "医薬品・医療介護", href: "/industry/pharma" }, { name: "BS", href: "/industry/pharma/bs" }]} />
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/industry" className="hover:text-foreground transition-colors">Industry</Link>

@@ -6,8 +6,7 @@ type FieldErrors = Partial<Record<"name" | "email" | "subject" | "message", stri
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// 環境変数で送信エンドポイントを切替可能(未設定なら mailto: にフォールバック)
-const ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
+const ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ?? "https://formspree.io/f/xgopbejz";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);

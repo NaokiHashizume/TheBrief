@@ -7,6 +7,19 @@ export const metadata: Metadata = {
   title: "About",
   description: "The Briefは、日本の政治・経済・金融から業界動向、テクノロジー・AI、ライフスタイルまで、幅広いニュースとオピニオンをシンプルに届ける総合メディアです。",
   alternates: { canonical: "https://thebrief.info/about" },
+  openGraph: {
+    title: "About",
+    description: "The Briefは、日本の政治・経済・金融から業界動向、テクノロジー・AI、ライフスタイルまで、幅広いニュースとオピニオンをシンプルに届ける総合メディアです。",
+    url: "https://thebrief.info/about",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About",
+    description: "The Briefは、日本の政治・経済・金融から業界動向、テクノロジー・AI、ライフスタイルまで、幅広いニュースとオピニオンをシンプルに届ける総合メディアです。",
+  },
 };
 
 export default function About() {

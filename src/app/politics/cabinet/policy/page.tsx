@@ -180,7 +180,7 @@ export default function CabinetPolicyPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
@@ -243,7 +243,7 @@ export default function CabinetPolicyPage() {
               <h3 className="font-serif text-lg font-bold">
                 <T ja={pillar.title} en={pillar.titleEn} />
               </h3>
-              <span className="text-[9px] tracking-[1px] uppercase text-foreground/45">
+              <span className="text-[10px] tracking-[1px] uppercase text-foreground/45">
                 {pillar.titleEn}
               </span>
               <p className="mt-2 text-xs text-foreground/55 leading-relaxed">
@@ -296,7 +296,7 @@ export default function CabinetPolicyPage() {
                   <h3 className="font-serif text-base font-bold">
                     <T ja={cat} en={catEn} />
                   </h3>
-                  <span className="text-[9px] tracking-[1px] uppercase text-foreground/45">{catEn}</span>
+                  <span className="text-[10px] tracking-[1px] uppercase text-foreground/45">{catEn}</span>
                   <div className="flex-1 h-px bg-foreground/5" />
                 </div>
 

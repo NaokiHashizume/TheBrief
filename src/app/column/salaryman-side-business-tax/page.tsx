@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
 import { T } from "@/components/T";
 
@@ -471,7 +472,7 @@ export default function SalarymanSideBusinessTaxPage() {
       </header>
 
       <nav className="mb-16 relative">
-        <div className="relative p-6 sm:p-8 rounded-2xl border border-foreground/[0.06] bg-foreground/[0.015]">
+        <div className="relative p-6 sm:p-8 rounded-xl border border-foreground/[0.06] bg-foreground/[0.015]">
           <div className="flex items-center gap-3 mb-5">
             <div
               className="w-6 h-6 rounded-md flex items-center justify-center"
@@ -659,7 +660,7 @@ export default function SalarymanSideBusinessTaxPage() {
       </article>
 
       <div
-        className="mt-6 rounded-2xl border p-5"
+        className="mt-6 rounded-xl border p-5"
         style={{
           borderColor: `${COLUMN_COLOR}22`,
           backgroundColor: `${COLUMN_COLOR}08`,
@@ -682,6 +683,8 @@ export default function SalarymanSideBusinessTaxPage() {
       <div className="mt-8 flex justify-center">
         <ShareButton title={TITLE} />
       </div>
+
+      <RecommendedReads currentSlug="salaryman-side-business-tax" currentTags={["副業", "税金", "サラリーマン"]} />
 
       <div className="mt-6 text-center">
         <Link

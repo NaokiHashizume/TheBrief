@@ -62,7 +62,7 @@ export function Gemma4ModelFamilyDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Gemma 4 model family overview" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="Gemma 4 モデルファミリー" en="Gemma 4 model family" />
       </div>
@@ -193,7 +193,7 @@ export function Gemma4BenchmarkDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Gemma 4 benchmark performance comparison" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="ベンチマーク性能" en="Benchmark performance" />
       </div>
@@ -317,7 +317,7 @@ export function Gemma4ArchitectureDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Gemma 4 model architecture layers" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="Gemma 4 アーキテクチャ" en="Gemma 4 architecture" />
       </div>
@@ -431,7 +431,7 @@ export function OpenModelComparisonDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card overflow-x-auto">
+    <div role="img" aria-label="Open model landscape comparison 2026" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card overflow-x-auto">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="オープンモデル動向(2026年)" en="Open model landscape (2026)" />
       </div>
@@ -581,7 +581,7 @@ export function Gemma4UseCasesDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Gemma 4 deployment options and use cases" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="デプロイとユースケース" en="Deployment & use cases" />
       </div>
@@ -634,7 +634,7 @@ export function Gemma4UseCasesDiagram() {
    ───────────────────────────────────────────── */
 export function Gemma4CodeExampleDiagram() {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Gemma 4 quick-start code examples" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="クイックスタート コード例" en="Quick-start code examples" />
       </div>

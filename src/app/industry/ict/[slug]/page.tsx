@@ -74,7 +74,24 @@ import {
   MicrosoftSovereignAiDiagram,
   GovCloudWatchlistDiagram,
 } from "@/components/SovereignCloudDiagrams";
+import {
+  QuantumJapanOverviewDiagram,
+  QuantumJapanPlayersDiagram,
+  QuantumJapanInvestmentDiagram,
+  QuantumJapanUseCasesDiagram,
+  QuantumJapanGapDiagram,
+  QuantumJapanTimelineDiagram,
+} from "@/components/QuantumJapan2026Diagrams";
+import {
+  Japan5GCoverageMapDiagram,
+  Japan5GAdoptionComparisonDiagram,
+  Japan5GCarriersDiagram,
+  Japan5GIndustrialUseDiagram,
+  Japan5GRevenueDiagram,
+  Japan5GFutureDiagram,
+} from "@/components/Japan5G2026Diagrams";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 import { T } from "@/components/T";
 
 export function generateStaticParams() {
@@ -93,6 +110,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — 情報通信`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/ict/${article.slug}`,
     },
@@ -206,6 +224,18 @@ const diagramMap: Record<string, React.FC> = {
   "sakura-vs-hyperscalers": SakuraVsHyperscalersDiagram,
   "microsoft-sovereign-ai": MicrosoftSovereignAiDiagram,
   "govcloud-watchlist": GovCloudWatchlistDiagram,
+  "quantum-japan-overview": QuantumJapanOverviewDiagram,
+  "quantum-japan-players": QuantumJapanPlayersDiagram,
+  "quantum-japan-investment": QuantumJapanInvestmentDiagram,
+  "quantum-japan-usecases": QuantumJapanUseCasesDiagram,
+  "quantum-japan-gap": QuantumJapanGapDiagram,
+  "quantum-japan-timeline": QuantumJapanTimelineDiagram,
+  "5g-coverage-map": Japan5GCoverageMapDiagram,
+  "5g-adoption-comparison": Japan5GAdoptionComparisonDiagram,
+  "5g-carriers": Japan5GCarriersDiagram,
+  "5g-industrial-use": Japan5GIndustrialUseDiagram,
+  "5g-revenue": Japan5GRevenueDiagram,
+  "5g-future": Japan5GFutureDiagram,
 };
 
 export default async function IctArticlePage({
@@ -267,12 +297,7 @@ export default async function IctArticlePage({
           </span>
           <span className="w-px h-3 bg-[#3b82f6]/15" />
           {article.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] px-2.5 py-1 rounded-md bg-[#3b82f6]/[0.05] text-[#3b82f6]/60 dark:text-[#60a5fa]/60 font-medium tracking-wide border border-[#3b82f6]/[0.08]"
-            >
-              {tag}
-            </span>
+            <TagLink key={tag} tag={tag} color="#3b82f6" />
           ))}
         </div>
 

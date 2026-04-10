@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   title: "生活・日用品 — Industry",
   description: "トイレタリー、化粧品、生活雑貨、日用品メーカーの動向。",
   alternates: { canonical: "https://thebrief.info/industry/daily" },
+  openGraph: {
+    title: "生活・日用品 — Industry",
+    description: "トイレタリー、化粧品、生活雑貨、日用品メーカーの動向。",
+    url: "https://thebrief.info/industry/daily",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "生活・日用品 — Industry",
+    description: "トイレタリー、化粧品、生活雑貨、日用品メーカーの動向。",
+  },
 };
 
 function parseReadTime(rt: string): number {
@@ -26,9 +39,9 @@ export default function Page() {
   });
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
+    <div className="max-w-5xl mx-auto px-4 py-12">
       <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Industry", href: "/industry" }, { name: "生活・日用品", href: "/industry/daily" }]} />
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/industry" className="hover:text-foreground transition-colors">Industry</Link>

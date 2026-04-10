@@ -13,7 +13,16 @@ import {
   TimelineDiagram,
   EconomicImpactDiagram,
 } from "@/components/UrbanDevelopmentDiagrams";
+import {
+  ConstructionWorkforceDiagram,
+  ConstructionBimDiagram,
+  ConstructionRobotsDiagram,
+  ConstructionCostDiagram,
+  ConstructionSmeGapDiagram,
+  ConstructionRoadmapDiagram,
+} from "@/components/ConstructionDx2026Diagrams";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 
 export function generateStaticParams() {
   return constructionArticles.map((a) => ({ slug: a.slug }));
@@ -31,6 +40,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — 建設・不動産`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/construction/${article.slug}`,
     },
@@ -97,6 +107,12 @@ const diagramMap: Record<string, React.FC> = {
   "investment-scale": InvestmentScaleDiagram,
   "timeline": TimelineDiagram,
   "economic-impact": EconomicImpactDiagram,
+  "construction-workforce": ConstructionWorkforceDiagram,
+  "construction-bim": ConstructionBimDiagram,
+  "construction-robots": ConstructionRobotsDiagram,
+  "construction-cost": ConstructionCostDiagram,
+  "construction-sme-gap": ConstructionSmeGapDiagram,
+  "construction-roadmap": ConstructionRoadmapDiagram,
 };
 
 export default async function ConstructionArticlePage({
@@ -158,12 +174,7 @@ export default async function ConstructionArticlePage({
           </span>
           <span className="w-px h-3 bg-[#64748b]/15" />
           {article.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] px-2.5 py-1 rounded-md bg-[#64748b]/[0.05] text-[#64748b]/60 dark:text-[#94a3b8]/60 font-medium tracking-wide border border-[#64748b]/[0.08]"
-            >
-              {tag}
-            </span>
+            <TagLink key={tag} tag={tag} color="#a16207" />
           ))}
         </div>
 

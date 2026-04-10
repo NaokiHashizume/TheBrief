@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { debates, getCommitteeEn, getPartyNameEn, getStatusEn } from "@/lib/debates";
-import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import ShareButton from "@/components/ShareButton";
 import { T } from "@/components/T";
 
@@ -39,6 +39,14 @@ export default async function DebateDetailPage({
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
+      <ArticleJsonLd
+        title={debate.title}
+        description={debate.summary}
+        datePublished={debate.lastUpdated}
+        dateModified={debate.lastUpdated}
+        author="The Brief"
+        url={`https://thebrief.info/politics/debates/${debate.slug}`}
+      />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
@@ -49,7 +57,7 @@ export default async function DebateDetailPage({
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>

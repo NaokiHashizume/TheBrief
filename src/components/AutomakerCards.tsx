@@ -15,6 +15,8 @@ function AutomakerCard({ maker }: { maker: Automaker }) {
       <button
         onClick={() => setOpen(!open)}
         className="w-full text-left p-4 sm:p-5 flex items-start gap-4 hover:bg-foreground/[0.02] transition-colors"
+        aria-label={open ? `${maker.name}の詳細を閉じる` : `${maker.name}の詳細を開く`}
+        aria-expanded={open}
       >
         {/* Logo badge */}
         <div

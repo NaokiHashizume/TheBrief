@@ -12,6 +12,21 @@ export const metadata: Metadata = {
   description:
     "総合商社、専門商社、卸売業。資源・食料・素材のグローバル取引から小売戦略まで、商社・卸売業界の最新動向と解説記事。",
   alternates: { canonical: "https://thebrief.info/industry/trading" },
+  openGraph: {
+    title: "商社・卸売 — Industry",
+    description:
+      "総合商社、専門商社、卸売業。資源・食料・素材のグローバル取引から小売戦略まで、商社・卸売業界の最新動向と解説記事。",
+    url: "https://thebrief.info/industry/trading",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "商社・卸売 — Industry",
+    description:
+      "総合商社、専門商社、卸売業。資源・食料・素材のグローバル取引から小売戦略まで、商社・卸売業界の最新動向と解説記事。",
+  },
 };
 
 function parseReadTime(rt: string): number {
@@ -27,7 +42,7 @@ export default function TradingPage() {
   });
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
+    <div className="max-w-5xl mx-auto px-4 py-12">
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
@@ -37,7 +52,7 @@ export default function TradingPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">
           Home
         </Link>

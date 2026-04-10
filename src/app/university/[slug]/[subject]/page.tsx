@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { allLectures, getLecture } from "@/lib/lectures";
-import { getUniversityCategory } from "@/lib/university";
+import { getUniversityCategory, universityCategories } from "@/lib/university";
+import { LectureRecommendations } from "@/components/LectureRecommendations";
 
 type PageProps = {
   params: Promise<{ slug: string; subject: string }>;
@@ -21,11 +22,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug, subject } = await params;
   const lecture = getLecture(slug, subject);
   if (!lecture) return {};
+  const url = `https://thebrief.info/university/${slug}/${subject}`;
+
   return {
     title: `${lecture.title} — ${lecture.badge} | University`,
     description: lecture.description,
-    alternates: {
-      canonical: `https://thebrief.info/university/${slug}/${subject}`,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${lecture.title} — ${lecture.badge} | University | TheBrief`,
+      description: lecture.description,
+      url,
+      siteName: "TheBrief",
+      locale: "ja_JP",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${lecture.title} — ${lecture.badge} | University | TheBrief`,
+      description: lecture.description,
     },
   };
 }
@@ -41,6 +55,9 @@ export default async function LecturePage({ params }: PageProps) {
 
   const ACCENT = category.color;
 
+  // Candidates for random recommendation (all lectures except current)
+  const candidates = allLectures.filter((l) => !(l.category === slug && l.slug === subject));
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <BreadcrumbJsonLd
@@ -53,7 +70,7 @@ export default async function LecturePage({ params }: PageProps) {
       />
 
       {/* Breadcrumb */}
-      <div className="flex flex-wrap items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex flex-wrap items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/university" className="hover:text-foreground transition-colors">University</Link>
@@ -240,6 +257,9 @@ export default async function LecturePage({ params }: PageProps) {
           ))}
         </ul>
       </section>
+
+      {/* Recommended lectures (randomised client-side) */}
+      <LectureRecommendations candidates={candidates} categories={universityCategories} />
 
       {/* Back link */}
       <div className="mt-10">

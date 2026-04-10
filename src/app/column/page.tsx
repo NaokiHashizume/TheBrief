@@ -7,6 +7,19 @@ export const metadata: Metadata = {
   description:
     "Politics・Economy・Industry・Universityでは拾いきれない、暮らしとお金にまつわる小話をコラム形式でまとめます。",
   alternates: { canonical: "https://thebrief.info/column" },
+  openGraph: {
+    title: "Column — 暮らしとお金の小話",
+    description: "Politics・Economy・Industry・Universityでは拾いきれない、暮らしとお金にまつわる小話をコラム形式でまとめます。",
+    url: "https://thebrief.info/column",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Column — 暮らしとお金の小話",
+    description: "Politics・Economy・Industry・Universityでは拾いきれない、暮らしとお金にまつわる小話をコラム形式でまとめます。",
+  },
 };
 
 const COLUMN_COLOR = "#0d9488";
@@ -70,6 +83,16 @@ const specials: SpecialItem[] = [
 ];
 
 const columns: ColumnItem[] = [
+  {
+    slug: "payslip-taxes-2026",
+    title: "給与明細の税金と社会保険料 — 天引きされる6項目の正体",
+    titleEn: "Payslip Taxes & Social Insurance — The 6 Deductions Explained",
+    summary:
+      "毎月の給与明細に並ぶ「所得税・住民税・健康保険・厚生年金・雇用保険・介護保険」。何をどんな仕組みで引かれているのか、2026年度の最新料率で徹底解説。手取りを増やすヒントも。",
+    date: "2026-04-10",
+    readTime: "約 12 分",
+    tags: ["税金", "社会保険", "給与", "家計"],
+  },
   {
     slug: "childcare-support-fund-2026",
     title: "子ども・子育て支援金の実額 — 年収別『月いくら』と2028年の1兆円",
@@ -183,7 +206,7 @@ export default function ColumnIndexPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <span>Column</span>
@@ -231,7 +254,7 @@ export default function ColumnIndexPage() {
             <Link
               key={s.slug}
               href={`/column/${s.slug}`}
-              className="group block p-6 rounded-2xl border border-brief-border bg-brief-card transition-all hover:-translate-y-0.5"
+              className="group block p-6 rounded-xl border border-brief-border bg-brief-card transition-all hover:-translate-y-0.5"
               style={{
                 background: `linear-gradient(135deg, ${s.accent}10, rgba(255,255,255,0.4))`,
               }}
@@ -285,7 +308,7 @@ export default function ColumnIndexPage() {
             <Link
               key={c.slug}
               href={`/column/${c.slug}`}
-              className="group block p-6 rounded-2xl border border-brief-border bg-brief-card transition-all hover:-translate-y-0.5"
+              className="group block p-6 rounded-xl border border-brief-border bg-brief-card transition-all hover:-translate-y-0.5"
               style={{ transition: "border-color 0.2s" }}
             >
               <div className="flex items-center gap-2 mb-3">

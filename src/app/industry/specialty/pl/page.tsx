@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   title: "専門店・EC PL（損益計算書） — Industry",
   description: "専門店・ECの損益計算書（PL）の業界構造を解説。売上原価率・販管費率・営業利益率の特徴と主要企業のシェア。",
   alternates: { canonical: "https://thebrief.info/industry/specialty/pl" },
+  openGraph: {
+    title: "専門店・EC PL（損益計算書） — Industry",
+    description: "専門店・ECの損益計算書（PL）の業界構造を解説。売上原価率・販管費率・営業利益率の特徴と主要企業のシェア。",
+    url: "https://thebrief.info/industry/specialty/pl",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "専門店・EC PL（損益計算書） — Industry",
+    description: "専門店・ECの損益計算書（PL）の業界構造を解説。売上原価率・販管費率・営業利益率の特徴と主要企業のシェア。",
+  },
 };
 
 export default function Page() {
@@ -19,7 +32,7 @@ export default function Page() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Industry", href: "/industry" }, { name: "専門店・EC", href: "/industry/specialty" }, { name: "PL", href: "/industry/specialty/pl" }]} />
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/industry" className="hover:text-foreground transition-colors">Industry</Link>

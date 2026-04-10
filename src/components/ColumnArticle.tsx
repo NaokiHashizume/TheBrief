@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import ShareButton from "@/components/ShareButton";
 import { T } from "@/components/T";
+import { RecommendedReads } from "@/components/RecommendedReads";
 
 export type Bilingual = { ja: string; en: string };
 export type ColumnBlock =
@@ -27,6 +28,7 @@ type Props = {
   accent: string;
   categoryJa: string;
   categoryEn: string;
+  tags?: string[];
   chaptersJa: string;
   chaptersEn: string;
   readTimeJa: string;
@@ -53,6 +55,7 @@ function renderRich(text: string) {
 
 export function ColumnArticle(props: Props) {
   const { url, title, summary, summaryEn, date, accent, sections } = props;
+  const slug = url.split("/").pop() ?? "";
   return (
     <div className="max-w-[760px] mx-auto px-5 sm:px-6 py-16">
       <ArticleJsonLd
@@ -273,6 +276,8 @@ export function ColumnArticle(props: Props) {
           <T ja={props.disclaimerJa} en={props.disclaimerEn} />
         </p>
       </div>
+
+      <RecommendedReads currentSlug={slug} currentTags={props.tags ?? []} />
 
       <div className="mt-8 flex justify-center">
         <ShareButton title={title} />

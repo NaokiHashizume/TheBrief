@@ -120,7 +120,7 @@ export const debates: Debate[] = [
       { date: "2026-03-30", event: "暫定予算（4/1〜4/11）が成立", eventEn: "Stopgap budget (April 1-11) enacted" },
       { date: "2026-04-05", event: "参議院予算委でトランプ関税の経済影響を緊急質疑", eventEn: "Emergency questioning on economic impact of Trump tariffs at Upper House Budget Committee" },
     ],
-    lastUpdated: "2026-04-06",
+    lastUpdated: "2026-04-09",
   },
 
   // ──────────────────────────────────────────
@@ -162,7 +162,7 @@ export const debates: Debate[] = [
       { date: "2026-02-20", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-03-25", event: "財務金融委員会で審議開始", eventEn: "Deliberations begin in Finance and Financial Affairs Committee" },
     ],
-    lastUpdated: "2026-04-06",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "disaster-prevention-agency",
@@ -203,7 +203,7 @@ export const debates: Debate[] = [
       { date: "2026-03-06", event: "設置法案・関連法案を閣議決定・国会提出", eventEn: "Establishment bill and related bills approved by Cabinet and submitted to the Diet" },
       { date: "2026-03-20", event: "衆議院内閣委員会で審議開始", eventEn: "Deliberations begin in the House of Representatives Cabinet Committee" },
     ],
-    lastUpdated: "2026-04-06",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "disaster-prevention-agency-related",
@@ -239,7 +239,7 @@ export const debates: Debate[] = [
       { date: "2026-03-06", event: "防災庁設置法案と同時に国会提出", eventEn: "Submitted to the Diet alongside the Disaster Prevention Agency Establishment Act" },
       { date: "2026-03-20", event: "内閣委員会で防災庁設置法案と一括審議開始", eventEn: "Deliberated jointly with the establishment bill in the Cabinet Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "industrial-competitiveness",
@@ -277,7 +277,7 @@ export const debates: Debate[] = [
       { date: "2026-03-06", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-03-28", event: "経済産業委員会で審議開始", eventEn: "Deliberations begin in the Economy, Trade and Industry Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "logistics-efficiency",
@@ -315,7 +315,7 @@ export const debates: Debate[] = [
       { date: "2026-03-06", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "国土交通委員会で審議開始", eventEn: "Deliberations begin in the Land, Infrastructure, Transport and Tourism Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "environment-ministry-reform",
@@ -351,7 +351,7 @@ export const debates: Debate[] = [
       { date: "2026-03-06", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-03", event: "環境委員会で審議開始", eventEn: "Deliberations begin in the Environment Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "defense-ministry-reform",
@@ -392,7 +392,7 @@ export const debates: Debate[] = [
       { date: "2026-03-25", event: "安全保障委員会で審議開始", eventEn: "Deliberations begin in the Security Committee" },
       { date: "2026-04-03", event: "参考人質疑（安全保障専門家）", eventEn: "Questioning of expert witnesses (security specialists)" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "court-staff-quota",
@@ -428,7 +428,7 @@ export const debates: Debate[] = [
       { date: "2026-03-06", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-03-28", event: "法務委員会で審議開始", eventEn: "Deliberations begin in the Judicial Affairs Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "immigration-reform",
@@ -468,7 +468,7 @@ export const debates: Debate[] = [
       { date: "2026-03-13", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-02", event: "法務委員会で審議開始", eventEn: "Deliberations begin in the Judicial Affairs Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "passport-reform",
@@ -504,7 +504,7 @@ export const debates: Debate[] = [
       { date: "2026-03-13", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "外務委員会で審議開始", eventEn: "Deliberations begin in the Foreign Affairs Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "urban-regeneration",
@@ -542,7 +542,7 @@ export const debates: Debate[] = [
       { date: "2026-03-13", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "国土交通委員会で審議開始", eventEn: "Deliberations begin in the Land, Infrastructure, Transport and Tourism Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "regional-public-transport",
@@ -580,7 +580,7 @@ export const debates: Debate[] = [
       { date: "2026-03-13", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "国土交通委員会で審議開始", eventEn: "Deliberations begin in the Land, Infrastructure, Transport and Tourism Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "national-intelligence-agency",
@@ -621,7 +621,7 @@ export const debates: Debate[] = [
       { date: "2026-03-25", event: "衆議院内閣委員会で審議開始", eventEn: "Deliberations begin in the House of Representatives Cabinet Committee" },
       { date: "2026-04-02", event: "参考人質疑（安全保障・情報の専門家）", eventEn: "Questioning of expert witnesses (security and intelligence specialists)" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "health-insurance-reform",
@@ -661,7 +661,7 @@ export const debates: Debate[] = [
       { date: "2026-03-13", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "厚生労働委員会で審議開始", eventEn: "Deliberations begin in the Health, Labour and Welfare Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "industrial-technology",
@@ -697,7 +697,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-03", event: "経済産業委員会で審議開始", eventEn: "Deliberations begin in the Economy, Trade and Industry Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "foreign-exchange-reform",
@@ -735,7 +735,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-03", event: "財務金融委員会で審議開始", eventEn: "Deliberations begin in the Finance and Financial Affairs Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "norin-chukin-reform",
@@ -773,7 +773,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "農林水産委員会で審議開始", eventEn: "Deliberations begin in the Agriculture, Forestry and Fisheries Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "agricultural-modernization-finance",
@@ -809,7 +809,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "農林水産委員会で審議開始", eventEn: "Deliberations begin in the Agriculture, Forestry and Fisheries Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "economic-security",
@@ -850,7 +850,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "改正法案を閣議決定・国会提出", eventEn: "Amendment bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-03-28", event: "衆議院内閣委員会で審議開始", eventEn: "Deliberations begin in the House of Representatives Cabinet Committee" },
     ],
-    lastUpdated: "2026-04-06",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "drone-no-fly-zone",
@@ -886,7 +886,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-03", event: "内閣委員会で審議開始", eventEn: "Deliberations begin in the Cabinet Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "overseas-telecom-support",
@@ -922,7 +922,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "総務委員会で審議開始", eventEn: "Deliberations begin in the General Affairs Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "mobile-identity-verification",
@@ -960,7 +960,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "総務委員会で審議開始", eventEn: "Deliberations begin in the General Affairs Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "postal-law-reform",
@@ -998,7 +998,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "総務委員会で審議開始", eventEn: "Deliberations begin in the General Affairs Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "livestock-disease-prevention",
@@ -1036,7 +1036,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "農林水産委員会で審議開始", eventEn: "Deliberations begin in the Agriculture, Forestry and Fisheries Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "electricity-business-reform",
@@ -1074,7 +1074,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-03", event: "経済産業委員会で審議開始", eventEn: "Deliberations begin in the Economy, Trade and Industry Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "decentralization-omnibus",
@@ -1110,7 +1110,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "地方創生特別委員会で審議開始", eventEn: "Deliberations begin in the Special Committee on Regional Revitalization" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "sewerage-reform",
@@ -1146,7 +1146,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-03", event: "国土交通委員会で審議開始", eventEn: "Deliberations begin in the Land, Infrastructure, Transport and Tourism Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "building-energy-efficiency",
@@ -1184,7 +1184,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-03", event: "国土交通委員会で審議開始", eventEn: "Deliberations begin in the Land, Infrastructure, Transport and Tourism Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "space-activities-reform",
@@ -1220,7 +1220,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-03", event: "内閣委員会で審議開始", eventEn: "Deliberations begin in the Cabinet Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "science-technology-innovation",
@@ -1258,7 +1258,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-03", event: "文部科学委員会で審議開始", eventEn: "Deliberations begin in the Education, Culture, Sports, Science and Technology Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "dangerous-driving-reform",
@@ -1298,7 +1298,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-02", event: "法務委員会で審議開始", eventEn: "Deliberations begin in the Judicial Affairs Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "civil-code-reform",
@@ -1334,7 +1334,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-02", event: "法務委員会で審議開始", eventEn: "Deliberations begin in the Judicial Affairs Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "civil-code-reform-related",
@@ -1370,7 +1370,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "民法改正案と同時に国会提出", eventEn: "Submitted to the Diet alongside the Civil Code amendment" },
       { date: "2026-04-02", event: "法務委員会で一括審議開始", eventEn: "Joint deliberations begin in the Judicial Affairs Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "social-welfare-reform",
@@ -1408,7 +1408,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "厚生労働委員会で審議開始", eventEn: "Deliberations begin in the Health, Labour and Welfare Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "important-crop-varieties",
@@ -1446,7 +1446,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "農林水産委員会で審議開始", eventEn: "Deliberations begin in the Agriculture, Forestry and Fisheries Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "seed-seedling-reform",
@@ -1482,7 +1482,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "農林水産委員会で審議開始", eventEn: "Deliberations begin in the Agriculture, Forestry and Fisheries Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "staple-food-supply",
@@ -1520,7 +1520,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "農林水産委員会で審議開始", eventEn: "Deliberations begin in the Agriculture, Forestry and Fisheries Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "solar-panel-recycling",
@@ -1558,7 +1558,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-03", event: "環境委員会で審議開始", eventEn: "Deliberations begin in the Environment Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "reservist-dual-employment",
@@ -1594,7 +1594,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-01", event: "安全保障委員会で審議開始", eventEn: "Deliberations begin in the Security Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "anti-money-laundering",
@@ -1632,7 +1632,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-03", event: "内閣委員会で審議開始", eventEn: "Deliberations begin in the Cabinet Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "antarctic-environment",
@@ -1668,7 +1668,7 @@ export const debates: Debate[] = [
       { date: "2026-03-19", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-04-03", event: "環境委員会で審議開始", eventEn: "Deliberations begin in the Environment Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
 
   // ──────────────────────────────────────────
@@ -1708,7 +1708,7 @@ export const debates: Debate[] = [
       { date: "2026-03-05", event: "中道改革連合が法案を衆議院に提出", eventEn: "Centrist Reform Coalition submits the bill to the House of Representatives" },
       { date: "2026-03-28", event: "特別委員会で趣旨説明", eventEn: "Explanation of the bill's purpose in the special committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "single-year-deficit-bonds",
@@ -1743,7 +1743,7 @@ export const debates: Debate[] = [
     timeline: [
       { date: "2026-03-10", event: "中道改革連合・国民民主党が対案を提出", eventEn: "Centrist Reform Coalition and Democratic Party for the People submit a counterproposal" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "intelligence-infrastructure",
@@ -1779,7 +1779,7 @@ export const debates: Debate[] = [
       { date: "2026-03-10", event: "日本維新の会が法案を提出", eventEn: "Japan Innovation Party submits the bill" },
       { date: "2026-03-28", event: "内閣委員会で趣旨説明", eventEn: "Explanation of the bill's purpose in the Cabinet Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "earthquake-disaster-prevention",
@@ -1814,7 +1814,7 @@ export const debates: Debate[] = [
     timeline: [
       { date: "2026-03-15", event: "超党派で法案を提出", eventEn: "Bill submitted on a cross-party basis" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "disability-support-comprehensive",
@@ -1852,7 +1852,7 @@ export const debates: Debate[] = [
       { date: "2026-03-18", event: "中道改革連合が法案を提出", eventEn: "Centrist Reform Coalition submits the bill" },
       { date: "2026-04-01", event: "厚生労働委員会で趣旨説明", eventEn: "Explanation of the bill's purpose in the Health, Labour and Welfare Committee" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
 
   // ──────────────────────────────────────────
@@ -1891,7 +1891,7 @@ export const debates: Debate[] = [
     timeline: [
       { date: "2026-03-05", event: "参議院に法案提出", eventEn: "Bill submitted to the House of Councillors" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "special-child-allowance-reform",
@@ -1926,7 +1926,7 @@ export const debates: Debate[] = [
     timeline: [
       { date: "2026-03-05", event: "参議院に法案提出", eventEn: "Bill submitted to the House of Councillors" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "income-tax-reform-opposition",
@@ -1961,7 +1961,7 @@ export const debates: Debate[] = [
     timeline: [
       { date: "2026-03-10", event: "参議院に法案提出", eventEn: "Bill submitted to the House of Councillors" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "local-tax-reform-opposition",
@@ -1996,7 +1996,7 @@ export const debates: Debate[] = [
     timeline: [
       { date: "2026-03-10", event: "参議院に法案提出", eventEn: "Bill submitted to the House of Councillors" },
     ],
-    lastUpdated: "2026-04-06",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "counterintelligence",
@@ -2036,7 +2036,7 @@ export const debates: Debate[] = [
       { date: "2026-03-10", event: "国民民主党がスパイ防止法案を参議院に提出", eventEn: "Democratic Party for the People submits the counterintelligence bill to the House of Councillors" },
       { date: "2026-03-28", event: "法務委員会で趣旨説明", eventEn: "Explanation of the bill's purpose in the Judicial Affairs Committee" },
     ],
-    lastUpdated: "2026-04-06",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "secrecy-protection-reform",
@@ -2071,7 +2071,7 @@ export const debates: Debate[] = [
     timeline: [
       { date: "2026-03-10", event: "参議院に法案提出", eventEn: "Bill submitted to the House of Councillors" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
   {
     slug: "criminal-code-reform",
@@ -2106,6 +2106,6 @@ export const debates: Debate[] = [
     timeline: [
       { date: "2026-03-15", event: "参議院に法案提出", eventEn: "Bill submitted to the House of Councillors" },
     ],
-    lastUpdated: "2026-04-04",
+    lastUpdated: "2026-04-09",
   },
 ];

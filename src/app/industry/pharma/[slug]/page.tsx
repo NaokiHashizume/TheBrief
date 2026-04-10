@@ -2,10 +2,19 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { pharmaArticles } from "@/lib/pharma";
+import {
+  Glp1OverviewDiagram,
+  Glp1ClinicalDataDiagram,
+  Glp1JapanMarketDiagram,
+  Glp1InsuranceDiagram,
+  Glp1RisksDiagram,
+  Glp1FutureDiagram,
+} from "@/components/Glp1JapanDiagrams";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 
 export function generateStaticParams() {
   return pharmaArticles.map((a) => ({ slug: a.slug }));
@@ -23,6 +32,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — 医薬品・医療介護`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/pharma/${article.slug}`,
     },
@@ -115,7 +125,7 @@ export default async function ArticlePage({
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#10b981]/60">医薬品・医療介護</span>
           <span className="w-px h-3 bg-[#10b981]/15" />
           {article.tags.map((tag) => (
-            <span key={tag} className="text-[10px] px-2.5 py-1 rounded-md bg-[#10b981]/[0.05] text-[#10b981]/60 dark:text-[#10b981]/60 font-medium tracking-wide border border-[#10b981]/[0.08]">{tag}</span>
+            <TagLink key={tag} tag={tag} color="#059669" />
           ))}
         </div>
         <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">{article.title}</h1>
@@ -172,6 +182,12 @@ export default async function ArticlePage({
                 </div>
                 <div className="h-px bg-gradient-to-r from-[#10b981]/15 via-[#10b981]/5 to-transparent" />
               </div>
+              {section.diagramId === "glp1-overview" && <Glp1OverviewDiagram />}
+              {section.diagramId === "glp1-clinical-data" && <Glp1ClinicalDataDiagram />}
+              {section.diagramId === "glp1-japan-market" && <Glp1JapanMarketDiagram />}
+              {section.diagramId === "glp1-insurance" && <Glp1InsuranceDiagram />}
+              {section.diagramId === "glp1-risks" && <Glp1RisksDiagram />}
+              {section.diagramId === "glp1-future" && <Glp1FutureDiagram />}
               <div className="space-y-6">
                 {paragraphs.map((paragraph, j) => {
                   const trimmed = paragraph.trim();

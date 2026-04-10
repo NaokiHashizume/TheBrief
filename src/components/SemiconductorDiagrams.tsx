@@ -7,7 +7,7 @@ import { T } from "@/components/T";
    ───────────────────────────────────────────── */
 export function SemiMarketScaleDiagram() {
   return (
-    <div className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div role="img" aria-label="Semiconductor market scale statistics" className="my-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
       <div className="p-3 rounded-xl border border-brief-border bg-brief-card text-center">
         <div className="text-2xl font-bold text-[#3b82f6]">$792B</div>
         <div className="text-[10px] text-foreground/50 mt-1">
@@ -94,7 +94,7 @@ export function ConductorComparisonDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Conductor semiconductor and insulator comparison" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="導体・半導体・絶縁体の比較" en="Conductor, semiconductor, and insulator comparison" />
       </div>
@@ -158,7 +158,7 @@ export function ConductorComparisonDiagram() {
    ───────────────────────────────────────────── */
 export function PnJunctionDiagram() {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="P-N junction and semiconductor doping diagram" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="ドーピングと P-N 接合" en="Doping and the P-N junction" />
       </div>
@@ -272,7 +272,7 @@ export function PnJunctionDiagram() {
    ───────────────────────────────────────────── */
 export function TransistorDiagram() {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="MOSFET transistor structure and operation" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="MOSFET トランジスタの構造と動作" en="MOSFET transistor structure and operation" />
       </div>
@@ -440,7 +440,7 @@ export function ManufacturingProcessDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Semiconductor chip manufacturing process flow" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="半導体チップの製造工程" en="Semiconductor chip manufacturing process" />
       </div>
@@ -584,7 +584,7 @@ export function ChipTypesDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Semiconductor chip types and market share" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="半導体の主な種類と市場シェア" en="Main semiconductor categories and market share" />
       </div>
@@ -730,7 +730,7 @@ export function SupplyChainDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Global semiconductor supply chain key players by stage" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T
           ja="半導体サプライチェーン — 各工程の主要プレイヤー"
@@ -875,7 +875,7 @@ export function JapanSemiHistoryDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Japan semiconductor industry 40-year history" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="日本の半導体産業 — 40年の軌跡" en="Japan's semiconductor industry — 40 years" />
       </div>
@@ -993,7 +993,7 @@ export function ProcessNodeDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Semiconductor process node evolution and Moore's Law" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="プロセスノードの進化 — ムーアの法則の歩み" en="Process node evolution — the march of Moore's Law" />
       </div>

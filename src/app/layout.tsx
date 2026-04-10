@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { SkipLink } from "@/components/SkipLink";
 import { Sidebar, SidebarProvider } from "@/components/Sidebar";
+import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 
 const SITE_URL = "https://thebrief.info";
 const SITE_NAME = "The Brief";
@@ -145,6 +146,7 @@ export default function RootLayout({
               <Header />
               <main id="main-content" className="flex-1">{children}</main>
               <Footer />
+              <AnalyticsEvents />
             </SidebarProvider>
           </LanguageProvider>
         </ThemeProvider>
@@ -155,7 +157,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         <Script id="ga-init" strategy="afterInteractive">
-          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-277DL28PJW');`}
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-277DL28PJW',{send_page_view:true,cookie_flags:'SameSite=None;Secure',transport_url:'https://www.google-analytics.com'});`}
         </Script>
 
         {/* Google AdSense — lazyOnload で初期描画をブロックしない */}

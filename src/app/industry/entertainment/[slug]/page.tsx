@@ -13,7 +13,16 @@ import {
   AnimeStreamingDiagram,
   AnimeFutureDiagram,
 } from "@/components/AnimeStudioDiagrams";
+import {
+  MonakiOverviewDiagram,
+  MonakiMembersDiagram,
+  MonakiVsJunretsuDiagram,
+  MonakiSnsStraegyDiagram,
+  MonakiSocialContextDiagram,
+  MonakiTimelineDiagram,
+} from "@/components/MonakiDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 
 const diagramMap: Record<string, React.FC> = {
   "anime-overview": AnimeOverviewDiagram,
@@ -22,6 +31,12 @@ const diagramMap: Record<string, React.FC> = {
   "anime-three-studios": AnimeThreeStudiosDiagram,
   "anime-streaming": AnimeStreamingDiagram,
   "anime-future": AnimeFutureDiagram,
+  "monaki-overview": MonakiOverviewDiagram,
+  "monaki-members": MonakiMembersDiagram,
+  "monaki-vs-junretsu": MonakiVsJunretsuDiagram,
+  "monaki-sns-strategy": MonakiSnsStraegyDiagram,
+  "monaki-social-context": MonakiSocialContextDiagram,
+  "monaki-timeline": MonakiTimelineDiagram,
 };
 
 export function generateStaticParams() {
@@ -40,6 +55,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — エンタメ`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/entertainment/${article.slug}`,
     },
@@ -132,7 +148,7 @@ export default async function ArticlePage({
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#d946ef]/60">エンタメ</span>
           <span className="w-px h-3 bg-[#d946ef]/15" />
           {article.tags.map((tag) => (
-            <span key={tag} className="text-[10px] px-2.5 py-1 rounded-md bg-[#d946ef]/[0.05] text-[#d946ef]/60 dark:text-[#d946ef]/60 font-medium tracking-wide border border-[#d946ef]/[0.08]">{tag}</span>
+            <TagLink key={tag} tag={tag} color="#d946ef" />
           ))}
         </div>
         <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">{article.title}</h1>

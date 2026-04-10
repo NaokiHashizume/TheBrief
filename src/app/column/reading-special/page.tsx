@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import { T } from "@/components/T";
 
 const COLUMN_COLOR = "#0d9488";
@@ -209,6 +210,13 @@ const books: Book[] = [
 export default function ReadingSpecialPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
+      <ArticleJsonLd
+        title={TITLE}
+        description={SUMMARY}
+        datePublished="2026-04-09"
+        author="The Brief"
+        url={URL}
+      />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
@@ -218,7 +226,7 @@ export default function ReadingSpecialPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/column" className="hover:text-foreground transition-colors">Column</Link>
@@ -290,7 +298,7 @@ export default function ReadingSpecialPage() {
           {books.map((b, i) => (
             <article
               key={b.title}
-              className="p-6 rounded-2xl border border-brief-border bg-brief-card"
+              className="p-6 rounded-xl border border-brief-border bg-brief-card"
             >
               <div className="flex items-center gap-2 mb-3">
                 <span
@@ -339,8 +347,10 @@ export default function ReadingSpecialPage() {
         </div>
       </section>
 
+      <RecommendedReads currentSlug="reading-special" currentTags={["読書", "本", "文化"]} />
+
       {/* Footer nav */}
-      <div className="mt-10 flex items-center justify-between gap-4 p-5 rounded-2xl border border-brief-border bg-brief-card">
+      <div className="mt-10 flex items-center justify-between gap-4 p-5 rounded-xl border border-brief-border bg-brief-card">
         <p className="text-sm text-foreground/60">
           <T
             ja="特集は不定期で更新します。映画特集とあわせて、休日のインプットにどうぞ。"

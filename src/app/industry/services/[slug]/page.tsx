@@ -6,6 +6,7 @@ import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd"
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 
 export function generateStaticParams() {
   return servicesArticles.map((a) => ({ slug: a.slug }));
@@ -23,6 +24,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — サービス`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/services/${article.slug}`,
     },
@@ -115,7 +117,7 @@ export default async function ArticlePage({
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#a855f7]/60">サービス</span>
           <span className="w-px h-3 bg-[#a855f7]/15" />
           {article.tags.map((tag) => (
-            <span key={tag} className="text-[10px] px-2.5 py-1 rounded-md bg-[#a855f7]/[0.05] text-[#a855f7]/60 dark:text-[#a855f7]/60 font-medium tracking-wide border border-[#a855f7]/[0.08]">{tag}</span>
+            <TagLink key={tag} tag={tag} color="#0891b2" />
           ))}
         </div>
         <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">{article.title}</h1>

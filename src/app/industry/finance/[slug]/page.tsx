@@ -6,6 +6,23 @@ import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd"
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
+import {
+  HormuzFinanceOverviewDiagram,
+  HormuzFinanceOilDiagram,
+  HormuzFinanceNikkeiDiagram,
+  HormuzFinanceEnergyDiagram,
+  HormuzFinanceImpactDiagram,
+  HormuzFinanceRiskDiagram,
+} from "@/components/HormuzFinanceDiagrams";
+import {
+  BojPolicyRateDiagram,
+  BojInflationWagesDiagram,
+  BojMortgageImpactDiagram,
+  BojCorporateDebtDiagram,
+  BojVsFedDiagram,
+  BojScenarioDiagram,
+} from "@/components/BojRateHike2026Diagrams";
 
 export function generateStaticParams() {
   return financeArticles.map((a) => ({ slug: a.slug }));
@@ -23,6 +40,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — 金融機関`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/finance/${article.slug}`,
     },
@@ -70,6 +88,23 @@ function RichText({ text }: { text: string }) {
   );
 }
 
+import React from "react";
+
+const diagramMap: Record<string, React.FC> = {
+  "hormuz-finance-overview": HormuzFinanceOverviewDiagram,
+  "hormuz-finance-oil": HormuzFinanceOilDiagram,
+  "hormuz-finance-nikkei": HormuzFinanceNikkeiDiagram,
+  "hormuz-finance-energy": HormuzFinanceEnergyDiagram,
+  "hormuz-finance-impact": HormuzFinanceImpactDiagram,
+  "hormuz-finance-risk": HormuzFinanceRiskDiagram,
+  "boj-policy-rate": BojPolicyRateDiagram,
+  "boj-inflation-wages": BojInflationWagesDiagram,
+  "boj-mortgage-impact": BojMortgageImpactDiagram,
+  "boj-corporate-debt": BojCorporateDebtDiagram,
+  "boj-vs-fed": BojVsFedDiagram,
+  "boj-scenario": BojScenarioDiagram,
+};
+
 export default async function ArticlePage({
   params,
 }: {
@@ -115,7 +150,7 @@ export default async function ArticlePage({
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#f59e0b]/60">金融機関</span>
           <span className="w-px h-3 bg-[#f59e0b]/15" />
           {article.tags.map((tag) => (
-            <span key={tag} className="text-[10px] px-2.5 py-1 rounded-md bg-[#f59e0b]/[0.05] text-[#f59e0b]/60 dark:text-[#f59e0b]/60 font-medium tracking-wide border border-[#f59e0b]/[0.08]">{tag}</span>
+            <TagLink key={tag} tag={tag} color="#f59e0b" />
           ))}
         </div>
         <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">{article.title}</h1>
@@ -158,6 +193,7 @@ export default async function ArticlePage({
       <article>
         {article.sections.map((section, i) => {
           const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
+          const DiagramComponent = section.diagramId ? diagramMap[section.diagramId] : null;
           return (
             <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
               <div className="mb-8">
@@ -172,6 +208,7 @@ export default async function ArticlePage({
                 </div>
                 <div className="h-px bg-gradient-to-r from-[#f59e0b]/15 via-[#f59e0b]/5 to-transparent" />
               </div>
+              {DiagramComponent && <DiagramComponent />}
               <div className="space-y-6">
                 {paragraphs.map((paragraph, j) => {
                   const trimmed = paragraph.trim();

@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   title: "サービス — Industry",
   description: "人材、警備、教育、コンサルティング、BPOなどサービス業全般の最新動向。",
   alternates: { canonical: "https://thebrief.info/industry/services" },
+  openGraph: {
+    title: "サービス — Industry",
+    description: "人材、警備、教育、コンサルティング、BPOなどサービス業全般の最新動向。",
+    url: "https://thebrief.info/industry/services",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "サービス — Industry",
+    description: "人材、警備、教育、コンサルティング、BPOなどサービス業全般の最新動向。",
+  },
 };
 
 function parseReadTime(rt: string): number {
@@ -26,9 +39,9 @@ export default function Page() {
   });
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
+    <div className="max-w-5xl mx-auto px-4 py-12">
       <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Industry", href: "/industry" }, { name: "サービス", href: "/industry/services" }]} />
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/industry" className="hover:text-foreground transition-colors">Industry</Link>

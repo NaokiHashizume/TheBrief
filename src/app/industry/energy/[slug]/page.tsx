@@ -6,6 +6,25 @@ import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd"
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
+import {
+  RenewEnergyMixDiagram,
+  RenewSolarStatusDiagram,
+  RenewOffshoreWindDiagram,
+  RenewHydrogenDiagram,
+  RenewCostComparisonDiagram,
+  RenewRoadmapDiagram,
+} from "@/components/RenewableEnergy2026Diagrams";
+
+/* Diagram renderer mapped by ID */
+const diagramMap: Record<string, React.FC> = {
+  "renew-energy-mix": RenewEnergyMixDiagram,
+  "renew-solar-status": RenewSolarStatusDiagram,
+  "renew-offshore-wind": RenewOffshoreWindDiagram,
+  "renew-hydrogen": RenewHydrogenDiagram,
+  "renew-cost-comparison": RenewCostComparisonDiagram,
+  "renew-roadmap": RenewRoadmapDiagram,
+};
 
 export function generateStaticParams() {
   return energyArticles.map((a) => ({ slug: a.slug }));
@@ -23,6 +42,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — 資源エネルギー`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/energy/${article.slug}`,
     },
@@ -115,7 +135,7 @@ export default async function ArticlePage({
           <span className="text-[10px] tracking-[2.5px] uppercase font-semibold text-[#f97316]/60">資源エネルギー</span>
           <span className="w-px h-3 bg-[#f97316]/15" />
           {article.tags.map((tag) => (
-            <span key={tag} className="text-[10px] px-2.5 py-1 rounded-md bg-[#f97316]/[0.05] text-[#f97316]/60 dark:text-[#f97316]/60 font-medium tracking-wide border border-[#f97316]/[0.08]">{tag}</span>
+            <TagLink key={tag} tag={tag} color="#f97316" />
           ))}
         </div>
         <h1 className="font-serif text-[28px] sm:text-[36px] font-bold leading-[1.25] tracking-tight">{article.title}</h1>
@@ -158,6 +178,7 @@ export default async function ArticlePage({
       <article>
         {article.sections.map((section, i) => {
           const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
+          const DiagramComponent = section.diagramId ? diagramMap[section.diagramId] : null;
           return (
             <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
               <div className="mb-8">
@@ -172,6 +193,7 @@ export default async function ArticlePage({
                 </div>
                 <div className="h-px bg-gradient-to-r from-[#f97316]/15 via-[#f97316]/5 to-transparent" />
               </div>
+              {DiagramComponent && <DiagramComponent />}
               <div className="space-y-6">
                 {paragraphs.map((paragraph, j) => {
                   const trimmed = paragraph.trim();

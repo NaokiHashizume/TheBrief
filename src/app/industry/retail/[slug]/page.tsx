@@ -27,7 +27,23 @@ import {
   EcRakutenYamatoDiagram,
   EcCarrierMarginsDiagram,
 } from "@/components/EcLogisticsDiagrams";
+import {
+  RetailDxOverviewDiagram,
+  RetailCashierlessDiagram,
+  RetailPointsDiagram,
+  RetailVsAmazonDiagram,
+  RetailCostDiagram,
+  RetailFuture2026Diagram,
+} from "@/components/RetailDx2026Diagrams";
+import {
+  MinistopPerformanceDiagram,
+  MinistopCvsComparisonDiagram,
+  MinistopFraudImpactDiagram,
+  MinistopAeonPositionDiagram,
+  MinistopScenariosDiagram,
+} from "@/components/MinistopDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { TagLink } from "@/components/TagLink";
 
 export function generateStaticParams() {
   return retailArticles.map((a) => ({ slug: a.slug }));
@@ -45,6 +61,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — 小売`,
     description: article.summary,
+    keywords: article.tags,
     alternates: {
       canonical: `https://thebrief.info/industry/retail/${article.slug}`,
     },
@@ -170,12 +187,7 @@ export default async function RetailArticlePage({
             小売
           </span>
           {article.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[9px] px-2 py-0.5 rounded-full bg-[#14b8a6]/8 text-[#14b8a6]/70 font-medium"
-            >
-              {tag}
-            </span>
+            <TagLink key={tag} tag={tag} color="#10b981" />
           ))}
         </div>
 
@@ -264,6 +276,17 @@ export default async function RetailArticlePage({
               {section.diagramId === "ec-amazon-logistics" && <EcAmazonLogisticsDiagram />}
               {section.diagramId === "ec-rakuten-yamato" && <EcRakutenYamatoDiagram />}
               {section.diagramId === "ec-carrier-margins" && <EcCarrierMarginsDiagram />}
+              {section.diagramId === "retail-dx-overview" && <RetailDxOverviewDiagram />}
+              {section.diagramId === "retail-cashierless" && <RetailCashierlessDiagram />}
+              {section.diagramId === "retail-points" && <RetailPointsDiagram />}
+              {section.diagramId === "retail-vs-amazon" && <RetailVsAmazonDiagram />}
+              {section.diagramId === "retail-cost" && <RetailCostDiagram />}
+              {section.diagramId === "retail-future-2026" && <RetailFuture2026Diagram />}
+              {section.diagramId === "ministop-performance" && <MinistopPerformanceDiagram />}
+              {section.diagramId === "ministop-cvs-comparison" && <MinistopCvsComparisonDiagram />}
+              {section.diagramId === "ministop-fraud-impact" && <MinistopFraudImpactDiagram />}
+              {section.diagramId === "ministop-aeon-position" && <MinistopAeonPositionDiagram />}
+              {section.diagramId === "ministop-scenarios" && <MinistopScenariosDiagram />}
 
               {/* Section body */}
               <div className="space-y-5">

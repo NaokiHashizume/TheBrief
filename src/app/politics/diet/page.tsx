@@ -171,6 +171,19 @@ export const metadata: Metadata = {
   description:
     "日本の国会を構成する衆議院と参議院の役割、政党別議席数をわかりやすく解説します。",
   alternates: { canonical: "https://thebrief.info/politics/diet" },
+  openGraph: {
+    title: "国会 — 衆議院・参議院の構成",
+    description: "日本の国会を構成する衆議院と参議院の役割、政党別議席数をわかりやすく解説します。",
+    url: "https://thebrief.info/politics/diet",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "国会 — 衆議院・参議院の構成",
+    description: "日本の国会を構成する衆議院と参議院の役割、政党別議席数をわかりやすく解説します。",
+  },
 };
 
 function ChamberExplainer({
@@ -202,7 +215,7 @@ export default function DietPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>

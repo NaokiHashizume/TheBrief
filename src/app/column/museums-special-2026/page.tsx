@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { RecommendedReads } from "@/components/RecommendedReads";
 import { T } from "@/components/T";
+import { ExhibitionCalendar } from "@/components/ExhibitionCalendar";
 
 const COLUMN_COLOR = "#0d9488";
 const ACCENT = "#be185d";
@@ -45,6 +47,7 @@ type Exhibition = {
   periodEn: string;
   description: string;
   descriptionEn: string;
+  url?: string;
 };
 
 type Museum = {
@@ -92,6 +95,8 @@ const museums: Museum[] = [
         titleEn: "Čiurlionis: Inner Star Maps",
         period: "2026年3月28日 — 6月14日",
         periodEn: "March 28 — June 14, 2026",
+        url: "https://2026ciurlionis.nmwa.go.jp/",
+
         description:
           "リトアニアを代表する画家・作曲家ミカロユス・コンスタンティナス・チュルリョーニスの大回顧展。象徴主義と音楽が交差する独特の宇宙観を、東欧美術の文脈とともに紹介する日本初の本格展。",
         descriptionEn:
@@ -102,6 +107,8 @@ const museums: Museum[] = [
         titleEn: "Rembrandt the Printmaker: Innovation, Legacy, Impact",
         period: "2026年7月7日 — 9月23日",
         periodEn: "July 7 — September 23, 2026",
+        url: "https://www.nmwa.go.jp/jp/exhibitions/2026rembrandt.html",
+
         description:
           "油彩で知られるレンブラントを『版画家』として再定義する企画。エッチングの技術革新と、後世の版画家たちへのインパクトを、版下と摺りの比較で具体的に追う。",
         descriptionEn:
@@ -112,6 +119,8 @@ const museums: Museum[] = [
         titleEn: "Turner from the Tate: The Sublime in Dialogue with Contemporary Art",
         period: "2026年10月24日 — 2027年2月21日",
         periodEn: "October 24, 2026 — February 21, 2027",
+        url: "https://www.nmwa.go.jp/jp/exhibitions/2026turner.html",
+
         description:
           "テート所蔵のターナー作品を軸に、19世紀英国の『崇高』の美学が現代美術にどう受け継がれているかを、現代作家とのカップリングで示す野心的な構成。",
         descriptionEn:
@@ -156,6 +165,8 @@ const museums: Museum[] = [
         titleEn: "Swedish Painting: Nordic Light and the Glow of the Everyday",
         period: "2026年1月27日 — 4月12日",
         periodEn: "January 27 — April 12, 2026",
+        url: "https://www.swedishpainting2026.jp/",
+
         description:
           "スウェーデン国立美術館の全面協力で実現する、19世紀末から20世紀初頭のスウェーデン絵画黄金期の特別展。北欧特有の光と『日常』を描くことの意味を、日本でまとめて見られる貴重な機会。",
         descriptionEn:
@@ -186,6 +197,8 @@ const museums: Museum[] = [
         titleEn: "The British Museum Japanese Art Collection: Edo Painting Across the Seas",
         period: "2026年7月25日 — 10月18日",
         periodEn: "July 25 — October 18, 2026",
+        url: "https://www.tobikan.jp/exhibition/2026_britishmuseum.html",
+
         description:
           "大英博物館が所蔵する日本美術コレクションから、海を渡った江戸絵画の名品を里帰り展示する特別展。鈴木春信から葛飾北斎、伊藤若冲まで、英国に渡った日本美の歴史を辿る。",
         descriptionEn:
@@ -196,6 +209,8 @@ const museums: Museum[] = [
         titleEn: "From the Musée d'Orsay: The Joy of Living in the Present",
         period: "2026年11月14日 — 2027年3月28日",
         periodEn: "November 14, 2026 — March 28, 2027",
+        url: "https://art.nikkei.com/orsay2627/",
+
         description:
           "オルセー美術館コレクションを軸にした特別展。19世紀末から20世紀初頭、近代化のなかで人々が日常の歓びをどう描いたかをテーマに、ナビ派・印象派の名品が一堂に並ぶ100周年締めくくりの大型展。",
         descriptionEn:
@@ -235,6 +250,8 @@ const museums: Museum[] = [
         titleEn: "The Great Van Gogh: Café Terrace at Night",
         period: "2026年5月29日 — 8月12日",
         periodEn: "May 29 — August 12, 2026",
+        url: "https://grand-van-gogh.com/",
+
         description:
           "クレラー＝ミュラー美術館所蔵の傑作『夜のカフェテラス』を中心に、ゴッホの代表作と関連資料を集めた大型企画展。アルル時代の色彩と筆致の革新を、油彩・素描・書簡で立体的に紹介する。",
         descriptionEn:
@@ -286,6 +303,8 @@ const museums: Museum[] = [
         titleEn: "Tate: YBA & Beyond — 1990s British Art That Changed the World",
         period: "2026年2月11日 — 5月11日",
         periodEn: "February 11 — May 11, 2026",
+        url: "https://www.nact.jp/exhibition_special/2026/ybabeyond/",
+
         description:
           "ダミアン・ハースト、トレイシー・エミン、サラ・ルーカスら『Young British Artists（YBA）』と1990年代以降の英国現代美術を、テート・コレクションから一望する大型企画展。",
         descriptionEn:
@@ -296,6 +315,8 @@ const museums: Museum[] = [
         titleEn: "Hanae Mori: Vital Type — 100 Years Since Her Birth",
         period: "2026年4月15日 — 7月6日",
         periodEn: "April 15 — July 6, 2026",
+        url: "https://www.nact.jp/exhibition_special/2026/hanaemori/",
+
         description:
           "戦後日本のファッションを世界に押し上げたデザイナー・森英恵の生誕100年を記念する大規模回顧展。代表作の衣装、写真、映像で創作の全貌に迫る。",
         descriptionEn:
@@ -316,6 +337,8 @@ const museums: Museum[] = [
         titleEn: "The Louvre: Renaissance",
         period: "2026年9月9日 — 12月13日",
         periodEn: "September 9 — December 13, 2026",
+        url: "https://www.nact.jp/exhibition_special/2026/louvre2026/",
+
         description:
           "ルーヴル美術館の至宝を紹介するシリーズ最新章。日本初公開となるレオナルド・ダ・ヴィンチの作品を含むイタリア・ルネサンスの傑作群が一堂に並ぶ、2026年の目玉。",
         descriptionEn:
@@ -355,6 +378,8 @@ const museums: Museum[] = [
         titleEn: "Ron Mueck",
         period: "2026年4月29日 — 9月23日",
         periodEn: "April 29 — September 23, 2026",
+        url: "https://www.mori.art.museum/jp/exhibitions/ronmueck/",
+
         description:
           "等身大を超えるハイパーリアリズム彫刻で知られるオーストラリア出身の作家、ロン・ミュエクの日本では16年ぶりとなる個展。生・老・死をめぐる作品が、人間の身体感覚を揺さぶる。",
         descriptionEn:
@@ -365,6 +390,8 @@ const museums: Museum[] = [
         titleEn: "Mariko Mori",
         period: "2026年10月31日 — 2027年3月28日",
         periodEn: "October 31, 2026 — March 28, 2027",
+        url: "https://www.mori.art.museum/jp/exhibitions/marikomori/index.html",
+
         description:
           "国内では2002年の東京都現代美術館『森万里子ピュアランド』以来24年ぶりの大規模美術館個展。インスタレーション、彫刻、映像、ドローイング、パフォーマンスなど30年以上の実践から約80点が一堂に会する。",
         descriptionEn:
@@ -394,6 +421,8 @@ const museums: Museum[] = [
         titleEn: "Claude Monet: Questioning the Landscape",
         period: "2026年2月7日 — 5月24日",
         periodEn: "February 7 — May 24, 2026",
+        url: "https://www.artizon.museum/exhibition_sp/monet2026/",
+
         description:
           "印象派の中核としてのモネを『風景画家』として再考する企画展。没後100年に合わせ、石橋財団コレクションと国内外の名品で、モネが生涯にわたり問い続けた『見ること』を辿る。",
         descriptionEn:
@@ -455,6 +484,8 @@ const museums: Museum[] = [
         titleEn: "KYOTOGRAPHIE International Photography Festival 2026",
         period: "2026年4月18日 — 5月17日",
         periodEn: "April 18 — May 17, 2026",
+        url: "https://www.kyotographie.jp/",
+
         description:
           "京都市内全域を会場に開催される国際写真祭のメイン会場のひとつ。海外作家の初公開作と日本人若手のキュレーション展示が並び、写真というメディアの『いま』を一気に俯瞰できる毎春の定点観測。",
         descriptionEn:
@@ -475,6 +506,8 @@ const museums: Museum[] = [
         titleEn: "Ukiyo-e Super Creator: Utagawa Kuniyoshi",
         period: "2026年7月18日 — 9月23日",
         periodEn: "July 18 — September 23, 2026",
+        url: "https://kyotocity-kyocera.museum/exhibition/20260718-20260923",
+
         description:
           "幕末江戸の鬼才・歌川国芳の大規模回顧展。武者絵、戯画、洋風表現、猫絵まで国芳の振り幅の広さを総覧し、現代マンガ・アニメへの影響まで射程に入れる構成。",
         descriptionEn:
@@ -526,6 +559,8 @@ const museums: Museum[] = [
         titleEn: "SPRING: A Surging Pulse",
         period: "2025年12月13日 — 2026年5月31日",
         periodEn: "December 13, 2025 — May 31, 2026",
+        url: "https://www.polamuseum.or.jp/exhibition/",
+
         description:
           "アートにおける『飛躍する力』をテーマに、絵画・彫刻・工芸・インスタレーションを横断的に紹介。私たちの存在と感性を揺さぶる作品群で『生命のリズム』を体感する企画。",
         descriptionEn:
@@ -536,6 +571,8 @@ const museums: Museum[] = [
         titleEn: "25th Anniversary: Monet × Contemporary Art, 100 Years After His Death (working title)",
         period: "2026年6月17日 — 2027年4月7日（予定）",
         periodEn: "June 17, 2026 — April 7, 2027 (planned)",
+        url: "https://www.polamuseum.or.jp/exhibition/",
+
         description:
           "ポーラ美術館の開館25周年と、クロード・モネ没後100年を記念する大型企画。世界有数の質を誇るポーラのモネ・コレクションを一堂に展観し、現代アーティストとの対話を通じてモネが現代に投げかける問いを浮かび上がらせる。",
         descriptionEn:
@@ -566,6 +603,13 @@ function RegionBadge({ region }: { region: Region }) {
 export default function MuseumsSpecial2026Page() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
+      <ArticleJsonLd
+        title={TITLE}
+        description={SUMMARY}
+        datePublished="2026-04-09"
+        author="The Brief"
+        url={URL}
+      />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
@@ -575,7 +619,7 @@ export default function MuseumsSpecial2026Page() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/column" className="hover:text-foreground transition-colors">Column</Link>
@@ -657,6 +701,11 @@ export default function MuseumsSpecial2026Page() {
         </p>
       </section>
 
+      {/* Exhibition Calendar */}
+      <section className="mt-10">
+        <ExhibitionCalendar museums={museums} accent={ACCENT} />
+      </section>
+
       {/* Museums */}
       <section className="mt-10">
         <div className="mb-4 flex items-baseline justify-between">
@@ -672,7 +721,7 @@ export default function MuseumsSpecial2026Page() {
           {museums.map((m, i) => (
             <article
               key={m.titleEn}
-              className="p-6 rounded-2xl border border-brief-border bg-brief-card"
+              className="p-6 rounded-xl border border-brief-border bg-brief-card"
             >
               <div className="flex items-center gap-2 mb-3 flex-wrap">
                 <span
@@ -804,8 +853,10 @@ export default function MuseumsSpecial2026Page() {
         </div>
       </section>
 
+      <RecommendedReads currentSlug="museums-special-2026" currentTags={["美術館", "文化", "アート", "特集"]} />
+
       {/* Footer nav */}
-      <div className="mt-10 flex items-center justify-between gap-4 p-5 rounded-2xl border border-brief-border bg-brief-card">
+      <div className="mt-10 flex items-center justify-between gap-4 p-5 rounded-xl border border-brief-border bg-brief-card">
         <p className="text-sm text-foreground/60">
           <T
             ja="特集は不定期で更新します。映画・読書・ドキュメンタリー特集もあわせてどうぞ。"

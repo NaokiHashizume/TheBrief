@@ -14,7 +14,7 @@ export function BlocOverviewDiagram() {
   ];
 
   return (
-    <div className="my-6 grid grid-cols-2 gap-3">
+    <div role="img" aria-label="Economic bloc overview and GDP shares" className="my-6 grid grid-cols-2 gap-3">
       {blocs.map((b) => (
         <div
           key={b.name}
@@ -60,7 +60,7 @@ export function TariffTimelineDiagram() {
   ];
 
   return (
-    <div className="my-6 relative">
+    <div role="img" aria-label="US tariff policy timeline 2025–2026" className="my-6 relative">
       <div className="absolute left-[52px] top-0 bottom-0 w-px bg-brief-border" />
       <div className="space-y-3">
         {events.map((e, i) => (
@@ -106,7 +106,7 @@ export function USChinaDecouplingDiagram() {
   ];
 
   return (
-    <div className="my-6 rounded-xl border border-brief-border bg-brief-card overflow-hidden">
+    <div role="img" aria-label="US–China decoupling indicators" className="my-6 rounded-xl border border-brief-border bg-brief-card overflow-hidden">
       <div className="px-4 py-2 bg-foreground/[0.03] border-b border-brief-border">
         <div className="text-[10px] font-bold text-foreground/60 tracking-wider uppercase">
           <T ja="米中デカップリング指標(2026年4月)" en="US–China decoupling indicators (Apr 2026)" />
@@ -157,7 +157,7 @@ export function SemiconductorRaceDiagram() {
   ];
 
   return (
-    <div className="my-6 space-y-3">
+    <div role="img" aria-label="Leading-edge semiconductor foundry race" className="my-6 space-y-3">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/45 mb-2">
         <T ja="先端半導体ファウンドリ競争(2026年4月)" en="Leading-edge foundry race (Apr 2026)" />
       </div>
@@ -236,7 +236,7 @@ export function TradeBlocsDiagram() {
   ];
 
   return (
-    <div className="my-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+    <div role="img" aria-label="CPTPP and RCEP trade blocs comparison" className="my-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
       {blocs.map((b) => (
         <div key={b.name} className="p-4 rounded-xl border border-brief-border bg-brief-card">
           <div className="text-lg font-bold mb-2" style={{ color: b.color }}>{b.name}</div>
@@ -273,7 +273,7 @@ export function TradeBlocsDiagram() {
    ───────────────────────────────────────────── */
 export function EuBricsDiagram() {
   return (
-    <div className="my-6 space-y-3">
+    <div role="img" aria-label="EU carbon border adjustment and BRICS bloc overview" className="my-6 space-y-3">
       {/* EU CBAM */}
       <div className="p-4 rounded-xl border border-brief-border bg-brief-card">
         <div className="flex items-center gap-2 mb-2">
@@ -346,7 +346,7 @@ export function JapanStrategyDiagram() {
   ];
 
   return (
-    <div className="my-6">
+    <div role="img" aria-label="Japan economic security strategy four pillars" className="my-6">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/45 mb-3">
         <T ja="日本の経済安全保障 4本柱" en="Japan's four pillars of economic security" />
       </div>

@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "Contact",
   description: "The Briefへのお問い合わせ。ご質問、ご意見、取材依頼、広告に関するお問い合わせなど、お気軽にご連絡ください。",
   alternates: { canonical: "https://thebrief.info/contact" },
+  openGraph: {
+    title: "Contact",
+    description: "The Briefへのお問い合わせ。ご質問、ご意見、取材依頼、広告に関するお問い合わせなど、お気軽にご連絡ください。",
+    url: "https://thebrief.info/contact",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact",
+    description: "The Briefへのお問い合わせ。ご質問、ご意見、取材依頼、広告に関するお問い合わせなど、お気軽にご連絡ください。",
+  },
 };
 
 export default function Contact() {

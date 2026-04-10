@@ -7,7 +7,7 @@ import { T } from "@/components/T";
    ───────────────────────────────────────────── */
 export function DxOverviewStatsDiagram() {
   return (
-    <div className="my-6">
+    <div role="img" aria-label="DX overview statistics and international comparison" className="my-6">
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
         {[
           { value: "17.3兆円", label: "2026年度 IT投資額", labelEn: "FY2026 IT investment", sub: "前年比+3.9%", subEn: "+3.9% YoY", color: "#3b82f6" },
@@ -74,7 +74,7 @@ export function DxManufacturingDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Manufacturing DX challenge map" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="製造業DXの課題マップ" en="Manufacturing DX Challenge Map" />
       </div>
@@ -118,7 +118,7 @@ export function DxManufacturingDiagram() {
    ───────────────────────────────────────────── */
 export function DxConstructionDiagram() {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Construction industry DX status and challenges" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="建設業DXの現状" en="Construction Industry DX Status" />
       </div>
@@ -162,7 +162,7 @@ export function DxConstructionDiagram() {
    ───────────────────────────────────────────── */
 export function DxHealthcareDiagram() {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Healthcare DX progress and challenges" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="医療DXの進捗と課題" en="Healthcare DX Progress & Challenges" />
       </div>
@@ -216,7 +216,7 @@ export function DxHealthcareDiagram() {
    ───────────────────────────────────────────── */
 export function DxLogisticsDiagram() {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Logistics DX structural challenges and supply chain" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="物流DXの構造的課題" en="Structural Challenges of Logistics DX" />
       </div>
@@ -270,7 +270,7 @@ export function DxLogisticsDiagram() {
    ───────────────────────────────────────────── */
 export function DxFinanceDiagram() {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Financial services DX current status and challenges" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="金融DXの現在地" en="Where Financial Services DX Stands" />
       </div>
@@ -336,7 +336,7 @@ export function DxFinanceDiagram() {
    ───────────────────────────────────────────── */
 export function DxRetailDiagram() {
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Retail DX key metrics and e-commerce penetration" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="小売DXのキーワード" en="Key Metrics in Retail DX" />
       </div>
@@ -382,7 +382,7 @@ export function DxSuccessConditionsDiagram() {
   ];
 
   return (
-    <div className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
+    <div role="img" aria-label="Five common conditions for DX success" className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card">
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-4">
         <T ja="DX成功の5つの共通条件" en="5 Common Conditions for DX Success" />
       </div>

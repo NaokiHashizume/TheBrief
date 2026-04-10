@@ -479,7 +479,7 @@ export default function GovernmentPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">
           Home
         </Link>
@@ -627,7 +627,7 @@ export default function GovernmentPage() {
                         <line x1="10" y1="14" x2="21" y2="3" />
                       </svg>
                     </div>
-                    <span className="text-[9px] tracking-[1px] uppercase text-foreground/35">
+                    <span className="text-[10px] tracking-[1px] uppercase text-foreground/35">
                       {link.nameEn}
                     </span>
                   </div>

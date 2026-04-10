@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   description:
     "2026年に施行・発効した主要法令の一覧。政治資金規正法改正、子育て支援法、共同親権など。",
   alternates: { canonical: "https://thebrief.info/politics/enacted" },
+  openGraph: {
+    title: "施行済 — 2026年に施行された主要法令",
+    description: "2026年に施行・発効した主要法令の一覧。政治資金規正法改正、子育て支援法、共同親権など。",
+    url: "https://thebrief.info/politics/enacted",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "施行済 — 2026年に施行された主要法令",
+    description: "2026年に施行・発効した主要法令の一覧。政治資金規正法改正、子育て支援法、共同親権など。",
+  },
 };
 
 export default function EnactedPage() {
@@ -23,7 +36,7 @@ export default function EnactedPage() {
       />
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-foreground/50 mb-6">
+      <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
         <Link href="/politics" className="hover:text-foreground transition-colors">Politics</Link>
@@ -36,7 +49,7 @@ export default function EnactedPage() {
         <T ja="2026年に施行・発効した主要な法令の一覧です。過去の国会で成立し、2026年に施行された重要法を掲載しています。" en="A list of major laws enacted and put into effect in 2026. Includes important legislation passed in previous Diet sessions and enforced in 2026." />
       </p>
       <p className="mt-2 text-xs text-foreground/45">
-        <T ja="2026年施行済法令一覧: 2026年4月4日時点 ｜ 投票結果は成立時の記録" en="2026 enacted laws: as of April 4, 2026 | Vote results are from the time of passage" />
+        <T ja="2026年施行済法令一覧: 2026年4月9日時点 ｜ 投票結果は成立時の記録" en="2026 enacted laws: as of April 9, 2026 | Vote results are from the time of passage" />
       </p>
 
       <div className="mt-10 space-y-4">
@@ -62,7 +75,7 @@ export default function EnactedPage() {
                 <h2 className="font-serif text-lg font-bold group-hover:text-green-400 transition-colors">
                   <T ja={item.title} en={item.titleEn ?? item.title} />
                 </h2>
-                <span className="text-[9px] tracking-[1px] uppercase text-foreground/45">
+                <span className="text-[10px] tracking-[1px] uppercase text-foreground/45">
                   {item.titleEn}
                 </span>
                 <p className="mt-2 text-sm text-foreground/45 leading-relaxed line-clamp-2">
