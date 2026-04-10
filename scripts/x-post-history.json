@@ -203,6 +203,46 @@
       "postedAt": "2026-04-10T06:11:00.996Z",
       "hasMedia": true,
       "textSource": "template"
+    },
+    {
+      "slug": "llm-complete-guide",
+      "url": "https://thebrief.info/industry/ai/llm-complete-guide",
+      "tweetId": "2042486710785700241",
+      "postedAt": "2026-04-10T06:15:54.330Z",
+      "hasMedia": true,
+      "textSource": "template"
+    },
+    {
+      "slug": "claude-managed-agents-2026",
+      "url": "https://thebrief.info/industry/ai/claude-managed-agents-2026",
+      "tweetId": "2042487969693446634",
+      "postedAt": "2026-04-10T06:20:54.411Z",
+      "hasMedia": true,
+      "textSource": "template"
+    },
+    {
+      "slug": "physical-ai-2026",
+      "url": "https://thebrief.info/industry/ai/physical-ai-2026",
+      "tweetId": "2042489224935481733",
+      "postedAt": "2026-04-10T06:25:53.679Z",
+      "hasMedia": true,
+      "textSource": "template"
+    },
+    {
+      "slug": "unix-linux-guide",
+      "url": "https://thebrief.info/industry/ict/unix-linux-guide",
+      "tweetId": "2042490546489381139",
+      "postedAt": "2026-04-10T06:31:08.833Z",
+      "hasMedia": true,
+      "textSource": "claude"
+    },
+    {
+      "slug": "japan-retail-dx-2026",
+      "url": "https://thebrief.info/industry/retail/japan-retail-dx-2026",
+      "tweetId": "2042491749243707839",
+      "postedAt": "2026-04-10T06:35:55.535Z",
+      "hasMedia": true,
+      "textSource": "claude"
     }
   ]
 }

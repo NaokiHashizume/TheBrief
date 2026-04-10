@@ -594,7 +594,7 @@ export default function PayslipTaxes2026Page() {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "Column", href: "/column" },
+          { name: "Lifestyle", href: "/column" },
           { name: TITLE, href: `/column/payslip-taxes-2026` },
         ]}
       />

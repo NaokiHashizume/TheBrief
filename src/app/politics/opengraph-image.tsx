@@ -16,7 +16,7 @@ export default function OgImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 64, fontWeight: 900, color: "#ffffff", lineHeight: 1.15, letterSpacing: -2, fontFamily: "Georgia, serif" }}>国会・内閣・議員</div>
-          <div style={{ fontSize: 22, color: "rgba(255,255,255,0.45)", marginTop: 16, letterSpacing: 1 }}>Japan's Political Landscape</div>
+          <div style={{ fontSize: 22, color: "rgba(255,255,255,0.45)", marginTop: 16, letterSpacing: 1 }}>Japan&apos;s Political Landscape</div>
           <div style={{ display: "flex", marginTop: 24 }}>
             {["国会", "内閣", "議員", "法案", "選挙"].map((tag, i) => (
               <div key={i} style={{ fontSize: 12, color: "#e53e3e", background: "rgba(229,62,62,0.12)", border: "1px solid rgba(229,62,62,0.3)", borderRadius: 6, padding: "4px 12px", marginRight: 8 }}>{tag}</div>

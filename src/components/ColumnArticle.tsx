@@ -69,7 +69,7 @@ export function ColumnArticle(props: Props) {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "Column", href: "/column" },
+          { name: "Lifestyle", href: "/column" },
           { name: title, href: url },
         ]}
       />

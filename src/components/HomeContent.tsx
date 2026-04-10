@@ -187,7 +187,7 @@ const featuredDestinations = [
 const columnHighlights = [
   {
     href: "/column/own-vs-rent-2026",
-    label: "Column",
+    label: "Lifestyle",
     accent: "#0d9488",
     titleJa: "持ち家 vs 賃貸 — 2026年の金利と物価で再計算する",
     titleEn: "Own vs Rent — Recalculated for 2026",
@@ -198,7 +198,7 @@ const columnHighlights = [
   },
   {
     href: "/column/nisa-year-two-review",
-    label: "Column",
+    label: "Lifestyle",
     accent: "#0d9488",
     titleJa: "新NISA 2年目の見直し方 — つみたて枠と成長投資枠の最適配分",
     titleEn: "New NISA — A Year-Two Tune-up",
@@ -358,8 +358,8 @@ export function HomeContent() {
 
       <MarketsIntelligence />
 
-      <section className="max-w-6xl mx-auto px-4 pb-14">
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
+      <section className="max-w-6xl mx-auto px-4 pb-8 md:pb-14">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-2 xl:grid-cols-4">
           {snapshotStats.map((stat) => (
             <div key={stat.labelJa} className="rounded-[22px] border border-brief-border bg-brief-card px-5 py-5">
               <div className="text-[28px] font-bold tabular-nums">{stat.value}</div>
@@ -376,8 +376,8 @@ export function HomeContent() {
 
       <LatestArticlesTimeline />
 
-      <section className="max-w-6xl mx-auto px-4 pb-16">
-        <div className="mb-8 border-b border-foreground/20 pb-4">
+      <section className="max-w-6xl mx-auto px-4 pb-10 md:pb-16">
+        <div className="mb-6 md:mb-8 border-b border-foreground/20 pb-4">
           <span className="text-[10px] tracking-[3px] uppercase text-foreground/45 font-bold block mb-1">
             {locale === "ja" ? "Explore" : "Explore"}
           </span>
@@ -433,22 +433,22 @@ export function HomeContent() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 pb-16">
-        <div className="mb-6">
+      <section className="max-w-6xl mx-auto px-4 pb-10 md:pb-16">
+        <div className="mb-5 md:mb-6">
           <span className="text-[10px] tracking-[3px] uppercase text-foreground/45 font-bold">
             {locale === "ja" ? "Pick Up" : "Pick Up"}
           </span>
-          <h2 className="mt-2 font-serif text-2xl md:text-3xl font-bold">
+          <h2 className="mt-2 font-serif text-xl md:text-3xl font-bold">
             {locale === "ja" ? "注目コンテンツ" : "Featured Content"}
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
           {featuredDestinations.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="group rounded-[24px] border border-brief-border bg-brief-card p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/20"
+              className="group rounded-[18px] md:rounded-[24px] border border-brief-border bg-brief-card p-4 sm:p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/20"
             >
               <div
                 className="text-[10px] font-bold uppercase tracking-[2.8px]"
@@ -456,7 +456,7 @@ export function HomeContent() {
               >
                 {locale === "ja" ? item.eyebrowJa : item.eyebrowEn}
               </div>
-              <h3 className="mt-3 font-serif text-2xl font-bold leading-tight">
+              <h3 className="mt-2 md:mt-3 font-serif text-xl md:text-2xl font-bold leading-tight">
                 {locale === "ja" ? item.titleJa : item.titleEn}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-foreground/58">
@@ -470,8 +470,8 @@ export function HomeContent() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 pb-14">
-        <div className="mb-6 flex items-end justify-between gap-3 border-b border-foreground/20 pb-4">
+      <section className="max-w-6xl mx-auto px-4 pb-10 md:pb-14">
+        <div className="mb-5 md:mb-6 flex items-end justify-between gap-3 border-b border-foreground/20 pb-4">
           <div>
             <span className="text-[10px] tracking-[3px] uppercase text-[#1e8449] font-bold block mb-1">
               {locale === "ja" ? "Industry Radar" : "Industry Radar"}
@@ -519,11 +519,11 @@ export function HomeContent() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 pb-16">
-        <div className="mb-6 flex items-end justify-between gap-3 border-b border-foreground/20 pb-4">
+      <section className="max-w-6xl mx-auto px-4 pb-10 md:pb-16">
+        <div className="mb-5 md:mb-6 flex items-end justify-between gap-3 border-b border-foreground/20 pb-4">
           <div>
             <span className="text-[10px] tracking-[3px] uppercase text-[#0d9488] font-bold block mb-1">
-              {locale === "ja" ? "Column" : "Column"}
+              {locale === "ja" ? "Lifestyle" : "Lifestyle"}
             </span>
             <h2 className="font-serif text-xl md:text-2xl font-bold">
               {locale === "ja" ? "暮らしとお金、本と映画の小話" : "Notes on life, money, books and films"}
@@ -533,19 +533,19 @@ export function HomeContent() {
             href="/column"
             className="text-sm flex items-center gap-1 hover:text-[#0d9488] transition-colors group whitespace-nowrap"
           >
-            <span>{locale === "ja" ? "Column一覧" : "All columns"}</span>
+            <span>{locale === "ja" ? "Lifestyle一覧" : "All columns"}</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
           {columnHighlights.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="group rounded-[20px] border border-brief-border bg-brief-card p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/20"
+              className="group rounded-[16px] md:rounded-[20px] border border-brief-border bg-brief-card p-4 sm:p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/20"
             >
               <div
                 className="text-[10px] font-bold uppercase tracking-[2.4px]"
@@ -553,7 +553,7 @@ export function HomeContent() {
               >
                 {item.label}
               </div>
-              <h3 className="mt-2 font-serif text-lg md:text-xl font-bold leading-snug">
+              <h3 className="mt-2 font-serif text-[16px] md:text-xl font-bold leading-snug">
                 {locale === "ja" ? item.titleJa : item.titleEn}
               </h3>
               <p className="mt-2 text-[13px] leading-relaxed text-foreground/58 line-clamp-3">
@@ -567,14 +567,14 @@ export function HomeContent() {
         </div>
       </section>
 
-      <section className="max-w-3xl mx-auto px-4 py-16 text-center">
-        <h2 className="font-serif text-2xl md:text-3xl font-bold">
+      <section className="max-w-3xl mx-auto px-4 py-10 md:py-16 text-center">
+        <h2 className="font-serif text-xl md:text-3xl font-bold">
           {locale === "ja" ? "日本の今と、知の全体像を構造で読む。" : "Read Japan and the world of knowledge — structurally."}
         </h2>
         <p className="mt-4 text-sm text-foreground/50 leading-relaxed max-w-xl mx-auto font-light">
           {locale === "ja"
-            ? "制度を知るなら Politics、景気を読むなら Economy、業界を比べるなら Industry、学問を体験するなら University、暮らしを考えるなら Column。"
-            : "Politics for institutions, Economy for indicators, Industry for sectors, University for scholarship, Column for everyday life."}
+            ? "制度を知るなら Politics、景気を読むなら Economy、業界を比べるなら Industry、学問を体験するなら University、暮らしを考えるなら Lifestyle。"
+            : "Politics for institutions, Economy for indicators, Industry for sectors, University for scholarship, Lifestyle for everyday life."}
         </p>
         <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
           <Link

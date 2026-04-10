@@ -279,7 +279,7 @@ export default function OwnVsRent2026Page() {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "Column", href: "/column" },
+          { name: "Lifestyle", href: "/column" },
           { name: TITLE, href: URL },
         ]}
       />

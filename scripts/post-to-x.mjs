@@ -137,15 +137,15 @@ function rankArticlesByLRU(articles, history) {
 // ── 3. ツイート本文を組み立てる ──
 const TEMPLATES = [
   ({ title, url, hashtags }) =>
-    `${title}👀\n\n業界全体を揺るがす動きが静かに始まっている。\n\n詳細が気になる人はこちら👇\n${url}\n\n${hashtags}`,
+    `${title}👀\n\nなぜ今これが重要か——業界全体を揺るがす構造変化が起きているから。\n\n詳細が気になる人はこちら👇\n${url}\n\n${hashtags}`,
   ({ title, url, hashtags }) =>
-    `知らないと損する話💡\n\n${title}\n\nその背景にある本当の理由とは——\n\n全容はこちら→\n${url}\n\n${hashtags}`,
+    `${title}💡\n\nなぜこれが話題になっているのか？背景には多くの人がまだ気づいていない動きがある。\n\n全容はこちら→\n${url}\n\n${hashtags}`,
   ({ title, url, hashtags }) =>
-    `${title}⚡️\n\nこの変化が他の業界にも波及する可能性がある。\n\n続きはこちら👇\n${url}\n\n${hashtags}`,
+    `${title}⚡️\n\nなぜ今これが起きているのか？その構造的な理由がわかると見方が変わる。\n\n続きはこちら👇\n${url}\n\n${hashtags}`,
   ({ title, url, hashtags }) =>
-    `注目🔥\n\n${title}\n\n多くの人がまだ気づいていない重要な動き。\n\n詳しくはこちら→\n${url}\n\n${hashtags}`,
+    `${title}🔥\n\nなぜこの動きが他の業界にも波及するのか——その理由を知ると驚く。\n\n詳しくはこちら→\n${url}\n\n${hashtags}`,
   ({ title, url, hashtags }) =>
-    `${title}\n\n表向きの理由だけでは語れない構造的な問題がある。\n\n気になる人はこちら👇\n${url}\n\n${hashtags}`,
+    `${title}\n\nなぜ表向きの数字だけでは語れないのか。背景にある本当の理由を知ると見方が変わる。\n\n気になる人はこちら👇\n${url}\n\n${hashtags}`,
 ];
 
 function buildTweet(article) {
@@ -310,7 +310,7 @@ URL: ${article.url}
       }
       const textBlocks = (data.content || []).filter((b) => b.type === "text");
       const joined = textBlocks.map((b) => b.text).join("\n");
-      const tweet = extractTweetFromClaude(joined);
+      let tweet = extractTweetFromClaude(joined);
 
       if (!tweet) {
         console.warn(`[post-to-x] Claude attempt ${attempt}: empty extraction`);
