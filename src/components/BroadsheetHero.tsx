@@ -116,8 +116,8 @@ export function BroadsheetHero() {
   return (
     <section className="max-w-6xl mx-auto px-4 pt-10 pb-14">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-10">
-        {/* LEFT RAIL: Editor's Desk */}
-        <aside className="col-span-1 lg:col-span-3 flex flex-col border-b lg:border-b-0 lg:border-r border-brief-rule pb-8 lg:pb-0 lg:pr-8">
+        {/* LEFT RAIL: Editor's Desk — mobile: order-2 (after center) */}
+        <aside className="col-span-1 lg:col-span-3 flex flex-col order-2 lg:order-1 border-t lg:border-t-0 lg:border-b-0 lg:border-r border-brief-rule pt-8 lg:pt-0 lg:pb-0 lg:pr-8">
           <h3 className="text-xs font-bold text-brief-red tracking-[3px] uppercase mb-6 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-brief-red animate-pulse" />
             {locale === "ja" ? "Editor's Desk" : "Editor's Desk"}
@@ -161,8 +161,8 @@ export function BroadsheetHero() {
           </div>
         </aside>
 
-        {/* CENTER STAGE: Anchor lead */}
-        <section className="col-span-1 lg:col-span-6">
+        {/* CENTER STAGE: Anchor lead — mobile: order-1 (appears first) */}
+        <section className="col-span-1 lg:col-span-6 order-1 lg:order-2">
           <Link href={anchor.href} className="group cursor-pointer block pb-10 border-b border-foreground/20">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
               <span className="bg-brief-red text-white text-[10px] font-bold px-2 py-0.5 tracking-[1.5px]">
@@ -178,7 +178,7 @@ export function BroadsheetHero() {
               <time className="text-[11px] tabular-nums text-foreground/45 font-medium">{anchor.date}</time>
             </div>
 
-            <h2 className="font-serif text-[30px] sm:text-[36px] lg:text-[44px] font-bold leading-[1.12] tracking-tight mb-6">
+            <h2 className="font-serif text-[22px] sm:text-[30px] lg:text-[44px] font-bold leading-[1.15] tracking-tight mb-6">
               <span className="hover-underline-magic">{anchor.title}</span>
             </h2>
 
@@ -235,8 +235,8 @@ export function BroadsheetHero() {
           </div>
         </section>
 
-        {/* RIGHT RAIL: Live Feed */}
-        <aside className="col-span-1 lg:col-span-3 border-t lg:border-t-0 lg:border-l border-brief-rule pt-8 lg:pt-0 lg:pl-8 flex flex-col lg:max-h-[820px] lg:sticky lg:top-24">
+        {/* RIGHT RAIL: Live Feed — mobile: order-3 (last) */}
+        <aside className="col-span-1 lg:col-span-3 order-3 border-t lg:border-t-0 lg:border-l border-brief-rule pt-8 lg:pt-0 lg:pl-8 flex flex-col lg:max-h-[820px] lg:sticky lg:top-24">
           <div className="flex justify-between items-end border-b border-brief-rule pb-2 mb-4">
             <h3 className="text-[13px] font-bold font-serif tracking-wide text-foreground">
               {locale === "ja" ? "Latest Briefs" : "Latest Briefs"}
@@ -252,7 +252,7 @@ export function BroadsheetHero() {
 
             <ul className="space-y-5 relative z-10">
               {liveFeed.map((item, i) => (
-                <li key={item.href} className="relative pl-5 group">
+                <li key={item.href} className={`relative pl-5 group${i >= 5 ? " hidden lg:flex lg:flex-col" : ""}`}>
                   {i === 0 ? (
                     <span className="absolute left-[-1px] top-1.5 w-3 h-3 rounded-full bg-background border-2 border-brief-red" />
                   ) : (
