@@ -519,6 +519,20 @@ async function postTweet(text, mediaIds) {
 
 // ── main ──
 async function main() {
+  // カスタムツイートモード: X_CUSTOM_TWEET が設定されている場合は記事選択をスキップ
+  const customTweet = process.env.X_CUSTOM_TWEET;
+  if (customTweet) {
+    console.log("[post-to-x] custom tweet mode");
+    console.log("[post-to-x] tweet text:\n---\n" + customTweet + "\n---");
+    if (process.env.X_DRY_RUN === "1") {
+      console.log("[post-to-x] DRY RUN — skipping API call");
+      return;
+    }
+    const result = await postTweet(customTweet, []);
+    console.log("[post-to-x] posted:", JSON.stringify(result));
+    return;
+  }
+
   const articles = await loadArticles();
   console.log(`[post-to-x] loaded ${articles.length} articles`);
 

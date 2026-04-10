@@ -1,0 +1,34 @@
+name: X one-shot post
+
+on:
+  workflow_dispatch:
+    inputs:
+      tweet:
+        description: "投稿するツイート文"
+        required: true
+      dry_run:
+        description: "true なら投稿せず確認のみ"
+        required: false
+        default: "false"
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Post to X
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+          X_CUSTOM_TWEET: ${{ github.event.inputs.tweet }}
+          X_DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
+        run: node scripts/post-to-x.mjs
