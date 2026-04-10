@@ -117,6 +117,19 @@ export const metadata: Metadata = {
   description:
     "第2次高市内閣の施政方針3本柱と政策進捗トラッカー。「日本列島を、強く豊かに。」の実現度を可視化。",
   alternates: { canonical: "https://thebrief.info/politics/cabinet/policy" },
+  openGraph: {
+    title: "施政方針・政策進捗 — Policy Platform & Progress",
+    description: "第2次高市内閣の施政方針3本柱と政策進捗トラッカー。「日本列島を、強く豊かに。」の実現度を可視化。",
+    url: "https://thebrief.info/politics/cabinet/policy",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "施政方針・政策進捗 — Policy Platform & Progress",
+    description: "第2次高市内閣の施政方針3本柱と政策進捗トラッカー。「日本列島を、強く豊かに。」の実現度を可視化。",
+  },
 };
 
 function StatusBadge({ status, label, labelEn }: { status: string; label: string; labelEn?: string }) {

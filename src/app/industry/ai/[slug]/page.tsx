@@ -289,6 +289,12 @@ const diagramMap: Record<string, React.FC> = {
   "claudenomics-revenue": ClaudenomicsRevenueDiagram,
   "claudenomics-paradox": ClaudenomicsParadoxDiagram,
   "claudenomics-strategy": ClaudenomicsStrategyDiagram,
+  "token-overview": TokenOverviewDiagram,
+  "token-bpe": TokenBpeDiagram,
+  "token-cjk": TokenCjkDiagram,
+  "token-context": TokenContextDiagram,
+  "token-pricing": TokenPricingDiagram,
+  "token-future": TokenFutureDiagram,
 };
 
 export default async function AiArticlePage({

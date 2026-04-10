@@ -20,6 +20,10 @@ on:
         description: "true なら投稿せず本文のみ生成"
         required: false
         default: "false"
+      custom_tweet:
+        description: "指定した場合、記事選択をスキップしてこのテキストをそのまま投稿"
+        required: false
+        default: ""
 
 concurrency:
   group: x-auto-post
@@ -48,6 +52,7 @@ jobs:
           X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           X_DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
+          X_CUSTOM_TWEET: ${{ github.event.inputs.custom_tweet }}
         run: node scripts/post-to-x.mjs
 
       - name: Commit updated post history
