@@ -259,6 +259,14 @@
       "postedAt": "2026-04-10T06:45:54.161Z",
       "hasMedia": true,
       "textSource": "claude"
+    },
+    {
+      "slug": "ec-logistics-2026",
+      "url": "https://thebrief.info/industry/retail/ec-logistics-2026",
+      "tweetId": "2042495519809818645",
+      "postedAt": "2026-04-10T06:50:54.508Z",
+      "hasMedia": true,
+      "textSource": "template"
     }
   ]
 }
