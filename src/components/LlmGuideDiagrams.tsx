@@ -46,7 +46,7 @@ export function LlmOverviewDiagram() {
         ))}
       </div>
 
-      <div className="mt-4 text-[9px] text-foreground/35">
+      <div className="mt-4 text-[9px] text-foreground/40">
         <T ja="出典: OpenAI, Gartner, AI Data Base, デジタル庁 各種発表" en="Sources: OpenAI, Gartner, AI Data Base, Digital Agency Japan" />
       </div>
     </div>
@@ -143,7 +143,7 @@ export function LlmParamsDiagram() {
           <div key={m.name} className="flex items-center gap-3">
             <div className="w-32 sm:w-40 text-[11px] text-foreground/70 flex-shrink-0">
               <span className="font-medium">{m.name}</span>
-              <span className="text-foreground/35 ml-1 text-[9px]">({m.year})</span>
+              <span className="text-foreground/40 ml-1 text-[9px]">({m.year})</span>
             </div>
             <div className="flex-1 bg-foreground/[0.04] rounded-full h-4 overflow-hidden">
               <div
@@ -275,7 +275,7 @@ export function LlmComparisonDiagram() {
         </table>
       </div>
 
-      <div className="mt-3 text-[9px] text-foreground/35">
+      <div className="mt-3 text-[9px] text-foreground/40">
         <T ja="料金は概算。$は1Mトークンあたり（入力/出力）。国産LLMは要問合せのものが多い。" en="Prices are approximate per 1M tokens (in/out). Japanese models often require direct inquiry for pricing." />
       </div>
     </div>
@@ -407,7 +407,7 @@ export function LlmJapanDiagram() {
         ))}
       </div>
 
-      <div className="mt-3 text-[9px] text-foreground/35">
+      <div className="mt-3 text-[9px] text-foreground/40">
         <T ja="注: 「Llamaベース」はMetaのオープンモデルを日本語データで追加学習したモデル。「独自」はフルスクラッチまたは独自アーキテクチャ。" en="Note: 'Llama-based' = Meta's open model fine-tuned on Japanese data. 'Proprietary' = full-scratch or unique architecture." />
       </div>
     </div>

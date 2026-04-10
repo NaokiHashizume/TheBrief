@@ -46,7 +46,7 @@ export function ClaudenomicsOverviewDiagram() {
         ))}
       </div>
 
-      <div className="mt-4 text-[9px] text-foreground/35">
+      <div className="mt-4 text-[9px] text-foreground/40">
         <T ja="出典: Anthropic, SaaStr, Sacra, Sherwood News (2026年4月)" en="Sources: Anthropic, SaaStr, Sacra, Sherwood News (April 2026)" />
       </div>
     </div>
@@ -125,7 +125,7 @@ export function ClaudenomicsPricingDiagram() {
                   <span className="mx-1 text-foreground/25">/</span>
                   <span className="font-bold text-[13px] text-foreground/80">{m.outputPrice}</span> 出力
                 </div>
-                <div className="text-[9px] text-foreground/35 mt-0.5">context: {m.context}</div>
+                <div className="text-[9px] text-foreground/40 mt-0.5">context: {m.context}</div>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -453,7 +453,7 @@ export function ClaudenomicsRevenueDiagram() {
         </div>
       </div>
 
-      <div className="mt-3 text-[9px] text-foreground/35">
+      <div className="mt-3 text-[9px] text-foreground/40">
         <T ja="出典: SaaStr, Sacra, Sherwood News, Anthropic Series G 発表 (2026年2月)" en="Sources: SaaStr, Sacra, Sherwood News, Anthropic Series G announcement (Feb 2026)" />
       </div>
     </div>

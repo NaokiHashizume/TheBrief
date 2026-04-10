@@ -18,6 +18,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: `「${decoded}」タグが付いた記事の一覧です。`,
     alternates: { canonical: `https://thebrief.info/tags/${tag}` },
     robots: { index: true, follow: true },
+    openGraph: {
+      title: `#${decoded} の記事一覧`,
+      description: `「${decoded}」タグが付いた記事の一覧です。`,
+      url: `https://thebrief.info/tags/${tag}`,
+      siteName: "The Brief",
+      locale: "ja_JP",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `#${decoded} の記事一覧`,
+      description: `「${decoded}」タグが付いた記事の一覧です。`,
+    },
   };
 }
 

@@ -8,6 +8,19 @@ export const metadata: Metadata = {
   description:
     "日本の省庁・官公庁の公式サイトリンク集。内閣府、全11省、主要な庁・委員会、独立機関、政府データポータルを網羅。",
   alternates: { canonical: "https://thebrief.info/politics/government" },
+  openGraph: {
+    title: "官公庁リンク集 — Government Directory",
+    description: "日本の省庁・官公庁の公式サイトリンク集。内閣府、全11省、主要な庁・委員会、独立機関、政府データポータルを網羅。",
+    url: "https://thebrief.info/politics/government",
+    siteName: "The Brief",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "官公庁リンク集 — Government Directory",
+    description: "日本の省庁・官公庁の公式サイトリンク集。内閣府、全11省、主要な庁・委員会、独立機関、政府データポータルを網羅。",
+  },
 };
 
 interface GovLink {

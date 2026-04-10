@@ -17,6 +17,7 @@ export function GlasswingOverviewDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
+      aria-label="Project Glasswing — 主要数値で見る全体像"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         Project Glasswing
@@ -96,6 +97,7 @@ export function GlasswingBenchmarkDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
+      aria-label="Claude Mythos vs Opus 4.6 ベンチマーク比較"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="ベンチマーク比較" en="Benchmark comparison" />
@@ -207,6 +209,7 @@ export function GlasswingPartnersDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
+      aria-label="Glasswing パートナー企業11社"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="Glasswingパートナー（11社）" en="Glasswing partners (11 companies)" />
@@ -322,6 +325,7 @@ export function GlasswingDiscoveriesDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
+      aria-label="Glasswing — 発見された主要な脆弱性"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="発見された主要な脆弱性" en="Notable vulnerabilities discovered" />
@@ -419,6 +423,7 @@ export function GlasswingSafetyDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
+      aria-label="Glasswing — 観測された安全性インシデント"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="観測された安全性インシデント" en="Observed safety incidents" />
@@ -520,6 +525,7 @@ export function GlasswingStrategyDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
+      aria-label="Glasswing — 防御側先行戦略"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="防御側先行戦略" en="Defender-first strategy" />
@@ -618,6 +624,7 @@ export function GlasswingTimelineDiagram() {
     <div
       className="my-6 p-4 sm:p-6 rounded-xl border border-brief-border bg-brief-card"
       role="img"
+      aria-label="Glasswing — ロードマップ"
     >
       <div className="text-[10px] tracking-[2px] uppercase text-foreground/40 mb-1">
         <T ja="ロードマップ" en="Roadmap" />
