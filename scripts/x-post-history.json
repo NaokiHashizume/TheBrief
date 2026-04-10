@@ -387,6 +387,14 @@
       "postedAt": "2026-04-10T15:25:59.072Z",
       "hasMedia": true,
       "textSource": "claude"
+    },
+    {
+      "slug": "food-business-model",
+      "url": "https://thebrief.info/industry/food/food-business-model",
+      "tweetId": "2042626394845290702",
+      "postedAt": "2026-04-10T15:30:57.605Z",
+      "hasMedia": true,
+      "textSource": "template"
     }
   ]
 }
