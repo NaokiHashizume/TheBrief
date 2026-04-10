@@ -319,7 +319,7 @@ export function SemiMatGeopoliticsDiagram() {
       >
         <T
           ja={<>日本は <strong>「中国でも米国でもない第三極」</strong> ― 両陣営から必要とされる</>}
-          en={<>Japan as a <strong>"third pole, neither China nor the US"</strong> — indispensable to both sides</>}
+          en={<>Japan as a <strong>&quot;third pole, neither China nor the US&quot;</strong> — indispensable to both sides</>}
         />
       </div>
     </Card>
