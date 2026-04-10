@@ -411,6 +411,14 @@
       "postedAt": "2026-04-10T15:40:58.213Z",
       "hasMedia": true,
       "textSource": "template"
+    },
+    {
+      "slug": "logistics-business-model",
+      "url": "https://thebrief.info/industry/logistics/logistics-business-model",
+      "tweetId": "2042630191155929496",
+      "postedAt": "2026-04-10T15:46:02.753Z",
+      "hasMedia": true,
+      "textSource": "claude"
     }
   ]
 }
