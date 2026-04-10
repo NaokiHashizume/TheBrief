@@ -203,6 +203,14 @@
       "postedAt": "2026-04-10T06:11:00.996Z",
       "hasMedia": true,
       "textSource": "template"
+    },
+    {
+      "slug": "llm-complete-guide",
+      "url": "https://thebrief.info/industry/ai/llm-complete-guide",
+      "tweetId": "2042486710785700241",
+      "postedAt": "2026-04-10T06:15:54.330Z",
+      "hasMedia": true,
+      "textSource": "template"
     }
   ]
 }
