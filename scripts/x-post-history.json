@@ -299,6 +299,14 @@
       "postedAt": "2026-04-10T09:16:04.813Z",
       "hasMedia": true,
       "textSource": "claude"
+    },
+    {
+      "slug": "japan-renewable-energy-2026",
+      "url": "https://thebrief.info/industry/energy/japan-renewable-energy-2026",
+      "tweetId": "2042536572545909214",
+      "postedAt": "2026-04-10T09:34:02.260Z",
+      "hasMedia": true,
+      "textSource": "template"
     }
   ]
 }
