@@ -419,6 +419,14 @@
       "postedAt": "2026-04-10T15:46:02.753Z",
       "hasMedia": true,
       "textSource": "claude"
+    },
+    {
+      "slug": "naphtha-2026-crisis",
+      "url": "https://thebrief.info/industry/materials/naphtha-2026-crisis",
+      "tweetId": "2042631433210982858",
+      "postedAt": "2026-04-10T15:50:58.837Z",
+      "hasMedia": true,
+      "textSource": "template"
     }
   ]
 }
