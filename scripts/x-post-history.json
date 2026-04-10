@@ -267,6 +267,14 @@
       "postedAt": "2026-04-10T06:50:54.508Z",
       "hasMedia": true,
       "textSource": "template"
+    },
+    {
+      "slug": "ministop-deficit-2026",
+      "url": "https://thebrief.info/industry/retail/ministop-deficit-2026",
+      "tweetId": "2042518092052324377",
+      "postedAt": "2026-04-10T08:20:36.157Z",
+      "hasMedia": true,
+      "textSource": "claude"
     }
   ]
 }
