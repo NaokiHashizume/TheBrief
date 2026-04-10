@@ -329,7 +329,7 @@ export function ShoshaSegmentsDiagram() {
       <div className="mt-4 p-3 rounded-lg bg-foreground/[0.04] text-[11px] text-foreground/70">
         <T
           ja={<>伊藤忠は非資源比率 <strong>約70%</strong> ― 5社で最も「市況非依存」</>}
-          en={<>Itochu's non-resource share is <strong>~70%</strong> — the least commodity-dependent of the five</>}
+          en={<>Itochu&apos;s non-resource share is <strong>~70%</strong> — the least commodity-dependent of the five</>}
         />
       </div>
     </Card>
@@ -370,7 +370,7 @@ export function ShoshaFutureDiagram() {
       <div className="mt-4 p-3 rounded-lg bg-foreground/[0.04] text-[11px] text-foreground/70">
         <T
           ja={<>化石燃料の即時撤退は利益毀損につながるため、各社とも <strong>「移行期間」</strong> を強調</>}
-          en={<>An abrupt exit from fossil fuels would hurt profits, so all firms emphasize a <strong>"transition period"</strong></>}
+          en={<>An abrupt exit from fossil fuels would hurt profits, so all firms emphasize a <strong>&quot;transition period&quot;</strong></>}
         />
       </div>
     </Card>

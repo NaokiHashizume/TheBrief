@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import type { Lecture } from "@/lib/lectures";
 import type { UniversityCategory } from "@/lib/university";
@@ -11,12 +11,10 @@ type Props = {
 };
 
 export function LectureRecommendations({ candidates, categories }: Props) {
-  const [picks, setPicks] = useState<Lecture[]>([]);
-
-  useEffect(() => {
+  const [picks] = useState<Lecture[]>(() => {
     const shuffled = [...candidates].sort(() => Math.random() - 0.5);
-    setPicks(shuffled.slice(0, 2));
-  }, [candidates]);
+    return shuffled.slice(0, 2);
+  });
 
   if (picks.length === 0) return null;
 
