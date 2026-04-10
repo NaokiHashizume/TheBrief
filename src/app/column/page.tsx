@@ -84,6 +84,16 @@ const specials: SpecialItem[] = [
 
 const columns: ColumnItem[] = [
   {
+    slug: "payslip-taxes-2026",
+    title: "給与明細の税金と社会保険料 — 天引きされる6項目の正体",
+    titleEn: "Payslip Taxes & Social Insurance — The 6 Deductions Explained",
+    summary:
+      "毎月の給与明細に並ぶ「所得税・住民税・健康保険・厚生年金・雇用保険・介護保険」。何をどんな仕組みで引かれているのか、2026年度の最新料率で徹底解説。手取りを増やすヒントも。",
+    date: "2026-04-10",
+    readTime: "約 12 分",
+    tags: ["税金", "社会保険", "給与", "家計"],
+  },
+  {
     slug: "childcare-support-fund-2026",
     title: "子ども・子育て支援金の実額 — 年収別『月いくら』と2028年の1兆円",
     titleEn: "The Child-Support Levy in Plain Numbers",
