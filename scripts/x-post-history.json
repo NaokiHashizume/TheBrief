@@ -347,6 +347,14 @@
       "postedAt": "2026-04-10T15:01:18.048Z",
       "hasMedia": true,
       "textSource": "template"
+    },
+    {
+      "slug": "boj-rate-hike-2026",
+      "url": "https://thebrief.info/industry/finance/boj-rate-hike-2026",
+      "tweetId": "2042620126860874004",
+      "postedAt": "2026-04-10T15:06:03.148Z",
+      "hasMedia": true,
+      "textSource": "claude"
     }
   ]
 }
