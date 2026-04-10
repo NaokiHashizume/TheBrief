@@ -401,7 +401,7 @@ export default function NisaYearTwoReviewPage() {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "Column", href: "/column" },
+          { name: "Lifestyle", href: "/column" },
           { name: TITLE, href: URL },
         ]}
       />

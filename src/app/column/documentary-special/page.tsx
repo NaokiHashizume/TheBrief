@@ -272,7 +272,7 @@ export default function DocumentarySpecialPage() {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "Column", href: "/column" },
+          { name: "Lifestyle", href: "/column" },
           { name: "ドキュメンタリー特集", href: "/column/documentary-special" },
         ]}
       />

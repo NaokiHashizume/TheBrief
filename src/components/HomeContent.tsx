@@ -187,7 +187,7 @@ const featuredDestinations = [
 const columnHighlights = [
   {
     href: "/column/own-vs-rent-2026",
-    label: "Column",
+    label: "Lifestyle",
     accent: "#0d9488",
     titleJa: "持ち家 vs 賃貸 — 2026年の金利と物価で再計算する",
     titleEn: "Own vs Rent — Recalculated for 2026",
@@ -198,7 +198,7 @@ const columnHighlights = [
   },
   {
     href: "/column/nisa-year-two-review",
-    label: "Column",
+    label: "Lifestyle",
     accent: "#0d9488",
     titleJa: "新NISA 2年目の見直し方 — つみたて枠と成長投資枠の最適配分",
     titleEn: "New NISA — A Year-Two Tune-up",
@@ -523,7 +523,7 @@ export function HomeContent() {
         <div className="mb-5 md:mb-6 flex items-end justify-between gap-3 border-b border-foreground/20 pb-4">
           <div>
             <span className="text-[10px] tracking-[3px] uppercase text-[#0d9488] font-bold block mb-1">
-              {locale === "ja" ? "Column" : "Column"}
+              {locale === "ja" ? "Lifestyle" : "Lifestyle"}
             </span>
             <h2 className="font-serif text-xl md:text-2xl font-bold">
               {locale === "ja" ? "暮らしとお金、本と映画の小話" : "Notes on life, money, books and films"}
@@ -533,7 +533,7 @@ export function HomeContent() {
             href="/column"
             className="text-sm flex items-center gap-1 hover:text-[#0d9488] transition-colors group whitespace-nowrap"
           >
-            <span>{locale === "ja" ? "Column一覧" : "All columns"}</span>
+            <span>{locale === "ja" ? "Lifestyle一覧" : "All columns"}</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
               <polyline points="9 18 15 12 9 6" />
             </svg>
@@ -573,8 +573,8 @@ export function HomeContent() {
         </h2>
         <p className="mt-4 text-sm text-foreground/50 leading-relaxed max-w-xl mx-auto font-light">
           {locale === "ja"
-            ? "制度を知るなら Politics、景気を読むなら Economy、業界を比べるなら Industry、学問を体験するなら University、暮らしを考えるなら Column。"
-            : "Politics for institutions, Economy for indicators, Industry for sectors, University for scholarship, Column for everyday life."}
+            ? "制度を知るなら Politics、景気を読むなら Economy、業界を比べるなら Industry、学問を体験するなら University、暮らしを考えるなら Lifestyle。"
+            : "Politics for institutions, Economy for indicators, Industry for sectors, University for scholarship, Lifestyle for everyday life."}
         </p>
         <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
           <Link

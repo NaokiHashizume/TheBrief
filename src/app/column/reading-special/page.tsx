@@ -220,7 +220,7 @@ export default function ReadingSpecialPage() {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "Column", href: "/column" },
+          { name: "Lifestyle", href: "/column" },
           { name: "読書特集", href: "/column/reading-special" },
         ]}
       />

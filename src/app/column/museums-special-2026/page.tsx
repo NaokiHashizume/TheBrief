@@ -613,7 +613,7 @@ export default function MuseumsSpecial2026Page() {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "Column", href: "/column" },
+          { name: "Lifestyle", href: "/column" },
           { name: "美術館特集 2026", href: "/column/museums-special-2026" },
         ]}
       />

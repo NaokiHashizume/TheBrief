@@ -3,12 +3,12 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Column — 暮らしとお金の小話",
+  title: "Lifestyle — 暮らしとお金の小話",
   description:
     "Politics・Economy・Industry・Universityでは拾いきれない、暮らしとお金にまつわる小話をコラム形式でまとめます。",
   alternates: { canonical: "https://thebrief.info/column" },
   openGraph: {
-    title: "Column — 暮らしとお金の小話",
+    title: "Lifestyle — 暮らしとお金の小話",
     description: "Politics・Economy・Industry・Universityでは拾いきれない、暮らしとお金にまつわる小話をコラム形式でまとめます。",
     url: "https://thebrief.info/column",
     siteName: "The Brief",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Column — 暮らしとお金の小話",
+    title: "Lifestyle — 暮らしとお金の小話",
     description: "Politics・Economy・Industry・Universityでは拾いきれない、暮らしとお金にまつわる小話をコラム形式でまとめます。",
   },
 };
@@ -201,7 +201,7 @@ export default function ColumnIndexPage() {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "Column", href: "/column" },
+          { name: "Lifestyle", href: "/column" },
         ]}
       />
 
@@ -209,7 +209,7 @@ export default function ColumnIndexPage() {
       <div className="flex items-center gap-2 text-[11px] text-foreground/45 mb-6">
         <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
         <span>/</span>
-        <span>Column</span>
+        <span>Lifestyle</span>
       </div>
 
       {/* Hero */}
@@ -228,7 +228,7 @@ export default function ColumnIndexPage() {
             backgroundColor: `${COLUMN_COLOR}12`,
           }}
         >
-          Column
+          Lifestyle
         </span>
         <h1 className="mt-4 font-serif text-3xl md:text-5xl font-bold leading-tight">
           暮らしとお金の、
@@ -297,7 +297,7 @@ export default function ColumnIndexPage() {
       {/* Column list */}
       <section className="mt-10">
         <div className="mb-4 flex items-baseline justify-between">
-          <h2 className="font-serif text-2xl font-bold">最新のコラム</h2>
+          <h2 className="font-serif text-2xl font-bold">最新のLifestyle</h2>
           <span className="text-[11px] uppercase tracking-[2px] text-foreground/40">
             {columns.length} {columns.length === 1 ? "article" : "articles"}
           </span>
@@ -319,7 +319,7 @@ export default function ColumnIndexPage() {
                     backgroundColor: `${COLUMN_COLOR}12`,
                   }}
                 >
-                  Column
+                  Lifestyle
                 </span>
                 <time className="text-[10px] tabular-nums text-foreground/45">{c.date}</time>
                 <span className="text-[10px] text-foreground/30">·</span>

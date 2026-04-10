@@ -272,7 +272,7 @@ export default function MoviesSpecialPage() {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", href: "/" },
-          { name: "Column", href: "/column" },
+          { name: "Lifestyle", href: "/column" },
           { name: "映画特集", href: "/column/movies-special" },
         ]}
       />
