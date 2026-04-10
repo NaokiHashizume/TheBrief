@@ -138,8 +138,8 @@ const menuItems = [
     ],
   },
   {
-    labelJa: "Column",
-    labelEn: "Column",
+    labelJa: "Lifestyle",
+    labelEn: "Lifestyle",
     href: "/column",
     color: "#0d9488",
     icon: (
@@ -152,7 +152,7 @@ const menuItems = [
       </svg>
     ),
     children: [
-      { labelJa: "コラム一覧", labelEn: "All Columns", href: "/column" },
+      { labelJa: "コラム一覧", labelEn: "All Lifestyle", href: "/column" },
       { labelJa: "4〜6月の残業がダメな理由", labelEn: "Why No Overtime in Apr–Jun", href: "/column/overtime-april-june" },
     ],
   },
