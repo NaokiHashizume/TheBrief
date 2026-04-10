@@ -291,6 +291,14 @@
       "postedAt": "2026-04-10T09:14:47.689Z",
       "hasMedia": true,
       "textSource": "template"
+    },
+    {
+      "slug": "dining-business-model",
+      "url": "https://thebrief.info/industry/dining/dining-business-model",
+      "tweetId": "2042532053514596355",
+      "postedAt": "2026-04-10T09:16:04.813Z",
+      "hasMedia": true,
+      "textSource": "claude"
     }
   ]
 }
