@@ -203,6 +203,22 @@
       "postedAt": "2026-04-10T06:11:00.996Z",
       "hasMedia": true,
       "textSource": "template"
+    },
+    {
+      "slug": "llm-complete-guide",
+      "url": "https://thebrief.info/industry/ai/llm-complete-guide",
+      "tweetId": "2042486710785700241",
+      "postedAt": "2026-04-10T06:15:54.330Z",
+      "hasMedia": true,
+      "textSource": "template"
+    },
+    {
+      "slug": "claude-managed-agents-2026",
+      "url": "https://thebrief.info/industry/ai/claude-managed-agents-2026",
+      "tweetId": "2042487969693446634",
+      "postedAt": "2026-04-10T06:20:54.411Z",
+      "hasMedia": true,
+      "textSource": "template"
     }
   ]
 }

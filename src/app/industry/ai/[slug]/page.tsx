@@ -125,6 +125,14 @@ import {
   ClaudenomicsParadoxDiagram,
   ClaudenomicsStrategyDiagram,
 } from "@/components/ClaudenomicsDiagrams";
+import {
+  PhysicalAiOverviewDiagram,
+  PhysicalAiMarketDiagram,
+  PhysicalAiNvidiaDiagram,
+  PhysicalAiPlayersDiagram,
+  PhysicalAiJapanDiagram,
+  PhysicalAiApplicationsDiagram,
+} from "@/components/PhysicalAiDiagrams";
 
 export function generateStaticParams() {
   return aiArticles.map((a) => ({ slug: a.slug }));
@@ -295,6 +303,12 @@ const diagramMap: Record<string, React.FC> = {
   "token-context": TokenContextDiagram,
   "token-pricing": TokenPricingDiagram,
   "token-future": TokenFutureDiagram,
+  "physical-ai-overview": PhysicalAiOverviewDiagram,
+  "physical-ai-market": PhysicalAiMarketDiagram,
+  "physical-ai-nvidia": PhysicalAiNvidiaDiagram,
+  "physical-ai-players": PhysicalAiPlayersDiagram,
+  "physical-ai-japan": PhysicalAiJapanDiagram,
+  "physical-ai-applications": PhysicalAiApplicationsDiagram,
 };
 
 export default async function AiArticlePage({
