@@ -379,6 +379,14 @@
       "postedAt": "2026-04-10T15:21:03.301Z",
       "hasMedia": true,
       "textSource": "template"
+    },
+    {
+      "slug": "food-self-sufficiency-38",
+      "url": "https://thebrief.info/industry/food/food-self-sufficiency-38",
+      "tweetId": "2042625142661005409",
+      "postedAt": "2026-04-10T15:25:59.072Z",
+      "hasMedia": true,
+      "textSource": "claude"
     }
   ]
 }
