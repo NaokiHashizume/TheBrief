@@ -88,7 +88,7 @@ export function AnimeOverviewDiagram() {
       <div className="mt-4 p-3 rounded-lg bg-foreground/[0.04] text-[11px] text-foreground/70 text-center">
         <T
           ja={<>市場 <strong>3.3兆円</strong> ／ 制作会社全体の売上 <strong>約3,000億円</strong></>}
-          en={<>Total market <strong>¥3.3 trillion</strong> / Production studios' combined revenue <strong>~¥300 billion</strong></>}
+          en={<>Total market <strong>¥3.3 trillion</strong> / Production studios&apos; combined revenue <strong>~¥300 billion</strong></>}
         />
       </div>
     </Card>

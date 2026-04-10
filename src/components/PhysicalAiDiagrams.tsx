@@ -5,7 +5,7 @@ const BLUE = "#2563eb";
 const GREEN = "#16a34a";
 const AMBER = "#d97706";
 const PINK = "#ec4899";
-const GRAY = "#6b7280";
+
 
 function DiagramCard({
   title,

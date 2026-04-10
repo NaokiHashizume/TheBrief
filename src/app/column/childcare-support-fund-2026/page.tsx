@@ -272,7 +272,7 @@ export default function ChildcareSupportFundPage() {
                 <span style={{ color: COLUMN_COLOR }}>The Child-Support Levy</span>
                 <span className="text-foreground/70">, In Real Numbers</span>
                 <br className="hidden sm:block" />
-                <span className="text-foreground/70 text-[20px] sm:text-[28px]">— What You Actually Pay by Income, and 2028's 1 Trillion</span>
+                <span className="text-foreground/70 text-[20px] sm:text-[28px]">— What You Actually Pay by Income, and 2028&apos;s 1 Trillion</span>
               </>
             }
           />
