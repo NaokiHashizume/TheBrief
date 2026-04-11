@@ -451,6 +451,14 @@
       "postedAt": "2026-04-11T05:01:57.718Z",
       "hasMedia": true,
       "textSource": "claude"
+    },
+    {
+      "slug": "pharma-business-model",
+      "url": "https://thebrief.info/industry/pharma/pharma-business-model",
+      "tweetId": "2042903146519728336",
+      "postedAt": "2026-04-11T09:50:40.298Z",
+      "hasMedia": true,
+      "textSource": "template"
     }
   ]
 }
