@@ -1773,8 +1773,8 @@ Peter Steinbergerが「1時間で作ったプロトタイプ」が、4ヶ月で3
       },
     ],
     sources: [
-      { label: "OpenClaw GitHub リポジトリ", url: "https://github.com/Significant-Gravitas/OpenClaw" },
-      { label: "Anthropic「Claude API」公式ドキュメント", url: "https://docs.anthropic.com/en/api/getting-started" },
+      { label: "AutoGPT GitHub リポジトリ（Significant Gravitas）", url: "https://github.com/Significant-Gravitas/AutoGPT" },
+      { label: "Anthropic「Claude API」公式ドキュメント", url: "https://platform.claude.com/docs/en/api/getting-started" },
       { label: "OpenAI「API documentation」", url: "https://developers.openai.com/api/docs" },
     ],
   },
@@ -2064,7 +2064,7 @@ Claude Code（AIコーディングエージェント）は象徴的な例だ。1
       },
     ],
     sources: [
-      { label: "Anthropic「Prompt caching」ドキュメント", url: "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching" },
+      { label: "Anthropic「Prompt caching」ドキュメント", url: "https://platform.claude.com/docs/en/docs/build-with-claude/prompt-caching" },
       { label: "Anthropic「Pricing」", url: "https://www.anthropic.com/pricing" },
       { label: "OpenAI「API pricing」", url: "https://openai.com/api/pricing" },
       { label: "Google「Gemini API pricing」", url: "https://ai.google.dev/gemini-api/docs/pricing" },
@@ -2208,7 +2208,7 @@ The Briefの見立てでは、今後1〜2年の競争軸は「モデルの賢さ
       },
     ],
     sources: [
-      { label: "Anthropic「Claude API」ドキュメント", url: "https://docs.anthropic.com/en/api/getting-started" },
+      { label: "Anthropic「Claude API」ドキュメント", url: "https://platform.claude.com/docs/en/api/getting-started" },
       { label: "OpenAI「Models」公式ドキュメント", url: "https://developers.openai.com/api/docs/models" },
       { label: "Google「Gemini API」公式ドキュメント", url: "https://ai.google.dev/gemini-api/docs" },
       { label: "経済産業省「AI事業者ガイドライン」", url: "https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/20240419_report.html" },
@@ -2364,8 +2364,8 @@ Anthropicがインフラを握ることには、複数の含意がある。
       },
     ],
     sources: [
-      { label: "Anthropic「Claude API」公式ドキュメント", url: "https://docs.anthropic.com/en/api/getting-started" },
-      { label: "Anthropic「Build with Claude」ドキュメント", url: "https://docs.anthropic.com/en/docs/build-with-claude/overview" },
+      { label: "Anthropic「Claude API」公式ドキュメント", url: "https://platform.claude.com/docs/en/api/getting-started" },
+      { label: "Anthropic「Build with Claude」ドキュメント", url: "https://platform.claude.com/docs/en/docs/build-with-claude/overview" },
       { label: "Anthropic「Claude」公式", url: "https://www.anthropic.com/claude" },
     ],
   },

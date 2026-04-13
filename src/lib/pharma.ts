@@ -102,7 +102,7 @@ export const pharmaArticles: IndustryArticle[] = [
       { label: "厚生労働省「セマグルチド製剤（肥満症）最適使用推進ガイドライン」", url: "https://www.mhlw.go.jp/web/t_doc?dataId=00tc9170&dataType=1&pageNo=1" },
       { label: "厚生労働省「ウゴービの費用対効果評価結果に基づく価格調整について」", url: "https://www.mhlw.go.jp/content/10808000/001533240.pdf" },
       { label: "PMDA（医薬品医療機器総合機構）医療用医薬品情報", url: "https://www.pmda.go.jp/review-services/drug-reviews/review-information/p-drugs/0019.html" },
-      { label: "日本製薬工業協会「DATA BOOK 2025」", url: "https://www.jpma.or.jp/news_room/issue/databook/ja/eo4se30000005nw2-att/DATABOOK2025.pdf" },
+      { label: "日本製薬工業協会「DATA BOOK 2025」", url: "https://www.jpma.or.jp/news_room/issue/databook/ja/eo4se30000005nw2-att/DATABOOK2026.pdf" },
     ],
   },
   {
@@ -183,7 +183,7 @@ export const pharmaArticles: IndustryArticle[] = [
       },
     ],
     sources: [
-      { label: "日本製薬工業協会「DATA BOOK 2025」", url: "https://www.jpma.or.jp/news_room/issue/databook/ja/eo4se30000005nw2-att/DATABOOK2025.pdf" },
+      { label: "日本製薬工業協会「DATA BOOK 2025」", url: "https://www.jpma.or.jp/news_room/issue/databook/ja/eo4se30000005nw2-att/DATABOOK2026.pdf" },
       { label: "厚生労働省「薬事審議会 医薬品第一部会 議事録」", url: "https://www.mhlw.go.jp/stf/newpage_68585.html" },
       { label: "PMDA「独立行政法人 医薬品医療機器総合機構」", url: "https://www.pmda.go.jp/" },
       { label: "経済産業省「医療・ヘルスケア産業政策」", url: "https://www.meti.go.jp/policy/mono_info_service/healthcare/index.html" },
