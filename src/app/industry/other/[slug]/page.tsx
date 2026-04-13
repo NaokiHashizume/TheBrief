@@ -15,6 +15,8 @@ import {
   JapanStrategyDiagram,
 } from "@/components/EconomicBlocDiagrams";
 import { TagLink } from "@/components/TagLink";
+import ShareButton from "@/components/ShareButton";
+import { ArticleReferences } from "@/components/ArticleReferences";
 import {
   DxOverviewStatsDiagram,
   DxManufacturingDiagram,
@@ -239,6 +241,9 @@ export default async function OtherArticlePage({
           </section>
         ))}
       </article>
+
+      <ShareButton title={article.title} />
+      <ArticleReferences sources={article.sources} />
 
       {/* FAQ Structured Data — extract 【label】 sections as Q&A */}
       <FAQJsonLd

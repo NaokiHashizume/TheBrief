@@ -79,6 +79,7 @@ import {
   BojTriggersDiagram,
 } from "@/components/BojRateHikeDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
 import { RecommendedReads } from "@/components/RecommendedReads";
 
@@ -414,6 +415,7 @@ export default async function EconomyArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+      <ArticleReferences sources={article.sources} />
 
       <RecommendedReads currentSlug={slug} currentTags={article.tags} />
 

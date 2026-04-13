@@ -13,6 +13,7 @@ import {
   FoodSsr2030TargetDiagram,
 } from "@/components/FoodSelfSufficiencyDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
 
 const diagramMap: Record<string, React.FC> = {
@@ -230,6 +231,7 @@ export default async function ArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+      <ArticleReferences sources={article.sources} />
 
       {/* FAQ Structured Data */}
       <FAQJsonLd

@@ -82,5 +82,10 @@ export const diningArticles: IndustryArticle[] = [
 **サステナビリティ（持続可能性）**への対応も今後の重要テーマだ。食品ロス削減、プラスチック使用量の削減、地産地消（地元食材の活用）、代替タンパク質（植物肉・培養肉）の導入など、環境負荷を低減する取り組みが求められている。消費者の環境意識の高まりを受け、「サステナブルな外食」を打ち出すブランドも増加しており、これが新たな競争軸となりつつある。人手不足・コスト高・環境対応という三重の課題を、テクノロジーとビジネスモデルの革新で乗り越えられるかが、日本の外食産業の未来を左右する。`,
       },
     ],
+    sources: [
+      { label: "日本フードサービス協会「外食産業市場動向調査」", url: "https://www.jfnet.or.jp/industry_report/" },
+      { label: "農林水産省「海外の日本食レストランの数」", url: "https://www.maff.go.jp/j/shokusan/eat/hls.html" },
+      { label: "農林水産省「食品産業の現状」", url: "https://www.maff.go.jp/j/shokusan/sosyutu/index.html" },
+    ],
   },
 ];

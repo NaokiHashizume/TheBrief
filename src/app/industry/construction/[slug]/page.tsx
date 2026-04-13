@@ -22,6 +22,7 @@ import {
   ConstructionRoadmapDiagram,
 } from "@/components/ConstructionDx2026Diagrams";
 import ShareButton from "@/components/ShareButton";
+import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
 
 export function generateStaticParams() {
@@ -337,6 +338,7 @@ export default async function ConstructionArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+      <ArticleReferences sources={article.sources} />
 
       {/* FAQ Structured Data */}
       <FAQJsonLd

@@ -110,6 +110,12 @@ export const constructionArticles: IndustryArticle[] = [
 建設業の人手不足は技術で解決できる問題だ。ただし、それは「大手だけが使える技術」では意味をなさない。477万人の現場を守るには、99%の中小に技術が届く仕組みを作ることが、いま最も急がれる課題である。`,
       },
     ],
+    sources: [
+      { label: "国土交通省「インフラ分野のDX」", url: "https://www.mlit.go.jp/tec/tec_tk_000073.html" },
+      { label: "国土交通省「i-Construction 2.0 ～建設現場のオートメーション化～」", url: "https://www.mlit.go.jp/tec/constplan/content/001738240.pdf" },
+      { label: "日本建設業連合会「建設投資の動向」", url: "https://www.nikkenren.com/publication/handbook/chart5-1/index.html" },
+      { label: "日本建設業連合会「生産性と技術開発」", url: "https://www.nikkenren.com/publication/handbook/chart6-5/index.html" },
+    ],
   },
   {
     slug: "japan-urban-redevelopment-2026",
@@ -231,6 +237,11 @@ export const constructionArticles: IndustryArticle[] = [
 
 2026年は、日本の都市が「**スクラップ・アンド・ビルド**」から「**持続可能な都市再生**」へと転換する節目の年となるだろう。巨大プロジェクトの完成と着工が同時に進む今、日本の都市の未来像がまさに形作られようとしている。`,
       },
+    ],
+    sources: [
+      { label: "国土交通省「都市再生・まちづくり」", url: "https://www.mlit.go.jp/toshi/index.html" },
+      { label: "日本建設業連合会「建設投資の動向」", url: "https://www.nikkenren.com/publication/handbook/chart5-1/index.html" },
+      { label: "国土交通省「インフラ分野のDX推進本部」", url: "https://www.mlit.go.jp/tec/tec_tk_000129.html" },
     ],
   },
 ];

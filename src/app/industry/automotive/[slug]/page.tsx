@@ -37,6 +37,7 @@ import {
   EvFutureScenarioDiagram,
 } from "@/components/EvMarket2026Diagrams";
 import ShareButton from "@/components/ShareButton";
+import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
 import { RecommendedReads } from "@/components/RecommendedReads";
 import { T } from "@/components/T";
@@ -271,6 +272,7 @@ export default async function AutomotiveArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+      <ArticleReferences sources={article.sources} />
 
       <RecommendedReads currentSlug={slug} currentTags={article.tags} />
 

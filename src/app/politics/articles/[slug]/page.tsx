@@ -62,7 +62,17 @@ import {
   IkuseiJapaneseReqDiagram,
   IkuseiEmployerChecklistDiagram,
 } from "@/components/Politics2026Diagrams";
+import {
+  MynaAdoptionRateDiagram,
+  MynaTroubleStatsDiagram,
+  MynaComparisonDiagram,
+  MynaFacilityReadinessDiagram,
+  MynaCardPenetrationDiagram,
+  MynaVulnerableDiagram,
+  MynaRoadmapDiagram,
+} from "@/components/MyNumberInsuranceDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
 import { RecommendedReads } from "@/components/RecommendedReads";
 
@@ -182,6 +192,13 @@ const diagramMap: Record<string, React.FC> = {
   "ikusei-career-path": IkuseiCareerPathDiagram,
   "ikusei-japanese-req": IkuseiJapaneseReqDiagram,
   "ikusei-employer-checklist": IkuseiEmployerChecklistDiagram,
+  "myna-adoption-rate": MynaAdoptionRateDiagram,
+  "myna-trouble-stats": MynaTroubleStatsDiagram,
+  "myna-comparison": MynaComparisonDiagram,
+  "myna-facility-readiness": MynaFacilityReadinessDiagram,
+  "myna-card-penetration": MynaCardPenetrationDiagram,
+  "myna-vulnerable": MynaVulnerableDiagram,
+  "myna-roadmap": MynaRoadmapDiagram,
 };
 
 export default async function PoliticsArticlePage({
@@ -389,6 +406,7 @@ export default async function PoliticsArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+      <ArticleReferences sources={article.sources} />
 
       <RecommendedReads currentSlug={slug} currentTags={article.tags} />
 

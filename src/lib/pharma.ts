@@ -98,6 +98,12 @@ export const pharmaArticles: IndustryArticle[] = [
 経口GLP-1薬の登場、バイオシミラーの参入、さらには次世代のGLP-1/グルカゴン三重受容体作動薬の開発など、薬剤の進化は止まらない。しかし技術の進歩と並行して、日本社会は「誰に・いつ・どこまで・誰の費用で」この薬を使うのか、という答えを出し続けなければならない。GLP-1薬の日本上陸は、その問いを突きつけた「はじまり」にすぎない。`,
       },
     ],
+    sources: [
+      { label: "厚生労働省「セマグルチド製剤（肥満症）最適使用推進ガイドライン」", url: "https://www.mhlw.go.jp/web/t_doc?dataId=00tc9170&dataType=1&pageNo=1" },
+      { label: "厚生労働省「ウゴービの費用対効果評価結果に基づく価格調整について」", url: "https://www.mhlw.go.jp/content/10808000/001533240.pdf" },
+      { label: "PMDA（医薬品医療機器総合機構）医療用医薬品情報", url: "https://www.pmda.go.jp/review-services/drug-reviews/review-information/p-drugs/0019.html" },
+      { label: "日本製薬工業協会「DATA BOOK 2025」", url: "https://www.jpma.or.jp/news_room/issue/databook/ja/eo4se30000005nw2-att/DATABOOK2025.pdf" },
+    ],
   },
   {
     slug: "pharma-business-model",
@@ -175,6 +181,12 @@ export const pharmaArticles: IndustryArticle[] = [
 
 **デジタルヘルス**の領域でも、日本は独自の進化を遂げている。2025年12月には中外製薬が米国にパートナリングオフィスを開設し、スタートアップや大学との連携を強化した。三菱総合研究所とアステラス製薬は創薬スタートアップ支援の覚書を締結し、日本をグローバルな創薬ハブとして位置づける取り組みを進めている。NVIDIAのブログによれば、日本ではAI駆動の薬物設計、ヘルスケアロボティクス、デジタルヘルスプラットフォームの開発が活発化しており、ソブリンAIインフラの構築と相まって、製薬・ヘルスケア産業のデジタル変革が加速している。今後5〜10年で、AI創薬とデジタルヘルスが日本の製薬業界の競争力を左右する決定的な要因となるだろう。`,
       },
+    ],
+    sources: [
+      { label: "日本製薬工業協会「DATA BOOK 2025」", url: "https://www.jpma.or.jp/news_room/issue/databook/ja/eo4se30000005nw2-att/DATABOOK2025.pdf" },
+      { label: "厚生労働省「薬事審議会 医薬品第一部会 議事録」", url: "https://www.mhlw.go.jp/stf/newpage_68585.html" },
+      { label: "PMDA「独立行政法人 医薬品医療機器総合機構」", url: "https://www.pmda.go.jp/" },
+      { label: "経済産業省「医療・ヘルスケア産業政策」", url: "https://www.meti.go.jp/policy/mono_info_service/healthcare/index.html" },
     ],
   },
 ];

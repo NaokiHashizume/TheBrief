@@ -90,7 +90,17 @@ import {
   Japan5GRevenueDiagram,
   Japan5GFutureDiagram,
 } from "@/components/Japan5G2026Diagrams";
+import {
+  AcdStatsBannerDiagram,
+  AcdLegalFrameworkDiagram,
+  AcdResponseFlowDiagram,
+  AcdConstitutionalDebateDiagram,
+  AcdGlobalComparisonDiagram,
+  AcdTelecomImpactDiagram,
+  AcdTimelineDiagram,
+} from "@/components/ActiveCyberDefenseDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
 import { T } from "@/components/T";
 
@@ -467,6 +477,7 @@ export default async function IctArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+      <ArticleReferences sources={article.sources} />
 
       {/* FAQ Structured Data */}
       <FAQJsonLd

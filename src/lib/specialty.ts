@@ -69,5 +69,10 @@ export const specialtyArticles: IndustryArticle[] = [
 将来展望として、**ライブコマース**、**ソーシャルコマース**（SNS上での直接購買）、**メタバースコマース**（仮想空間での買い物体験）が次の成長領域として期待される。TikTokショップは2025年に日本でのサービスを本格化し、動画コンテンツと購買が直結する新たな購買体験を創出しつつある。EC・専門店業界は「モノを売る」ビジネスから**「体験を提供する」ビジネス**へと、その本質を変えつつある。`,
       },
     ],
+    sources: [
+      { label: "経済産業省「令和6年度電子商取引に関する市場調査」", url: "https://www.meti.go.jp/press/2025/08/20250826005/20250826005.html" },
+      { label: "経済産業省「電子商取引実態調査」", url: "https://www.meti.go.jp/policy/it_policy/statistics/outlook/ie_outlook.html" },
+      { label: "経済産業省「商業動態統計」", url: "https://www.meti.go.jp/statistics/tyo/syoudou/index.html" },
+    ],
   },
 ];

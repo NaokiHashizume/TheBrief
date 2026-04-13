@@ -43,6 +43,7 @@ import {
   MinistopScenariosDiagram,
 } from "@/components/MinistopDiagrams";
 import ShareButton from "@/components/ShareButton";
+import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
 
 export function generateStaticParams() {
@@ -355,6 +356,7 @@ export default async function RetailArticlePage({
       </article>
 
       <ShareButton title={article.title} />
+      <ArticleReferences sources={article.sources} />
 
       {/* FAQ Structured Data */}
       <FAQJsonLd

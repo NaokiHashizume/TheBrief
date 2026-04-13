@@ -78,5 +78,11 @@ export const dailyArticles: IndustryArticle[] = [
 **中国リスクの分散（デリスキング）**は日本の日用品・化粧品メーカーにとって最大の戦略課題となっている。資生堂は中国事業の不振とトラベルリテールの低迷で赤字転落し、「アクションプラン2025-2026」で事業構造改革を加速している。ユニチャームも中国での紙おむつ需要の減速と現地ブランドの台頭に直面し、インドや東南アジアへの重心移動を進めている。各社に共通するのは、**中国一極集中からの脱却**と、インド・ASEAN・中東といった新興市場への多角化である。ピジョンの中国事業回復（2025年1-9月期の売上高9.9%増）は明るい材料だが、地政学リスクと中国経済の構造的減速を考慮すれば、成長ポートフォリオの分散は業界全体の不可逆的な潮流といえるだろう。`,
       },
     ],
+    sources: [
+      { label: "経済産業省「生活用品産業の動向」", url: "https://www.meti.go.jp/policy/mono_info_service/mono/consumer_goods/index.html" },
+      { label: "花王株式会社 IR情報", url: "https://www.kao.com/jp/corporate/investors/" },
+      { label: "ユニ・チャーム株式会社 IR情報", url: "https://www.unicharm.co.jp/ja/ir.html" },
+      { label: "経済産業省「商業動態統計」", url: "https://www.meti.go.jp/statistics/tyo/syoudou/index.html" },
+    ],
   },
 ];
