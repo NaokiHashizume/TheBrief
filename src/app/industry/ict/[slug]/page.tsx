@@ -60,6 +60,14 @@ import {
   RapidusRisksDiagram,
 } from "@/components/RapidusDiagrams";
 import {
+  RapidusFundingOverviewDiagram,
+  RapidusTechnicalProgressDiagram,
+  RapidusCustomersDiagram,
+  RapidusVsTsmcDiagram,
+  RapidusMilestone20262027Diagram,
+  RapidusStrategicAssessmentDiagram,
+} from "@/components/RapidusTariff2026Diagrams";
+import {
   NttLawKeyPointsDiagram,
   NttLawOppositionDiagram,
   NttGlobalStrategyDiagram,
@@ -223,6 +231,12 @@ const diagramMap: Record<string, React.FC> = {
   "rapidus-tsmc-msft": RapidusTsmcMsftDiagram,
   "rapidus-roadmap": RapidusRoadmapDiagram,
   "rapidus-risks": RapidusRisksDiagram,
+  "rapidus-funding-overview-2026": RapidusFundingOverviewDiagram,
+  "rapidus-technical-progress-2026": RapidusTechnicalProgressDiagram,
+  "rapidus-customers-2026": RapidusCustomersDiagram,
+  "rapidus-vs-tsmc-2026": RapidusVsTsmcDiagram,
+  "rapidus-milestone-2026-2027-article": RapidusMilestone20262027Diagram,
+  "rapidus-strategic-assessment-2026": RapidusStrategicAssessmentDiagram,
   "ntt-law-key-points": NttLawKeyPointsDiagram,
   "ntt-law-opposition": NttLawOppositionDiagram,
   "ntt-global-strategy": NttGlobalStrategyDiagram,

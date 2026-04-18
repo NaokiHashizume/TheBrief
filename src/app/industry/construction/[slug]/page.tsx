@@ -21,6 +21,14 @@ import {
   ConstructionSmeGapDiagram,
   ConstructionRoadmapDiagram,
 } from "@/components/ConstructionDx2026Diagrams";
+import {
+  ConstructionLaborShortageRealityDiagram,
+  ConstructionRxConsortiumDiagram,
+  ConstructionBimAdoptionDiagram,
+  ConstructionDigitalDivideDiagram,
+  ConstructionRecruitmentReformDiagram,
+  ConstructionStrategicViewDiagram,
+} from "@/components/ConstructionRobotDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
@@ -114,6 +122,12 @@ const diagramMap: Record<string, React.FC> = {
   "construction-cost": ConstructionCostDiagram,
   "construction-sme-gap": ConstructionSmeGapDiagram,
   "construction-roadmap": ConstructionRoadmapDiagram,
+  "construction-labor-shortage-reality": ConstructionLaborShortageRealityDiagram,
+  "construction-rx-consortium": ConstructionRxConsortiumDiagram,
+  "construction-bim-adoption": ConstructionBimAdoptionDiagram,
+  "construction-digital-divide": ConstructionDigitalDivideDiagram,
+  "construction-recruitment-reform": ConstructionRecruitmentReformDiagram,
+  "construction-strategic-view": ConstructionStrategicViewDiagram,
 };
 
 export default async function ConstructionArticlePage({

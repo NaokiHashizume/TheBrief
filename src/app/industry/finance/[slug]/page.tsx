@@ -24,6 +24,22 @@ import {
   BojVsFedDiagram,
   BojScenarioDiagram,
 } from "@/components/BojRateHike2026Diagrams";
+import {
+  NisaAccountGrowthDiagram,
+  NisaUserDemographicsDiagram,
+  NisaInvestmentAllocationDiagram,
+  NisaBarrierAnalysisDiagram,
+  NisaAdvancedInvestorsDiagram,
+  NisaStrategicViewDiagram,
+} from "@/components/NisaDiagrams";
+import {
+  HousingRateHistoryDiagram,
+  HousingTokyoPriceDiagram,
+  HousingPriceParadoxDiagram,
+  HousingInequalityDiagram,
+  HousingActionPlanDiagram,
+  HousingStrategicViewDiagram,
+} from "@/components/HousingLoanDiagrams";
 
 export function generateStaticParams() {
   return financeArticles.map((a) => ({ slug: a.slug }));
@@ -104,6 +120,18 @@ const diagramMap: Record<string, React.FC> = {
   "boj-corporate-debt": BojCorporateDebtDiagram,
   "boj-vs-fed": BojVsFedDiagram,
   "boj-scenario": BojScenarioDiagram,
+  "nisa-account-growth": NisaAccountGrowthDiagram,
+  "nisa-user-demographics": NisaUserDemographicsDiagram,
+  "nisa-investment-allocation": NisaInvestmentAllocationDiagram,
+  "nisa-barrier-analysis": NisaBarrierAnalysisDiagram,
+  "nisa-advanced-investors": NisaAdvancedInvestorsDiagram,
+  "nisa-strategic-view": NisaStrategicViewDiagram,
+  "housing-rate-history": HousingRateHistoryDiagram,
+  "housing-tokyo-price": HousingTokyoPriceDiagram,
+  "housing-price-paradox": HousingPriceParadoxDiagram,
+  "housing-inequality": HousingInequalityDiagram,
+  "housing-action-plan": HousingActionPlanDiagram,
+  "housing-strategic-view": HousingStrategicViewDiagram,
 };
 
 export default async function ArticlePage({

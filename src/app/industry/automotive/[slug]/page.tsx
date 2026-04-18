@@ -36,6 +36,15 @@ import {
   EvCostComparisonDiagram,
   EvFutureScenarioDiagram,
 } from "@/components/EvMarket2026Diagrams";
+import {
+  TariffImpactSummaryDiagram,
+  TariffProductionShiftDiagram,
+  TariffSupplyChainImpactDiagram,
+  TariffNissanCrisisDiagram,
+  TariffEvDoubleBurdenDiagram,
+  TariffGovernmentResponseDiagram,
+  TariffStrategicViewDiagram,
+} from "@/components/TrumpTariffAutoDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
@@ -144,6 +153,13 @@ const diagramMap: Record<string, React.FC> = {
   "ev-japan-infra": EvJapanInfraDiagram,
   "ev-cost-comparison": EvCostComparisonDiagram,
   "ev-future-scenario": EvFutureScenarioDiagram,
+  "tariff-impact-summary": TariffImpactSummaryDiagram,
+  "tariff-production-shift": TariffProductionShiftDiagram,
+  "tariff-supply-chain-impact": TariffSupplyChainImpactDiagram,
+  "tariff-nissan-crisis": TariffNissanCrisisDiagram,
+  "tariff-ev-double-burden": TariffEvDoubleBurdenDiagram,
+  "tariff-government-response": TariffGovernmentResponseDiagram,
+  "tariff-strategic-view": TariffStrategicViewDiagram,
 };
 
 export default async function AutomotiveArticlePage({

@@ -16,6 +16,22 @@ import {
   RenewCostComparisonDiagram,
   RenewRoadmapDiagram,
 } from "@/components/RenewableEnergy2026Diagrams";
+import {
+  PowerReserveRateDiagram,
+  PowerSupplyDemandGapDiagram,
+  PowerDatacenterDemandDiagram,
+  PowerRenewableLimitationsDiagram,
+  PowerBlackoutRiskDiagram,
+  PowerStrategicViewDiagram,
+} from "@/components/PowerShortageDiagrams";
+import {
+  OffshoreWindFloatingLaunchDiagram,
+  OffshoreWindMitsubishiExitDiagram,
+  OffshoreWindRound2ReformDiagram,
+  OffshoreWindRenewableTargetDiagram,
+  OffshoreWindSupplyChainDiagram,
+  OffshoreWindStrategicViewDiagram,
+} from "@/components/OffshoreWindDiagrams";
 
 /* Diagram renderer mapped by ID */
 const diagramMap: Record<string, React.FC> = {
@@ -25,6 +41,18 @@ const diagramMap: Record<string, React.FC> = {
   "renew-hydrogen": RenewHydrogenDiagram,
   "renew-cost-comparison": RenewCostComparisonDiagram,
   "renew-roadmap": RenewRoadmapDiagram,
+  "power-reserve-rate": PowerReserveRateDiagram,
+  "power-supply-demand-gap": PowerSupplyDemandGapDiagram,
+  "power-datacenter-demand": PowerDatacenterDemandDiagram,
+  "power-renewable-limitations": PowerRenewableLimitationsDiagram,
+  "power-blackout-risk": PowerBlackoutRiskDiagram,
+  "power-strategic-view": PowerStrategicViewDiagram,
+  "offshore-wind-floating-launch": OffshoreWindFloatingLaunchDiagram,
+  "offshore-wind-mitsubishi-exit": OffshoreWindMitsubishiExitDiagram,
+  "offshore-wind-round2-reform": OffshoreWindRound2ReformDiagram,
+  "offshore-wind-renewable-target": OffshoreWindRenewableTargetDiagram,
+  "offshore-wind-supply-chain": OffshoreWindSupplyChainDiagram,
+  "offshore-wind-strategic-view": OffshoreWindStrategicViewDiagram,
 };
 
 export function generateStaticParams() {

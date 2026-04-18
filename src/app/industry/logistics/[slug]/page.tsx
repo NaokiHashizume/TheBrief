@@ -20,6 +20,14 @@ import {
   LogisticsCostDiagram,
   LogisticsFutureDiagram,
 } from "@/components/Logistics2024ProblemDiagrams";
+import {
+  LogisticsLawOverviewDiagram,
+  LogisticsCapacityCrisisDiagram,
+  LogisticsPriceReformDiagram,
+  LogisticsLastMileDiagram,
+  LogisticsCollaborativeSolutionsDiagram,
+  LogisticsStrategicViewDiagram,
+} from "@/components/LogisticsReformDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
@@ -36,6 +44,12 @@ const diagramMap: Record<string, React.FC> = {
   "logistics-automation": LogisticsAutomationDiagram,
   "logistics-cost": LogisticsCostDiagram,
   "logistics-future": LogisticsFutureDiagram,
+  "logistics-law-overview": LogisticsLawOverviewDiagram,
+  "logistics-capacity-crisis": LogisticsCapacityCrisisDiagram,
+  "logistics-price-reform": LogisticsPriceReformDiagram,
+  "logistics-last-mile": LogisticsLastMileDiagram,
+  "logistics-collaborative-solutions": LogisticsCollaborativeSolutionsDiagram,
+  "logistics-strategic-view": LogisticsStrategicViewDiagram,
 };
 
 export function generateStaticParams() {

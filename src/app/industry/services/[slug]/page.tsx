@@ -5,6 +5,14 @@ import { servicesArticles } from "@/lib/services";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
+import {
+  InboundRecordStatsDiagram,
+  InboundAirlineStrategyDiagram,
+  InboundHotelInvestmentDiagram,
+  InboundRevenueParadoxDiagram,
+  InboundOvertourismDiagram,
+  InboundStrategicViewDiagram,
+} from "@/components/InboundAviationDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
@@ -72,6 +80,15 @@ function RichText({ text }: { text: string }) {
     </>
   );
 }
+
+const diagramMap: Record<string, React.FC> = {
+  "inbound-record-stats": InboundRecordStatsDiagram,
+  "inbound-airline-strategy": InboundAirlineStrategyDiagram,
+  "inbound-hotel-investment": InboundHotelInvestmentDiagram,
+  "inbound-revenue-paradox": InboundRevenueParadoxDiagram,
+  "inbound-overtourism": InboundOvertourismDiagram,
+  "inbound-strategic-view": InboundStrategicViewDiagram,
+};
 
 export default async function ArticlePage({
   params,
@@ -161,6 +178,7 @@ export default async function ArticlePage({
       <article>
         {article.sections.map((section, i) => {
           const paragraphs = section.body.split("\n\n").filter((p) => p.trim());
+          const DiagramComponent = section.diagramId ? diagramMap[section.diagramId] : null;
           return (
             <section key={i} id={`section-${i}`} className="mb-20 scroll-mt-24">
               <div className="mb-8">
@@ -208,6 +226,7 @@ export default async function ArticlePage({
                   );
                 })}
               </div>
+              {DiagramComponent && <DiagramComponent />}
             </section>
           );
         })}

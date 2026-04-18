@@ -42,6 +42,23 @@ import {
   MinistopAeonPositionDiagram,
   MinistopScenariosDiagram,
 } from "@/components/MinistopDiagrams";
+import {
+  CvsFinancialComparisonDiagram,
+  CvsLawson2026StrategyDiagram,
+  CvsFamilymartMediaDiagram,
+  CvsSevenChallengesDiagram,
+  CvsBusinessEvolutionDiagram,
+  CvsGlobalExpansionDiagram,
+  CvsStrategicViewDiagram,
+} from "@/components/ConvenienceDiagrams";
+import {
+  DrugstoreMergerOverviewDiagram,
+  DrugstoreLifestoreVisionDiagram,
+  DrugstoreMatsukiyoStrategyDiagram,
+  DrugstorePharmacyCompetitionDiagram,
+  DrugstoreAeonStrategyDiagram,
+  DrugstoreStrategicViewDiagram,
+} from "@/components/DrugstoreMergerDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
@@ -288,6 +305,19 @@ export default async function RetailArticlePage({
               {section.diagramId === "ministop-fraud-impact" && <MinistopFraudImpactDiagram />}
               {section.diagramId === "ministop-aeon-position" && <MinistopAeonPositionDiagram />}
               {section.diagramId === "ministop-scenarios" && <MinistopScenariosDiagram />}
+              {section.diagramId === "cvs-financial-comparison" && <CvsFinancialComparisonDiagram />}
+              {section.diagramId === "cvs-lawson-2026-strategy" && <CvsLawson2026StrategyDiagram />}
+              {section.diagramId === "cvs-familymart-media" && <CvsFamilymartMediaDiagram />}
+              {section.diagramId === "cvs-seven-challenges" && <CvsSevenChallengesDiagram />}
+              {section.diagramId === "cvs-business-evolution" && <CvsBusinessEvolutionDiagram />}
+              {section.diagramId === "cvs-global-expansion" && <CvsGlobalExpansionDiagram />}
+              {section.diagramId === "cvs-strategic-view" && <CvsStrategicViewDiagram />}
+              {section.diagramId === "drugstore-merger-overview" && <DrugstoreMergerOverviewDiagram />}
+              {section.diagramId === "drugstore-lifestore-vision" && <DrugstoreLifestoreVisionDiagram />}
+              {section.diagramId === "drugstore-matsukiyo-strategy" && <DrugstoreMatsukiyoStrategyDiagram />}
+              {section.diagramId === "drugstore-pharmacy-competition" && <DrugstorePharmacyCompetitionDiagram />}
+              {section.diagramId === "drugstore-aeon-strategy" && <DrugstoreAeonStrategyDiagram />}
+              {section.diagramId === "drugstore-strategic-view" && <DrugstoreStrategicViewDiagram />}
 
               {/* Section body */}
               <div className="space-y-5">

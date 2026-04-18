@@ -10,6 +10,14 @@ import {
   Glp1RisksDiagram,
   Glp1FutureDiagram,
 } from "@/components/Glp1JapanDiagrams";
+import {
+  PharmaPatentCliffOverviewDiagram,
+  PharmaTakedaEntyvioDiagram,
+  PharmaAstellasDoubleCliffDiagram,
+  PharmaAstellasPipelineDiagram,
+  PharmaDaiichiAdcDiagram,
+  PharmaStrategicViewDiagram,
+} from "@/components/PharmaPatentDiagrams";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
@@ -189,6 +197,12 @@ export default async function ArticlePage({
               {section.diagramId === "glp1-insurance" && <Glp1InsuranceDiagram />}
               {section.diagramId === "glp1-risks" && <Glp1RisksDiagram />}
               {section.diagramId === "glp1-future" && <Glp1FutureDiagram />}
+              {section.diagramId === "pharma-patent-cliff-overview" && <PharmaPatentCliffOverviewDiagram />}
+              {section.diagramId === "pharma-takeda-entyvio" && <PharmaTakedaEntyvioDiagram />}
+              {section.diagramId === "pharma-astellas-double-cliff" && <PharmaAstellasDoubleCliffDiagram />}
+              {section.diagramId === "pharma-astellas-pipeline" && <PharmaAstellasPipelineDiagram />}
+              {section.diagramId === "pharma-daiichi-adc" && <PharmaDaiichiAdcDiagram />}
+              {section.diagramId === "pharma-strategic-view" && <PharmaStrategicViewDiagram />}
               <div className="space-y-6">
                 {paragraphs.map((paragraph, j) => {
                   const trimmed = paragraph.trim();

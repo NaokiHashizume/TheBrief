@@ -134,6 +134,47 @@ import {
   PhysicalAiJapanDiagram,
   PhysicalAiApplicationsDiagram,
 } from "@/components/PhysicalAiDiagrams";
+import {
+  Gpt54BenchmarkOverviewDiagram,
+  Gpt54VsCompetitorsDiagram,
+  Gpt54CostComparisonDiagram,
+  Gpt54JapanSoftbankDiagram,
+  Gpt54EnterpriseStrategyDiagram,
+  Gpt54FutureOutlookDiagram,
+} from "@/components/Gpt54Diagrams";
+import {
+  AiAgentMarketScaleDiagram,
+  AiAgentUseCasesDiagram,
+  AiAgentEnterpriseRoadmapDiagram,
+  AiAgentVendorRiskDiagram,
+  AiAgentJapanMarketDiagram,
+  AiAgentSuccessFactorsDiagram,
+  AiAgentFutureOutlookDiagram,
+} from "@/components/AiAgentMarketDiagrams";
+import {
+  EuAiActTimelineDiagram,
+  EuAiActRiskCategoriesDiagram,
+  EuAiActExtraterritorialDiagram,
+  EuAiActJapanContrastDiagram,
+  EuAiActComplianceStepsDiagram,
+  EuAiActStrategicViewDiagram,
+} from "@/components/EuAiActDiagrams";
+import {
+  AiChipMarketShareDiagram,
+  AiChipAmdComparisonDiagram,
+  AiChipIntelGapDiagram,
+  AiChipEfficiencyParadoxDiagram,
+  AiChipJapanMarketDiagram,
+  AiChipOutlookDiagram,
+} from "@/components/AiChipWarDiagrams";
+import {
+  JapanAiInvestmentGapDiagram,
+  JapanAiBarriersDiagram,
+  JapanAiTalentShortageDiagram,
+  JapanAiSuccessCasesDiagram,
+  JapanAiPocToScaleDiagram,
+  JapanAiStrategicViewDiagram,
+} from "@/components/JapanAiAdoptionDiagrams";
 
 export function generateStaticParams() {
   return aiArticles.map((a) => ({ slug: a.slug }));
@@ -310,6 +351,42 @@ const diagramMap: Record<string, React.FC> = {
   "physical-ai-players": PhysicalAiPlayersDiagram,
   "physical-ai-japan": PhysicalAiJapanDiagram,
   "physical-ai-applications": PhysicalAiApplicationsDiagram,
+  // GPT-5.4 Model War 2026
+  "gpt54-benchmark-overview": Gpt54BenchmarkOverviewDiagram,
+  "gpt54-vs-competitors": Gpt54VsCompetitorsDiagram,
+  "gpt54-cost-comparison": Gpt54CostComparisonDiagram,
+  "gpt54-japan-softbank": Gpt54JapanSoftbankDiagram,
+  "gpt54-enterprise-strategy": Gpt54EnterpriseStrategyDiagram,
+  "gpt54-future-outlook": Gpt54FutureOutlookDiagram,
+  // AI Agent Market 2026
+  "ai-agent-market-scale": AiAgentMarketScaleDiagram,
+  "ai-agent-use-cases": AiAgentUseCasesDiagram,
+  "ai-agent-enterprise-roadmap": AiAgentEnterpriseRoadmapDiagram,
+  "ai-agent-vendor-risk": AiAgentVendorRiskDiagram,
+  "ai-agent-japan-market": AiAgentJapanMarketDiagram,
+  "ai-agent-success-factors": AiAgentSuccessFactorsDiagram,
+  "ai-agent-future-outlook": AiAgentFutureOutlookDiagram,
+  // EU AI Act Enforcement 2026
+  "eu-ai-act-timeline": EuAiActTimelineDiagram,
+  "eu-ai-act-risk-categories": EuAiActRiskCategoriesDiagram,
+  "eu-ai-act-extraterritorial": EuAiActExtraterritorialDiagram,
+  "eu-ai-act-japan-contrast": EuAiActJapanContrastDiagram,
+  "eu-ai-act-compliance-steps": EuAiActComplianceStepsDiagram,
+  "eu-ai-act-strategic-view": EuAiActStrategicViewDiagram,
+  // AI Chip War 2026
+  "ai-chip-market-share": AiChipMarketShareDiagram,
+  "ai-chip-amd-comparison": AiChipAmdComparisonDiagram,
+  "ai-chip-intel-gap": AiChipIntelGapDiagram,
+  "ai-chip-efficiency-paradox": AiChipEfficiencyParadoxDiagram,
+  "ai-chip-japan-market": AiChipJapanMarketDiagram,
+  "ai-chip-outlook": AiChipOutlookDiagram,
+  // Japan Enterprise AI Adoption 2026
+  "japan-ai-investment-gap": JapanAiInvestmentGapDiagram,
+  "japan-ai-barriers": JapanAiBarriersDiagram,
+  "japan-ai-talent-shortage": JapanAiTalentShortageDiagram,
+  "japan-ai-success-cases": JapanAiSuccessCasesDiagram,
+  "japan-ai-poc-to-scale": JapanAiPocToScaleDiagram,
+  "japan-ai-strategic-view": JapanAiStrategicViewDiagram,
 };
 
 export default async function AiArticlePage({

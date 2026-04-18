@@ -12,6 +12,14 @@ import {
   FoodSsrHistoryDiagram,
   FoodSsr2030TargetDiagram,
 } from "@/components/FoodSelfSufficiencyDiagrams";
+import {
+  FoodtechMarketForecastDiagram,
+  FoodtechConsumerBarrierDiagram,
+  FoodtechCulturedMeatStatusDiagram,
+  FoodtechAlternativeTypesDiagram,
+  FoodtechFoodSecurityDiagram,
+  FoodtechStrategicViewDiagram,
+} from "@/components/FoodtechProteinDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
@@ -22,6 +30,12 @@ const diagramMap: Record<string, React.FC> = {
   "food-ssr-international": FoodSsrInternationalDiagram,
   "food-ssr-history": FoodSsrHistoryDiagram,
   "food-ssr-2030-target": FoodSsr2030TargetDiagram,
+  "foodtech-market-forecast": FoodtechMarketForecastDiagram,
+  "foodtech-consumer-barrier": FoodtechConsumerBarrierDiagram,
+  "foodtech-cultured-meat-status": FoodtechCulturedMeatStatusDiagram,
+  "foodtech-alternative-types": FoodtechAlternativeTypesDiagram,
+  "foodtech-food-security": FoodtechFoodSecurityDiagram,
+  "foodtech-strategic-view": FoodtechStrategicViewDiagram,
 };
 
 export function generateStaticParams() {

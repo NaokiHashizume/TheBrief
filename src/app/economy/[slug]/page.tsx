@@ -87,6 +87,22 @@ import {
   AffiliateAiContentDiagram,
   AffiliateFutureModelDiagram,
 } from "@/components/AffiliateDiagrams";
+import {
+  TourismRecordOverviewDiagram,
+  TourismOvertourismCasesDiagram,
+  TourismRevenueGapDiagram,
+  TourismDualPricingDiagram,
+  TourismPolicyContradictionDiagram,
+  TourismStrategicViewDiagram,
+} from "@/components/TourismOvertourismDiagrams";
+import {
+  WageSpring2026OverviewDiagram,
+  WageRealVsNominalDiagram,
+  WageSmeRealityDiagram,
+  WageSmeCostTransferDiagram,
+  WageIrregularWorkersDiagram,
+  WageStrategicViewDiagram,
+} from "@/components/WageIncreaseDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
@@ -227,6 +243,18 @@ const diagramMap: Record<string, React.FC> = {
   "affiliate-asp-comparison": AffiliateAspComparisonDiagram,
   "affiliate-ai-content": AffiliateAiContentDiagram,
   "affiliate-future-model": AffiliateFutureModelDiagram,
+  "tourism-record-overview": TourismRecordOverviewDiagram,
+  "tourism-overtourism-cases": TourismOvertourismCasesDiagram,
+  "tourism-revenue-gap": TourismRevenueGapDiagram,
+  "tourism-dual-pricing": TourismDualPricingDiagram,
+  "tourism-policy-contradiction": TourismPolicyContradictionDiagram,
+  "tourism-strategic-view": TourismStrategicViewDiagram,
+  "wage-spring-2026-overview": WageSpring2026OverviewDiagram,
+  "wage-real-vs-nominal": WageRealVsNominalDiagram,
+  "wage-sme-reality": WageSmeRealityDiagram,
+  "wage-sme-cost-transfer": WageSmeCostTransferDiagram,
+  "wage-irregular-workers": WageIrregularWorkersDiagram,
+  "wage-strategic-view": WageStrategicViewDiagram,
 };
 
 export default async function EconomyArticlePage({
