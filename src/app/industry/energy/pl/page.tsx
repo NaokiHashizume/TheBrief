@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "資源エネルギー PL（損益計算書） — Industry",
   description: "資源エネルギーの損益計算書（PL）の業界構造を解説。売上原価率・販管費率・営業利益率の特徴と主要企業のシェア。",
   alternates: { canonical: "https://thebrief.info/industry/energy/pl" },
+  robots: { index: false, follow: false },
   openGraph: {
     title: "資源エネルギー PL（損益計算書） — Industry",
     description: "資源エネルギーの損益計算書（PL）の業界構造を解説。売上原価率・販管費率・営業利益率の特徴と主要企業のシェア。",

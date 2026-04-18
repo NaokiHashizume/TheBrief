@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "素材 BS（貸借対照表） — Industry",
   description: "素材の貸借対照表（BS）の業界構造を解説。資産構成・負債構造・自己資本比率の特徴と主要企業。",
   alternates: { canonical: "https://thebrief.info/industry/materials/bs" },
+  robots: { index: false, follow: false },
   openGraph: {
     title: "素材 BS（貸借対照表） — Industry",
     description: "素材の貸借対照表（BS）の業界構造を解説。資産構成・負債構造・自己資本比率の特徴と主要企業。",

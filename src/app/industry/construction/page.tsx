@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "建設・不動産 — Industry",
   description:
     "ゼネコン、住宅メーカー、不動産デベロッパー、REIT、都市再開発など建設・不動産業界の最新動向と解説記事。",
+  robots: { index: false, follow: false },
   alternates: { canonical: "https://thebrief.info/industry/construction" },
   openGraph: {
     title: "建設・不動産 — Industry",
@@ -133,13 +134,6 @@ export default function ConstructionPage() {
             </div>
           </Link>
         ))}
-      </div>
-
-      {/* More coming */}
-      <div className="mt-8 p-5 rounded-xl border border-dashed border-brief-border text-center">
-        <p className="text-sm text-foreground/45 italic">
-          記事は順次追加されます。
-        </p>
       </div>
     </div>
   );

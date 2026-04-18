@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "素材 PL（損益計算書） — Industry",
   description: "素材の損益計算書（PL）の業界構造を解説。売上原価率・販管費率・営業利益率の特徴と主要企業のシェア。",
   alternates: { canonical: "https://thebrief.info/industry/materials/pl" },
+  robots: { index: false, follow: false },
   openGraph: {
     title: "素材 PL（損益計算書） — Industry",
     description: "素材の損益計算書（PL）の業界構造を解説。売上原価率・販管費率・営業利益率の特徴と主要企業のシェア。",

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "日本の主要自動車メーカー10社の損益計算書（PL）を比較。売上高・売上原価・粗利・販管費・営業利益・純利益を一覧。",
   alternates: { canonical: "https://thebrief.info/industry/automotive/pl" },
+  robots: { index: false, follow: false },
   openGraph: {
     title: "自動車 PL（損益計算書） — Industry",
     description: "日本の主要自動車メーカー10社の損益計算書（PL）を比較。売上高・売上原価・粗利・販管費・営業利益・純利益を一覧。",

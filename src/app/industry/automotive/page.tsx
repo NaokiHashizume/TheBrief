@@ -141,9 +141,6 @@ export default function AutomotivePage() {
           </Link>
         ))}
       </div>
-      <div className="mt-8 p-5 rounded-xl border border-dashed border-brief-border text-center">
-        <p className="text-sm text-foreground/45 italic"><T ja="記事は順次追加されます。" en="More articles coming soon." /></p>
-      </div>
     </div>
   );
 }

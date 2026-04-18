@@ -10,6 +10,7 @@ import { dailyCompanies } from "@/lib/dailyCompanies";
 export const metadata: Metadata = {
   title: "生活・日用品 — Industry",
   description: "トイレタリー、化粧品、生活雑貨、日用品メーカーの動向。",
+  robots: { index: false, follow: false },
   alternates: { canonical: "https://thebrief.info/industry/daily" },
   openGraph: {
     title: "生活・日用品 — Industry",
@@ -82,9 +83,6 @@ export default function Page() {
             </div>
           </Link>
         ))}
-      </div>
-      <div className="mt-8 p-5 rounded-xl border border-dashed border-brief-border text-center">
-        <p className="text-sm text-foreground/45 italic"><T ja="記事は順次追加されます。" en="More articles coming soon." /></p>
       </div>
     </div>
   );

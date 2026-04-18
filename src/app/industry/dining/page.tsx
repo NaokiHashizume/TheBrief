@@ -10,6 +10,7 @@ import { diningCompanies } from "@/lib/diningCompanies";
 export const metadata: Metadata = {
   title: "外食 — Industry",
   description: "ファミレス、ファストフード、居酒屋、カフェチェーンなど外食産業の動向。",
+  robots: { index: false, follow: false },
   alternates: { canonical: "https://thebrief.info/industry/dining" },
   openGraph: {
     title: "外食 — Industry",
@@ -82,9 +83,6 @@ export default function Page() {
             </div>
           </Link>
         ))}
-      </div>
-      <div className="mt-8 p-5 rounded-xl border border-dashed border-brief-border text-center">
-        <p className="text-sm text-foreground/45 italic"><T ja="記事は順次追加されます。" en="More articles coming soon." /></p>
       </div>
     </div>
   );

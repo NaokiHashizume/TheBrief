@@ -135,10 +135,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // ── Industry — category pages ──
+  // Thin pages (≤2 articles) have noindex and are excluded from sitemap
   const industryCategorySlugs = [
-    "ict", "ai", "retail", "automotive", "construction", "dining", "energy",
-    "entertainment", "finance", "food", "logistics", "materials", "pharma",
-    "services", "specialty", "trading", "daily", "other",
+    "ict", "ai", "retail", "automotive", "energy",
+    "entertainment", "finance", "logistics", "materials",
+    "trading", "other",
   ];
 
   const industryPages: MetadataRoute.Sitemap = [
@@ -150,12 +151,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
-    // PL/BS/CF financial statement pages for all industries
-    ...["retail", "trading", "automotive", "construction", "finance", "ict", "pharma", "services", "food", "energy", "materials", "logistics", "dining", "specialty", "daily", "entertainment"].flatMap((s) => [
-      { url: `${SITE_URL}/industry/${s}/pl`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
-      { url: `${SITE_URL}/industry/${s}/bs`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
-      { url: `${SITE_URL}/industry/${s}/cf`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
-    ]),
+    // PL/BS/CF financial statement pages excluded from sitemap (noindex)
   ];
 
   // ── Industry — article detail pages ──
@@ -184,6 +180,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "movies-special",
     "documentary-special",
     "reading-special",
+    "payslip-taxes-2026",
   ];
   const columnPages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/column`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },

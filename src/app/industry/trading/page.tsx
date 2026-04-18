@@ -132,13 +132,6 @@ export default function TradingPage() {
           </Link>
         ))}
       </div>
-
-      {/* More coming */}
-      <div className="mt-8 p-5 rounded-xl border border-dashed border-brief-border text-center">
-        <p className="text-sm text-foreground/45 italic">
-          記事は順次追加されます。
-        </p>
-      </div>
     </div>
   );
 }

@@ -78,6 +78,15 @@ import {
   BojImpactDiagram,
   BojTriggersDiagram,
 } from "@/components/BojRateHikeDiagrams";
+import {
+  AffiliateMarketScaleDiagram,
+  AffiliateStemaRegulationDiagram,
+  AffiliateAiOverviewDiagram,
+  AffiliateSnsChannelsDiagram,
+  AffiliateAspComparisonDiagram,
+  AffiliateAiContentDiagram,
+  AffiliateFutureModelDiagram,
+} from "@/components/AffiliateDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
@@ -211,6 +220,13 @@ const diagramMap: Record<string, React.FC> = {
   "boj-politics": BojPoliticsDiagram,
   "boj-impact": BojImpactDiagram,
   "boj-triggers": BojTriggersDiagram,
+  "affiliate-market-scale": AffiliateMarketScaleDiagram,
+  "affiliate-stema-regulation": AffiliateStemaRegulationDiagram,
+  "affiliate-ai-overview": AffiliateAiOverviewDiagram,
+  "affiliate-sns-channels": AffiliateSnsChannelsDiagram,
+  "affiliate-asp-comparison": AffiliateAspComparisonDiagram,
+  "affiliate-ai-content": AffiliateAiContentDiagram,
+  "affiliate-future-model": AffiliateFutureModelDiagram,
 };
 
 export default async function EconomyArticlePage({
@@ -250,7 +266,7 @@ export default async function EconomyArticlePage({
       {/* Breadcrumb */}
       <nav className="flex items-center gap-1.5 text-[11px] text-foreground/40 mb-12 font-medium tracking-wide">
         <Link href="/" className="hover:text-foreground/70 transition-colors">Home</Link>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-30"><path d="M9 18l6-6-6-6"/></svg>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-30" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
         <Link href="/economy" className="hover:text-foreground/70 transition-colors">Economy</Link>
       </nav>
 
@@ -293,7 +309,7 @@ export default async function EconomyArticlePage({
         <div className="relative p-6 sm:p-8 rounded-2xl border border-foreground/[0.05]">
           <div className="flex items-center gap-3 mb-5">
             <div className="w-6 h-6 rounded-md bg-[#f59e0b]/[0.08] flex items-center justify-center">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-[#f59e0b]/50">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-[#f59e0b]/50" aria-hidden="true">
                 <line x1="8" y1="6" x2="21" y2="6" /><line x1="8" y1="12" x2="21" y2="12" /><line x1="8" y1="18" x2="21" y2="18" /><line x1="3" y1="6" x2="3.01" y2="6" /><line x1="3" y1="12" x2="3.01" y2="12" /><line x1="3" y1="18" x2="3.01" y2="18" />
               </svg>
             </div>
@@ -447,7 +463,7 @@ export default async function EconomyArticlePage({
               className="group p-5 rounded-2xl border border-foreground/[0.05] hover:border-[#f59e0b]/20 transition-all hover:bg-foreground/[0.01]"
             >
               <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[2px] text-foreground/30 mb-2 font-medium">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-40"><path d="M15 18l-6-6 6-6"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-40" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
                 Previous
               </div>
               <div className="text-[13px] font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors line-clamp-2 leading-relaxed">
@@ -464,7 +480,7 @@ export default async function EconomyArticlePage({
             >
               <div className="flex items-center justify-end gap-1.5 text-[10px] uppercase tracking-[2px] text-foreground/30 mb-2 font-medium">
                 Next
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-40"><path d="M9 18l6-6-6-6"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-40" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
               </div>
               <div className="text-[13px] font-medium text-foreground/60 group-hover:text-foreground/80 transition-colors line-clamp-2 leading-relaxed">
                 {nextArticle.title}
@@ -480,7 +496,7 @@ export default async function EconomyArticlePage({
             href="/economy"
             className="inline-flex items-center gap-2 text-[12px] text-foreground/35 hover:text-foreground/60 transition-colors font-medium tracking-wide"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-50"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="opacity-50" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             Economy ダッシュボードへ
           </Link>
         </div>

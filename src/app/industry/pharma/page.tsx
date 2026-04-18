@@ -10,6 +10,7 @@ import { pharmaCompanies } from "@/lib/pharmaCompanies";
 export const metadata: Metadata = {
   title: "医薬品・医療介護 — Industry",
   description: "新薬開発、医療DX、バイオテクノロジー、介護・ヘルスケアの最新動向。",
+  robots: { index: false, follow: false },
   alternates: { canonical: "https://thebrief.info/industry/pharma" },
   openGraph: {
     title: "医薬品・医療介護 — Industry",
@@ -82,9 +83,6 @@ export default function Page() {
             </div>
           </Link>
         ))}
-      </div>
-      <div className="mt-8 p-5 rounded-xl border border-dashed border-brief-border text-center">
-        <p className="text-sm text-foreground/45 italic"><T ja="記事は順次追加されます。" en="More articles coming soon." /></p>
       </div>
     </div>
   );

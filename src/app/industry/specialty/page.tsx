@@ -10,6 +10,7 @@ import { specialtyCompanies } from "@/lib/specialtyCompanies";
 export const metadata: Metadata = {
   title: "専門店・EC — Industry",
   description: "EC市場、家電量販、アパレル専門店、フリマアプリなど専門小売。",
+  robots: { index: false, follow: false },
   alternates: { canonical: "https://thebrief.info/industry/specialty" },
   openGraph: {
     title: "専門店・EC — Industry",
@@ -82,9 +83,6 @@ export default function Page() {
             </div>
           </Link>
         ))}
-      </div>
-      <div className="mt-8 p-5 rounded-xl border border-dashed border-brief-border text-center">
-        <p className="text-sm text-foreground/45 italic"><T ja="記事は順次追加されます。" en="More articles coming soon." /></p>
       </div>
     </div>
   );

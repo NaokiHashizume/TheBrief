@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "エンタメ BS（貸借対照表） — Industry",
   description: "エンタメの貸借対照表（BS）の業界構造を解説。資産構成・負債構造・自己資本比率の特徴と主要企業。",
   alternates: { canonical: "https://thebrief.info/industry/entertainment/bs" },
+  robots: { index: false, follow: false },
   openGraph: {
     title: "エンタメ BS（貸借対照表） — Industry",
     description: "エンタメの貸借対照表（BS）の業界構造を解説。資産構成・負債構造・自己資本比率の特徴と主要企業。",

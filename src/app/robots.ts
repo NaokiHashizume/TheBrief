@@ -8,7 +8,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: [
+          "/api/",
+          "/industry/*/bs",
+          "/industry/*/pl",
+          "/industry/*/cf",
+        ],
       },
     ],
     sitemap: "https://thebrief.info/sitemap.xml",

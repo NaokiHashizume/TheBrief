@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "日本の主要自動車メーカー10社の貸借対照表（BS）を比較。総資産・流動資産・固定資産・負債・自己資本比率を一覧。",
   alternates: { canonical: "https://thebrief.info/industry/automotive/bs" },
+  robots: { index: false, follow: false },
   openGraph: {
     title: "自動車 BS（貸借対照表） — Industry",
     description: "日本の主要自動車メーカー10社の貸借対照表（BS）を比較。総資産・流動資産・固定資産・負債・自己資本比率を一覧。",

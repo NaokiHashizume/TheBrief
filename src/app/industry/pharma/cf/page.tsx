@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "医薬品・医療介護 CF（キャッシュフロー計算書） — Industry",
   description: "医薬品・医療介護のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",
   alternates: { canonical: "https://thebrief.info/industry/pharma/cf" },
+  robots: { index: false, follow: false },
   openGraph: {
     title: "医薬品・医療介護 CF（キャッシュフロー計算書） — Industry",
     description: "医薬品・医療介護のキャッシュフロー計算書（CF）の業界構造を解説。営業CF・投資CF・財務CFの特徴と主要企業。",

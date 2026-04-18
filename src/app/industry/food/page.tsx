@@ -10,6 +10,7 @@ import { foodCompanies } from "@/lib/foodCompanies";
 export const metadata: Metadata = {
   title: "食品 — Industry",
   description: "食品メーカー、飲料、乳業、冷凍食品、調味料など食品業界の最新動向。",
+  robots: { index: false, follow: false },
   alternates: { canonical: "https://thebrief.info/industry/food" },
   openGraph: {
     title: "食品 — Industry",
@@ -82,9 +83,6 @@ export default function Page() {
             </div>
           </Link>
         ))}
-      </div>
-      <div className="mt-8 p-5 rounded-xl border border-dashed border-brief-border text-center">
-        <p className="text-sm text-foreground/45 italic"><T ja="記事は順次追加されます。" en="More articles coming soon." /></p>
       </div>
     </div>
   );
