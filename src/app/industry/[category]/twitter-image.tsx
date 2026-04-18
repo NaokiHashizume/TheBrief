@@ -27,6 +27,10 @@ const categoryNames: Record<string, { ja: string; en: string }> = {
   trading: { ja: "商社・卸売", en: "Trading" },
 };
 
+export function generateStaticParams() {
+  return Object.keys(categoryNames).map((category) => ({ category }));
+}
+
 export default async function TwitterImage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
   const info = categoryNames[category] ?? { ja: category, en: category };

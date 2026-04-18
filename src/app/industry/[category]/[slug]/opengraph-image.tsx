@@ -24,6 +24,32 @@ export const alt = "The Brief — Industry";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+export function generateStaticParams() {
+  const map: Record<string, { slug: string }[]> = {
+    ai: aiArticles,
+    automotive: automotiveArticles,
+    construction: constructionArticles,
+    daily: dailyArticles,
+    dining: diningArticles,
+    energy: energyArticles,
+    entertainment: entertainmentArticles,
+    finance: financeArticles,
+    food: foodArticles,
+    ict: ictArticles,
+    logistics: logisticsArticles,
+    materials: materialsArticles,
+    other: otherArticles,
+    pharma: pharmaArticles,
+    retail: retailArticles,
+    services: servicesArticles,
+    specialty: specialtyArticles,
+    trading: tradingArticles,
+  };
+  return Object.entries(map).flatMap(([category, articles]) =>
+    articles.map((a) => ({ category, slug: a.slug }))
+  );
+}
+
 function findArticle(category: string, slug: string) {
   const map: Record<string, typeof aiArticles> = {
     ai: aiArticles,
