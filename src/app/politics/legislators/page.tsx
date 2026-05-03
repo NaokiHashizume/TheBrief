@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   description:
     "議員活動ランキングTop5・Bottom5と各政党の議員一覧。X・ウェブサイトリンク付き。",
   alternates: { canonical: "https://thebrief.info/politics/legislators" },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "議員 — 活動ランキング・政党別一覧",
     description: "議員活動ランキングTop5・Bottom5と各政党の議員一覧。X・ウェブサイトリンク付き。",

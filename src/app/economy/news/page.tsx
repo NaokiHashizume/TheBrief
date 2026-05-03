@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   description:
     "日本経済に関する最新ニュースをタイムライン形式で掲載。政策、市場、貿易、財政、雇用の動向を網羅。",
   alternates: { canonical: "https://thebrief.info/economy/news" },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "経済ニュース — Economic News",
     description: "日本経済に関する最新ニュースをタイムライン形式で掲載。政策、市場、貿易、財政、雇用の動向を網羅。",

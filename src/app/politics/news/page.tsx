@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "日本の政治に関する最新ニュースをタイムライン形式で掲載。国会、内閣、選挙、外交の動向を網羅。",
   alternates: { canonical: "https://thebrief.info/politics/news" },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "政治ニュース — Politics News",
     description: "日本の政治に関する最新ニュースをタイムライン形式で掲載。国会、内閣、選挙、外交の動向を網羅。",
