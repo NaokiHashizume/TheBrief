@@ -18,6 +18,13 @@ import {
   PharmaDaiichiAdcDiagram,
   PharmaStrategicViewDiagram,
 } from "@/components/PharmaPatentDiagrams";
+import {
+  PharmaReformOverviewDiagram,
+  PharmaReformProductsDiagram,
+  PharmaReformSalesMethodDiagram,
+  PharmaReformComplianceDiagram,
+  PharmaReformStrategicDiagram,
+} from "@/components/PharmaReformOtcDiagrams";
 import { ArticleJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/JsonLd";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { RecommendedReads } from "@/components/RecommendedReads";
@@ -203,6 +210,11 @@ export default async function ArticlePage({
               {section.diagramId === "pharma-astellas-pipeline" && <PharmaAstellasPipelineDiagram />}
               {section.diagramId === "pharma-daiichi-adc" && <PharmaDaiichiAdcDiagram />}
               {section.diagramId === "pharma-strategic-view" && <PharmaStrategicViewDiagram />}
+              {section.diagramId === "pharma-reform-overview" && <PharmaReformOverviewDiagram />}
+              {section.diagramId === "pharma-reform-products" && <PharmaReformProductsDiagram />}
+              {section.diagramId === "pharma-reform-sales-method" && <PharmaReformSalesMethodDiagram />}
+              {section.diagramId === "pharma-reform-compliance" && <PharmaReformComplianceDiagram />}
+              {section.diagramId === "pharma-reform-strategic" && <PharmaReformStrategicDiagram />}
               <div className="space-y-6">
                 {paragraphs.map((paragraph, j) => {
                   const trimmed = paragraph.trim();

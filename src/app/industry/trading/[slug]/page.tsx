@@ -37,6 +37,12 @@ import {
   TradingGlobalDiagram,
   TradingFutureDiagram,
 } from "@/components/TradingCompany2026Diagrams";
+import {
+  SogoshoshaTariffOverviewDiagram,
+  SogoshoashaEnergyValueDiagram,
+  SogoshoashaAseanStrategyDiagram,
+  SogoshoashaStrategicViewDiagram,
+} from "@/components/SogoshoshaTariffDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
@@ -218,6 +224,10 @@ export default async function TradingArticlePage({
             {section.diagramId === "trading-buffett" && <TradingBuffettDiagram />}
             {section.diagramId === "trading-global" && <TradingGlobalDiagram />}
             {section.diagramId === "trading-future" && <TradingFutureDiagram />}
+            {section.diagramId === "shosha-tariff-overview" && <SogoshoshaTariffOverviewDiagram />}
+            {section.diagramId === "shosha-energy-value" && <SogoshoashaEnergyValueDiagram />}
+            {section.diagramId === "shosha-asean-strategy" && <SogoshoashaAseanStrategyDiagram />}
+            {section.diagramId === "shosha-strategic-view" && <SogoshoashaStrategicViewDiagram />}
 
             {/* Section body */}
             <div className="space-y-4">

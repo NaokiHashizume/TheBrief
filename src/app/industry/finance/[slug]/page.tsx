@@ -40,6 +40,13 @@ import {
   HousingActionPlanDiagram,
   HousingStrategicViewDiagram,
 } from "@/components/HousingLoanDiagrams";
+import {
+  MortgageRateHistoryDiagram,
+  MortgagePaymentSimDiagram,
+  MortgageFixedBreakevenDiagram,
+  MortgageActionPlanDiagram,
+  MortgageStrategicViewDiagram,
+} from "@/components/MortgageStrategy2026Diagrams";
 
 export function generateStaticParams() {
   return financeArticles.map((a) => ({ slug: a.slug }));
@@ -132,6 +139,11 @@ const diagramMap: Record<string, React.FC> = {
   "housing-inequality": HousingInequalityDiagram,
   "housing-action-plan": HousingActionPlanDiagram,
   "housing-strategic-view": HousingStrategicViewDiagram,
+  "mortgage-1pct-rate-history": MortgageRateHistoryDiagram,
+  "mortgage-1pct-payment-sim": MortgagePaymentSimDiagram,
+  "mortgage-1pct-fixed-breakeven": MortgageFixedBreakevenDiagram,
+  "mortgage-1pct-action-plan": MortgageActionPlanDiagram,
+  "mortgage-1pct-strategic-view": MortgageStrategicViewDiagram,
 };
 
 export default async function ArticlePage({

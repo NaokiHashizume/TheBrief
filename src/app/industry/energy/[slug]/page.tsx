@@ -32,6 +32,13 @@ import {
   OffshoreWindSupplyChainDiagram,
   OffshoreWindStrategicViewDiagram,
 } from "@/components/OffshoreWindDiagrams";
+import {
+  NaphthaPriceContextDiagram,
+  NaphthaIndustryImpactDiagram,
+  NaphthaPriceTransferDiagram,
+  NaphthaAlternativesDiagram,
+  NaphthaStrategicViewDiagram,
+} from "@/components/NaphthaSurgeDiagrams";
 
 /* Diagram renderer mapped by ID */
 const diagramMap: Record<string, React.FC> = {
@@ -53,6 +60,11 @@ const diagramMap: Record<string, React.FC> = {
   "offshore-wind-renewable-target": OffshoreWindRenewableTargetDiagram,
   "offshore-wind-supply-chain": OffshoreWindSupplyChainDiagram,
   "offshore-wind-strategic-view": OffshoreWindStrategicViewDiagram,
+  "naphtha-price-context": NaphthaPriceContextDiagram,
+  "naphtha-industry-impact": NaphthaIndustryImpactDiagram,
+  "naphtha-price-transfer": NaphthaPriceTransferDiagram,
+  "naphtha-alternatives": NaphthaAlternativesDiagram,
+  "naphtha-strategic-view": NaphthaStrategicViewDiagram,
 };
 
 export function generateStaticParams() {

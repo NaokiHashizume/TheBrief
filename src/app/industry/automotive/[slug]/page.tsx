@@ -45,6 +45,13 @@ import {
   TariffGovernmentResponseDiagram,
   TariffStrategicViewDiagram,
 } from "@/components/TrumpTariffAutoDiagrams";
+import {
+  AutoTariffEarningsNumbersDiagram,
+  AutoTariffEuImpactDiagram,
+  AutoTariffProductionShiftDiagram,
+  AutoTariffTradeTalksDiagram,
+  AutoTariffStrategicViewDiagram,
+} from "@/components/AutoTariffEarningsDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
@@ -160,6 +167,11 @@ const diagramMap: Record<string, React.FC> = {
   "tariff-ev-double-burden": TariffEvDoubleBurdenDiagram,
   "tariff-government-response": TariffGovernmentResponseDiagram,
   "tariff-strategic-view": TariffStrategicViewDiagram,
+  "auto-tariff-earnings-numbers": AutoTariffEarningsNumbersDiagram,
+  "auto-tariff-eu-impact": AutoTariffEuImpactDiagram,
+  "auto-tariff-production-shift": AutoTariffProductionShiftDiagram,
+  "auto-tariff-trade-talks": AutoTariffTradeTalksDiagram,
+  "auto-tariff-strategic-view": AutoTariffStrategicViewDiagram,
 };
 
 export default async function AutomotiveArticlePage({

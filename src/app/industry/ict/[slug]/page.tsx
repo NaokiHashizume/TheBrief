@@ -107,6 +107,13 @@ import {
   AcdTelecomImpactDiagram,
   AcdTimelineDiagram,
 } from "@/components/ActiveCyberDefenseDiagrams";
+import {
+  AiDcInvestmentMapDiagram,
+  AiDcPowerForecastDiagram,
+  AiDcRenewableGapDiagram,
+  AiDcBottleneckDiagram,
+  AiDcStrategicViewDiagram,
+} from "@/components/AiDatacenterPowerDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
@@ -260,6 +267,18 @@ const diagramMap: Record<string, React.FC> = {
   "5g-industrial-use": Japan5GIndustrialUseDiagram,
   "5g-revenue": Japan5GRevenueDiagram,
   "5g-future": Japan5GFutureDiagram,
+  "acd-stats-banner": AcdStatsBannerDiagram,
+  "acd-legal-framework": AcdLegalFrameworkDiagram,
+  "acd-response-flow": AcdResponseFlowDiagram,
+  "acd-constitutional-debate": AcdConstitutionalDebateDiagram,
+  "acd-global-comparison": AcdGlobalComparisonDiagram,
+  "acd-telecom-impact": AcdTelecomImpactDiagram,
+  "acd-timeline": AcdTimelineDiagram,
+  "ai-dc-investment-map": AiDcInvestmentMapDiagram,
+  "ai-dc-power-forecast": AiDcPowerForecastDiagram,
+  "ai-dc-renewable-gap": AiDcRenewableGapDiagram,
+  "ai-dc-bottleneck": AiDcBottleneckDiagram,
+  "ai-dc-strategic-view": AiDcStrategicViewDiagram,
 };
 
 export default async function IctArticlePage({

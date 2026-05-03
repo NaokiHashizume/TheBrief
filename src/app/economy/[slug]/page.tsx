@@ -103,6 +103,19 @@ import {
   WageIrregularWorkersDiagram,
   WageStrategicViewDiagram,
 } from "@/components/WageIncreaseDiagrams";
+import {
+  BojAprilDecisionDiagram,
+  BojJuneProbabilityDiagram,
+  BojYenImpactDiagram,
+  BojMortgageImpactDiagram,
+  BojStrategicViewDiagram,
+} from "@/components/BojJuneOutlookDiagrams";
+import {
+  IeepaRulingTimelineDiagram,
+  IeepaJapanImpactDiagram,
+  IeepaLegalProcessDiagram,
+  IeepaStrategicViewDiagram,
+} from "@/components/IeepaRulingDiagrams";
 import ShareButton from "@/components/ShareButton";
 import { ArticleReferences } from "@/components/ArticleReferences";
 import { TagLink } from "@/components/TagLink";
@@ -255,6 +268,15 @@ const diagramMap: Record<string, React.FC> = {
   "wage-sme-cost-transfer": WageSmeCostTransferDiagram,
   "wage-irregular-workers": WageIrregularWorkersDiagram,
   "wage-strategic-view": WageStrategicViewDiagram,
+  "boj-april-decision": BojAprilDecisionDiagram,
+  "boj-june-probability": BojJuneProbabilityDiagram,
+  "boj-yen-impact": BojYenImpactDiagram,
+  "boj-mortgage-impact": BojMortgageImpactDiagram,
+  "boj-strategic-view": BojStrategicViewDiagram,
+  "ieepa-ruling-timeline": IeepaRulingTimelineDiagram,
+  "ieepa-japan-impact": IeepaJapanImpactDiagram,
+  "ieepa-legal-process": IeepaLegalProcessDiagram,
+  "ieepa-strategic-view": IeepaStrategicViewDiagram,
 };
 
 export default async function EconomyArticlePage({
