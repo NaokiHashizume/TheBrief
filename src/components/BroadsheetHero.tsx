@@ -149,13 +149,13 @@ export function BroadsheetHero() {
                 {locale === "ja" ? "Data Point" : "Data Point"}
               </span>
               <div className="font-serif text-[28px] font-black text-foreground mb-1 leading-none">
-                87,917
+                122,058
                 <span className="text-base font-bold ml-1">円/KL</span>
               </div>
               <p className="text-[11px] font-medium leading-relaxed text-foreground/70 pt-2 border-t border-brief-rule mt-2">
                 {locale === "ja"
-                  ? "国産ナフサ価格（5月前半入着分）。中東危機を受け急騰。"
-                  : "Domestic naphtha price (May arrival). Surging on Middle East crisis."}
+                  ? "国産ナフサ価格（6月前半入着分）。中東危機の長期化で前月比+39%。"
+                  : "Domestic naphtha price (June arrival). Up 39% month-on-month as the Middle East crisis drags on."}
               </p>
             </div>
           </div>
