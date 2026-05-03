@@ -1,5 +1,5 @@
 // 成立済・未施行の法律
-// 国会で可決・成立したが、2026年4月6日時点でまだ施行されていない法令
+// 国会で可決・成立したが、2026年5月3日時点でまだ施行されていない法令
 // ソース: clb.go.jp, sangiin.go.jp, shugiin.go.jp
 
 export interface PassedItem {
@@ -28,84 +28,6 @@ export const passedItems: PassedItem[] = [
   // ──────────────────────────────────────────
   // 2026年5月 施行予定
   // ──────────────────────────────────────────
-  {
-    slug: "pharmaceutical-affairs-reform",
-    title: "改正薬機法（市販薬の乱用対策等）",
-    titleEn: "Revised Pharmaceutical Affairs Act (OTC Drug Abuse Countermeasures)",
-    enactedDate: "2025-05-14",
-    effectiveDate: "2026-05-01",
-    dietSession: "第217回国会",
-    dietSessionEn: "217th Diet Session",
-    committee: "厚生労働委員会",
-    committeeEn: "Health, Labour and Welfare Committee",
-    category: "医療・健康",
-    categoryEn: "Health & Medical",
-    summary:
-      "若者による市販薬（OTC医薬品）の乱用・過量摂取（OD）問題に対応するため、販売規制を強化する改正法。",
-    summaryEn:
-      "An amendment tightening sales regulations to address abuse and overdose (OD) of over-the-counter (OTC) drugs among young people.",
-    detail:
-      "咳止めなどの市販薬に含まれるデキストロメトルファン等の乱用が社会問題化したことを受け、濫用のおそれのある医薬品の販売規制を大幅に強化。20歳未満への販売時に本人確認・購入理由の確認を義務化するほか、大容量製品の販売制限や、インターネット販売における年齢確認の厳格化を規定。登録販売者の資格要件も見直し、研修制度を拡充する。",
-    detailEn:
-      "In response to the growing social problem of abuse of substances like dextromethorphan found in OTC cough medicines, the amendment significantly strengthens sales regulations on drugs with potential for abuse. It mandates identity and purpose verification for sales to those under 20, restricts sales of large-volume products, and tightens age verification for online sales. Qualification requirements for registered sellers are also revised, and the training system expanded.",
-    keyPoints: [
-      "濫用のおそれのある医薬品の20歳未満への販売規制強化",
-      "購入時の本人確認・購入理由確認を義務化",
-      "大容量製品の販売制限",
-      "ネット販売における年齢確認の厳格化",
-      "登録販売者の研修制度拡充",
-    ],
-    keyPointsEn: [
-      "Strengthened sales restrictions on abuse-prone drugs to those under 20",
-      "Mandatory identity and purchase-reason verification at the point of sale",
-      "Restrictions on sales of large-volume products",
-      "Stricter age verification for online sales",
-      "Expanded training system for registered drug sellers",
-    ],
-    impact:
-      "薬局やドラッグストアでの薬の販売ルールが変わり、全国の消費者に影響。",
-    impactEn:
-      "Sales rules at pharmacies and drugstores will change, affecting consumers nationwide.",
-  },
-  {
-    slug: "financial-instruments-reform",
-    title: "改正金融商品取引法・投資信託法",
-    titleEn: "Revised Financial Instruments and Exchange Act / Investment Trust Act",
-    enactedDate: "2024-06-12",
-    effectiveDate: "2026-05-01",
-    dietSession: "第213回国会",
-    dietSessionEn: "213th Diet Session",
-    committee: "財務金融委員会",
-    committeeEn: "Committee on Financial Affairs",
-    category: "金融・経済",
-    categoryEn: "Finance & Economy",
-    summary:
-      "資産運用立国の実現に向け、投資信託の制度改革や金融商品の販売規制見直しを盛り込んだ改正法。",
-    summaryEn:
-      "An amendment incorporating investment trust reforms and revised sales regulations for financial products, aimed at realizing an 'asset management nation.'",
-    detail:
-      "岸田政権が掲げた「資産運用立国」構想を法制面から支える改正。投資信託の運用報告書のデジタル化を原則とし、顧客へのわかりやすい情報提供を義務化。非上場株式の流通市場整備（プライベート・マーケット）の規制緩和や、暗号資産交換業に関する規制の見直しも含む。新NISA制度の定着を見据え、個人投資家保護と市場の健全な発展の両立を図る。",
-    detailEn:
-      "Legislation supporting the Kishida administration's 'asset management nation' vision. It makes digitalization of investment trust management reports the default and mandates clear disclosure to customers. The amendment also deregulates private markets for unlisted shares and revises rules on crypto-asset exchange businesses. With the new NISA system in mind, it seeks to balance individual investor protection with sound market development.",
-    keyPoints: [
-      "投資信託の運用報告書のデジタル化を原則化",
-      "非上場株式の流通市場（プライベート・マーケット）の規制緩和",
-      "暗号資産交換業の規制見直し",
-      "顧客本位の業務運営の法定化",
-      "個人投資家保護の強化",
-    ],
-    keyPointsEn: [
-      "Digital delivery of investment trust management reports set as the default",
-      "Deregulation of secondary markets for unlisted shares (private markets)",
-      "Revised regulations for crypto-asset exchange businesses",
-      "Customer-first business conduct enshrined in law",
-      "Strengthened protection for individual investors",
-    ],
-    impact:
-      "投資家保護と市場の透明性が強化。個人投資家の保護規定が拡充される。",
-    impactEn:
-      "Investor protection and market transparency are reinforced, with expanded safeguards for individual investors.",
-  },
   {
     slug: "civil-procedure-digitalization",
     title: "改正民事訴訟法（民事裁判のIT化）",

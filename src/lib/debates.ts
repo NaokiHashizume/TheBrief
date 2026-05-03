@@ -592,8 +592,8 @@ export const debates: Debate[] = [
     statusColor: "#e53e3e",
     impact: "日本初の本格的情報機関の誕生。外交・安全保障の情報収集力が大幅に強化される。",
     impactEn: "Creates Japan's first full-fledged intelligence agency, sharply boosting diplomatic and security intelligence collection.",
-    summary: "内閣情報調査室を改組し「国家情報局」を新設。首相直属の国家情報会議を設置し、インテリジェンス機能を集約する法案。",
-    summaryEn: "A bill reorganizing the Cabinet Intelligence and Research Office into a new National Intelligence Agency and creating a Prime Minister-led National Intelligence Council to consolidate intelligence functions.",
+    summary: "内閣情報調査室を改組し「国家情報局」を新設。首相直属の国家情報会議を設置し、インテリジェンス機能を集約する法案。4月23日に衆院本会議で可決・参院に送付。",
+    summaryEn: "A bill reorganizing the Cabinet Intelligence and Research Office into a new National Intelligence Agency and creating a Prime Minister-led National Intelligence Council to consolidate intelligence functions. Passed the House of Representatives on April 23 and sent to the House of Councillors.",
     detail: "現行の内閣情報調査室（CIRO）を発展的に改組し、独立した「国家情報局」を内閣府の外局として新設する法案。首相を議長とする「国家情報会議」を設置し、各省庁に分散するインテリジェンス機能を一元的に統括。外交・安全保障・経済安全保障に関する情報収集・分析能力を抜本的に強化する。2026年7月の発足を目指す。野党の一部は情報機関の権限拡大に対する国会の監視体制の不十分さを指摘している。",
     detailEn: "The bill reorganizes the existing Cabinet Intelligence and Research Office (CIRO) into an independent National Intelligence Agency under the Cabinet Office. A Prime Minister-chaired National Intelligence Council will integrate intelligence functions currently scattered across ministries, fundamentally strengthening collection and analysis on diplomacy, national security and economic security. Launch is targeted for July 2026. Some opposition parties have warned that Diet oversight of expanded intelligence powers is insufficient.",
     keyPoints: [
@@ -621,8 +621,10 @@ export const debates: Debate[] = [
       { date: "2026-03-13", event: "法案を閣議決定・国会提出", eventEn: "Bill approved by Cabinet and submitted to the Diet" },
       { date: "2026-03-25", event: "衆議院内閣委員会で審議開始", eventEn: "Deliberations begin in the House of Representatives Cabinet Committee" },
       { date: "2026-04-02", event: "参考人質疑（安全保障・情報の専門家）", eventEn: "Questioning of expert witnesses (security and intelligence specialists)" },
+      { date: "2026-04-22", event: "衆議院内閣委員会で賛成多数で可決（プライバシー保護の付帯決議も採択）", eventEn: "Passed House of Representatives Cabinet Committee by majority vote (with privacy-protection attached resolution)" },
+      { date: "2026-04-23", event: "衆議院本会議で賛成多数で可決・参議院に送付（与党・維新・中道改革連合・国民民主賛成、共産反対）", eventEn: "Passed House of Representatives plenary by majority vote and sent to the House of Councillors (ruling coalition, Ishin, Centrist Reform Coalition, DPP in favor; JCP against)" },
     ],
-    lastUpdated: "2026-04-09",
+    lastUpdated: "2026-04-23",
   },
   {
     slug: "health-insurance-reform",

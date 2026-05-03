@@ -16,6 +16,30 @@ export interface PoliticsNewsItem {
 
 export const politicsNews: PoliticsNewsItem[] = [
   {
+    date: "2026-05-01",
+    time: "09:00",
+    title: "高市首相、ベトナム・オーストラリア訪問へ出発　経済安保・FOIP強化が目的",
+    summary: "高市早苗首相は1日、ベトナムとオーストラリアを歴訪するため出国した。2日にハノイでトー・ラム書記長（国家主席）らと会談し、日・ベトナム包括的戦略パートナーシップの強化や重要鉱物・エネルギー安保での連携を確認する予定。4日にはキャンベラでアルバニージー豪首相と会談し、日豪友好協力基本条約署名50周年に合わせた経済安全保障分野の共同宣言の発出を目指す。訪問中には「自由で開かれたインド太平洋（FOIP）」の深化に向けた外交演説も行う。",
+    tag: "外交",
+    tagColor: "#2b6cb0",
+    source: "https://www.kantei.go.jp/jp/105/statement/2026/0501kaiken.html",
+    titleEn: "PM Takaichi departs for Vietnam and Australia to strengthen economic security and FOIP",
+    summaryEn: "Prime Minister Takaichi departed on the 1st for a diplomatic tour of Vietnam and Australia. On the 2nd in Hanoi she is scheduled to meet General Secretary and President To Lam and other officials to reaffirm the Comprehensive Strategic Partnership and cooperation on critical minerals and energy security. On the 4th in Canberra she will meet PM Albanese and aims to issue a joint declaration on economic security to mark the 50th anniversary of the Japan-Australia Basic Treaty. She will also deliver a foreign-policy speech on deepening the Free and Open Indo-Pacific (FOIP).",
+    tagEn: "Diplomacy",
+  },
+  {
+    date: "2026-04-23",
+    time: "14:00",
+    title: "国家情報局設置法案、衆院本会議で可決　参院審議へ",
+    summary: "衆議院は23日の本会議で、内閣情報調査室を改組して「国家情報局」を新設する「国家情報会議設置法案」を、与党・日本維新の会・中道改革連合・国民民主党などの賛成多数で可決し、参議院に送付した。前日22日には衆院内閣委員会で可決されており、付帯決議ではプライバシー保護への十分な配慮を求めた。法案は首相を議長とする「国家情報会議」と、事務局となる「国家情報局」を設置する内容で、2026年7月の発足を目指す。日本共産党は情報機関の権限拡大への懸念から反対した。",
+    tag: "安全保障",
+    tagColor: "#744210",
+    source: "https://www.jiji.com/jc/article?k=2026042300112&g=pol",
+    titleEn: "National Intelligence Agency bill passes House of Representatives; sent to Upper House",
+    summaryEn: "The House of Representatives on the 23rd passed the National Intelligence Council Establishment Bill — which reorganizes the Cabinet Intelligence and Research Office into a new National Intelligence Agency — by a majority including the ruling coalition, Nippon Ishin, the Centrist Reform Coalition and the DPP, and forwarded it to the House of Councillors. The bill cleared the lower house Cabinet Committee on the 22nd, with an attached resolution calling for full privacy protection. It would create a Prime Minister-chaired National Intelligence Council and a National Intelligence Agency secretariat, targeting a July 2026 launch. The JCP voted against due to concerns over expanding intelligence powers.",
+    tagEn: "Security",
+  },
+  {
     date: "2026-04-17",
     time: "23:00",
     title: "イラン外相、ホルムズ海峡を全商船に「完全開放」と表明　米は港湾封鎖を継続",
